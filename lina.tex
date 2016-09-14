@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 11:53:08}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 12:13:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2006,9 +2006,9 @@ z
 \right)  =\left(
 \begin{array}
 [c]{c}%
-0\\
-0\\
-0
+2\\
+3\\
+1
 \end{array}
 \right)  \label{eq.exam.systems.2}%
 \end{equation}
@@ -2060,42 +2060,13 @@ Thus, (\ref{eq.exam.systems.2}) is equivalent to%
 \right)  =\left(
 \begin{array}
 [c]{c}%
-0\\
-0\\
-0
+2\\
+3\\
+1
 \end{array}
 \right)  .
 \]
 But this is clearly equivalent to (\ref{eq.exam.systems.1}).
-
-Note that the vector $\left(
-\begin{array}
-[c]{c}%
-0\\
-0\\
-0
-\end{array}
-\right)  $ on the right hand side of (\ref{eq.exam.systems.2}) is precisely
-the $3\times1$ zero matrix $0_{3\times1}$ (also denoted by $0$). So we may
-rewrite (\ref{eq.exam.systems.2}) as%
-\[
-\left(
-\begin{array}
-[c]{ccc}%
-3 & 6 & -1\\
-7 & 4 & -3\\
-0 & -1 & 8
-\end{array}
-\right)  \left(
-\begin{array}
-[c]{c}%
-x\\
-y\\
-z
-\end{array}
-\right)  =0_{3\times1}.
-\]
-
 \end{example}
 
 More generally, the system of $m$ linear equations
@@ -2112,7 +2083,7 @@ a_{m,1}x_{1}+a_{m,2}x_{2}+\cdots+a_{m,n}x_{n}=b_{m}%
 \]
 in $n$ unknowns $x_{1},x_{2},\ldots,x_{n}$ is equivalent to the vector
 equation%
-\[
+\begin{equation}
 \left(
 \begin{array}
 [c]{cccc}%
@@ -2129,11 +2100,70 @@ x_{2}\\
 \vdots\\
 x_{n}%
 \end{array}
-\right)  =0_{m\times1}.
-\]
+\right)  =\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{m}%
+\end{array}
+\right)  .\label{eq.exam.systems.gen}%
+\end{equation}
+In other words, it is equivalent to the vector equation%
+\begin{equation}
+Ax=b,\label{eq.exam.systems.gen.short}%
+\end{equation}
+where%
+\begin{align*}
+A  & =\left(
+\begin{array}
+[c]{cccc}%
+a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m,1} & a_{m,2} & \cdots & a_{m,n}%
+\end{array}
+\right)  ,\\
+x  & =\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{n}%
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ b=\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{m}%
+\end{array}
+\right)  .
+\end{align*}
+(Some authors write the $A$, the $x$ and the $b$ in
+(\ref{eq.exam.systems.gen.short}) in boldface in order to stress that these
+are vectors, not numbers. We shall not.) The matrix $A$ and the vector $b$ are
+known; the vector $x$ is what we want to find.
+
 Thus, matrices give us a way to rewrite systems of linear equations as single
 equations between vectors. Moreover, as we will see, they give us a way to
 manipulate these equations easily.
+
+To solve a vector equation like (\ref{eq.exam.systems.gen.short}) means (in
+some sense) to \textquotedblleft undo\textquotedblright\ a matrix
+multiplication. In fact, if we could divide by a matrix, then we could
+immediately solve $Ax=b$ by \textquotedblleft dividing by $A$%
+\textquotedblright. Unfortunately, we cannot divide by a matrix in general.
+But the idea is fruitful: In fact, some matrices $A$ are invertible (i.e.,
+have an inverse $A^{-1}$), and for those matrices, we can transform $Ax=b$
+into $x=A^{-1}b$, which gives us an explicit and unique solution for the
+system (\ref{eq.exam.systems.gen}). This doesn't work for all $A$ (since not
+all $A$ are invertible), and is not a very practical way of solving systems of
+linear equations; but the notion of invertible matrices is rather important,
+so we begin by studying them.
 
 \subsection{Inverse matrices}
 
@@ -2148,6 +2178,183 @@ be an $n\times m$-matrix, and $B$ be an $m\times n$-matrix.
 \textbf{(c)} We say that $B$ is \textit{inverse} to $A$ if both $AB=I_{n}$ and
 $BA=I_{m}$.
 \end{definition}
+
+\begin{example}
+\textbf{(a)} Let $A=\left(  1,4\right)  $. (Recall that this means the
+$1\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+1 & 4
+\end{array}
+\right)  $.) When is a matrix $B$ right-inverse to $A$ ?
+
+First, if $B$ is right-inverse to $A$, then $B$ must be a $2\times1$-matrix
+(since any right-inverse to an $n\times m$-matrix has to be an $m\times
+n$-matrix). So let us assume that $B$ is a $2\times1$-matrix. Thus, $B$ must
+have the form $B=\left(
+\begin{array}
+[c]{c}%
+u\\
+v
+\end{array}
+\right)  $ for some numbers $u$ and $v$. Then, $AB=\left(
+\begin{array}
+[c]{cc}%
+1 & 4
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+u\\
+v
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+1u+4v
+\end{array}
+\right)  $. In order for $B$ to be right-inverse to $A$, it is necessary and
+sufficient that $AB=I_{1}$ (because this is how we defined \textquotedblleft
+right-inverse\textquotedblright). In other words, we must have $\left(
+\begin{array}
+[c]{c}%
+1u+4v
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+1
+\end{array}
+\right)  $ (since $AB=\left(
+\begin{array}
+[c]{c}%
+1u+4v
+\end{array}
+\right)  $ and $I_{1}=\left(
+\begin{array}
+[c]{c}%
+1
+\end{array}
+\right)  $). In other words, we must have $1u+4v=1$.
+
+Hence, a matrix $B$ is right-inverse to $A$ if and only if it has the form
+$B=\left(
+\begin{array}
+[c]{c}%
+u\\
+v
+\end{array}
+\right)  $ for some numbers $u$ and $v$ satisfying $1u+4v=1$. How do we find
+two such numbers $u$ and $v$ ? Well, we can view $1u+4v=1$ as a system of $1$
+linear equation in $2$ variables, but actually we can just read off the
+solution: $v$ can be chosen arbitrarily, and $u$ then has to be $1-4v$. Hence,
+a matrix $B$ is right-inverse to $A$ if and only if it has the form $B=\left(
+%
+\begin{array}
+[c]{c}%
+1-4v\\
+v
+\end{array}
+\right)  $ for some number $v$. In particular, there are \textbf{infinitely
+many} matrices $B$ that are right-inverse to $A$ (because we have full freedom
+in choosing $v$).
+
+\textbf{(b)} Let $A=\left(  1,4\right)  $ again. When is a matrix $B$
+left-inverse to $A$ ?
+
+Again, $B$ must be a $2\times1$-matrix in order for this to have any chance of
+being true. So let us assume that $B$ is a $2\times1$-matrix, and write $B$ in
+the form $B=\left(
+\begin{array}
+[c]{c}%
+u\\
+v
+\end{array}
+\right)  $ for some numbers $u$ and $v$. Then, $BA=\left(
+\begin{array}
+[c]{c}%
+u\\
+v
+\end{array}
+\right)  \left(  1,4\right)  =\left(
+\begin{array}
+[c]{cc}%
+u\cdot1 & u\cdot4\\
+v\cdot1 & v\cdot4
+\end{array}
+\right)  $. In order for $B$ to be left-inverse to $A$, it is necessary and
+sufficient that $BA=I_{2}$ (because this is how we defined \textquotedblleft
+left-inverse\textquotedblright). In other words, we must have $\left(
+\begin{array}
+[c]{cc}%
+u\cdot1 & u\cdot4\\
+v\cdot1 & v\cdot4
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $ (since $BA=\left(
+\begin{array}
+[c]{cc}%
+u\cdot1 & u\cdot4\\
+v\cdot1 & v\cdot4
+\end{array}
+\right)  $ and $I_{2}=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $). In other words, we must have%
+\[
+\left\{
+\begin{array}
+[c]{c}%
+u\cdot1=1;\\
+u\cdot4=0;\\
+v\cdot1=0;\\
+v\cdot4=1
+\end{array}
+\right.  .
+\]
+But this cannot happen! Indeed, the equations $u\cdot1=1$ and $u\cdot4=0$
+contradict each other (because if $u\cdot1=1$, then $u\cdot4$ must be $4$).
+Hence, $B$ can never be left-inverse to $A$. In other words, the matrix $A$
+\textbf{has no} left-inverse.
+
+\textbf{(c)} Let $A=\left(
+\begin{array}
+[c]{c}%
+1\\
+4
+\end{array}
+\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
+right-inverse to $A$ ? I will let you figure this out (see Exercise
+\ref{exe.exam.inverses} below).
+
+\textbf{(d)} Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & -1\\
+1 & 1
+\end{array}
+\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
+right-inverse to $A$ ? [...]
+\end{example}
+
+\begin{exercise}
+\label{exe.exam.inverses}Let $A=\left(
+\begin{array}
+[c]{c}%
+1\\
+4
+\end{array}
+\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
+right-inverse to $A$ ?
+\end{exercise}
 
 [to be continued]
 
