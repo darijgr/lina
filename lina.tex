@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:32:10}
+%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:44:11}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -790,6 +790,8 @@ of the nice properties that we will see later (e.g., our matrix multiplication
 satisfies the associativity law $\left(  AB\right)  C=A\left(  BC\right)  $,
 while \textquotedblleft row by row\textquotedblright\ does not).
 
+
+
 \subsection{Properties of matrix operations}
 
 The operations of adding, scaling and multiplying matrices, in many aspects,
@@ -1169,7 +1171,7 @@ defined in Definition \ref{def.sum}), the letter $k$ is called the
 \textit{summation index}. It doesn't have to be called $k$; any letter is
 legitimate (as long as it is not already used otherwise). For example,
 $\sum_{i=p}^{q}a_{i}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to
-write $\sum_{k=p}^{q}a_{k}$. Just make sure that the  you are using the same
+write $\sum_{k=p}^{q}a_{k}$. Just make sure that the you are using the same
 letter under the $\sum$ sign and to its right (so you should not write
 $\sum_{i=p}^{q}a_{k}$, unless you mean the sum $\underbrace{a_{k}+a_{k}%
 +\cdots+a_{k}}_{q-p+1\text{ times}}$).
@@ -1228,7 +1230,7 @@ $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
 [Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
 have%
 \begin{align*}
-\sum_{k=p}^{q}ba_{k} &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
+\sum_{k=p}^{q}ba_{k}  &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
 &  =b\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
 _{k=p}^{q}a_{k}\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}%
 }}=b\sum_{k=p}^{q}a_{k}.
@@ -1253,7 +1255,7 @@ $\left(  \sum_{k=p}^{q}a_{k}\right)  +\left(  \sum_{k=p}^{q}b_{k}\right)  $.)
 have%
 \begin{align*}
 \sum_{k=p}^{q}\left(  a_{k}+b_{k}\right)   &  =\left(  a_{p}+b_{p}\right)
-+\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right)  \\
++\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right) \\
 &  =\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
 _{k=p}^{q}a_{k}\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}%
 }}+\underbrace{\left(  b_{p}+b_{p+1}+\cdots+b_{q}\right)  }_{\substack{=\sum
@@ -1348,11 +1350,11 @@ $. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of
 sums. For example,%
 \begin{align*}
 \sum_{k=1}^{3}\underbrace{\sum_{\ell=1}^{4}k\cdot\ell}_{=k\cdot1+k\cdot
-2+k\cdot3+k\cdot4}  & =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
-3+k\cdot4\right)  \\
-& =\left(  1\cdot1+1\cdot2+1\cdot3+1\cdot4\right)  +\left(  2\cdot
+2+k\cdot3+k\cdot4}  &  =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
+3+k\cdot4\right) \\
+&  =\left(  1\cdot1+1\cdot2+1\cdot3+1\cdot4\right)  +\left(  2\cdot
 1+2\cdot2+2\cdot3+2\cdot4\right)  s\\
-& \ \ \ \ \ \ \ \ \ \ +\left(  3\cdot1+3\cdot2+3\cdot3+3\cdot4\right)  .
+&  \ \ \ \ \ \ \ \ \ \ +\left(  3\cdot1+3\cdot2+3\cdot3+3\cdot4\right)  .
 \end{align*}
 )
 \end{proposition}
@@ -1363,12 +1365,12 @@ sums. For example,%
 &  \sum_{k=1}^{m}\underbrace{\sum_{\ell=1}^{p}a_{k,\ell}}_{\substack{=a_{k,1}%
 +a_{k,2}+\cdots+a_{k,p}\\\text{(by the definition of the }\sum\text{ sign)}%
 }}\\
-&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right)  \\
+&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right) \\
 &  =\left(  a_{1,1}+a_{1,2}+\cdots+a_{1,p}\right)  +\left(  a_{2,1}%
 +a_{2,2}+\cdots+a_{2,p}\right)  +\cdots+\left(  a_{m,1}+a_{m,2}+\cdots
-+a_{m,p}\right)  \\
++a_{m,p}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right)  \\
+sign}\right) \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)
 \end{align*}
 with%
@@ -1376,13 +1378,12 @@ with%
 &  \sum_{\ell=1}^{p}\underbrace{\sum_{k=1}^{m}a_{k,\ell}}%
 _{\substack{=a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\\\text{(by the definition
 of the }\sum\text{ sign)}}}\\
-&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right)
-\\
+&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right) \\
 &  =\left(  a_{1,1}+a_{2,1}+\cdots+a_{m,1}\right)  +\left(  a_{1,2}%
 +a_{2,2}+\cdots+a_{m,2}\right)  +\cdots+\left(  a_{1,p}+a_{2,p}+\cdots
-+a_{m,p}\right)  \\
++a_{m,p}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right)  \\
+sign}\right) \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)  ,
 \end{align*}
 we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
@@ -1634,7 +1635,7 @@ some numbers. Then,%
 For $p=1$, $q=5$ and $r=4$, Proposition \ref{prop.sum.delta} says that
 $\sum_{k=1}^{5}a_{k}\delta_{k,4}=a_{4}$. This is easy to check:%
 \begin{align*}
-\sum_{k=1}^{5}a_{k}\delta_{k,4} &  =a_{1}\underbrace{\delta_{1,4}%
+\sum_{k=1}^{5}a_{k}\delta_{k,4}  &  =a_{1}\underbrace{\delta_{1,4}%
 }_{\substack{=0\\\text{(since }1\neq4\text{)}}}+a_{2}\underbrace{\delta_{2,4}%
 }_{\substack{=0\\\text{(since }2\neq4\text{)}}}+a_{3}\underbrace{\delta_{3,4}%
 }_{\substack{=0\\\text{(since }3\neq4\text{)}}}+a_{4}\underbrace{\delta_{4,4}%
@@ -1652,7 +1653,7 @@ writing this down in the general situation.
 [Proof of Proposition \ref{prop.sum.delta}.]By the definition of the $\sum$
 sign, we have%
 \begin{align*}
-\sum_{k=p}^{q}a_{k}\delta_{k,r} &  =a_{p}\delta_{p,r}+a_{p+1}\delta
+\sum_{k=p}^{q}a_{k}\delta_{k,r}  &  =a_{p}\delta_{p,r}+a_{p+1}\delta
 _{p+1,r}+\cdots+a_{q}\delta_{q,r}\\
 &  =\left(  \text{the sum of all terms of the form }a_{k}\delta_{k,r}\right)
 \\
@@ -1663,7 +1664,7 @@ terms of the form }a_{k}\delta_{k,r}\text{ with }k\neq r\text{ are
 }0\\\text{(because if }k\neq r\text{, then }a_{k}\underbrace{\delta_{k,r}%
 }_{\substack{=0\\\text{(since }k\neq r\text{)}}}=a_{k}0=0\text{))}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have pulled out the addend
-}a_{r}\delta_{r,r}\text{ out of the sum}\right)  \\
+}a_{r}\delta_{r,r}\text{ out of the sum}\right) \\
 &  =a_{r}1+0=a_{r}.
 \end{align*}
 
@@ -1683,10 +1684,10 @@ how we defined $I_{m}$), and thus%
 Let $A$ be an $n\times m$-matrix. For every $i\in\left\{  1,2,\ldots
 ,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
 \begin{align*}
-\left(  AI_{m}\right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}\underbrace{\left(
+\left(  AI_{m}\right)  _{i,j}  &  =\sum_{k=1}^{m}A_{i,k}\underbrace{\left(
 I_{m}\right)  _{k,j}}_{\substack{=\delta_{k,j}\\\text{(by
 (\ref{pf.prop.matrix-laws.id.b.Im}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.AB}, applied to }p=m\text{ and }B=I_{m}\right)  \\
+Proposition \ref{prop.AB}, applied to }p=m\text{ and }B=I_{m}\right) \\
 &  =\sum_{k=1}^{m}A_{i,k}\delta_{k,j}=A_{i,j}%
 \end{align*}
 (by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=j$ and
@@ -1703,7 +1704,54 @@ A_{k,j}\delta_{i,k}=A_{i,j}$).
 
 \subsection{Powers of a matrix}
 
-[to add: $A^{n}$ ]
+The $k$-th power of a number $a$ (where $k\in\mathbb{N}$) is defined by
+repeated multiplication: We start with $a^{0}=1$\ \ \ \ \footnote{Yes, this is
+how $a^{0}$ is defined, for all $a$. Anyone who tells you that the number
+$0^{0}$ is undefined is merely spreading their confusion.}, and we define each
+next power of $a$ by multiplying the previous one by $a$. In formulas:
+$a^{k+1}=a\cdot a^{k}$ for each $k\in\mathbb{N}$. Thus,%
+\begin{align*}
+a^{1}  & =a\cdot\underbrace{a^{0}}_{=1}=a\cdot1=a;\\
+a^{2}  & =a\cdot\underbrace{a^{1}}_{=a}=a\cdot a;\\
+a^{3}  & =a\cdot\underbrace{a^{2}}_{=a\cdot a}=a\cdot a\cdot a,
+\end{align*}
+etc.. We can explicitly write
+\[
+a^{k}=\underbrace{a\cdot a\cdot\cdots\cdot a}_{k\text{ times }a}%
+\ \ \ \ \ \ \ \ \ \ \text{for each }k\in\mathbb{N},
+\]
+where we understand $\underbrace{a\cdot a\cdot\cdots\cdot a}_{0\text{ times
+}a}$ to mean $1$\ \ \ \ \footnote{This is a standard convention: An empty
+product of numbers always means $1$.}.
+
+We can play the same game with square matrices, but instead of the number $1$
+we now take the $n\times n$ identity matrix $I_{n}$:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Let $A$ be an $n\times n$-matrix. Then, the $k$-th power
+of the matrix $A$ (where $k\in\mathbb{N}$) is defined by repeated
+multiplication: We start with $A^{0}=I_{n}$, and we define each next power of
+$A$ by multiplying the previous one by $A$. In formulas: $A^{k+1}=A\cdot
+A^{k}$ for each $k\in\mathbb{N}$. Explicitly, $A^{k}=\underbrace{A\cdot
+A\cdot\cdots\cdot A}_{k\text{ times }A}$ for each $k\in\mathbb{N}$, where the
+empty product means $I_{n}$.
+\end{definition}
+
+Notice that we have been a bit sloppy when we said \textquotedblleft
+multiplying the previous one by $A$\textquotedblright: When we multiply a
+matrix $B$ by $A$, we might mean either $AB$ or $BA$, and as we know, these
+two products can be different (matrices don't always commute!). However, in
+the above definition, this makes no matter, because both definitions lead to
+the same explicit formula $A^{k}=\underbrace{A\cdot A\cdot\cdots\cdot
+A}_{k\text{ times }A}$ (which is well-defined because of general associativity).
+
+We now have a first moderately interesting example of commuting matrices: Any
+two powers of a square matrix commute. (In other words: For any $n\times
+n$-matrix $A$, and any $u\in\mathbb{N}$ and $v\in\mathbb{N}$, the two matrices
+$A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
+A^{v}=A^{u+v}=A^{v}A^{u}$.)
+
+
 
 [to be continued]
 
