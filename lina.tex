@@ -1,0 +1,1712 @@
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{needspace}
+\usepackage{tabls}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:16:30}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Language=American English}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\usetikzlibrary{arrows}
+\newcounter{exer}
+\newcounter{exera}
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[section]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{condition}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{algorithm}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{conclusion}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exam}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exam}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exam}}
+\newtheorem{exmp}[exer]{Exercise}
+\newenvironment{exercise}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\setlength\tablinesep{3pt}
+\setlength\arraylinesep{3pt}
+\setlength\extrarulesep{3pt}
+\voffset=0cm
+\hoffset=-0.7cm
+\setlength\textheight{22.5cm}
+\setlength\textwidth{15.5cm}
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\newcommand{\id}{\operatorname{id}}
+\ihead{Notes on linear algebra}
+\ohead{page \thepage}
+\cfoot{}
+\begin{document}
+
+\title{Notes on linear algebra}
+\author{Darij Grinberg}
+\date{
+%TCIMACRO{\TeXButton{today}{\today}}%
+%BeginExpansion
+\today
+%EndExpansion
+}
+\maketitle
+\tableofcontents
+
+\section{Preface}
+
+These notes are accompanying \href{http://www.math.umn.edu/~dgrinber/4242/}{a
+class on applied linear algebra (Math 4242) I am giving at the University of
+Minneapolis in Fall 2016} (the website of the class is
+\url{http://www.math.umn.edu/~dgrinber/4242/} ). They contain both the
+material of the class (although with no promise of timeliness!) and the
+homework exercises (and possibly some additional exercises).
+
+There will (probably) be no actual applications in these notes, but only the
+mathematical material used in these applications. If time allows, the notes
+will contain tutorials on the use of \href{http://www.sagemath.org/}{SageMath}
+(a computer algebra system suited both for numerical and for algebraic computations).
+
+Sections marked with an asterisk (*) are not a required part of the Math 4242 course.
+
+Several good books have been written on linear algebra; these notes are not
+supposed to replace any of them. Let me just mention four sources I can
+recommend\footnote{I have \textbf{not} read any of the books myself (apart
+from fragments). My recommendations are based on cursory skimming and random
+appraisal of specific points; do not mistake my recommendations for
+guarantees.}:
+
+\begin{itemize}
+\item Olver's and Shakiban's \cite{OlvSha06} is the traditional text for Math
+4242 at UMN. It might be the best place to learn about the applications of
+linear algebra.
+
+\item Hefferon's \cite{Heffer16} is a free text that does things slowly but
+rigorously (at least for the standards of an introductory linear-algebra
+text). It has plenty of examples (and exercises with solutions), fairly
+detailed proofs, and occasional applications. (Which is why it is over 500
+pages long; I hope you can easily decide what to skip based on your
+preferences.) Altogether, I think it does many things very well. The main
+drawback is its lack of the theory of bilinear forms (but I don't know if we
+will even have time for that).
+
+\item Lankham's, Nachtergaele's and Schilling's \cite{LaNaSc16} is a set of
+notes for introductory linear algebra, doing the abstract side (vector spaces,
+linear maps) early on and in some detail.
+
+\item Treil's \cite{Treil15} is another free text; this is written for a more
+mathematically mature reader, and has a slight bias towards the linear algebra
+useful for functional analysis.\footnote{The title of the book is a play on
+Axler's \textquotedblleft Linear Algebra Done Right\textquotedblright, which
+is biased towards analysis (or, rather, against algebra) to a ridiculous
+extent. Axler seems to write really well, but the usefulness of this book is
+severely limited by its obstinate avoidance of anything that looks too
+explicit and algebraic.}
+\end{itemize}
+
+{\small [Please let the authors know if you find any errors or unclarities.
+Feel free to ask me if you want your doubts resolved beforehand.]}
+
+Also, some previous iterations of Math 4242 have left behind interesting notes:
+
+\begin{itemize}
+\item Stephen Lewis, Fall 2014, \url{http://www.stephen-lewis.net/4242/}
+(enable javascript!).
+
+\item Nathalie Sheils, Fall 2015,
+\url{http://math.umn.edu/~nesheils/F15_M4242/LectureNotes.html} (yes, those
+are on dropbox).
+\end{itemize}
+
+There are countless other sets of lecture notes on the internet, books in the
+library, and even books on the internet if you know where to look. You can
+find an overview of (published, paper) books in \cite{Drucker12} (but usually
+without assessing their quality), and another (with reviews) on the MAA
+website \url{http://www.maa.org/tags/linear-algebra} . (Reviews on Amazon and
+goodreads are usually just good for a laugh.)
+
+The notes you are reading are under construction, and will remain so for at
+least the whole Fall term 2016. Please let me know of any errors and
+unclarities you encounter (my email address is \texttt{dgrinber@umn.edu}).
+Thank you!
+
+\subsection{Acknowledgments}
+
+I would like to thank Mark Richard for correcting a typo in the notes.
+
+\section{\label{chp.intro}Introduction to matrices}
+
+\subsection{Matrices and entries}
+
+In the following, we shall study matrices filled with numbers. This is not the
+most general thing to study (we could also fill matrices with other things,
+such as polynomials -- and in fact, such matrices are highly useful); nor will
+we be very precise about it. In fact, for the first few sections of this
+chapter, we shall not even specify what we mean by \textquotedblleft
+numbers\textquotedblright, even though the word \textquotedblleft
+number\textquotedblright\ is far from being a well-defined notion. However, as
+soon as we start caring about (say) computer calculations, we will have to
+spend some words specifying our \textquotedblleft numbers\textquotedblright%
+\ more precisely.
+
+We shall use the symbol $\mathbb{N}$ for the set $\left\{  0,1,2,\ldots
+\right\}  $. This is the set of all nonnegative integers.
+
+\begin{definition}
+If $n\in\mathbb{N}$ and $m\in\mathbb{N}$, then an $n\times m$\textit{-matrix}
+simply means a rectangular table with $n$ rows and $m$ columns, such that each
+cell is filled with a number.
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{ccc}%
+1 & 7 & 2\\
+-\sqrt{2} & 6 & 1/3
+\end{array}
+\right)  $ is a $2\times3$-matrix, whereas $\left(
+\begin{array}
+[c]{c}%
+1\\
+-2\\
+0
+\end{array}
+\right)  $ is a $3\times1$-matrix.\footnote{For the friends of stupid examples
+(me?), here are two more: $\left(
+\vphantom{\begin{array}{c} a \\ a \\ a \end{array}}\right)  $ is a $3\times
+0$-matrix (it contains no cells, and thus no numbers), and $\left(
+\phantom{\begin{array}{ccc} a & a & a \end{array}}\right)  $ is a $0\times
+3$-matrix (again, with no numbers because it has no cells). For various
+technical reasons (\cite{deBoor}), it is helpful to regard such empty matrices
+as different.}
+
+\begin{definition}
+The word \textquotedblleft\textit{matrix}\textquotedblright\ will encompass
+all $n\times m$-matrices for all possible values of $n$ and $m$.
+\end{definition}
+
+\begin{definition}
+The \textit{dimensions} of an $n\times m$-matrix $A$ are the two integers $n$
+and $m$. When they are equal (that is, $n=m$), we say that $A$ is a
+\textit{square matrix}, and call $n$ its \textit{size}.
+\end{definition}
+
+\begin{definition}
+If $A$ is an $n\times m$-matrix, and if $i\in\left\{  1,2,\ldots,n\right\}  $
+and $j\in\left\{  1,2,\ldots,m\right\}  $, then $A_{i,j}$ will denote the
+$\left(  i,j\right)  $-th entry of $A$ (that is, the entry of $A$ in row $i$
+and column $j$).
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{ccc}%
+1 & 7 & 2\\
+-\sqrt{2} & 6 & 1/3
+\end{array}
+\right)  _{1,3}=2$. Note that this notation $A_{i,j}$ (for the $\left(
+i,j\right)  $-th entry of a matrix $A$) is not standard in literature! Some
+authors instead use $A_{j}^{i}$ (the $i$ on top is not an exponent, but just a
+superscript) or $a_{i,j}$ (where $a$ is the lowercase letter corresponding to
+the uppercase letter $A$ denoting the matrix\footnote{This notation is bad for
+two reasons: First, it forces you to always denote matrices by uppercase
+letters; second, it doesn't let you write things like $\left(
+\begin{array}
+[c]{ccc}%
+1 & 7 & 2\\
+-\sqrt{2} & 6 & 1/3
+\end{array}
+\right)  _{1,3}$.}). Many authors often drop the comma between $i$ and $j$ (so
+they call it $A_{ij}$ or $a_{ij}$); this notation is slightly ambiguous (does
+$A_{132}$ mean $A_{13,2}$ or $A_{1,23}$ ?). Unfortunately, some authors use
+the notation $A_{i,j}$ for something else called a \textit{cofactor} of $A$
+(which is, in a sense, quite the opposite of the $\left(  i,j\right)  $-th
+entry of $A$); but we will never do this here (and probably we will not really
+get into cofactors anyway).
+
+\subsection{The matrix builder notation}
+
+I would like to do something interesting, but I am forced to introduce more
+notations. Please have patience with me. Let me introduce a notation for
+building a matrix out of a bunch of entries:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Assume that you are given a number $a_{i,j}$ for each
+pair $\left(  i,j\right)  $ of an integer $i\in\left\{  1,2,\ldots,n\right\}
+$ and $j\in\left\{  1,2,\ldots,m\right\}  $. Then, $\left(  a_{i,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq m}$ shall denote the $n\times m$-matrix whose
+$\left(  i,j\right)  $-th entry is $a_{i,j}$ for all $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $. (To say it
+differently: $\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ shall
+denote the $n\times m$-matrix $A$ such that $A_{i,j}=a_{i,j}$ for all
+$i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}
+$.)
+\end{definition}
+
+Some examples:
+
+\begin{itemize}
+\item We have $\left(  i-j\right)  _{1\leq i\leq2,\ 1\leq j\leq3}=\left(
+\begin{array}
+[c]{ccc}%
+1-1 & 1-2 & 1-3\\
+2-1 & 2-2 & 2-3
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+0 & -1 & -2\\
+1 & 0 & -1
+\end{array}
+\right)  $.
+
+\item We have $\left(  i+j\right)  _{1\leq i\leq3,\ 1\leq j\leq2}=\left(
+\begin{array}
+[c]{cc}%
+1+1 & 1+2\\
+2+1 & 2+2\\
+3+1 & 3+2
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+2 & 3\\
+3 & 4\\
+4 & 5
+\end{array}
+\right)  $.
+
+\item We have $\left(  \dfrac{i+1}{j}\right)  _{1\leq i\leq3,\ 1\leq j\leq
+3}=\left(
+\begin{array}
+[c]{ccc}%
+\dfrac{1+1}{1} & \dfrac{1+1}{2} & \dfrac{1+1}{3}\\
+\dfrac{2+1}{1} & \dfrac{2+1}{2} & \dfrac{2+1}{3}\\
+\dfrac{3+1}{1} & \dfrac{3+1}{2} & \dfrac{3+1}{3}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+2 & 1 & \dfrac{2}{3}\\
+3 & \dfrac{3}{2} & 1\\
+4 & 2 & \dfrac{4}{3}%
+\end{array}
+\right)  $.
+
+\item We have $\left(  \dfrac{i-j}{i+j}\right)  _{1\leq i\leq3,\ 1\leq j\leq
+2}=\left(
+\begin{array}
+[c]{cc}%
+\dfrac{1-1}{1+1} & \dfrac{1-2}{1+2}\\
+\dfrac{2-1}{2+1} & \dfrac{2-2}{2+2}\\
+\dfrac{3-1}{3+1} & \dfrac{3-2}{3+2}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+0 & -\dfrac{1}{3}\\
+\dfrac{1}{3} & 0\\
+\dfrac{1}{2} & \dfrac{1}{5}%
+\end{array}
+\right)  $.
+\end{itemize}
+
+The notation $\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ is
+fairly standard (you will be understood), though again there are variations in
+the literature.
+
+We used the two letters $i$ and $j$ in the notation $\left(  a_{i,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq m}$, but we could just as well have picked any
+other two letters (as long as they aren't already taken for something else).
+For example, $\left(  xy\right)  _{1\leq x\leq2,\ 1\leq y\leq2}=\left(
+\begin{array}
+[c]{cc}%
+1\cdot1 & 1\cdot2\\
+2\cdot1 & 2\cdot2
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+2 & 4
+\end{array}
+\right)  $.
+
+Of course, if you decompose an $n\times m$-matrix $A$ into its entries, and
+then assemble these entries back into an $n\times m$-matrix (arranged in the
+same way as in $A$), then you get back $A$. In other words: For every $n\times
+m$-matrix $A$, we have%
+\[
+\left(  A_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}=A.
+\]
+
+
+\subsection{Row and column vectors}
+
+Here is some more terminology:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. A \textit{row vector of size }$n$ means a $1\times
+n$-matrix. A \textit{column vector of size }$n$ means an $n\times1$-matrix.
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{cc}%
+a & b
+\end{array}
+\right)  $ is a row vector of size $2$, while $\left(
+\begin{array}
+[c]{c}%
+a\\
+b
+\end{array}
+\right)  $ is a column vector of size $2$.
+
+\subsection{Transposes}
+
+\begin{definition}
+The transpose of an $n\times m$-matrix $A$ is defined to be the $m\times
+n$-matrix $\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$. It is
+denoted by $A^{T}$.
+\end{definition}
+
+Let us unravel this confusing-looking definition! It says that the transpose
+of an $n\times m$-matrix $A$ is the $m\times n$-matrix whose $\left(
+i,j\right)  $-th entry (for $i\in\left\{  1,2,\ldots,m\right\}  $ and
+$j\in\left\{  1,2,\ldots,n\right\}  $) is the $\left(  j,i\right)  $-th entry
+of $A$. So the transpose of $A$ has the very same entries as $A$, but in
+different position: namely, the entry in position $\left(  i,j\right)  $ gets
+moved into position $\left(  j,i\right)  $. In other words, the entry that was
+in row $i$ and column $j$ gets moved into column $i$ and row $j$. So, visually
+speaking, the transpose of the matrix $A$ is obtained by \textquotedblleft
+reflecting $A$ around the diagonal\textquotedblright. Some examples should
+help clarify this:%
+\begin{align*}
+\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}%
+\end{array}
+\right)  ^{T}  &  =\left(
+\begin{array}
+[c]{cc}%
+a & a^{\prime}\\
+b & b^{\prime}\\
+c & c^{\prime}%
+\end{array}
+\right)  ;\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}%
+\end{array}
+\right)  ^{T}  &  =\left(
+\begin{array}
+[c]{cc}%
+a & a^{\prime}\\
+b & b^{\prime}%
+\end{array}
+\right)  ;\\
+\left(
+\begin{array}
+[c]{c}%
+a\\
+b\\
+c
+\end{array}
+\right)  ^{T}  &  =\left(
+\begin{array}
+[c]{ccc}%
+a & b & c
+\end{array}
+\right)  .
+\end{align*}
+
+
+Transposes have many uses, but for now we stress one particular use: as a
+space-saving device. Namely, if you work with column vectors, you quickly
+notice that they take up a lot of vertical space in writing: just see by how
+much the column vector $\left(
+\begin{array}
+[c]{c}%
+4\\
+-1\\
+2\\
+0
+\end{array}
+\right)  $ has stretched the spacing between its line and the lines above and
+below\footnote{Additionally, column vectors of size $2$ have the annoying
+property that they can get confused for binomial coefficients. To wit,
+$\left(
+\begin{array}
+[c]{c}%
+4\\
+2
+\end{array}
+\right)  $ denotes a column vector, whereas $\dbinom{4}{2}$ denotes a binomial
+coefficient (which equals the number $6$). The only way to tell them apart is
+by their size.}! It is much more economical to rewrite it as the transpose of
+a row vector: $\left(
+\begin{array}
+[c]{cccc}%
+4 & -1 & 2 & 0
+\end{array}
+\right)  ^{T}$. It is furthermore common to write row vectors as tuples (i.e.,
+put commas between their entries instead of leaving empty space); thus, the
+row vector $\left(
+\begin{array}
+[c]{cccc}%
+4 & -1 & 2 & 0
+\end{array}
+\right)  $ becomes $\left(  4,-1,2,0\right)  $ (which takes up less space),
+and our column vector above becomes $\left(  4,-1,2,0\right)  ^{T}$.
+
+The transpose of a matrix $A$ is also denoted by $A^{t}$ or $^{T}A$ or $^{t}A$
+by various authors (not me).
+
+\subsection{Addition, scaling and multiplication}
+
+Matrices can (sometimes) be added, (always) be scaled and (sometimes) be
+multiplied. Let me explain:
+
+\begin{definition}
+Let $A$ and $B$ be two matrices of the same dimensions (that is, they have the
+same number of rows, and the same number of columns). Then, $A+B$ denotes the
+matrix obtained by adding each entry of $A$ to the corresponding entry of $B$.
+Or, to write it more formally: If $A$ and $B$ are two $n\times m$-matrices,
+then%
+\[
+A+B=\left(  A_{i,j}+B_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
+\]
+
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+d & e & f
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{ccc}%
+a^{\prime} & b^{\prime} & c^{\prime}\\
+d^{\prime} & e^{\prime} & f^{\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+a+a^{\prime} & b+b^{\prime} & c+c^{\prime}\\
+d+d^{\prime} & e+e^{\prime} & f+f^{\prime}%
+\end{array}
+\right)  $. (I am increasingly using variables instead of actual numbers,
+because they make it easier to see what entry is going where.) On the other
+hand, the two matrices $\left(
+\begin{array}
+[c]{c}%
+a\\
+b
+\end{array}
+\right)  $ and $\left(
+\begin{array}
+[c]{cc}%
+c & d
+\end{array}
+\right)  $ cannot be added (since they have different dimensions\footnote{The
+dimensions of the former matrix are $2$ and $1$, whereas the dimensions of the
+latter matrix are $1$ and $2$. Even though they are equal \textbf{up to
+order}, they do not count as equal.}).
+
+So we now know hot add two matrices.
+
+\begin{definition}
+Let $A$ be a matrix, and $\lambda$ be a number. Then, $\lambda A$ (or
+$\lambda\cdot A$) denotes the matrix obtained by multiplying each entry of $A$
+by $\lambda$. In other words: If $A$ is an $n\times m$-matrix, then%
+\[
+\lambda A=\left(  \lambda A_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
+\]
+
+
+We write $-A$ for $\left(  -1\right)  A$.
+\end{definition}
+
+For example, $\lambda\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+d & e & f
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+\lambda a & \lambda b & \lambda c\\
+\lambda d & \lambda e & \lambda f
+\end{array}
+\right)  $.
+
+So now we know how to scale a matrix. (\textquotedblleft To
+scale\textquotedblright\ means to multiply by a number.)
+
+\textquotedblleft Scaling\textquotedblright\ is often called \textquotedblleft
+scalar multiplication\textquotedblright\ (but this is confusing terminology,
+since \textquotedblleft scalar product\textquotedblright\ means something
+completely different).
+
+With scaling and addition defined, we obtain subtraction for free:
+
+\begin{definition}
+Let $A$ and $B$ be two matrices of the same dimensions. Then, $A-B$ denotes
+the matrix $A+\left(  -B\right)  =A+\left(  -1\right)  B$.
+\end{definition}
+
+For example, $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+d & e & f
+\end{array}
+\right)  -\left(
+\begin{array}
+[c]{ccc}%
+a^{\prime} & b^{\prime} & c^{\prime}\\
+d^{\prime} & e^{\prime} & f^{\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+a-a^{\prime} & b-b^{\prime} & c-c^{\prime}\\
+d-d^{\prime} & e-e^{\prime} & f-f^{\prime}%
+\end{array}
+\right)  $.
+
+Now, to the more interesting part: multiplying matrices. This is \textbf{not}
+done by multiplying corresponding entries! (Why not? Well, it wouldn't make
+for a particularly useful notion.) Instead, the definition goes as follows:
+
+\begin{definition}
+\label{def.AB}Let $n,m,p$ be three integers. Let $A$ be an $n\times m$-matrix.
+Let $B$ be an $m\times p$-matrix. (Thus, $A$ has to have $m$ columns, while
+$B$ has to have $m$ rows; other than this, the two matrices do not need to
+have any relation to each other.) The product $AB$ of these two matrices is
+defined as follows:%
+\[
+AB=\left(  \underbrace{A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
+}_{\substack{\text{This is the sum of the }m\text{ terms of the form}%
+\\A_{i,k}B_{k,j}\text{, for }k\text{ ranging over }\left\{  1,2,\ldots
+,m\right\}  }}\right)  _{1\leq i\leq n,\ 1\leq j\leq p}.
+\]
+This is an $n\times p$-matrix.
+\end{definition}
+
+This definition is somewhat overwhelming, so let me rewrite it in words and
+give some examples:
+
+It says that the product $AB$ is well-defined whenever $A$ has as many columns
+as $B$ has rows. In this case, $AB$ is the matrix whose $\left(  i,j\right)
+$-th entry is obtained by adding together:
+
+\begin{itemize}
+\item the product $A_{i,1}B_{1,j}$ of the $\left(  i,1\right)  $-st entry of
+$A$ with the $\left(  1,j\right)  $-th entry of $B$;
+
+\item the product $A_{i,2}B_{2,j}$ of the $\left(  i,2\right)  $-nd entry of
+$A$ with the $\left(  2,j\right)  $-th entry of $B$;
+
+\item and so on;
+
+\item the product $A_{i,m}B_{m,j}$ of the $\left(  i,m\right)  $-nd entry of
+$A$ with the $\left(  m,j\right)  $-th entry of $B$.
+\end{itemize}
+
+In other words, $AB$ is the matrix whose $\left(  i,j\right)  $-th entry is
+obtained by multiplying each entry of the $i$-th row of $A$ with the
+corresponding entry of the $j$-th column of $B$, and then adding together all
+these products. The word \textquotedblleft corresponding\textquotedblright%
+\ means that the $1$-st entry of the $i$-th row of $A$ gets multiplied with
+the $1$-st entry of the $j$-th column of $B$, the $2$-nd entry with the $2$-nd
+entry, etc.. In particular, for this to make sense, the $i$-th row of $A$ and
+the $j$-th column of $B$ have to have the same number of entries. This is why
+we required that $A$ has as many columns as $B$ has rows!
+
+I promised examples. Here are four:%
+\begin{align*}
+\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+x & x^{\prime}\\
+y & y^{\prime}%
+\end{array}
+\right)   &  =\left(
+\begin{array}
+[c]{cc}%
+ax+by & ax^{\prime}+by^{\prime}\\
+a^{\prime}x+b^{\prime}y & a^{\prime}x^{\prime}+b^{\prime}y^{\prime}%
+\end{array}
+\right)  ;\\
+\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x\\
+y\\
+z
+\end{array}
+\right)   &  =\left(
+\begin{array}
+[c]{c}%
+ax+by+cz\\
+a^{\prime}x+b^{\prime}y+c^{\prime}z
+\end{array}
+\right)  ;\\
+\left(
+\begin{array}
+[c]{cc}%
+a & b
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x\\
+y
+\end{array}
+\right)   &  =\left(
+\begin{array}
+[c]{c}%
+ax+by
+\end{array}
+\right)  ;\\
+\left(
+\begin{array}
+[c]{c}%
+a\\
+b
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+x & y
+\end{array}
+\right)   &  =\left(
+\begin{array}
+[c]{cc}%
+ax & ay\\
+bx & by
+\end{array}
+\right)
+\end{align*}
+(note how in the fourth example, we don't see any plus signs, because each of
+the sums has only one addend).
+
+We can also denote the product $AB$ by $A\cdot B$ (though few people ever do this).
+
+We have thus learnt how to multiply matrices. Notice that the $\left(
+i,j\right)  $-th entry of the product $AB$ depends only on the $i$-th row of
+$A$ and the $j$-th column of $B$. Why did we pick this strange definition,
+rather than something simpler, like multiplying entry by entry, or at least
+row by row? Well, \textquotedblleft entry by entry\textquotedblright\ is too
+simple (you will see later what matrix multiplication is good for;
+\textquotedblleft entry by entry\textquotedblright\ is useless in comparison),
+whereas \textquotedblleft row by row\textquotedblright\ would be lacking many
+of the nice properties that we will see later (e.g., our matrix multiplication
+satisfies the associativity law $\left(  AB\right)  C=A\left(  BC\right)  $,
+while \textquotedblleft row by row\textquotedblright\ does not).
+
+\subsection{Properties of matrix operations}
+
+The operations of adding, scaling and multiplying matrices, in many aspects,
+\textquotedblleft behave almost as nicely as numbers\textquotedblright.
+Specifically, I mean that they satisfy a bunch of laws that numbers satisfy:
+
+\begin{proposition}
+\label{prop.matrix-laws.1}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then:
+
+\textbf{(a)} We have $A+B=B+A$ for any two $n\times m$-matrices $A$ and $B$.
+(This is called \textquotedblleft commutativity of addition\textquotedblright.)
+
+\textbf{(b)} We have $A+\left(  B+C\right)  =\left(  A+B\right)  +C$ for any
+three $n\times m$-matrices $A$, $B$ and $C$. (This is called \textquotedblleft
+associativity of addition\textquotedblright.)
+
+\textbf{(c)} We have $\lambda\left(  A+B\right)  =\lambda A+\lambda B$ for any
+number $\lambda$ and any two $n\times m$-matrices $A$ and $B$.
+
+Let furthermore $p\in\mathbb{N}$. Then:
+
+\textbf{(d)} We have $A\left(  B+C\right)  =AB+AC$ for any $n\times m$-matrix
+$A$ and any two $m\times p$-matrices $B$ and $C$. (This is called
+\textquotedblleft left distributivity\textquotedblright.)
+
+\textbf{(e)} We have $\left(  A+B\right)  C=AC+BC$ for any two $n\times
+m$-matrices $A$ and $B$ and any $m\times p$-matrix $C$. (This is called
+\textquotedblleft right distributivity\textquotedblright.)
+
+\textbf{(f)} We have $\lambda\left(  AB\right)  =\left(  \lambda A\right)
+B=A\left(  \lambda B\right)  $ for any number $\lambda$, any $n\times
+m$-matrix $A$ and any $m\times p$-matrix $B$.
+
+Finally, let $q\in\mathbb{N}$. Then:
+
+\textbf{(g)} We have $A\left(  BC\right)  =\left(  AB\right)  C$ for any
+$n\times m$-matrix $A$, any $m\times p$-matrix $B$ and any $p\times q$-matrix
+$C$. (This is called \textquotedblleft associativity of
+multiplication\textquotedblright.)
+\end{proposition}
+
+\begin{example}
+Most parts of Proposition \ref{prop.matrix-laws.1} are fairly easy to
+visualize and to prove. Let me give an example for the least obvious one: part
+\textbf{(g)}.
+
+Part \textbf{(g)} essentially says that $A\left(  BC\right)  =\left(
+AB\right)  C$ holds for any three matrices $A$, $B$ and $C$ for which the
+products $AB$ and $BC$ are well-defined (i.e., $A$ has as many columns as $B$
+has rows, and $B$ has as many columns as $C$ has rows). For example, take
+$n=1$, $m=3$, $p=2$ and $q=3$. Set%
+\[
+A=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ B=\left(
+\begin{array}
+[c]{cc}%
+d & d^{\prime}\\
+e & e^{\prime}\\
+f & f^{\prime}%
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ C=\left(
+\begin{array}
+[c]{ccc}%
+x & y & z\\
+x^{\prime} & y^{\prime} & z^{\prime}%
+\end{array}
+\right)  .
+\]
+Then,%
+\[
+AB=\left(
+\begin{array}
+[c]{cc}%
+ad+be+cf & ad^{\prime}+be^{\prime}+cf^{\prime}%
+\end{array}
+\right)
+\]
+and thus%
+\begin{align*}
+\left(  AB\right)  C  &  =\left(
+\begin{array}
+[c]{cc}%
+ad+be+cf & ad^{\prime}+be^{\prime}+cf^{\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+x & y & z\\
+x^{\prime} & y^{\prime} & z^{\prime}%
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{c}%
+ad^{\prime}x^{\prime}+be^{\prime}x^{\prime}+cf^{\prime}x^{\prime
+}+bxe+adx+cfx\\
+ad^{\prime}y^{\prime}+be^{\prime}y^{\prime}+cf^{\prime}y^{\prime
+}+bye+ady+cfy\\
+ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bze+adz+cfz
+\end{array}
+\right)  ^{T}%
+\end{align*}
+after some computation. (Here, we have written the result as a transpose of a
+column vector, because if we had written it as a row vector, it would not fit
+on this page.) But
+\[
+BC=\left(
+\begin{array}
+[c]{cc}%
+d & d^{\prime}\\
+e & e^{\prime}\\
+f & f^{\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+x & y & z\\
+x^{\prime} & y^{\prime} & z^{\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+d^{\prime}x^{\prime}+dx & d^{\prime}y^{\prime}+dy & d^{\prime}z^{\prime}+dz\\
+e^{\prime}x^{\prime}+xe & e^{\prime}y^{\prime}+ye & e^{\prime}z^{\prime}+ze\\
+f^{\prime}x^{\prime}+fx & f^{\prime}y^{\prime}+fy & f^{\prime}z^{\prime}+fz
+\end{array}
+\right)
+\]
+and as before
+\[
+A\left(  BC\right)  =\left(
+\begin{array}
+[c]{c}%
+ad^{\prime}x^{\prime}+be^{\prime}x^{\prime}+cf^{\prime}x^{\prime
+}+bxe+adx+cfx\\
+ad^{\prime}y^{\prime}+be^{\prime}y^{\prime}+cf^{\prime}y^{\prime
+}+bye+ady+cfy\\
+ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bze+adz+cfz
+\end{array}
+\right)  ^{T}.
+\]
+Hence, $\left(  AB\right)  C=A\left(  BC\right)  $. Thus, our example confirms
+Proposition \ref{prop.matrix-laws.1} \textbf{(g)}.
+\end{example}
+
+The laws of Proposition \ref{prop.matrix-laws.1} allow you to do many formal
+manipulations with matrices similarly to how you are used to work with
+numbers. For example, if you have $n$ matrices $A_{1},A_{2},\ldots,A_{n}$ such
+that successive matrices can be multiplied (i.e., for each $i\in\left\{
+1,2,\ldots,n-1\right\}  $, the matrix $A_{i}$ has as many columns as $A_{i+1}$
+has rows), then the product $A_{1}A_{2}\cdots A_{n}$ is well-defined: you can
+parenthesize it in any order, and the result will always be the same. For
+example, the product $ABCD$ of four matrices $A,B,C,D$ can be computed in any
+of the five ways%
+\[
+\left(  \left(  AB\right)  C\right)  D,\ \ \ \ \ \ \ \ \ \ \left(  AB\right)
+\left(  CD\right)  ,\ \ \ \ \ \ \ \ \ \ \left(  A\left(  BC\right)  \right)
+D,\ \ \ \ \ \ \ \ \ \ A\left(  \left(  BC\right)  D\right)
+,\ \ \ \ \ \ \ \ \ \ A\left(  B\left(  CD\right)  \right)  ,
+\]
+and all of them lead to the same result. This is called \textit{general
+associativity} and is not obvious (even if you know that Proposition
+\ref{prop.matrix-laws.1} \textbf{(g)} holds).
+
+Please take a moment to appreciate general associativity! Without it, we could
+not make sense of products like $ABC$ and $ABCDE$, because their values could
+depend on how we choose to compute them. This is one reason why, in the
+definition of $AB$, we multiply entries of the $i$-th row of $A$ with entries
+of the $j$-th column of $B$. Using rows both times would break associativity!
+
+We shall give proofs of parts \textbf{(d)} and \textbf{(g)} of Proposition
+\ref{prop.matrix-laws.1} in Section \ref{sect.intro.sum} below.
+
+\subsection{Non-properties of matrix operations}
+
+Conspicuously absent from Proposition \ref{prop.matrix-laws.1} is one
+important law that is well-known to hold for numbers: commutativity of
+multiplication (that is, $ab=ba$). This has a reason: it is false for
+matrices. There are at least three reasons why it is false:
+
+\begin{enumerate}
+\item If $A$ and $B$ are matrices, then it can happen that $AB$ is
+well-defined (i.e., $A$ has as many columns as $B$ has rows) but $BA$ is not
+(i.e., $B$ does not have as many columns as $A$ has rows). For example, if
+$A=\left(
+\begin{array}
+[c]{c}%
+a\\
+b\\
+c
+\end{array}
+\right)  $ and $B=\left(
+\begin{array}
+[c]{cc}%
+x & y
+\end{array}
+\right)  $, then $AB$ is well-defined but $BA$ is not.
+
+\item If $A$ and $B$ are matrices such that both $AB$ and $BA$ well-defined,
+then $AB$ and $BA$ might still have different dimensions. Namely, if $A$ is an
+$n\times m$-matrix and $B$ is an $m\times n$-matrix, then $AB$ is an $n\times
+n$-matrix, but $BA$ is an $m\times m$-matrix. So comparing $AB$ and $BA$ makes
+no sense unless $n=m$.
+
+\item Even if $AB$ and $BA$ are of the same dimensions, they can still be
+distinct. For example, if $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+0 & 1
+\end{array}
+\right)  $ and $B=A^{T}=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+1 & 1
+\end{array}
+\right)  $, then $AB=\left(
+\begin{array}
+[c]{cc}%
+2 & 1\\
+1 & 1
+\end{array}
+\right)  $ whereas $BA=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 2
+\end{array}
+\right)  $.
+\end{enumerate}
+
+Two matrices $A$ and $B$ are said to \textit{commute} if $AB=BA$ (which, in
+particular, means that both $AB$ and $BA$ are well-defined). You will
+encounter many cases when matrices $A$ and $B$ happen to commute (for example,
+every $n\times n$-matrix commutes with the $n\times n$ identity matrix; see
+below for what this means); but in general there is no reason to expect two
+randomly chosen matrices to commute.
+
+As a consequence of matrices refusing to commute (in general), we cannot
+reasonably define division of matrices. Actually, there are two reasons why we
+cannot reasonably define division of matrices: First, if $A$ and $B$ are two
+matrices, then it is not clear whether $\dfrac{A}{B}$ should mean a matrix $C$
+satisfying $BC=A$, or a matrix $C$ satisfying $CB=A$. (The failure of
+commutativity implies that these are two different things.) Second, in
+general, neither of these matrices $C$ is necessarily unique; nor is it
+guaranteed to exist. This is similar to the fact that we cannot divide by $0$
+(in fact, $\dfrac{0}{0}$ would not be unique, while $\dfrac{1}{0}$ would not
+exist); but with matrices, $0$ is not the only forbidden denominator. Here is
+an example:
+
+\begin{example}
+\textbf{(a)} Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 0
+\end{array}
+\right)  $ and $B=A$. Then, $BC=A$ holds for $C=A$, but also for $C=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $ (and also for many other matrices $C$). So the matrix $C$
+satisfying $BC=A$ is not unique.
+
+\textbf{(b)} Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $ and $B=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 0
+\end{array}
+\right)  $. Then, there exists no matrix $C$ satisfing $BC=A$. Indeed, if
+$C=\left(
+\begin{array}
+[c]{cc}%
+x & y\\
+z & w
+\end{array}
+\right)  $ is any matrix, then $BC=\left(
+\begin{array}
+[c]{cc}%
+x & y\\
+0 & 0
+\end{array}
+\right)  $ has its second row filled with zeroes, but $A$ does not; so $BC$
+cannot equal $A$.
+\end{example}
+
+\subsection{\label{sect.intro.sum}(*) The summation sign}
+
+We now take a break from studying matrices to introduce an important symbol:
+the summation sign ($\sum$). This sign is one of the hallmarks of abstract
+mathematics (and also computer science), and helps manipulate matrices comfortably.
+
+\begin{definition}
+\label{def.sum}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Then, $\sum_{i=p}^{q}a_{i}$
+means the sum $a_{p}+a_{p+1}+\cdots+a_{q}$. The symbol $\sum$ is called the
+summation sign; we pronounce the expression $\sum_{i=p}^{q}a_{i}$ as
+\textquotedblleft sum of $a_{i}$ for all $i$ ranging from $p$ to
+$q$\textquotedblright.
+\end{definition}
+
+Here are some examples:
+
+\begin{itemize}
+\item We have $\sum_{i=p}^{q}i=p+\left(  p+1\right)  +\cdots+q$. For example,
+$\sum_{i=1}^{n}i=1+2+\cdots+n$. (A well-known formula says that this sum
+$\sum_{i=1}^{n}i=1+2+\cdots+n$ equals $\dfrac{n\left(  n+1\right)  }{2}$. For
+a concrete example, $\sum_{i=1}^{3}i=1+2+3=\dfrac{3\left(  3+1\right)  }{2}%
+=6$.) For another example, $\sum_{i=-n}^{n}i=\left(  -n\right)  +\left(
+-n+1\right)  +\cdots+n$. (This latter sum equals $0$, because it contains, for
+each its addend, also its negative\footnote{except for the addend $0$, but
+this $0$ doesn't contribute anything anyway}.)
+
+\item We have $\sum_{i=p}^{q}i^{2}=p^{2}+\left(  p+1\right)  ^{2}+\cdots
++q^{2}$. For example, $\sum_{i=1}^{n}i^{2}=1^{2}+2^{2}+\cdots+n^{2}$. (A
+well-known formula says that this sum $\sum_{i=1}^{n}i^{2}=1^{2}+2^{2}%
++\cdots+n^{2}$ equals $\dfrac{n\left(  n+1\right)  \left(  2n+1\right)  }{6}$.)
+
+\item If $p=q$, then $\sum_{i=p}^{q}a_{i}=a_{p}$. (A sum of only one number is
+simply this number.)
+\end{itemize}
+
+Notice that the expression \textquotedblleft$\sum_{i=p}^{q}a_{i}%
+$\textquotedblright\ is both a more compact and a more rigorous way to say
+\textquotedblleft$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. A computer
+would not understand the expression \textquotedblleft$a_{p}+a_{p+1}%
++\cdots+a_{q}$\textquotedblright\ (it could only guess what the
+\textquotedblleft$\cdots$\textquotedblright\ means, and computers are bad at
+guessing); but the expression \textquotedblleft$\sum_{i=p}^{q}a_{i}%
+$\textquotedblright\ has a well-defined meaning that can be rigorously defined
+and can be explained to a computer\footnote{Of course, the way we defined it
+above is not rigorous. Here is how to define it rigorously (if you know
+recursion):
+\par
+\begin{itemize}
+\item If $q=p$, then $\sum_{i=p}^{q}a_{i}$ is defined to be $a_{p}$.
+\par
+\item If $q>p$, then $\sum_{i=p}^{q}a_{i}$ is defined to be $\left(
+\sum_{i=p}^{q-1}a_{i}\right)  +a_{q}$.
+\end{itemize}
+\par
+This is a recursive definition (since $\sum_{i=p}^{q}a_{i}$ is defined in
+terms of $\sum_{i=p}^{q-1}a_{i}$), and provides an algorithm to compute
+$\sum_{i=p}^{q}a_{i}$.}. Thus, if you want to tell a computer to compute a
+sum, the command you have to use will be closer to \textquotedblleft%
+$\sum_{i=p}^{q}a_{i}$\textquotedblright\ than to \textquotedblleft%
+$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. For example, in Python, you
+would have to write \textquotedblleft\texttt{sum(a[i] for i in range(p,
+q+1))}\textquotedblright\ (where \textquotedblleft\texttt{a[i]}%
+\textquotedblright\ is understood to return $a_{i}$)\ \ \ \ \footnote{Why
+\textquotedblleft\texttt{q+1}\textquotedblright\ and not \textquotedblleft%
+\texttt{q}\textquotedblright? Because Python defines \texttt{range(u, v)} as
+the list $\left(  u,u+1,\ldots,v-1\right)  $ (that is, the list that starts at
+$u$ and ends \textbf{just before} $v$). So \texttt{range(p, q)} would be
+$\left(  p,p+1,\ldots,q-1\right)  $, but we want $\left(  p,p+1,\ldots
+,q\right)  $.}.
+
+A few remarks on the summation sign are in order:
+
+\begin{definition}
+\label{def.sum.2}\textbf{(a)} In the expression $\sum_{i=p}^{q}a_{i}$ (as
+defined in Definition \ref{def.sum}), the letter $i$ is called the
+\textit{summation index}. It doesn't have to be called $i$; any letter is
+legitimate (as long as it is not already used otherwise, and as long as the
+same letter is used under the $\sum$ sign and to its right). For example,
+$\sum_{u=p}^{q}a_{u}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to
+write $\sum_{i=p}^{q}a_{i}$.
+
+\textbf{(b)} The sum $\sum_{i=p}^{q}a_{i}$ is also defined when $p>q$. In this
+case, it is called an \textit{empty sum} (because there are no numbers
+$a_{p},a_{p+1},\ldots,a_{q}$) and defined to be $0$.
+\end{definition}
+
+Using the summation sign, we can rewrite the product $AB$ of two matrices $A$
+and $B$ (see Definition \ref{def.AB}) more nicely:
+
+\begin{proposition}
+\label{prop.AB}Let $n,m,p$ be three integers. Let $A$ be an $n\times
+m$-matrix. Let $B$ be an $m\times p$-matrix. Then,%
+\[
+\left(  AB\right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{  1,2,\ldots,n\right\}  \text{
+and }j\in\left\{  1,2,\ldots,p\right\}  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.AB}.]The definition of $AB$ yields%
+\[
+AB=\left(  A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}\right)  _{1\leq
+i\leq n,\ 1\leq j\leq p}.
+\]
+Hence, for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $, we have%
+\[
+\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}%
+B_{m,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}%
+\]
+(because $\sum_{k=1}^{m}A_{i,k}B_{k,j}$ is exactly $A_{i,1}B_{1,j}%
++A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}$, by its definition). Proposition
+\ref{prop.AB} is proven.
+\end{proof}
+
+Here are two properties of sums that are fairly clear if you understand how
+sums are defined:
+
+\begin{proposition}
+\label{prop.sum.dist}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
+\[
+\sum_{i=p}^{q}ba_{i}=b\sum_{i=p}^{q}a_{i}.
+\]
+(The expression $\sum_{i=p}^{q}ba_{i}$ has to be read as $\sum_{i=p}%
+^{q}\left(  ba_{i}\right)  $.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
+have%
+\begin{align*}
+\sum_{i=p}^{q}ba_{i}  &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
+&  =b\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
+_{i=p}^{q}a_{i}\\\text{(by the definition of }\sum_{i=p}^{q}a_{i}\text{)}%
+}}=b\sum_{i=p}^{q}a_{i}.
+\end{align*}
+
+\end{proof}
+
+\begin{proposition}
+\label{prop.sum.a+b}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b_{p},b_{p+1},\ldots,b_{q}$
+be some numbers. Then,
+\[
+\sum_{i=p}^{q}\left(  a_{i}+b_{i}\right)  =\sum_{i=p}^{q}a_{i}+\sum_{i=p}%
+^{q}b_{i}.
+\]
+(The expression $\sum_{i=p}^{q}a_{i}+\sum_{i=p}^{q}b_{i}$ has to be read as
+$\left(  \sum_{i=p}^{q}a_{i}\right)  +\left(  \sum_{i=p}^{q}b_{i}\right)  $.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
+have%
+\begin{align*}
+\sum_{i=p}^{q}\left(  a_{i}+b_{i}\right)   &  =\left(  a_{p}+b_{p}\right)
++\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right) \\
+&  =\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
+_{i=p}^{q}a_{i}\\\text{(by the definition of }\sum_{i=p}^{q}a_{i}\text{)}%
+}}+\underbrace{\left(  b_{p}+b_{p+1}+\cdots+b_{q}\right)  }_{\substack{=\sum
+_{i=p}^{q}b_{i}\\\text{(by the definition of }\sum_{i=p}^{q}b_{i}\text{)}}}\\
+&  =\sum_{i=p}^{q}a_{i}+\sum_{i=p}^{q}b_{i}.
+\end{align*}
+
+\end{proof}
+
+Our goal in this section is to prove Proposition \ref{prop.matrix-laws.1}
+\textbf{(g)}, illustrating the use and manipulation of the $\sum$ sign.
+However, as a warmup, let us first prove Proposition \ref{prop.matrix-laws.1}
+\textbf{(d)} (which is simple enough that you can easily check it without
+$\sum$ signs, but is nevertheless worth proving using the $\sum$ sign just to
+demonstrate how to work with the $\sum$ sign):
+
+\begin{proof}
+[Proof of Proposition \ref{prop.matrix-laws.1} \textbf{(d)}.]Let $A$ be an
+$n\times m$-matrix. Let $B$ and $C$ be two $m\times p$-matrices.
+
+We shall show that $\left(  A\left(  B+C\right)  \right)  _{i,j}=\left(
+AB+AC\right)  _{i,j}$ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,p\right\}  $. This (once proven) will entail that
+corresponding entries of the two $n\times p$-matrices $A\left(  B+C\right)  $
+and $AB+AC$ are equal; and thus, these two matrices have to be equal.
+
+Proposition \ref{prop.AB} yields%
+\begin{equation}
+\left(  AB\right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}
+\label{pf.prop.matrix-laws.1.d.1}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $.
+
+Proposition \ref{prop.AB} (applied to $C$ instead of $B$) yields%
+\begin{equation}
+\left(  AC\right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}C_{k,j}
+\label{pf.prop.matrix-laws.1.d.2}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $.
+
+Finally, Proposition \ref{prop.AB} (applied to $B+C$ instead of $B$) yields%
+\begin{align*}
+\left(  A\left(  B+C\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}%
+A_{i,k}\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}%
++C_{k,j}\\\text{(since matrices are added entry by entry)}}}=\sum_{k=1}%
+^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }_{=A_{i,k}%
+B_{k,j}+A_{i,k}C_{k,j}}\\
+&  =\sum_{k=1}^{m}\left(  A_{i,k}B_{k,j}+A_{i,k}C_{k,j}\right)
+=\underbrace{\sum_{k=1}^{m}A_{i,k}B_{k,j}}_{\substack{=\left(  AB\right)
+_{i,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.d.1}))}}}+\underbrace{\sum
+_{k=1}^{m}A_{i,k}C_{k,j}}_{\substack{=\left(  AC\right)  _{i,j}\\\text{(by
+(\ref{pf.prop.matrix-laws.1.d.2}))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.sum.a+b}, applied to }p=1\text{, }q=m\text{,}\\
+a_{k}=A_{i,k}B_{k,j}\text{ and }b_{k}=A_{i,k}C_{k,j}%
+\end{array}
+\right) \\
+&  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}=\left(  AB+AC\right)
+_{i,j}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{again because matrices}\\
+\text{are added entry by entry}%
+\end{array}
+\right)
+\end{align*}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $. In other words, each entry of the $n\times p$-matrix $A\left(
+B+C\right)  $ equals the corresponding entry of $AB+AC$. Thus, the matrix
+$A\left(  B+C\right)  $ equals $AB+AC$. This proves Proposition
+\ref{prop.matrix-laws.1} \textbf{(d)}.
+\end{proof}
+
+Before we can prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)}, we need
+another fact about sums:
+
+\begin{proposition}
+\label{prop.sum.ij}Let $m\in\mathbb{N}$ and $p\in\mathbb{N}$. Assume that a
+number $a_{k,\ell}$ is given for every $k\in\left\{  1,2,\ldots,m\right\}  $
+and $\ell\in\left\{  1,2,\ldots,p\right\}  $. Then,%
+\[
+\sum_{k=1}^{m}\sum_{\ell=1}^{p}a_{k,\ell}=\sum_{\ell=1}^{p}\sum_{k=1}%
+^{m}a_{k,\ell}.
+\]
+(Note that an expression like $\sum_{k=1}^{m}\sum_{\ell=1}^{p}a_{k,\ell}$ has
+to be understood as $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
+$. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of sums.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.ij}.]This follows by comparing%
+\begin{align*}
+&  \sum_{k=1}^{m}\underbrace{\sum_{\ell=1}^{p}a_{k,\ell}}_{\substack{=a_{k,1}%
++a_{k,2}+\cdots+a_{k,p}\\\text{(by the definition of the }\sum\text{ sign)}%
+}}\\
+&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right) \\
+&  =\left(  a_{1,1}+a_{1,2}+\cdots+a_{1,p}\right)  +\left(  a_{2,1}%
++a_{2,2}+\cdots+a_{2,p}\right)  +\cdots+\left(  a_{m,1}+a_{m,2}+\cdots
++a_{m,p}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
+sign}\right) \\
+&  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)
+\end{align*}
+with%
+\begin{align*}
+&  \sum_{\ell=1}^{p}\underbrace{\sum_{k=1}^{m}a_{k,\ell}}%
+_{\substack{=a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\\\text{(by the definition
+of the }\sum\text{ sign)}}}\\
+&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right) \\
+&  =\left(  a_{1,1}+a_{2,1}+\cdots+a_{m,1}\right)  +\left(  a_{1,2}%
++a_{2,2}+\cdots+a_{m,2}\right)  +\cdots+\left(  a_{1,p}+a_{2,p}+\cdots
++a_{m,p}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
+sign}\right) \\
+&  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)  ,
+\end{align*}
+we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
+=\sum_{\ell=1}^{p}\left(  \sum_{k=1}^{m}a_{k,\ell}\right)  $.
+
+(A more rigorous proof could be given using induction; but this one will
+suffice for our purposes. Notice the visual meaning of the above proof: If we
+place the $mp$ numbers $a_{k,\ell}$ into a matrix $\left(  a_{k,\ell}\right)
+_{1\leq k\leq m,\ 1\leq\ell\leq p}$, then
+
+\begin{itemize}
+\item the number $\sum_{k=1}^{m}\sum_{\ell=1}^{p}a_{k,\ell}$ is obtained by
+summing the entries in each row of the matrix, and then summing the resulting sums;
+
+\item the number $\sum_{\ell=1}^{p}\sum_{k=1}^{m}a_{k,\ell}$ is obtained by
+summing the entries in each column of the matrix, and then summing the
+resulting sums.
+\end{itemize}
+
+Thus, clearly, both numbers are equal (namely, equal to the sum of all entries
+of the matrix.)
+\end{proof}
+
+Now, we can prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.matrix-laws.1} \textbf{(g)}.]Let $A$ be an
+$n\times m$-matrix. Let $B$ be an $m\times p$-matrix. Let $C$ be a $p\times q$-matrix.
+
+We must show that $A\left(  BC\right)  =\left(  AB\right)  C$. In order to do
+so, it suffices to show that $\left(  A\left(  BC\right)  \right)
+_{i,j}=\left(  \left(  AB\right)  C\right)  _{i,j}$ for all $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,q\right\}  $ (because
+this will show that respective entries of the two $n\times q$-matrices
+$A\left(  BC\right)  $ and $\left(  AB\right)  C$ are equal, and thus the two
+matrices are equal).
+
+We know that $A$ is an $n\times m$-matrix, and that $BC$ is an $m\times
+q$-matrix. Hence, we can apply Proposition \ref{prop.AB} to $n$, $m$, $q$, $A$
+and $BC$ instead of $n$, $m$, $p$, $A$ and $B$. We thus obtain%
+\begin{equation}
+\left(  A\left(  BC\right)  \right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}\left(
+BC\right)  _{k,j} \label{pf.prop.matrix-laws.1.g.A(BC)}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,q\right\}  $. Also, we can apply Proposition \ref{prop.AB} to $m$, $p$, $q$,
+$B$ and $C$ instead of $n$, $m$, $p$, $A$ and $B$. We thus obtain%
+\begin{align}
+\left(  BC\right)  _{i,j}  &  =\sum_{k=1}^{p}B_{i,k}C_{k,j}=\sum_{\ell=1}%
+^{p}B_{i,\ell}C_{\ell,j}\label{pf.prop.matrix-laws.1.g.BC}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we renamed the summation index
+}k\text{ as }\ell\right) \nonumber
+\end{align}
+for all $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $. Furthermore, we can apply Proposition \ref{prop.AB} to $n$,
+$p$, $q$, $AB$ and $C$ instead of $n$, $m$, $p$, $A$ and $B$. We thus find%
+\begin{align}
+\left(  \left(  AB\right)  C\right)  _{i,j}  &  =\sum_{k=1}^{p}\left(
+AB\right)  _{i,k}C_{k,j}=\sum_{\ell=1}^{p}\left(  AB\right)  _{i,\ell}%
+C_{\ell,j}\label{pf.prop.matrix-laws.1.g.(AB)C}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we renamed the summation index
+}k\text{ as }\ell\right) \nonumber
+\end{align}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,q\right\}  $. Finally, Proposition \ref{prop.AB} (applied verbatim) yields%
+\begin{equation}
+\left(  AB\right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}
+\label{pf.prop.matrix-laws.1.g.AB}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $.
+
+Now that we have found formulas for the entries of all matrices involved, we
+can perform our computation: For all $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,q\right\}  $, we have%
+\begin{align*}
+\left(  A\left(  BC\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}A_{i,k}%
+\underbrace{\left(  BC\right)  _{k,j}}_{\substack{=\sum_{\ell=1}^{p}B_{k,\ell
+}C_{\ell,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.BC}), applied to }k\text{
+instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right) \\
+&  =\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  \sum_{\ell=1}^{p}B_{k,\ell
+}C_{\ell,j}\right)  }_{\substack{=\sum_{\ell=1}^{p}A_{i,k}B_{k,\ell}C_{\ell
+,j}\\\text{(by an application of}\\\text{Proposition \ref{prop.sum.dist})}%
+}}=\sum_{k=1}^{m}\sum_{\ell=1}^{p}A_{i,k}B_{k,\ell}C_{\ell,j}\\
+&  =\sum_{\ell=1}^{p}\sum_{k=1}^{m}A_{i,k}B_{k,\ell}C_{\ell,j}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.sum.ij}, applied to
+}a_{k,\ell}=A_{i,k}B_{k,\ell}C_{\ell,j}\right)
+\end{align*}
+and%
+\begin{align*}
+\left(  \left(  AB\right)  C\right)  _{i,j}  &  =\sum_{\ell=1}^{p}%
+\underbrace{\left(  AB\right)  _{i,\ell}}_{\substack{=\sum_{k=1}^{m}%
+A_{i,k}B_{k,\ell}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.AB}), applied to
+}\ell\\\text{instead of }j\text{)}}}C_{\ell,j}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right) \\
+&  =\sum_{k=1}^{m}\underbrace{\left(  \sum_{k=1}^{m}A_{i,k}B_{k,\ell}\right)
+C_{\ell,j}}_{\substack{=C_{\ell,j}\sum_{k=1}^{m}A_{i,k}B_{k,\ell}=\sum
+_{\ell=1}^{p}C_{\ell,j}A_{i,k}B_{k,\ell}\\\text{(by an application
+of}\\\text{Proposition \ref{prop.sum.dist})}}}=\sum_{k=1}^{m}\sum_{\ell=1}%
+^{p}\underbrace{C_{\ell,j}A_{i,k}B_{k,\ell}}_{=A_{i,k}B_{k,\ell}C_{\ell,j}}\\
+&  =\sum_{\ell=1}^{p}\sum_{k=1}^{m}A_{i,k}B_{k,\ell}C_{\ell,j}.
+\end{align*}
+Comparing these two equalities, we obtain
+\[
+\left(  A\left(  BC\right)  \right)  _{i,j}=\left(  \left(  AB\right)
+C\right)  _{i,j}%
+\]
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,q\right\}  $. In other words, each entry of the matrix $A\left(  BC\right)  $
+equals the corresponding entry of the matrix $\left(  AB\right)  C$. Thus, the
+matrices $A\left(  BC\right)  $ and $\left(  AB\right)  C$ are equal. This
+proves Proposition \ref{prop.matrix-laws.1} \textbf{(g)}.
+\end{proof}
+
+We have just proven the hardest part of Proposition \ref{prop.matrix-laws.1}.
+The rest is fairly straightforward.
+
+\subsection{The zero matrix}
+
+\begin{definition}
+Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then, the $n\times m$\textit{ zero
+matrix} means the matrix $\left(  0\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$.
+This is the $n\times m$ matrix filled with zeroes. It is called $0_{n\times
+m}$. (When no confusion with the number $0$ can arise, we will just call it
+$0$.)
+\end{definition}
+
+For example, the $2\times3$ zero matrix is $\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 0\\
+0 & 0 & 0
+\end{array}
+\right)  $.
+
+The zero matrix behaves very much like the number $0$:
+
+\begin{proposition}
+\label{prop.matrix-laws.0}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then:
+
+\textbf{(a)} We have $0_{n\times m}+A=A+0_{n\times m}=A$ for each $n\times
+m$-matrix $A$.
+
+\textbf{(b)} We have $0_{n\times m}A=0_{n\times p}$ for each $p\in\mathbb{N}$
+and each $m\times p$-matrix $A$.
+
+\textbf{(c)} We have $A0_{n\times m}=0_{p\times m}$ for each $p\in\mathbb{N}$
+and each $p\times n$-matrix $A$.
+
+\textbf{(d)} We have $0A=0_{n\times m}$ for each $n\times m$-matrix $A$.
+\end{proposition}
+
+Numbers are known to be zero-divisor-free: If a product $ab$ of two numbers
+$a$ and $b$ is $0$, then one of $a$ and $b$ must be $0$. This also fails for
+matrices: If $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 0
+\end{array}
+\right)  $ and $B=\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+0 & 1
+\end{array}
+\right)  $, then $AB=0_{2\times2}$ is the zero matrix, although neither $A$
+nor $B$ is the zero matrix.
+
+\subsection{The identity matrix}
+
+\begin{definition}
+Let $n\in\mathbb{N}$. The \textit{diagonal entries} of an $n\times n$-matrix
+$A$ are its entries $A_{1,1},A_{2,2},\ldots,A_{n,n}$. In other words, they are
+the entries $A_{i,j}$ for $i=j$.
+\end{definition}
+
+For example, the diagonal entries of $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  $ are $a$ and $d$. The name \textquotedblleft diagonal
+entries\textquotedblright\ comes from the visualization of an $n\times
+n$-matrix as a square table: When we say \textquotedblleft
+diagonal\textquotedblright, we always mean the diagonal of the square that
+connects the upper-left corner with the lower-right corner; the diagonal
+entries are simply the entries along this diagonal. (The other diagonal is
+called the \textquotedblleft antidiagonal\textquotedblright\ in linear algebra.)
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Then, the $n\times n$ \textit{identity matrix} means the
+matrix $\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$, where%
+\begin{equation}
+\delta_{i,j}=%
+\begin{cases}
+1, & \text{if }i=j;\\
+0, & \text{if }i\neq j
+\end{cases}
+\ \ \ \ \ \ \ \ \ \ \text{for all }i\text{ and }j. \label{eq.def.In.eq}%
+\end{equation}
+This is the $n\times n$-matrix whose diagonal entries all equal $1$, and whose
+all other entries equal $0$. It is denoted by $I_{n}$. (Other people call it
+$I$ or $E$ or $E_{n}$.)
+\end{definition}
+
+For example, the $3\times3$ identity matrix is $I_{3}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  $.
+
+The notation $\delta_{i,j}$ defined in (\ref{eq.def.In.eq}) is called the
+\textit{Kronecker delta}; it is extremely simple and yet highly useful.
+
+The identity matrix behaves very much like the number $1$:
+
+\begin{proposition}
+\label{prop.matrix-laws.id}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$.
+
+\textbf{(a)} We have $I_{n}A=A$ for each $n\times m$-matrix $A$.
+
+\textbf{(b)} We have $AI_{m}=A$ for each $n\times m$-matrix $A$.
+\end{proposition}
+
+\subsection{(*) Proof of $AI_{n}=A$}
+
+Let me give a proof of Proposition \ref{prop.matrix-laws.id} \textbf{(b)}, to
+illustrate the following simple, yet important point about summations and the
+Kronecker delta\footnote{This is something that often comes up in computations
+(particularly in physics and computer science).}:
+
+\begin{proposition}
+\label{prop.sum.delta}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+$r\in\left\{  p,p+1,\ldots,q\right\}  $. Let $a_{p},a_{p+1},\ldots,a_{q}$ be
+some numbers. Then,%
+\[
+\sum_{i=p}^{q}a_{i}\delta_{i,r}=a_{r}.
+\]
+
+\end{proposition}
+
+\begin{example}
+For $p=1$, $q=5$ and $r=4$, Proposition \ref{prop.sum.delta} says that
+$\sum_{i=1}^{5}a_{i}\delta_{i,4}=a_{4}$. This is easy to check:%
+\begin{align*}
+\sum_{i=1}^{5}a_{i}\delta_{i,4}  & =a_{1}\underbrace{\delta_{1,4}%
+}_{\substack{=0\\\text{(since }1\neq4\text{)}}}+a_{2}\underbrace{\delta_{2,4}%
+}_{\substack{=0\\\text{(since }2\neq4\text{)}}}+a_{3}\underbrace{\delta_{3,4}%
+}_{\substack{=0\\\text{(since }3\neq4\text{)}}}+a_{4}\underbrace{\delta_{4,4}%
+}_{\substack{=1\\\text{(since }4=4\text{)}}}+a_{5}\underbrace{\delta_{5,4}%
+}_{\substack{=0\\\text{(since }5\neq4\text{)}}}\\
+& =a_{1}0+a_{2}0+a_{3}0+a_{4}1+a_{5}0=a_{4}1=a_{4}.
+\end{align*}
+What you should see on this example is that all but one addends of the sum
+$\sum_{i=p}^{q}a_{i}\delta_{i,r}$ are zero, and the remaining one addend is
+$a_{r}\underbrace{\delta_{r,r}}_{=1}=a_{r}1=a_{r}$. The proof below is just
+writing this down in the general situation.
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.delta}.]By the definition of the $\sum$
+sign, we have%
+\begin{align*}
+\sum_{i=p}^{q}a_{i}\delta_{i,r} &  =a_{p}\delta_{p,r}+a_{p+1}\delta
+_{p+1,r}+\cdots+a_{q}\delta_{q,r}\\
+&  =\left(  \text{the sum of all terms of the form }a_{i}\delta_{i,r}\right)
+\\
+&  =a_{r}\underbrace{\delta_{r,r}}_{\substack{=1\\\text{(since }r=r\text{)}%
+}}+\underbrace{\left(  \text{the sum of all terms of the form }a_{i}%
+\delta_{i,r}\text{ with }i\neq r\right)  }_{\substack{=0\\\text{(since all
+terms of the form }a_{i}\delta_{i,r}\text{ with }i\neq r\text{ are
+}0\\\text{(because if }i\neq r\text{, then }a_{i}\underbrace{\delta_{i,r}%
+}_{\substack{=0\\\text{(since }i\neq r\text{)}}}=a_{i}0=0\text{))}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have pulled out the addend
+}a_{r}\delta_{r,r}\text{ out of the sum}\right)  \\
+&  =a_{r}1+0=a_{r}.
+\end{align*}
+
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.matrix-laws.id} \textbf{(b)}.]We have
+$I_{m}=\left(  \delta_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq m}$ (this is
+how we defined $I_{m}$), and thus%
+\begin{equation}
+\left(  I_{m}\right)  _{u,v}=\delta_{u,v}\ \ \ \ \ \ \ \ \ \ \text{for all
+}u\in\left\{  1,2,\ldots,m\right\}  \text{ and }v\in\left\{  1,2,\ldots
+,m\right\}  .\label{pf.prop.matrix-laws.id.b.Im}%
+\end{equation}
+
+
+Let $A$ be an $n\times m$-matrix. For every $i\in\left\{  1,2,\ldots
+,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{align*}
+\left(  AI_{m}\right)  _{i,j}  & =\sum_{k=1}^{m}A_{i,k}\underbrace{\left(
+I_{m}\right)  _{k,j}}_{\substack{=\delta_{k,j}\\\text{(by
+(\ref{pf.prop.matrix-laws.id.b.Im}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.AB}, applied to }p=m\text{ and }B=I_{m}\right)  \\
+& =\sum_{k=1}^{m}A_{i,k}\delta_{k,j}%
+\end{align*}
+[to be continued]
+\end{proof}
+
+[to add: $A^{n}$ ]
+
+[to be continued]
+
+\begin{thebibliography}{999999999}                                                                                        %
+
+
+\bibitem[deBoor]{deBoor}Carl de Boor, \textit{An empty exercise}.
+\url{ftp://ftp.cs.wisc.edu/Approx/empty.pdf} .
+
+\bibitem[Drucker12]{Drucker12}D. Drucker, \textit{Annotated Bibliography of
+Linear Algebra Books}, February 2012.\newline\url{http://www.math.wayne.edu/~drucker/linalgrefsW12.pdf}
+
+\bibitem[OlvSha06]{OlvSha06}Peter J. Olver, Chehrzad Shakiban, \textit{Applied
+Linear Algebra}, Prentice Hall, 2006.
+
+\bibitem[Heffer16]{Heffer16}Jim Hefferon, \textit{Linear Algebra}, 2016.
+(Scroll down to \textquotedblleft The next edition\textquotedblright\ on
+\url{http://joshua.smcvt.edu/linearalgebra/} .)
+
+\bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
+Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
+2016. (Download from
+\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf} .)
+
+\bibitem[Treil15]{Treil15}Sergei Treil, \textit{Linear Algebra Done Wrong},
+2015. (Download from
+\url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf} .)
+\end{thebibliography}
+
+
+\end{document}
