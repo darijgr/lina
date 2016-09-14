@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:16:30}
+%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:32:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1098,62 +1098,62 @@ mathematics (and also computer science), and helps manipulate matrices comfortab
 
 \begin{definition}
 \label{def.sum}Let $p$ and $q$ be two integers such that $p\leq q$. Let
-$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Then, $\sum_{i=p}^{q}a_{i}$
+$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Then, $\sum_{k=p}^{q}a_{k}$
 means the sum $a_{p}+a_{p+1}+\cdots+a_{q}$. The symbol $\sum$ is called the
-summation sign; we pronounce the expression $\sum_{i=p}^{q}a_{i}$ as
-\textquotedblleft sum of $a_{i}$ for all $i$ ranging from $p$ to
+summation sign; we pronounce the expression $\sum_{k=p}^{q}a_{k}$ as
+\textquotedblleft sum of $a_{k}$ for all $k$ ranging from $p$ to
 $q$\textquotedblright.
 \end{definition}
 
 Here are some examples:
 
 \begin{itemize}
-\item We have $\sum_{i=p}^{q}i=p+\left(  p+1\right)  +\cdots+q$. For example,
-$\sum_{i=1}^{n}i=1+2+\cdots+n$. (A well-known formula says that this sum
-$\sum_{i=1}^{n}i=1+2+\cdots+n$ equals $\dfrac{n\left(  n+1\right)  }{2}$. For
-a concrete example, $\sum_{i=1}^{3}i=1+2+3=\dfrac{3\left(  3+1\right)  }{2}%
-=6$.) For another example, $\sum_{i=-n}^{n}i=\left(  -n\right)  +\left(
+\item We have $\sum_{k=p}^{q}k=p+\left(  p+1\right)  +\cdots+q$. For example,
+$\sum_{k=1}^{n}k=1+2+\cdots+n$. (A well-known formula says that this sum
+$\sum_{k=1}^{n}k=1+2+\cdots+n$ equals $\dfrac{n\left(  n+1\right)  }{2}$. For
+a concrete example, $\sum_{k=1}^{3}k=1+2+3=\dfrac{3\left(  3+1\right)  }{2}%
+=6$.) For another example, $\sum_{k=-n}^{n}k=\left(  -n\right)  +\left(
 -n+1\right)  +\cdots+n$. (This latter sum equals $0$, because it contains, for
 each its addend, also its negative\footnote{except for the addend $0$, but
-this $0$ doesn't contribute anything anyway}.)
+this $0$ doesn't change the sum anyway}.)
 
-\item We have $\sum_{i=p}^{q}i^{2}=p^{2}+\left(  p+1\right)  ^{2}+\cdots
-+q^{2}$. For example, $\sum_{i=1}^{n}i^{2}=1^{2}+2^{2}+\cdots+n^{2}$. (A
-well-known formula says that this sum $\sum_{i=1}^{n}i^{2}=1^{2}+2^{2}%
+\item We have $\sum_{k=p}^{q}k^{2}=p^{2}+\left(  p+1\right)  ^{2}+\cdots
++q^{2}$. For example, $\sum_{k=1}^{n}k^{2}=1^{2}+2^{2}+\cdots+n^{2}$. (A
+well-known formula says that this sum $\sum_{k=1}^{n}k^{2}=1^{2}+2^{2}%
 +\cdots+n^{2}$ equals $\dfrac{n\left(  n+1\right)  \left(  2n+1\right)  }{6}$.)
 
-\item If $p=q$, then $\sum_{i=p}^{q}a_{i}=a_{p}$. (A sum of only one number is
+\item If $p=q$, then $\sum_{k=p}^{q}a_{k}=a_{p}$. (A sum of only one number is
 simply this number.)
 \end{itemize}
 
-Notice that the expression \textquotedblleft$\sum_{i=p}^{q}a_{i}%
+Notice that the expression \textquotedblleft$\sum_{k=p}^{q}a_{k}%
 $\textquotedblright\ is both a more compact and a more rigorous way to say
 \textquotedblleft$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. A computer
 would not understand the expression \textquotedblleft$a_{p}+a_{p+1}%
 +\cdots+a_{q}$\textquotedblright\ (it could only guess what the
 \textquotedblleft$\cdots$\textquotedblright\ means, and computers are bad at
-guessing); but the expression \textquotedblleft$\sum_{i=p}^{q}a_{i}%
+guessing); but the expression \textquotedblleft$\sum_{k=p}^{q}a_{k}%
 $\textquotedblright\ has a well-defined meaning that can be rigorously defined
 and can be explained to a computer\footnote{Of course, the way we defined it
 above is not rigorous. Here is how to define it rigorously (if you know
 recursion):
 \par
 \begin{itemize}
-\item If $q=p$, then $\sum_{i=p}^{q}a_{i}$ is defined to be $a_{p}$.
+\item If $q=p$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $a_{p}$.
 \par
-\item If $q>p$, then $\sum_{i=p}^{q}a_{i}$ is defined to be $\left(
-\sum_{i=p}^{q-1}a_{i}\right)  +a_{q}$.
+\item If $q>p$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $\left(
+\sum_{k=p}^{q-1}a_{k}\right)  +a_{q}$.
 \end{itemize}
 \par
-This is a recursive definition (since $\sum_{i=p}^{q}a_{i}$ is defined in
-terms of $\sum_{i=p}^{q-1}a_{i}$), and provides an algorithm to compute
-$\sum_{i=p}^{q}a_{i}$.}. Thus, if you want to tell a computer to compute a
+This is a recursive definition (since it defines $\sum_{k=p}^{q}a_{k}$ in
+terms of $\sum_{k=p}^{q-1}a_{k}$), and provides an algorithm to compute
+$\sum_{k=p}^{q}a_{k}$.}. Thus, if you want to tell a computer to compute a
 sum, the command you have to use will be closer to \textquotedblleft%
-$\sum_{i=p}^{q}a_{i}$\textquotedblright\ than to \textquotedblleft%
+$\sum_{k=p}^{q}a_{k}$\textquotedblright\ than to \textquotedblleft%
 $a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. For example, in Python, you
-would have to write \textquotedblleft\texttt{sum(a[i] for i in range(p,
-q+1))}\textquotedblright\ (where \textquotedblleft\texttt{a[i]}%
-\textquotedblright\ is understood to return $a_{i}$)\ \ \ \ \footnote{Why
+would have to write \textquotedblleft\texttt{sum(a[k] for k in range(p,
+q+1))}\textquotedblright\ (where \textquotedblleft\texttt{a[k]}%
+\textquotedblright\ is understood to return $a_{k}$)\ \ \ \ \footnote{Why
 \textquotedblleft\texttt{q+1}\textquotedblright\ and not \textquotedblleft%
 \texttt{q}\textquotedblright? Because Python defines \texttt{range(u, v)} as
 the list $\left(  u,u+1,\ldots,v-1\right)  $ (that is, the list that starts at
@@ -1164,17 +1164,20 @@ $\left(  p,p+1,\ldots,q-1\right)  $, but we want $\left(  p,p+1,\ldots
 A few remarks on the summation sign are in order:
 
 \begin{definition}
-\label{def.sum.2}\textbf{(a)} In the expression $\sum_{i=p}^{q}a_{i}$ (as
-defined in Definition \ref{def.sum}), the letter $i$ is called the
-\textit{summation index}. It doesn't have to be called $i$; any letter is
-legitimate (as long as it is not already used otherwise, and as long as the
-same letter is used under the $\sum$ sign and to its right). For example,
-$\sum_{u=p}^{q}a_{u}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to
-write $\sum_{i=p}^{q}a_{i}$.
+\label{def.sum.2}\textbf{(a)} In the expression $\sum_{k=p}^{q}a_{k}$ (as
+defined in Definition \ref{def.sum}), the letter $k$ is called the
+\textit{summation index}. It doesn't have to be called $k$; any letter is
+legitimate (as long as it is not already used otherwise). For example,
+$\sum_{i=p}^{q}a_{i}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to
+write $\sum_{k=p}^{q}a_{k}$. Just make sure that the  you are using the same
+letter under the $\sum$ sign and to its right (so you should not write
+$\sum_{i=p}^{q}a_{k}$, unless you mean the sum $\underbrace{a_{k}+a_{k}%
++\cdots+a_{k}}_{q-p+1\text{ times}}$).
 
-\textbf{(b)} The sum $\sum_{i=p}^{q}a_{i}$ is also defined when $p>q$. In this
+\textbf{(b)} The sum $\sum_{k=p}^{q}a_{k}$ is also defined when $p>q$. In this
 case, it is called an \textit{empty sum} (because there are no numbers
-$a_{p},a_{p+1},\ldots,a_{q}$) and defined to be $0$.
+$a_{p},a_{p+1},\ldots,a_{q}$) and defined to be $0$. This convention might
+sound somewhat arbitrary, but it is the most reasonable way to define empty sums.
 \end{definition}
 
 Using the summation sign, we can rewrite the product $AB$ of two matrices $A$
@@ -1215,20 +1218,20 @@ sums are defined:
 \label{prop.sum.dist}Let $p$ and $q$ be two integers such that $p\leq q$. Let
 $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
 \[
-\sum_{i=p}^{q}ba_{i}=b\sum_{i=p}^{q}a_{i}.
+\sum_{k=p}^{q}ba_{k}=b\sum_{k=p}^{q}a_{k}.
 \]
-(The expression $\sum_{i=p}^{q}ba_{i}$ has to be read as $\sum_{i=p}%
-^{q}\left(  ba_{i}\right)  $.)
+(The expression $\sum_{k=p}^{q}ba_{k}$ has to be read as $\sum_{k=p}%
+^{q}\left(  ba_{k}\right)  $.)
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
 have%
 \begin{align*}
-\sum_{i=p}^{q}ba_{i}  &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
+\sum_{k=p}^{q}ba_{k} &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
 &  =b\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
-_{i=p}^{q}a_{i}\\\text{(by the definition of }\sum_{i=p}^{q}a_{i}\text{)}%
-}}=b\sum_{i=p}^{q}a_{i}.
+_{k=p}^{q}a_{k}\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}%
+}}=b\sum_{k=p}^{q}a_{k}.
 \end{align*}
 
 \end{proof}
@@ -1238,24 +1241,24 @@ _{i=p}^{q}a_{i}\\\text{(by the definition of }\sum_{i=p}^{q}a_{i}\text{)}%
 $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b_{p},b_{p+1},\ldots,b_{q}$
 be some numbers. Then,
 \[
-\sum_{i=p}^{q}\left(  a_{i}+b_{i}\right)  =\sum_{i=p}^{q}a_{i}+\sum_{i=p}%
-^{q}b_{i}.
+\sum_{k=p}^{q}\left(  a_{k}+b_{k}\right)  =\sum_{k=p}^{q}a_{k}+\sum_{k=p}%
+^{q}b_{k}.
 \]
-(The expression $\sum_{i=p}^{q}a_{i}+\sum_{i=p}^{q}b_{i}$ has to be read as
-$\left(  \sum_{i=p}^{q}a_{i}\right)  +\left(  \sum_{i=p}^{q}b_{i}\right)  $.)
+(The expression $\sum_{k=p}^{q}a_{k}+\sum_{k=p}^{q}b_{k}$ has to be read as
+$\left(  \sum_{k=p}^{q}a_{k}\right)  +\left(  \sum_{k=p}^{q}b_{k}\right)  $.)
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
 have%
 \begin{align*}
-\sum_{i=p}^{q}\left(  a_{i}+b_{i}\right)   &  =\left(  a_{p}+b_{p}\right)
-+\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right) \\
+\sum_{k=p}^{q}\left(  a_{k}+b_{k}\right)   &  =\left(  a_{p}+b_{p}\right)
++\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right)  \\
 &  =\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
-_{i=p}^{q}a_{i}\\\text{(by the definition of }\sum_{i=p}^{q}a_{i}\text{)}%
+_{k=p}^{q}a_{k}\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}%
 }}+\underbrace{\left(  b_{p}+b_{p+1}+\cdots+b_{q}\right)  }_{\substack{=\sum
-_{i=p}^{q}b_{i}\\\text{(by the definition of }\sum_{i=p}^{q}b_{i}\text{)}}}\\
-&  =\sum_{i=p}^{q}a_{i}+\sum_{i=p}^{q}b_{i}.
+_{k=p}^{q}b_{k}\\\text{(by the definition of }\sum_{k=p}^{q}b_{k}\text{)}}}\\
+&  =\sum_{k=p}^{q}a_{k}+\sum_{k=p}^{q}b_{k}.
 \end{align*}
 
 \end{proof}
@@ -1273,9 +1276,9 @@ $n\times m$-matrix. Let $B$ and $C$ be two $m\times p$-matrices.
 
 We shall show that $\left(  A\left(  B+C\right)  \right)  _{i,j}=\left(
 AB+AC\right)  _{i,j}$ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and
-$j\in\left\{  1,2,\ldots,p\right\}  $. This (once proven) will entail that
-corresponding entries of the two $n\times p$-matrices $A\left(  B+C\right)  $
-and $AB+AC$ are equal; and thus, these two matrices have to be equal.
+$j\in\left\{  1,2,\ldots,p\right\}  $. Once this is proven, this will entail
+that corresponding entries of the two $n\times p$-matrices $A\left(
+B+C\right)  $ and $AB+AC$ are equal; and thus, these two matrices have to be equal.
 
 Proposition \ref{prop.AB} yields%
 \begin{equation}
@@ -1341,21 +1344,31 @@ and $\ell\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \]
 (Note that an expression like $\sum_{k=1}^{m}\sum_{\ell=1}^{p}a_{k,\ell}$ has
 to be understood as $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
-$. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of sums.)
+$. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of
+sums. For example,%
+\begin{align*}
+\sum_{k=1}^{3}\underbrace{\sum_{\ell=1}^{4}k\cdot\ell}_{=k\cdot1+k\cdot
+2+k\cdot3+k\cdot4}  & =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
+3+k\cdot4\right)  \\
+& =\left(  1\cdot1+1\cdot2+1\cdot3+1\cdot4\right)  +\left(  2\cdot
+1+2\cdot2+2\cdot3+2\cdot4\right)  s\\
+& \ \ \ \ \ \ \ \ \ \ +\left(  3\cdot1+3\cdot2+3\cdot3+3\cdot4\right)  .
+\end{align*}
+)
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.sum.ij}.]This follows by comparing%
+[Proof of Proposition \ref{prop.sum.ij}.]Comparing%
 \begin{align*}
 &  \sum_{k=1}^{m}\underbrace{\sum_{\ell=1}^{p}a_{k,\ell}}_{\substack{=a_{k,1}%
 +a_{k,2}+\cdots+a_{k,p}\\\text{(by the definition of the }\sum\text{ sign)}%
 }}\\
-&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right) \\
+&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right)  \\
 &  =\left(  a_{1,1}+a_{1,2}+\cdots+a_{1,p}\right)  +\left(  a_{2,1}%
 +a_{2,2}+\cdots+a_{2,p}\right)  +\cdots+\left(  a_{m,1}+a_{m,2}+\cdots
-+a_{m,p}\right) \\
++a_{m,p}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right) \\
+sign}\right)  \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)
 \end{align*}
 with%
@@ -1363,12 +1376,13 @@ with%
 &  \sum_{\ell=1}^{p}\underbrace{\sum_{k=1}^{m}a_{k,\ell}}%
 _{\substack{=a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\\\text{(by the definition
 of the }\sum\text{ sign)}}}\\
-&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right) \\
+&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right)
+\\
 &  =\left(  a_{1,1}+a_{2,1}+\cdots+a_{m,1}\right)  +\left(  a_{1,2}%
 +a_{2,2}+\cdots+a_{m,2}\right)  +\cdots+\left(  a_{1,p}+a_{2,p}+\cdots
-+a_{m,p}\right) \\
++a_{m,p}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right) \\
+sign}\right)  \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)  ,
 \end{align*}
 we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
@@ -1389,7 +1403,7 @@ resulting sums.
 \end{itemize}
 
 Thus, clearly, both numbers are equal (namely, equal to the sum of all entries
-of the matrix.)
+of the matrix).
 \end{proof}
 
 Now, we can prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)}:
@@ -1611,25 +1625,25 @@ Kronecker delta\footnote{This is something that often comes up in computations
 $r\in\left\{  p,p+1,\ldots,q\right\}  $. Let $a_{p},a_{p+1},\ldots,a_{q}$ be
 some numbers. Then,%
 \[
-\sum_{i=p}^{q}a_{i}\delta_{i,r}=a_{r}.
+\sum_{k=p}^{q}a_{k}\delta_{k,r}=a_{r}.
 \]
 
 \end{proposition}
 
 \begin{example}
 For $p=1$, $q=5$ and $r=4$, Proposition \ref{prop.sum.delta} says that
-$\sum_{i=1}^{5}a_{i}\delta_{i,4}=a_{4}$. This is easy to check:%
+$\sum_{k=1}^{5}a_{k}\delta_{k,4}=a_{4}$. This is easy to check:%
 \begin{align*}
-\sum_{i=1}^{5}a_{i}\delta_{i,4}  & =a_{1}\underbrace{\delta_{1,4}%
+\sum_{k=1}^{5}a_{k}\delta_{k,4} &  =a_{1}\underbrace{\delta_{1,4}%
 }_{\substack{=0\\\text{(since }1\neq4\text{)}}}+a_{2}\underbrace{\delta_{2,4}%
 }_{\substack{=0\\\text{(since }2\neq4\text{)}}}+a_{3}\underbrace{\delta_{3,4}%
 }_{\substack{=0\\\text{(since }3\neq4\text{)}}}+a_{4}\underbrace{\delta_{4,4}%
 }_{\substack{=1\\\text{(since }4=4\text{)}}}+a_{5}\underbrace{\delta_{5,4}%
 }_{\substack{=0\\\text{(since }5\neq4\text{)}}}\\
-& =a_{1}0+a_{2}0+a_{3}0+a_{4}1+a_{5}0=a_{4}1=a_{4}.
+&  =a_{1}0+a_{2}0+a_{3}0+a_{4}1+a_{5}0=a_{4}1=a_{4}.
 \end{align*}
 What you should see on this example is that all but one addends of the sum
-$\sum_{i=p}^{q}a_{i}\delta_{i,r}$ are zero, and the remaining one addend is
+$\sum_{k=p}^{q}a_{k}\delta_{k,r}$ are zero, and the remaining one addend is
 $a_{r}\underbrace{\delta_{r,r}}_{=1}=a_{r}1=a_{r}$. The proof below is just
 writing this down in the general situation.
 \end{example}
@@ -1638,16 +1652,16 @@ writing this down in the general situation.
 [Proof of Proposition \ref{prop.sum.delta}.]By the definition of the $\sum$
 sign, we have%
 \begin{align*}
-\sum_{i=p}^{q}a_{i}\delta_{i,r} &  =a_{p}\delta_{p,r}+a_{p+1}\delta
+\sum_{k=p}^{q}a_{k}\delta_{k,r} &  =a_{p}\delta_{p,r}+a_{p+1}\delta
 _{p+1,r}+\cdots+a_{q}\delta_{q,r}\\
-&  =\left(  \text{the sum of all terms of the form }a_{i}\delta_{i,r}\right)
+&  =\left(  \text{the sum of all terms of the form }a_{k}\delta_{k,r}\right)
 \\
 &  =a_{r}\underbrace{\delta_{r,r}}_{\substack{=1\\\text{(since }r=r\text{)}%
-}}+\underbrace{\left(  \text{the sum of all terms of the form }a_{i}%
-\delta_{i,r}\text{ with }i\neq r\right)  }_{\substack{=0\\\text{(since all
-terms of the form }a_{i}\delta_{i,r}\text{ with }i\neq r\text{ are
-}0\\\text{(because if }i\neq r\text{, then }a_{i}\underbrace{\delta_{i,r}%
-}_{\substack{=0\\\text{(since }i\neq r\text{)}}}=a_{i}0=0\text{))}}}\\
+}}+\underbrace{\left(  \text{the sum of all terms of the form }a_{k}%
+\delta_{k,r}\text{ with }k\neq r\right)  }_{\substack{=0\\\text{(since all
+terms of the form }a_{k}\delta_{k,r}\text{ with }k\neq r\text{ are
+}0\\\text{(because if }k\neq r\text{, then }a_{k}\underbrace{\delta_{k,r}%
+}_{\substack{=0\\\text{(since }k\neq r\text{)}}}=a_{k}0=0\text{))}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have pulled out the addend
 }a_{r}\delta_{r,r}\text{ out of the sum}\right)  \\
 &  =a_{r}1+0=a_{r}.
@@ -1662,21 +1676,32 @@ how we defined $I_{m}$), and thus%
 \begin{equation}
 \left(  I_{m}\right)  _{u,v}=\delta_{u,v}\ \ \ \ \ \ \ \ \ \ \text{for all
 }u\in\left\{  1,2,\ldots,m\right\}  \text{ and }v\in\left\{  1,2,\ldots
-,m\right\}  .\label{pf.prop.matrix-laws.id.b.Im}%
+,m\right\}  . \label{pf.prop.matrix-laws.id.b.Im}%
 \end{equation}
 
 
 Let $A$ be an $n\times m$-matrix. For every $i\in\left\{  1,2,\ldots
 ,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
 \begin{align*}
-\left(  AI_{m}\right)  _{i,j}  & =\sum_{k=1}^{m}A_{i,k}\underbrace{\left(
+\left(  AI_{m}\right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}\underbrace{\left(
 I_{m}\right)  _{k,j}}_{\substack{=\delta_{k,j}\\\text{(by
 (\ref{pf.prop.matrix-laws.id.b.Im}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 Proposition \ref{prop.AB}, applied to }p=m\text{ and }B=I_{m}\right)  \\
-& =\sum_{k=1}^{m}A_{i,k}\delta_{k,j}%
+&  =\sum_{k=1}^{m}A_{i,k}\delta_{k,j}=A_{i,j}%
 \end{align*}
-[to be continued]
+(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=j$ and
+$a_{k}=A_{i,k}$). In other words, each entry of the $n\times m$-matrix
+$AI_{m}$ equals the corresponding entry of the $n\times m$-matrix $A$. In
+other words, $AI_{m}$ equals $A$. This proves Proposition
+\ref{prop.matrix-laws.id} \textbf{(b)}.
 \end{proof}
+
+Proposition \ref{prop.matrix-laws.id} \textbf{(a)} can be proven similarly
+(but this time, instead of the sum $\sum_{k=1}^{m}A_{i,k}\delta_{k,j}$, we
+must consider the sum $\sum_{k=1}^{m}\delta_{i,k}A_{k,j}=\sum_{k=1}^{m}%
+A_{k,j}\delta_{i,k}=A_{i,j}$).
+
+\subsection{Powers of a matrix}
 
 [to add: $A^{n}$ ]
 
