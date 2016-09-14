@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:44:11}
+%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:58:35}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -191,8 +191,9 @@ goodreads are usually just good for a laugh.)
 
 The notes you are reading are under construction, and will remain so for at
 least the whole Fall term 2016. Please let me know of any errors and
-unclarities you encounter (my email address is \texttt{dgrinber@umn.edu}).
-Thank you!
+unclarities you encounter (my email address is \texttt{dgrinber@umn.edu}%
+)\footnote{The sourcecode of the notes is also publicly available at
+\url{https://github.com/darijgr/lina} .}. Thank you!
 
 \subsection{Acknowledgments}
 
@@ -258,8 +259,9 @@ and $m$. When they are equal (that is, $n=m$), we say that $A$ is a
 \begin{definition}
 If $A$ is an $n\times m$-matrix, and if $i\in\left\{  1,2,\ldots,n\right\}  $
 and $j\in\left\{  1,2,\ldots,m\right\}  $, then $A_{i,j}$ will denote the
-$\left(  i,j\right)  $-th entry of $A$ (that is, the entry of $A$ in row $i$
-and column $j$).
+entry of $A$ in row $i$ and column $j$. This entry is also called the $\left(
+i,j\right)  $\textit{-th entry of }$A$ (or simply the $\left(  i,j\right)
+$\textit{-entry of }$A$).
 \end{definition}
 
 For example, $\left(
@@ -652,11 +654,11 @@ done by multiplying corresponding entries! (Why not? Well, it wouldn't make
 for a particularly useful notion.) Instead, the definition goes as follows:
 
 \begin{definition}
-\label{def.AB}Let $n,m,p$ be three integers. Let $A$ be an $n\times m$-matrix.
-Let $B$ be an $m\times p$-matrix. (Thus, $A$ has to have $m$ columns, while
-$B$ has to have $m$ rows; other than this, the two matrices do not need to
-have any relation to each other.) The product $AB$ of these two matrices is
-defined as follows:%
+\label{def.AB}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$A$ be an $n\times m$-matrix. Let $B$ be an $m\times p$-matrix. (Thus, $A$ has
+to have $m$ columns, while $B$ has to have $m$ rows; other than this, the two
+matrices do not need to have any relation to each other.) The product $AB$ of
+these two matrices is defined as follows:%
 \[
 AB=\left(  \underbrace{A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
 }_{\substack{\text{This is the sum of the }m\text{ terms of the form}%
@@ -670,19 +672,19 @@ This definition is somewhat overwhelming, so let me rewrite it in words and
 give some examples:
 
 It says that the product $AB$ is well-defined whenever $A$ has as many columns
-as $B$ has rows. In this case, $AB$ is the matrix whose $\left(  i,j\right)
-$-th entry is obtained by adding together:
+as $B$ has rows. In this case, $AB$ is the $n\times p$-matrix whose $\left(
+i,j\right)  $-th entry is obtained by adding together:
 
 \begin{itemize}
-\item the product $A_{i,1}B_{1,j}$ of the $\left(  i,1\right)  $-st entry of
+\item the product $A_{i,1}B_{1,j}$ of the $\left(  i,1\right)  $-th entry of
 $A$ with the $\left(  1,j\right)  $-th entry of $B$;
 
-\item the product $A_{i,2}B_{2,j}$ of the $\left(  i,2\right)  $-nd entry of
+\item the product $A_{i,2}B_{2,j}$ of the $\left(  i,2\right)  $-th entry of
 $A$ with the $\left(  2,j\right)  $-th entry of $B$;
 
 \item and so on;
 
-\item the product $A_{i,m}B_{m,j}$ of the $\left(  i,m\right)  $-nd entry of
+\item the product $A_{i,m}B_{m,j}$ of the $\left(  i,m\right)  $-th entry of
 $A$ with the $\left(  m,j\right)  $-th entry of $B$.
 \end{itemize}
 
@@ -790,7 +792,222 @@ of the nice properties that we will see later (e.g., our matrix multiplication
 satisfies the associativity law $\left(  AB\right)  C=A\left(  BC\right)  $,
 while \textquotedblleft row by row\textquotedblright\ does not).
 
+\subsection{The matrix product rewritten}
 
+Let me show another way to restate our above definition of a product of two
+matrices. First, one more notation:
+
+\begin{definition}
+Let $A$ be an $n\times m$-matrix.
+
+\textbf{(a)} If $i\in\left\{  1,2,\ldots,n\right\}  $, then
+$\operatorname*{row}\nolimits_{i}A$ will denote the $i$-th row of $A$. This is
+a row vector of size $m$ (that is, a $1\times m$-matrix), and is formally
+defined as
+\[
+\left(  A_{i,y}\right)  _{1\leq x\leq1,\ 1\leq y\leq m}=\left(
+\begin{array}
+[c]{cccc}%
+A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
+\end{array}
+\right)
+\]
+(notice how $i$ is kept fixed but $y$ is ranging from $1$ to $m$ here).
+
+\textbf{(b)} If $j\in\left\{  1,2,\ldots,m\right\}  $, then
+$\operatorname*{col}\nolimits_{j}A$ will denote the $j$-th column of $A$. This
+is a column vector of size $n$ (that is, an $n\times1$-matrix), and is
+formally defined as
+\[
+\left(  A_{x,j}\right)  _{1\leq x\leq n,\ 1\leq y\leq1}=\left(
+\begin{array}
+[c]{c}%
+A_{1,j}\\
+A_{2,j}\\
+\vdots\\
+A_{n,j}%
+\end{array}
+\right)  .
+\]
+
+\end{definition}
+
+\begin{example}
+If $A=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+d & e & f
+\end{array}
+\right)  $, then $\operatorname*{row}\nolimits_{2}A=\left(
+\begin{array}
+[c]{ccc}%
+d & e & f
+\end{array}
+\right)  $ and $\operatorname*{col}\nolimits_{2}A=\left(
+\begin{array}
+[c]{c}%
+b\\
+e
+\end{array}
+\right)  $.
+\end{example}
+
+Now, we observe that if $R$ is a row vector of some size $m$, and if $C$ is a
+column vector of size $m$, then $RC$ is a $1\times1$-matrix. More precisely:
+The product of a row vector $\left(
+\begin{array}
+[c]{cccc}%
+r_{1} & r_{2} & \cdots & r_{m}%
+\end{array}
+\right)  $ and a column vector $\left(
+\begin{array}
+[c]{c}%
+c_{1}\\
+c_{2}\\
+\vdots\\
+c_{m}%
+\end{array}
+\right)  $ is given by
+\begin{equation}
+\left(
+\begin{array}
+[c]{cccc}%
+r_{1} & r_{2} & \cdots & r_{m}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+c_{1}\\
+c_{2}\\
+\vdots\\
+c_{m}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+r_{1}c_{1}+r_{2}c_{2}+\cdots+r_{m}c_{m}%
+\end{array}
+\right)  .\label{eq.matrix-prod.RC}%
+\end{equation}
+We shall often equate a $1\times1$-matrix with its (unique) entry; so the
+equality (\ref{eq.matrix-prod.RC}) rewrites as%
+\begin{equation}
+\left(
+\begin{array}
+[c]{cccc}%
+r_{1} & r_{2} & \cdots & r_{m}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+c_{1}\\
+c_{2}\\
+\vdots\\
+c_{m}%
+\end{array}
+\right)  =r_{1}c_{1}+r_{2}c_{2}+\cdots+r_{m}c_{m}.\label{eq.matrix-prod.RC.1}%
+\end{equation}
+
+
+Now, we can see the following:
+
+\begin{proposition}
+\label{prop.matrix-prod.rc}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and
+$m\in\mathbb{N}$. Let $A$ be an $n\times m$-matrix. Let $B$ be an $m\times
+p$-matrix. Then, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(  i,j\right)  $-th entry of
+$AB$ equals the product of the $i$-th row of $A$ and the $j$-th column of $B$.
+In formulas:%
+\begin{equation}
+\left(  AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot
+\operatorname*{col}\nolimits_{j}B\label{eq.prop.matrix-prod.rc.1}%
+\end{equation}
+for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $. Thus,
+\begin{align*}
+AB  & =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
+\nolimits_{j}B\right)  _{1\leq i\leq n,\ 1\leq j\leq p}\\
+& =\left(
+\begin{array}
+[c]{cccc}%
+\operatorname*{row}\nolimits_{1}A\cdot\operatorname*{col}\nolimits_{1}B &
+\operatorname*{row}\nolimits_{1}A\cdot\operatorname*{col}\nolimits_{2}B &
+\cdots & \operatorname*{row}\nolimits_{1}A\cdot\operatorname*{col}%
+\nolimits_{p}B\\
+\operatorname*{row}\nolimits_{2}A\cdot\operatorname*{col}\nolimits_{1}B &
+\operatorname*{row}\nolimits_{2}A\cdot\operatorname*{col}\nolimits_{2}B &
+\cdots & \operatorname*{row}\nolimits_{2}A\cdot\operatorname*{col}%
+\nolimits_{p}B\\
+\vdots & \vdots & \ddots & \vdots\\
+\operatorname*{row}\nolimits_{n}A\cdot\operatorname*{col}\nolimits_{1}B &
+\operatorname*{row}\nolimits_{n}A\cdot\operatorname*{col}\nolimits_{2}B &
+\cdots & \operatorname*{row}\nolimits_{n}A\cdot\operatorname*{col}%
+\nolimits_{p}B
+\end{array}
+\right)  .
+\end{align*}
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.matrix-prod.rc}.] By the definition of $AB$,
+we have%
+\[
+AB=\left(  A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}\right)  _{1\leq
+i\leq n,\ 1\leq j\leq p}.
+\]
+In other words,%
+\begin{equation}
+\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}%
+B_{m,j}\label{pf.prop.matrix-prod.rc.1}%
+\end{equation}
+for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $.
+
+Now, let us prove Proposition \ref{prop.matrix-prod.rc}. It is clearly enough
+to prove (\ref{eq.prop.matrix-prod.rc.1}). So let's do this. Let $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
+\begin{align*}
+\operatorname*{row}\nolimits_{i}A  & =\left(
+\begin{array}
+[c]{cccc}%
+A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\operatorname*{col}\nolimits_{j}B  & =\left(
+\begin{array}
+[c]{c}%
+B_{1,j}\\
+B_{2,j}\\
+\vdots\\
+B_{m,j}%
+\end{array}
+\right)  .
+\end{align*}
+Hence,%
+\begin{align*}
+\operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}\nolimits_{j}B  &
+=\left(
+\begin{array}
+[c]{cccc}%
+A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+B_{1,j}\\
+B_{2,j}\\
+\vdots\\
+B_{m,j}%
+\end{array}
+\right)  \\
+& =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}.
+\end{align*}
+Comparing this with (\ref{pf.prop.matrix-prod.rc.1}), we obtain $\left(
+AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
+\nolimits_{j}B$. Thus, we have proven (\ref{eq.prop.matrix-prod.rc.1}).
+\end{proof}
 
 \subsection{Properties of matrix operations}
 
