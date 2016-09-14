@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 01:34:59}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 11:53:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1968,6 +1968,172 @@ $A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
 A^{v}=A^{u+v}=A^{v}A^{u}$.)
 
 \section{Gaussian elimination}
+
+\subsection{Linear equations and matrices}
+
+We now take aim at understanding Gaussian elimination in terms of matrices.
+First of all, let us see what solving linear equations has to do with matrices.
+
+\begin{example}
+\label{exam.systems}Consider the following system of equations in three
+unknowns $x,y,z$:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+3x+6y-z=2;\\
+7x+4y-3z=3;\\
+-y+8z=1
+\end{array}
+\right.  .\label{eq.exam.systems.1}%
+\end{equation}
+I claim that this system of equations is equivalent to the single equation%
+\begin{equation}
+\left(
+\begin{array}
+[c]{ccc}%
+3 & 6 & -1\\
+7 & 4 & -3\\
+0 & -1 & 8
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x\\
+y\\
+z
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+0
+\end{array}
+\right)  \label{eq.exam.systems.2}%
+\end{equation}
+(this is an equation between two column vectors of size $3$, so no wonder that
+it encodes a whole system of linear equations).
+
+Why are (\ref{eq.exam.systems.1}) and (\ref{eq.exam.systems.2}) equivalent?
+Well, the left hand side of (\ref{eq.exam.systems.2}) is%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+3 & 6 & -1\\
+7 & 4 & -3\\
+0 & -1 & 8
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x\\
+y\\
+z
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3x+6y+\left(  -1\right)  z\\
+7x+4y+\left(  -3\right)  z\\
+0x+\left(  -1\right)  y+8z
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3x+6y-z\\
+7x+4y-3z\\
+-y+8z
+\end{array}
+\right)  .
+\]
+Thus, (\ref{eq.exam.systems.2}) is equivalent to%
+\[
+\left(
+\begin{array}
+[c]{c}%
+3x+6y-z\\
+7x+4y-3z\\
+-y+8z
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+0
+\end{array}
+\right)  .
+\]
+But this is clearly equivalent to (\ref{eq.exam.systems.1}).
+
+Note that the vector $\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+0
+\end{array}
+\right)  $ on the right hand side of (\ref{eq.exam.systems.2}) is precisely
+the $3\times1$ zero matrix $0_{3\times1}$ (also denoted by $0$). So we may
+rewrite (\ref{eq.exam.systems.2}) as%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+3 & 6 & -1\\
+7 & 4 & -3\\
+0 & -1 & 8
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x\\
+y\\
+z
+\end{array}
+\right)  =0_{3\times1}.
+\]
+
+\end{example}
+
+More generally, the system of $m$ linear equations
+\[
+\left\{
+\begin{array}
+[c]{c}%
+a_{1,1}x_{1}+a_{1,2}x_{2}+\cdots+a_{1,n}x_{n}=b_{1};\\
+a_{2,1}x_{1}+a_{2,2}x_{2}+\cdots+a_{2,n}x_{n}=b_{2};\\
+\vdots\\
+a_{m,1}x_{1}+a_{m,2}x_{2}+\cdots+a_{m,n}x_{n}=b_{m}%
+\end{array}
+\right.
+\]
+in $n$ unknowns $x_{1},x_{2},\ldots,x_{n}$ is equivalent to the vector
+equation%
+\[
+\left(
+\begin{array}
+[c]{cccc}%
+a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m,1} & a_{m,2} & \cdots & a_{m,n}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{n}%
+\end{array}
+\right)  =0_{m\times1}.
+\]
+Thus, matrices give us a way to rewrite systems of linear equations as single
+equations between vectors. Moreover, as we will see, they give us a way to
+manipulate these equations easily.
 
 \subsection{Inverse matrices}
 
