@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 13, 2016 22:58:35}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 01:34:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -23,7 +23,6 @@
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
-\usetikzlibrary{arrows}
 \newcounter{exer}
 \newcounter{exera}
 \theoremstyle{definition}
@@ -888,7 +887,7 @@ c_{m}%
 [c]{c}%
 r_{1}c_{1}+r_{2}c_{2}+\cdots+r_{m}c_{m}%
 \end{array}
-\right)  .\label{eq.matrix-prod.RC}%
+\right)  . \label{eq.matrix-prod.RC}%
 \end{equation}
 We shall often equate a $1\times1$-matrix with its (unique) entry; so the
 equality (\ref{eq.matrix-prod.RC}) rewrites as%
@@ -906,7 +905,7 @@ c_{2}\\
 \vdots\\
 c_{m}%
 \end{array}
-\right)  =r_{1}c_{1}+r_{2}c_{2}+\cdots+r_{m}c_{m}.\label{eq.matrix-prod.RC.1}%
+\right)  =r_{1}c_{1}+r_{2}c_{2}+\cdots+r_{m}c_{m}. \label{eq.matrix-prod.RC.1}%
 \end{equation}
 
 
@@ -921,14 +920,14 @@ $AB$ equals the product of the $i$-th row of $A$ and the $j$-th column of $B$.
 In formulas:%
 \begin{equation}
 \left(  AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot
-\operatorname*{col}\nolimits_{j}B\label{eq.prop.matrix-prod.rc.1}%
+\operatorname*{col}\nolimits_{j}B \label{eq.prop.matrix-prod.rc.1}%
 \end{equation}
 for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,p\right\}  $. Thus,
 \begin{align*}
-AB  & =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
+AB  &  =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
 \nolimits_{j}B\right)  _{1\leq i\leq n,\ 1\leq j\leq p}\\
-& =\left(
+&  =\left(
 \begin{array}
 [c]{cccc}%
 \operatorname*{row}\nolimits_{1}A\cdot\operatorname*{col}\nolimits_{1}B &
@@ -951,16 +950,16 @@ AB  & =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.matrix-prod.rc}.] By the definition of $AB$,
-we have%
+[Proof of Proposition \ref{prop.matrix-prod.rc}.]By the definition of $AB$, we
+have%
 \[
 AB=\left(  A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}\right)  _{1\leq
 i\leq n,\ 1\leq j\leq p}.
 \]
 In other words,%
 \begin{equation}
-\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}%
-B_{m,j}\label{pf.prop.matrix-prod.rc.1}%
+\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}
+\label{pf.prop.matrix-prod.rc.1}%
 \end{equation}
 for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,p\right\}  $.
@@ -969,13 +968,13 @@ Now, let us prove Proposition \ref{prop.matrix-prod.rc}. It is clearly enough
 to prove (\ref{eq.prop.matrix-prod.rc.1}). So let's do this. Let $i\in\left\{
 1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \begin{align*}
-\operatorname*{row}\nolimits_{i}A  & =\left(
+\operatorname*{row}\nolimits_{i}A  &  =\left(
 \begin{array}
 [c]{cccc}%
 A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-\operatorname*{col}\nolimits_{j}B  & =\left(
+\operatorname*{col}\nolimits_{j}B  &  =\left(
 \begin{array}
 [c]{c}%
 B_{1,j}\\
@@ -1001,8 +1000,8 @@ B_{2,j}\\
 \vdots\\
 B_{m,j}%
 \end{array}
-\right)  \\
-& =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}.
+\right) \\
+&  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}.
 \end{align*}
 Comparing this with (\ref{pf.prop.matrix-prod.rc.1}), we obtain $\left(
 AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
@@ -1928,9 +1927,9 @@ $0^{0}$ is undefined is merely spreading their confusion.}, and we define each
 next power of $a$ by multiplying the previous one by $a$. In formulas:
 $a^{k+1}=a\cdot a^{k}$ for each $k\in\mathbb{N}$. Thus,%
 \begin{align*}
-a^{1}  & =a\cdot\underbrace{a^{0}}_{=1}=a\cdot1=a;\\
-a^{2}  & =a\cdot\underbrace{a^{1}}_{=a}=a\cdot a;\\
-a^{3}  & =a\cdot\underbrace{a^{2}}_{=a\cdot a}=a\cdot a\cdot a,
+a^{1}  &  =a\cdot\underbrace{a^{0}}_{=1}=a\cdot1=a;\\
+a^{2}  &  =a\cdot\underbrace{a^{1}}_{=a}=a\cdot a;\\
+a^{3}  &  =a\cdot\underbrace{a^{2}}_{=a\cdot a}=a\cdot a\cdot a,
 \end{align*}
 etc.. We can explicitly write
 \[
@@ -1968,7 +1967,21 @@ n$-matrix $A$, and any $u\in\mathbb{N}$ and $v\in\mathbb{N}$, the two matrices
 $A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
 A^{v}=A^{u+v}=A^{v}A^{u}$.)
 
+\section{Gaussian elimination}
 
+\subsection{Inverse matrices}
+
+\begin{definition}
+\label{def.inverse-matrix}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
+be an $n\times m$-matrix, and $B$ be an $m\times n$-matrix.
+
+\textbf{(a)} We say that $B$ is \textit{right-inverse} to $A$ if $AB=I_{n}$.
+
+\textbf{(b)} We say that $B$ is \textit{left-inverse} to $A$ if $BA=I_{m}$.
+
+\textbf{(c)} We say that $B$ is \textit{inverse} to $A$ if both $AB=I_{n}$ and
+$BA=I_{m}$.
+\end{definition}
 
 [to be continued]
 
