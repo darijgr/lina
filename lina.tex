@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:25:52}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:54:34}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1517,11 +1517,11 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 
 Finally, Proposition \ref{prop.AB} (applied to $B+C$ instead of $B$) yields%
 \begin{align*}
-\left(  A\left(  B+C\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
-\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}+C_{k,j}%
-\\\text{(since matrices are}\\\text{added entry by entry)}}}=\sum_{k=1}%
-^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }_{=A_{i,k}%
-B_{k,j}+A_{i,k}C_{k,j}}\\
+\left(  A\left(  B+C\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}%
+A_{i,k}\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}%
++C_{k,j}\\\text{(since matrices are}\\\text{added entry by entry)}}%
+}=\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }%
+_{=A_{i,k}B_{k,j}+A_{i,k}C_{k,j}}\\
 &  =\sum_{k=1}^{m}\left(  A_{i,k}B_{k,j}+A_{i,k}C_{k,j}\right)
 =\underbrace{\sum_{k=1}^{m}A_{i,k}B_{k,j}}_{\substack{=\left(  AB\right)
 _{i,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.d.1}))}}}+\underbrace{\sum
@@ -1533,7 +1533,7 @@ _{k=1}^{m}A_{i,k}C_{k,j}}_{\substack{=\left(  AC\right)  _{i,j}\\\text{(by
 \text{by Proposition \ref{prop.sum.a+b}, applied to }p=1\text{, }q=m\text{,}\\
 a_{k}=A_{i,k}B_{k,j}\text{ and }b_{k}=A_{i,k}C_{k,j}%
 \end{array}
-\right)  \\
+\right) \\
 &  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}\\
 &  =\left(  AB+AC\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
@@ -2196,8 +2196,8 @@ $BA=I_{m}$.
 \end{definition}
 
 \begin{example}
-\textbf{(a)} Let $A=\left(  1,4\right)  $. (Recall that this means the
-$1\times2$-matrix $\left(
+\label{exam.inverses}\textbf{(a)} Let $A=\left(  1,4\right)  $. (Recall that
+this means the $1\times2$-matrix $\left(
 \begin{array}
 [c]{cc}%
 1 & 4
@@ -2358,7 +2358,131 @@ right-inverse to $A$ ? I will let you figure this out (see Exercise
 1 & 1
 \end{array}
 \right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
-right-inverse to $A$ ? [...]
+right-inverse to $A$ ?
+
+A matrix $B$ that is left-inverse to $A$ would have to be a $2\times2$-matrix.
+A $2\times2$-matrix $B=\left(
+\begin{array}
+[c]{cc}%
+x & y\\
+z & w
+\end{array}
+\right)  $ is left-inverse to $A$ if and only if it satisfies $BA=I_{2}$, that
+is, $\left(
+\begin{array}
+[c]{cc}%
+x & y\\
+z & w
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+1 & -1\\
+1 & 1
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $, or, equivalently, $\left(
+\begin{array}
+[c]{cc}%
+x+y & -x+y\\
+w+z & w-z
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  $, or, equivalently,%
+\[
+\left\{
+\begin{array}
+[c]{c}%
+x+y=1;\\
+-x+y=0;\\
+w+z=0;\\
+w-z=1
+\end{array}
+\right.  .
+\]
+This is a system of four linear equations in the four unknowns $x,y,z,w$; it
+has the unique solution%
+\[
+\left(  x,y,z,w\right)  =\left(  \dfrac{1}{2},\dfrac{1}{2},-\dfrac{1}%
+{2},\dfrac{1}{2}\right)  .
+\]
+Thus, a $2\times2$-matrix $B=\left(
+\begin{array}
+[c]{cc}%
+x & y\\
+z & w
+\end{array}
+\right)  $ is left-inverse to $A$ if and only if $\left(  x,y,z,w\right)
+=\left(  \dfrac{1}{2},\dfrac{1}{2},-\dfrac{1}{2},\dfrac{1}{2}\right)  $. In
+other words, there exists exactly one $2\times2$-matrix left-inverse to $A$,
+and this matrix is $\left(
+\begin{array}
+[c]{cc}%
+\dfrac{1}{2} & \dfrac{1}{2}\\
+-\dfrac{1}{2} & \dfrac{1}{2}%
+\end{array}
+\right)  $.
+
+A similar computation reveals that there exists exactly one $2\times2$-matrix
+right-inverse to $A$, and this matrix is $\left(
+\begin{array}
+[c]{cc}%
+\dfrac{1}{2} & \dfrac{1}{2}\\
+-\dfrac{1}{2} & \dfrac{1}{2}%
+\end{array}
+\right)  $. So the unique matrix left-inverse to $A$ and the unique matrix
+right-inverse to $A$ are actually equal (and thus is inverse to $A$). This
+might not be clear from the definitions, but as we shall soon see, this is not
+a coincidence.
+
+\textbf{(e)} Generalizing Example \ref{exam.inverses} \textbf{(d)}, we might
+wonder when a $2\times2$-matrix $A=\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  $ has a left-inverse, a right-inverse or an inverse. For any given
+four values of $a,b,c,d$, we can answer this question similarly how we
+answered it for the matrix $A=\left(
+\begin{array}
+[c]{cc}%
+1 & -1\\
+1 & 1
+\end{array}
+\right)  $ in Example \ref{exam.inverses} \textbf{(d)} (by solving a system of
+linear equation). The procedure will depend on whether some numbers are zero
+or not. (For example, we might want to divide the equation $bx+dy=0$ by $b$,
+which requires $b\neq0$; the case $b=0$ will then have to be treated
+separately.) But the final result will be the following:
+
+\begin{itemize}
+\item If $ad-bc=0$, then the matrix $A$ has no left-inverses and no right-inverses.
+
+\item If $ad-bc\neq0$, then the matrix $A$ has a unique inverse, which is also
+the unique left-inverse and the unique right-inverse. This inverse is $\left(
+%
+\begin{array}
+[c]{cc}%
+\dfrac{d}{ad-bc} & -\dfrac{b}{ad-bc}\\
+-\dfrac{c}{ad-bc} & \dfrac{a}{ad-bc}%
+\end{array}
+\right)  $.
+\end{itemize}
+
+Again, this phenomenon of the left-inverse equalling the right-inverse
+appears. Notably, the number $ad-bc$ plays an important role here; we will
+later see more of it (it is an example of a \textit{determinant}).
 \end{example}
 
 \begin{exercise}
@@ -2371,6 +2495,8 @@ right-inverse to $A$ ? [...]
 \right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
 right-inverse to $A$ ?
 \end{exercise}
+
+
 
 [to be continued]
 
