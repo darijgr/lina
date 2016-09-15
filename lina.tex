@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 12:13:47}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:21:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -513,8 +513,9 @@ $\left(
 \end{array}
 \right)  $ denotes a column vector, whereas $\dbinom{4}{2}$ denotes a binomial
 coefficient (which equals the number $6$). The only way to tell them apart is
-by their size.}! It is much more economical to rewrite it as the transpose of
-a row vector: $\left(
+by the amount of empty space between the parentheses and the entries; this is
+not a very reliable way to keep different notations apart.}! It is much more
+economical to rewrite it as the transpose of a row vector: $\left(
 \begin{array}
 [c]{cccc}%
 4 & -1 & 2 & 0
@@ -1566,8 +1567,8 @@ $. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of
 sums. For example,%
 \begin{align*}
 \sum_{k=1}^{3}\underbrace{\sum_{\ell=1}^{4}k\cdot\ell}_{=k\cdot1+k\cdot
-2+k\cdot3+k\cdot4}  &  =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
-3+k\cdot4\right) \\
+2+k\cdot3+k\cdot4} &  =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
+3+k\cdot4\right)  \\
 &  =\left(  1\cdot1+1\cdot2+1\cdot3+1\cdot4\right)  +\left(  2\cdot
 1+2\cdot2+2\cdot3+2\cdot4\right)  s\\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  3\cdot1+3\cdot2+3\cdot3+3\cdot4\right)  .
@@ -1575,18 +1576,33 @@ sums. For example,%
 )
 \end{proposition}
 
+\begin{example}
+For $m=2$ and $p=3$, Proposition \ref{prop.sum.ij} says that%
+\[
+\sum_{k=1}^{2}\sum_{\ell=1}^{3}a_{k,\ell}=\sum_{\ell=1}^{3}\sum_{k=1}%
+^{2}a_{k,\ell}.
+\]
+In other words,%
+\[
+\left(  a_{1,1}+a_{1,2}+a_{1,3}\right)  +\left(  a_{2,1}+a_{2,2}%
++a_{2,3}\right)  =\left(  a_{1,1}+a_{2,1}\right)  +\left(  a_{1,2}%
++a_{2,2}\right)  +\left(  a_{1,3}+a_{2,3}\right)  .
+\]
+
+\end{example}
+
 \begin{proof}
 [Proof of Proposition \ref{prop.sum.ij}.]Comparing%
 \begin{align*}
 &  \sum_{k=1}^{m}\underbrace{\sum_{\ell=1}^{p}a_{k,\ell}}_{\substack{=a_{k,1}%
 +a_{k,2}+\cdots+a_{k,p}\\\text{(by the definition of the }\sum\text{ sign)}%
 }}\\
-&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right) \\
+&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right)  \\
 &  =\left(  a_{1,1}+a_{1,2}+\cdots+a_{1,p}\right)  +\left(  a_{2,1}%
 +a_{2,2}+\cdots+a_{2,p}\right)  +\cdots+\left(  a_{m,1}+a_{m,2}+\cdots
-+a_{m,p}\right) \\
++a_{m,p}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right) \\
+sign}\right)  \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)
 \end{align*}
 with%
@@ -1594,12 +1610,13 @@ with%
 &  \sum_{\ell=1}^{p}\underbrace{\sum_{k=1}^{m}a_{k,\ell}}%
 _{\substack{=a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\\\text{(by the definition
 of the }\sum\text{ sign)}}}\\
-&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right) \\
+&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right)
+\\
 &  =\left(  a_{1,1}+a_{2,1}+\cdots+a_{m,1}\right)  +\left(  a_{1,2}%
 +a_{2,2}+\cdots+a_{m,2}\right)  +\cdots+\left(  a_{1,p}+a_{2,p}+\cdots
-+a_{m,p}\right) \\
++a_{m,p}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right) \\
+sign}\right)  \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)  ,
 \end{align*}
 we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
@@ -1620,7 +1637,7 @@ resulting sums.
 \end{itemize}
 
 Thus, clearly, both numbers are equal (namely, equal to the sum of all entries
-of the matrix).
+of the matrix).)
 \end{proof}
 
 Now, we can prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)}:
@@ -1985,7 +2002,7 @@ unknowns $x,y,z$:%
 7x+4y-3z=3;\\
 -y+8z=1
 \end{array}
-\right.  .\label{eq.exam.systems.1}%
+\right.  . \label{eq.exam.systems.1}%
 \end{equation}
 I claim that this system of equations is equivalent to the single equation%
 \begin{equation}
@@ -2108,15 +2125,15 @@ b_{2}\\
 \vdots\\
 b_{m}%
 \end{array}
-\right)  .\label{eq.exam.systems.gen}%
+\right)  . \label{eq.exam.systems.gen}%
 \end{equation}
 In other words, it is equivalent to the vector equation%
 \begin{equation}
-Ax=b,\label{eq.exam.systems.gen.short}%
+Ax=b, \label{eq.exam.systems.gen.short}%
 \end{equation}
 where%
 \begin{align*}
-A  & =\left(
+A  &  =\left(
 \begin{array}
 [c]{cccc}%
 a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
@@ -2125,7 +2142,7 @@ a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
 a_{m,1} & a_{m,2} & \cdots & a_{m,n}%
 \end{array}
 \right)  ,\\
-x  & =\left(
+x  &  =\left(
 \begin{array}
 [c]{c}%
 x_{1}\\
