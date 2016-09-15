@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 20:33:18}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 03:18:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1740,7 +1740,7 @@ The rest is fairly straightforward.
 \begin{definition}
 Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then, the $n\times m$\textit{ zero
 matrix} means the matrix $\left(  0\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$.
-This is the $n\times m$ matrix filled with zeroes. It is called $0_{n\times
+This is the $n\times m$-matrix filled with zeroes. It is called $0_{n\times
 m}$. (When no confusion with the number $0$ can arise, we will just call it
 $0$.)
 \end{definition}
@@ -1847,6 +1847,14 @@ The identity matrix behaves very much like the number $1$:
 \textbf{(b)} We have $AI_{m}=A$ for each $n\times m$-matrix $A$.
 \end{proposition}
 
+Proposition \ref{prop.matrix-laws.id} says that multiplying a matrix $A$ by an
+identity matrix (from either side) does not change $A$. Thus, identity
+matrices have no effect inside a product, and so can be \textquotedblleft
+cancelled\textquotedblright\ (or, more precisely, dropped). For example, if
+$A$, $B$, $C$ and $D$ are four $n\times n$-matrices, then $I_{n}ABI_{n}%
+I_{n}CI_{n}D=ABCD$. (Of course, this is similar to dropping $1$'s from
+products of numbers: $1ab\cdot1\cdot1c\cdot1d=abcd$.)
+
 \subsection{(*) Proof of $AI_{n}=A$}
 
 Let me give a proof of Proposition \ref{prop.matrix-laws.id} \textbf{(b)}, to
@@ -1883,8 +1891,22 @@ writing this down in the general situation.
 \end{example}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.sum.delta}.]By the definition of the $\sum$
-sign, we have%
+[Proof of Proposition \ref{prop.sum.delta}.]Let us first notice something
+simple: For any $k\in\left\{  p,p+1,\ldots,q\right\}  $ such that $k\neq r$,
+we have%
+\[
+a_{k}\underbrace{\delta_{k,r}}_{\substack{=0\\\text{(since }k\neq r\text{)}%
+}}=a_{k}0=0.
+\]
+In other words, all terms of the form $a_{k}\delta_{k,r}$ with $k\neq r$ are
+$0$. Hence, the sum of all these terms is $0$ as well. In other words,%
+\begin{equation}
+\left(  \text{the sum of all terms of the form }a_{k}\delta_{k,r}\text{ with
+}k\neq r\right)  =0. \label{pf.prop.sum.delta.1}%
+\end{equation}
+
+
+By the definition of the $\sum$ sign, we have%
 \begin{align*}
 \sum_{k=p}^{q}a_{k}\delta_{k,r}  &  =a_{p}\delta_{p,r}+a_{p+1}\delta
 _{p+1,r}+\cdots+a_{q}\delta_{q,r}\\
@@ -1892,10 +1914,8 @@ _{p+1,r}+\cdots+a_{q}\delta_{q,r}\\
 \\
 &  =a_{r}\underbrace{\delta_{r,r}}_{\substack{=1\\\text{(since }r=r\text{)}%
 }}+\underbrace{\left(  \text{the sum of all terms of the form }a_{k}%
-\delta_{k,r}\text{ with }k\neq r\right)  }_{\substack{=0\\\text{(since all
-terms of the form }a_{k}\delta_{k,r}\text{ with }k\neq r\text{ are
-}0\\\text{(because if }k\neq r\text{, then }a_{k}\underbrace{\delta_{k,r}%
-}_{\substack{=0\\\text{(since }k\neq r\text{)}}}=a_{k}0=0\text{))}}}\\
+\delta_{k,r}\text{ with }k\neq r\right)  }_{\substack{=0\\\text{(by
+(\ref{pf.prop.sum.delta.1}))}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have pulled out the addend
 }a_{r}\delta_{r,r}\text{ out of the sum}\right) \\
 &  =a_{r}1+0=a_{r}.
@@ -2532,7 +2552,7 @@ inverse of $A$. Then:
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.inverses.L=R}.] We know that $LA=I_{m}$ (since
+[Proof of Proposition \ref{prop.inverses.L=R}.]We know that $LA=I_{m}$ (since
 $L$ is a left inverse of $A$) and that $AR=I_{n}$ (since $R$ is a right
 inverse of $A$).
 
@@ -2543,14 +2563,14 @@ $L\left(  AR\right)  =\left(  LA\right)  R$.)
 One way to rewrite $LAR$ is as follows:%
 \begin{equation}
 L\underbrace{AR}_{=I_{n}}=LI_{n}=L\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.matrix-laws.id} \textbf{(b)}}\right)
-.\label{pf.prop.inverses.L=R.1}%
+Proposition \ref{prop.matrix-laws.id} \textbf{(b)}}\right)  .
+\label{pf.prop.inverses.L=R.1}%
 \end{equation}
 Another way is%
 \begin{equation}
 \underbrace{LA}_{=I_{m}}R=I_{m}R=R\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-Proposition \ref{prop.matrix-laws.id} \textbf{(a)}}\right)
-.\label{pf.prop.inverses.L=R.2}%
+Proposition \ref{prop.matrix-laws.id} \textbf{(a)}}\right)  .
+\label{pf.prop.inverses.L=R.2}%
 \end{equation}
 Comparing (\ref{pf.prop.inverses.L=R.1}) with (\ref{pf.prop.inverses.L=R.2}),
 we obtain $L=R$. This proves Proposition \ref{prop.inverses.L=R} \textbf{(a)}.
@@ -2589,6 +2609,315 @@ $A$ equals $R$. Thus, there exists at most one inverse of $A$. Therefore, the
 matrix $L$ is the only inverse of $A$ (since we already know that $L$ is an
 inverse of $A$). This proves Proposition \ref{prop.inverses.L=R} \textbf{(d)}.
 \end{proof}
+
+\begin{corollary}
+\label{cor.inverses.unique}Let $A$ be a matrix. Then, $A$ has at most one inverse.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.inverses.unique}.]We need to show that any two
+inverses of $A$ equal. So let $L$ and $R$ be two inverses of $A$. We must show
+that $L=R$.
+
+Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$ be such that $A$ is an $n\times
+m$-matrix. The matrix $L$ is an inverse of $A$, thus satisfies $LA=I_{m}$.
+Hence, $L$ is a left inverse of $A$. Also, the matrix $R$ is an inverse of
+$A$, thus satisfies $AR=I_{n}$. Hence, $R$ is a right inverse of $A$. Thus,
+Proposition \ref{prop.inverses.L=R} \textbf{(a)} shows that $L=R$. This proves
+Corollary \ref{cor.inverses.unique}.
+\end{proof}
+
+\begin{definition}
+\textbf{(a)} A matrix $A$ is said to be \textit{invertible} if it has an
+inverse. (Similarly, we can define the words \textquotedblleft
+left-invertible\textquotedblright\ and \textquotedblleft
+right-invertible\textquotedblright.)
+
+\textbf{(b)} Let $A$ be an invertible matrix. Then, $A$ has an inverse. Due to
+Corollary \ref{cor.inverses.unique}, we furthermore know that $A$ has at most
+one inverse. Thus, $A$ has exactly one inverse. We can thus call it
+\textquotedblleft\textbf{the} inverse of $A$\textquotedblright, and denote it
+by $A^{-1}$. If $A$ is an $n\times m$-matrix, then this inverse satisfies
+$A^{-1}A=I_{m}$ and $AA^{-1}=I_{n}$ (by its definition).
+\end{definition}
+
+Notice that the equalities $A^{-1}A=I_{m}$ and $AA^{-1}=I_{n}$ show that a
+matrix $A$ and its inverse $A^{-1}$ cancel each other when they stand adjacent
+in a product: for example, $BA^{-1}AC$ simplifies to $BC$. However, they do
+not (generally) cancel each other when they appear apart from one another: for
+example, $BA^{-1}CA$ does \textbf{not} simplify to $BC$.
+
+So what matrices are invertible? The following theorem significantly narrows
+the search down; we shall not prove it until later:
+
+\begin{theorem}
+\label{thm.invertible.size}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
+be an $n\times m$-matrix.
+
+\textbf{(a)} If $A$ has a right-inverse, then $n\leq m$ (that is, the matrix
+$A$ has at least as many columns as it has rows).
+
+\textbf{(b)} If $A$ has a left-inverse, then $n\geq m$ (that is, the matrix
+$A$ has at most as many columns as it has rows).
+
+\textbf{(c)} If $A$ is invertible (i.e., has an inverse), then $n=m$ (that is,
+the matrix $A$ is square).
+\end{theorem}
+
+Let us now check some simpler facts about inverses:
+
+\begin{proposition}
+\label{prop.inverses.In}Let $n\in\mathbb{N}$. Then, the matrix $I_{n}$ is
+invertible, and its inverse is $\left(  I_{n}\right)  ^{-1}=I_{n}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.inverses.In}.]We have $I_{n}I_{n}=I_{n}$ and
+$I_{n}I_{n}=I_{n}$. Hence, the matrix $I_{n}$ is an inverse of $I_{n}$ (by the
+definition of \textquotedblleft inverse\textquotedblright). This proves
+Proposition \ref{prop.inverses.In}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.inverses.AB}Let $A$ and $B$ be two invertible matrices such that
+the product $AB$ is well-defined (i.e., such that $A$ has as many columns as
+$B$ has rows). Then, the matrix $AB$ is also invertible, and its inverse is
+\begin{equation}
+\left(  AB\right)  ^{-1}=B^{-1}A^{-1}. \label{eq.prop.inverses.AB.eq}%
+\end{equation}
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.inverses.AB}.]Let $n$, $m$ and $p$ be
+nonnegative integers such that $A$ is an $n\times m$-matrix and $B$ is an
+$m\times p$-matrix\footnote{We can indeed find such $n$, $m$ and $p$ because
+$A$ has as many columns as $B$ has rows.}. (Actually, Theorem
+\ref{thm.invertible.size} \textbf{(c)} reveals that the matrices $A$ and $B$
+are square and therefore $n=m=p$; but I do not want to use Theorem
+\ref{thm.invertible.size} \textbf{(c)} here, since I have not yet proven it.)
+
+Recall once again that (by general associativity) products of matrices can be
+written without parentheses. Thus, for example, the products $B^{-1}A^{-1}AB$
+and $ABB^{-1}A^{-1}$ make sense. Let us simplify these products:%
+\[
+B^{-1}\underbrace{A^{-1}A}_{=I_{m}}B=B^{-1}I_{m}B=B^{-1}B=I_{p}%
+\]
+and%
+\[
+A\underbrace{BB^{-1}}_{=I_{m}}A^{-1}=AI_{m}A^{-1}=AA^{-1}=I_{n}.
+\]
+But these two equalities say precisely that $B^{-1}A^{-1}$ is an inverse of
+$AB$. (If you don't believe me, rewrite them with parentheses: $\left(
+B^{-1}A^{-1}\right)  \left(  AB\right)  =I_{p}$ and $\left(  AB\right)
+\left(  B^{-1}A^{-1}\right)  =I_{n}$.) In particular, this shows that $AB$ is
+invertible. This proves Proposition \ref{prop.inverses.AB}.
+\end{proof}
+
+In words, (\ref{eq.prop.inverses.AB.eq}) says that the inverse of a product of
+two matrices is the product of their inverses, but \textbf{in opposite order}.
+This takes some getting used to, but is really a natural thing; the same rule
+holds for inverting the composition of functions\footnote{Namely: If $X$, $Y$
+and $Z$ are three sets, and if $b:X\rightarrow Y$ and $a:Y\rightarrow Z$ are
+two invertible functions (i.e., bijections), then $a\circ b:X\rightarrow Z$ is
+an invertible function as well, and its inverse is $\left(  a\circ b\right)
+^{-1}=b^{-1}\circ a^{-1}$. (Some authors liken this to the fact that if you
+want to undo the process of putting on socks and then putting on shoes, you
+have to first take off your shoes and then take off your socks. See
+\url{https://proofwiki.org/wiki/Inverse_of_Product} .)}.
+
+\begin{proposition}
+\label{prop.inverses.A1Ak}Let $A_{1},A_{2},\ldots,A_{k}$ be $k$ invertible
+matrices (where $k$ is a positive integer) such that the product $A_{1}%
+A_{2}\cdots A_{k}$ is well-defined (i.e., such that $A_{i}$ has as many
+columns as $A_{i+1}$ has rows, for each $i<k$). Then, the matrix $A_{1}%
+A_{2}\cdots A_{k}$ is invertible, and its inverse is%
+\[
+\left(  A_{1}A_{2}\cdots A_{k}\right)  ^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots
+A_{1}^{-1}.
+\]
+
+\end{proposition}
+
+Proposition \ref{prop.inverses.A1Ak} is a natural extension of Proposition
+\ref{prop.inverses.AB} to products of more than $2$ matrices. The proof of
+Proposition \ref{prop.inverses.A1Ak} is straightforward, and I am only showing
+it as an example of proof by induction:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.inverses.A1Ak}.]We prove Proposition
+\ref{prop.inverses.A1Ak} by induction on $k$:
+
+\textit{Induction base:} If $k=1$, then Proposition \ref{prop.inverses.A1Ak}
+says that $A_{1}^{-1}=A_{1}^{-1}$; this is obviously true. Hence, Proposition
+\ref{prop.inverses.A1Ak} holds for $k=1$.\ \ \ \ \footnote{A remark for the
+pedants: It is common to define the product of $0$ square matrices of size
+$n\times n$ (an \textquotedblleft empty product of $n\times n$%
+-matrices\textquotedblright) as the identity matrix $I_{n}$ (similarly to how
+a product of $0$ numbers is defined to be $1$). With this convention,
+Proposition \ref{prop.inverses.A1Ak} holds for $k=0$ too (it then states that
+$\left(  I_{n}\right)  ^{-1}=I_{n}$), as long as we agree what size our
+non-existing matrices are considered to have (it has to be $n\times n$ for
+some $n\in\mathbb{N}$). So we could have started our induction at $k=0$
+instead of $k=1$.}
+
+\textit{Induction step:} Let $\ell$ be a positive integer. Assume (as our
+\textit{induction hypothesis}) that Proposition \ref{prop.inverses.A1Ak} holds
+for $k=\ell$. In other words, for any $\ell$ invertible matrices $A_{1}%
+,A_{2},\ldots,A_{\ell}$ for which the product $A_{1}A_{2}\cdots A_{\ell}$ is
+well-defined, the matrix $A_{1}A_{2}\cdots A_{\ell}$ is invertible, and its
+inverse is%
+\[
+\left(  A_{1}A_{2}\cdots A_{\ell}\right)  ^{-1}=A_{\ell}^{-1}A_{\ell-1}%
+^{-1}\cdots A_{1}^{-1}.
+\]
+
+
+We must now show that Proposition \ref{prop.inverses.A1Ak} also holds for
+$k=\ell+1$. So let us fix $\ell+1$ invertible matrices $A_{1},A_{2}%
+,\ldots,A_{\ell+1}$ for which the product $A_{1}A_{2}\cdots A_{\ell+1}$ is
+well-defined. We must then show that the matrix $A_{1}A_{2}\cdots A_{\ell+1}$
+is invertible, and that its inverse is
+\[
+\left(  A_{1}A_{2}\cdots A_{\ell+1}\right)  ^{-1}=A_{\ell+1}^{-1}A_{\ell}%
+^{-1}\cdots A_{1}^{-1}.
+\]
+
+
+The product $A_{1}A_{2}\cdots A_{\ell}$ is well-defined (since the product
+$A_{1}A_{2}\cdots A_{\ell+1}$ is well-defined). Hence, we can apply our
+induction hypothesis, and conclude that the matrix $A_{1}A_{2}\cdots A_{\ell}$
+is invertible, and its inverse is%
+\[
+\left(  A_{1}A_{2}\cdots A_{\ell}\right)  ^{-1}=A_{\ell}^{-1}A_{\ell-1}%
+^{-1}\cdots A_{1}^{-1}.
+\]
+
+
+Now, the matrices $A_{1}A_{2}\cdots A_{\ell}$ and $A_{\ell+1}$ are invertible,
+and their product \newline$\left(  A_{1}A_{2}\cdots A_{\ell}\right)
+A_{\ell+1}=A_{1}A_{2}\cdots A_{\ell+1}$ is well-defined (by assumption).
+Hence, Proposition \ref{prop.inverses.AB} (applied to $A=A_{1}A_{2}\cdots
+A_{\ell}$ and $B=A_{\ell+1}$) shows that the matrix $\left(  A_{1}A_{2}\cdots
+A_{\ell}\right)  A_{\ell+1}$ is also invertible, and its inverse is
+\[
+\left(  \left(  A_{1}A_{2}\cdots A_{\ell}\right)  A_{\ell+1}\right)
+^{-1}=A_{\ell+1}^{-1}\left(  A_{1}A_{2}\cdots A_{\ell}\right)  ^{-1}.
+\]
+Since $\left(  A_{1}A_{2}\cdots A_{\ell}\right)  A_{\ell+1}=A_{1}A_{2}\cdots
+A_{\ell+1}$ and \newline$A_{\ell+1}^{-1}\underbrace{\left(  A_{1}A_{2}\cdots
+A_{\ell}\right)  ^{-1}}_{=A_{\ell}^{-1}A_{\ell-1}^{-1}\cdots A_{1}^{-1}%
+}=A_{\ell+1}^{-1}\left(  A_{\ell}^{-1}A_{\ell-1}^{-1}\cdots A_{1}^{-1}\right)
+=A_{\ell+1}^{-1}A_{\ell}^{-1}\cdots A_{1}^{-1}$, this rewrites as follows: The
+matrix matrix $A_{1}A_{2}\cdots A_{\ell+1}$ is invertible, and its inverse is
+\[
+\left(  A_{1}A_{2}\cdots A_{\ell+1}\right)  ^{-1}=A_{\ell+1}^{-1}A_{\ell}%
+^{-1}\cdots A_{1}^{-1}.
+\]
+This is precisely what we wanted to show! Thus, Proposition
+\ref{prop.inverses.A1Ak} holds for $k=\ell+1$. This completes the induction
+step. Thus, Proposition \ref{prop.inverses.A1Ak} is proven by induction.
+
+(I have written up this proof with a lot of detail. You do not have to! If you
+are used to mathematical induction, then you can easily afford omitting many
+of the incantations I made above, and taking certain shortcuts -- for example,
+instead of introducing a new variable $\ell$ in the induction step, you could
+reuse $k$, thus stepping \textquotedblleft from $k$ to $k+1$\textquotedblright%
+\ instead of \textquotedblleft from $k=\ell$ to $k=\ell+1$\textquotedblright.
+You also don't need to formally state the induction hypothesis, because it is
+just a copy of the claim (with $k$ replaced by $\ell$ in our case). Finally,
+what we did in our proof was obvious enough that you could just say that
+\textquotedblleft Proposition \ref{prop.inverses.A1Ak} follows by a
+straightforward induction on $k$, where Proposition \ref{prop.inverses.AB} is
+being applied in the induction step\textquotedblright, and declare the proof finished.)
+\end{proof}
+
+\subsection{Triangular matrices}
+
+We next discuss some particular classes of matrices: the so-called
+\textit{triangular matrices} and some of their variations.
+
+\begin{definition}
+\label{def.triangular}Let $n\in\mathbb{N}$. Let $A$ be an $n\times n$-matrix.
+
+\textbf{(a)} We say that the matrix $A$ is \textit{upper-triangular} if and
+only if we have%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
+\]
+
+
+\textbf{(b)} We say that the matrix $A$ is \textit{lower-triangular} if and
+only if we have%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j.
+\]
+
+
+\textbf{(c)} We say that the matrix $A$ is \textit{diagonal} if and only if we
+have%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\neq j.
+\]
+
+\end{definition}
+
+Notice that only square matrices can be upper-triangular or lower-triangular
+(by definition). Why the name \textquotedblleft triangular\textquotedblright?
+Because visually speaking, a matrix is upper-triangular if and only if all its
+entries (strictly) below the diagonal are $0$ (which means that its nonzero
+entries are concentrated in the \textbf{triangle} bordered by the diagonal,
+the upper rim and the right rim). I hope Example \ref{exam.triangular} will
+clarify this if it is unclear. Similarly, a matrix is lower-triangular if and
+only if all its entries (strictly) above the diagonal are $0$ (which again
+means that its nonzero entries are concentrated in a triangle, this time to
+the southwest of the diagonal). Finally, a matrix is diagonal if only if all
+its entries except for the diagonal entries are $0$.
+
+I think the following example should explain this:
+
+\begin{example}
+\label{exam.triangular}\textbf{(a)} A $4\times4$-matrix is upper-triangular if
+and only if it has the form $\left(
+\begin{array}
+[c]{cccc}%
+a & b & c & d\\
+0 & b^{\prime} & c^{\prime} & d^{\prime}\\
+0 & 0 & c^{\prime\prime} & d^{\prime\prime}\\
+0 & 0 & 0 & d^{\prime\prime\prime}%
+\end{array}
+\right)  $ for some numbers $a,b,c,d,b^{\prime},c^{\prime},d^{\prime
+},c^{\prime\prime},d^{\prime\prime},d^{\prime\prime\prime}$. Notice that we
+are making no requirements on these numbers; in particular, they \textbf{can}
+be $0$. Upper-triangularity means that $A_{i,j}=0$ whenever $i>j$; it does
+\textbf{not} necessarily mean that $A_{i,j}=0$ in all other cases.
+
+\textbf{(b)} A $4\times4$-matrix is lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+a & 0 & 0 & 0\\
+a^{\prime} & b^{\prime} & 0 & 0\\
+a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime} & 0\\
+a^{\prime\prime\prime} & b^{\prime\prime\prime} & c^{\prime\prime\prime} &
+d^{\prime\prime}%
+\end{array}
+\right)  $ for some numbers $a,a^{\prime},b^{\prime},a^{\prime\prime
+},b^{\prime\prime},c^{\prime\prime},a^{\prime\prime\prime},b^{\prime
+\prime\prime},c^{\prime\prime\prime},d^{\prime\prime\prime}$.
+
+\textbf{(c)} A $4\times4$-matrix is diagonal if and only if it has the form
+$\left(
+\begin{array}
+[c]{cccc}%
+a & 0 & 0 & 0\\
+0 & b^{\prime} & 0 & 0\\
+0 & 0 & c^{\prime\prime} & 0\\
+0 & 0 & 0 & d^{\prime\prime\prime}%
+\end{array}
+\right)  $ for some numbers $a,b^{\prime},c^{\prime\prime},d^{\prime
+\prime\prime}$.
+\end{example}
 
 [to be continued]
 
