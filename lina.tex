@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:21:29}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:25:52}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1446,12 +1446,12 @@ $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
 \begin{proof}
 [Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
 have%
-\begin{align*}
-\sum_{k=p}^{q}ba_{k}  &  =ba_{p}+ba_{p+1}+\cdots+ba_{q}\\
-&  =b\underbrace{\left(  a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum
-_{k=p}^{q}a_{k}\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}%
-}}=b\sum_{k=p}^{q}a_{k}.
-\end{align*}
+\[
+\sum_{k=p}^{q}ba_{k}=ba_{p}+ba_{p+1}+\cdots+ba_{q}=b\underbrace{\left(
+a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum_{k=p}^{q}a_{k}%
+\\\text{(by the definition of }\sum_{k=p}^{q}a_{k}\text{)}}}=b\sum_{k=p}%
+^{q}a_{k}.
+\]
 
 \end{proof}
 
@@ -1517,9 +1517,9 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 
 Finally, Proposition \ref{prop.AB} (applied to $B+C$ instead of $B$) yields%
 \begin{align*}
-\left(  A\left(  B+C\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}%
-A_{i,k}\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}%
-+C_{k,j}\\\text{(since matrices are added entry by entry)}}}=\sum_{k=1}%
+\left(  A\left(  B+C\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
+\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}+C_{k,j}%
+\\\text{(since matrices are}\\\text{added entry by entry)}}}=\sum_{k=1}%
 ^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }_{=A_{i,k}%
 B_{k,j}+A_{i,k}C_{k,j}}\\
 &  =\sum_{k=1}^{m}\left(  A_{i,k}B_{k,j}+A_{i,k}C_{k,j}\right)
@@ -1533,9 +1533,9 @@ _{k=1}^{m}A_{i,k}C_{k,j}}_{\substack{=\left(  AC\right)  _{i,j}\\\text{(by
 \text{by Proposition \ref{prop.sum.a+b}, applied to }p=1\text{, }q=m\text{,}\\
 a_{k}=A_{i,k}B_{k,j}\text{ and }b_{k}=A_{i,k}C_{k,j}%
 \end{array}
-\right) \\
-&  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}=\left(  AB+AC\right)
-_{i,j}\ \ \ \ \ \ \ \ \ \ \left(
+\right)  \\
+&  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}\\
+&  =\left(  AB+AC\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{again because matrices}\\
@@ -1567,8 +1567,8 @@ $. It is a \textquotedblleft nested sum\textquotedblright, i.e., a sum of
 sums. For example,%
 \begin{align*}
 \sum_{k=1}^{3}\underbrace{\sum_{\ell=1}^{4}k\cdot\ell}_{=k\cdot1+k\cdot
-2+k\cdot3+k\cdot4} &  =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
-3+k\cdot4\right)  \\
+2+k\cdot3+k\cdot4}  &  =\sum_{k=1}^{3}\left(  k\cdot1+k\cdot2+k\cdot
+3+k\cdot4\right) \\
 &  =\left(  1\cdot1+1\cdot2+1\cdot3+1\cdot4\right)  +\left(  2\cdot
 1+2\cdot2+2\cdot3+2\cdot4\right)  s\\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  3\cdot1+3\cdot2+3\cdot3+3\cdot4\right)  .
@@ -1597,12 +1597,12 @@ In other words,%
 &  \sum_{k=1}^{m}\underbrace{\sum_{\ell=1}^{p}a_{k,\ell}}_{\substack{=a_{k,1}%
 +a_{k,2}+\cdots+a_{k,p}\\\text{(by the definition of the }\sum\text{ sign)}%
 }}\\
-&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right)  \\
+&  =\sum_{k=1}^{m}\left(  a_{k,1}+a_{k,2}+\cdots+a_{k,p}\right) \\
 &  =\left(  a_{1,1}+a_{1,2}+\cdots+a_{1,p}\right)  +\left(  a_{2,1}%
 +a_{2,2}+\cdots+a_{2,p}\right)  +\cdots+\left(  a_{m,1}+a_{m,2}+\cdots
-+a_{m,p}\right)  \\
++a_{m,p}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right)  \\
+sign}\right) \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)
 \end{align*}
 with%
@@ -1610,13 +1610,12 @@ with%
 &  \sum_{\ell=1}^{p}\underbrace{\sum_{k=1}^{m}a_{k,\ell}}%
 _{\substack{=a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\\\text{(by the definition
 of the }\sum\text{ sign)}}}\\
-&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right)
-\\
+&  =\sum_{\ell=1}^{p}\left(  a_{1,\ell}+a_{2,\ell}+\cdots+a_{m,\ell}\right) \\
 &  =\left(  a_{1,1}+a_{2,1}+\cdots+a_{m,1}\right)  +\left(  a_{1,2}%
 +a_{2,2}+\cdots+a_{m,2}\right)  +\cdots+\left(  a_{1,p}+a_{2,p}+\cdots
-+a_{m,p}\right)  \\
++a_{m,p}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of the }\sum\text{
-sign}\right)  \\
+sign}\right) \\
 &  =\left(  \text{the sum of all possible numbers }a_{k,\ell}\right)  ,
 \end{align*}
 we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
