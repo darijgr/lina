@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, September 14, 2016 19:54:34}
+%TCIDATA{LastRevised=Wednesday, September 14, 2016 20:33:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1309,7 +1309,8 @@ x & y\\
 cannot equal $A$.
 \end{example}
 
-\subsection{\label{sect.intro.sum}(*) The summation sign}
+\subsection{\label{sect.intro.sum}(*) The summation sign, and a proof of
+$\left(  AB\right)  C=A\left(  BC\right)  $}
 
 We now take a break from studying matrices to introduce an important symbol:
 the summation sign ($\sum$). This sign is one of the hallmarks of abstract
@@ -2187,13 +2188,28 @@ so we begin by studying them.
 \label{def.inverse-matrix}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
 be an $n\times m$-matrix, and $B$ be an $m\times n$-matrix.
 
-\textbf{(a)} We say that $B$ is \textit{right-inverse} to $A$ if $AB=I_{n}$.
+\textbf{(a)} We say that $B$ is a \textit{right inverse} of $A$ if $AB=I_{n}$.
 
-\textbf{(b)} We say that $B$ is \textit{left-inverse} to $A$ if $BA=I_{m}$.
+\textbf{(b)} We say that $B$ is a \textit{left inverse} of $A$ if $BA=I_{m}$.
 
-\textbf{(c)} We say that $B$ is \textit{inverse} to $A$ if both $AB=I_{n}$ and
-$BA=I_{m}$.
+\textbf{(c)} We say that $B$ is an \textit{inverse} of $A$ if both $AB=I_{n}$
+and $BA=I_{m}$.
 \end{definition}
+
+Notice that we are saying \textquotedblleft\textbf{a} right
+inverse\textquotedblright\ (not \textquotedblleft\textbf{the} right
+inverse\textquotedblright) in Definition \ref{def.inverse-matrix}, because a
+given matrix $A$ can have several right inverses (but it can also have no
+right inverses at all). For the same reason, we are saying \textquotedblleft%
+\textbf{a} left inverse\textquotedblright\ (not \textquotedblleft\textbf{the}
+left inverse\textquotedblright). However, when we are saying \textquotedblleft%
+\textbf{an} inverse\textquotedblright\ (not \textquotedblleft\textbf{the}
+inverse\textquotedblright), we are just being cautious: We will later (in
+Corollary \ref{cor.inverse.unique}) see that $A$ can never have several
+different inverses; thus, it would be legitimate to say \textquotedblleft%
+\textbf{the} inverse\textquotedblright\ as well. But as long as we have not
+proven this, we shall speak of \textquotedblleft\textbf{an}
+inverse\textquotedblright.
 
 \begin{example}
 \label{exam.inverses}\textbf{(a)} Let $A=\left(  1,4\right)  $. (Recall that
@@ -2202,10 +2218,10 @@ this means the $1\times2$-matrix $\left(
 [c]{cc}%
 1 & 4
 \end{array}
-\right)  $.) When is a matrix $B$ right-inverse to $A$ ?
+\right)  $.) When is a matrix $B$ a right inverse of $A$ ?
 
-First, if $B$ is right-inverse to $A$, then $B$ must be a $2\times1$-matrix
-(since any right-inverse to an $n\times m$-matrix has to be an $m\times
+First, if $B$ is a right inverse of $A$, then $B$ must be a $2\times1$-matrix
+(since any right inverse of an $n\times m$-matrix has to be an $m\times
 n$-matrix). So let us assume that $B$ is a $2\times1$-matrix. Thus, $B$ must
 have the form $B=\left(
 \begin{array}
@@ -2229,9 +2245,9 @@ v
 [c]{c}%
 1u+4v
 \end{array}
-\right)  $. In order for $B$ to be right-inverse to $A$, it is necessary and
+\right)  $. In order for $B$ to be a right inverse of $A$, it is necessary and
 sufficient that $AB=I_{1}$ (because this is how we defined \textquotedblleft
-right-inverse\textquotedblright). In other words, we must have $\left(
+right inverse\textquotedblright). In other words, we must have $\left(
 \begin{array}
 [c]{c}%
 1u+4v
@@ -2253,7 +2269,7 @@ right-inverse\textquotedblright). In other words, we must have $\left(
 \end{array}
 \right)  $). In other words, we must have $1u+4v=1$.
 
-Hence, a matrix $B$ is right-inverse to $A$ if and only if it has the form
+Hence, a matrix $B$ is a right inverse of $A$ if and only if it has the form
 $B=\left(
 \begin{array}
 [c]{c}%
@@ -2264,19 +2280,19 @@ v
 two such numbers $u$ and $v$ ? Well, we can view $1u+4v=1$ as a system of $1$
 linear equation in $2$ variables, but actually we can just read off the
 solution: $v$ can be chosen arbitrarily, and $u$ then has to be $1-4v$. Hence,
-a matrix $B$ is right-inverse to $A$ if and only if it has the form $B=\left(
-%
+a matrix $B$ is a right inverse of $A$ if and only if it has the form
+$B=\left(
 \begin{array}
 [c]{c}%
 1-4v\\
 v
 \end{array}
 \right)  $ for some number $v$. In particular, there are \textbf{infinitely
-many} matrices $B$ that are right-inverse to $A$ (because we have full freedom
-in choosing $v$).
+many} matrices $B$ that are right inverses of $A$ (because we have full
+freedom in choosing $v$).
 
-\textbf{(b)} Let $A=\left(  1,4\right)  $ again. When is a matrix $B$
-left-inverse to $A$ ?
+\textbf{(b)} Let $A=\left(  1,4\right)  $ again. When is a matrix $B$ a left
+inverse of $A$ ?
 
 Again, $B$ must be a $2\times1$-matrix in order for this to have any chance of
 being true. So let us assume that $B$ is a $2\times1$-matrix, and write $B$ in
@@ -2298,9 +2314,9 @@ v
 u\cdot1 & u\cdot4\\
 v\cdot1 & v\cdot4
 \end{array}
-\right)  $. In order for $B$ to be left-inverse to $A$, it is necessary and
+\right)  $. In order for $B$ to be a left inverse of $A$, it is necessary and
 sufficient that $BA=I_{2}$ (because this is how we defined \textquotedblleft
-left-inverse\textquotedblright). In other words, we must have $\left(
+left inverse\textquotedblright). In other words, we must have $\left(
 \begin{array}
 [c]{cc}%
 u\cdot1 & u\cdot4\\
@@ -2338,8 +2354,8 @@ v\cdot4=1
 \]
 But this cannot happen! Indeed, the equations $u\cdot1=1$ and $u\cdot4=0$
 contradict each other (because if $u\cdot1=1$, then $u\cdot4$ must be $4$).
-Hence, $B$ can never be left-inverse to $A$. In other words, the matrix $A$
-\textbf{has no} left-inverse.
+Hence, $B$ can never be a left inverse of $A$. In other words, the matrix $A$
+\textbf{has no} left inverse.
 
 \textbf{(c)} Let $A=\left(
 \begin{array}
@@ -2347,8 +2363,8 @@ Hence, $B$ can never be left-inverse to $A$. In other words, the matrix $A$
 1\\
 4
 \end{array}
-\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
-right-inverse to $A$ ? I will let you figure this out (see Exercise
+\right)  $. When is a matrix $B$ a left inverse of $A$ ? When is a matrix $B$
+a right inverse of $A$ ? I will let you figure this out (see Exercise
 \ref{exe.exam.inverses} below).
 
 \textbf{(d)} Let $A=\left(
@@ -2357,18 +2373,18 @@ right-inverse to $A$ ? I will let you figure this out (see Exercise
 1 & -1\\
 1 & 1
 \end{array}
-\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
-right-inverse to $A$ ?
+\right)  $. When is a matrix $B$ a left inverse of $A$ ? When is a matrix $B$
+a right inverse of $A$ ?
 
-A matrix $B$ that is left-inverse to $A$ would have to be a $2\times2$-matrix.
-A $2\times2$-matrix $B=\left(
+A left inverse of $A$ would have to be a $2\times2$-matrix. A $2\times
+2$-matrix $B=\left(
 \begin{array}
 [c]{cc}%
 x & y\\
 z & w
 \end{array}
-\right)  $ is left-inverse to $A$ if and only if it satisfies $BA=I_{2}$, that
-is, $\left(
+\right)  $ is a left inverse of $A$ if and only if it satisfies $BA=I_{2}$,
+that is, $\left(
 \begin{array}
 [c]{cc}%
 x & y\\
@@ -2422,10 +2438,10 @@ Thus, a $2\times2$-matrix $B=\left(
 x & y\\
 z & w
 \end{array}
-\right)  $ is left-inverse to $A$ if and only if $\left(  x,y,z,w\right)
-=\left(  \dfrac{1}{2},\dfrac{1}{2},-\dfrac{1}{2},\dfrac{1}{2}\right)  $. In
-other words, there exists exactly one $2\times2$-matrix left-inverse to $A$,
-and this matrix is $\left(
+\right)  $ is a left inverse of $A$ if and only if $\left(  x,y,z,w\right)
+=\left(  \dfrac{1}{2},\dfrac{1}{2},-\dfrac{1}{2},\dfrac{1}{2}\right)  $.
+Hence, there exists exactly one left inverse of $A$, and this left inverse is
+$\left(
 \begin{array}
 [c]{cc}%
 \dfrac{1}{2} & \dfrac{1}{2}\\
@@ -2433,17 +2449,16 @@ and this matrix is $\left(
 \end{array}
 \right)  $.
 
-A similar computation reveals that there exists exactly one $2\times2$-matrix
-right-inverse to $A$, and this matrix is $\left(
+A similar computation reveals that there exists exactly one right inverse of
+$A$, and this right inverse is $\left(
 \begin{array}
 [c]{cc}%
 \dfrac{1}{2} & \dfrac{1}{2}\\
 -\dfrac{1}{2} & \dfrac{1}{2}%
 \end{array}
-\right)  $. So the unique matrix left-inverse to $A$ and the unique matrix
-right-inverse to $A$ are actually equal (and thus is inverse to $A$). This
-might not be clear from the definitions, but as we shall soon see, this is not
-a coincidence.
+\right)  $. So the unique left inverse of $A$ and the unique right inverse of
+$A$ are actually equal (and thus is an inverse of $A$). This might not be
+clear from the definitions, but as we shall soon see, this is not a coincidence.
 
 \textbf{(e)} Generalizing Example \ref{exam.inverses} \textbf{(d)}, we might
 wonder when a $2\times2$-matrix $A=\left(
@@ -2452,7 +2467,7 @@ wonder when a $2\times2$-matrix $A=\left(
 a & b\\
 c & d
 \end{array}
-\right)  $ has a left-inverse, a right-inverse or an inverse. For any given
+\right)  $ has a left inverse, a right inverse or an inverse. For any given
 four values of $a,b,c,d$, we can answer this question similarly how we
 answered it for the matrix $A=\left(
 \begin{array}
@@ -2467,10 +2482,10 @@ which requires $b\neq0$; the case $b=0$ will then have to be treated
 separately.) But the final result will be the following:
 
 \begin{itemize}
-\item If $ad-bc=0$, then the matrix $A$ has no left-inverses and no right-inverses.
+\item If $ad-bc=0$, then the matrix $A$ has no left inverses and no right inverses.
 
 \item If $ad-bc\neq0$, then the matrix $A$ has a unique inverse, which is also
-the unique left-inverse and the unique right-inverse. This inverse is $\left(
+the unique left inverse and the unique right inverse. This inverse is $\left(
 %
 \begin{array}
 [c]{cc}%
@@ -2480,7 +2495,7 @@ the unique left-inverse and the unique right-inverse. This inverse is $\left(
 \right)  $.
 \end{itemize}
 
-Again, this phenomenon of the left-inverse equalling the right-inverse
+Again, this phenomenon of the left inverse equalling the right inverse
 appears. Notably, the number $ad-bc$ plays an important role here; we will
 later see more of it (it is an example of a \textit{determinant}).
 \end{example}
@@ -2492,11 +2507,88 @@ later see more of it (it is an example of a \textit{determinant}).
 1\\
 4
 \end{array}
-\right)  $. When is a matrix $B$ left-inverse to $A$ ? When is a matrix $B$
-right-inverse to $A$ ?
+\right)  $. When is a matrix $B$ a left inverse of $A$ ? When is a matrix $B$
+a right inverse of $A$ ?
 \end{exercise}
 
+As we know from Example \ref{exam.inverses} \textbf{(a)}, a matrix may have
+infinitely many right inverses. Similarly, a matrix may have infinitely many
+left inverses. But can a matrix have both infinitely many right inverses and
+infinitely many left inverses at the same time? The answer is
+\textquotedblleft no\textquotedblright, and in fact, something stronger is true:
 
+\begin{proposition}
+\label{prop.inverses.L=R}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be
+an $n\times m$-matrix. Let $L$ be a left inverse of $A$. Let $R$ be a right
+inverse of $A$. Then:
+
+\textbf{(a)} We have $L=R$.
+
+\textbf{(b)} The matrix $L$ is the only left inverse of $A$.
+
+\textbf{(c)} The matrix $R$ is the only right inverse of $A$.
+
+\textbf{(d)} The matrix $L=R$ is the only inverse of $A$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.inverses.L=R}.] We know that $LA=I_{m}$ (since
+$L$ is a left inverse of $A$) and that $AR=I_{n}$ (since $R$ is a right
+inverse of $A$).
+
+\textbf{(a)} Consider the product $LAR$. (Recall that this product is
+well-defined, because Proposition \ref{prop.matrix-laws.1} \textbf{(g)} yields
+$L\left(  AR\right)  =\left(  LA\right)  R$.)
+
+One way to rewrite $LAR$ is as follows:%
+\begin{equation}
+L\underbrace{AR}_{=I_{n}}=LI_{n}=L\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.matrix-laws.id} \textbf{(b)}}\right)
+.\label{pf.prop.inverses.L=R.1}%
+\end{equation}
+Another way is%
+\begin{equation}
+\underbrace{LA}_{=I_{m}}R=I_{m}R=R\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+Proposition \ref{prop.matrix-laws.id} \textbf{(a)}}\right)
+.\label{pf.prop.inverses.L=R.2}%
+\end{equation}
+Comparing (\ref{pf.prop.inverses.L=R.1}) with (\ref{pf.prop.inverses.L=R.2}),
+we obtain $L=R$. This proves Proposition \ref{prop.inverses.L=R} \textbf{(a)}.
+
+\textbf{(b)} Let $L^{\prime}$ be any left inverse of $A$. Then, we can apply
+Proposition \ref{prop.inverses.L=R} \textbf{(a)} to $L^{\prime}$ instead of
+$L$ (because all that was needed from $L$ in Proposition
+\ref{prop.inverses.L=R} \textbf{(a)} was that it be a left inverse of $A$). As
+a result, we obtain $L^{\prime}=R$.
+
+Now, forget that we fixed $L^{\prime}$. We thus have shown that if $L^{\prime
+}$ is any left inverse of $A$, then $L^{\prime}=R$. In other words, any left
+inverse of $A$ equals $R$. Thus, there exists at most one left inverse of $A$.
+Therefore, the matrix $L$ is the only left inverse of $A$. This proves
+Proposition \ref{prop.inverses.L=R} \textbf{(b)}.
+
+\textbf{(c)} The proof of Proposition \ref{prop.inverses.L=R} \textbf{(c)} is
+analogous to the proof of Proposition \ref{prop.inverses.L=R} \textbf{(b)}.
+(We again need to apply Proposition \ref{prop.inverses.L=R} \textbf{(a)}
+twice, but this time, instead of a left inverse $L^{\prime}$, we have to
+introduce a right inverse $R^{\prime}$. The details are left to the reader.)
+
+\textbf{(d)} Proposition \ref{prop.inverses.L=R} \textbf{(a)} yields $L=R$.
+Hence, $A\underbrace{L}_{=R}=AR=I_{n}$.
+
+Now, the matrix $L$ is an inverse of $A$ (since $LA=I_{m}$ and $AL=I_{n}$). In
+other words, the matrix $L=R$ is an inverse of $A$ (since $L=R$). It remains
+to show that it is the only inverse of $A$. But this is easy: Let $L^{\prime}$
+be any inverse of $A$. Then, $L^{\prime}A=I_{m}$, so that $L^{\prime}$ is a
+left inverse of $A$. Proposition \ref{prop.inverses.L=R} \textbf{(a)} (applied
+to $L^{\prime}$ instead of $L$) therefore yields $L^{\prime}=R$.
+
+Now, forget that we fixed $L^{\prime}$. We thus have shown that if $L^{\prime
+}$ is any inverse of $A$, then $L^{\prime}=R$. In other words, any inverse of
+$A$ equals $R$. Thus, there exists at most one inverse of $A$. Therefore, the
+matrix $L$ is the only inverse of $A$ (since we already know that $L$ is an
+inverse of $A$). This proves Proposition \ref{prop.inverses.L=R} \textbf{(d)}.
+\end{proof}
 
 [to be continued]
 
