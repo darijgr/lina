@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:54:36}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 22:12:42}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3096,6 +3096,62 @@ straightforward induction on $k$, where Proposition \ref{prop.inverses.AB} is
 being applied in the induction step\textquotedblright, and declare the proof finished.)
 \end{proof}
 
+\begin{corollary}
+\label{cor.inverses.Ak-1}Let $n\in\mathbb{N}$. Let $k\in\mathbb{N}$. Let $A$
+be an invertible $n\times n$-matrix. Then, $A^{k}$ is also invertible, and its
+inverse is $\left(  A^{k}\right)  ^{-1}=\left(  A^{-1}\right)  ^{k}$.
+\end{corollary}
+
+Note that Corollary \ref{cor.inverses.Ak-1} is not obvious! You cannot argue
+that $\left(  A^{k}\right)  ^{-1}=\left(  A^{-1}\right)  ^{k}$ because both
+sides simplify to $A^{-k}$; this argument makes no sense unless you have
+defined $A^{-k}$ (and we have not defined $A^{-k}$) and proved that standard
+rules of exponentiation (such as $\left(  A^{u}\right)  ^{v}=A^{uv}$) apply to matrices.
+
+\begin{proof}
+[Proof of Corollary \ref{cor.inverses.Ak-1}.] Recall that $A^{0}=I_{n}$ (by
+the definition of $A^{0}$). Hence, in the case when $k=0$, Corollary
+\ref{cor.inverses.Ak-1} says that $I_{n}$ is invertible, and its inverse is
+$\left(  I_{n}\right)  ^{-1}=I_{n}$. This follows from Proposition
+\ref{prop.inverses.In}. Thus, Corollary \ref{cor.inverses.Ak-1} is proven in
+the case when $k=0$. We can therefore WLOG\footnote{\textquotedblleft
+WLOG\textquotedblright\ is shorthand for \textquotedblleft without loss of
+generality\textquotedblright. See, for example,
+\href{https://en.wikipedia.org/wiki/Without_loss_of_generality}{the Wikipedia
+article for \textquotedblleft WLOG\textquotedblright} (or any book on
+mathematical proofs) for the meaning of this phrase.} assume that $k\neq0$.
+Assume this. Thus, $k$ is a positive integer. Hence, $A^{k}%
+=\underbrace{AA\cdots A}_{k\text{ times}}$ and $\left(  A^{-1}\right)
+^{k}=\underbrace{A^{-1}A^{-1}\cdots A^{-1}}_{k\text{ times}}$.
+
+Proposition \ref{prop.inverses.A1Ak} (applied to $A,A,\ldots,A$ instead of
+$A_{1},A_{2},\ldots,A_{k}$) shows that the matrix $\underbrace{AA\cdots
+A}_{k\text{ times}}$ is invertible, and its inverse is%
+\[
+\left(  \underbrace{AA\cdots A}_{k\text{ times}}\right)  ^{-1}%
+=\underbrace{A^{-1}A^{-1}\cdots A^{-1}}_{k\text{ times}}.
+\]
+In other words, the matrix $A^{k}$ is invertible, and its inverse is $\left(
+A^{k}\right)  ^{-1}=\left(  A^{-1}\right)  ^{k}$. This proves Corollary
+\ref{cor.inverses.Ak-1}.
+\end{proof}
+
+\begin{proposition}
+\label{prop.inverses.A-1-1}Let $n\in\mathbb{N}$. Let $A$ be an invertible
+$n\times n$-matrix. Then, its inverse $A^{-1}$ is also invertible, and has the
+inverse $\left(  A^{-1}\right)  ^{-1}=A$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.inverses.A-1-1}.] Since $A^{-1}$ is an inverse
+of $A$, we have the two equalities $A^{-1}A=I_{n}$ and $AA^{-1}=I_{n}$. But
+these very same equalities show that $A$ is an inverse of $A^{-1}$ (if you do
+not trust me, just check with the definition of \textquotedblleft
+inverse\textquotedblright). Thus, the matrix $A^{-1}$ is invertible, and its
+inverse is $\left(  A^{-1}\right)  ^{-1}=A$. Proposition
+\ref{prop.inverses.A-1-1} is proven.
+\end{proof}
+
 \subsection{Triangular matrices}
 
 We next discuss some particular classes of matrices: the so-called
@@ -3391,14 +3447,14 @@ shows that%
 &  \left(  AB\right)  _{i,i}\\
 &  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,m}B_{m,i}\\
 &  =\left(  \text{the sum of the terms }A_{i,k}B_{k,i}\text{ for all }%
-k\in\left\{  1,2,\ldots,n\right\}  \right)  \\
+k\in\left\{  1,2,\ldots,n\right\}  \right) \\
 &  =A_{i,i}B_{i,i}+\underbrace{\left(  \text{the sum of the terms }%
 A_{i,k}B_{k,i}\text{ for all }k\in\left\{  1,2,\ldots,n\right\}  \text{
 satisfying }k\neq i\right)  }_{\substack{=0\\\text{(because
 (\ref{pf.thm.triangular.prod-up.AB1}) shows that all of these terms are
 }0\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have taken the term }%
-A_{i,i}B_{i,i}\text{ out of the sum}\right)  \\
+A_{i,i}B_{i,i}\text{ out of the sum}\right) \\
 &  =A_{i,i}B_{i,i}+0=A_{i,i}B_{i,i}.
 \end{align*}
 This proves Theorem \ref{thm.triangular.prod-up} \textbf{(b)}.
