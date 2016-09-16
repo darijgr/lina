@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:32:53}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:36:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3135,10 +3135,6 @@ upper-triangular and lower-triangular.
 are upper-triangular, lower-triangular and diagonal.
 \end{proposition}
 
-\begin{proof}
-[Proof of Proposition \ref{prop.triangular.obvious}.]\textbf{(a)}
-\end{proof}
-
 A less trivial fact is that the product of two upper-triangular matrices is
 upper-triangular again. We shall show this, and a little bit more, in the
 following theorem:
@@ -3344,6 +3340,39 @@ A_{i,i}B_{i,i}\text{ out of the sum}\right)  \\
 \end{align*}
 This proves Theorem \ref{thm.triangular.prod-up} \textbf{(b)}.
 \end{proof}
+
+The natural analogue of Theorem \ref{thm.triangular.prod-up} for
+lower-triangular matrices also holds:
+
+\begin{theorem}
+\label{thm.triangular.prod-down}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two
+lower-triangular $n\times n$-matrices.
+
+\textbf{(a)} Then, $AB$ is a lower-triangular $n\times n$-matrix.
+
+\textbf{(b)} The diagonal entries of $AB$ are%
+\[
+\left(  AB\right)  _{i,i}=A_{i,i}B_{i,i}\ \ \ \ \ \ \ \ \ \ \text{for all
+}i\in\left\{  1,2,\ldots,n\right\}  .
+\]
+
+\end{theorem}
+
+The proof of Theorem \ref{thm.triangular.prod-down} is analogous to that of
+Theorem \ref{thm.triangular.prod-up}, and the changes required are fairly
+straightforward (change some inequality signs). Let me pose this as an exercise:
+
+\begin{exercise}
+\label{exe.thm.triangular.prod-down}Prove Theorem
+\ref{thm.triangular.prod-down} \textbf{(a)}. (Feel free to repeat my proof of
+Theorem \ref{thm.triangular.prod-up} \textbf{(a)}, changing only what little
+needs to be changed. This is not plagiarism for the purpose of this exercise!)
+
+(Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)},
+but you don't need to write it up.)
+\end{exercise}
+
+
 
 [to be continued]
 
