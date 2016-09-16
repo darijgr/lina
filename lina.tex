@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:43:00}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:52:56}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2918,10 +2918,10 @@ the search down; we shall not prove it until later:
 \label{thm.invertible.size}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
 be an $n\times m$-matrix.
 
-\textbf{(a)} If $A$ has a right-inverse, then $n\leq m$ (that is, the matrix
+\textbf{(a)} If $A$ has a right inverse, then $n\leq m$ (that is, the matrix
 $A$ has at least as many columns as it has rows).
 
-\textbf{(b)} If $A$ has a left-inverse, then $n\geq m$ (that is, the matrix
+\textbf{(b)} If $A$ has a left inverse, then $n\geq m$ (that is, the matrix
 $A$ has at most as many columns as it has rows).
 
 \textbf{(c)} If $A$ is invertible (i.e., has an inverse), then $n=m$ (that is,
@@ -3431,6 +3431,86 @@ needs to be changed. This is not plagiarism for the purpose of this exercise!)
 (Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)},
 but you don't need to write it up.)
 \end{exercise}
+
+There are a few special classes of triangular matrices worth giving names:
+
+\begin{definition}
+\label{def.triangular.uni-up}Let $n\in\mathbb{N}$. Let $A$ be an $n\times n$-matrix.
+
+\textbf{(a)} The matrix $A$ is said to be \textit{upper-unitriangular} if and
+only if it is upper-triangular and all its diagonal entries are $1$ (that is,
+$A_{i,i}=1$ for all $i$).
+
+\textbf{(b)} The matrix $A$ is said to be \textit{invertibly upper-triangular}
+if and only if it is upper-triangular and all its diagonal entries are nonzero
+(that is, $A_{i,i}\neq0$ for all $i$).
+
+\textbf{(c)} The matrix $A$ is said to be \textit{strictly upper-triangular}
+if and only if it is upper-triangular and all its diagonal entries are $0$
+(that is, $A_{i,i}=0$ for all $i$).
+
+Similar notions can be defined with \textquotedblleft lower\textquotedblright%
+\ instead of \textquotedblleft upper\textquotedblright.
+\end{definition}
+
+The words we have just defined are not as important as the word
+\textquotedblleft upper-triangular\textquotedblright\ (you certainly don't
+need to learn them by heart); but these notions appear from time to time in
+mathematics, and it helps if you know how to recognize them.
+
+\begin{example}
+\textbf{(a)} A $3\times3$-matrix is upper-unitriangular if and only if it has
+the form $\left(
+\begin{array}
+[c]{ccc}%
+1 & b & c\\
+0 & 1 & c^{\prime}\\
+0 & 0 & 1
+\end{array}
+\right)  $ for some $b,c,c^{\prime}$.
+
+\textbf{(b)} A $3\times3$-matrix is invertibly upper-triangular if and only if
+it has the form $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+0 & b^{\prime} & c^{\prime}\\
+0 & 0 & c^{\prime\prime}%
+\end{array}
+\right)  $ for some $a,b,c,b^{\prime},c^{\prime},c^{\prime\prime}$ with
+$a\neq0$, $b^{\prime}\neq0$ and $c^{\prime\prime}\neq0$.
+
+\textbf{(c)} A $3\times3$-matrix is strictly upper-triangular if and only if
+it has the form $\left(
+\begin{array}
+[c]{ccc}%
+0 & b & c\\
+0 & 0 & c^{\prime}\\
+0 & 0 & 0
+\end{array}
+\right)  $ for some $b,c,c^{\prime}$.
+\end{example}
+
+Olver and Shakiban (in \cite{OlvSha06}) use the word \textquotedblleft special
+upper triangular\textquotedblright\ instead of \textquotedblleft
+upper-unitriangular\textquotedblright. But I prefer \textquotedblleft
+upper-unitriangular\textquotedblright, since the word \textquotedblleft
+uni\textquotedblright\ hints directly to the definition (namely, the $1$'s on
+the diagonal), whereas the word \textquotedblleft special\textquotedblright%
+\ can mean pretty much anything.
+
+The word \textquotedblleft invertibly upper-triangular\textquotedblright\ is
+my invention. We will later see it vindicated, once we show that an
+upper-triangular matrix is invertible if and only if it is invertibly upper-triangular.
+
+Strictly upper-triangular $n\times n$-matrices can also be characterized as
+the $n\times n$-matrices $A$ which satisfy%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\geq j.
+\]
+Notice the weak inequality \textquotedblleft$i\geq j$\textquotedblright\ (as
+opposed to the strict inequality \textquotedblleft$i>j$\textquotedblright\ in
+the definition fof upper-triangular matrices).
 
 [to be continued]
 
