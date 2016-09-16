@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:52:56}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:54:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3211,6 +3211,9 @@ upper-triangular $n\times n$-matrices.
 }i\in\left\{  1,2,\ldots,n\right\}  .
 \]
 
+
+\textbf{(c)} Also, $A+B$ is an upper-triangular $n\times n$-matrix.
+Furthermore, $\lambda A$ is an upper-triangular matrix whenever $\lambda$ is a number.
 \end{theorem}
 
 Note that Theorem \ref{thm.triangular.prod-up} \textbf{(b)} says that each
@@ -3388,17 +3391,21 @@ shows that%
 &  \left(  AB\right)  _{i,i}\\
 &  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,m}B_{m,i}\\
 &  =\left(  \text{the sum of the terms }A_{i,k}B_{k,i}\text{ for all }%
-k\in\left\{  1,2,\ldots,n\right\}  \right) \\
+k\in\left\{  1,2,\ldots,n\right\}  \right)  \\
 &  =A_{i,i}B_{i,i}+\underbrace{\left(  \text{the sum of the terms }%
 A_{i,k}B_{k,i}\text{ for all }k\in\left\{  1,2,\ldots,n\right\}  \text{
 satisfying }k\neq i\right)  }_{\substack{=0\\\text{(because
 (\ref{pf.thm.triangular.prod-up.AB1}) shows that all of these terms are
 }0\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have taken the term }%
-A_{i,i}B_{i,i}\text{ out of the sum}\right) \\
+A_{i,i}B_{i,i}\text{ out of the sum}\right)  \\
 &  =A_{i,i}B_{i,i}+0=A_{i,i}B_{i,i}.
 \end{align*}
 This proves Theorem \ref{thm.triangular.prod-up} \textbf{(b)}.
+
+\textbf{(c)} Theorem \ref{thm.triangular.prod-up} \textbf{(c)} is
+straightforward to check (due to the simple definitions of $A+B$ and $\lambda
+A$); the details are left to the reader.
 \end{proof}
 
 The natural analogue of Theorem \ref{thm.triangular.prod-up} for
@@ -3416,6 +3423,9 @@ lower-triangular $n\times n$-matrices.
 }i\in\left\{  1,2,\ldots,n\right\}  .
 \]
 
+
+\textbf{(c)} Also, $A+B$ is a lower-triangular $n\times n$-matrix.
+Furthermore, $\lambda A$ is a lower-triangular matrix whenever $\lambda$ is a number.
 \end{theorem}
 
 The proof of Theorem \ref{thm.triangular.prod-down} is analogous to that of
@@ -3428,8 +3438,8 @@ straightforward (change some inequality signs). Let me pose this as an exercise:
 Theorem \ref{thm.triangular.prod-up} \textbf{(a)}, changing only what little
 needs to be changed. This is not plagiarism for the purpose of this exercise!)
 
-(Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)},
-but you don't need to write it up.)
+(Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)}
+and \textbf{(c)}, but you don't need to write it up.)
 \end{exercise}
 
 There are a few special classes of triangular matrices worth giving names:
