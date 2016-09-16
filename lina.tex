@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:36:31}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:43:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -804,6 +804,33 @@ of the nice properties that we will see later (e.g., our matrix multiplication
 satisfies the associativity law $\left(  AB\right)  C=A\left(  BC\right)  $,
 while \textquotedblleft row by row\textquotedblright\ does not).
 
+\begin{exercise}
+\label{exe.AB-defined}Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & -1\\
+2 & 0\\
+3 & 5
+\end{array}
+\right)  $ and $B=\left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+1 & 6
+\end{array}
+\right)  $.
+
+\textbf{(a)} The matrix $A$ is of size $3\times2$. What is the size of $B$ ?
+
+\textbf{(b)} Is $AB$ defined? If it is, compute it.
+
+\textbf{(c)} Is $BA$ defined? If it is, compute it.
+\end{exercise}
+
+\begin{noncompile}
+Exercise \ref{exe.AB-defined} is essentially from Quiz 1 in Lewis's.
+\end{noncompile}
+
 \subsection{The matrix product rewritten}
 
 Let me show another way to restate our above definition of a product of two
@@ -1515,6 +1542,39 @@ x & y\\
 \right)  $ has its second row filled with zeroes, but $A$ does not; so $BC$
 cannot equal $A$.
 \end{example}
+
+\begin{exercise}
+\label{exe.commutativity-example}\textbf{(a)} Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 2
+\end{array}
+\right)  $. Show that the $2\times2$-matrices $B$ satisfying $AB=BA$ are
+precisely the matrices of the form $\left(
+\begin{array}
+[c]{cc}%
+a & 0\\
+0 & d
+\end{array}
+\right)  $ (where $a$ and $d$ are any numbers). [\textbf{Hint:} Set $B=\left(
+%
+\begin{array}
+[c]{cc}%
+x & y\\
+z & w
+\end{array}
+\right)  $, and rewrite $AB=BA$ as a system of linear equations in $x,y,z,w$.
+Solve this system.]
+
+\textbf{(b)} Let $A=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+0 & 1
+\end{array}
+\right)  $. Characterize the $2\times2$-matrices $B$ satisfying $AB=BA$.
+\end{exercise}
 
 \subsection{\label{sect.intro.sum}(*) The summation sign, and a proof of
 $\left(  AB\right)  C=A\left(  BC\right)  $}
@@ -3328,14 +3388,14 @@ shows that%
 &  \left(  AB\right)  _{i,i}\\
 &  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,m}B_{m,i}\\
 &  =\left(  \text{the sum of the terms }A_{i,k}B_{k,i}\text{ for all }%
-k\in\left\{  1,2,\ldots,n\right\}  \right)  \\
+k\in\left\{  1,2,\ldots,n\right\}  \right) \\
 &  =A_{i,i}B_{i,i}+\underbrace{\left(  \text{the sum of the terms }%
 A_{i,k}B_{k,i}\text{ for all }k\in\left\{  1,2,\ldots,n\right\}  \text{
 satisfying }k\neq i\right)  }_{\substack{=0\\\text{(because
 (\ref{pf.thm.triangular.prod-up.AB1}) shows that all of these terms are
 }0\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have taken the term }%
-A_{i,i}B_{i,i}\text{ out of the sum}\right)  \\
+A_{i,i}B_{i,i}\text{ out of the sum}\right) \\
 &  =A_{i,i}B_{i,i}+0=A_{i,i}B_{i,i}.
 \end{align*}
 This proves Theorem \ref{thm.triangular.prod-up} \textbf{(b)}.
@@ -3371,8 +3431,6 @@ needs to be changed. This is not plagiarism for the purpose of this exercise!)
 (Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)},
 but you don't need to write it up.)
 \end{exercise}
-
-
 
 [to be continued]
 
