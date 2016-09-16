@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 19:21:26}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:09:00}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -922,21 +922,36 @@ c_{m}%
 \end{equation}
 
 
-Now, we can see the following:
+Now I will show a little collection of formulas for the product of two
+matrices. They are all pretty straightforward to obtain (essentially, they are
+the definition of the product viewed from different angles), but they are
+helpful when it comes to manipulating products:
 
 \begin{proposition}
 \label{prop.matrix-prod.rc}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and
-$m\in\mathbb{N}$. Let $A$ be an $n\times m$-matrix. Let $B$ be an $m\times
-p$-matrix. Then, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and
-$j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(  i,j\right)  $-th entry of
-$AB$ equals the product of the $i$-th row of $A$ and the $j$-th column of $B$.
-In formulas:%
+$p\in\mathbb{N}$. Let $A$ be an $n\times m$-matrix. Let $B$ be an $m\times p$-matrix.
+
+\textbf{(a)} For every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $, we have%
+\[
+\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}%
+B_{m,j}.
+\]
+
+
+\textbf{(b)} For every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $, the $\left(  i,j\right)  $-th entry of $AB$ equals
+the product of the $i$-th row of $A$ and the $j$-th column of $B$. In
+formulas:%
 \begin{equation}
 \left(  AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot
 \operatorname*{col}\nolimits_{j}B \label{eq.prop.matrix-prod.rc.1}%
 \end{equation}
 for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
-1,2,\ldots,p\right\}  $. Thus,
+1,2,\ldots,p\right\}  $ (where the expression $\operatorname*{row}%
+\nolimits_{i}A\cdot\operatorname*{col}\nolimits_{j}B$ should be read as
+$\left(  \operatorname*{row}\nolimits_{i}A\right)  \cdot\left(
+\operatorname*{col}\nolimits_{j}B\right)  $). Thus,
 \begin{align*}
 AB  &  =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
 \nolimits_{j}B\right)  _{1\leq i\leq n,\ 1\leq j\leq p}\\
@@ -960,11 +975,32 @@ AB  &  =\left(  \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
 \right)  .
 \end{align*}
 
+
+\textbf{(c)} For every $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\[
+\operatorname*{row}\nolimits_{i}\left(  AB\right)  =\left(
+\operatorname*{row}\nolimits_{i}A\right)  \cdot B.
+\]
+
+
+\textbf{(d)} For every $j\in\left\{  1,2,\ldots,p\right\}  $, we have%
+\[
+\operatorname*{col}\nolimits_{j}\left(  AB\right)  =A\cdot\operatorname*{col}%
+\nolimits_{j}B.
+\]
+
 \end{proposition}
 
+Proposition \ref{prop.matrix-prod.rc} \textbf{(c)} says that if $A$ and $B$
+are two matrices (for which $AB$ makes sense), then each row of $AB$ equals
+the corresponding row of $A$ multiplied by $B$. Similarly, Proposition
+\ref{prop.matrix-prod.rc} \textbf{(d)} says that each column of $AB$ equals
+$A$ multiplied by the corresponding column of $B$. These are fairly simple
+observations, but they are surprisingly useful.
+
 \begin{proof}
-[Proof of Proposition \ref{prop.matrix-prod.rc}.]By the definition of $AB$, we
-have%
+[Proof of Proposition \ref{prop.matrix-prod.rc}.]\textbf{(a)} By the
+definition of $AB$, we have%
 \[
 AB=\left(  A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}\right)  _{1\leq
 i\leq n,\ 1\leq j\leq p}.
@@ -975,18 +1011,22 @@ In other words,%
 \label{pf.prop.matrix-prod.rc.1}%
 \end{equation}
 for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
-1,2,\ldots,p\right\}  $.
+1,2,\ldots,p\right\}  $. This proves Proposition \ref{prop.matrix-prod.rc}
+\textbf{(a)}.
 
-Now, let us prove Proposition \ref{prop.matrix-prod.rc}. It is clearly enough
-to prove (\ref{eq.prop.matrix-prod.rc.1}). So let's do this. Let $i\in\left\{
-1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
-\begin{align*}
+\textbf{(b)} Now, let us prove Proposition \ref{prop.matrix-prod.rc}
+\textbf{(b)}. It is clearly enough to prove (\ref{eq.prop.matrix-prod.rc.1})
+(because all the other statements of Proposition \ref{prop.matrix-prod.rc}
+\textbf{(b)} are just restatements of (\ref{eq.prop.matrix-prod.rc.1})). So
+let's do this. Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $. Then,%
+\begin{align}
 \operatorname*{row}\nolimits_{i}A  &  =\left(
 \begin{array}
 [c]{cccc}%
 A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
 \end{array}
-\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\label{pf.prop.matrix-prod.rc.row}\\
 \operatorname*{col}\nolimits_{j}B  &  =\left(
 \begin{array}
 [c]{c}%
@@ -995,8 +1035,8 @@ B_{2,j}\\
 \vdots\\
 B_{m,j}%
 \end{array}
-\right)  .
-\end{align*}
+\right)  . \label{pf.prop.matrix-prod.rc.col}%
+\end{align}
 Hence,%
 \begin{align*}
 \operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}\nolimits_{j}B  &
@@ -1018,7 +1058,82 @@ B_{m,j}%
 \end{align*}
 Comparing this with (\ref{pf.prop.matrix-prod.rc.1}), we obtain $\left(
 AB\right)  _{i,j}=\operatorname*{row}\nolimits_{i}A\cdot\operatorname*{col}%
-\nolimits_{j}B$. Thus, we have proven (\ref{eq.prop.matrix-prod.rc.1}).
+\nolimits_{j}B$. Thus, we have proven (\ref{eq.prop.matrix-prod.rc.1}). Hence,
+Proposition \ref{prop.matrix-prod.rc} \textbf{(b)} is proven.
+
+\textbf{(c)} Let $i\in\left\{  1,2,\ldots,n\right\}  $. Set
+$C=\operatorname*{row}\nolimits_{i}A$. Notice that $C$ is a row vector of size
+$m$, thus a $1\times m$-matrix. We can refer to any given entry of $C$ either
+as \textquotedblleft the $j$-th entry\textquotedblright\ or as
+\textquotedblleft the $\left(  1,j\right)  $-th entry\textquotedblright%
+\ (where $j$ is the number of the column the entry is located in).
+
+We have%
+\[
+C=\operatorname*{row}\nolimits_{i}A=\left(
+\begin{array}
+[c]{cccc}%
+A_{i,1} & A_{i,2} & \cdots & A_{i,m}%
+\end{array}
+\right)  .
+\]
+Thus,%
+\begin{equation}
+C_{1,k}=A_{i,k}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
+1,2,\ldots,m\right\}  .\label{pf.prop.matrix-prod.rc.c.1}%
+\end{equation}
+
+
+Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
+\begin{align*}
+&  \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
+\left(  AB\right)  \right)  \\
+&  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }AB\right)
+=\left(  AB\right)  _{i,j}\\
+&  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.matrix-prod.rc.1})}\right)
+.
+\end{align*}
+Comparing this with%
+\begin{align*}
+&  \left(  \text{the }j\text{-th entry of }CB\right)  \\
+&  =\left(  \text{the }\left(  1,j\right)  \text{-th entry of }CB\right)  \\
+&  =\underbrace{C_{1,1}}_{\substack{=A_{1,1}\\\text{(by
+(\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{1,j}+\underbrace{C_{1,2}%
+}_{\substack{=A_{1,2}\\\text{(by (\ref{pf.prop.matrix-prod.rc.c.1}))}}%
+}B_{2,j}+\cdots+\underbrace{C_{1,m}}_{\substack{=A_{1,m}\\\text{(by
+(\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{m,j}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.matrix-prod.rc} \textbf{(a)}, applied to
+}1\text{, }C\text{ and }1\\
+\text{instead of }n\text{, }A\text{ and }i
+\end{array}
+\right)  \\
+&  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j},
+\end{align*}
+we obtain%
+\begin{equation}
+\left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
+\left(  AB\right)  \right)  =\left(  \text{the }j\text{-th entry of
+}CB\right)  .\label{pf.prop.matrix-prod.rc.c.5}%
+\end{equation}
+
+
+Now, forget that we fixed $j$. We thus have shown that
+(\ref{pf.prop.matrix-prod.rc.c.5}) holds for each $j\in\left\{  1,2,\ldots
+,p\right\}  $. In other words, each entry of the row vector
+$\operatorname*{row}\nolimits_{i}\left(  AB\right)  $ equals the corresponding
+entry of the row vector $CB$. Hence, $\operatorname*{row}\nolimits_{i}\left(
+AB\right)  $ equals $CB$. Thus, $\operatorname*{row}\nolimits_{i}\left(
+AB\right)  =\underbrace{C}_{=\operatorname*{row}\nolimits_{i}A}B=\left(
+\operatorname*{row}\nolimits_{i}A\right)  \cdot B$. This proves Proposition
+\ref{prop.matrix-prod.rc} \textbf{(c)}.
+
+\textbf{(d)} The proof of Proposition \ref{prop.matrix-prod.rc} \textbf{(d)}
+is similar to that of Proposition \ref{prop.matrix-prod.rc} \textbf{(c)}. We
+thus omit it.
 \end{proof}
 
 \subsection{Properties of matrix operations}
@@ -1427,17 +1542,14 @@ and }j\in\left\{  1,2,\ldots,p\right\}  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.AB}.]The definition of $AB$ yields%
-\[
-AB=\left(  A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}\right)  _{1\leq
-i\leq n,\ 1\leq j\leq p}.
-\]
-Hence, for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
-1,2,\ldots,p\right\}  $, we have%
-\[
-\left(  AB\right)  _{i,j}=A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}%
-B_{m,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}%
-\]
+[Proof of Proposition \ref{prop.AB}.]For all $i\in\left\{  1,2,\ldots
+,n\right\}  $ and $j\in\left\{  1,2,\ldots,p\right\}  $, we have%
+\begin{align*}
+\left(  AB\right)  _{i,j}  &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots
++A_{i,m}B_{m,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.matrix-prod.rc} \textbf{(a)}}\right) \\
+&  =\sum_{k=1}^{m}A_{i,k}B_{k,j}%
+\end{align*}
 (because $\sum_{k=1}^{m}A_{i,k}B_{k,j}$ is exactly $A_{i,1}B_{1,j}%
 +A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}$, by its definition). Proposition
 \ref{prop.AB} is proven.
@@ -2944,7 +3056,7 @@ are upper-triangular, lower-triangular and diagonal.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.triangular.obvious}.] \textbf{(a)}
+[Proof of Proposition \ref{prop.triangular.obvious}.]\textbf{(a)}
 \end{proof}
 
 A less trivial fact is that the product of two upper-triangular matrices is
@@ -3020,7 +3132,7 @@ entries of $A$ and of $B$ (as Theorem \ref{thm.triangular.prod-up}
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.prod-up}.] [to be continued]
+[Proof of Theorem \ref{thm.triangular.prod-up}.][to be continued]
 \end{proof}
 
 [to be continued]
