@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 22:12:42}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 22:18:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3109,8 +3109,8 @@ defined $A^{-k}$ (and we have not defined $A^{-k}$) and proved that standard
 rules of exponentiation (such as $\left(  A^{u}\right)  ^{v}=A^{uv}$) apply to matrices.
 
 \begin{proof}
-[Proof of Corollary \ref{cor.inverses.Ak-1}.] Recall that $A^{0}=I_{n}$ (by
-the definition of $A^{0}$). Hence, in the case when $k=0$, Corollary
+[Proof of Corollary \ref{cor.inverses.Ak-1}.]Recall that $A^{0}=I_{n}$ (by the
+definition of $A^{0}$). Hence, in the case when $k=0$, Corollary
 \ref{cor.inverses.Ak-1} says that $I_{n}$ is invertible, and its inverse is
 $\left(  I_{n}\right)  ^{-1}=I_{n}$. This follows from Proposition
 \ref{prop.inverses.In}. Thus, Corollary \ref{cor.inverses.Ak-1} is proven in
@@ -3143,7 +3143,7 @@ inverse $\left(  A^{-1}\right)  ^{-1}=A$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.inverses.A-1-1}.] Since $A^{-1}$ is an inverse
+[Proof of Proposition \ref{prop.inverses.A-1-1}.]Since $A^{-1}$ is an inverse
 of $A$, we have the two equalities $A^{-1}A=I_{n}$ and $AA^{-1}=I_{n}$. But
 these very same equalities show that $A$ is an inverse of $A^{-1}$ (if you do
 not trust me, just check with the definition of \textquotedblleft
@@ -3151,6 +3151,17 @@ inverse\textquotedblright). Thus, the matrix $A^{-1}$ is invertible, and its
 inverse is $\left(  A^{-1}\right)  ^{-1}=A$. Proposition
 \ref{prop.inverses.A-1-1} is proven.
 \end{proof}
+
+\begin{proposition}
+\label{prop.inverses.lA}Let $n\in\mathbb{N}$. Let $\lambda$ be a nonzero
+number. Let $A$ be an invertible $n\times n$-matrix. Then, the matrix $\lambda
+A$ is also invertible, and its inverse is $\left(  \lambda A\right)
+^{-1}=\lambda^{-1}A^{-1}=\dfrac{1}{\lambda}A^{-1}$.
+\end{proposition}
+
+\begin{exercise}
+\label{exe.prop.inverses.lA}Prove Proposition \ref{prop.inverses.lA}.
+\end{exercise}
 
 \subsection{Triangular matrices}
 
