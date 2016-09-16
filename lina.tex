@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 03:18:33}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 19:21:26}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -283,7 +283,7 @@ letters; second, it doesn't let you write things like $\left(
 \end{array}
 \right)  _{1,3}$.}). Many authors often drop the comma between $i$ and $j$ (so
 they call it $A_{ij}$ or $a_{ij}$); this notation is slightly ambiguous (does
-$A_{132}$ mean $A_{13,2}$ or $A_{1,23}$ ?). Unfortunately, some authors use
+$A_{132}$ mean $A_{13,2}$ or $A_{1,32}$ ?). Unfortunately, some authors use
 the notation $A_{i,j}$ for something else called a \textit{cofactor} of $A$
 (which is, in a sense, quite the opposite of the $\left(  i,j\right)  $-th
 entry of $A$); but we will never do this here (and probably we will not really
@@ -377,8 +377,8 @@ Some examples:
 \end{itemize}
 
 The notation $\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ is
-fairly standard (you will be understood), though again there are variations in
-the literature.
+fairly standard (you will be understood if you use it), though again there are
+variations in the literature.
 
 We used the two letters $i$ and $j$ in the notation $\left(  a_{i,j}\right)
 _{1\leq i\leq n,\ 1\leq j\leq m}$, but we could just as well have picked any
@@ -427,6 +427,18 @@ a\\
 b
 \end{array}
 \right)  $ is a column vector of size $2$.
+
+The following definition is common-sense:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. If $v$ is a row vector of size $n$, then the $\left(
+1,j\right)  $-th entry of $v$ (for $j\in\left\{  1,2,\ldots,n\right\}  $) will
+also be called the $j$\textit{-th entry} of $v$ (because $v$ has only one row,
+so that we don't have to say which row an entry lies in). If $v$ is a column
+vector of size $n$, then the $\left(  i,1\right)  $-th entry of $v$ (for
+$i\in\left\{  1,2,\ldots,n\right\}  $) will also be called the $i$\textit{-th
+entry} of $v$.
+\end{definition}
 
 \subsection{Transposes}
 
@@ -568,9 +580,9 @@ d^{\prime} & e^{\prime} & f^{\prime}%
 a+a^{\prime} & b+b^{\prime} & c+c^{\prime}\\
 d+d^{\prime} & e+e^{\prime} & f+f^{\prime}%
 \end{array}
-\right)  $. (I am increasingly using variables instead of actual numbers,
-because they make it easier to see what entry is going where.) On the other
-hand, the two matrices $\left(
+\right)  $. (I am increasingly using variables instead of actual numbers in my
+examples, because they make it easier to see what entry is going where.) On
+the other hand, the two matrices $\left(
 \begin{array}
 [c]{c}%
 a\\
@@ -2918,6 +2930,98 @@ a & 0 & 0 & 0\\
 \right)  $ for some numbers $a,b^{\prime},c^{\prime\prime},d^{\prime
 \prime\prime}$.
 \end{example}
+
+Here is something obvious:
+
+\begin{proposition}
+\label{prop.triangular.obvious}Let $n\in\mathbb{N}$.
+
+\textbf{(a)} An $n\times n$-matrix $A$ is diagonal if and only if $A$ is both
+upper-triangular and lower-triangular.
+
+\textbf{(b)} The zero matrix $0_{n\times n}$ and the identity matrix $I_{n}$
+are upper-triangular, lower-triangular and diagonal.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.obvious}.] \textbf{(a)}
+\end{proof}
+
+A less trivial fact is that the product of two upper-triangular matrices is
+upper-triangular again. We shall show this, and a little bit more, in the
+following theorem:
+
+\begin{theorem}
+\label{thm.triangular.prod-up}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two
+upper-triangular $n\times n$-matrices.
+
+\textbf{(a)} Then, $AB$ is an upper-triangular $n\times n$-matrix.
+
+\textbf{(b)} The diagonal entries of $AB$ are%
+\[
+\left(  AB\right)  _{i,i}=A_{i,i}B_{i,i}\ \ \ \ \ \ \ \ \ \ \text{for all
+}i\in\left\{  1,2,\ldots,n\right\}  .
+\]
+
+\end{theorem}
+
+Note that Theorem \ref{thm.triangular.prod-up} \textbf{(b)} says that each
+diagonal entry of $AB$ is the product of the corresponding diagonal entries of
+$A$ and of $B$. Thus, \textbf{in this specific case}, the product $AB$ does
+behave as if matrices were multiplied entry by entry (but only for its
+diagonal entries). Before I prove Theorem \ref{thm.triangular.prod-up}, let me
+give an example:
+
+\begin{example}
+Let $A=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+0 & b^{\prime} & c^{\prime}\\
+0 & 0 & c^{\prime\prime}%
+\end{array}
+\right)  $ and $B=\left(
+\begin{array}
+[c]{ccc}%
+x & y & z\\
+0 & y^{\prime} & z^{\prime}\\
+0 & 0 & z^{\prime\prime}%
+\end{array}
+\right)  $ be two upper-triangular $3\times3$-matrices. Then,%
+\[
+AB=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+0 & b^{\prime} & c^{\prime}\\
+0 & 0 & c^{\prime\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+x & y & z\\
+0 & y^{\prime} & z^{\prime}\\
+0 & 0 & z^{\prime\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{ccc}%
+ax & ay+by^{\prime} & az+bz^{\prime}+cz^{\prime\prime}\\
+0 & b^{\prime}y^{\prime} & b^{\prime}z^{\prime}+c^{\prime}z^{\prime\prime}\\
+0 & 0 & c^{\prime\prime}z^{\prime\prime}%
+\end{array}
+\right)  .
+\]
+Thus, $AB$ is again upper-triangular (as Theorem \ref{thm.triangular.prod-up}
+\textbf{(a)} predicts), and the diagonal entries $ax,b^{\prime}y^{\prime
+},c^{\prime\prime}z^{\prime\prime}$ of $AB$ are the products of the respective
+entries of $A$ and of $B$ (as Theorem \ref{thm.triangular.prod-up}
+\textbf{(b)} predicts).
+\end{example}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.prod-up}.] [to be continued]
+\end{proof}
 
 [to be continued]
 
