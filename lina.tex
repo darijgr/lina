@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 15, 2016 21:17:05}
+%TCIDATA{LastRevised=Thursday, September 15, 2016 21:32:53}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1087,7 +1087,7 @@ C_{1,k}=A_{i,k}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
 Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \begin{align*}
 &  \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
-\left(  AB\right)  \right)  \\
+\left(  AB\right)  \right) \\
 &  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }AB\right)
 =\left(  AB\right)  _{i,j}\\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
@@ -1096,9 +1096,9 @@ Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \end{align*}
 Comparing this with%
 \begin{align*}
-&  \left(  \text{the }j\text{-th entry of }CB\right)  \\
+&  \left(  \text{the }j\text{-th entry of }CB\right) \\
 &  =\left(  \text{the }\left(  1,j\right)  \text{-th entry of }CB\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right)  \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right) \\
 &  =\underbrace{C_{1,1}}_{\substack{=A_{1,1}\\\text{(by
 (\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{1,j}+\underbrace{C_{1,2}%
 }_{\substack{=A_{1,2}\\\text{(by (\ref{pf.prop.matrix-prod.rc.c.1}))}}%
@@ -1111,14 +1111,14 @@ Comparing this with%
 }1\text{, }C\text{ and }1\\
 \text{instead of }n\text{, }A\text{ and }i
 \end{array}
-\right)  \\
+\right) \\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j},
 \end{align*}
 we obtain%
 \begin{equation}
 \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
 \left(  AB\right)  \right)  =\left(  \text{the }j\text{-th entry of
-}CB\right)  .\label{pf.prop.matrix-prod.rc.c.5}%
+}CB\right)  . \label{pf.prop.matrix-prod.rc.c.5}%
 \end{equation}
 
 
@@ -1162,14 +1162,14 @@ B_{m,j}%
 Thus,%
 \begin{equation}
 D_{k,1}=B_{k,j}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
-1,2,\ldots,m\right\}  .\label{pf.prop.matrix-prod.rc.d.1}%
+1,2,\ldots,m\right\}  . \label{pf.prop.matrix-prod.rc.d.1}%
 \end{equation}
 
 
 Let $i\in\left\{  1,2,\ldots,n\right\}  $. Then,%
 \begin{align*}
 &  \left(  \text{the }i\text{-th entry of }\operatorname*{col}\nolimits_{j}%
-\left(  AB\right)  \right)  \\
+\left(  AB\right)  \right) \\
 &  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }AB\right)
 =\left(  AB\right)  _{i,j}\\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
@@ -1178,7 +1178,7 @@ Let $i\in\left\{  1,2,\ldots,n\right\}  $. Then,%
 \end{align*}
 Comparing this with%
 \begin{align*}
-&  \left(  \text{the }i\text{-th entry of }AD\right)  \\
+&  \left(  \text{the }i\text{-th entry of }AD\right) \\
 &  =\left(  \text{the }\left(  i,1\right)  \text{-th entry of }AD\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }AD\text{ is a column vector}\right)
 \\
@@ -1194,14 +1194,14 @@ Comparing this with%
 }1\text{, }D\text{ and }1\\
 \text{instead of }p\text{, }B\text{ and }j
 \end{array}
-\right)  \\
+\right) \\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j},
 \end{align*}
 we obtain%
 \begin{equation}
 \left(  \text{the }i\text{-th entry of }\operatorname*{col}\nolimits_{j}%
 \left(  AB\right)  \right)  =\left(  \text{the }i\text{-th entry of
-}AD\right)  .\label{pf.prop.matrix-prod.rc.d.5}%
+}AD\right)  . \label{pf.prop.matrix-prod.rc.d.5}%
 \end{equation}
 
 
@@ -3212,7 +3212,137 @@ entries of $A$ and of $B$ (as Theorem \ref{thm.triangular.prod-up}
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.prod-up}.][to be continued]
+[Proof of Theorem \ref{thm.triangular.prod-up}.]The matrix $A$ is
+upper-triangular. In other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j
+\label{pf.thm.triangular.prod-up.A-tri}%
+\end{equation}
+(because this is what it means for $A$ to be upper-triangular). Similarly,%
+\begin{equation}
+B_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j
+\label{pf.thm.triangular.prod-up.B-tri}%
+\end{equation}
+(because $B$, too, is upper-triangular).
+
+Now, fix two elements $i$ and $j$ of $\left\{  1,2,\ldots,n\right\}  $
+satisfying $i>j$. We shall prove that for every $k\in\left\{  1,2,\ldots
+,n\right\}  $, we have
+\begin{equation}
+A_{i,k}B_{k,j}=0. \label{pf.thm.triangular.prod-up.AB0}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.thm.triangular.prod-up.AB0}):} Let $k\in\left\{
+1,2,\ldots,n\right\}  $. Then, we are in one of the following two cases:
+
+\textit{Case 1:} We have $i\leq k$.
+
+\textit{Case 2:} We have $i>k$.
+
+We shall prove (\ref{pf.thm.triangular.prod-up.AB0}) in each of these two
+cases separately:
+
+\begin{enumerate}
+\item Let us first consider Case 1. In this case, we have $i\leq k$. Thus,
+$k\geq i$, so that $k\geq i>j$. Hence, we can apply
+(\ref{pf.thm.triangular.prod-up.B-tri}) to $k$ instead of $i$. As a result, we
+obtain $B_{k,j}=0$. Hence, $A_{i,k}\underbrace{B_{k,j}}_{=0}=A_{i,k}0=0$.
+Thus, (\ref{pf.thm.triangular.prod-up.AB0}) is proven in Case 1.
+
+\item Let us now consider Case 2. In this case, we have $i>k$. Hence, we can
+apply (\ref{pf.thm.triangular.prod-up.B-tri}) to $k$ instead of $j$. As a
+result, we obtain $A_{i,k}=0$. Hence, $\underbrace{A_{i,k}}_{=0}%
+B_{k,j}=0B_{k,j}=0$. Thus, (\ref{pf.thm.triangular.prod-up.AB0}) is proven in
+Case 2.
+\end{enumerate}
+
+We have now proven (\ref{pf.thm.triangular.prod-up.AB0}) in both Cases 1 and
+2. Thus, (\ref{pf.thm.triangular.prod-up.AB0}) is proven.]
+
+Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} shows that%
+\begin{align*}
+\left(  AB\right)  _{i,j}  &  =\underbrace{A_{i,1}B_{1,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
+}_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=m\text{)}}}\\
+&  =0+0+\cdots+0=0.
+\end{align*}
+
+
+Now, forget that we fixed $i$ and $j$. We thus have shown that%
+\begin{equation}
+\left(  AB\right)  _{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
+\label{pf.thm.triangular.prod-up.AB0a}%
+\end{equation}
+But this says precisely that $AB$ is upper-triangular. Thus, Theorem
+\ref{thm.triangular.prod-up} \textbf{(a)} is proven.
+
+\textbf{(b)} Let $i\in\left\{  1,2,\ldots,n\right\}  $. We must prove that
+$\left(  AB\right)  _{i,i}=A_{i,i}B_{i,i}$.
+
+In a sense, this is similar to how we proved
+(\ref{pf.thm.triangular.prod-up.AB0a}), but a little bit more complicated.
+
+We first observe that, for every $k\in\left\{  1,2,\ldots,n\right\}  $
+satisfying $k\neq i$, we have%
+\begin{equation}
+A_{i,k}B_{k,i}=0. \label{pf.thm.triangular.prod-up.AB1}%
+\end{equation}
+
+
+The proof of this will be very similar to the proof of
+(\ref{pf.thm.triangular.prod-up.AB0}), with $j$ replaced by $i$:
+
+[\textit{Proof of (\ref{pf.thm.triangular.prod-up.AB1}):} Let $k\in\left\{
+1,2,\ldots,n\right\}  $ be such that $k\neq i$. Then, we are in one of the
+following two cases:
+
+\textit{Case 1:} We have $i\leq k$.
+
+\textit{Case 2:} We have $i>k$.
+
+We shall prove (\ref{pf.thm.triangular.prod-up.AB0}) in each of these two
+cases separately:
+
+\begin{enumerate}
+\item Let us first consider Case 1. In this case, we have $i\leq k$. Thus,
+$k\geq i$, so that $k>i$ (because $k\neq i$). Hence, we can apply
+(\ref{pf.thm.triangular.prod-up.B-tri}) to $k$ and $i$ instead of $i$ and $j$.
+As a result, we obtain $B_{k,i}=0$. Hence, $A_{i,k}\underbrace{B_{k,i}}%
+_{=0}=A_{i,k}0=0$. Thus, (\ref{pf.thm.triangular.prod-up.AB1}) is proven in
+Case 1.
+
+\item Let us now consider Case 2. In this case, we have $i>k$. Hence, we can
+apply (\ref{pf.thm.triangular.prod-up.B-tri}) to $k$ instead of $j$. As a
+result, we obtain $A_{i,k}=0$. Hence, $\underbrace{A_{i,k}}_{=0}%
+B_{k,i}=0B_{k,i}=0$. Thus, (\ref{pf.thm.triangular.prod-up.AB1}) is proven in
+Case 2.
+\end{enumerate}
+
+We have now proven (\ref{pf.thm.triangular.prod-up.AB1}) in both Cases 1 and
+2. Thus, (\ref{pf.thm.triangular.prod-up.AB1}) is proven.]
+
+Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} (applied to $j=i$)
+shows that%
+\begin{align*}
+&  \left(  AB\right)  _{i,i}\\
+&  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,m}B_{m,i}\\
+&  =\left(  \text{the sum of the terms }A_{i,k}B_{k,i}\text{ for all }%
+k\in\left\{  1,2,\ldots,n\right\}  \right)  \\
+&  =A_{i,i}B_{i,i}+\underbrace{\left(  \text{the sum of the terms }%
+A_{i,k}B_{k,i}\text{ for all }k\in\left\{  1,2,\ldots,n\right\}  \text{
+satisfying }k\neq i\right)  }_{\substack{=0\\\text{(because
+(\ref{pf.thm.triangular.prod-up.AB1}) shows that all of these terms are
+}0\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have taken the term }%
+A_{i,i}B_{i,i}\text{ out of the sum}\right)  \\
+&  =A_{i,i}B_{i,i}+0=A_{i,i}B_{i,i}.
+\end{align*}
+This proves Theorem \ref{thm.triangular.prod-up} \textbf{(b)}.
 \end{proof}
 
 [to be continued]
