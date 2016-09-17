@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, September 16, 2016 20:15:26}
+%TCIDATA{LastRevised=Friday, September 16, 2016 20:29:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -414,8 +414,8 @@ then assemble these entries back into an $n\times m$-matrix (arranged in the
 same way as in $A$), then you get back $A$. In other words: For every $n\times
 m$-matrix $A$, we have%
 \begin{equation}
-\left(  A_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}%
-=A.\label{eq.matrix.A-through-Aij}%
+\left(  A_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}=A.
+\label{eq.matrix.A-through-Aij}%
 \end{equation}
 
 
@@ -567,7 +567,7 @@ be an $n\times m$-matrix. Then, $\left(  A^{T}\right)  ^{T}=A$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.transpose.invol}.] This is fairly clear, but
+[Proof of Proposition \ref{prop.transpose.invol}.]This is fairly clear, but
 let me give a formal proof just to get you used to the notations.
 
 We have $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$ (by
@@ -576,13 +576,13 @@ satisfies%
 \begin{equation}
 \left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  .\label{pf.prop.transpose.invol.AT}%
+,n\right\}  . \label{pf.prop.transpose.invol.AT}%
 \end{equation}
 Hence,%
 \begin{equation}
 \left(  A^{T}\right)  _{j,i}=A_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,m\right\}  .\label{pf.prop.transpose.invol.AT2}%
+,m\right\}  . \label{pf.prop.transpose.invol.AT2}%
 \end{equation}
 (indeed, this follows by applying (\ref{pf.prop.transpose.invol.AT}) to $j$
 and $i$ instead of $i$ and $j$).
@@ -895,6 +895,97 @@ while \textquotedblleft row by row\textquotedblright\ does not).
 \begin{noncompile}
 Exercise \ref{exe.AB-defined} is essentially from Quiz 1 in Lewis's.
 \end{noncompile}
+
+\begin{exercise}
+\label{exe.some-prods}\textbf{(a)} Compute%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+1 & 1 & 1\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+1 & 1 & 1\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{array}
+\right)
+\]
+and%
+\[
+\left(
+\begin{array}
+[c]{cccc}%
+1 & 1 & 1 & 1\\
+0 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cccc}%
+1 & 1 & 1 & 1\\
+0 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  .
+\]
+
+
+\textbf{(b)} Compute $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{array}
+\right)  $ for an arbitrary $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime}%
+\end{array}
+\right)  $.
+
+\textbf{(c)} Compute $\left(
+\begin{array}
+[c]{cccc}%
+1 & 1 & 1 & 1\\
+0 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)  $ for an arbitrary $4\times1$-matrix $\left(
+\begin{array}
+[c]{c}%
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)  $.
+\end{exercise}
 
 \subsection{The matrix product rewritten}
 
@@ -2991,6 +3082,11 @@ $A$ has at most as many columns as it has rows).
 
 \textbf{(c)} If $A$ is invertible (i.e., has an inverse), then $n=m$ (that is,
 the matrix $A$ is square).
+
+\textbf{(d)} If $A$ is square (that is, $n=m$) and has a left inverse
+\textbf{or} a right inverse, then $A$ is actually invertible (and so this left
+or right inverse is the inverse of $A$). Notice that this is false for
+rectangular matrices!
 \end{theorem}
 
 Let us now check some simpler facts about inverses:
@@ -3282,14 +3378,14 @@ j\leq n}$. Thus,%
 \begin{equation}
 \left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  .\label{pf.prop.transpose.opers.d.AT}%
+,n\right\}  . \label{pf.prop.transpose.opers.d.AT}%
 \end{equation}
 Similarly, the definition of $B^{T}$ shows that $B^{T}=\left(  B_{j,i}\right)
 _{1\leq i\leq p,\ 1\leq j\leq m}$. Hence,%
 \begin{equation}
 \left(  B^{T}\right)  _{i,j}=B_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,p\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,m\right\}  .\label{pf.prop.transpose.opers.d.BT}%
+,m\right\}  . \label{pf.prop.transpose.opers.d.BT}%
 \end{equation}
 
 
@@ -3316,7 +3412,7 @@ $A$ and $B$. We thus conclude that%
 \begin{equation}
 \left(  B^{T}A^{T}\right)  _{i,j}=\left(  B^{T}\right)  _{i,1}\left(
 A^{T}\right)  _{1,j}+\left(  B^{T}\right)  _{i,2}\left(  A^{T}\right)
-_{2,j}+\cdots+\left(  B^{T}\right)  _{i,m}\left(  A^{T}\right)  _{m,j}%
+_{2,j}+\cdots+\left(  B^{T}\right)  _{i,m}\left(  A^{T}\right)  _{m,j}
 \label{pf.prop.transpose.opers.d.2}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -3328,15 +3424,15 @@ But for every $k\in\left\{  1,2,\ldots,m\right\}  $, we have%
 (\ref{pf.prop.transpose.opers.d.BT}), applied}\\\text{to }k\text{ instead of
 }j\text{)}}}\underbrace{\left(  A^{T}\right)  _{k,j}}_{\substack{=A_{j,k}%
 \\\text{(by (\ref{pf.prop.transpose.opers.d.AT}), applied}\\\text{to }k\text{
-instead of }i\text{)}}}=B_{k,i}A_{j,k}=A_{j,k}B_{k,i}%
-.\label{pf.prop.transpose.opers.d.3}%
+instead of }i\text{)}}}=B_{k,i}A_{j,k}=A_{j,k}B_{k,i}.
+\label{pf.prop.transpose.opers.d.3}%
 \end{equation}
 
 
 Hence, for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{
 1,2,\ldots,n\right\}  $, we have
 \begin{align*}
-\left(  B^{T}A^{T}\right)  _{i,j} &  =\underbrace{\left(  B^{T}\right)
+\left(  B^{T}A^{T}\right)  _{i,j}  &  =\underbrace{\left(  B^{T}\right)
 _{i,1}\left(  A^{T}\right)  _{1,j}}_{\substack{=A_{j,1}B_{1,i}\\\text{(by
 (\ref{pf.prop.transpose.opers.d.3}), applied}\\\text{to }k=1\text{)}%
 }}+\underbrace{\left(  B^{T}\right)  _{i,2}\left(  A^{T}\right)  _{2,j}%
@@ -3345,7 +3441,7 @@ applied}\\\text{to }k=2\text{)}}}+\cdots+\underbrace{\left(  B^{T}\right)
 _{i,m}\left(  A^{T}\right)  _{m,j}}_{\substack{=A_{j,m}B_{m,i}\\\text{(by
 (\ref{pf.prop.transpose.opers.d.3}), applied}\\\text{to }k=m\text{)}%
 }}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.transpose.opers.d.2}%
-)}\right)  \\
+)}\right) \\
 &  =A_{j,1}B_{1,i}+A_{j,2}B_{2,i}+\cdots+A_{j,m}B_{m,i}.
 \end{align*}
 Comparing this with (\ref{pf.prop.transpose.opers.d.1}), we conclude that
@@ -3717,36 +3813,36 @@ n$-matrix. Then, $A$ is upper-triangular if and only if $A^{T}$ is lower-triangu
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.triangular.UT=D}.] The definition of $A^{T}$
+[Proof of Proposition \ref{prop.triangular.UT=D}.]The definition of $A^{T}$
 shows that $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
 Thus,%
 \begin{equation}
 \left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  .\label{pf.prop.triangular.UT=D.1}%
+,n\right\}  . \label{pf.prop.triangular.UT=D.1}%
 \end{equation}
 
 
 Now, consider the following chain of equivalent statements\footnote{After each
 equivalence, we give a justification for why it is an equivalence.}:%
 \begin{align*}
-& \ \left(  A\text{ is upper-triangular}\right)  \\
-& \Longleftrightarrow\ \left(  A_{i,j}=0\text{ whenever }i>j\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
-upper-triangular\textquotedblright\ is defined}\right)  \\
-& \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }j>i\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have just renamed }i\text{ and
-}j\text{ as }j\text{ and }i\right)  \\
-& \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }i<j\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{because }j>i\text{ is equivalent to
-}i<j\right)  \\
-& \Longleftrightarrow\ \left(  \left(  A^{T}\right)  _{i,j}=0\text{ whenever
-}i<j\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have replaced }A_{j,i}\text{ by
+&  \ \left(  A\text{ is upper-triangular}\right) \\
+&  \Longleftrightarrow\ \left(  A_{i,j}=0\text{ whenever }i>j\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
+upper-triangular\textquotedblright\ is defined}\right) \\
+&  \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }j>i\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have just renamed }i\text{ and
+}j\text{ as }j\text{ and }i\right) \\
+&  \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }i<j\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because }j>i\text{ is equivalent to
+}i<j\right) \\
+&  \Longleftrightarrow\ \left(  \left(  A^{T}\right)  _{i,j}=0\text{ whenever
+}i<j\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have replaced }A_{j,i}\text{ by
 }\left(  A^{T}\right)  _{i,j}\text{, because of
-(\ref{pf.prop.triangular.UT=D.1})}\right)  \\
-& \Longleftrightarrow\ \left(  A^{T}\text{ is lower-triangular}\right)  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
+(\ref{pf.prop.triangular.UT=D.1})}\right) \\
+&  \Longleftrightarrow\ \left(  A^{T}\text{ is lower-triangular}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
 lower-triangular\textquotedblright\ is defined}\right)  .
 \end{align*}
 Thus, Proposition \ref{prop.triangular.UT=D} holds.
@@ -3830,7 +3926,50 @@ A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\geq j.
 \]
 Notice the weak inequality \textquotedblleft$i\geq j$\textquotedblright\ (as
 opposed to the strict inequality \textquotedblleft$i>j$\textquotedblright\ in
-the definition fof upper-triangular matrices).
+the definition of upper-triangular matrices).
+
+\begin{exercise}
+\label{exe.inverses.3x3-ut}Let $A=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+0 & b^{\prime} & c^{\prime}\\
+0 & 0 & c^{\prime\prime}%
+\end{array}
+\right)  $ be an invertibly upper-triangular $3\times3$-matrix. Show that $A$
+is invertible by explicitly computing the inverse of $A$ (in terms of
+$a,b,c,b^{\prime},c^{\prime},c^{\prime\prime}$).
+
+[\textbf{Hint:} In order to find a right inverse of $A$, it is enough to find
+three column vectors $u,v,w$ (each of size $3$) satisfying the equations%
+\[
+Au=\left(
+\begin{array}
+[c]{c}%
+1\\
+0\\
+0
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ Av=\left(
+\begin{array}
+[c]{c}%
+0\\
+1\\
+0
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ Aw=\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+1
+\end{array}
+\right)  .
+\]
+In fact, once these vectors are found, assembling them into a matrix yields a
+right inverse of $A$ (why?). Find these $u,v,w$. Then, check that the
+resulting right-inverse of $A$ is also a left-inverse.]
+\end{exercise}
 
 [to be continued]
 
