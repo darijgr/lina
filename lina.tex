@@ -14,7 +14,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, September 16, 2016 19:44:00}
+%TCIDATA{LastRevised=Friday, September 16, 2016 20:15:26}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -413,9 +413,10 @@ Of course, if you decompose an $n\times m$-matrix $A$ into its entries, and
 then assemble these entries back into an $n\times m$-matrix (arranged in the
 same way as in $A$), then you get back $A$. In other words: For every $n\times
 m$-matrix $A$, we have%
-\[
-\left(  A_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}=A.
-\]
+\begin{equation}
+\left(  A_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}%
+=A.\label{eq.matrix.A-through-Aij}%
+\end{equation}
 
 
 \subsection{Row and column vectors}
@@ -556,6 +557,46 @@ and our column vector above becomes $\left(  4,-1,2,0\right)  ^{T}$.
 
 The transpose of a matrix $A$ is also denoted by $A^{t}$ or $^{T}A$ or $^{t}A$
 by various authors (not me).
+
+Here is a very simple fact about transposes: The transpose of the transpose of
+a matrix $A$ is the matrix $A$ itself. In other words:
+
+\begin{proposition}
+\label{prop.transpose.invol}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
+be an $n\times m$-matrix. Then, $\left(  A^{T}\right)  ^{T}=A$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.transpose.invol}.] This is fairly clear, but
+let me give a formal proof just to get you used to the notations.
+
+We have $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$ (by
+the definition of $A^{T}$). Thus, $A^{T}$ is an $m\times n$-matrix and
+satisfies%
+\begin{equation}
+\left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,n\right\}  .\label{pf.prop.transpose.invol.AT}%
+\end{equation}
+Hence,%
+\begin{equation}
+\left(  A^{T}\right)  _{j,i}=A_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,m\right\}  .\label{pf.prop.transpose.invol.AT2}%
+\end{equation}
+(indeed, this follows by applying (\ref{pf.prop.transpose.invol.AT}) to $j$
+and $i$ instead of $i$ and $j$).
+
+Now, the definition of $\left(  A^{T}\right)  ^{T}$ yields%
+\[
+\left(  A^{T}\right)  ^{T}=\left(  \underbrace{\left(  A^{T}\right)  _{j,i}%
+}_{\substack{=A_{i,j}\\\text{(by (\ref{pf.prop.transpose.invol.AT2}))}%
+}}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}=\left(  A_{i,j}\right)  _{1\leq
+i\leq m,\ 1\leq j\leq n}=A
+\]
+(by (\ref{eq.matrix.A-through-Aij})). This proves Proposition
+\ref{prop.transpose.invol}.
+\end{proof}
 
 \subsection{Addition, scaling and multiplication}
 
@@ -802,7 +843,19 @@ bx & by
 (note how in the fourth example, we don't see any plus signs, because each of
 the sums has only one addend).
 
-We can also denote the product $AB$ by $A\cdot B$ (though few people ever do this).
+We can also denote the product $AB$ by $A\cdot B$ (though few people ever do
+this\footnote{\textbf{Warning:} The notation $A\cdot B$ is somewhat
+nonstandard. Many authors (for example, Olver and Shakiban in \cite[\S 3.1]%
+{OlvSha06}) define the \textquotedblleft dot product\textquotedblright\ of two
+column vectors $v=\left(  v_{1},v_{2},\ldots,v_{n}\right)  ^{T}$ and
+$w=\left(  w_{1},w_{2},\ldots,w_{n}\right)  ^{T}$ (of the same size) to be the
+number $v_{1}w_{1}+v_{2}w_{2}+\cdots+v_{n}w_{n}$; they furthermore denote this
+dot product by $v\cdot w$. This notation is in conflict with our notation
+$A\cdot B$, because the dot product of $v$ and $w$ is not what we call $v\cdot
+w$ (it is, in fact, what we call $v^{T}\cdot w$). The reason why I have picked
+the somewhat nonstandard convention to regard $A\cdot B$ as a synonym for $AB$
+is my belief that a dot should always denote the same multiplication as
+juxtaposition (i.e., that $A\cdot B$ should always mean the same as $AB$).}).
 
 We have thus learnt how to multiply matrices. Notice that the $\left(
 i,j\right)  $-th entry of the product $AB$ depends only on the $i$-th row of
@@ -3184,6 +3237,131 @@ A$ is also invertible, and its inverse is $\left(  \lambda A\right)
 \label{exe.prop.inverses.lA}Prove Proposition \ref{prop.inverses.lA}.
 \end{exercise}
 
+\subsection{More on transposes}
+
+How do the matrix operations we have seen above (addition, multiplication,
+inversion, etc.) behave with respect to transposes? The answer is
+\textquotedblleft fairly nicely\textquotedblright:
+
+\begin{proposition}
+\label{prop.transpose.opers}\textbf{(a)} Let $n\in\mathbb{N}$. Then, $\left(
+I_{n}\right)  ^{T}=I_{n}$.
+
+\textbf{(b)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then, $\left(
+0_{n\times m}\right)  ^{T}=0_{m\times n}$.
+
+\textbf{(c)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be an $n\times
+m$-matrix. Let $\lambda$ be a number. Then, $\left(  \lambda A\right)
+^{T}=\lambda A^{T}$.
+
+\textbf{(d)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ and $B$ be two
+$n\times m$-matrices. Then, $\left(  A+B\right)  ^{T}=A^{T}+B^{T}$.
+
+\textbf{(e)} Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $p\in\mathbb{N}$. Let
+$A$ be an $n\times m$-matrix. Let $B$ be an $m\times p$-matrix. Then, $\left(
+AB\right)  ^{T}=B^{T}A^{T}$.
+
+\textbf{(f)} Let $n\in\mathbb{N}$. Let $A$ be an invertible $n\times
+n$-matrix. Then, $A^{T}$ is invertible, and its inverse is $\left(
+A^{T}\right)  ^{-1}=\left(  A^{-1}\right)  ^{T}$.
+\end{proposition}
+
+Notice that the right hand side in Proposition \ref{prop.transpose.opers}
+\textbf{(e)} is $B^{T}A^{T}$, not $A^{T}B^{T}$ (in fact, $A^{T}B^{T}$ does not
+always make sense, since the number of columns of $A^{T}$ is not necessarily
+the number of rows of $B^{T}$). This is similar to the $B^{-1}A^{-1}$ in
+Proposition \ref{prop.inverses.AB}.
+
+Proposition \ref{prop.transpose.opers} is fairly easy to show; let us only
+give a proof of part \textbf{(e)}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.transpose.opers} \textbf{(e)}.]The definition
+of $A^{T}$ shows that $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq
+j\leq n}$. Thus,%
+\begin{equation}
+\left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,n\right\}  .\label{pf.prop.transpose.opers.d.AT}%
+\end{equation}
+Similarly, the definition of $B^{T}$ shows that $B^{T}=\left(  B_{j,i}\right)
+_{1\leq i\leq p,\ 1\leq j\leq m}$. Hence,%
+\begin{equation}
+\left(  B^{T}\right)  _{i,j}=B_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,p\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,m\right\}  .\label{pf.prop.transpose.opers.d.BT}%
+\end{equation}
+
+
+Now, $B^{T}$ is a $p\times m$-matrix, while $A^{T}$ is an $m\times n$-matrix.
+Hence, $B^{T}A^{T}$ is a $p\times n$-matrix. Also, $\left(  AB\right)  ^{T}$
+is a $p\times n$-matrix (since $AB$ is an $n\times p$-matrix). The definition
+of $\left(  AB\right)  ^{T}$ shows that $\left(  AB\right)  ^{T}=\left(
+\left(  AB\right)  _{j,i}\right)  _{1\leq i\leq p,\ 1\leq j\leq n}$. Hence,
+\begin{align}
+\left(  \left(  AB\right)  ^{T}\right)  _{i,j}  &  =\left(  AB\right)
+_{j,i}\nonumber\\
+&  =A_{j,1}B_{1,i}+A_{j,2}B_{2,i}+\cdots+A_{j,m}B_{m,i}%
+\label{pf.prop.transpose.opers.d.1}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.matrix-prod.rc}
+\textbf{(a)}, applied to }j\text{ and }i\text{ instead of }i\text{ and
+}j\right) \nonumber
+\end{align}
+for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{  1,2,\ldots
+,n\right\}  $.
+
+On the other hand, we can apply Proposition \ref{prop.matrix-prod.rc}
+\textbf{(a)} to $p$, $m$, $n$, $B^{T}$ and $A^{T}$ instead of $n$, $m$, $p$,
+$A$ and $B$. We thus conclude that%
+\begin{equation}
+\left(  B^{T}A^{T}\right)  _{i,j}=\left(  B^{T}\right)  _{i,1}\left(
+A^{T}\right)  _{1,j}+\left(  B^{T}\right)  _{i,2}\left(  A^{T}\right)
+_{2,j}+\cdots+\left(  B^{T}\right)  _{i,m}\left(  A^{T}\right)  _{m,j}%
+\label{pf.prop.transpose.opers.d.2}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{  1,2,\ldots
+,n\right\}  $.
+
+But for every $k\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{equation}
+\underbrace{\left(  B^{T}\right)  _{i,k}}_{\substack{=B_{k,i}\\\text{(by
+(\ref{pf.prop.transpose.opers.d.BT}), applied}\\\text{to }k\text{ instead of
+}j\text{)}}}\underbrace{\left(  A^{T}\right)  _{k,j}}_{\substack{=A_{j,k}%
+\\\text{(by (\ref{pf.prop.transpose.opers.d.AT}), applied}\\\text{to }k\text{
+instead of }i\text{)}}}=B_{k,i}A_{j,k}=A_{j,k}B_{k,i}%
+.\label{pf.prop.transpose.opers.d.3}%
+\end{equation}
+
+
+Hence, for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $, we have
+\begin{align*}
+\left(  B^{T}A^{T}\right)  _{i,j} &  =\underbrace{\left(  B^{T}\right)
+_{i,1}\left(  A^{T}\right)  _{1,j}}_{\substack{=A_{j,1}B_{1,i}\\\text{(by
+(\ref{pf.prop.transpose.opers.d.3}), applied}\\\text{to }k=1\text{)}%
+}}+\underbrace{\left(  B^{T}\right)  _{i,2}\left(  A^{T}\right)  _{2,j}%
+}_{\substack{=A_{j,2}B_{2,i}\\\text{(by (\ref{pf.prop.transpose.opers.d.3}),
+applied}\\\text{to }k=2\text{)}}}+\cdots+\underbrace{\left(  B^{T}\right)
+_{i,m}\left(  A^{T}\right)  _{m,j}}_{\substack{=A_{j,m}B_{m,i}\\\text{(by
+(\ref{pf.prop.transpose.opers.d.3}), applied}\\\text{to }k=m\text{)}%
+}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.transpose.opers.d.2}%
+)}\right)  \\
+&  =A_{j,1}B_{1,i}+A_{j,2}B_{2,i}+\cdots+A_{j,m}B_{m,i}.
+\end{align*}
+Comparing this with (\ref{pf.prop.transpose.opers.d.1}), we conclude that
+$\left(  \left(  AB\right)  ^{T}\right)  _{i,j}=\left(  B^{T}A^{T}\right)
+_{i,j}$ for all $i\in\left\{  1,2,\ldots,p\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $. In other words, each entry of the matrix $\left(
+AB\right)  ^{T}$ equals the corresponding entry of the matrix $B^{T}A^{T}$.
+Thus, $\left(  AB\right)  ^{T}=B^{T}A^{T}$. This proves Proposition
+\ref{prop.transpose.opers} \textbf{(e)}.
+\end{proof}
+
+\begin{exercise}
+\label{exe.prop.transpose.opers.e}Prove Proposition \ref{prop.transpose.opers}
+\textbf{(f)}.
+\end{exercise}
+
 \subsection{Triangular matrices}
 
 We next discuss some particular classes of matrices: the so-called
@@ -3529,6 +3707,50 @@ needs to be changed. This is not plagiarism for the purpose of this exercise!)
 (Similarly, you can prove Theorem \ref{thm.triangular.prod-down} \textbf{(b)}
 and \textbf{(c)}, but you don't need to write it up.)
 \end{exercise}
+
+Lower-triangular and upper-triangular matrices are not only analogues of each
+other; they are also closely related:
+
+\begin{proposition}
+\label{prop.triangular.UT=D}Let $n\in\mathbb{N}$. Let $A$ be an $n\times
+n$-matrix. Then, $A$ is upper-triangular if and only if $A^{T}$ is lower-triangular.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.UT=D}.] The definition of $A^{T}$
+shows that $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
+Thus,%
+\begin{equation}
+\left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,n\right\}  .\label{pf.prop.triangular.UT=D.1}%
+\end{equation}
+
+
+Now, consider the following chain of equivalent statements\footnote{After each
+equivalence, we give a justification for why it is an equivalence.}:%
+\begin{align*}
+& \ \left(  A\text{ is upper-triangular}\right)  \\
+& \Longleftrightarrow\ \left(  A_{i,j}=0\text{ whenever }i>j\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
+upper-triangular\textquotedblright\ is defined}\right)  \\
+& \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }j>i\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have just renamed }i\text{ and
+}j\text{ as }j\text{ and }i\right)  \\
+& \Longleftrightarrow\ \left(  A_{j,i}=0\text{ whenever }i<j\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{because }j>i\text{ is equivalent to
+}i<j\right)  \\
+& \Longleftrightarrow\ \left(  \left(  A^{T}\right)  _{i,j}=0\text{ whenever
+}i<j\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have replaced }A_{j,i}\text{ by
+}\left(  A^{T}\right)  _{i,j}\text{, because of
+(\ref{pf.prop.triangular.UT=D.1})}\right)  \\
+& \Longleftrightarrow\ \left(  A^{T}\text{ is lower-triangular}\right)  \\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
+lower-triangular\textquotedblright\ is defined}\right)  .
+\end{align*}
+Thus, Proposition \ref{prop.triangular.UT=D} holds.
+\end{proof}
 
 There are a few special classes of triangular matrices worth giving names:
 
