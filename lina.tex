@@ -8,6 +8,7 @@
 \usepackage{comment}
 \usepackage{color}
 \usepackage{hyperref}
+\usepackage{datetime}
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
 \usepackage{needspace}
@@ -100,7 +101,7 @@
 \includecomment{vershort}
 \excludecomment{noncompile}
 \newcommand{\id}{\operatorname{id}}
-\ihead{Notes on linear algebra}
+\ihead{Notes on linear algebra (\today, \currenttime)}
 \ohead{page \thepage}
 \cfoot{}
 \begin{document}
@@ -110,7 +111,7 @@
 \date{
 %TCIMACRO{\TeXButton{today}{\today}}%
 %BeginExpansion
-\today
+\today , \currenttime
 %EndExpansion
 }
 \maketitle
