@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 17, 2016 01:30:21}
+%TCIDATA{LastRevised=Saturday, September 17, 2016 01:40:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3920,6 +3920,9 @@ The word \textquotedblleft invertibly upper-triangular\textquotedblright\ is
 my invention. We will later see it vindicated, once we show that an
 upper-triangular matrix is invertible if and only if it is invertibly upper-triangular.
 
+Clearly, upper-unitriangular matrices are invertibly upper-triangular (since
+$1$ is nonzero).
+
 Strictly upper-triangular $n\times n$-matrices can also be characterized as
 the $n\times n$-matrices $A$ which satisfy%
 \[
@@ -3971,6 +3974,30 @@ In fact, once these vectors are found, assembling them into a matrix yields a
 right inverse of $A$ (why?). Find these $u,v,w$. Then, check that the
 resulting right-inverse of $A$ is also a left-inverse.]
 \end{exercise}
+
+\begin{corollary}
+\label{cor.triangular.uni*uni}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two
+upper-unitriangular $n\times n$-matrices. Then, $AB$ is also an
+upper-unitriangular $n\times n$-matrix.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.uni*uni}.] The matrices $A$ and $B$
+are upper-triangular (since they are upper-unitriangular). Hence, Theorem
+\ref{thm.triangular.prod-up} \textbf{(a)} shows that $AB$ is an
+upper-triangular $n\times n$-matrix. Moreover, Theorem
+\ref{thm.triangular.prod-up} \textbf{(a)} shows that
+\[
+\left(  AB\right)  _{i,i}=\underbrace{A_{i,i}}_{\substack{=1\\\text{(since
+}A\text{ is}\\\text{unitriangular)}}}\underbrace{B_{i,i}}%
+_{\substack{=1\\\text{(since }B\text{ is}\\\text{unitriangular)}}}=1\cdot1=1
+\]
+for all $i\in\left\{  1,2,\ldots,n\right\}  $. Thus, the matrix $AB$ is
+upper-unitriangular (since we already know that $AB$ is upper-triangular).
+Corollary \ref{cor.triangular.uni*uni} is thus proven.
+\end{proof}
+
+
 
 [to be continued]
 
