@@ -15,12 +15,21 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 17, 2016 01:40:13}
+%TCIDATA{LastRevised=Saturday, September 17, 2016 02:09:37}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Language=American English}
+%TCIDATA{ComputeDefs=
+%$B=\left(
+%\begin{array}
+%[c]{cc}%
+%1 & 1\\
+%1 & 0
+%\end{array}
+%\right)  $
+%}
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
@@ -1566,7 +1575,14 @@ D,\ \ \ \ \ \ \ \ \ \ A\left(  \left(  BC\right)  D\right)
 \]
 and all of them lead to the same result. This is called \textit{general
 associativity} and is not obvious (even if you know that Proposition
-\ref{prop.matrix-laws.1} \textbf{(g)} holds).
+\ref{prop.matrix-laws.1} \textbf{(g)} holds)\footnote{If you are curious about
+the proofs:
+\par
+We shall prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)} further below
+(in Section \ref{sect.intro.sum}). General associativity can be derived from
+Proposition \ref{prop.matrix-laws.1} \textbf{(g)} in the general context of
+\textquotedblleft binary operations\textquotedblright; see (for
+example)\ \cite{Zuker14} for this argument.}.
 
 Please take a moment to appreciate general associativity! Without it, we could
 not make sense of products like $ABC$ and $ABCDE$, because their values could
@@ -2424,6 +2440,329 @@ two powers of a square matrix commute. (In other words: For any $n\times
 n$-matrix $A$, and any $u\in\mathbb{N}$ and $v\in\mathbb{N}$, the two matrices
 $A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
 A^{v}=A^{u+v}=A^{v}A^{u}$.)
+
+\subsection{(*) Application: Fibonacci numbers}
+
+Here is a simple application of matrix multiplication to elementary mathematics.
+
+\begin{definition}
+\label{def.fibonacci}The \textit{Fibonacci sequence} is the sequence $\left(
+0,1,1,2,3,5,8,13,21,34,55,\ldots\right)  $ that is defined as follows: Its
+first two entries are $0$ and $1$, and each further entry is the sum of the
+previous entries. In more formal terms, it is the sequence $\left(
+f_{0},f_{1},f_{2},f_{3},\ldots\right)  $ (we start the labelling at $0$)
+defined recursively by%
+\begin{align*}
+f_{0}  &  =0,\ \ \ \ \ \ \ \ \ \ f_{1}=1,\ \ \ \ \ \ \ \ \ \ \text{and}\\
+f_{n}  &  =f_{n-1}+f_{n-2}\ \ \ \ \ \ \ \ \ \ \text{for every }n\geq2.
+\end{align*}
+The elements of this sequence are called the \textit{Fibonacci numbers}.
+\end{definition}
+
+Definition \ref{def.fibonacci} gives a straightforward way to compute each
+given Fibonacci number $f_{n}$, by computing the first $n+1$ Fibonacci numbers
+$f_{0},f_{1},\ldots,f_{n}$ one after the others. However, when $n$ is large,
+this takes some time (each of the $n+1$ first Fibonacci numbers has to be
+computed!). Is there a faster way to compute Fibonacci numbers?
+
+It turns out that there is. It is based on the following fact:
+
+\begin{proposition}
+\label{prop.fibonacci.matrix}Let $B$ be the $2\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  $. Then, for every positive integer $n$, we have%
+\begin{equation}
+B^{n}=\left(
+\begin{array}
+[c]{cc}%
+f_{n+1} & f_{n}\\
+f_{n} & f_{n-1}%
+\end{array}
+\right)  . \label{eq.prop.fibonacci.matrix.1}%
+\end{equation}
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.fibonacci.matrix}.]We shall prove Proposition
+\ref{prop.fibonacci.matrix} by induction over $n$:
+
+\textit{Induction base:} We have $B^{1}=B=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  $. Comparing this with%
+\[
+\left(
+\begin{array}
+[c]{cc}%
+f_{1+1} & f_{1}\\
+f_{1} & f_{1-1}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }f_{1+1}=f_{2}=1\text{,
+}f_{1}=1\text{ and }f_{1-1}=f_{0}=0\right)  ,
+\]
+we obtain $B^{1}=\left(
+\begin{array}
+[c]{cc}%
+f_{1+1} & f_{1}\\
+f_{1} & f_{1-1}%
+\end{array}
+\right)  $. In other words, Proposition \ref{prop.fibonacci.matrix} holds for
+$n=1$. This completes the induction base. (This was a completely
+straightforward computation, and in the future will be left to the reader.)
+
+\textit{Induction step:} Let $N$ be a positive integer. Assume that
+Proposition \ref{prop.fibonacci.matrix} holds for $n=N$. We must show that
+Proposition \ref{prop.fibonacci.matrix} also holds for $n=N+1$.
+
+The definition of the Fibonacci sequence shows that $f_{N+2}=f_{N+1}+f_{N}$
+and $f_{N+1}=f_{N}+f_{N-1}$.
+
+We have assumed that Proposition \ref{prop.fibonacci.matrix} holds for $n=N$.
+In other words,%
+\[
+B^{N}=\left(
+\begin{array}
+[c]{cc}%
+f_{N+1} & f_{N}\\
+f_{N} & f_{N-1}%
+\end{array}
+\right)  .
+\]
+Now,
+\begin{align*}
+B^{N+1}  &  =\underbrace{B^{N}}_{=\left(
+\begin{array}
+[c]{cc}%
+f_{N+1} & f_{N}\\
+f_{N} & f_{N-1}%
+\end{array}
+\right)  }\underbrace{B}_{=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  }=\left(
+\begin{array}
+[c]{cc}%
+f_{N+1} & f_{N}\\
+f_{N} & f_{N-1}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{cc}%
+f_{N+1}\cdot1+f_{N}\cdot1 & f_{N+1}\cdot1+f_{N}\cdot0\\
+f_{N}\cdot1+f_{N-1}\cdot1 & f_{N}\cdot1+f_{N-1}\cdot0
+\end{array}
+\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of a product of two
+matrices}\right) \\
+&  =\left(
+\begin{array}
+[c]{cc}%
+f_{N+1}+f_{N} & f_{N+1}\\
+f_{N}+f_{N-1} & f_{N}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+f_{N+2} & f_{N+1}\\
+f_{N+1} & f_{N}%
+\end{array}
+\right)
+\end{align*}
+(since $f_{N+1}+f_{N}=f_{N+2}$ and $f_{N}+f_{N-1}=f_{N+1}$). In other words,
+Proposition \ref{prop.fibonacci.matrix} holds for $n=N+1$. This completes the
+induction step; hence, Proposition \ref{prop.fibonacci.matrix} is proven.
+\end{proof}
+
+How does Proposition \ref{prop.fibonacci.matrix} help us compute $f_{n}$
+quickly? Naively computing $B^{n}$ by multiplying $B$ with itself $n$ times is
+not any faster than computing $f_{n}$ directly using Definition
+\ref{def.fibonacci} (in fact, it is slower, since multiplying matrices takes
+longer than adding numbers). However, there is a trick for computing powers
+quickly, called \textit{binary exponentiation}; this trick works just as well
+for matrices as it does for numbers. The trick uses the following observations:
+
+\begin{itemize}
+\item For every $m\in\mathbb{N}$, we have $B^{2m}=\left(  B^{m}\right)  ^{2}$.
+
+\item For every $m\in\mathbb{N}$, we have $B^{2m+1}=B\left(  B^{m}\right)
+^{2}$.
+\end{itemize}
+
+These observations allow us to quickly compute $B^{2m}$ and $B^{2m+1}$ using
+only $B^{m}$; thus, we can \textquotedblleft jump up\textquotedblright\ from
+$B^{m}$ directly to $B^{2m}$ and to $B^{2m+1}$ without the intermediate steps
+$B^{m+1},B^{m+2},\ldots,B^{2m-1}$. Let us use this to compute $B^{90}$ (and
+thus $f_{90}$) quickly (without computing $91$ Fibonacci numbers):
+
+\begin{itemize}
+\item We want to find $B^{90}$. Since $90=2\cdot45$, we have $B^{90}=\left(
+B^{45}\right)  ^{2}$ (by the formula $B^{2m}=\left(  B^{m}\right)  ^{2}$).
+
+\item We thus want to find $B^{45}$. Since $45=2\cdot22+1$, we have
+$B^{45}=B\left(  B^{22}\right)  ^{2}$ (by the formula $B^{2m+1}=B\left(
+B^{m}\right)  ^{2}$).
+
+\item We thus want to find $B^{22}$. Since $22=2\cdot11$, we have
+$B^{22}=\left(  B^{11}\right)  ^{2}$ (by the formula $B^{2m}=\left(
+B^{m}\right)  ^{2}$).
+
+\item We thus want to find $B^{11}$. Since $11=2\cdot5+1$, we have
+$B^{11}=B\left(  B^{5}\right)  ^{2}$ (by the formula $B^{2m+1}=B\left(
+B^{m}\right)  ^{2}$).
+
+\item We thus want to find $B^{5}$. Since $5=2\cdot2+1$, we have
+$B^{5}=B\left(  B^{2}\right)  ^{2}$ (by the formula $B^{2m+1}=B\left(
+B^{m}\right)  ^{2}$).
+
+\item We thus want to find $B^{2}$. Since $2=2\cdot1$, we have $B^{2}=\left(
+B^{1}\right)  ^{2}$ (by the formula $B^{2m}=\left(  B^{m}\right)  ^{2}$, but
+this was obvious anyway).
+\end{itemize}
+
+We know what $B^{1}$ is: $B^{1}=B=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  $. Hence, $B^{2}=\left(  B^{1}\right)  ^{2}$ becomes $B^{2}=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  ^{2}=\left(
+\begin{array}
+[c]{cc}%
+2 & 1\\
+1 & 1
+\end{array}
+\right)  $. Hence, $B^{5}=B\left(  B^{2}\right)  ^{2}$ becomes $B^{5}=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+2 & 1\\
+1 & 1
+\end{array}
+\right)  ^{2}=\left(
+\begin{array}
+[c]{cc}%
+8 & 5\\
+5 & 3
+\end{array}
+\right)  $. Hence, $B^{11}=B\left(  B^{5}\right)  ^{2}$ becomes $B^{11}%
+=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+8 & 5\\
+5 & 3
+\end{array}
+\right)  ^{2}=\left(
+\begin{array}
+[c]{cc}%
+144 & 89\\
+89 & 55
+\end{array}
+\right)  $. Hence, $B^{22}=\left(  B^{11}\right)  ^{2}$ becomes $B^{22}%
+=\left(
+\begin{array}
+[c]{cc}%
+144 & 89\\
+89 & 55
+\end{array}
+\right)  ^{2}=\left(
+\begin{array}
+[c]{cc}%
+28657 & 17711\\
+17711 & 10946
+\end{array}
+\right)  $. Hence, $B^{45}=B\left(  B^{22}\right)  ^{2}$ becomes
+\newline$B^{45}=\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+28657 & 17711\\
+17711 & 10946
+\end{array}
+\right)  ^{2}=\left(
+\begin{array}
+[c]{cc}%
+1836311903 & 1134903170\\
+1134903170 & 701408733
+\end{array}
+\right)  $. Hence, $B^{90}=\left(  B^{45}\right)  ^{2}$ becomes \newline%
+$B^{90}=\left(
+\begin{array}
+[c]{cc}%
+1836311903 & 1134903170\\
+1134903170 & 701408733
+\end{array}
+\right)  ^{2}=\allowbreak\left(
+\begin{array}
+[c]{cc}%
+4660046610375530309 & 2880067194370816120\\
+2880067194370816120 & 1779979416004714189
+\end{array}
+\right)  $. Since $f_{90}$ is the $\left(  2,1\right)  $-th entry of $B^{90}$
+(indeed, (\ref{eq.prop.fibonacci.matrix.1}) shows that $f_{n}$ is the $\left(
+2,1\right)  $-th entry of $B^{n}$ for all positive integers $n$), we thus
+obtain%
+\[
+f_{90}=2880067194370816120.
+\]
+
+
+\begin{exercise}
+\label{exe.fibonacci.Fn+m}Show that, for any two positive integers $n$ and
+$m$, we have%
+\[
+f_{n+m}=f_{n}f_{m+1}+f_{n-1}f_{m}.
+\]
+
+
+[\textbf{Hint:} Begin with the equality $B^{n}B^{m}=B^{n+m}$. Rewrite it using
+Proposition \ref{prop.fibonacci.matrix}, and compare entries.]
+\end{exercise}
 
 \section{Gaussian elimination}
 
@@ -3982,8 +4321,8 @@ upper-unitriangular $n\times n$-matrix.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.triangular.uni*uni}.] The matrices $A$ and $B$
-are upper-triangular (since they are upper-unitriangular). Hence, Theorem
+[Proof of Corollary \ref{cor.triangular.uni*uni}.]The matrices $A$ and $B$ are
+upper-triangular (since they are upper-unitriangular). Hence, Theorem
 \ref{thm.triangular.prod-up} \textbf{(a)} shows that $AB$ is an
 upper-triangular $n\times n$-matrix. Moreover, Theorem
 \ref{thm.triangular.prod-up} \textbf{(a)} shows that
@@ -3996,8 +4335,6 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $. Thus, the matrix $AB$ is
 upper-unitriangular (since we already know that $AB$ is upper-triangular).
 Corollary \ref{cor.triangular.uni*uni} is thus proven.
 \end{proof}
-
-
 
 [to be continued]
 
@@ -4025,6 +4362,9 @@ Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
 \bibitem[Treil15]{Treil15}Sergei Treil, \textit{Linear Algebra Done Wrong},
 2015. (Download from
 \url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf} .)
+
+\bibitem[Zuker14]{Zuker14}M. Zuker, \textit{Binary Operations \& General
+Associativity},\newline\url{http://snark.math.rpi.edu/Teaching/MATH-4010/Binary_Ops.pdf}
 \end{thebibliography}
 
 
