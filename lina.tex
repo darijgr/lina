@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 02:58:10}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 15:21:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -198,6 +198,14 @@ unclarities you encounter (my email address is \texttt{dgrinber@umn.edu}%
 I would like to thank Mark Richard for correcting a typo in the notes.
 
 \section{\label{chp.intro}Introduction to matrices}
+
+In this chapter, we shall introduce matrices, define the basic operations with
+matrices (addition, scaling, multiplication and powers) and two fundamental
+families of matrices (zero matrices and identity matrices), and state the most
+fundamental of their properties (and even prove some of them). We shall not go
+very deep here (most of this chapter corresponds to a part of \cite[\S A.2]%
+{LaNaSc16}), but we will give plenty of examples and some detailed proofs that
+will (hopefully) help you get some experience with the material.
 
 \subsection{Matrices and entries}
 
@@ -3212,9 +3220,15 @@ $\mathbb{K}$ is a noncommutative ring!
 
 \section{Gaussian elimination}
 
+In this chapter, we shall take aim at understanding Gaussian elimination in
+terms of matrices. However, we will not head straight to this aim; instead, we
+will first introduce various classes of matrices (triangular matrices, matrix
+units, elementary matrices, permutation matrices), which will allow us to view
+certain pieces of the Gaussian elimination algorithm in isolation. Once we are
+done with that, we will finally explain Gaussian elimination in the general setting.
+
 \subsection{Linear equations and matrices}
 
-We now take aim at understanding Gaussian elimination in terms of matrices.
 First of all, let us see what solving linear equations has to do with matrices.
 
 \begin{example}
@@ -5102,7 +5116,7 @@ $i\neq u$, the $i$-th row of the $n\times p$-matrix $E_{u,v}C$ is filled with ze
 
 Before we do so, let us derive a few formulas. First of all, we have%
 \begin{equation}
-\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
+\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}
 \label{pf.prop.Euv.laction.1}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -5110,7 +5124,7 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 for any $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,p\right\}  $, we have%
 \begin{align}
-\left(  E_{u,v}C\right)  _{i,j} &  =\sum_{k=1}^{m}\underbrace{\left(
+\left(  E_{u,v}C\right)  _{i,j}  &  =\sum_{k=1}^{m}\underbrace{\left(
 E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 (\ref{pf.prop.Euv.laction.1}), applied to}\\k\text{ instead of }j\text{)}%
 }}C_{k,j}\ \ \ \ \ \ \ \ \ \ \left(
@@ -5119,9 +5133,9 @@ E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 \text{by Proposition \ref{prop.AB},}\\
 \text{applied to }A=E_{u,v}\text{ and }B=C
 \end{array}
-\right)  \nonumber\\
+\right) \nonumber\\
 &  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}C_{k,j}=\sum_{k=1}^{m}\delta
-_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j}\label{pf.prop.Euv.laction.2}%
+_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j} \label{pf.prop.Euv.laction.2}%
 \end{align}
 (by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=v$ and
 $a_{k}=\delta_{i,u}C_{k,j}$). Now, we can prove both claims easily:
