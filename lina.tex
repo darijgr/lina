@@ -24,8 +24,6 @@
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
-\newcounter{exer}
-\newcounter{exera}
 \theoremstyle{definition}
 \newtheorem{theo}{Theorem}[section]
 \newenvironment{theorem}[1][]
@@ -71,7 +69,7 @@
 \newenvironment{example}[1][]
 {\begin{exam}[#1]\begin{leftbar}}
 {\end{leftbar}\end{exam}}
-\newtheorem{exmp}[exer]{Exercise}
+\newtheorem{exmp}[theo]{Exercise}
 \newenvironment{exercise}[1][]
 {\begin{exmp}[#1]\begin{leftbar}}
 {\end{leftbar}\end{exmp}}
