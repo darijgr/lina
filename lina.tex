@@ -15,21 +15,12 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 17, 2016 02:10:32}
+%TCIDATA{LastRevised=Saturday, September 17, 2016 20:38:34}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Language=American English}
-%TCIDATA{ComputeDefs=
-%$B=\left(
-%\begin{array}
-%[c]{cc}%
-%1 & 1\\
-%1 & 0
-%\end{array}
-%\right)  $
-%}
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
@@ -215,16 +206,25 @@ I would like to thank Mark Richard for correcting a typo in the notes.
 In the following, we shall study matrices filled with numbers. This is not the
 most general thing to study (we could also fill matrices with other things,
 such as polynomials -- and in fact, such matrices are highly useful); nor will
-we be very precise about it. In fact, for the first few sections of this
-chapter, we shall not even specify what we mean by \textquotedblleft
-numbers\textquotedblright, even though the word \textquotedblleft
-number\textquotedblright\ is far from being a well-defined notion. However, as
-soon as we start caring about (say) computer calculations, we will have to
-spend some words specifying our \textquotedblleft numbers\textquotedblright%
-\ more precisely.
+we be very precise about it. In fact, for most of this chapter, we shall not
+even specify what we mean by \textquotedblleft numbers\textquotedblright, even
+though the word \textquotedblleft number\textquotedblright\ is far from being
+a well-defined notion. However, as soon as we start caring about (say)
+computer calculations, we will have to spend some words specifying our
+\textquotedblleft numbers\textquotedblright\ more precisely. See Section
+\ref{sect.intro.numbers} for what the word \textquotedblleft
+number\textquotedblright\ means.
 
 We shall use the symbol $\mathbb{N}$ for the set $\left\{  0,1,2,\ldots
-\right\}  $. This is the set of all nonnegative integers.
+\right\}  $. This is the set of all nonnegative integers.\footnote{Some
+authors use the symbol $\mathbb{N}$ for the set $\left\{  1,2,3,\ldots
+\right\}  $ (the set of all \textbf{positive} integers) instead.
+Unfortunately, there is no consensus here. If you want to avoid notational
+conflicts, use the notation $\mathbb{Z}_{\geq0}$ for $\left\{  0,1,2,\ldots
+\right\}  $ and the notation $\mathbb{Z}_{>0}$ for $\left\{  1,2,3,\ldots
+\right\}  $. These notations, at least, are self-explanatory (once you know
+that $\mathbb{Z}$ denotes the set of all integers, i.e., $\left\{
+\ldots,-2,-1,0,1,2,\ldots\right\}  $).}
 
 \begin{definition}
 If $n\in\mathbb{N}$ and $m\in\mathbb{N}$, then an $n\times m$\textit{-matrix}
@@ -2763,6 +2763,441 @@ f_{n+m}=f_{n}f_{m+1}+f_{n-1}f_{m}.
 [\textbf{Hint:} Begin with the equality $B^{n}B^{m}=B^{n+m}$. Rewrite it using
 Proposition \ref{prop.fibonacci.matrix}, and compare entries.]
 \end{exercise}
+
+\subsection{\label{sect.intro.numbers}(*) What is a number?}
+
+So far, our notion of a matrix relies on a (somewhat vague) notion of a
+\textquotedblleft number\textquotedblright. What does the word
+\textquotedblleft number\textquotedblright\ mean? There are several possible
+candidates for a meaning of this word: for example, \textquotedblleft
+number\textquotedblright\ might mean \textquotedblleft rational
+number\textquotedblright, but might also mean \textquotedblleft real
+number\textquotedblright\ or \textquotedblleft complex
+number\textquotedblright. For what we have been doing so far, the precise
+choice of meaning does not matter. However, it eventually \textbf{will}
+matter, so let me discuss it briefly. (See any book on abstract algebra for a
+more detailed and systematic discussion.)
+
+First, let me introduce some well-known sets:
+
+\begin{itemize}
+\item As explained above, $\mathbb{N}$ means the set of all nonnegative
+integers: $\mathbb{N}=\left\{  0,1,2,\ldots\right\}  $.
+
+\item Furthermore, $\mathbb{Z}$ means the set of all integers: $\mathbb{Z}%
+=\left\{  \ldots,-2,-1,0,1,2,\ldots\right\}  $.
+
+\item Moreover, $\mathbb{Q}$ means the set of all rational numbers:
+$\mathbb{Q}=\left\{  \dfrac{a}{b}\ \mid\ a\in\mathbb{Z},\ b\in\mathbb{Z}%
+\setminus\left\{  0\right\}  \right\}  $.
+
+\item Furthermore, $\mathbb{R}$ means the set of all real numbers. This
+contains rational numbers such as $-2$ and $\dfrac{5}{3}$, but also irrational
+numbers such as $\sqrt{2}$ and $\dfrac{\sqrt{3}}{1+\sqrt[3]{5}}$ and $\pi$
+(and various others, many of which cannot even be described in
+words\footnote{This is not a poetic metaphor. What I am saying is that there
+are real numbers which cannot be described by any finite formula or computed
+(to arbitrary precision) by any finite algorithm. The reason is simply that
+there are uncountably many real numbers, but only countably many formulas and
+algorithms. If you find this unintuitive, imagine an immortal monkey typing an
+infinite decimal number on an infinite-memory computer:
+\texttt{9.461328724290054}... If the monkey is typing truly at random, then no
+finite rule or formula will suffice to predict every single digit he types;
+thus, the real number he defines is undescribable. (This, of course, is not a
+proof.)}).
+
+\item Finally, $\mathbb{C}$ means the set of all complex numbers. They will be
+rarely used in these notes (indeed, most of linear algebra can be done without
+them, except for eigenvalue/eigenvector theory), so you do not actually have
+to know them in order to read these notes. However, let me give a quick
+briefing on complex numbers (probably more of a reminder for those who have
+already seen them):
+
+Complex numbers can be formally defined as pairs of real numbers $\left(
+a,b\right)  $ with an entrywise addition (that is, $\left(  a,b\right)
++\left(  a^{\prime},b^{\prime}\right)  =\left(  a+a^{\prime},b+b^{\prime
+}\right)  $, exactly like $1\times2$-matrices) and a somewhat strange-looking
+multiplication (namely, $\left(  a,b\right)  \left(  a^{\prime},b^{\prime
+}\right)  =\left(  aa^{\prime}-bb^{\prime},ab^{\prime}+ba^{\prime}\right)
+$).\ \ \ \ \footnote{This sort of definition is not unlike our definition of
+matrices: they are also tables with entrywise addition and a less simple
+multiplication.} But the way everyone thinks about complex numbers
+(informally) is that they are an extension of real numbers (so $\mathbb{R}$ is
+a subset of $\mathbb{C}$) by adding a new \textquotedblleft imaginary
+number\textquotedblright\ $i$ which satisfies $i^{2}=-1$. They are supposed to
+behave like real numbers as far as laws of addition and multiplication are
+concerned (thus, for instance, $a\left(  b+c\right)  =ab+ac$ and $a\left(
+bc\right)  =\left(  ab\right)  c$); using these laws and the requirement that
+$i^{2}=-1$, one can easily see how to multiply and add arbitrary complex
+numbers. These two definitions (the formal one as pairs of real numbers, and
+the informal one as \textquotedblleft extended real numbers\textquotedblright)
+are equivalent, and the complex number $\left(  a,b\right)  $ (according to
+the first definition) corresponds to the complex number $a+bi$ (according to
+the second definition).
+
+For a detailed introduction to complex numbers, see \cite[\S 2]{LaNaSc16}.
+
+\item We shall occasionally use another set: the set $\overline{\mathbb{Q}}$
+of all \textit{algebraic numbers}. These are complex numbers that are roots of
+polynomials with rational coefficients. For instance, $\sqrt{2}$ is an
+algebraic number\footnote{because it is a root of the polynomial $X^{2}-2$},
+and $i$ is an algebraic number\footnote{since it is a root of $X^{2}+1$}, and
+$\dfrac{5}{2}$ is an algebraic number\footnote{since it is a root of
+$X-\dfrac{5}{2}$ (this sounds stupid, but it is perfectly valid, since
+$-\dfrac{5}{2}$ is rational)}, and $\sqrt{2}+\sqrt{3}$ is an algebraic
+number\footnote{since it is a root of $X^{4}-10X^{2}+1$ (check this!)}; but
+$\pi$ (for example) is not an algebraic number\footnote{... which is the
+reason why the circle cannot be squared. The actual proof is rather difficult;
+see \url{http://mathoverflow.net/questions/34055/transcendence-of-pi} and
+\url{http://math.stackexchange.com/questions/31798/prove-that-pi-is-a-transcendental-number}
+for some references.}.
+
+Again, you can read these notes without understanding algebraic numbers, but
+let me explain why they are useful.
+
+First, let me explain why real numbers are \textquotedblleft
+bad\textquotedblright. Computations with rational numbers can be done
+\textbf{exactly} on a computer: for example, a computer algebra system (such
+as \href{http://www.sagemath.org/}{SageMath}) can evaluate to $\dfrac
+{\dfrac{12}{13}-\dfrac{1}{15}}{\dfrac{2}{3}+3}$ to $\dfrac{167}{715}$ with a
+100\% accuracy and a 100\% guarantee of correctness\footnote{barring bugs in
+the software}. Similarly, it can do all kinds of computations with rational
+numbers with 100\% accuracy (as long as it doesn't run out of memory).
+However, computations with real numbers are \textbf{doomed to be
+inexact}\footnote{Complex numbers suffer from the same problem.}. A real
+number can encode \textquotedblleft an infinite amount of
+information\textquotedblright\footnote{Think of a real number as an infinite
+decimal fraction, encoded by an infinite sequence of digits.}; no computer can
+even store such a thing\footnote{This is precisely the above-mentioned problem
+of the ineffable real numbers.}. The consequence is that computers will work
+with approximations when you give them real numbers. Even real numbers like
+$\pi$ that can be \textbf{defined} in finite time still cannot be
+\textbf{computed with} automatically without approximation. Typically,
+computers approximate real numbers by \textbf{floating-point numbers}, which
+store only a fixed number of significant digits.\footnote{How many depends on
+the system and the application. For example, the Python 2.7.10 on my computer
+seems to treat $1.0000000000000000000001$ and $1$ as identical, but it can
+tell $1.00000000000001$ apart from $1$. See
+\url{https://docs.python.org/2/tutorial/floatingpoint.html} for a more
+thorough explanation of how Python approximates real numbers.} When you use
+approximations, you need to be prepared to get wrong results; sometimes the
+error in the result will be completely out of proportion to the little
+inaccuracies in the approximation! Here is an example: The system of linear
+equations%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+x+2y=2;\\
+3x+6y=6
+\end{array}
+\right.  \label{eq.inexact.1}%
+\end{equation}
+in two variables $x$ and $y$ has infinitely many solutions (namely, $\left(
+x,y\right)  =\left(  2t,1-t\right)  $ is a solution for each number $t$). But
+if we allow ourself one little inaccuracy (the kind that computers necessarily
+do when they work with real numbers) and replace the $3$ by $3.000000000001$,
+then we obtain the system%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+x+2y=2;\\
+3.000000000001x+6y=6
+\end{array}
+\right.  , \label{eq.inexact.2}%
+\end{equation}
+which has only one solution (namely, $\left(  x,y\right)  =\left(  0,1\right)
+$). On the other hand, if we instead change the second $6$ in the second
+equation of (\ref{eq.inexact.1}) to a $6.00000000001$ (again, a typical little
+imprecision), then the resulting system%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+x+2y=2;\\
+3x+6y=6.00000000001
+\end{array}
+\right.  \label{eq.inexact.3}%
+\end{equation}
+will have no solutions at all. Thus, the minuscule differences between the
+three systems (\ref{eq.inexact.1}), (\ref{eq.inexact.2}) and
+(\ref{eq.inexact.3}) have led to three wildly different results (infinitely
+many, one or no solutions). The consequence is that \textbf{if you want a
+computer to reliably solve the system (\ref{eq.inexact.1}), you must make sure
+that it treats the coefficients (}$1,2,2,3,6,6$\textbf{) as rational numbers
+(not as real numbers)} and avoids any approximations.
+
+This, of course, only works well if the coefficients \textbf{are} rational
+numbers. You cannot solve a system like%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+\sqrt{3}x+\sqrt{2}y=\pi;\\
+\left(  1-\sqrt{3}\right)  x+\pi y=0
+\end{array}
+\right.  \label{eq.inexact.4}%
+\end{equation}
+this way. More annoyingly, you cannot solve a system like%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+\sqrt{3}x+\sqrt{2}y=1;\\
+\left(  1-\sqrt{3}\right)  x+2y=0
+\end{array}
+\right.  \label{eq.inexact.5}%
+\end{equation}
+this way, although you probably could solve it by hand! Systems like
+(\ref{eq.inexact.4}) are (in a sense) hopeless: Computers cannot reliably work
+with real numbers without approximating them at some point. But
+(\ref{eq.inexact.5}) can be salvaged: All the coefficients in
+(\ref{eq.inexact.5}) are algebraic numbers, and modern computer algebra
+systems (e.g., SageMath) can work with algebraic numbers with 100\%
+precision.\footnote{This is \textbf{not} easy! For example, a classical puzzle
+asks you to prove that $\sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}=1$. This is
+not obvious; there are no straightforward \textquotedblleft
+simplications\textquotedblright\ that take you from $\sqrt[3]{2+\sqrt{5}%
+}+\sqrt[3]{2-\sqrt{5}}$ to $1$. Yet, this is one of the things that the
+computer must be taught to do, since otherwise it could not decide whether the
+linear equation $\left(  \sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}-1\right)
+x=0$ has one or infinitely many solutions.} Thus, even if you don't care much
+about algebraic numbers, you will need to tell your computer that your numbers
+are algebraic in order to have it solve systems like (\ref{eq.inexact.5}).
+
+Of course, this all doesn't mean that linear algebra with real numbers is
+useless in practice. The system (\ref{eq.inexact.1}) is a rather ill-behaved
+system; many systems allow for a pretty good approximation of their solutions
+even in spite of imprecisions, and even when a system is ill-behaved like
+(\ref{eq.inexact.1}), there are methods that compute the \textquotedblleft
+likeliest solutions\textquotedblright\ (such as the least-squares method). We
+shall (hopefully) see some of these methods in these notes. A less alarmist
+slogan would thus be: You can do linear algebra with real numbers, but you
+should be aware of its limitations and keep track of the errors
+(\textquotedblleft numerical stability\textquotedblright).
+\end{itemize}
+
+Note that $\mathbb{N}\subseteq\mathbb{Z}\subseteq\mathbb{Q}\subseteq
+\mathbb{R}\subseteq\mathbb{C}$ (at least if you identify a real number $a$
+with the complex number $\left(  a,0\right)  =a+0i$) and $\mathbb{Q}%
+\subseteq\overline{\mathbb{Q}}\subseteq\mathbb{C}$.
+
+So what is a number? Integers, rational numbers, real numbers, complex numbers
+and algebraic numbers all have good claims to the name \textquotedblleft
+number\textquotedblright. And even though all of these numbers can be viewed
+as complex numbers, it can be useful to \textbf{not} treat them as complex
+numbers by default, for example when you are using a computer and want 100\% precision.
+
+Here is a better question: What are the things we can fill a matrix with? We
+have so far used numbers, but we don't have to; we could also (for example)
+use polynomials. The matrix $\left(
+\begin{array}
+[c]{cc}%
+2X^{2}+1 & -1\\
+X & X+7
+\end{array}
+\right)  $ is a $2\times2$-matrix whose entries are not numbers, but
+polynomials in the variable $X$ (with rational coefficients). Such matrices
+can be highly useful (and, in fact, will be used when we come to eigenvalues).
+Such matrices can be added and multiplied (since polynomials can be added and
+multiplied). Of course, we could also fill a matrix with all kinds of things
+(words, names, smilies, scribbles) that \textbf{cannot} be added or multiplied
+(after all, matrices are just tables); but then we won't be able to add and
+multiply the resulting matrices, so we don't gain anything by calling them
+\textquotedblleft matrices\textquotedblright\ (we don't want just a fancy
+synonym for \textquotedblleft tables\textquotedblright). So it sounds most
+reasonable to expect that a matrix should be filled with things that can be
+added and multiplied. Moreover, addition and multiplication of these things
+should obey certain laws (such as $\left(  a+b\right)  c=ac+bc$ and $ab=ba$)
+in order to ensure that addition, scaling and multiplication of matrices will
+obey the usual laws (e.g., Proposition \ref{prop.matrix-laws.1}) as well.
+Formalizing this idea, we arrive at the notion of a commutative ring:
+
+\begin{definition}
+\label{def.commring}A \textit{commutative ring} means a set $\mathbb{K}$
+equipped with the following additional data:
+
+\begin{itemize}
+\item a binary operation called \textquotedblleft$+$\textquotedblright\ (that
+is, a function that takes two elements $a\in\mathbb{K}$ and $b\in\mathbb{K}$
+as inputs, and outputs a new element of $\mathbb{K}$ which is denoted by $a+b$);
+
+\item a binary operation called \textquotedblleft$\cdot$\textquotedblright%
+\ (that is, a function that takes two elements $a\in\mathbb{K}$ and
+$b\in\mathbb{K}$ as inputs, and outputs a new element of $\mathbb{K}$ which is
+denoted by $a\cdot b$);
+
+\item an element of $\mathbb{K}$ called \textquotedblleft$0$\textquotedblright;
+
+\item an element of $\mathbb{K}$ called \textquotedblleft$1$\textquotedblright
+\end{itemize}
+
+satisfying the following conditions (\textquotedblleft
+axioms\textquotedblright):
+
+\begin{itemize}
+\item \textit{Commutativity of addition:} We have $a+b=b+a$ for all
+$a\in\mathbb{K}$ and $b\in\mathbb{K}$.
+
+\item \textit{Commutativity of multiplication:} We have $ab=ba$ for all
+$a\in\mathbb{K}$ and $b\in\mathbb{K}$. Here and in the following, $ab$ is
+shorthand for $a\cdot b$ (as is usual for products of numbers).
+
+\item \textit{Associativity of addition:} We have $a+\left(  b+c\right)
+=\left(  a+b\right)  +c$ for all $a\in\mathbb{K}$, $b\in\mathbb{K}$ and
+$c\in\mathbb{K}$.
+
+\item \textit{Associativity of multiplication:} We have $a\left(  bc\right)
+=\left(  ab\right)  c$ for all $a\in\mathbb{K}$, $b\in\mathbb{K}$ and
+$c\in\mathbb{K}$.
+
+\item \textit{Neutrality of }$0$\textit{:} We have $a+0=0+a=a$ for all
+$a\in\mathbb{K}$.
+
+\item \textit{Existence of additive inverses:} For every $a\in\mathbb{K}$,
+there exists an element $a^{\prime}\in\mathbb{K}$ such that $a+a^{\prime
+}=a^{\prime}+a=0$. This $a^{\prime}$ is commonly denoted by $-a$ and called
+the \textit{additive inverse} of $a$. (It is easy to check that it is unique.)
+
+\item \textit{Unitality (a.k.a. neutrality of }$1$\textit{):} We have
+$1a=a1=a$ for all $a\in\mathbb{K}$.
+
+\item \textit{Annihilation:} We have $0a=a0=0$ for all $a\in\mathbb{K}$.
+
+\item \textit{Distributivity:} We have $a\left(  b+c\right)  =ab+ac$ and
+$\left(  a+b\right)  c=ac+bc$ for all $a\in\mathbb{K}$, $b\in\mathbb{K}$ and
+$c\in\mathbb{K}$.
+\end{itemize}
+\end{definition}
+
+This definition was a mouthful, but its intention is rather simple: It defines
+a commutative ring as a set equipped with two operations which behave like
+addition and multiplication of numbers, and two elements which behave like the
+number $0$ and the number $1$. As a consequence, if we have a commutative ring
+$\mathbb{K}$, then matrices filled with elements of $\mathbb{K}$ will behave
+(at least with regard to their basic properties, such as Proposition
+\ref{prop.matrix-laws.1}) like matrices filled with numbers.
+
+Here are some examples of commutative rings:
+
+\begin{itemize}
+\item Each of the sets $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$
+and $\overline{\mathbb{Q}}$ (endowed with the usual addition, the usual
+multiplication, the usual $0$ and the usual $1$) is a commutative ring.
+
+\item The set $\mathbb{Q}\left[  x\right]  $ of all polynomials (in the
+variable $x$) with rational coefficients (equipped with addition of
+polynomials, multiplication of polynomials, the polynomial $0$ and the
+polynomial $1$) is a ring.
+
+\item The set of all functions $\mathbb{R}\rightarrow\mathbb{R}$ (equipped
+with pointwise addition, pointwise multiplication, the constant-$0$ function
+and the constant-$1$ function) is a ring.
+
+\item If you know what \textquotedblleft integers modulo $n$\textquotedblright%
+\ are (for a given positive integer $n$): The integers modulo $n$ (for a given
+$n$) also form a commutative ring.
+
+\item Here is a weirder example:
+
+For any two sets $A$ and $B$, we let $A\bigtriangleup B$ denote the
+\textit{symmetric difference} of $A$ and $B$. This is the set of all elements
+which lie in exactly one of the two sets $A$ and $B$. Thus, $A\bigtriangleup
+B=\left(  A\setminus B\right)  \cup\left(  B\setminus A\right)  =\left(  A\cup
+B\right)  \setminus\left(  A\cap B\right)  $.
+
+Fix some set $S$, and let $\mathcal{P}\left(  S\right)  $ denote the set of
+all subsets of $S$. The set $\mathcal{P}\left(  S\right)  $ equipped with the
+operation $\bigtriangleup$ (playing the role of \textquotedblleft%
+$+$\textquotedblright), the operation $\cap$ (playing the role of
+\textquotedblleft$\cdot$\textquotedblright), the element $\varnothing$
+(playing the role of \textquotedblleft$0$\textquotedblright) and the element
+$S$ (playing the role of \textquotedblleft$1$\textquotedblright) is a
+commutative ring. This is an example of a \textit{Boolean ring} (and also an
+example of the fact that the operations \textquotedblleft$+$\textquotedblright%
+\ and \textquotedblleft$\cdot$\textquotedblright\ don't always have anything
+to do with addition and multiplication of numbers!).
+\end{itemize}
+
+Matrices filled with elements of a commutative ring $\mathbb{K}$ are called
+\textit{matrices over }$\mathbb{K}$. More precisely:
+
+\begin{definition}
+If $n\in\mathbb{N}$ and $m\in\mathbb{N}$, then an $n\times m$\textit{-matrix
+over }$\mathbb{K}$ simply means a rectangular table with $n$ rows and $m$
+columns, such that each cell is filled with an element of $\mathbb{K}$.
+\end{definition}
+
+Thus, matrices over $\mathbb{Q}$ are matrices with rational entries; matrices
+over $\mathbb{R}$ are matrices with real entries; matrices over $\mathbb{Z}$
+are matrices with integer entries.
+
+As we have already explained, matrices over commutative rings behave like
+matrices filled with numbers, at least as far as simple laws of computation
+are concerned. To wit, Proposition \ref{prop.matrix-laws.1}, Proposition
+\ref{prop.matrix-laws.0} and Proposition \ref{prop.matrix-laws.id} (as well as
+some other results that will be proven later) still hold if the matrices are
+filled with elements of a commutative ring $\mathbb{K}$ instead of numbers.
+Some other (deeper) results might not hold for every commutative ring
+$\mathbb{K}$: For example, Gaussian elimination, which we will meet in the
+next chapter, requires that we can \textbf{divide} by nonzero elements of
+$\mathbb{K}$, but this is not always possible when $\mathbb{K}$ is a
+commutative ring. There is a word for that, too:
+
+\begin{definition}
+\label{def.field}A commutative ring $\mathbb{K}$ is called a \textit{field} if
+it satisfies the following two axioms:
+
+\begin{itemize}
+\item \textit{Nontriviality:} We have $0\neq1$. (The \textquotedblleft%
+$0$\textquotedblright\ and \textquotedblleft$1$\textquotedblright\ here, of
+course, are the two specific elements of $\mathbb{K}$ that we have chosen to
+call \textquotedblleft$0$\textquotedblright\ and \textquotedblleft%
+$1$\textquotedblright. They aren't always the same as the \textbf{numbers} $0$
+and $1$. In particular, in a commutative ring $\mathbb{K}$ they can be equal;
+but for a field we want to disallow this.)
+
+\item \textit{Existence of multiplicative inverses:} For every $a\in
+\mathbb{K}$, we have \textbf{either} $a=0$, \textbf{or} there is an element
+$b\in\mathbb{K}$ satisfying $ab=ba=1$.
+\end{itemize}
+
+The element $b$ in the \textquotedblleft existence of multiplicative
+inverses\textquotedblright\ axiom is called the \textit{inverse} of $a$ and is
+denoted by $a^{-1}$; it can be proven that this element is unique. If $u$ and
+$v$ are two elements of a field $\mathbb{K}$ such that $v\neq0$, then the
+product $uv^{-1}$ is denoted by $\dfrac{u}{v}$. Thus, any two elements of
+field $\mathbb{K}$ can be divided by each other as long as the denominator is
+$\neq0$.
+\end{definition}
+
+For example, $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$ and $\overline
+{\mathbb{Q}}$ are fields, but $\mathbb{Z}$ is not a field (because the integer
+$2$ is nonzero, yet does not have an \textbf{integer} inverse). Some results
+about matrices are based on the possibility of dividing by nonzero numbers;
+these results cannot be directly generalized to matrices over a commutative
+ring $\mathbb{K}$. But most of them can be generalized to matrices over a
+field $\mathbb{K}$.
+
+\begin{remark}
+\textbf{(a)} The notion of a \textquotedblleft commutative
+ring\textquotedblright\ is not standard, unfortunately. Some authors omit the
+element \textquotedblleft$1$\textquotedblright\ (and the unitality axiom),
+while some (older) authors even omit the associativity of multiplication. If
+you read any text on abstract algebra, it is prudent to check whether the
+author's concept of a commutative ring agrees with yours.
+
+\textbf{(b)} As you might have guessed, there is also a notion of a
+\textquotedblleft noncommutative ring\textquotedblright. It is defined
+precisely as a \textquotedblleft commutative ring\textquotedblright, except
+that we omit the \textquotedblleft commutativity of
+multiplication\textquotedblright\ axiom. (\textquotedblleft Commutativity of
+addition\textquotedblright\ is left in!) It turns out that we already know a
+neat example of a noncommutative ring: For any commutative ring $\mathbb{K}$
+and any $n\in\mathbb{N}$, the set of all $n\times n$-matrices over
+$\mathbb{K}$ is a noncommutative ring!
+\end{remark}
 
 \section{Gaussian elimination}
 
