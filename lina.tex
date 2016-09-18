@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 18:19:06}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 18:34:58}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -107,11 +107,11 @@
 \title{Notes on linear algebra}
 \author{Darij Grinberg}
 \date{
-%TCIMACRO{\TeXButton{today}{\today}}%
+%TCIMACRO{\TeXButton{today}{\today} }%
 %BeginExpansion
 \today
 %EndExpansion
-}
+\ at \currenttime}
 \maketitle
 \tableofcontents
 
@@ -135,8 +135,7 @@ Several good books have been written on linear algebra; these notes are not
 supposed to replace any of them. Let me just mention four sources I can
 recommend\footnote{I have \textbf{not} read any of the books myself (apart
 from fragments). My recommendations are based on cursory skimming and random
-appraisal of specific points; do not mistake my recommendations for
-guarantees.}:
+appraisal of specific points; I therefore cannot guarantee anything.}:
 
 \begin{itemize}
 \item Olver's and Shakiban's \cite{OlvSha06} is the traditional text for Math
@@ -148,9 +147,9 @@ rigorously (at least for the standards of an introductory linear-algebra
 text). It has plenty of examples (and exercises with solutions), fairly
 detailed proofs, and occasional applications. (Which is why it is over 500
 pages long; I hope you can easily decide what to skip based on your
-preferences.) Altogether, I think it does many things very well. The main
-drawback is its lack of the theory of bilinear forms (but I don't know if we
-will even have time for that).
+preferences.) Altogether, I think it does a lot very well. The main drawback
+is its lack of the theory of bilinear forms (but I don't know if we will even
+have time for that).
 
 \item Lankham's, Nachtergaele's and Schilling's \cite{LaNaSc16} is a set of
 notes for introductory linear algebra, doing the abstract side (vector spaces,
@@ -180,12 +179,17 @@ Also, some previous iterations of Math 4242 have left behind interesting notes:
 are on dropbox).
 \end{itemize}
 
-There are countless other sets of lecture notes on the internet, books in the
-library, and even books on the internet if you know where to look. You can
-find an overview of (published, paper) books in \cite{Drucker12} (but usually
-without assessing their quality), and another (with reviews) on the MAA
-website \url{http://www.maa.org/tags/linear-algebra} . (Reviews on Amazon and
-goodreads are usually just good for a laugh.)
+There are countless other sets of lecture notes on the internet\footnote{Let
+me mention three: Two good-looking advanced texts for a mathematically
+prepared reader are Cameron's \cite{Camero08} and Kowalski's \cite{Kowals16};
+a reader bored with the present notes might want to take a look at them. On
+the other side, Wildon's notes \cite{Wildon16} include a lot of examples and
+geometric illustrations (but are probably too brief to peruse as a text).},
+books in the library, and even books on the internet if you know where to
+look. You can find an overview of (published, paper) books in \cite{Drucker12}
+(but usually without assessing their quality), and another (with reviews) on
+the MAA website \url{http://www.maa.org/tags/linear-algebra} . (Reviews on
+Amazon and goodreads are usually just good for a laugh.)
 
 The notes you are reading are under construction, and will remain so for at
 least the whole Fall term 2016. Please let me know of any errors and
@@ -1977,11 +1981,11 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 
 Finally, Proposition \ref{prop.AB} (applied to $B+C$ instead of $B$) yields%
 \begin{align*}
-\left(  A\left(  B+C\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
-\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}+C_{k,j}%
-\\\text{(since matrices are}\\\text{added entry by entry)}}}=\sum_{k=1}%
-^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }_{=A_{i,k}%
-B_{k,j}+A_{i,k}C_{k,j}}\\
+\left(  A\left(  B+C\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}%
+A_{i,k}\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}%
++C_{k,j}\\\text{(since matrices are}\\\text{added entry by entry)}}%
+}=\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }%
+_{=A_{i,k}B_{k,j}+A_{i,k}C_{k,j}}\\
 &  =\sum_{k=1}^{m}\left(  A_{i,k}B_{k,j}+A_{i,k}C_{k,j}\right)
 =\underbrace{\sum_{k=1}^{m}A_{i,k}B_{k,j}}_{\substack{=\left(  AB\right)
 _{i,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.d.1}))}}}+\underbrace{\sum
@@ -1994,7 +1998,7 @@ _{k=1}^{m}A_{i,k}C_{k,j}}_{\substack{=\left(  AC\right)  _{i,j}\\\text{(by
 A_{i,k}B_{k,j}\text{ and }A_{i,k}C_{k,j}\text{ instead of }p\text{, }q\text{,
 }a_{k}\text{ and }b_{k}%
 \end{array}
-\right)  \\
+\right) \\
 &  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}\\
 &  =\left(  AB+AC\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
@@ -5133,7 +5137,7 @@ $i\neq u$, the $i$-th row of the $n\times p$-matrix $E_{u,v}C$ is filled with ze
 
 Before we do so, let us derive a few formulas. First of all, we have%
 \begin{equation}
-\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
+\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}
 \label{pf.prop.Euv.laction.1}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -5141,7 +5145,7 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 for any $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,p\right\}  $, we have%
 \begin{align}
-\left(  E_{u,v}C\right)  _{i,j} &  =\sum_{k=1}^{m}\underbrace{\left(
+\left(  E_{u,v}C\right)  _{i,j}  &  =\sum_{k=1}^{m}\underbrace{\left(
 E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 (\ref{pf.prop.Euv.laction.1}), applied to}\\k\text{ instead of }j\text{)}%
 }}C_{k,j}\ \ \ \ \ \ \ \ \ \ \left(
@@ -5150,9 +5154,9 @@ E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 \text{by Proposition \ref{prop.AB},}\\
 \text{applied to }A=E_{u,v}\text{ and }B=C
 \end{array}
-\right)  \nonumber\\
+\right) \nonumber\\
 &  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}C_{k,j}=\sum_{k=1}^{m}\delta
-_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j}\label{pf.prop.Euv.laction.2}%
+_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j} \label{pf.prop.Euv.laction.2}%
 \end{align}
 (by Proposition \ref{prop.sum.delta}, applied to $1$, $m$, $v$ and
 $\delta_{i,u}C_{k,j}$ instead of $p$, $q$, $r$ and $a_{k}$). Now, we can prove
@@ -5300,7 +5304,7 @@ in the general case). The proof below is just for the fans of formal reasoning.
 _{i,j}}_{\substack{=A_{u,v}\left(  E_{u,v}\right)  _{i,j}\\\text{(since
 matrices are scaled entry by entry)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
-entry}\right)  \\
+entry}\right) \\
 &  =\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}\underbrace{\left(  E_{u,v}\right)
 _{i,j}}_{\substack{=\delta_{i,u}\delta_{j,v}\\\text{(by
 (\ref{eq.prop.Euv.deltas.1}))}}}=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}%
@@ -5393,13 +5397,13 @@ _{k=1}^{m}\delta_{i,u}\delta_{k,x}\delta_{j,y}\delta_{k,v}\\
 $\delta_{i,u}\delta_{k,x}\delta_{j,y}$ instead of $p$, $q$, $r$ and $a_{k}$).
 Comparing this with%
 \begin{align*}
-& \left(  \delta_{v,x}E_{u,y,n,p}\right)  _{i,j}\\
-& =\delta_{v,x}\underbrace{\left(  E_{u,y,n,p}\right)  _{i,j}}%
+&  \left(  \delta_{v,x}E_{u,y,n,p}\right)  _{i,j}\\
+&  =\delta_{v,x}\underbrace{\left(  E_{u,y,n,p}\right)  _{i,j}}%
 _{\substack{=\delta_{i,u}\delta_{j,y}\\\text{(by (\ref{pf.prop.Euv.prod.3}))}%
 }}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are scaled entry by
-entry}\right)  \\
-& =\delta_{v,x}\delta_{i,u}\delta_{j,y}=\delta_{i,u}\delta_{v,x}\delta_{j,y},
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are scaled entry by
+entry}\right) \\
+&  =\delta_{v,x}\delta_{i,u}\delta_{j,y}=\delta_{i,u}\delta_{v,x}\delta_{j,y},
 \end{align*}
 we find $\left(  E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}=\left(  \delta
 _{v,x}E_{u,y,n,p}\right)  _{i,j}$.
@@ -5444,7 +5448,7 @@ keep it out of our notation.
 \begin{example}
 Let $n=4$. Then,%
 \begin{align*}
-A_{1,3}^{\lambda}  & =I_{n}+\lambda E_{1,3}=\left(
+A_{1,3}^{\lambda}  &  =I_{n}+\lambda E_{1,3}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & \lambda & 0\\
@@ -5453,7 +5457,7 @@ A_{1,3}^{\lambda}  & =I_{n}+\lambda E_{1,3}=\left(
 0 & 0 & 0 & 1
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-A_{4,2}^{\lambda}  & =I_{n}+\lambda E_{4,2}=\left(
+A_{4,2}^{\lambda}  &  =I_{n}+\lambda E_{4,2}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 0\\
@@ -5483,7 +5487,7 @@ number. Then, the matrix $A_{u,v}^{\lambda}$ has the following entries:
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Alamuv.entries}.] Recall that $E_{u,v}$ is the
+[Proof of Proposition \ref{prop.Alamuv.entries}.]Recall that $E_{u,v}$ is the
 $n\times n$-matrix whose $\left(  u,v\right)  $-th entry is $1$ and whose all
 other entries are $0$ (indeed, this is how $E_{u,v}$ was defined). Since
 matrices are scaled entry by entry, we can therefore conclude how $\lambda
@@ -5508,7 +5512,7 @@ u,v\right)  $-th entry of $I_{n}+\lambda E_{u,v}$ would be $1+\lambda$
 instead.} are $1+0=1$, whose $\left(  u,v\right)  $-th entry is $0+\lambda
 =\lambda$, and whose all other entries are $0+0=0$. Since $I_{n}+\lambda
 E_{u,v}=A_{u,v}^{\lambda}$, this rewrites as follows: The matrix
-$A_{u,v}^{\lambda}$  is the $n\times n$-matrix whose diagonal entries are $1$,
+$A_{u,v}^{\lambda}$ is the $n\times n$-matrix whose diagonal entries are $1$,
 whose $\left(  u,v\right)  $-th entry is $\lambda$, and whose all other
 entries are $0$. This proves Proposition \ref{prop.Alamuv.entries}.
 \end{proof}
@@ -5536,6 +5540,9 @@ $u$-th row of $C$.)
 \begin{thebibliography}{999999999}                                                                                        %
 
 
+\bibitem[Camero08]{Camero08}Peter J. Cameron, \textit{Notes on Linear
+Algebra}, version 5 Sep 2008.\newline\url{http://www.maths.qmul.ac.uk/~pjc/notes/linalg.pdf}
+
 \bibitem[deBoor]{deBoor}Carl de Boor, \textit{An empty exercise}.
 \url{ftp://ftp.cs.wisc.edu/Approx/empty.pdf} .
 
@@ -5543,20 +5550,25 @@ $u$-th row of $C$.)
 Linear Algebra Books}, February 2012.\newline\url{http://www.math.wayne.edu/~drucker/linalgrefsW12.pdf}
 
 \bibitem[OlvSha06]{OlvSha06}Peter J. Olver, Chehrzad Shakiban, \textit{Applied
-Linear Algebra}, Prentice Hall, 2006.
+Linear Algebra}, Prentice Hall, 2006.\newline See also
+\url{http://www.math.umn.edu/~olver/ala.html} for corrections.
 
-\bibitem[Heffer16]{Heffer16}Jim Hefferon, \textit{Linear Algebra}, 2016.
-(Scroll down to \textquotedblleft The next edition\textquotedblright\ on
-\url{http://joshua.smcvt.edu/linearalgebra/} .)
+\bibitem[Heffer16]{Heffer16}Jim Hefferon, \textit{Linear Algebra},
+2016.\newline\url{http://joshua.smcvt.edu/linearalgebra/} (Scroll down to
+\textquotedblleft The next edition\textquotedblright\ to download the newest version.)
+
+\bibitem[Kowals16]{Kowals16}Emmanuel Kowalski, \textit{Linear Algebra},
+version 15 Sep 2016.\newline\url{https://people.math.ethz.ch/~kowalski/script-la.pdf}
 
 \bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
 Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
-2016. (Download from
-\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf} .)
+2016.\newline\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf}
 
 \bibitem[Treil15]{Treil15}Sergei Treil, \textit{Linear Algebra Done Wrong},
-2015. (Download from
-\url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf} .)
+2015.\newline\url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf}
+
+\bibitem[Wildon16]{Wildon16}Mark Wildon, \textit{MT182 Matrix Algebra},
+version 14 May 2016.\newline\url{http://www.ma.rhul.ac.uk/~uvah099/Maths/MatrixAlgebra15/MT1822015Notes.pdf}
 
 \bibitem[Zuker14]{Zuker14}M. Zuker, \textit{Binary Operations \& General
 Associativity},\newline\url{http://snark.math.rpi.edu/Teaching/MATH-4010/Binary_Ops.pdf}
