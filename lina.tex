@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 17, 2016 20:38:34}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 02:58:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1842,8 +1842,8 @@ Using the summation sign, we can rewrite the product $AB$ of two matrices $A$
 and $B$ (see Definition \ref{def.AB}) more nicely:
 
 \begin{proposition}
-\label{prop.AB}Let $n,m,p$ be three integers. Let $A$ be an $n\times
-m$-matrix. Let $B$ be an $m\times p$-matrix. Then,%
+\label{prop.AB}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $p\in\mathbb{N}$.
+Let $A$ be an $n\times m$-matrix. Let $B$ be an $m\times p$-matrix. Then,%
 \[
 \left(  AB\right)  _{i,j}=\sum_{k=1}^{m}A_{i,k}B_{k,j}%
 \ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{  1,2,\ldots,n\right\}  \text{
@@ -2245,8 +2245,8 @@ entries are simply the entries along this diagonal. (The other diagonal is
 called the \textquotedblleft antidiagonal\textquotedblright\ in linear algebra.)
 
 \begin{definition}
-Let $n\in\mathbb{N}$. Then, the $n\times n$ \textit{identity matrix} means the
-matrix $\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$, where%
+If $i$ and $j$ are two objects (for example, numbers or sets or functions),
+then we set%
 \begin{equation}
 \delta_{i,j}=%
 \begin{cases}
@@ -2255,9 +2255,25 @@ matrix $\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$, where%
 \end{cases}
 \ \ \ \ \ \ \ \ \ \ \text{for all }i\text{ and }j. \label{eq.def.In.eq}%
 \end{equation}
-This is the $n\times n$-matrix whose diagonal entries all equal $1$, and whose
-all other entries equal $0$. It is denoted by $I_{n}$. (Other people call it
-$I$ or $E$ or $E_{n}$.)
+
+\end{definition}
+
+For example, $\delta_{3,3}=1$ (since $3=3$) but $\delta_{1,2}=0$ (since
+$1\neq2$). For another example, $\delta_{\left(  1,2\right)  ,\left(
+1,3\right)  }=0$ (because $\left(  1,2\right)  \neq\left(  1,3\right)  $);
+here we are using the notations $\delta_{i,j}$ in a situation where $i$ and
+$j$ are pairs of numbers.
+
+The notation $\delta_{i,j}$ defined in (\ref{eq.def.In.eq}) is called the
+\textit{Kronecker delta}; it is extremely simple and yet highly useful. It has
+the obvious property that $\delta_{i,j}=\delta_{j,i}$ for any $i$ and $j$.
+
+\begin{definition}
+Let $n\in\mathbb{N}$. Then, the $n\times n$ \textit{identity matrix} means the
+matrix $\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. This
+is the $n\times n$-matrix whose diagonal entries all equal $1$, and whose all
+other entries equal $0$. It is denoted by $I_{n}$. (Other people call it $I$
+or $E$ or $E_{n}$.)
 \end{definition}
 
 For example, the $3\times3$ identity matrix is $I_{3}=\left(
@@ -2268,9 +2284,6 @@ For example, the $3\times3$ identity matrix is $I_{3}=\left(
 0 & 0 & 1
 \end{array}
 \right)  $.
-
-The notation $\delta_{i,j}$ defined in (\ref{eq.def.In.eq}) is called the
-\textit{Kronecker delta}; it is extremely simple and yet highly useful.
 
 The identity matrix behaves very much like the number $1$:
 
@@ -4430,9 +4443,13 @@ A_{i,k}B_{k,j}=0. \label{pf.thm.triangular.prod-up.AB0}%
 [\textit{Proof of (\ref{pf.thm.triangular.prod-up.AB0}):} Let $k\in\left\{
 1,2,\ldots,n\right\}  $. Then, we are in one of the following two cases:
 
+\begin{statement}
 \textit{Case 1:} We have $i\leq k$.
+\end{statement}
 
+\begin{statement}
 \textit{Case 2:} We have $i>k$.
+\end{statement}
 
 We shall prove (\ref{pf.thm.triangular.prod-up.AB0}) in each of these two
 cases separately:
@@ -4495,9 +4512,13 @@ The proof of this will be very similar to the proof of
 1,2,\ldots,n\right\}  $ be such that $k\neq i$. Then, we are in one of the
 following two cases:
 
+\begin{statement}
 \textit{Case 1:} We have $i\leq k$.
+\end{statement}
 
+\begin{statement}
 \textit{Case 2:} We have $i>k$.
+\end{statement}
 
 We shall prove (\ref{pf.thm.triangular.prod-up.AB1}) in each of these two
 cases separately:
@@ -4767,6 +4788,505 @@ _{\substack{=1\\\text{(since }B\text{ is}\\\text{unitriangular)}}}=1\cdot1=1
 for all $i\in\left\{  1,2,\ldots,n\right\}  $. Thus, the matrix $AB$ is
 upper-unitriangular (since we already know that $AB$ is upper-triangular).
 Corollary \ref{cor.triangular.uni*uni} is thus proven.
+\end{proof}
+
+\subsection{The standard matrix units $E_{u,v}$}
+
+We shall now define a certain family of matrices which are (in a sense) the
+building blocks of all matrices:
+
+\begin{definition}
+\label{def.Euv}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u\in\left\{
+1,2,\ldots,n\right\}  $ and $v\in\left\{  1,2,\ldots,m\right\}  $. Then,
+$E_{u,v,n,m}$ shall denote the $n\times m$-matrix whose $\left(  u,v\right)
+$-th entry is $1$ and whose all other entries are $0$. We shall abbreviate
+$E_{u,v,n,m}$ as $E_{u,v}$ when the values of $n$ and $m$ are clear from the
+context (for example, when we say \textquotedblleft the $2\times5$-matrix
+$E_{1,4}$, it is clear that $n=2$ and $m=5$).
+
+The matrices $E_{u,v}$ (for varying $u$ and $v$) are called the
+\textit{standard matrix units}.
+\end{definition}
+
+\begin{example}
+The $2\times3$-matrix $E_{1,3}$ (also known as $E_{1,3,2,3}$) is $\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 1\\
+0 & 0 & 0
+\end{array}
+\right)  $. As per its definition, its $\left(  1,3\right)  $-th entry is $1$
+and its all other entries are $0$.
+
+The $3\times2$-matrix $E_{2,2}$ (also known as $E_{2,2,3,2}$) is $\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}
+\right)  $.
+\end{example}
+
+What happens when a matrix is multiplied by $E_{u,v}$ ? There are two cases:
+either the $E_{u,v}$ is on the left (so we are talking of a product $E_{u,v}%
+C$) or the $E_{u,v}$ is on the right (so we are talking of a product
+$CE_{u,v}$). Let us see what each of these looks like:
+
+\begin{proposition}
+\label{prop.Euv.laction}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and
+$p\in\mathbb{N}$. Let $u\in\left\{  1,2,\ldots,n\right\}  $ and $v\in\left\{
+1,2,\ldots,m\right\}  $. Let $C$ be an $m\times p$-matrix. Then, $E_{u,v}C$ is
+the $n\times p$-matrix whose $u$-th row is the $v$-th row of $C$, and whose
+all other rows are filled with zeroes. (Here, again, $E_{u,v}$ means
+$E_{u,v,n,m}$.)
+\end{proposition}
+
+\begin{example}
+Let $n=2$, $m=3$ and $p=3$. Let $C=\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime}%
+\end{array}
+\right)  $ be a $3\times3$-matrix. Proposition \ref{prop.Euv.laction} (applied
+to $u=1$ and $v=2$) claims that $E_{1,2}C$ is the $2\times3$-matrix whose
+$1$-st row is the $2$-nd row of $C$, and whose all other rows are filled with
+zeroes. In other words, it claims that%
+\[
+E_{1,2}C=\left(
+\begin{array}
+[c]{ccc}%
+a^{\prime} & b^{\prime} & c^{\prime}\\
+0 & 0 & 0
+\end{array}
+\right)  .
+\]
+We can verify this by actually doing the multiplication:%
+\begin{align*}
+E_{1,2}C  &  =\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime}%
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{ccc}%
+0a+1a^{\prime}+0a^{\prime\prime} & 0b+1b^{\prime}+0b^{\prime\prime} &
+0c+1c^{\prime}+0c^{\prime\prime}\\
+0a+0a^{\prime}+0a^{\prime\prime} & 0b+0b^{\prime}+0b^{\prime\prime} &
+0c+0c^{\prime}+0c^{\prime\prime}%
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{ccc}%
+a^{\prime} & b^{\prime} & c^{\prime}\\
+0 & 0 & 0
+\end{array}
+\right)  .
+\end{align*}
+The matrix unit $E_{1,2}=\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 0
+\end{array}
+\right)  $ acts as a sort of mask which, when multiplied by $C$, moves the
+$v$-th row into the $u$-th row of the product, while destroying all other rows.
+\end{example}
+
+We shall give a formal proof of Proposition \ref{prop.Euv.laction} in Section
+\ref{sect.gauss.Euv-more}; but the example above should have given you a good
+intuition for it.
+
+So much for products of the form $E_{u,v}C$. What about $CE_{u,v}$ ?
+
+\begin{proposition}
+\label{prop.Euv.raction}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and
+$p\in\mathbb{N}$. Let $u\in\left\{  1,2,\ldots,n\right\}  $ and $v\in\left\{
+1,2,\ldots,m\right\}  $. Let $C$ be an $p\times n$-matrix. Then, $CE_{u,v}$ is
+the $p\times m$-matrix whose $v$-th column is the $u$-th column of $C$, and
+whose all other columns are filled with zeroes. (Here, again, $E_{u,v}$ means
+$E_{u,v,n,m}$.)
+\end{proposition}
+
+Notice that the numbers $u$ and $v$ play different parts in Proposition
+\ref{prop.Euv.raction} as in Proposition \ref{prop.Euv.laction}.
+
+\begin{example}
+Let us demonstrate Proposition \ref{prop.Euv.raction} on a more spartanic
+example: Let $n=2$, $m=2$ and $p=1$. Let $C=\left(
+\begin{array}
+[c]{cc}%
+a & b
+\end{array}
+\right)  $ be a $1\times2$-matrix. Proposition \ref{prop.Euv.raction} (applied
+to $u=1$ and $v=2$) claims that $CE_{1,2}$ is the $2\times1$-matrix whose
+$2$-nd column is the $1$-st column of $C$, and whose all other column are
+filled with zeroes. In other words, it claims that%
+\[
+CE_{1,2}=\left(
+\begin{array}
+[c]{cc}%
+0 & a
+\end{array}
+\right)  .
+\]
+Again, we can verify this by actually doing the multiplication:%
+\[
+CE_{1,2}=\left(
+\begin{array}
+[c]{cc}%
+a & b
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a\cdot0+b\cdot0 & a\cdot1+b\cdot0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+0 & a
+\end{array}
+\right)  .
+\]
+
+\end{example}
+
+\subsection{\label{sect.gauss.Euv-more}(*) A bit more on the standard matrix
+units}
+
+Let us get some practice by rewriting the definition of the matrices $E_{u,v}$:
+
+\begin{proposition}
+\label{prop.Euv.deltas}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$u\in\left\{  1,2,\ldots,n\right\}  $ and $v\in\left\{  1,2,\ldots,m\right\}
+$. Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $. Then,%
+\begin{equation}
+\left(  E_{u,v}\right)  _{i,j}=\delta_{\left(  i,j\right)  ,\left(
+u,v\right)  }=\delta_{i,u}\delta_{j,v} \label{eq.prop.Euv.deltas.1}%
+\end{equation}
+(where $E_{u,v}$ is short for $E_{u,v,n,m}$). (Recall that the meaning of the
+symbols $\delta_{\left(  i,j\right)  ,\left(  u,v\right)  }$, $\delta_{i,u}$
+and $\delta_{j,v}$ is defined as in (\ref{eq.def.In.eq}).)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Euv.deltas}.]We have defined $E_{u,v}$ as the
+$n\times m$-matrix whose $\left(  u,v\right)  $-th entry is $1$ and whose all
+other entries are $0$. Hence, the $\left(  i,j\right)  $-th entry of the
+matrix $E_{u,v}$ is $1$ if $\left(  i,j\right)  =\left(  u,v\right)  $ and $0$
+otherwise. In formulas, this says that%
+\begin{equation}
+\left(  E_{u,v}\right)  _{i,j}=%
+\begin{cases}
+1, & \text{if }\left(  i,j\right)  =\left(  u,v\right)  ;\\
+0, & \text{if }\left(  i,j\right)  \neq\left(  u,v\right)
+\end{cases}
+. \label{pf.prop.Euv.deltas.1}%
+\end{equation}
+
+
+On the other hand, the definition of $\delta_{\left(  i,j\right)  ,\left(
+u,v\right)  }$ yields%
+\begin{equation}
+\delta_{\left(  i,j\right)  ,\left(  u,v\right)  }=%
+\begin{cases}
+1, & \text{if }\left(  i,j\right)  =\left(  u,v\right)  ;\\
+0, & \text{if }\left(  i,j\right)  \neq\left(  u,v\right)
+\end{cases}
+. \label{pf.prop.Euv.deltas.2}%
+\end{equation}
+Comparing this with (\ref{pf.prop.Euv.deltas.1}), we immediately obtain
+$\left(  E_{u,v}\right)  _{i,j}=\delta_{\left(  i,j\right)  ,\left(
+u,v\right)  }$.
+
+Let us now show that
+\begin{equation}
+\delta_{\left(  i,j\right)  ,\left(  u,v\right)  }=\delta_{i,u}\delta_{j,v}.
+\label{pf.prop.Euv.deltas.5}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.Euv.deltas.5}):} We are in one of the
+following three cases:
+
+\begin{statement}
+\textit{Case 1:} We have $i\neq u$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} We have $j\neq v$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 3:} We have neither $i\neq u$ nor $j\neq v$.
+\end{statement}
+
+(In fact, it is possible that we are in Case 1 and Case 2 simultaneously. But
+this does not invalidate our proof; it is perfectly fine if the cases
+\textquotedblleft overlap\textquotedblright, as long as every possible
+situation is covered by at least one case.)
+
+We shall prove (\ref{pf.prop.Euv.deltas.5}) in each of the three cases:
+
+\begin{enumerate}
+\item Let us first consider Case 1. In this case, we have $i\neq u$. Hence,
+$\left(  i,j\right)  \neq\left(  u,v\right)  $. Thus, $\delta_{\left(
+i,j\right)  ,\left(  u,v\right)  }=0$. Comparing this with $\underbrace{\delta
+_{i,u}}_{=0}\delta_{j,v}=0\delta_{j,v}=0$, we find $\delta_{\left(
+i,j\right)  ,\left(  u,v\right)  }=\delta_{i,u}\delta_{j,v}$. Hence,
+(\ref{pf.prop.Euv.deltas.5}) is proven in Case 1.
+
+\item Let us next consider Case 2. In this case, we have $j\neq v$. Hence,
+$\left(  i,j\right)  \neq\left(  u,v\right)  $. Thus, $\delta_{\left(
+i,j\right)  ,\left(  u,v\right)  }=0$. Comparing this with $\delta
+_{i,u}\underbrace{\delta_{j,v}}_{=0}=\delta_{i,u}0=0$, we find $\delta
+_{\left(  i,j\right)  ,\left(  u,v\right)  }=\delta_{i,u}\delta_{j,v}$. Hence,
+(\ref{pf.prop.Euv.deltas.5}) is proven in Case 2.
+
+\item Let us finally consider Case 3. In this case, we have neither $i\neq u$
+and $j\neq v$. Hence, $i=u$ (since not $i\neq u$) and $j=v$ (since not $j\neq
+v$). As a consequence, $\left(  i,j\right)  =\left(  u,v\right)  $, so that
+$\delta_{\left(  i,j\right)  ,\left(  u,v\right)  }=1$. Comparing this with
+$\underbrace{\delta_{i,u}}_{\substack{=1\\\text{(since }i=u\text{)}%
+}}\underbrace{\delta_{j,v}}_{\substack{=1\\\text{(since }j=v\text{)}}%
+}=1\cdot1=1$, we find $\delta_{\left(  i,j\right)  ,\left(  u,v\right)
+}=\delta_{i,u}\delta_{j,v}$. Hence, (\ref{pf.prop.Euv.deltas.5}) is proven in
+Case 3.
+\end{enumerate}
+
+We have now proven (\ref{pf.prop.Euv.deltas.5}) in all three Cases; this
+finishes our proof of (\ref{pf.prop.Euv.deltas.5}).]
+
+Now, we have shown both $\left(  E_{u,v}\right)  _{i,j}=\delta_{\left(
+i,j\right)  ,\left(  u,v\right)  }$ and $\delta_{\left(  i,j\right)  ,\left(
+u,v\right)  }=\delta_{i,u}\delta_{j,v}$. Combining these two equalities gives
+us (\ref{eq.prop.Euv.deltas.1}), and so Proposition \ref{prop.Euv.deltas} is proven.
+\end{proof}
+
+We can now easily prove Proposition \ref{prop.Euv.laction}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Euv.laction}.]We need to prove the following
+two claims:
+
+\begin{statement}
+\textit{Claim 1:} The $u$-th row of the $n\times p$-matrix $E_{u,v}C$ is the
+$v$-th row of $C$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} For each $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying
+$i\neq u$, the $i$-th row of the $n\times p$-matrix $E_{u,v}C$ is filled with zeroes.
+\end{statement}
+
+Before we do so, let us derive a few formulas. First of all, we have%
+\begin{equation}
+\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
+\label{pf.prop.Euv.laction.1}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $ (according to Proposition \ref{prop.Euv.deltas}). Furthermore,
+for any $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $, we have%
+\begin{align}
+\left(  E_{u,v}C\right)  _{i,j} &  =\sum_{k=1}^{m}\underbrace{\left(
+E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
+(\ref{pf.prop.Euv.laction.1}), applied to}\\k\text{ instead of }j\text{)}%
+}}C_{k,j}\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.AB},}\\
+\text{applied to }A=E_{u,v}\text{ and }B=C
+\end{array}
+\right)  \nonumber\\
+&  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}C_{k,j}=\sum_{k=1}^{m}\delta
+_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j}\label{pf.prop.Euv.laction.2}%
+\end{align}
+(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=v$ and
+$a_{k}=\delta_{i,u}C_{k,j}$). Now, we can prove both claims easily:
+
+\textit{Proof of Claim 1:} For every $j\in\left\{  1,2,\ldots,p\right\}  $, we
+have%
+\begin{align*}
+\left(  E_{u,v}C\right)  _{u,j}  &  =\underbrace{\delta_{u,u}}%
+_{\substack{=1\\\text{(since }u=u\text{)}}}C_{v,j}\ \ \ \ \ \ \ \ \ \ \left(
+\text{by (\ref{pf.prop.Euv.laction.2}), applied to }i=u\right) \\
+&  =C_{v,j}.
+\end{align*}
+In other words, for every $j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(
+u,j\right)  $-th entry of the matrix $E_{u,v}C$ equals the $\left(
+u,j\right)  $-th entry of the matrix $C$. In other words, each entry of the
+$u$-th row of $E_{u,v}C$ equals the corresponding entry of the $v$-th row of
+$C$. In other words, the $u$-th row of the $n\times p$-matrix $E_{u,v}C$ is
+the $v$-th row of $C$. This proves Claim 1.
+
+\textit{Proof of Claim 2:} Let $i\in\left\{  1,2,\ldots,n\right\}  $ be such
+that $i\neq u$. We must prove that the $i$-th row of the $n\times p$-matrix
+$E_{u,v}C$ is filled with zeroes.
+
+For every $j\in\left\{  1,2,\ldots,p\right\}  $, we have%
+\begin{align*}
+\left(  E_{u,v}C\right)  _{i,j}  &  =\underbrace{\delta_{i,u}}%
+_{\substack{=0\\\text{(since }i\neq u\text{)}}}C_{v,j}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Euv.laction.2})}\right) \\
+&  =0C_{v,j}=0.
+\end{align*}
+In other words, for every $j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(
+i,j\right)  $-th entry of the matrix $E_{u,v}C$ is $0$. In other words, each
+entry of the $i$-th row of $E_{u,v}C$ is $0$. In other words, the $i$-th row
+of the $n\times p$-matrix $E_{u,v}C$ is filled with zeroes. This proves Claim 2.
+
+Now, both Claim 1 and Claim 2 are proven, and so we are finished proving
+Proposition \ref{prop.Euv.laction}.
+\end{proof}
+
+The proof of Proposition \ref{prop.Euv.raction} is similar, and is left to the reader.
+
+Here is another simple property of matrix units:
+
+\begin{proposition}
+\label{prop.Euv.transpose}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$u\in\left\{  1,2,\ldots,n\right\}  $ and $v\in\left\{  1,2,\ldots,m\right\}
+$. Then, $\left(  E_{u,v}\right)  ^{T}=E_{v,u}$. (More precisely: $\left(
+E_{u,v,n,m}\right)  ^{T}=E_{v,u,m,n}$.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Euv.transpose}.]Very easy and left to the reader.
+\end{proof}
+
+As I have said, the standard matrix units are building blocks for matrices:
+every matrix can be obtained from them by scaling and adding. More precisely:
+
+\begin{proposition}
+\label{prop.Euv.A=sum}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be an
+$n\times m$-matrix. Then,%
+\[
+A=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}.
+\]
+Here, we are using the $\sum$ symbol introduced in Section
+\ref{sect.intro.sum}. (Of course, $E_{u,v}$ means $E_{u,v,n,m}$ here.)
+\end{proposition}
+
+\begin{example}
+In the case when $n=2$ and $m=2$, Proposition \ref{prop.Euv.A=sum} says that%
+\[
+A=A_{1,1}E_{1,1}+A_{1,2}E_{1,2}+A_{2,1}E_{2,1}+A_{2,2}E_{2,2}.
+\]
+It is easy to check this directly:%
+\begin{align*}
+&  A_{1,1}E_{1,1}+A_{1,2}E_{1,2}+A_{2,1}E_{2,1}+A_{2,2}E_{2,2}\\
+&  =A_{1,1}\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 0
+\end{array}
+\right)  +A_{1,2}\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+0 & 0
+\end{array}
+\right)  +A_{2,1}\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+1 & 0
+\end{array}
+\right)  +A_{2,2}\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+0 & 1
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{cc}%
+A_{1,1} & 0\\
+0 & 0
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+0 & A_{1,2}\\
+0 & 0
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+A_{2,1} & 0
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+0 & A_{2,2}%
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{cc}%
+A_{1,1} & A_{1,2}\\
+A_{2,1} & A_{2,2}%
+\end{array}
+\right)  =A.
+\end{align*}
+This should make the truth of Proposition \ref{prop.Euv.A=sum} obvious (even
+in the general case). The proof below is just for the fans of formal reasoning.
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Euv.A=sum}.]For every $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{align*}
+&  \left(  \sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}\right)  _{i,j}\\
+&  =\sum_{u=1}^{n}\sum_{v=1}^{m}\underbrace{\left(  A_{u,v}E_{u,v}\right)
+_{i,j}}_{\substack{=A_{u,v}\left(  E_{u,v}\right)  _{i,j}\\\text{(since
+matrices are scaled entry by entry)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
+entry}\right) \\
+&  =\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}\underbrace{\left(  E_{u,v}\right)
+_{i,j}}_{\substack{=\delta_{i,u}\delta_{j,v}\\\text{(by
+(\ref{eq.prop.Euv.deltas.1}))}}}=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}%
+\underbrace{\delta_{i,u}}_{=\delta_{u,i}}\underbrace{\delta_{j,v}}%
+_{=\delta_{v,j}}\\
+&  =\sum_{u=1}^{n}\underbrace{\sum_{v=1}^{m}A_{u,v}\delta_{u,i}\delta_{v,j}%
+}_{\substack{=\sum_{k=1}^{m}A_{u,k}\delta_{u,i}\delta_{k,j}\\=A_{u,j}%
+\delta_{u,i}\\\text{(by Proposition \ref{prop.sum.delta}, applied
+to}\\p=1\text{, }q=m\text{, }r=j\text{ and }a_{k}=A_{u,k}\delta_{u,i}\text{)}%
+}}=\sum_{u=1}^{n}A_{u,j}\delta_{u,i}=\sum_{k=1}^{n}A_{k,j}\delta_{k,i}\\
+&  =A_{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.sum.delta}, applied to }p=1\text{, }q=n\text{, }r=i\text{ and }%
+a_{k}=A_{k,j}\right)  .
+\end{align*}
+In other words, each entry of the matrix $\sum_{u=1}^{n}\sum_{v=1}^{m}%
+A_{u,v}E_{u,v}$ equals the corresponding entry of the matrix $A$. Thus,
+$\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}=A$. This proves Proposition
+\ref{prop.Euv.A=sum}.
 \end{proof}
 
 [to be continued]
