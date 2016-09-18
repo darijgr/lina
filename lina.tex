@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 15:23:45}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 18:19:06}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -620,11 +620,11 @@ Matrices can (sometimes) be added, (always) be scaled and (sometimes) be
 multiplied. Let me explain:
 
 \begin{definition}
-Let $A$ and $B$ be two matrices of the same dimensions (that is, they have the
-same number of rows, and the same number of columns). Then, $A+B$ denotes the
-matrix obtained by adding each entry of $A$ to the corresponding entry of $B$.
-Or, to write it more formally: If $A$ and $B$ are two $n\times m$-matrices,
-then%
+\label{def.matrix-add}Let $A$ and $B$ be two matrices of the same dimensions
+(that is, they have the same number of rows, and the same number of columns).
+Then, $A+B$ denotes the matrix obtained by adding each entry of $A$ to the
+corresponding entry of $B$. Or, to write it more formally: If $A$ and $B$ are
+two $n\times m$-matrices, then%
 \[
 A+B=\left(  A_{i,j}+B_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
 \]
@@ -667,12 +667,19 @@ dimensions of the former matrix are $2$ and $1$, whereas the dimensions of the
 latter matrix are $1$ and $2$. Even though they are equal \textbf{up to
 order}, they do not count as equal.}).
 
+Definition \ref{def.matrix-add} is often laconically summarized as follows:
+\textquotedblleft Matrices are added entry by entry\textquotedblright\ (or
+\textquotedblleft entrywise\textquotedblright). This simply means that each
+entry of the sum $A+B$ is the sum of the corresponding entries of $A$ and $B$;
+nothing fancy is going on.
+
 So we now know hot add two matrices.
 
 \begin{definition}
-Let $A$ be a matrix, and $\lambda$ be a number. Then, $\lambda A$ (or
-$\lambda\cdot A$) denotes the matrix obtained by multiplying each entry of $A$
-by $\lambda$. In other words: If $A$ is an $n\times m$-matrix, then%
+\label{def.matrix-scale}Let $A$ be a matrix, and $\lambda$ be a number. Then,
+$\lambda A$ (or $\lambda\cdot A$) denotes the matrix obtained by multiplying
+each entry of $A$ by $\lambda$. In other words: If $A$ is an $n\times
+m$-matrix, then%
 \[
 \lambda A=\left(  \lambda A_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}.
 \]
@@ -696,7 +703,9 @@ d & e & f
 \right)  $.
 
 So now we know how to scale a matrix. (\textquotedblleft To
-scale\textquotedblright\ means to multiply by a number.)
+scale\textquotedblright\ means to multiply by a number.) Definition
+\ref{def.matrix-scale} is summarized as follows: \textquotedblleft Matrices
+are scaled entry by entry\textquotedblright.
 
 \textquotedblleft Scaling\textquotedblright\ is often called \textquotedblleft
 scalar multiplication\textquotedblright\ (but this is confusing terminology,
@@ -706,8 +715,8 @@ completely different).
 With scaling and addition defined, we obtain subtraction for free:
 
 \begin{definition}
-Let $A$ and $B$ be two matrices of the same dimensions. Then, $A-B$ denotes
-the matrix $A+\left(  -B\right)  =A+\left(  -1\right)  B$.
+\label{def.matrix-diff}Let $A$ and $B$ be two matrices of the same dimensions.
+Then, $A-B$ denotes the matrix $A+\left(  -B\right)  =A+\left(  -1\right)  B$.
 \end{definition}
 
 For example, $\left(
@@ -1968,11 +1977,11 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 
 Finally, Proposition \ref{prop.AB} (applied to $B+C$ instead of $B$) yields%
 \begin{align*}
-\left(  A\left(  B+C\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}%
-A_{i,k}\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}%
-+C_{k,j}\\\text{(since matrices are}\\\text{added entry by entry)}}%
-}=\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }%
-_{=A_{i,k}B_{k,j}+A_{i,k}C_{k,j}}\\
+\left(  A\left(  B+C\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
+\underbrace{\left(  B+C\right)  _{k,j}}_{\substack{=B_{k,j}+C_{k,j}%
+\\\text{(since matrices are}\\\text{added entry by entry)}}}=\sum_{k=1}%
+^{m}\underbrace{A_{i,k}\left(  B_{k,j}+C_{k,j}\right)  }_{=A_{i,k}%
+B_{k,j}+A_{i,k}C_{k,j}}\\
 &  =\sum_{k=1}^{m}\left(  A_{i,k}B_{k,j}+A_{i,k}C_{k,j}\right)
 =\underbrace{\sum_{k=1}^{m}A_{i,k}B_{k,j}}_{\substack{=\left(  AB\right)
 _{i,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.d.1}))}}}+\underbrace{\sum
@@ -1981,10 +1990,11 @@ _{k=1}^{m}A_{i,k}C_{k,j}}_{\substack{=\left(  AC\right)  _{i,j}\\\text{(by
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
-\text{by Proposition \ref{prop.sum.a+b}, applied to }p=1\text{, }q=m\text{,}\\
-a_{k}=A_{i,k}B_{k,j}\text{ and }b_{k}=A_{i,k}C_{k,j}%
+\text{by Proposition \ref{prop.sum.a+b}, applied to }1\text{, }m\text{,}\\
+A_{i,k}B_{k,j}\text{ and }A_{i,k}C_{k,j}\text{ instead of }p\text{, }q\text{,
+}a_{k}\text{ and }b_{k}%
 \end{array}
-\right) \\
+\right)  \\
 &  =\left(  AB\right)  _{i,j}+\left(  AC\right)  _{i,j}\\
 &  =\left(  AB+AC\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
@@ -5123,7 +5133,7 @@ $i\neq u$, the $i$-th row of the $n\times p$-matrix $E_{u,v}C$ is filled with ze
 
 Before we do so, let us derive a few formulas. First of all, we have%
 \begin{equation}
-\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}
+\left(  E_{u,v}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
 \label{pf.prop.Euv.laction.1}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -5131,7 +5141,7 @@ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 for any $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,p\right\}  $, we have%
 \begin{align}
-\left(  E_{u,v}C\right)  _{i,j}  &  =\sum_{k=1}^{m}\underbrace{\left(
+\left(  E_{u,v}C\right)  _{i,j} &  =\sum_{k=1}^{m}\underbrace{\left(
 E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 (\ref{pf.prop.Euv.laction.1}), applied to}\\k\text{ instead of }j\text{)}%
 }}C_{k,j}\ \ \ \ \ \ \ \ \ \ \left(
@@ -5140,12 +5150,13 @@ E_{u,v}\right)  _{i,k}}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by
 \text{by Proposition \ref{prop.AB},}\\
 \text{applied to }A=E_{u,v}\text{ and }B=C
 \end{array}
-\right) \nonumber\\
+\right)  \nonumber\\
 &  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}C_{k,j}=\sum_{k=1}^{m}\delta
-_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j} \label{pf.prop.Euv.laction.2}%
+_{i,u}C_{k,j}\delta_{k,v}=\delta_{i,u}C_{v,j}\label{pf.prop.Euv.laction.2}%
 \end{align}
-(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=v$ and
-$a_{k}=\delta_{i,u}C_{k,j}$). Now, we can prove both claims easily:
+(by Proposition \ref{prop.sum.delta}, applied to $1$, $m$, $v$ and
+$\delta_{i,u}C_{k,j}$ instead of $p$, $q$, $r$ and $a_{k}$). Now, we can prove
+both claims easily:
 
 \textit{Proof of Claim 1:} For every $j\in\left\{  1,2,\ldots,p\right\}  $, we
 have%
@@ -5289,7 +5300,7 @@ in the general case). The proof below is just for the fans of formal reasoning.
 _{i,j}}_{\substack{=A_{u,v}\left(  E_{u,v}\right)  _{i,j}\\\text{(since
 matrices are scaled entry by entry)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
-entry}\right) \\
+entry}\right)  \\
 &  =\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}\underbrace{\left(  E_{u,v}\right)
 _{i,j}}_{\substack{=\delta_{i,u}\delta_{j,v}\\\text{(by
 (\ref{eq.prop.Euv.deltas.1}))}}}=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}%
@@ -5309,6 +5320,216 @@ A_{u,v}E_{u,v}$ equals the corresponding entry of the matrix $A$. Thus,
 $\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}=A$. This proves Proposition
 \ref{prop.Euv.A=sum}.
 \end{proof}
+
+Continuing the flow of boring and straightforward little propositions, let us
+see how standard matrix units multiply:
+
+\begin{proposition}
+\label{prop.Euv.prod}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $p\in
+\mathbb{N}$. Let $u\in\left\{  1,2,\ldots,n\right\}  $, $v\in\left\{
+1,2,\ldots,m\right\}  $, $x\in\left\{  1,2,\ldots,m\right\}  $ and
+$y\in\left\{  1,2,\ldots,p\right\}  $. Then,
+\[
+E_{u,v,n,m}E_{x,y,m,p}=\delta_{v,x}E_{u,y,n,p}.
+\]
+(We shall write this equality as $E_{u,v}E_{x,y}=\delta_{v,x}E_{u,y}$, since
+we hope that the sizes of the matrices will be clear from the context.)
+\end{proposition}
+
+It might be a good exercise to devise at least two examples for this
+proposition (one with $v=x$ and one with $v\neq x$), and to prove it.
+Nevertheless, let me give a proof, because noone ever seems to do so in writing:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Euv.prod}.]There are two ways to prove
+Proposition \ref{prop.Euv.prod}: One is to apply Proposition
+\ref{prop.Euv.laction} to $C=E_{x,y}$. Another is to obstinately applying the
+definitions. We opt for the second way, because the first is too simple.
+
+From (\ref{eq.prop.Euv.deltas.1}), we obtain%
+\begin{equation}
+\left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}
+\label{pf.prop.Euv.prod.1}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $. (If this doesn't look like (\ref{eq.prop.Euv.deltas.1}) to you,
+do remember that $E_{u,v,n,m}$ was abbreviated as $E_{u,v}$ in
+(\ref{eq.prop.Euv.deltas.1}).)
+
+The same reasoning (applied to $m$, $p$, $x$ and $y$ instead of $n$, $m$, $u$
+and $v$) shows that%
+\begin{equation}
+\left(  E_{x,y,m,p}\right)  _{i,j}=\delta_{i,x}\delta_{j,y}
+\label{pf.prop.Euv.prod.2}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $.
+
+The same reasoning that gave us (\ref{pf.prop.Euv.prod.1}) can also be applied
+to $n$, $p$, $u$ and $y$ instead of $n$, $m$, $x$ and $y$. As a result, we
+find%
+\begin{equation}
+\left(  E_{u,y,n,p}\right)  _{i,j}=\delta_{i,u}\delta_{j,y}
+\label{pf.prop.Euv.prod.3}%
+\end{equation}
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,p\right\}  $.
+
+Now, let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $. Then, Proposition \ref{prop.AB} (applied to
+$A=E_{u,v,n,m}$ and $B=E_{x,y,m,p}$) shows that%
+\begin{align*}
+&  \left(  E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}\\
+&  =\sum_{k=1}^{m}\underbrace{\left(  E_{u,v,n,m}\right)  _{i,k}%
+}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by (\ref{pf.prop.Euv.prod.1}),
+applied to }k\\\text{instead of }j\text{)}}}\underbrace{\left(  E_{x,y,m,p}%
+\right)  _{k,j}}_{\substack{=\delta_{k,x}\delta_{j,y}\\\text{(by
+(\ref{pf.prop.Euv.prod.2}), applied to }k\\\text{instead of }i\text{)}}}\\
+&  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}\delta_{k,x}\delta_{j,y}=\sum
+_{k=1}^{m}\delta_{i,u}\delta_{k,x}\delta_{j,y}\delta_{k,v}\\
+&  =\delta_{i,u}\delta_{v,x}\delta_{j,y}%
+\end{align*}
+(by Proposition \ref{prop.sum.delta}, applied to $1$, $m$, $v$ and
+$\delta_{i,u}\delta_{k,x}\delta_{j,y}$ instead of $p$, $q$, $r$ and $a_{k}$).
+Comparing this with%
+\begin{align*}
+& \left(  \delta_{v,x}E_{u,y,n,p}\right)  _{i,j}\\
+& =\delta_{v,x}\underbrace{\left(  E_{u,y,n,p}\right)  _{i,j}}%
+_{\substack{=\delta_{i,u}\delta_{j,y}\\\text{(by (\ref{pf.prop.Euv.prod.3}))}%
+}}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are scaled entry by
+entry}\right)  \\
+& =\delta_{v,x}\delta_{i,u}\delta_{j,y}=\delta_{i,u}\delta_{v,x}\delta_{j,y},
+\end{align*}
+we find $\left(  E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}=\left(  \delta
+_{v,x}E_{u,y,n,p}\right)  _{i,j}$.
+
+Now, forget that we fixed $i$ and $j$. We thus have shown that $\left(
+E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}=\left(  \delta_{v,x}E_{u,y,n,p}\right)
+_{i,j}$ for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,p\right\}  $. In other words, each entry of the matrix
+$E_{u,v,n,m}E_{x,y,m,p}$ equals the corresponding entry of the matrix
+$\delta_{v,x}E_{u,y,n,p}$. Thus, $E_{u,v,n,m}E_{x,y,m,p}=\delta_{v,x}%
+E_{u,y,n,p}$. This proves Proposition \ref{prop.Euv.prod}.
+\end{proof}
+
+\subsection{The $\lambda$-addition matrices $A_{u,v}^{\lambda}$}
+
+Now, we come to another important class of matrices (that can also be seen as
+building blocks of a kind): the $\lambda$\textit{-addition matrices}. Those
+are square matrices, and are defined as follows:
+
+\begin{definition}
+\label{def.Alamuv}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct
+elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a number.
+Then, $A_{u,v}^{\lambda}$ shall denote the $n\times n$-matrix $I_{n}+\lambda
+E_{u,v}$ (where $E_{u,v}$ means the $n\times n$-matrix $E_{u,v}$, that is,
+$E_{u,v,n,n}$).
+
+A few remarks about the notation:
+
+\textbf{(a)} The superscript $\lambda$ in the notation \textquotedblleft%
+$A_{u,v}^{\lambda}$\textquotedblright\ is not an exponent; i.e., the matrix
+$A_{u,v}^{\lambda}$ is not the $\lambda$-th power of some matrix $A_{u,v}$.
+Instead, it is just an argument that we have chosen to write as a superscript
+instead of a subscript.
+
+\textbf{(b)} To be really precise, we ought to denote $A_{u,v}^{\lambda}$ by
+$A_{u,v,n}^{\lambda}$, because it depends on $n$. (This is similar to how we
+ought to denote $E_{u,v}$ by $E_{u,v,n,n}$.) But the $n$ will be really clear
+from the context almost every time we deal with these matrices, so we shall
+keep it out of our notation.
+\end{definition}
+
+\begin{example}
+Let $n=4$. Then,%
+\begin{align*}
+A_{1,3}^{\lambda}  & =I_{n}+\lambda E_{1,3}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & \lambda & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+A_{4,2}^{\lambda}  & =I_{n}+\lambda E_{4,2}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & \lambda & 0 & 1
+\end{array}
+\right)  .
+\end{align*}
+
+\end{example}
+
+The pattern that you see on these examples is true in general:
+
+\begin{proposition}
+\label{prop.Alamuv.entries}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a
+number. Then, the matrix $A_{u,v}^{\lambda}$ has the following entries:
+
+\begin{itemize}
+\item All its diagonal entries are $1$.
+
+\item Its $\left(  u,v\right)  $-th entry is $\lambda$.
+
+\item All its remaining entries are $0$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Alamuv.entries}.] Recall that $E_{u,v}$ is the
+$n\times n$-matrix whose $\left(  u,v\right)  $-th entry is $1$ and whose all
+other entries are $0$ (indeed, this is how $E_{u,v}$ was defined). Since
+matrices are scaled entry by entry, we can therefore conclude how $\lambda
+E_{u,v}$ looks like: Namely, $\lambda E_{u,v}$ is the $n\times n$-matrix whose
+$\left(  u,v\right)  $-th entry is $\lambda\cdot1=\lambda$ and whose all other
+entries are $\lambda\cdot0=0$. Thus, we know the following:
+
+\begin{itemize}
+\item The matrix $I_{n}$ is the $n\times n$-matrix whose diagonal entries are
+$1$, and whose all other entries are $0$.
+
+\item The matrix $\lambda E_{u,v}$ is the $n\times n$-matrix whose $\left(
+u,v\right)  $-th entry is $\lambda$, and whose all other entries are $0$.
+\end{itemize}
+
+Since matrices are added entry by entry, we can thus infer how $I_{n}+\lambda
+E_{u,v}$ looks like: Namely, the matrix $I_{n}+\lambda E_{u,v}$ is the
+$n\times n$-matrix whose diagonal entries\footnote{Here, we are using the fact
+that the $\left(  u,v\right)  $-th entry is not a diagonal entry; this is
+because $u$ and $v$ are distinct! If $u$ and $v$ are equal, then the $\left(
+u,v\right)  $-th entry of $I_{n}+\lambda E_{u,v}$ would be $1+\lambda$
+instead.} are $1+0=1$, whose $\left(  u,v\right)  $-th entry is $0+\lambda
+=\lambda$, and whose all other entries are $0+0=0$. Since $I_{n}+\lambda
+E_{u,v}=A_{u,v}^{\lambda}$, this rewrites as follows: The matrix
+$A_{u,v}^{\lambda}$  is the $n\times n$-matrix whose diagonal entries are $1$,
+whose $\left(  u,v\right)  $-th entry is $\lambda$, and whose all other
+entries are $0$. This proves Proposition \ref{prop.Alamuv.entries}.
+\end{proof}
+
+We can next see what happens to a matrix when it is multiplied by
+$A_{u,v}^{\lambda}$:
+
+\begin{proposition}
+\label{prop.Alamuv.raction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$
+and $v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $C$
+be an $m\times n$-matrix. Then, $CA_{u,v}^{\lambda}$ is the $m\times n$-matrix
+obtained from $C$ by adding $\lambda\operatorname*{row}\nolimits_{v}C$ to
+$\operatorname*{row}\nolimits_{u}C$.
+
+(Recall that $\operatorname*{row}\nolimits_{k}C$ denotes the $k$-th row of $C$
+for each $k$. Recall also that the rows of $C$ are row vectors, and thus are
+added and scaled entry by entry. Hence, adding $\lambda\operatorname*{row}%
+\nolimits_{v}C$ to $\operatorname*{row}\nolimits_{u}C$ means adding $\lambda$
+times each entry of the $v$-th row of $C$ to the corresponding entry of the
+$u$-th row of $C$.)
+\end{proposition}
 
 [to be continued]
 
