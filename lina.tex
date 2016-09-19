@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 18:40:48}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 21:07:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2234,10 +2234,14 @@ and each $m\times p$-matrix $A$.
 and each $p\times n$-matrix $A$.
 
 \textbf{(d)} We have $0A=0_{n\times m}$ for each $n\times m$-matrix $A$.
+
+\textbf{(e)} We have $\lambda0_{n\times m}=0_{n\times m}$ for each number
+$\lambda$.
 \end{proposition}
 
+\begin{remark}
 Numbers are known to be zero-divisor-free: If a product $ab$ of two numbers
-$a$ and $b$ is $0$, then one of $a$ and $b$ must be $0$. This also fails for
+$a$ and $b$ is $0$, then one of $a$ and $b$ must be $0$. This fails for
 matrices: If $A=\left(
 \begin{array}
 [c]{cc}%
@@ -2252,6 +2256,7 @@ matrices: If $A=\left(
 \end{array}
 \right)  $, then $AB=0_{2\times2}$ is the zero matrix, although neither $A$
 nor $B$ is the zero matrix.
+\end{remark}
 
 \subsection{The identity matrix}
 
@@ -5448,9 +5453,9 @@ keep it out of our notation.
 \end{definition}
 
 \begin{example}
-Let $n=4$. Then,%
+\label{exam.Alamuv}Let $n=4$. Then,%
 \begin{align*}
-A_{1,3}^{\lambda}  &  =I_{n}+\lambda E_{1,3}=\left(
+A_{1,3}^{\lambda} &  =I_{n}+\lambda E_{1,3}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & \lambda & 0\\
@@ -5459,7 +5464,7 @@ A_{1,3}^{\lambda}  &  =I_{n}+\lambda E_{1,3}=\left(
 0 & 0 & 0 & 1
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-A_{4,2}^{\lambda}  &  =I_{n}+\lambda E_{4,2}=\left(
+A_{4,2}^{\lambda} &  =I_{n}+\lambda E_{4,2}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 0\\
@@ -5523,19 +5528,318 @@ We can next see what happens to a matrix when it is multiplied by
 $A_{u,v}^{\lambda}$:
 
 \begin{proposition}
-\label{prop.Alamuv.raction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$
-and $v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $C$
-be an $m\times n$-matrix. Then, $CA_{u,v}^{\lambda}$ is the $m\times n$-matrix
-obtained from $C$ by adding $\lambda\operatorname*{row}\nolimits_{v}C$ to
-$\operatorname*{row}\nolimits_{u}C$.
+\label{prop.Alamuv.laction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$
+and $v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let
+$\lambda$ be a number. Let $C$ be an $n\times m$-matrix. Then, $A_{u,v}%
+^{\lambda}C$ is the $n\times m$-matrix obtained from $C$ by adding
+$\lambda\operatorname*{row}\nolimits_{v}C$ to the $u$-th row.
 
 (Recall that $\operatorname*{row}\nolimits_{k}C$ denotes the $k$-th row of $C$
 for each $k$. Recall also that the rows of $C$ are row vectors, and thus are
 added and scaled entry by entry. Hence, adding $\lambda\operatorname*{row}%
-\nolimits_{v}C$ to $\operatorname*{row}\nolimits_{u}C$ means adding $\lambda$
-times each entry of the $v$-th row of $C$ to the corresponding entry of the
-$u$-th row of $C$.)
+\nolimits_{v}C$ to the $u$-th row means adding $\lambda$ times each entry of
+the $v$-th row of $C$ to the corresponding entry of the $u$-th row.)
 \end{proposition}
+
+\begin{example}
+\label{exam.prop.Alamuv.laction}Let $n=3$ and $m=2$. Let $C$ be the $3\times
+2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  $. Let $\lambda$ be a number. Then, Proposition
+\ref{prop.Alamuv.laction} (applied to $u=2$ and $v=1$) claims that
+$A_{2,1}^{\lambda}C$ is the $3\times2$-matrix obtained from $C$ by adding
+$\lambda\operatorname*{row}\nolimits_{1}C$ to the $2$-nd row. A computation
+confirms this claim:%
+\[
+A_{2,1}^{\lambda}C=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+\lambda & 1 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime}+\lambda a & b^{\prime}+\lambda b\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  .
+\]
+
+\end{example}
+
+\begin{proposition}
+\label{prop.Alamuv.raction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$
+and $v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let
+$\lambda$ be a number. Let $C$ be an $m\times n$-matrix. Then, $CA_{u,v}%
+^{\lambda}$ is the $m\times n$-matrix obtained from $C$ by adding
+$\lambda\operatorname*{col}\nolimits_{u}C$ to the $v$-th column.
+\end{proposition}
+
+Note how Proposition \ref{prop.Alamuv.raction} differs from Proposition
+\ref{prop.Alamuv.laction}: not only have rows been replaced by columns, but
+also have $u$ and $v$ switched roles.
+
+You might find Example \ref{exam.prop.Alamuv.laction} sufficient to convince
+you of the truth of Proposition \ref{prop.Alamuv.laction}. If not, a proof
+will be given in Section \ref{sect.gauss.Alamuv.proofs} below.
+
+We shall refer to the matrix $A_{u,v}^{\lambda}$ defined in Definition
+\ref{def.Alamuv} as a \textquotedblleft$\lambda$-addition
+matrix\textquotedblright; it is one of three kinds of matrices that are called
+elementary matrices. We shall learn about the other two kinds below.
+
+Here are a few more properties of $\lambda$-addition matrices:
+
+\begin{proposition}
+\label{prop.Alamuv.transpose}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a
+number. Then, $\left(  A_{u,v}^{\lambda}\right)  ^{T}=A_{v,u}^{\lambda}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Alamuv.transpose}.] Very easy and left to the
+reader (see Example \ref{exam.Alamuv} for inspiration).
+\end{proof}
+
+\begin{proposition}
+\label{prop.Alamuv.lambda+mu}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $.
+
+\textbf{(a)} We have $A_{u,v}^{0}=I_{n}$.
+
+\textbf{(b)} If $\lambda$ and $\mu$ are two numbers, then $A_{u,v}^{\lambda
+}A_{u,v}^{\mu}=A_{u,v}^{\lambda+\mu}$.
+
+\textbf{(c)} Let $\lambda$ be a number. Then, the matrix $A_{u,v}^{\lambda}$
+is invertible, and its inverse is $\left(  A_{u,v}^{\lambda}\right)
+^{-1}=A_{u,v}^{-\lambda}$.
+\end{proposition}
+
+A proof of this proposition will also be given in Section
+\ref{sect.gauss.Alamuv.proofs}.
+
+\subsection{\label{sect.gauss.Alamuv.proofs}(*) Some proofs about the
+$\lambda$-addition matrices}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Alamuv.laction}.] Clearly, $A_{u,v}^{\lambda
+}C$ is an $n\times m$-matrix.
+
+Proposition \ref{prop.Euv.laction} (applied to $n$ and $m$ instead of $m$ and
+$p$) shows that $E_{u,v}C$ is the $n\times m$-matrix whose $u$-th row is the
+$v$-th row of $C$, and whose all other rows are filled with zeroes. Thus,%
+\begin{equation}
+\operatorname*{row}\nolimits_{u}\left(  E_{u,v}C\right)  =\operatorname*{row}%
+\nolimits_{v}C\label{pf.prop.Alamuv.laction.1}%
+\end{equation}
+(since the $u$-the row of $E_{u,v}C$ is the $v$-th row of $C$) and%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  E_{u,v}C\right)  =0_{1\times
+m}\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots,n\right\}
+\text{ satisfying }i\neq u\label{pf.prop.Alamuv.laction.2}%
+\end{equation}
+(since all other rows of $E_{u,v}C$ are filled with zeroes).
+
+But recall that matrices are added entry by entry. Thus, matrices are also
+added by row by row -- i.e., if $U$ and $V$ are two $n\times m$-matrices, then
+any row of $U+V$ is the sum of the corresponding rows of $U$ and of $V$. In
+other words, if $U$ and $V$ are two $n\times m$-matrices, then%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  U+V\right)  =\operatorname*{row}%
+\nolimits_{i}U+\operatorname*{row}\nolimits_{i}V\ \ \ \ \ \ \ \ \ \ \text{for
+every }i\in\left\{  1,2,\ldots,n\right\}  .\label{pf.prop.Alamuv.laction.5}%
+\end{equation}
+Also, if $U$ is an $n\times m$-matrix, then%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  \lambda U\right)  =\lambda
+\operatorname*{row}\nolimits_{i}U\ \ \ \ \ \ \ \ \ \ \text{for every }%
+i\in\left\{  1,2,\ldots,n\right\}  \label{pf.prop.Alamuv.laction.6}%
+\end{equation}
+(since matrices are scaled entry by entry).
+
+We have%
+\[
+\underbrace{A_{u,v}^{\lambda}}_{=I_{n}+\lambda E_{u,v}}C=\left(  I_{n}+\lambda
+E_{u,v}\right)  C=\underbrace{I_{n}C}_{=C}+\lambda E_{u,v}C=C+\lambda
+E_{u,v}C.
+\]
+Hence, for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align}
+\operatorname*{row}\nolimits_{i}\left(  \underbrace{A_{u,v}^{\lambda}%
+C}_{=C+\lambda E_{u,v}C}\right)    & =\operatorname*{row}\nolimits_{i}\left(
+C+\lambda E_{u,v}C\right)  =\operatorname*{row}\nolimits_{i}%
+C+\underbrace{\operatorname*{row}\nolimits_{i}\left(  \lambda E_{u,v}C\right)
+}_{\substack{=\lambda\operatorname*{row}\nolimits_{i}\left(  E_{u,v}C\right)
+\\\text{(by (\ref{pf.prop.Alamuv.laction.6}))}}}\nonumber\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.laction.5}),
+applied to }U=C\text{ and }V=\lambda E_{u,v}C\right)  \nonumber\\
+& =\operatorname*{row}\nolimits_{i}C+\lambda\operatorname*{row}\nolimits_{i}%
+\left(  E_{u,v}C\right)  .\label{pf.prop.Alamuv.laction.9}%
+\end{align}
+
+
+Now, we must prove that $A_{u,v}^{\lambda}C$ is the $n\times m$-matrix
+obtained from $C$ by adding $\lambda\operatorname*{row}\nolimits_{v}C$ to the
+$u$-th row. In other words, we must prove the following two claims:
+
+\begin{statement}
+\textit{Claim 1:} The $u$-th row of the $n\times m$-matrix $A_{u,v}^{\lambda
+}C$ is the sum of $\lambda\operatorname*{row}\nolimits_{v}C$ with the $u$-th
+row of $C$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} For each $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying
+$i\neq u$, the $i$-th row of the $n\times m$-matrix $A_{u,v}^{\lambda}C$
+equals the $i$-th row of $C$.
+\end{statement}
+
+\textit{Proof of Claim 1:} The $u$-th row of the $n\times m$-matrix
+$A_{u,v}^{\lambda}C$ is%
+\begin{align*}
+\operatorname*{row}\nolimits_{u}\left(  A_{u,v}^{\lambda}C\right)    &
+=\operatorname*{row}\nolimits_{u}C+\lambda\underbrace{\operatorname*{row}%
+\nolimits_{u}\left(  E_{u,v}C\right)  }_{\substack{=\operatorname*{row}%
+\nolimits_{v}C\\\text{(by (\ref{pf.prop.Alamuv.laction.1}))}}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.laction.9}),
+applied to }i=u\right)  \\
+& =\operatorname*{row}\nolimits_{u}C+\lambda\operatorname*{row}\nolimits_{v}C.
+\end{align*}
+In other words, the $u$-th row of the $n\times m$-matrix $A_{u,v}^{\lambda}C$
+is the sum of $\lambda\operatorname*{row}\nolimits_{v}C$ with the $u$-th row
+of $C$. This proves Claim 1.
+
+\textit{Proof of Claim 2:} Let $i\in\left\{  1,2,\ldots,n\right\}  $ be such
+that $i\neq u$. Then, the $i$-th row of the $n\times m$-matrix $A_{u,v}%
+^{\lambda}C$ is%
+\begin{align*}
+\operatorname*{row}\nolimits_{i}\left(  A_{u,v}^{\lambda}C\right)    &
+=\operatorname*{row}\nolimits_{i}C+\lambda\underbrace{\operatorname*{row}%
+\nolimits_{i}\left(  E_{u,v}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
+(\ref{pf.prop.Alamuv.laction.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Alamuv.laction.9})}\right)  \\
+& =\operatorname*{row}\nolimits_{i}C+\underbrace{\lambda0_{1\times m}%
+}_{=0_{1\times m}}=\operatorname*{row}\nolimits_{i}C+0_{1\times m}%
+=\operatorname*{row}\nolimits_{i}C.
+\end{align*}
+In other words, the $i$-th row of the $n\times m$-matrix $A_{u,v}^{\lambda}C$
+equals the $i$-th row of $C$. This proves Claim 2.
+
+Now, we have proven both Claim 1 and Claim 2; this completes the proof of
+Proposition \ref{prop.Alamuv.laction}.
+\end{proof}
+
+The proof of Proposition \ref{prop.Alamuv.raction} is analogous.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Alamuv.lambda+mu}.] \textbf{(a)} The
+definition of $A_{u,v}^{0}$ yields $A_{u,v}^{0}=I_{n}+\underbrace{0E_{u,v}%
+}_{=0_{n\times n}}=I_{n}+0_{n\times n}=I_{n}$. This proves Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(a)}.
+
+\textbf{(b)} \textit{First proof:} Let $\lambda$ and $\mu$ be two numbers.
+Proposition \ref{prop.Alamuv.entries} (applied to $\mu$ instead of $\lambda$)
+tells us how the matrix $A_{u,v}^{\mu}$ looks like: Its  diagonal entries are
+$1$; its $\left(  u,v\right)  $-th entry is $\mu$; all its remaining entries
+are $0$. In particular, its $v$-th row is%
+\begin{equation}
+\operatorname*{row}\nolimits_{v}\left(  A_{u,v}^{\mu}\right)  =\left(
+0,0,\ldots,0,1,0,0,\ldots,0\right)  \label{pf.prop.Alamuv.lambda+mu.b.1}%
+\end{equation}
+(where the lonely $1$ stands in the $v$-th position).
+
+Proposition \ref{prop.Alamuv.laction} (applied to $m=n$ and $C=A_{u,v}^{\mu}$)
+shows that $A_{u,v}^{\lambda}A_{u,v}^{\mu}$ is the $n\times n$-matrix obtained
+from $A_{u,v}^{\mu}$ by adding $\lambda\operatorname*{row}\nolimits_{v}\left(
+A_{u,v}^{\mu}\right)  $ to the $u$-th row. Since
+\begin{align*}
+\lambda\operatorname*{row}\nolimits_{v}\left(  A_{u,v}^{\mu}\right)    &
+=\lambda\left(  0,0,\ldots,0,1,0,0,\ldots,0\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.lambda+mu.b.1}%
+)}\right)  \\
+& =\left(  0,0,\ldots,0,\lambda,0,0,\ldots,0\right)
+\end{align*}
+(where the lonely $\lambda$ stands in the $v$-th position), this shows that
+$A_{u,v}^{\lambda}A_{u,v}^{\mu}$ is the $n\times n$-matrix obtained from
+$A_{u,v}^{\mu}$ by adding $\left(  0,0,\ldots,0,\lambda,0,0,\ldots,0\right)  $
+to the $u$-th row. This addition has the effect that the $\left(  u,v\right)
+$-th entry increases by $\lambda$, whereas all the other entries remain
+unchanged. The resulting matrix $A_{u,v}^{\lambda}A_{u,v}^{\mu}$ therefore has
+its $\left(  u,v\right)  $-th entry equal to $\mu+\lambda=\lambda+\mu$,
+whereas all its other entries are the same as in $A_{u,v}^{\mu}$ (that is, the
+diagonal entries are $1$ and the remaining entries are $0$). But this is
+precisely how the matrix $A_{u,v}^{\lambda+\mu}$ looks like (because of
+Proposition \ref{prop.Alamuv.entries}, applied to $\lambda+\mu$ instead of
+$\lambda$). Hence, $A_{u,v}^{\lambda}A_{u,v}^{\mu}=A_{u,v}^{\lambda+\mu}$.
+This proves Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)}.
+
+\textit{Second proof:} We can also prove Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(b)} easily using Proposition
+\ref{prop.Euv.prod}: Indeed, we have $v\neq u$ (since $u$ and $v$ are
+distinct), so that $\delta_{v,u}=0$. But Proposition \ref{prop.Euv.prod}
+(applied to $m=n$, $p=n$, $x=u$ and $y=v$) yields $E_{u,v,n,n}E_{u,v,n,n}%
+=\delta_{v,u}E_{u,v,n,n}$. Since $E_{u,v,n,n}=E_{u,v}$, this rewrites as
+$E_{u,v}E_{u,v}=\underbrace{\delta_{v,u}}_{=0}E_{u,v}=0E_{u,v}=0_{n\times n}$.
+Now, the definitions of $A_{u,v}^{\lambda}$ and $A_{u,v}^{\mu}$ yield
+$A_{u,v}^{\lambda}=I_{n}+\lambda E_{u,v}$ and $A_{u,v}^{\mu}=I_{n}+\mu
+E_{u,v}$. Multiplying these two equalities, we find%
+\begin{align*}
+A_{u,v}^{\lambda}A_{u,v}^{\mu}  & =\left(  I_{n}+\lambda E_{u,v}\right)
+\left(  I_{n}+\mu E_{u,v}\right)  \\
+& =\underbrace{I_{n}\left(  I_{n}+\mu E_{u,v}\right)  }_{=I_{n}+\mu E_{u,v}%
+}+\underbrace{\lambda E_{u,v}\left(  I_{n}+\mu E_{u,v}\right)  }_{=\lambda
+E_{u,v}I_{n}+\lambda E_{u,v}\mu E_{u,v}}\\
+& =I_{n}+\mu E_{u,v}+\lambda\underbrace{E_{u,v}I_{n}}_{=E_{u,v}}%
++\underbrace{\lambda E_{u,v}\mu E_{u,v}}_{=\lambda\mu E_{u,v}E_{u,v}}\\
+& =I_{n}+\underbrace{\mu E_{u,v}+\lambda E_{u,v}}_{=\left(  \mu+\lambda
+\right)  E_{u,v}}+\lambda\mu\underbrace{E_{u,v}E_{u,v}}_{=0_{n\times n}}\\
+& =I_{n}+\underbrace{\left(  \mu+\lambda\right)  }_{=\lambda+\mu}%
+E_{u,v}+\underbrace{\lambda\mu0_{n\times n}}_{=0_{n\times n}}=I_{n}+\left(
+\lambda+\mu\right)  E_{u,v}+0_{n\times n}=I_{n}+\left(  \lambda+\mu\right)
+E_{u,v}.
+\end{align*}
+Comparing this with
+\[
+A_{u,v}^{\lambda+\mu}=I_{n}+\left(  \lambda+\mu\right)  E_{u,v}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }A_{u,v}^{\lambda+\mu
+}\right)  ,
+\]
+we obtain  $A_{u,v}^{\lambda}A_{u,v}^{\mu}=A_{u,v}^{\lambda+\mu}$. This proves
+Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)} again.
+
+\textbf{(c)} Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)} (applied to
+$\mu=-\lambda$) yields $A_{u,v}^{\lambda}A_{u,v}^{-\lambda}=A_{u,v}%
+^{\lambda+\left(  -\lambda\right)  }=A_{u,v}^{0}=I_{n}$ (by Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(a)}).
+
+But we can also apply Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)} to
+$-\lambda$ and $\lambda$ instead of $\lambda$ and $\mu$. We thus obtain
+$A_{u,v}^{-\lambda}A_{u,v}^{\lambda}=A_{u,v}^{\left(  -\lambda\right)
++\lambda}=A_{u,v}^{0}=I_{n}$ (by Proposition \ref{prop.Alamuv.lambda+mu}
+\textbf{(a)}).
+
+The two equalities $A_{u,v}^{\lambda}A_{u,v}^{-\lambda}=I_{n}$ and
+$A_{u,v}^{-\lambda}A_{u,v}^{\lambda}=I_{n}$ show that $A_{u,v}^{-\lambda}$ is
+an inverse of $A_{u,v}^{\lambda}$. This proves Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(c)}.
+\end{proof}
+
+\subsection{Unitriangular matrices are products of $A_{u,v}^{\lambda}$'s}
 
 [to be continued]
 
