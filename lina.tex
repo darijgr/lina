@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 21:07:43}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 22:20:45}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2471,7 +2471,10 @@ multiplication: We start with $A^{0}=I_{n}$, and we define each next power of
 $A$ by multiplying the previous one by $A$. In formulas: $A^{k+1}=A\cdot
 A^{k}$ for each $k\in\mathbb{N}$. Explicitly, $A^{k}=\underbrace{A\cdot
 A\cdot\cdots\cdot A}_{k\text{ times }A}$ for each $k\in\mathbb{N}$, where the
-empty product means $I_{n}$.
+empty product of $n\times n$-matrices is defined to be $I_{n}$. (An
+\textquotedblleft empty product\textquotedblright\ is a product with no
+factors. Thus, $A^{0}=\underbrace{A\cdot A\cdot\cdots\cdot A}_{0\text{ times
+}A}$ is an empty product.)
 \end{definition}
 
 Notice that we have been a bit sloppy when we said \textquotedblleft
@@ -3832,14 +3835,15 @@ a result, we obtain $L^{\prime}=R$.
 Now, forget that we fixed $L^{\prime}$. We thus have shown that if $L^{\prime
 }$ is any left inverse of $A$, then $L^{\prime}=R$. In other words, any left
 inverse of $A$ equals $R$. Thus, there exists at most one left inverse of $A$.
-Therefore, the matrix $L$ is the only left inverse of $A$. This proves
-Proposition \ref{prop.inverses.L=R} \textbf{(b)}.
+Therefore, the matrix $L$ is the only left inverse of $A$ (since we already
+know that $L$ is a left inverse of $A$). This proves Proposition
+\ref{prop.inverses.L=R} \textbf{(b)}.
 
 \textbf{(c)} The proof of Proposition \ref{prop.inverses.L=R} \textbf{(c)} is
 analogous to the proof of Proposition \ref{prop.inverses.L=R} \textbf{(b)}.
-(We again need to apply Proposition \ref{prop.inverses.L=R} \textbf{(a)}
-twice, but this time, instead of a left inverse $L^{\prime}$, we have to
-introduce a right inverse $R^{\prime}$. The details are left to the reader.)
+(We again need to apply Proposition \ref{prop.inverses.L=R} \textbf{(a)}, but
+this time, instead of a left inverse $L^{\prime}$, we have to introduce a
+right inverse $R^{\prime}$. The details are left to the reader.)
 
 \textbf{(d)} Proposition \ref{prop.inverses.L=R} \textbf{(a)} yields $L=R$.
 Hence, $A\underbrace{L}_{=R}=AR=I_{n}$.
@@ -3864,8 +3868,8 @@ inverse of $A$). This proves Proposition \ref{prop.inverses.L=R} \textbf{(d)}.
 
 \begin{proof}
 [Proof of Corollary \ref{cor.inverses.unique}.]We need to show that any two
-inverses of $A$ equal. So let $L$ and $R$ be two inverses of $A$. We must show
-that $L=R$.
+inverses of $A$ are equal. So let $L$ and $R$ be two inverses of $A$. We must
+show that $L=R$.
 
 Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$ be such that $A$ is an $n\times
 m$-matrix. The matrix $L$ is an inverse of $A$, thus satisfies $LA=I_{m}$.
@@ -3883,10 +3887,11 @@ right-invertible\textquotedblright.)
 
 \textbf{(b)} Let $A$ be an invertible matrix. Then, $A$ has an inverse. Due to
 Corollary \ref{cor.inverses.unique}, we furthermore know that $A$ has at most
-one inverse. Thus, $A$ has exactly one inverse. We can thus call it
-\textquotedblleft\textbf{the} inverse of $A$\textquotedblright, and denote it
-by $A^{-1}$. If $A$ is an $n\times m$-matrix, then this inverse satisfies
-$A^{-1}A=I_{m}$ and $AA^{-1}=I_{n}$ (by its definition).
+one inverse. Thus, $A$ has exactly one inverse. We can thus refer to this
+inverse as \textquotedblleft\textbf{the} inverse of $A$\textquotedblright%
+\ (not just \textquotedblleft\textbf{an} inverse of $A$\textquotedblright),
+and denote it by $A^{-1}$. If $A$ is an $n\times m$-matrix, then this inverse
+satisfies $A^{-1}A=I_{m}$ and $AA^{-1}=I_{n}$ (by its definition).
 \end{definition}
 
 Notice that the equalities $A^{-1}A=I_{m}$ and $AA^{-1}=I_{n}$ show that a
@@ -4062,7 +4067,7 @@ A_{\ell+1}$ and \newline$A_{\ell+1}^{-1}\underbrace{\left(  A_{1}A_{2}\cdots
 A_{\ell}\right)  ^{-1}}_{=A_{\ell}^{-1}A_{\ell-1}^{-1}\cdots A_{1}^{-1}%
 }=A_{\ell+1}^{-1}\left(  A_{\ell}^{-1}A_{\ell-1}^{-1}\cdots A_{1}^{-1}\right)
 =A_{\ell+1}^{-1}A_{\ell}^{-1}\cdots A_{1}^{-1}$, this rewrites as follows: The
-matrix matrix $A_{1}A_{2}\cdots A_{\ell+1}$ is invertible, and its inverse is
+matrix $A_{1}A_{2}\cdots A_{\ell+1}$ is invertible, and its inverse is
 \[
 \left(  A_{1}A_{2}\cdots A_{\ell+1}\right)  ^{-1}=A_{\ell+1}^{-1}A_{\ell}%
 ^{-1}\cdots A_{1}^{-1}.
@@ -4701,8 +4706,8 @@ if and only if it is upper-triangular and all its diagonal entries are nonzero
 if and only if it is upper-triangular and all its diagonal entries are $0$
 (that is, $A_{i,i}=0$ for all $i$).
 
-Similar notions can be defined with \textquotedblleft lower\textquotedblright%
-\ instead of \textquotedblleft upper\textquotedblright.
+Similar notions can be defined with the word \textquotedblleft
+lower\textquotedblright\ instead of \textquotedblleft upper\textquotedblright.
 \end{definition}
 
 The words we have just defined are not as important as the word
@@ -4830,6 +4835,31 @@ _{\substack{=1\\\text{(since }B\text{ is}\\\text{unitriangular)}}}=1\cdot1=1
 for all $i\in\left\{  1,2,\ldots,n\right\}  $. Thus, the matrix $AB$ is
 upper-unitriangular (since we already know that $AB$ is upper-triangular).
 Corollary \ref{cor.triangular.uni*uni} is thus proven.
+\end{proof}
+
+\begin{corollary}
+\label{cor.triangular.uni*uni*uni}Let $n\in\mathbb{N}$. If $A_{1},A_{2}%
+,\ldots,A_{k}$ (for some $k\in\mathbb{N}$) are upper-unitriangular $n\times
+n$-matrices, then $A_{1}A_{2}\cdots A_{k}$  is also an upper-unitriangular
+$n\times n$-matrix.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.uni*uni*uni}.] This can be proven in a
+straightforward way by induction over $k$, similarly to how we proved
+Proposition \ref{prop.inverses.A1Ak}. The important differences are:
+
+\begin{itemize}
+\item We should now use $k=0$ as an induction base (because we have not
+required $k$ to be positive). For $k=0$, the product $A_{1}A_{2}\cdots A_{k}$
+is an empty product (i.e., a product with no factors), and thus equals $I_{n}$
+(because we have \textbf{defined} an empty product of $n\times n$-matrices to
+equal $I_{n}$). We thus need to prove that $I_{n}$ is an upper-unitriangular
+matrix. But this is clear by inspection.
+
+\item In the induction step, instead of using Proposition
+\ref{prop.inverses.AB}, we need to use Corollary \ref{cor.triangular.uni*uni}.
+\end{itemize}
 \end{proof}
 
 \subsection{The standard matrix units $E_{u,v}$}
@@ -5450,12 +5480,15 @@ $A_{u,v,n}^{\lambda}$, because it depends on $n$. (This is similar to how we
 ought to denote $E_{u,v}$ by $E_{u,v,n,n}$.) But the $n$ will be really clear
 from the context almost every time we deal with these matrices, so we shall
 keep it out of our notation.
+
+\textbf{(c)} The notation $A_{u,v}^{\lambda}$ is not standard in the
+literature, but I will use this notation in the following.
 \end{definition}
 
 \begin{example}
 \label{exam.Alamuv}Let $n=4$. Then,%
 \begin{align*}
-A_{1,3}^{\lambda} &  =I_{n}+\lambda E_{1,3}=\left(
+A_{1,3}^{\lambda}  &  =I_{n}+\lambda E_{1,3}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & \lambda & 0\\
@@ -5464,7 +5497,7 @@ A_{1,3}^{\lambda} &  =I_{n}+\lambda E_{1,3}=\left(
 0 & 0 & 0 & 1
 \end{array}
 \right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
-A_{4,2}^{\lambda} &  =I_{n}+\lambda E_{4,2}=\left(
+A_{4,2}^{\lambda}  &  =I_{n}+\lambda E_{4,2}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 0\\
@@ -5612,7 +5645,7 @@ number. Then, $\left(  A_{u,v}^{\lambda}\right)  ^{T}=A_{v,u}^{\lambda}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Alamuv.transpose}.] Very easy and left to the
+[Proof of Proposition \ref{prop.Alamuv.transpose}.]Very easy and left to the
 reader (see Example \ref{exam.Alamuv} for inspiration).
 \end{proof}
 
@@ -5637,21 +5670,21 @@ A proof of this proposition will also be given in Section
 $\lambda$-addition matrices}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Alamuv.laction}.] Clearly, $A_{u,v}^{\lambda
-}C$ is an $n\times m$-matrix.
+[Proof of Proposition \ref{prop.Alamuv.laction}.]Clearly, $A_{u,v}^{\lambda}C$
+is an $n\times m$-matrix.
 
 Proposition \ref{prop.Euv.laction} (applied to $n$ and $m$ instead of $m$ and
 $p$) shows that $E_{u,v}C$ is the $n\times m$-matrix whose $u$-th row is the
 $v$-th row of $C$, and whose all other rows are filled with zeroes. Thus,%
 \begin{equation}
 \operatorname*{row}\nolimits_{u}\left(  E_{u,v}C\right)  =\operatorname*{row}%
-\nolimits_{v}C\label{pf.prop.Alamuv.laction.1}%
+\nolimits_{v}C \label{pf.prop.Alamuv.laction.1}%
 \end{equation}
 (since the $u$-the row of $E_{u,v}C$ is the $v$-th row of $C$) and%
 \begin{equation}
 \operatorname*{row}\nolimits_{i}\left(  E_{u,v}C\right)  =0_{1\times
 m}\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots,n\right\}
-\text{ satisfying }i\neq u\label{pf.prop.Alamuv.laction.2}%
+\text{ satisfying }i\neq u \label{pf.prop.Alamuv.laction.2}%
 \end{equation}
 (since all other rows of $E_{u,v}C$ are filled with zeroes).
 
@@ -5662,7 +5695,7 @@ other words, if $U$ and $V$ are two $n\times m$-matrices, then%
 \begin{equation}
 \operatorname*{row}\nolimits_{i}\left(  U+V\right)  =\operatorname*{row}%
 \nolimits_{i}U+\operatorname*{row}\nolimits_{i}V\ \ \ \ \ \ \ \ \ \ \text{for
-every }i\in\left\{  1,2,\ldots,n\right\}  .\label{pf.prop.Alamuv.laction.5}%
+every }i\in\left\{  1,2,\ldots,n\right\}  . \label{pf.prop.Alamuv.laction.5}%
 \end{equation}
 Also, if $U$ is an $n\times m$-matrix, then%
 \begin{equation}
@@ -5681,15 +5714,15 @@ E_{u,v}C.
 Hence, for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
 \begin{align}
 \operatorname*{row}\nolimits_{i}\left(  \underbrace{A_{u,v}^{\lambda}%
-C}_{=C+\lambda E_{u,v}C}\right)    & =\operatorname*{row}\nolimits_{i}\left(
+C}_{=C+\lambda E_{u,v}C}\right)   &  =\operatorname*{row}\nolimits_{i}\left(
 C+\lambda E_{u,v}C\right)  =\operatorname*{row}\nolimits_{i}%
 C+\underbrace{\operatorname*{row}\nolimits_{i}\left(  \lambda E_{u,v}C\right)
 }_{\substack{=\lambda\operatorname*{row}\nolimits_{i}\left(  E_{u,v}C\right)
 \\\text{(by (\ref{pf.prop.Alamuv.laction.6}))}}}\nonumber\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.laction.5}),
-applied to }U=C\text{ and }V=\lambda E_{u,v}C\right)  \nonumber\\
-& =\operatorname*{row}\nolimits_{i}C+\lambda\operatorname*{row}\nolimits_{i}%
-\left(  E_{u,v}C\right)  .\label{pf.prop.Alamuv.laction.9}%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.laction.5}),
+applied to }U=C\text{ and }V=\lambda E_{u,v}C\right) \nonumber\\
+&  =\operatorname*{row}\nolimits_{i}C+\lambda\operatorname*{row}%
+\nolimits_{i}\left(  E_{u,v}C\right)  . \label{pf.prop.Alamuv.laction.9}%
 \end{align}
 
 
@@ -5712,13 +5745,14 @@ equals the $i$-th row of $C$.
 \textit{Proof of Claim 1:} The $u$-th row of the $n\times m$-matrix
 $A_{u,v}^{\lambda}C$ is%
 \begin{align*}
-\operatorname*{row}\nolimits_{u}\left(  A_{u,v}^{\lambda}C\right)    &
+\operatorname*{row}\nolimits_{u}\left(  A_{u,v}^{\lambda}C\right)   &
 =\operatorname*{row}\nolimits_{u}C+\lambda\underbrace{\operatorname*{row}%
 \nolimits_{u}\left(  E_{u,v}C\right)  }_{\substack{=\operatorname*{row}%
 \nolimits_{v}C\\\text{(by (\ref{pf.prop.Alamuv.laction.1}))}}%
 }\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.laction.9}),
-applied to }i=u\right)  \\
-& =\operatorname*{row}\nolimits_{u}C+\lambda\operatorname*{row}\nolimits_{v}C.
+applied to }i=u\right) \\
+&  =\operatorname*{row}\nolimits_{u}C+\lambda\operatorname*{row}%
+\nolimits_{v}C.
 \end{align*}
 In other words, the $u$-th row of the $n\times m$-matrix $A_{u,v}^{\lambda}C$
 is the sum of $\lambda\operatorname*{row}\nolimits_{v}C$ with the $u$-th row
@@ -5728,12 +5762,12 @@ of $C$. This proves Claim 1.
 that $i\neq u$. Then, the $i$-th row of the $n\times m$-matrix $A_{u,v}%
 ^{\lambda}C$ is%
 \begin{align*}
-\operatorname*{row}\nolimits_{i}\left(  A_{u,v}^{\lambda}C\right)    &
+\operatorname*{row}\nolimits_{i}\left(  A_{u,v}^{\lambda}C\right)   &
 =\operatorname*{row}\nolimits_{i}C+\lambda\underbrace{\operatorname*{row}%
 \nolimits_{i}\left(  E_{u,v}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
 (\ref{pf.prop.Alamuv.laction.2}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.Alamuv.laction.9})}\right)  \\
-& =\operatorname*{row}\nolimits_{i}C+\underbrace{\lambda0_{1\times m}%
+(\ref{pf.prop.Alamuv.laction.9})}\right) \\
+&  =\operatorname*{row}\nolimits_{i}C+\underbrace{\lambda0_{1\times m}%
 }_{=0_{1\times m}}=\operatorname*{row}\nolimits_{i}C+0_{1\times m}%
 =\operatorname*{row}\nolimits_{i}C.
 \end{align*}
@@ -5747,14 +5781,14 @@ Proposition \ref{prop.Alamuv.laction}.
 The proof of Proposition \ref{prop.Alamuv.raction} is analogous.
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Alamuv.lambda+mu}.] \textbf{(a)} The
-definition of $A_{u,v}^{0}$ yields $A_{u,v}^{0}=I_{n}+\underbrace{0E_{u,v}%
-}_{=0_{n\times n}}=I_{n}+0_{n\times n}=I_{n}$. This proves Proposition
+[Proof of Proposition \ref{prop.Alamuv.lambda+mu}.]\textbf{(a)} The definition
+of $A_{u,v}^{0}$ yields $A_{u,v}^{0}=I_{n}+\underbrace{0E_{u,v}}_{=0_{n\times
+n}}=I_{n}+0_{n\times n}=I_{n}$. This proves Proposition
 \ref{prop.Alamuv.lambda+mu} \textbf{(a)}.
 
 \textbf{(b)} \textit{First proof:} Let $\lambda$ and $\mu$ be two numbers.
 Proposition \ref{prop.Alamuv.entries} (applied to $\mu$ instead of $\lambda$)
-tells us how the matrix $A_{u,v}^{\mu}$ looks like: Its  diagonal entries are
+tells us how the matrix $A_{u,v}^{\mu}$ looks like: Its diagonal entries are
 $1$; its $\left(  u,v\right)  $-th entry is $\mu$; all its remaining entries
 are $0$. In particular, its $v$-th row is%
 \begin{equation}
@@ -5768,11 +5802,11 @@ shows that $A_{u,v}^{\lambda}A_{u,v}^{\mu}$ is the $n\times n$-matrix obtained
 from $A_{u,v}^{\mu}$ by adding $\lambda\operatorname*{row}\nolimits_{v}\left(
 A_{u,v}^{\mu}\right)  $ to the $u$-th row. Since
 \begin{align*}
-\lambda\operatorname*{row}\nolimits_{v}\left(  A_{u,v}^{\mu}\right)    &
+\lambda\operatorname*{row}\nolimits_{v}\left(  A_{u,v}^{\mu}\right)   &
 =\lambda\left(  0,0,\ldots,0,1,0,0,\ldots,0\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Alamuv.lambda+mu.b.1}%
-)}\right)  \\
-& =\left(  0,0,\ldots,0,\lambda,0,0,\ldots,0\right)
+)}\right) \\
+&  =\left(  0,0,\ldots,0,\lambda,0,0,\ldots,0\right)
 \end{align*}
 (where the lonely $\lambda$ stands in the $v$-th position), this shows that
 $A_{u,v}^{\lambda}A_{u,v}^{\mu}$ is the $n\times n$-matrix obtained from
@@ -5799,16 +5833,17 @@ Now, the definitions of $A_{u,v}^{\lambda}$ and $A_{u,v}^{\mu}$ yield
 $A_{u,v}^{\lambda}=I_{n}+\lambda E_{u,v}$ and $A_{u,v}^{\mu}=I_{n}+\mu
 E_{u,v}$. Multiplying these two equalities, we find%
 \begin{align*}
-A_{u,v}^{\lambda}A_{u,v}^{\mu}  & =\left(  I_{n}+\lambda E_{u,v}\right)
-\left(  I_{n}+\mu E_{u,v}\right)  \\
-& =\underbrace{I_{n}\left(  I_{n}+\mu E_{u,v}\right)  }_{=I_{n}+\mu E_{u,v}%
+A_{u,v}^{\lambda}A_{u,v}^{\mu}  &  =\left(  I_{n}+\lambda E_{u,v}\right)
+\left(  I_{n}+\mu E_{u,v}\right) \\
+&  =\underbrace{I_{n}\left(  I_{n}+\mu E_{u,v}\right)  }_{=I_{n}+\mu E_{u,v}%
 }+\underbrace{\lambda E_{u,v}\left(  I_{n}+\mu E_{u,v}\right)  }_{=\lambda
 E_{u,v}I_{n}+\lambda E_{u,v}\mu E_{u,v}}\\
-& =I_{n}+\mu E_{u,v}+\lambda\underbrace{E_{u,v}I_{n}}_{=E_{u,v}}%
-+\underbrace{\lambda E_{u,v}\mu E_{u,v}}_{=\lambda\mu E_{u,v}E_{u,v}}\\
-& =I_{n}+\underbrace{\mu E_{u,v}+\lambda E_{u,v}}_{=\left(  \mu+\lambda
-\right)  E_{u,v}}+\lambda\mu\underbrace{E_{u,v}E_{u,v}}_{=0_{n\times n}}\\
-& =I_{n}+\underbrace{\left(  \mu+\lambda\right)  }_{=\lambda+\mu}%
+&  =I_{n}+\mu E_{u,v}+\lambda\underbrace{E_{u,v}I_{n}}_{=E_{u,v}%
+}+\underbrace{\lambda E_{u,v}\mu E_{u,v}}_{=\lambda\mu E_{u,v}E_{u,v}}\\
+&  =I_{n}+\underbrace{\mu E_{u,v}+\lambda E_{u,v}}_{=\left(  \mu
++\lambda\right)  E_{u,v}}+\lambda\mu\underbrace{E_{u,v}E_{u,v}}_{=0_{n\times
+n}}\\
+&  =I_{n}+\underbrace{\left(  \mu+\lambda\right)  }_{=\lambda+\mu}%
 E_{u,v}+\underbrace{\lambda\mu0_{n\times n}}_{=0_{n\times n}}=I_{n}+\left(
 \lambda+\mu\right)  E_{u,v}+0_{n\times n}=I_{n}+\left(  \lambda+\mu\right)
 E_{u,v}.
@@ -5819,7 +5854,7 @@ A_{u,v}^{\lambda+\mu}=I_{n}+\left(  \lambda+\mu\right)  E_{u,v}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }A_{u,v}^{\lambda+\mu
 }\right)  ,
 \]
-we obtain  $A_{u,v}^{\lambda}A_{u,v}^{\mu}=A_{u,v}^{\lambda+\mu}$. This proves
+we obtain $A_{u,v}^{\lambda}A_{u,v}^{\mu}=A_{u,v}^{\lambda+\mu}$. This proves
 Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)} again.
 
 \textbf{(c)} Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(b)} (applied to
@@ -5840,6 +5875,114 @@ an inverse of $A_{u,v}^{\lambda}$. This proves Proposition
 \end{proof}
 
 \subsection{Unitriangular matrices are products of $A_{u,v}^{\lambda}$'s}
+
+We have already said that the matrices $A_{u,v}^{\lambda}$ are building blocks
+(of a sort). Here is what we mean by this:
+
+\begin{definition}
+Let $n\in\mathbb{N}$. A \textit{lower addition }$n\times n$\textit{-matrix}
+means a matrix of the form $A_{u,v}^{\lambda}$, where $\lambda$ is a number,
+and where $u$ and $v$ are two elements of $\left\{  1,2,\ldots,n\right\}  $
+satisfying $u>v$. When $n$ is clear from the context, we shall omit the
+\textquotedblleft$n\times n$-\textquotedblright\ and simply say
+\textquotedblleft lower addition matrix\textquotedblright.
+\end{definition}
+
+The name \textquotedblleft lower addition matrix\textquotedblright\ is, again,
+not standard, but it will be useful for me in this chapter.
+
+\begin{example}
+For example, if $n=3$, then the lower addition $3\times3$-matrices are the
+matrices of the form%
+\begin{align*}
+A_{2,1}^{\lambda}  & =\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+\lambda & 1 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ A_{3,1}^{\lambda}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+\lambda & 0 & 1
+\end{array}
+\right)  ,\\
+A_{3,2}^{\lambda}  & =\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & \lambda & 1
+\end{array}
+\right)
+\end{align*}
+for all numbers $\lambda$. If $n=2$, then the lower addition $2\times
+2$-matrices are the matrices of the form $A_{2,1}^{\lambda}=\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+\lambda & 1
+\end{array}
+\right)  $ for all numbers $\lambda$. If $n=1$ or $n=0$, then there are no
+lower addition $n\times n$-matrices (because there is nowhere to put the
+$\lambda$, speaking visually).
+\end{example}
+
+It is clear that each lower addition matrix is
+lower-unitriangular\footnote{See Definition \ref{def.triangular.uni-up} for
+the meaning of \textquotedblleft lower-unitriangular\textquotedblright.}
+(because Proposition \ref{prop.Alamuv.entries} shows that its entries above
+the main diagonal are $0$, and its diagonal entries are $1$). Thus, every
+product of lower addition matrices is a product of lower-unitriangular
+matrices, and thus itself must be lower-unitriangular\footnote{because
+Corollary \ref{cor.triangular.uni*uni*uni} shows that any product of
+lower-unitriangular matrices is lower-unitriangular}. It turns out that the
+converse is also true: Every lower-unitriangular matrix is a product of lower
+addition matrices! This is a first, simple particular case of Gaussian
+elimination; let me state it as a theorem:
+
+\begin{theorem}
+\label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $A$
+is lower-unitriangular if and only if $A$ is a product of lower addition matrices.
+\end{theorem}
+
+\begin{example}
+\textbf{(a)} The unitriangular $2\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+5 & 1
+\end{array}
+\right)  $ is a product of lower addition matrices: Namely, it equals
+$A_{2,1}^{5}$.
+
+\textbf{(b)} The unitriangular $1\times1$-matrix $\left(
+\begin{array}
+[c]{c}%
+1
+\end{array}
+\right)  $ is a product of lower addition matrices: Namely, it is the empty
+product. (Recall that the empty product of $1\times1$-matrices is defined to
+be $I_{1}$, and this is precisely our matrix $\left(
+\begin{array}
+[c]{c}%
+1
+\end{array}
+\right)  $.)
+
+\textbf{(c)} The unitriangular $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+2 & 1 & 0\\
+-1 & 4 & 1
+\end{array}
+\right)  $ is a product of lower addition matrices: Namely, it equals
+$A_{1,2}^{2}A_{1,3}^{-1}A_{2,3}^{4}$.
+\end{example}
 
 [to be continued]
 
