@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 19, 2016 01:21:46}
+%TCIDATA{LastRevised=Monday, September 19, 2016 10:44:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2276,9 +2276,11 @@ c & d
 entries\textquotedblright\ comes from the visualization of an $n\times
 n$-matrix as a square table: When we say \textquotedblleft
 diagonal\textquotedblright, we always mean the diagonal of the square that
-connects the upper-left corner with the lower-right corner; the diagonal
-entries are simply the entries along this diagonal. (The other diagonal is
-called the \textquotedblleft antidiagonal\textquotedblright\ in linear algebra.)
+connects the upper-left corner with the lower-right corner\footnote{Often,
+this diagonal is also called the \textquotedblleft main
+diagonal\textquotedblright.}; the diagonal entries are simply the entries
+along this diagonal. (The other diagonal is called the \textquotedblleft
+antidiagonal\textquotedblright\ in linear algebra.)
 
 \begin{definition}
 If $i$ and $j$ are two objects (for example, numbers or sets or functions),
@@ -2289,7 +2291,7 @@ then we set%
 1, & \text{if }i=j;\\
 0, & \text{if }i\neq j
 \end{cases}
-\ \ \ \ \ \ \ \ \ \ \text{for all }i\text{ and }j. \label{eq.def.In.eq}%
+.\label{eq.def.In.eq}%
 \end{equation}
 
 \end{definition}
@@ -2297,12 +2299,13 @@ then we set%
 For example, $\delta_{3,3}=1$ (since $3=3$) but $\delta_{1,2}=0$ (since
 $1\neq2$). For another example, $\delta_{\left(  1,2\right)  ,\left(
 1,3\right)  }=0$ (because $\left(  1,2\right)  \neq\left(  1,3\right)  $);
-here we are using the notations $\delta_{i,j}$ in a situation where $i$ and
-$j$ are pairs of numbers.
+here we are using the notation $\delta_{i,j}$ in a situation where $i$ and $j$
+are pairs of numbers.
 
 The notation $\delta_{i,j}$ defined in (\ref{eq.def.In.eq}) is called the
 \textit{Kronecker delta}; it is extremely simple and yet highly useful. It has
-the obvious property that $\delta_{i,j}=\delta_{j,i}$ for any $i$ and $j$.
+the obvious property that $\delta_{i,j}=\delta_{j,i}$ for any $i$ and $j$
+(beacuse $i=j$ holds if and only if $j=i$).
 
 \begin{definition}
 Let $n\in\mathbb{N}$. Then, the $n\times n$ \textit{identity matrix} means the
@@ -2344,7 +2347,8 @@ products of numbers: $1ab\cdot1\cdot1c\cdot1d=abcd$.)
 Let me give a proof of Proposition \ref{prop.matrix-laws.id} \textbf{(b)}, to
 illustrate the following simple, yet important point about summations and the
 Kronecker delta\footnote{This is something that often comes up in computations
-(particularly in physics and computer science).}:
+(particularly in physics and computer science, where the use of the Kronecker
+delta is widespread).}:
 
 \begin{proposition}
 \label{prop.sum.delta}Let $p$ and $q$ be two integers such that $p\leq q$. Let
@@ -2436,7 +2440,7 @@ other words, $AI_{m}$ equals $A$. This proves Proposition
 
 Proposition \ref{prop.matrix-laws.id} \textbf{(a)} can be proven similarly
 (but this time, instead of the sum $\sum_{k=1}^{m}A_{i,k}\delta_{k,j}$, we
-must consider the sum $\sum_{k=1}^{m}\delta_{i,k}A_{k,j}=\sum_{k=1}^{m}%
+must consider the sum $\sum_{k=1}^{n}\delta_{i,k}A_{k,j}=\sum_{k=1}^{n}%
 A_{k,j}\delta_{i,k}=A_{i,j}$).
 
 \subsection{Powers of a matrix}
@@ -5895,7 +5899,7 @@ not standard, but it will be useful for me in this chapter.
 If $n=3$, then the lower addition $3\times3$-matrices are the matrices of the
 form%
 \begin{align*}
-A_{2,1}^{\lambda} &  =\left(
+A_{2,1}^{\lambda}  &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -5910,7 +5914,7 @@ A_{2,1}^{\lambda} &  =\left(
 \lambda & 0 & 1
 \end{array}
 \right)  ,\\
-A_{3,2}^{\lambda} &  =\left(
+A_{3,2}^{\lambda}  &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -5935,14 +5939,14 @@ It is clear that each lower addition matrix is
 lower-unitriangular\footnote{See Definition \ref{def.triangular.uni-up} for
 the meaning of \textquotedblleft lower-unitriangular\textquotedblright.}
 (because Proposition \ref{prop.Alamuv.entries} shows that its entries above
-the main diagonal are $0$, and its diagonal entries are $1$). Thus, every
-product of lower addition matrices is a product of lower-unitriangular
-matrices, and thus itself must be lower-unitriangular\footnote{because
-Corollary \ref{cor.triangular.uni*uni*uni} shows that any product of
-lower-unitriangular matrices is lower-unitriangular}. It turns out that the
-converse is also true: Every lower-unitriangular matrix is a product of lower
-addition matrices! This is a first, simple particular case of Gaussian
-elimination; let me state it as a theorem:
+the diagonal are $0$, and its diagonal entries are $1$). Thus, every product
+of lower addition matrices is a product of lower-unitriangular matrices, and
+thus itself must be lower-unitriangular\footnote{because Corollary
+\ref{cor.triangular.uni*uni*uni} shows that any product of lower-unitriangular
+matrices is lower-unitriangular}. It turns out that the converse is also true:
+Every lower-unitriangular matrix is a product of lower addition matrices! This
+is a first, simple particular case of Gaussian elimination; let me state it as
+a theorem:
 
 \begin{theorem}
 \label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $C$
@@ -6045,11 +6049,11 @@ We have now removed all nonzero entries below the diagonal. Our final matrix
 $C^{\prime\prime\prime}$ is simply the identity matrix: $C^{\prime\prime
 \prime}=I_{3}$. Combining the three equalities we have found, we obtain%
 \begin{align*}
-C  & =A_{2,1}^{a}\underbrace{C^{\prime}}_{=A_{3,1}^{b}C^{\prime\prime}%
+C  &  =A_{2,1}^{a}\underbrace{C^{\prime}}_{=A_{3,1}^{b}C^{\prime\prime}%
 }=A_{2,1}^{a}A_{3,1}^{b}\underbrace{C^{\prime\prime}}_{=A_{3,2}^{c}%
 C^{\prime\prime\prime}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}\underbrace{C^{\prime
 \prime\prime}}_{=I_{3}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}I_{3}\\
-& =A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}.
+&  =A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}.
 \end{align*}
 Thus we have represented $C$ as a product of lower addition matrices.
 
@@ -6071,7 +6075,7 @@ The general proof of Theorem \ref{thm.triangular.Alamuv} follows the idea
 outlined in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.Alamuv}.] We have already proven that
+[Proof of Theorem \ref{thm.triangular.Alamuv}.]We have already proven that
 every product of lower addition matrices is lower-unitriangular. Hence, if $C$
 is a product of lower addition matrices, then $C$ is lower-unitriangular.
 Therefore, we only need to prove the converse implication: that if $C$ is
