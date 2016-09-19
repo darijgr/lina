@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 23:32:18}
+%TCIDATA{LastRevised=Monday, September 19, 2016 01:21:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5892,10 +5892,10 @@ The name \textquotedblleft lower addition matrix\textquotedblright\ is, again,
 not standard, but it will be useful for me in this chapter.
 
 \begin{example}
-For example, if $n=3$, then the lower addition $3\times3$-matrices are the
-matrices of the form%
+If $n=3$, then the lower addition $3\times3$-matrices are the matrices of the
+form%
 \begin{align*}
-A_{2,1}^{\lambda}  &  =\left(
+A_{2,1}^{\lambda} &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -5910,7 +5910,7 @@ A_{2,1}^{\lambda}  &  =\left(
 \lambda & 0 & 1
 \end{array}
 \right)  ,\\
-A_{3,2}^{\lambda}  &  =\left(
+A_{3,2}^{\lambda} &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -5945,12 +5945,13 @@ addition matrices! This is a first, simple particular case of Gaussian
 elimination; let me state it as a theorem:
 
 \begin{theorem}
-\label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $A$
-is lower-unitriangular if and only if $A$ is a product of lower addition matrices.
+\label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $C$
+is lower-unitriangular if and only if $C$ is a product of lower addition matrices.
 \end{theorem}
 
 \begin{example}
-\textbf{(a)} The unitriangular $2\times2$-matrix $\left(
+\label{exam.thm.triangular.Alamuv}\textbf{(a)} The unitriangular $2\times
+2$-matrix $\left(
 \begin{array}
 [c]{cc}%
 1 & 0\\
@@ -5973,16 +5974,131 @@ be $I_{1}$, and this is precisely our matrix $\left(
 \end{array}
 \right)  $.)
 
-\textbf{(c)} The unitriangular $3\times3$-matrix $\left(
+\textbf{(c)} Let $C$ be the unitriangular $3\times3$-matrix $\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
-2 & 1 & 0\\
--1 & 4 & 1
+a & 1 & 0\\
+b & c & 1
 \end{array}
-\right)  $ is a product of lower addition matrices: Namely, it equals
-$A_{1,2}^{2}A_{1,3}^{-1}A_{2,3}^{4}$.
+\right)  $. Then, $C$ is a product of lower addition matrices: Namely, it
+equals $A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}$.
+
+Let us actually see how this representation of $C$ can be found. We shall
+proceed by writing $C$ as a product of one lower addition matrix with a second
+matrix $C^{\prime}$, which is still lower-triangular but has one less nonzero
+entry than $C$. We then will do the same with $C^{\prime}$, obtaining a third
+matrix $C^{\prime\prime}$; then, do the same with $C^{\prime\prime}$, and so
+on. At the end, we will be left with an identity matrix. In more detail:
+
+\begin{enumerate}
+\item[Step 1:] Let us get rid of the $\left(  2,1\right)  $-th entry of $C$
+(that is, turn this entry into a $0$) by subtracting $a\operatorname*{row}%
+\nolimits_{1}C$ from row $2$ of $C$. Denote the resulting matrix by
+$C^{\prime}$. Thus, $C^{\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+b & c & 1
+\end{array}
+\right)  $. (No entries other than the $\left(  2,1\right)  $-th one have been
+changed, because $a\operatorname*{row}\nolimits_{1}C=\left(  a,0,0\right)  $.)
+Since $C^{\prime}$ was obtained by subtracting $a\operatorname*{row}%
+\nolimits_{1}C$ from row $2$ of $C$, we can conversely obtain $C$ from
+$C^{\prime}$ by adding $a\operatorname*{row}\nolimits_{1}\left(  C^{\prime
+}\right)  $ to row $2$ of $C^{\prime}$. According to Proposition
+\ref{prop.Alamuv.laction} (applied to $n$, $2$, $1$, $2$ and $C^{\prime}$
+instead of $m$, $u$, $v$, $\lambda$ and $C$), this means that $C=A_{2,1}%
+^{a}C^{\prime}$.
+
+\item[Step 2:] Let us get rid of the $\left(  3,1\right)  $-th entry of
+$C^{\prime}$ by subtracting $b\operatorname*{row}\nolimits_{1}\left(
+C^{\prime}\right)  $ from row $3$ of $C^{\prime}$. Denote the resulting matrix
+by $C^{\prime\prime}$. Thus, $C^{\prime\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & c & 1
+\end{array}
+\right)  $. (Again, no entries other than the $\left(  3,1\right)  $-th one
+have been changed.) Similarly to how we found that $C=A_{2,1}^{a}C^{\prime}$
+in Step 1, we now obtain $C^{\prime}=A_{3,1}^{b}C^{\prime\prime}$.
+
+\item[Step 3:] Let us get rid of the $\left(  3,2\right)  $-th entry of
+$C^{\prime\prime}$ by subtracting $c\operatorname*{row}\nolimits_{2}\left(
+C^{\prime}\right)  $ from row $3$ of $C^{\prime\prime}$. Denote the resulting
+matrix by $C^{\prime\prime\prime}$. Thus, $C^{\prime\prime\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  $. (Again, no entries other than the $\left(  3,2\right)  $-th one
+have been changed.) Similarly to how we found that $C=A_{2,1}^{a}C^{\prime}$
+in Step 1, we now obtain $C^{\prime\prime}=A_{3,2}^{c}C^{\prime\prime\prime}$.
+\end{enumerate}
+
+We have now removed all nonzero entries below the diagonal. Our final matrix
+$C^{\prime\prime\prime}$ is simply the identity matrix: $C^{\prime\prime
+\prime}=I_{3}$. Combining the three equalities we have found, we obtain%
+\begin{align*}
+C  & =A_{2,1}^{a}\underbrace{C^{\prime}}_{=A_{3,1}^{b}C^{\prime\prime}%
+}=A_{2,1}^{a}A_{3,1}^{b}\underbrace{C^{\prime\prime}}_{=A_{3,2}^{c}%
+C^{\prime\prime\prime}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}\underbrace{C^{\prime
+\prime\prime}}_{=I_{3}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}I_{3}\\
+& =A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}.
+\end{align*}
+Thus we have represented $C$ as a product of lower addition matrices.
+
+Notice that we need to be careful about the order in which we perform the
+above steps. We have first gotten rid of the $\left(  2,1\right)  $-st entry,
+then gotten rid of the $\left(  3,1\right)  $-th entry, and then gotten rid of
+the $\left(  3,2\right)  $-th entry. If we had tried to clean out the entries
+in a different order, we might have run into trouble. Namely, if we first get
+rid of the $\left(  3,1\right)  $-st entry, and then get rid of the $\left(
+3,2\right)  $-th entry, then the $\left(  3,1\right)  $-th entry can become
+\textquotedblleft polluted\textquotedblright\ again (i.e., the resulting
+matrix might again have a nonzero $\left(  3,1\right)  $-th entry). To make
+sure that such trouble doesn't happen, we need to clear out each column of the
+matrix from top to bottom -- i.e., before getting rid of some entry, we must
+first clean the entries above it (below the diagonal).
 \end{example}
+
+The general proof of Theorem \ref{thm.triangular.Alamuv} follows the idea
+outlined in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.Alamuv}.] We have already proven that
+every product of lower addition matrices is lower-unitriangular. Hence, if $C$
+is a product of lower addition matrices, then $C$ is lower-unitriangular.
+Therefore, we only need to prove the converse implication: that if $C$ is
+lower-unitriangular, then $C$ is a product of lower addition matrices.
+
+So let us assume that $C$ is lower-unitriangular. Our goal is to prove that
+$C$ is a product of lower addition matrices.
+
+Indeed, we will recursively construct a sequence $\left(  C_{0},C_{1}%
+,\ldots,C_{n}\right)  $ of lower-triangular $n\times n$-matrices with the
+property that for each $k\in\left\{  0,1,\ldots,n\right\}  $, the first $k$
+columns of $C_{k}$ are the first $k$ columns of $I_{n}$. The construction goes
+as follows:
+
+\begin{itemize}
+\item We start by setting $C_{0}=C$. (Clearly, this has the property that the
+first $0$ columns of $C_{0}$ are the first $0$ columns of $I_{n}$; in fact
+this property says nothing.)
+
+\item Let $k\in\left\{  1,2,\ldots,n\right\}  $. Assume that a
+lower-triangular $n\times n$-matrix $C_{k}$ has already been constructed with
+the property that the first $k$ columns of $C_{k}$ are the first $k$ columns
+of $I_{n}$. We shall now construct a lower-triangular $n\times n$-matrix
+$C_{k+1}$ with the property that the first $k+1$ columns of $C_{k}$ are the
+first $k+1$ columns of $I_{n}$. Namely, we [...]
+\end{itemize}
+\end{proof}
 
 [to be continued]
 
