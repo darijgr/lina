@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 19, 2016 10:44:55}
+%TCIDATA{LastRevised=Monday, September 19, 2016 10:57:04}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2291,7 +2291,7 @@ then we set%
 1, & \text{if }i=j;\\
 0, & \text{if }i\neq j
 \end{cases}
-.\label{eq.def.In.eq}%
+. \label{eq.def.In.eq}%
 \end{equation}
 
 \end{definition}
@@ -6103,6 +6103,79 @@ $C_{k+1}$ with the property that the first $k+1$ columns of $C_{k}$ are the
 first $k+1$ columns of $I_{n}$. Namely, we [...]
 \end{itemize}
 \end{proof}
+
+\textbf{TO-DO LIST! (This will appear shortly:)}
+
+\begin{itemize}
+\item Finish proof of Theorem \ref{thm.triangular.Alamuv} (use concept of
+lowering row operations, not the above recursion).
+
+\item Conclude that unitriangular matrices are invertible, with like inverses.
+
+\item Same for upper-triangular.
+
+\item Introduce $S_{i}^{\lambda}=I_{n}+\left(  \lambda-1\right)  E_{i,i}$, the
+identity matrix with the $i$-th diagonal $1$ replaced by a $\lambda$.
+
+\item Explain how $S_{i}^{\lambda}$ acts on matrices (by row/column scaling).
+
+\item $\left(  S_{i}^{\lambda}\right)  ^{-1}=S_{i}^{-\lambda}$ for
+$\lambda\neq0$.
+
+\item $\left(  S_{i}^{\lambda}\right)  ^{T}=S_{i}^{\lambda}$.
+
+\item Conclude that invertibly triangular matrices are invertible, with like inverses.
+
+\item Introduce $T_{u,v}=I_{n}+E_{u,v}+E_{v,u}-E_{u,u}-E_{v,v}$, the identity
+matrix with rows (or columns) $u$ and $v$ switched.
+
+\item Explain how $T_{u,v}$ acts on matrices (by row/column switching).
+
+\item $\left(  T_{u,v}\right)  ^{-1}=\left(  T_{u,v}\right)  ^{T}%
+=T_{u,v}=T_{v,u}$.
+
+\item Define permutation matrices as $n\times n$-matrices with entries $0$ and
+$1$ that have exactly one $1$ in each row and exactly one $1$ in each column.
+
+\item Examples of permutation matrices: $I_{n}$ and $T_{u,v}$.
+
+\item Permutation matrices are products of $T_{u,v}$'s.
+
+\item (*) Permutation matrices are products of $T_{k,k+1}$'s.
+
+\item Permutation matrices act by permuting rows.
+
+\item Permutation matrices are invertible, with like inverses.
+
+\item (*) Strictly upper-triangular $n\times n$-matrices $N$ are nilpotent,
+with $N^{n}=0_{n\times n}$. More generally, any product of $n$ such matrices
+is $0_{n\times n}$. Prove this using the \textquotedblleft receding
+front\textquotedblright\ argument: A $k$-upper-triangular $n\times n$-matrix
+means a matrix $A$ with $A_{i,j}=0$ whenever $i<j+k$. (So $1$-upper-triangular
+= upper-unitriangular, whereas $0$-upper-triangular = upper-triangular.) Show
+that the product of a $k$-upper-triangular and an $\ell$-upper-triangular
+matrix is $\left(  k+\ell\right)  $-upper triangular. Conclude by induction
+that the product of $n$ upper-triangular matrices is $n$-upper-triangular,
+which means it is $0_{n\times n}$.
+
+\item (*) Use this to give another proof of the invertibility of unitriangular
+matrices: the inverse of $I_{n}-N$ is $I_{n}+N+N^{2}+\cdots$.
+
+\item (*) Sketch yet another proof of the invertibility of unitriangular
+matrices: construct right inverse by back-substitution; argue that it is a
+left inverse by change of roles.
+
+\item (*) SageMath examples.
+
+\item Define row echelon matrices a la \cite{Kowals16}. Define pivot cells.
+Note at most one per row, at most one per column.
+
+\item Gaussian elimination: $A=E^{\ast}U$, where $E^{\ast}$ is a product of
+elementary matrices ($A_{u,v}^{\lambda}$, $S_{i}^{\lambda}$, $T_{u,v}$) and
+$U$ is a row-echelon matrix.
+
+\item Example of Gaussian elimination.
+\end{itemize}
 
 [to be continued]
 
