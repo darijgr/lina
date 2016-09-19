@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 18, 2016 22:20:45}
+%TCIDATA{LastRevised=Sunday, September 18, 2016 23:32:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -318,16 +318,16 @@ notations. Please have patience with me. Let me introduce a notation for
 building a matrix out of a bunch of entries:
 
 \begin{definition}
-Let $n\in\mathbb{N}$. Assume that you are given a number $a_{i,j}$ for each
-pair $\left(  i,j\right)  $ of an integer $i\in\left\{  1,2,\ldots,n\right\}
-$ and $j\in\left\{  1,2,\ldots,m\right\}  $. Then, $\left(  a_{i,j}\right)
-_{1\leq i\leq n,\ 1\leq j\leq m}$ shall denote the $n\times m$-matrix whose
-$\left(  i,j\right)  $-th entry is $a_{i,j}$ for all $i\in\left\{
-1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $. (To say it
-differently: $\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ shall
-denote the $n\times m$-matrix $A$ such that $A_{i,j}=a_{i,j}$ for all
+Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Assume that you are given a number
+$a_{i,j}$ for each pair $\left(  i,j\right)  $ of an integer $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $. Then,
+$\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ shall denote the
+$n\times m$-matrix whose $\left(  i,j\right)  $-th entry is $a_{i,j}$ for all
 $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}
-$. In other words,%
+$. (To say it differently: $\left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq m}$ shall denote the $n\times m$-matrix $A$ such that $A_{i,j}=a_{i,j}$
+for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $. In other words,%
 \[
 \left(  a_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}=\left(
 \begin{array}
@@ -4840,12 +4840,12 @@ Corollary \ref{cor.triangular.uni*uni} is thus proven.
 \begin{corollary}
 \label{cor.triangular.uni*uni*uni}Let $n\in\mathbb{N}$. If $A_{1},A_{2}%
 ,\ldots,A_{k}$ (for some $k\in\mathbb{N}$) are upper-unitriangular $n\times
-n$-matrices, then $A_{1}A_{2}\cdots A_{k}$  is also an upper-unitriangular
+n$-matrices, then $A_{1}A_{2}\cdots A_{k}$ is also an upper-unitriangular
 $n\times n$-matrix.
 \end{corollary}
 
 \begin{proof}
-[Proof of Corollary \ref{cor.triangular.uni*uni*uni}.] This can be proven in a
+[Proof of Corollary \ref{cor.triangular.uni*uni*uni}.]This can be proven in a
 straightforward way by induction over $k$, similarly to how we proved
 Proposition \ref{prop.inverses.A1Ak}. The important differences are:
 
@@ -5895,7 +5895,7 @@ not standard, but it will be useful for me in this chapter.
 For example, if $n=3$, then the lower addition $3\times3$-matrices are the
 matrices of the form%
 \begin{align*}
-A_{2,1}^{\lambda}  & =\left(
+A_{2,1}^{\lambda}  &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -5910,7 +5910,7 @@ A_{2,1}^{\lambda}  & =\left(
 \lambda & 0 & 1
 \end{array}
 \right)  ,\\
-A_{3,2}^{\lambda}  & =\left(
+A_{3,2}^{\lambda}  &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
