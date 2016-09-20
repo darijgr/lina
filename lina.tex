@@ -99,6 +99,7 @@
 \includecomment{vershort}
 \excludecomment{noncompile}
 \newcommand{\id}{\operatorname{id}}
+\newcommand{\NN}{\mathbb{N}}
 \ihead{Notes on linear algebra (\today, \currenttime)}
 \ohead{page \thepage}
 \cfoot{}
@@ -716,7 +717,8 @@ are scaled entry by entry\textquotedblright.
 \textquotedblleft Scaling\textquotedblright\ is often called \textquotedblleft
 scalar multiplication\textquotedblright\ (but this is confusing terminology,
 since \textquotedblleft scalar product\textquotedblright\ means something
-completely different).
+completely different). If $A$ is a matrix, then a \textit{scalar multiple}
+of $A$ is defined as a matrix of the form $\lambda A$ for some number $\lambda$.
 
 With scaling and addition defined, we obtain subtraction for free:
 
@@ -3251,6 +3253,11 @@ addition\textquotedblright\ is left in!) It turns out that we already know a
 neat example of a noncommutative ring: For any commutative ring $\mathbb{K}$
 and any $n\in\mathbb{N}$, the set of all $n\times n$-matrices over
 $\mathbb{K}$ is a noncommutative ring!
+
+\textbf{(c)} The word ``ring'' (without the adjectives
+``commutative'' and ``noncommutative'') usually means either
+``commutative ring'' or ``noncommutative ring'', depending on the author's
+preferences.
 \end{remark}
 
 \section{Gaussian elimination}
@@ -3437,7 +3444,7 @@ b_{m}%
 \end{align*}
 (Some authors write the $A$, the $x$ and the $b$ in
 (\ref{eq.exam.systems.gen.short}) in boldface in order to stress that these
-are vectors, not numbers. We shall not.) The matrix $A$ and the vector $b$ are
+are matrices, not numbers. We shall not.) The matrix $A$ and the vector $b$ are
 known; the vector $x$ is what we want to find.
 
 Thus, matrices give us a way to rewrite systems of linear equations as single
@@ -3480,7 +3487,7 @@ right inverses at all). For the same reason, we are saying \textquotedblleft%
 left inverse\textquotedblright). However, when we are saying \textquotedblleft%
 \textbf{an} inverse\textquotedblright\ (not \textquotedblleft\textbf{the}
 inverse\textquotedblright), we are just being cautious: We will later (in
-Corollary \ref{cor.inverse.unique}) see that $A$ can never have several
+Corollary \ref{cor.inverses.unique}) see that $A$ can never have several
 different inverses; thus, it would be legitimate to say \textquotedblleft%
 \textbf{the} inverse\textquotedblright\ as well. But as long as we have not
 proven this, we shall speak of \textquotedblleft\textbf{an}
@@ -4012,16 +4019,7 @@ it as an example of proof by induction:
 
 \textit{Induction base:} If $k=1$, then Proposition \ref{prop.inverses.A1Ak}
 says that $A_{1}^{-1}=A_{1}^{-1}$; this is obviously true. Hence, Proposition
-\ref{prop.inverses.A1Ak} holds for $k=1$.\ \ \ \ \footnote{A remark for the
-pedants: It is common to define the product of $0$ square matrices of size
-$n\times n$ (an \textquotedblleft empty product of $n\times n$%
--matrices\textquotedblright) as the identity matrix $I_{n}$ (similarly to how
-a product of $0$ numbers is defined to be $1$). With this convention,
-Proposition \ref{prop.inverses.A1Ak} holds for $k=0$ too (it then states that
-$\left(  I_{n}\right)  ^{-1}=I_{n}$), as long as we agree what size our
-non-existing matrices are considered to have (it has to be $n\times n$ for
-some $n\in\mathbb{N}$). So we could have started our induction at $k=0$
-instead of $k=1$.}
+\ref{prop.inverses.A1Ak} holds for $k=1$.
 
 \textit{Induction step:} Let $\ell$ be a positive integer. Assume (as our
 \textit{induction hypothesis}) that Proposition \ref{prop.inverses.A1Ak} holds
@@ -4093,6 +4091,20 @@ what we did in our proof was obvious enough that you could just say that
 straightforward induction on $k$, where Proposition \ref{prop.inverses.AB} is
 being applied in the induction step\textquotedblright, and declare the proof finished.)
 \end{proof}
+
+\begin{remark}
+It is common to define the product of $0$ square matrices of size
+$n\times n$ (an \textquotedblleft empty product of $n\times n$%
+-matrices\textquotedblright) as the identity matrix $I_{n}$ (similarly to how
+a product of $0$ numbers is defined to be $1$). With this convention,
+Proposition \ref{prop.inverses.A1Ak} holds for $k=0$ too (it then states that
+$\left(  I_{n}\right)  ^{-1}=I_{n}$), as long as we agree what size our
+non-existing matrices are considered to have (it has to be $n\times n$ for
+some $n\in\mathbb{N}$). With this convention, we could have started our
+induction (in the above proof of Proposition \ref{prop.inverses.A1Ak})
+at $k=0$ instead of $k=1$.
+\end{remark}
+
 
 \begin{corollary}
 \label{cor.inverses.Ak-1}Let $n\in\mathbb{N}$. Let $k\in\mathbb{N}$. Let $A$
@@ -4764,8 +4776,20 @@ The word \textquotedblleft invertibly upper-triangular\textquotedblright\ is
 my invention. We will later see it vindicated, once we show that an
 upper-triangular matrix is invertible if and only if it is invertibly upper-triangular.
 
-Clearly, upper-unitriangular matrices are invertibly upper-triangular (since
-$1$ is nonzero).
+Here is a simple fact to connect the above definitions:
+
+\begin{proposition}
+\label{prop.triangular.uni-inv}
+
+\textbf{(a)} Each upper-unitriangular matrix is invertibly upper-triangular.
+
+\textbf{(b)} Let $n \in \NN$. Let $A$ be an $n \times n$-matrix. Then, $A$
+is upper-unitriangular if and only if $I_n - A$ is strictly upper-triangular.
+
+\end{proposition}
+
+We shall give a proof of this proposition in Section \ref{sect.gauss.triang-proof1}
+(but mainly as an example of how to write a proof; the mathematics itself is trivial).
 
 Strictly upper-triangular $n\times n$-matrices can also be characterized as
 the $n\times n$-matrices $A$ which satisfy%
@@ -4865,6 +4889,273 @@ matrix. But this is clear by inspection.
 \ref{prop.inverses.AB}, we need to use Corollary \ref{cor.triangular.uni*uni}.
 \end{itemize}
 \end{proof}
+
+\subsection{\label{sect.gauss.triang-proof1} (*) Proof of Proposition \ref{prop.triangular.uni-inv}}
+
+Here is a detailed proof of Proposition \ref{prop.triangular.uni-inv}:
+
+\begin{proof}[Proof of Proposition \ref{prop.triangular.uni-inv}.]
+
+\textbf{(a)} Let $A$ be an upper-unitriangular $n \times n$-matrix. We must
+then prove that $A$ is invertibly upper-triangular.
+
+We have assumed that $A$ is upper-unitriangular. In other words, $A$
+is upper-triangular and all its diagonal entries are $1$ (because this
+is what ``upper-unitriangular'' means). Now, all diagonal entries of
+$A$ are $1$, and thus are nonzero (since $1$ is nonzero). So we know
+that $A$ is upper-triangular and all its diagonal entries are nonzero.
+In other words, $A$ is invertibly upper-triangular (by the definition
+of ``invertibly upper-triangular''). This proves Proposition
+\ref{prop.triangular.uni-inv} \textbf{(a)}.
+
+\textbf{(b)} The statement of Proposition
+\ref{prop.triangular.uni-inv} \textbf{(b)} is an ``if and only if''
+statement. Thus, it splits into the following two claims:
+\begin{statement}
+\textit{Claim 1:} If $A$ is upper-unitriangular, then $I_n - A$ is
+strictly upper-triangular.
+\end{statement}
+\begin{statement}
+\textit{Claim 2:} If $I_n - A$ is strictly upper-triangular, then
+$A$ is upper-unitriangular.
+\end{statement}
+We are going to prove both of these claims. But first, let us make
+a simple observation: Recall that
+$I_n = \left(\delta_{i,j}\right)_{1\leq i\leq n, \ 1\leq j\leq n}$.
+Hence, $\left(I_n\right)_{i, j} = \delta_{i, j}$ for all
+$i \in \left\{1,2,\ldots,n\right\}$ and
+$j \in \left\{1,2,\ldots,n\right\}$. In particular, for all
+$i \in \left\{1,2,\ldots,n\right\}$ and
+$j \in \left\{1,2,\ldots,n\right\}$ satisfying $i > j$, we have
+\begin{equation}
+\left(I_n\right)_{i, j} = \delta_{i, j} = 0
+\label{pf.prop.triangular.uni-inv.b.1}
+\end{equation}
+(since $i \neq j$ (because $i > j$)). Also, the diagonal entries
+of the matrix $I_n$ are $1$; in other words, every
+$i \in \left\{1,2,\ldots,n\right\}$ satisfies
+\begin{equation}
+\left(I_n\right)_{i, i} = 1.
+\label{pf.prop.triangular.uni-inv.b.2}
+\end{equation}
+
+\textit{Proof of Claim 1:} Assume that $A$ is upper-unitriangular.
+We must show that $I_n - A$ is strictly upper-triangular.
+
+We have assumed that $A$ is upper-unitriangular. In other words, $A$
+is upper-triangular and all its diagonal entries are $1$ (because this
+is what ``upper-unitriangular'' means). Since $A$ is
+upper-triangular, we have
+\begin{equation}
+A_{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i > j
+\label{pf.prop.triangular.uni-inv.b.to.1}
+\end{equation}
+(by the definition of ``upper-triangular''). Since all diagonal
+entries of $A$ are $1$, we have
+\begin{equation}
+A_{i, i} = 1 \ \ \ \ \ \ \ \ \ \ \text{for each }
+i \in \left\{1,2,\ldots,n\right\} .
+\label{pf.prop.triangular.uni-inv.b.to.2}
+\end{equation}
+
+Now, recall that matrices are subtracted entry by entry.
+Hence, for all $i \in \left\{1,2,\ldots,n\right\}$ and
+$j \in \left\{1,2,\ldots,n\right\}$ satisfying $i > j$, we have
+\begin{equation*}
+\left(I_n - A\right)_{i, j}
+= \underbrace{\left(I_n\right)_{i,j}}_{\substack{= 0 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.1}))}}}
+   - \underbrace{A_{i,j}}_{\substack{= 0 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.to.1}))}}}
+= 0 - 0 = 0.
+\end{equation*}
+In other words, $\left(I_n - A\right)_{i, j} = 0$ whenever
+$i > j$. This means that $I_n - A$ is upper-triangular (by the
+definition of ``upper-triangular''). 
+
+Moreover, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
+\begin{equation*}
+\left(I_n - A\right)_{i, i}
+= \underbrace{\left(I_n\right)_{i,i}}_{\substack{= 1 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}}
+   - \underbrace{A_{i,i}}_{\substack{= 1 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.to.2}))}}}
+= 1 - 1 = 0.
+\end{equation*}
+In other words, all diagonal entries of the matrix $I_n - A$
+are $0$.
+
+So we have shown that the matrix $I_n - A$ is upper-triangular, and that
+all its diagonal entries are $0$. In other words, the matrix $I_n - A$
+is strictly upper-triangular (by the definition of
+``strictly upper-triangular''). This proves Claim 1.
+
+\textit{Proof of Claim 2:} Assume that $I_n - A$ is strictly upper-triangular.
+We must show that $A$ is upper-unitriangular.
+
+We have assumed that $I_n - A$ is strictly upper-triangular. In other words,
+$I_n - A$ is upper-triangular and all its diagonal entries are $0$ (because this
+is what ``strictly upper-triangular'' means). Since $I_n - A$ is
+upper-triangular, we have
+\begin{equation}
+\left(I_n - A\right)_{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i > j
+\label{pf.prop.triangular.uni-inv.b.from.1}
+\end{equation}
+(by the definition of ``upper-triangular''). Since all diagonal
+entries of $I_n - A$ are $0$, we have
+\begin{equation}
+\left(I_n - A\right)_{i, i} = 0 \ \ \ \ \ \ \ \ \ \ \text{for each }
+i \in \left\{1,2,\ldots,n\right\} .
+\label{pf.prop.triangular.uni-inv.b.from.2}
+\end{equation}
+
+Now, recall that matrices are subtracted entry by entry.
+Hence, for all $i \in \left\{1,2,\ldots,n\right\}$ and
+$j \in \left\{1,2,\ldots,n\right\}$ satisfying $i > j$, we have
+\begin{equation*}
+\left(I_n - A\right)_{i, j}
+= \underbrace{\left(I_n\right)_{i,j}}_{\substack{= 0 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.1}))}}}
+   - A_{i, j}
+= 0 - A_{i, j} = - A_{i, j}
+\end{equation*}
+and therefore
+\begin{equation*}
+A_{i, j}
+= - \underbrace{\left(I_n - A\right)_{i,j}}_{\substack{= 0 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.from.1}))}}}
+= - 0 = 0 .
+\end{equation*}
+In other words, $A_{i, j} = 0$ whenever
+$i > j$. This means that $A$ is upper-triangular (by the
+definition of ``upper-triangular''). 
+
+Moreover, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
+\begin{equation*}
+\left(I_n - A\right)_{i, i}
+= \underbrace{\left(I_n\right)_{i,i}}_{\substack{= 1 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}}
+   - A_{i, i}
+= 1 - A_{i, i}
+\end{equation*}
+and therefore
+\begin{equation*}
+A_{i, i}
+= 1 - \underbrace{\left(I_n - A\right)_{i,i}}_{\substack{= 0 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.from.2}))}}}
+= 1 - 0 = 1.
+\end{equation*}
+In other words, all diagonal entries of the matrix $A$ are $1$.
+
+So we have shown that the matrix $A$ is upper-triangular, and that
+all its diagonal entries are $1$. In other words, the matrix $A$
+is upper-unitriangular. This proves Claim 2.
+
+Now, both Claim 1 and Claim 2 are proven, so the proof of
+Proposition \ref{prop.triangular.uni-inv} \textbf{(b)} is complete.
+\end{proof}
+
+As you might have noticed, I have written down the above proof at an
+unusually high level of detail (whereas most textbooks would have
+only sketched it, or even left it to the reader to fill in). The
+reason for that is that I wanted to demonstrate the structure of
+such proofs. An experienced writer (writing for experienced readers)
+would have been able to shorten the above proof considerably in the 
+following way:
+
+\begin{itemize}
+\item Our proof of Proposition \ref{prop.triangular.uni-inv} \textbf{(a)}
+was really obvious; most of it was boilerplate (writing down the
+assumptions, writing down the claims, etc.).
+
+\item The way we proved Proposition
+\ref{prop.triangular.uni-inv} \textbf{(b)} is a typical way how 
+``if and only if'' statements are proven.\footnote{But not the only way: our
+proof of Proposition \ref{prop.triangular.UT=D} was organized
+differently.} 
+What we called Claim 1 in this proof would normally be called the
+``$\Longrightarrow$ direction''\footnote{also known as the
+``only if direction'' or the ``$\Longrightarrow$ part''}
+of Proposition \ref{prop.triangular.uni-inv} \textbf{(b)}
+(because, rewritten in logical symbols, it says that
+``$\left(A \text{ is upper-unitriangular} \right)
+\Longrightarrow \left(I_n - A \text{ is strictly upper-triangular}\right)$''),
+while our Claim 2 would be called the
+``$\Longleftarrow$ direction''\footnote{also known as the 
+``if direction'' or the ``$\Longleftarrow$ part''}
+of Proposition \ref{prop.triangular.uni-inv} \textbf{(b)}
+(for similar reasons). In general, if you have an assertion of the form
+``$X$ holds if and only if $Y$ holds'', then the
+``$\Longrightarrow$ direction'' of this assertion says
+``if $X$ holds, then $Y$ holds'', whereas the
+``$\Longleftarrow$ direction'' of this assertion says
+``if $Y$ holds, then $X$ holds''. In order to prove the assertion,
+it suffices to prove both its $\Longrightarrow$ direction
+and its $\Longleftarrow$ direction; these two directions can often
+be proven separately. It is customary to mark the proof of the
+$\Longrightarrow$ direction by a single ``$\Longrightarrow$:''
+at the beginning of this proof (instead of writing
+``Proof of Claim 1:'' as we did),
+and to mark the proof of the $\Longleftarrow$ direction by a
+single ``$\Longleftarrow$:'' at the beginning of this proof
+(instead of writing ``Proof of Claim 2:'' as we did). Furthermore,
+explicitly stating Claim 1 and Claim 2 (like I did above)
+is not necessary: They are
+just the $\Longrightarrow$ direction and the $\Longleftarrow$
+direction of Proposition \ref{prop.triangular.uni-inv} \textbf{(b)},
+respectively; this is enough to fully characterize them.
+
+\item Our proof of the $\Longrightarrow$ direction (i.e.,
+of Claim 1) was straightforward: it was following the most
+obvious route from the givens (i.e., from the assumption that
+$A$ is upper-unitriangular) to the goal (i.e., to the claim that
+$I_n - A$ is strictly upper-triangular). In fact, once you have
+unraveled the definitions of ``upper-unitriangular'' and of
+``triangular'', the assumption translates into ``$A_{i,j} = 0$
+whenever $i > j$, and $A_{i,i} = 1$ for all $i$''. Similarly,
+once you have unraveled the definitions of ``strictly
+upper-triangular'' and ``triangular'', the claim translates into
+``$\left(I_n-A\right)_{i,j} = 0$ whenever $i > j$, and
+$\left(I_n-A\right)_{i,i} = 0$ for all $i$''. Thus, in order
+to get from the assumption to the goal, you need to find a way
+to process knowledge about entries of $A$ into knowledge about
+entries of $I_n - A$. But there is one obvious way to do that:
+Observe that $\left(I_n - A\right)_{i,j} = \left(I_n\right)_{i,j}
+- A_{i,j}$, and recall the formula for $\left(I_n\right)_{i,j}$
+(which is clear from the definition of $I_n$). The rest is
+simple arithmetic.
+
+\item Our proof of the $\Longleftarrow$ direction (i.e.,
+of Claim 2) was essentially the proof of the $\Longrightarrow$
+direction (i.e., of Claim 1) ``read backwards'' (the
+assumption and the claim have switched places, so we are taking
+the same argument but in reverse). To read an argument
+backwards means, whenever necessary, to switch reasons with
+consequences (for example, instead of deriving
+$\left(I_n - A\right)_{i, j} = 0$ from $A_{i, j} = 0$, we
+now derive $A_{i, j} = 0$ from
+$\left(I_n - A\right)_{i, j} = 0$). This is not possible
+(after all, not every valid statement remains valid if we switch
+the assumption and the claim!), but when it is, it
+is not a difficult task, so it can safely be left to
+the reader. (And it does work in our case.)
+\end{itemize}
+
+Altogether, we can thus shrink down our above proof of
+Proposition \ref{prop.triangular.uni-inv} to the following
+short form:
+
+\begin{proof}[Proof of Proposition \ref{prop.triangular.uni-inv} (sketched).]
+
+\textbf{(a)} This follows from the definitions, since $1$ is nonzero.
+
+\textbf{(b)} $\Longrightarrow$: Each entry of the matrix $I_n - A$
+equals the corresponding entry of $I_n$ minus the corresponding
+entry of $A$. Thus, any statement about entries of $I_n - A$ can be
+reduced to a statement about corresponding entries of $A$. Using this
+observation, the $\Longrightarrow$ direction of
+Proposition \ref{prop.triangular.uni-inv} \textbf{(b)} becomes
+straightforward.
+
+$\Longleftarrow$: To obtain a proof of the $\Longleftarrow$ direction,
+read the proof of the $\Longrightarrow$ direction backwards.
+\end{proof}
+
+(Or we could have left the whole proof to the reader, seeing that
+pretty much all of it was straightforward walking from the 
+assumptions to the goals.)
 
 \subsection{The standard matrix units $E_{u,v}$}
 
@@ -6065,51 +6356,280 @@ in a different order, we might have run into trouble. Namely, if we first get
 rid of the $\left(  3,1\right)  $-st entry, and then get rid of the $\left(
 3,2\right)  $-th entry, then the $\left(  3,1\right)  $-th entry can become
 \textquotedblleft polluted\textquotedblright\ again (i.e., the resulting
-matrix might again have a nonzero $\left(  3,1\right)  $-th entry). To make
-sure that such trouble doesn't happen, we need to clear out each column of the
-matrix from top to bottom -- i.e., before getting rid of some entry, we must
-first clean the entries above it (below the diagonal).
+matrix might again have a nonzero $\left(  3,1\right)  $-th entry). One way
+to avoid this kind of trouble is to clear out entries column by column:
+first clear out all entries in the $1$-st column (except for the $1$ on the 
+diagonal); then clear out all entries in the $2$-nd column (except for the 
+$1$ on the diagonal); and so on, moving left to right. (This is what we have
+done in our three steps above.)
 \end{example}
 
 The general proof of Theorem \ref{thm.triangular.Alamuv} follows the idea
 outlined in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.Alamuv}.]We have already proven that
+[Proof of Theorem \ref{thm.triangular.Alamuv}.]$\Longleftarrow$:
+We have already proven that
 every product of lower addition matrices is lower-unitriangular. Hence, if $C$
 is a product of lower addition matrices, then $C$ is lower-unitriangular.
-Therefore, we only need to prove the converse implication: that if $C$ is
+This proves the $\Longleftarrow$ direction of
+Theorem \ref{thm.triangular.Alamuv}.
+
+$\Longrightarrow$: We need to prove that if $C$ is
 lower-unitriangular, then $C$ is a product of lower addition matrices.
 
 So let us assume that $C$ is lower-unitriangular. Our goal is to prove that
 $C$ is a product of lower addition matrices.
 
-Indeed, we will recursively construct a sequence $\left(  C_{0},C_{1}%
-,\ldots,C_{n}\right)  $ of lower-triangular $n\times n$-matrices with the
-property that for each $k\in\left\{  0,1,\ldots,n\right\}  $, the first $k$
-columns of $C_{k}$ are the first $k$ columns of $I_{n}$. The construction goes
-as follows:
+Let me introduce a notation first: A \textit{downward row addition}
+shall mean a transformation that changes an $n\times m$-matrix (for
+some $m \in \NN$) by adding a scalar
+multiple\footnote{Recall that a \textit{scalar multiple} of a matrix $A$
+means a matrix of the form $\lambda A$ with $\lambda$ being a number.
+Row vectors are matrices (by definition), so we can talk about a scalar
+multiple of a row.}
+of one of its rows to another row further down. In more formal terms: A
+\textit{downward row addition} means a transformation of the form
+``add $\lambda$ times the $v$-th row to the $u$-th row'', for some
+fixed number $\lambda$ and some fixed integers $u$ and $v$ satisfying
+$1 \leq v < u \leq n$. As we know from Proposition
+\ref{prop.Alamuv.laction}, this transformation amounts to multiplying
+a matrix by $A^\lambda_{u, v}$ from the left (i.e., this transformation
+sends any $n\times m$-matrix $B$ to $A^\lambda_{u,v} B$); we shall therefore
+denote this transformation itself by $A^\lambda_{u,v}$ as well
+(hoping that the reader will not confuse the transformation with
+the matrix).
+
+Here is an example (for $n = 4$): The downward row addition $A^\lambda_{3,1}$ is the 
+transformation that changes a $4\times m$-matrix by adding
+$\lambda$ times the $1$-st row to the $3$-rd row. For example,
+it transforms the $4 \times 2$-matrix
+$\left(\begin{array}{cc} a & b \\ a' & b' \\ a'' & b'' \\ a''' & b''' \end{array}\right)$
+into
+$\left(\begin{array}{cc} a & b \\ a' & b' \\ a'' + \lambda a & b'' + \lambda b \\ a''' & b''' \end{array}\right)$.
+% We shall visually represent this fact as follows:
+% \[
+% \left(\begin{array}{cc} a & b \\ a' & b' \\ a'' & b'' \\ a''' & b''' \end{array}\right)
+% \overset{A^\lambda_{3,1}}{\longrightarrow}
+% \left(\begin{array}{cc} a & b \\ a' & b' \\ a'' + \lambda a & b'' + \lambda b \\ a''' & b''' \end{array}\right) .
+% \]
+% (The ``$A^\lambda_{3,1}$'' over the arrow tells us that the transformation
+% used is the downward row addition $A^\lambda_{3,1}$.)
+
+Notice that any downward row addition $A^\lambda_{u,v}$ is invertible:
+Namely, it can be undone by the downward row addition
+$A^{-\lambda}_{u,v}$.\ \ \ \ \footnote{Here are two ways to prove this: \par
+\textit{First proof:} The downward row addition $A^\lambda_{u,v}$
+transforms a matrix by adding $\lambda$ times the $v$-th row to the
+$u$-th row. The downward row addition $A^{-\lambda}_{u,v}$
+transforms a matrix by adding $-\lambda$ times the $v$-th row to the
+$u$-th row, i.e., by subtracting $\lambda$ times the $v$-th row from
+the $u$-th row. Hence, these two row additions undo each other
+(i.e., if we perform one and then the other, then we arrive back at
+the matrix we have started with), because (for example)
+adding $\lambda$ times the 
+$v$-th row to the $u$-th row and then subtracting it back recovers
+the original $u$-th row. (Here, we have tacitly used the fact that
+$u \neq v$. If we had $u = v$, then adding $\lambda$ times the $v$-th
+row to the $u$-th row would have changed the $v$-th row, and then
+subtracting it back would mean subtracting a \textbf{changed} $v$-th
+row from the $u$-th row.) So we have shown that the 
+downward row addition $A^\lambda_{u,v}$ can be undone by the downward
+row addition $A^{-\lambda}_{u,v}$. Qed. \par
+\textit{Second proof:} Proposition \ref{prop.Alamuv.lambda+mu}
+\textbf{(c)} shows that the matrix $A^{-\lambda}_{u,v}$ is the
+inverse of the matrix $A^\lambda_{u,v}$. Hence, multiplying a matrix
+by $A^{-\lambda}_{u,v}$ undoes multiplying a matrix by $A^\lambda_{u,v}$.
+In other words, the downward row addition $A^{-\lambda}_{u,v}$ undoes
+the downward row addition $A^\lambda_{u,v}$. Qed.}
+
+Notice that, for any downward row addition $A^\lambda_{u,v}$,
+the matrix $A^\lambda_{u,v}$ is a lower addition matrix. This is
+because $u > v$ (by the definition of a downward row addition).
+
+I claim that we can transform the lower-triangular $n\times n$-matrix $C$
+into the identity matrix $I_n$ by performing
+a sequence of downward row additions.
+Namely, we should proceed by the following method:\footnote{See the 
+three-step procedure in Example \ref{exam.thm.triangular.Alamuv}
+\textbf{(c)} for an illustration of this method.}
 
 \begin{itemize}
-\item We start by setting $C_{0}=C$. (Clearly, this has the property that the
-first $0$ columns of $C_{0}$ are the first $0$ columns of $I_{n}$; in fact
-this property says nothing.)
+ \item At first, our matrix is
+ \[ C = \left(\begin{array}{ccccc}
+                   1 &       0 &       0 & \cdots &      0 \\
+             C_{2,1} &       1 &       0 & \cdots &      0 \\
+             C_{3,1} & C_{3,2} &       1 & \cdots &      0 \\
+              \vdots &  \vdots &  \vdots & \ddots & \vdots \\
+             C_{n,1} & C_{n,2} & C_{n,3} & \cdots &      1
+            \end{array} \right).
+ \]
+ In particular, its $1$-st row is $\left(1,0,0,\ldots,0\right)$
+ (same as the $1$-st row of $I_n$).
+ 
+ \item Now, we perform the downward row addition
+ $A^\lambda_{2,1}$ (for an appropriate choice of $\lambda$,
+ namely for $\lambda = -C_{2,1}$) to clear out the
+ $\left(2,1\right)$-th entry of the matrix (i.e., to put a $0$
+ where this entry stood). This does not affect any of
+ the other entries, because the $1$-st row of the matrix
+ is $\left(1,0,0,\ldots,0\right)$ (thus has only one nonzero
+ entry). Similarly, we then perform the downward row
+ addition $A^\lambda_{3,1}$ (with $\lambda = -C_{3,1}$) to
+ clear out the $\left(3,1\right)$-th entry; then, we perform
+ the downward row addition $A^\lambda_{4,1}$ (with
+ $\lambda = -C_{4,1}$) to clear out the $\left(4,1\right)$-th
+ entry; and so on, ending with the downward row addition
+ $A^\lambda_{n,1}$ (with $\lambda = -C_{n,1}$) to clear out
+ the $\left(n,1\right)$-th entry. As the result, we have
+ cleared out all entries in the $1$-st column of our matrix,
+ except for the $1$ on the diagonal. In other words, our
+ matrix now looks as follows:
+ \[     \left(\begin{array}{ccccc}
+                   1 &       0 &       0 & \cdots &      0 \\
+                   0 &       1 &       0 & \cdots &      0 \\
+                   0 & C_{3,2} &       1 & \cdots &      0 \\
+              \vdots &  \vdots &  \vdots & \ddots & \vdots \\
+                   0 & C_{n,2} & C_{n,3} & \cdots &      1
+            \end{array}  \right).
+ \]
+ In particular, its $2$-nd row is
+ $\left(0,1,0,0,\ldots,0\right)$ (same as the $2$-nd row of
+ $I_n$).
 
-\item Let $k\in\left\{  1,2,\ldots,n\right\}  $. Assume that a
-lower-triangular $n\times n$-matrix $C_{k}$ has already been constructed with
-the property that the first $k$ columns of $C_{k}$ are the first $k$ columns
-of $I_{n}$. We shall now construct a lower-triangular $n\times n$-matrix
-$C_{k+1}$ with the property that the first $k+1$ columns of $C_{k}$ are the
-first $k+1$ columns of $I_{n}$. Namely, we [...]
+ \item Next, we similarly clear out all entries in the
+ $2$-nd column of the matrix, by performing the downward
+ row additions $A^\lambda_{3,2}, A^\lambda_{4,2}, \ldots,
+ A^\lambda_{n,2}$ (each time picking an appropriate value of
+ $\lambda$). Again, this does not affect any of the other
+ entries, because the $2$-nd row of the matrix is
+ $\left(0,1,0,0,\ldots,0\right)$. As the result, we have
+ cleared out all entries in the $2$-nd column of our matrix,
+ except for the $1$ on the diagonal. In other words, our 
+ matrix now looks as follows:
+ \[     \left(\begin{array}{ccccc}
+                   1 &       0 &       0 & \cdots &      0 \\
+                   0 &       1 &       0 & \cdots &      0 \\
+                   0 &       0 &       1 & \cdots &      0 \\
+              \vdots &  \vdots &  \vdots & \ddots & \vdots \\
+                   0 &       0 & C_{n,3} & \cdots &      1
+            \end{array}  \right).
+ \]
+ In particular, its $3$-rd row is
+ $\left(0,0,1,0,0,\ldots,0\right)$ (same as the $3$-rd row of
+ $I_n$).
+ 
+ \item Next, we similarly clear out all entries in the 
+ $3$-rd column of the matrix, by performing the downward
+ row additions $A^\lambda_{4,3}, A^\lambda_{5,3}, \ldots,
+ A^\lambda_{n,3}$. As the result, we have
+ cleared out all entries in the $3$-rd column of our matrix,
+ except for the $1$ on the diagonal. In other words, our 
+ matrix now looks as follows:
+ \[     \left(\begin{array}{ccccc}
+                   1 &       0 &       0 & \cdots &      0 \\
+                   0 &       1 &       0 & \cdots &      0 \\
+                   0 &       0 &       1 & \cdots &      0 \\
+              \vdots &  \vdots &  \vdots & \ddots & \vdots \\
+                   0 &       0 &       0 & \cdots &      1
+            \end{array}  \right).
+ \]
+ Don't mistake this for the identity matrix $I_n$: There
+ might still be nonzero entries outside of the diagonal.
+ They are just hidden by the $\cdots$ notation.
+ 
+ \item We continue this process, clearing out column
+ after column, until the $n$-th column is cleared out. By
+ then, our matrix has become the identity matrix $I_n$.
 \end{itemize}
+
+Thus, we have found an algorithm to transform our matrix $C$
+into the identity matrix $I_n$ by a sequence
+of downward row additions. Therefore, we can conversely
+transform the identity matrix $I_n$ into $C$ by a sequence of
+downward row additions\footnote{because (as we have shown)
+any downward row addition $A^\lambda_{u,v}$ is invertible,
+and can be undone by another downward row addition}.
+Let us denote these downward row additions (used to
+transform $I_n$ into $C$) by
+$A^{\lambda_1}_{u_1,v_1}, A^{\lambda_2}_{u_2,v_2}, \cdots,
+A^{\lambda_k}_{u_k,v_k}$, \textbf{numbered backwards}
+(i.e., starting from the one used last).
+Since each downward row addition $A^\lambda_{u,v}$ amounts
+to multiplying a matrix by the matrix $A^\lambda_{u,v}$ (that is,
+it sends any
+$n\times m$-matrix $B$ to $A^\lambda_{u,v} B$), we thus conclude
+that
+\[
+ C
+ = A^{\lambda_1}_{u_1,v_1} A^{\lambda_2}_{u_2,v_2} \cdots
+   A^{\lambda_k}_{u_k,v_k} I_n
+ = A^{\lambda_1}_{u_1,v_1} A^{\lambda_2}_{u_2,v_2} \cdots
+   A^{\lambda_k}_{u_k,v_k} .
+\]
+Thus, $C$ is a product of lower addition matrices
+(because each of the matrices
+$A^{\lambda_1}_{u_1,v_1}, A^{\lambda_2}_{u_2,v_2}, \cdots,
+A^{\lambda_k}_{u_k,v_k}$ is a lower addition matrix\footnote{Here
+we are using the fact that, for any downward row addition $A^\lambda_{u,v}$,
+the matrix $A^\lambda_{u,v}$ is a lower addition matrix.}).
+This is precisely what we had to prove. This proves the $\Longrightarrow$ direction of
+Theorem \ref{thm.triangular.Alamuv}. Hence, the proof of
+Theorem \ref{thm.triangular.Alamuv} is complete.
+
+% Indeed, we will recursively construct a sequence $\left(  C_{0},C_{1}%
+% ,\ldots,C_{n}\right)  $ of lower-triangular $n\times n$-matrices with the
+% property that for each $k\in\left\{  0,1,\ldots,n\right\}  $, the first $k$
+% columns of $C_{k}$ are the first $k$ columns of $I_{n}$. The construction goes
+% as follows:
+% 
+% \begin{itemize}
+% \item We start by setting $C_{0}=C$. (Clearly, this has the property that the
+% first $0$ columns of $C_{0}$ are the first $0$ columns of $I_{n}$; in fact
+% this property says nothing.)
+% 
+% \item Let $k\in\left\{  1,2,\ldots,n\right\}  $. Assume that a
+% lower-triangular $n\times n$-matrix $C_{k}$ has already been constructed with
+% the property that the first $k$ columns of $C_{k}$ are the first $k$ columns
+% of $I_{n}$. We shall now construct a lower-triangular $n\times n$-matrix
+% $C_{k+1}$ with the property that the first $k+1$ columns of $C_{k}$ are the
+% first $k+1$ columns of $I_{n}$. Namely, we [...]
+% \end{itemize}
 \end{proof}
+
+\begin{exercise}
+In Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)},
+we have cleared out the three sub-diagonal (= below the diagonal)
+entries of $C$ in a specific order: first the $\left(2,1\right)$-th
+entry, then the $\left(3,1\right)$-th entry, then the 
+$\left(3,2\right)$-th entry. We thus obtained the formula
+$C = A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}$.
+
+We could also have proceeded differently: for instance,
+we could have cleared out the $\left(3,2\right)$-th entry first,
+then the $\left(3,1\right)$-th entry, then the $\left(2,1\right)$-th
+entry. This would have resulted in the formula
+$C = A_{3,2}^c A_{3,1}^{b-ac} A_{2,1}^a$. (Be aware of the 
+$b-ac$ in the $A_{3,1}^{b-ac}$; this is because our first
+clearing operation has changed the $\left(3,1\right)$-th
+entry.)
+
+There is a total of $6$ different orders in which we can try
+clearing out the three sub-diagonal entries of our $3 \times 3$-matrix
+$C$. The two of them just shown work; on the other hand, in
+Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}, we have
+seen one order which does not (namely, starting with the
+$\left(3,1\right)$-th entry, then doing the $\left(3,2\right)$-th
+and then the $\left(2,1\right)$-th one). Of the remaining three,
+which ones work? And what formulas do they result in?
+
+(By ``work'', I mean ``work for every lower-unitriangular
+matrix $C$''.)
+\end{exercise}
 
 \textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{itemize}
-\item Finish proof of Theorem \ref{thm.triangular.Alamuv} (use concept of
-lowering row operations, not the above recursion).
-
 \item Conclude that unitriangular matrices are invertible, with like inverses.
 
 \item Same for upper-triangular.
