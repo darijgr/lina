@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 19, 2016 10:57:04}
+%TCIDATA{LastRevised=Monday, September 19, 2016 19:45:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4878,7 +4878,7 @@ $E_{u,v,n,m}$ shall denote the $n\times m$-matrix whose $\left(  u,v\right)
 $-th entry is $1$ and whose all other entries are $0$. We shall abbreviate
 $E_{u,v,n,m}$ as $E_{u,v}$ when the values of $n$ and $m$ are clear from the
 context (for example, when we say \textquotedblleft the $2\times5$-matrix
-$E_{1,4}$, it is clear that $n=2$ and $m=5$).
+$E_{1,4}$\textquotedblright, it is clear that $n=2$ and $m=5$).
 
 The matrices $E_{u,v}$ (for varying $u$ and $v$) are called the
 \textit{standard matrix units}.
@@ -4896,10 +4896,10 @@ and its all other entries are $0$.
 
 The $3\times2$-matrix $E_{2,2}$ (also known as $E_{2,2,3,2}$) is $\left(
 \begin{array}
-[c]{ccc}%
-0 & 0 & 0\\
-0 & 1 & 0\\
-0 & 0 & 0
+[c]{cc}%
+0 & 0\\
+0 & 1\\
+0 & 0
 \end{array}
 \right)  $.
 \end{example}
@@ -5954,8 +5954,8 @@ is lower-unitriangular if and only if $C$ is a product of lower addition matrice
 \end{theorem}
 
 \begin{example}
-\label{exam.thm.triangular.Alamuv}\textbf{(a)} The unitriangular $2\times
-2$-matrix $\left(
+\label{exam.thm.triangular.Alamuv}\textbf{(a)} The lower-unitriangular
+$2\times2$-matrix $\left(
 \begin{array}
 [c]{cc}%
 1 & 0\\
@@ -5964,7 +5964,7 @@ is lower-unitriangular if and only if $C$ is a product of lower addition matrice
 \right)  $ is a product of lower addition matrices: Namely, it equals
 $A_{2,1}^{5}$.
 
-\textbf{(b)} The unitriangular $1\times1$-matrix $\left(
+\textbf{(b)} The lower-unitriangular $1\times1$-matrix $\left(
 \begin{array}
 [c]{c}%
 1
@@ -5978,7 +5978,7 @@ be $I_{1}$, and this is precisely our matrix $\left(
 \end{array}
 \right)  $.)
 
-\textbf{(c)} Let $C$ be the unitriangular $3\times3$-matrix $\left(
+\textbf{(c)} Let $C$ be the lower-unitriangular $3\times3$-matrix $\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -6119,7 +6119,7 @@ identity matrix with the $i$-th diagonal $1$ replaced by a $\lambda$.
 
 \item Explain how $S_{i}^{\lambda}$ acts on matrices (by row/column scaling).
 
-\item $\left(  S_{i}^{\lambda}\right)  ^{-1}=S_{i}^{-\lambda}$ for
+\item $\left(  S_{i}^{\lambda}\right)  ^{-1}=S_{i}^{1/\lambda}$ for
 $\lambda\neq0$.
 
 \item $\left(  S_{i}^{\lambda}\right)  ^{T}=S_{i}^{\lambda}$.
@@ -6170,11 +6170,25 @@ left inverse by change of roles.
 \item Define row echelon matrices a la \cite{Kowals16}. Define pivot cells.
 Note at most one per row, at most one per column.
 
-\item Gaussian elimination: $A=E^{\ast}U$, where $E^{\ast}$ is a product of
+\item Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
 elementary matrices ($A_{u,v}^{\lambda}$, $S_{i}^{\lambda}$, $T_{u,v}$) and
 $U$ is a row-echelon matrix.
 
-\item Example of Gaussian elimination.
+\item Example of Gaussian elimination: $C=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+3 & 2 & 1 & 7\\
+0 & 1 & -1 & 0\\
+-1 & 2 & -3 & 0
+\end{array}
+\right)  $.
+
+\item How to solve $Uv=b$ (back-substitution; beware of zero rows).
+
+\item Thus, solve $Cv=b$.
+
+\item ...
 \end{itemize}
 
 [to be continued]
