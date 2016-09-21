@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 20, 2016 19:21:40}
+%TCIDATA{LastRevised=Tuesday, September 20, 2016 20:18:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -1784,10 +1784,12 @@ $\left(  AB\right)  C=A\left(  BC\right)  $}
 
 We now take a break from studying matrices to introduce an important symbol:
 the summation sign ($\sum$). This sign is one of the hallmarks of abstract
-mathematics (and also computer science), and helps manipulate matrices comfortably.
+mathematics (and also computer science), and helps manipulate matrices
+comfortably. Here is a quick (but informal) definition of the summation sign
+$\sum$:
 
 \begin{definition}
-\label{def.sum}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+\label{def.sum}Let $p$ and $q$ be two integers such that $p\leq q+1$. Let
 $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Then, $\sum_{k=p}^{q}a_{k}$
 means the sum $a_{p}+a_{p+1}+\cdots+a_{q}$. The symbol $\sum$ is called the
 summation sign; we pronounce the expression $\sum_{k=p}^{q}a_{k}$ as
@@ -1795,7 +1797,8 @@ summation sign; we pronounce the expression $\sum_{k=p}^{q}a_{k}$ as
 $q$\textquotedblright.
 \end{definition}
 
-Here are some examples:
+This definition needs some clarifications; but before I give them, let me show
+some examples:
 
 \begin{itemize}
 \item We have $\sum_{k=p}^{q}k=p+\left(  p+1\right)  +\cdots+q$. For example,
@@ -1812,9 +1815,73 @@ this $0$ doesn't change the sum anyway}.)
 well-known formula says that this sum $\sum_{k=1}^{n}k^{2}=1^{2}+2^{2}%
 +\cdots+n^{2}$ equals $\dfrac{n\left(  n+1\right)  \left(  2n+1\right)  }{6}$.)
 
+\item We have $\sum_{k=p}^{q}1=\underbrace{1+1+\cdots+1}_{q-p+1\text{ times}%
+}=q-p+1$. This illustrates the fact that the $a_{k}$ in a sum $\sum_{k=p}%
+^{q}a_{k}$ needs not depend on $k$ (although the cases where it does not
+depend on $k$ are fairly trivial).
+
 \item If $p=q$, then $\sum_{k=p}^{q}a_{k}=a_{p}$. (A sum of only one number is
 simply this number.)
 \end{itemize}
+
+As I have said, a few remarks and clarifications on the summation sign are in order:
+
+\begin{definition}
+\label{def.sum.2}\textbf{(a)} In the expression $\sum_{k=p}^{q}a_{k}$ (as
+defined in Definition \ref{def.sum}), the letter $k$ is called the
+\textit{summation index}. It stands for the \textquotedblleft moving
+part\textquotedblright\ in the sum (e.g., the part in which the addends
+differ). For example, $\sum_{k=p}^{q}\dfrac{1}{k+3}$ is the sum of the
+fractions $\dfrac{1}{k+3}$ for $k$ ranging from $p$ to $q$; its addends all
+have the form $\dfrac{1}{k+3}$, but for different values of $k$.
+
+The summation index doesn't have to be called $k$; any letter is legitimate
+(as long as it is not already used otherwise). For example, $\sum_{i=p}%
+^{q}a_{i}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to write
+$\sum_{k=p}^{q}a_{k}$. Just make sure that you are using the same letter under
+the $\sum$ sign and to its right (so you should not write $\sum_{i=p}^{q}%
+a_{k}$, unless you mean the sum $\underbrace{a_{k}+a_{k}+\cdots+a_{k}%
+}_{q-p+1\text{ times}}$).
+
+\textbf{(b)} You might be wondering what Definition \ref{def.sum} means in the
+case when $p=q+1$; after all, in this case, there are no numbers
+$a_{p},a_{p+1},\ldots,a_{q}$, and the sum $a_{p}+a_{p+1}+\cdots+a_{q}$ has no
+addends. (For example, how should $\sum_{k=2}^{1}k=2+3+\cdots+1$ be
+understood?) However, there is a general convention in mathematics that a sum
+with no addends is always defined to be $0$, and is called an \textit{empty
+sum}. Thus, $\sum_{k=p}^{q}a_{k}=0$ whenever $p=q+1$. For example, $\sum
+_{k=2}^{1}k=0$ and $\sum_{k=0}^{1}\dfrac{1}{k}=0$ (even though $\dfrac{1}{k}$
+makes no sense for $k=0$). (This convention might sound arbitrary, but is
+logically adequate: In fact, it ensures that the equality $a_{p}%
++a_{p+1}+\cdots+a_{q}=\left(  a_{p}+a_{p+1}+\cdots+a_{q-1}\right)  +a_{q}$
+holds not only for $q>p$, but also for $q=p$.)
+
+Many authors define the sum $\sum_{k=p}^{q}a_{k}$ to be $0$ in the case when
+$p>q+1$ as well; thus, the sum $\sum_{k=p}^{q}a_{k}$ is defined for
+\textbf{any} two integers $p$ and $q$ (without the requirement that $p\leq
+q+1$). However, this convention is somewhat slippery: for instance, it entails
+$\sum_{k=1}^{n}k=0$ for all negative $k$, and thus the equality $\sum
+_{k=1}^{n}k=1+2+\cdots+n$ does \textbf{not} hold for negative $n$.
+
+\textbf{(c)} From a fully rigorous point of view, Definition \ref{def.sum} did
+not define $\sum_{k=p}^{q}a_{k}$ at all. Indeed, it defined $\sum_{k=p}%
+^{q}a_{k}$ to be $a_{p}+a_{p+1}+\cdots+a_{q}$, but what does $a_{p}%
++a_{p+1}+\cdots+a_{q}$ mean? The rigorous way to define $\sum_{k=p}^{q}a_{k}$
+is as follows (by recursion):
+
+\begin{itemize}
+\item If $q=p-1$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $0$.
+
+\item If $q>p-1$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $\left(
+\sum_{k=p}^{q-1}a_{k}\right)  +a_{q}$.
+\end{itemize}
+
+This is a recursive definition (since it defines $\sum_{k=p}^{q}a_{k}$ in
+terms of $\sum_{k=p}^{q-1}a_{k}$), and provides an algorithm to compute
+$\sum_{k=p}^{q}a_{k}$. From a formal point of view, \textquotedblleft%
+$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright\ is just a colloquial way to
+say \textquotedblleft$\sum_{k=p}^{q}a_{k}$\textquotedblright.
+\end{definition}
 
 Notice that the expression \textquotedblleft$\sum_{k=p}^{q}a_{k}%
 $\textquotedblright\ is both a more compact and a more rigorous way to say
@@ -1824,25 +1891,13 @@ would not understand the expression \textquotedblleft$a_{p}+a_{p+1}%
 \textquotedblleft$\cdots$\textquotedblright\ means, and computers are bad at
 guessing); but the expression \textquotedblleft$\sum_{k=p}^{q}a_{k}%
 $\textquotedblright\ has a well-defined meaning that can be rigorously defined
-and can be explained to a computer\footnote{Of course, the way we defined it
-above is not rigorous. Here is how to define it rigorously (if you know
-recursion):
-\par
-\begin{itemize}
-\item If $q=p$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $a_{p}$.
-\par
-\item If $q>p$, then $\sum_{k=p}^{q}a_{k}$ is defined to be $\left(
-\sum_{k=p}^{q-1}a_{k}\right)  +a_{q}$.
-\end{itemize}
-\par
-This is a recursive definition (since it defines $\sum_{k=p}^{q}a_{k}$ in
-terms of $\sum_{k=p}^{q-1}a_{k}$), and provides an algorithm to compute
-$\sum_{k=p}^{q}a_{k}$.}. Thus, if you want to tell a computer to compute a
-sum, the command you have to use will be closer to \textquotedblleft%
-$\sum_{k=p}^{q}a_{k}$\textquotedblright\ than to \textquotedblleft%
-$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. For example, in Python, you
-would have to write \textquotedblleft\texttt{sum(a[k] for k in range(p,
-q+1))}\textquotedblright\ (where \textquotedblleft\texttt{a[k]}%
+and can be explained to a computer\footnote{See Definition \ref{def.sum.2}
+\textbf{(c)} for the rigorous definition of $\sum_{k=p}^{q}a_{k}$.}. Thus, if
+you want to tell a computer to compute a sum, the command you have to use will
+be closer to \textquotedblleft$\sum_{k=p}^{q}a_{k}$\textquotedblright\ than to
+\textquotedblleft$a_{p}+a_{p+1}+\cdots+a_{q}$\textquotedblright. For example,
+in Python, you would have to write \textquotedblleft\texttt{sum(a[k] for k in
+range(p, q+1))}\textquotedblright\ (where \textquotedblleft\texttt{a[k]}%
 \textquotedblright\ is understood to return $a_{k}$)\ \ \ \ \footnote{Why
 \textquotedblleft\texttt{q+1}\textquotedblright\ and not \textquotedblleft%
 \texttt{q}\textquotedblright? Because Python defines \texttt{range(u, v)} as
@@ -1850,25 +1905,6 @@ the list $\left(  u,u+1,\ldots,v-1\right)  $ (that is, the list that starts at
 $u$ and ends \textbf{just before} $v$). So \texttt{range(p, q)} would be
 $\left(  p,p+1,\ldots,q-1\right)  $, but we want $\left(  p,p+1,\ldots
 ,q\right)  $.}.
-
-A few remarks on the summation sign are in order:
-
-\begin{definition}
-\label{def.sum.2}\textbf{(a)} In the expression $\sum_{k=p}^{q}a_{k}$ (as
-defined in Definition \ref{def.sum}), the letter $k$ is called the
-\textit{summation index}. It doesn't have to be called $k$; any letter is
-legitimate (as long as it is not already used otherwise). For example,
-$\sum_{i=p}^{q}a_{i}$ and $\sum_{x=p}^{q}a_{x}$ are two synonymous ways to
-write $\sum_{k=p}^{q}a_{k}$. Just make sure that the you are using the same
-letter under the $\sum$ sign and to its right (so you should not write
-$\sum_{i=p}^{q}a_{k}$, unless you mean the sum $\underbrace{a_{k}+a_{k}%
-+\cdots+a_{k}}_{q-p+1\text{ times}}$).
-
-\textbf{(b)} The sum $\sum_{k=p}^{q}a_{k}$ is also defined when $p>q$. In this
-case, it is called an \textit{empty sum} (because there are no numbers
-$a_{p},a_{p+1},\ldots,a_{q}$) and defined to be $0$. This convention might
-sound somewhat arbitrary, but it is the most reasonable way to define empty sums.
-\end{definition}
 
 Using the summation sign, we can rewrite the product $AB$ of two matrices $A$
 and $B$ (see Definition \ref{def.AB}) more nicely:
@@ -1902,8 +1938,8 @@ Here are two properties of sums that are fairly clear if you understand how
 sums are defined:
 
 \begin{proposition}
-\label{prop.sum.dist}Let $p$ and $q$ be two integers such that $p\leq q$. Let
-$a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
+\label{prop.sum.dist}Let $p$ and $q$ be two integers such that $p\leq q+1$.
+Let $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b$ be a number. Then,
 \[
 \sum_{k=p}^{q}ba_{k}=b\sum_{k=p}^{q}a_{k}.
 \]
@@ -1924,7 +1960,7 @@ a_{p}+a_{p+1}+\cdots+a_{q}\right)  }_{\substack{=\sum_{k=p}^{q}a_{k}%
 \end{proof}
 
 \begin{proposition}
-\label{prop.sum.a+b}Let $p$ and $q$ be two integers such that $p\leq q$. Let
+\label{prop.sum.a+b}Let $p$ and $q$ be two integers such that $p\leq q+1$. Let
 $a_{p},a_{p+1},\ldots,a_{q}$ be some numbers. Let $b_{p},b_{p+1},\ldots,b_{q}$
 be some numbers. Then,
 \[
@@ -1936,8 +1972,7 @@ $\left(  \sum_{k=p}^{q}a_{k}\right)  +\left(  \sum_{k=p}^{q}b_{k}\right)  $.)
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.sum.dist}.]By the definition of $\sum$, we
-have%
+[Proof of Proposition \ref{prop.sum.a+b}.]By the definition of $\sum$, we have%
 \begin{align*}
 \sum_{k=p}^{q}\left(  a_{k}+b_{k}\right)   &  =\left(  a_{p}+b_{p}\right)
 +\left(  a_{p+1}+b_{p+1}\right)  +\cdots+\left(  a_{q}+b_{q}\right) \\
@@ -2090,10 +2125,10 @@ sign}\right) \\
 we obtain $\sum_{k=1}^{m}\left(  \sum_{\ell=1}^{p}a_{k,\ell}\right)
 =\sum_{\ell=1}^{p}\left(  \sum_{k=1}^{m}a_{k,\ell}\right)  $.
 
-(A more rigorous proof could be given using induction; but this one will
-suffice for our purposes. Notice the visual meaning of the above proof: If we
-place the $mp$ numbers $a_{k,\ell}$ into a matrix $\left(  a_{k,\ell}\right)
-_{1\leq k\leq m,\ 1\leq\ell\leq p}$, then
+(A more rigorous proof could be given using induction; but I don't want to
+move to that level of formalism in these notes. Notice the visual meaning of
+the above proof: If we place the $mp$ numbers $a_{k,\ell}$ into a matrix
+$\left(  a_{k,\ell}\right)  _{1\leq k\leq m,\ 1\leq\ell\leq p}$, then
 
 \begin{itemize}
 \item the number $\sum_{k=1}^{m}\sum_{\ell=1}^{p}a_{k,\ell}$ is obtained by
@@ -6581,10 +6616,10 @@ $\Longrightarrow$ direction) actually gives an explicit representation of a
 lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
 matrices:%
 \begin{align*}
-C &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
+C  &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
 }\right)  \left(  A_{3,2}^{-C_{3,2}}A_{4,2}^{-C_{4,2}}\cdots A_{n,2}%
 ^{-C_{n,2}}\right)  \left(  A_{4,3}^{-C_{4,3}}A_{5,3}^{-C_{5,3}}\cdots
-A_{n,3}^{-C_{n,3}}\right)  \\
+A_{n,3}^{-C_{n,3}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n,n-3}^{-C_{n,n-3}}A_{n-1,n-3}%
 ^{-C_{n-1,n-3}}A_{n-2,n-3}^{-C_{n-2,n-3}}\right)  \left(  A_{n,n-2}%
 ^{-C_{n,n-2}}A_{n-1,n-2}^{-C_{n-1,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
