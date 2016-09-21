@@ -1363,7 +1363,7 @@ C_{1,k}=A_{i,k}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
 Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \begin{align*}
 &  \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
-\left(  AB\right)  \right) \\
+\left(  AB\right)  \right)  \\
 &  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }AB\right)
 =\left(  AB\right)  _{i,j}\\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
@@ -1372,13 +1372,13 @@ Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \end{align*}
 Comparing this with%
 \begin{align*}
-&  \left(  \text{the }j\text{-th entry of }CB\right) \\
+&  \left(  \text{the }j\text{-th entry of }CB\right)  \\
 &  =\left(  \text{the }\left(  1,j\right)  \text{-th entry of }CB\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right) \\
-&  =\underbrace{C_{1,1}}_{\substack{=A_{1,1}\\\text{(by
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right)  \\
+&  =\underbrace{C_{1,1}}_{\substack{=A_{i,1}\\\text{(by
 (\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{1,j}+\underbrace{C_{1,2}%
-}_{\substack{=A_{1,2}\\\text{(by (\ref{pf.prop.matrix-prod.rc.c.1}))}}%
-}B_{2,j}+\cdots+\underbrace{C_{1,m}}_{\substack{=A_{1,m}\\\text{(by
+}_{\substack{=A_{i,2}\\\text{(by (\ref{pf.prop.matrix-prod.rc.c.1}))}}%
+}B_{2,j}+\cdots+\underbrace{C_{1,m}}_{\substack{=A_{i,m}\\\text{(by
 (\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{m,j}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
@@ -1387,14 +1387,14 @@ Comparing this with%
 }1\text{, }C\text{ and }1\\
 \text{instead of }n\text{, }A\text{ and }i
 \end{array}
-\right) \\
+\right)  \\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j},
 \end{align*}
 we obtain%
 \begin{equation}
 \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
 \left(  AB\right)  \right)  =\left(  \text{the }j\text{-th entry of
-}CB\right)  . \label{pf.prop.matrix-prod.rc.c.5}%
+}CB\right)  .\label{pf.prop.matrix-prod.rc.c.5}%
 \end{equation}
 
 
@@ -1598,10 +1598,10 @@ x^{\prime} & y^{\prime} & z^{\prime}%
 \begin{array}
 [c]{c}%
 ad^{\prime}x^{\prime}+be^{\prime}x^{\prime}+cf^{\prime}x^{\prime
-}+bxe+adx+cfx\\
+}+bex+adx+cfx\\
 ad^{\prime}y^{\prime}+be^{\prime}y^{\prime}+cf^{\prime}y^{\prime
-}+bye+ady+cfy\\
-ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bze+adz+cfz
+}+bey+ady+cfy\\
+ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bez+adz+cfz
 \end{array}
 \right)  ^{T}%
 \end{align*}
@@ -1626,7 +1626,7 @@ x^{\prime} & y^{\prime} & z^{\prime}%
 \begin{array}
 [c]{ccc}%
 d^{\prime}x^{\prime}+dx & d^{\prime}y^{\prime}+dy & d^{\prime}z^{\prime}+dz\\
-e^{\prime}x^{\prime}+xe & e^{\prime}y^{\prime}+ye & e^{\prime}z^{\prime}+ze\\
+e^{\prime}x^{\prime}+ex & e^{\prime}y^{\prime}+ey & e^{\prime}z^{\prime}+ez\\
 f^{\prime}x^{\prime}+fx & f^{\prime}y^{\prime}+fy & f^{\prime}z^{\prime}+fz
 \end{array}
 \right)
@@ -1637,10 +1637,10 @@ A\left(  BC\right)  =\left(
 \begin{array}
 [c]{c}%
 ad^{\prime}x^{\prime}+be^{\prime}x^{\prime}+cf^{\prime}x^{\prime
-}+bxe+adx+cfx\\
+}+bex+adx+cfx\\
 ad^{\prime}y^{\prime}+be^{\prime}y^{\prime}+cf^{\prime}y^{\prime
-}+bye+ady+cfy\\
-ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bze+adz+cfz
+}+bey+ady+cfy\\
+ad^{\prime}z^{\prime}+be^{\prime}z^{\prime}+cf^{\prime}z^{\prime}+bez+adz+cfz
 \end{array}
 \right)  ^{T}.
 \]
@@ -3284,9 +3284,10 @@ Matrices filled with elements of a commutative ring $\mathbb{K}$ are called
 \textit{matrices over }$\mathbb{K}$. More precisely:
 
 \begin{definition}
-If $n\in\mathbb{N}$ and $m\in\mathbb{N}$, then an $n\times m$\textit{-matrix
-over }$\mathbb{K}$ simply means a rectangular table with $n$ rows and $m$
-columns, such that each cell is filled with an element of $\mathbb{K}$.
+Let $\mathbb{K}$ be a commutative ring. If $n\in\mathbb{N}$ and $m\in
+\mathbb{N}$, then an $n\times m$\textit{-matrix over }$\mathbb{K}$ simply
+means a rectangular table with $n$ rows and $m$ columns, such that each cell
+is filled with an element of $\mathbb{K}$.
 \end{definition}
 
 Thus, matrices over $\mathbb{Q}$ are matrices with rational entries; matrices
@@ -4422,7 +4423,9 @@ only if we have%
 \[
 A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
 \]
-
+(Of course, \textquotedblleft whenever $i>j$\textquotedblright\ is shorthand
+for \textquotedblleft for all $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,n\right\}  $ satisfying $i>j$\textquotedblright.)
 
 \textbf{(b)} We say that the matrix $A$ is \textit{lower-triangular} if and
 only if we have%
@@ -5007,7 +5010,7 @@ $A^{T}$ is invertibly lower-triangular.
 $A^{T}$ is strictly lower-triangular.
 \end{proposition}
 
-\subsection{\label{sect.gauss.triang-proof1} (*) Proof of Proposition
+\subsection{\label{sect.gauss.triang-proof1}(*) Proof of Proposition
 \ref{prop.triangular.uni-inv}}
 
 Here is a detailed proof of Proposition \ref{prop.triangular.uni-inv}:
@@ -6775,7 +6778,7 @@ lower-unitriangular. This can easily be checked: We have $A^{-1}=\left(
 \end{example}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.inverse}.] Theorem
+[Proof of Theorem \ref{thm.triangular.inverse}.]Theorem
 \ref{thm.triangular.Alamuv} (applied to $C=A$) shows that $A$ is
 lower-unitriangular if and only if $A$ is a product of lower addition
 matrices. Hence, $A$ is a product of lower addition matrices (since $A$ is
@@ -6885,7 +6888,7 @@ However, we can also quickly derive Theorem \ref{thm.triangular.inverse-up}
 from Theorem \ref{thm.triangular.inverse} using transposes:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.inverse-up}.] We know that $A$ is
+[Proof of Theorem \ref{thm.triangular.inverse-up}.]We know that $A$ is
 upper-unitriangular. Hence, by Proposition \ref{prop.triangular.UT=D.uni}
 \textbf{(a)}, we can conclude that $A^{T}$ is lower-unitriangular. Therefore,
 we can apply Theorem \ref{thm.triangular.inverse} to $A^{T}$ instead of $A$.
