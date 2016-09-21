@@ -2505,7 +2505,7 @@ Here is a simple application of matrix multiplication to elementary mathematics.
 \label{def.fibonacci}The \textit{Fibonacci sequence} is the sequence $\left(
 0,1,1,2,3,5,8,13,21,34,55,\ldots\right)  $ that is defined as follows: Its
 first two entries are $0$ and $1$, and each further entry is the sum of the
-previous entries. In more formal terms, it is the sequence $\left(
+previous two entries. In more formal terms, it is the sequence $\left(
 f_{0},f_{1},f_{2},f_{3},\ldots\right)  $ (we start the labelling at $0$)
 defined recursively by%
 \begin{align*}
@@ -2516,9 +2516,17 @@ The elements of this sequence are called the \textit{Fibonacci numbers}.
 \end{definition}
 
 Definition \ref{def.fibonacci} gives a straightforward way to compute each
-given Fibonacci number $f_{n}$, by computing the first $n+1$ Fibonacci numbers
-$f_{0},f_{1},\ldots,f_{n}$ one after the others. However, when $n$ is large,
-this takes some time (each of the $n+1$ first Fibonacci numbers has to be
+particular Fibonacci number $f_{n}$, by computing the first $n+1$ Fibonacci numbers
+$f_{0},f_{1},\ldots,f_{n}$ one after the others. For example, it gives
+\begin{align*}
+f_0 = 0; \qquad f_1 = 1; \qquad f_2 = 1+0 = 1; \qquad f_3 = 1+1 = 2;
+\qquad f_4 = 2+1 = 3; \\
+f_5 = 3+2 = 5; \qquad f_6 = 5+3 = 8; \qquad f_7 = 8+5 = 13; \qquad
+f_8 = 13+8 = 21,
+\end{align*}
+and so on.
+However, when $n$ is large, computing $f_n$ by this method is
+time-consuming (each of the $n+1$ first Fibonacci numbers has to be
 computed!). Is there a faster way to compute Fibonacci numbers?
 
 It turns out that there is. It is based on the following fact:
@@ -2578,7 +2586,8 @@ f_{1} & f_{1-1}%
 \end{array}
 \right)  $. In other words, Proposition \ref{prop.fibonacci.matrix} holds for
 $n=1$. This completes the induction base. (This was a completely
-straightforward computation, and in the future will be left to the reader.)
+straightforward computation. In the future, we will often leave such
+computations to the reader.)
 
 \textit{Induction step:} Let $N$ be a positive integer. Assume that
 Proposition \ref{prop.fibonacci.matrix} holds for $n=N$. We must show that
@@ -3027,7 +3036,7 @@ useless in practice. The system (\ref{eq.inexact.1}) is a rather ill-behaved
 system; many systems allow for a pretty good approximation of their solutions
 even in spite of imprecisions, and even when a system is ill-behaved like
 (\ref{eq.inexact.1}), there are methods that compute the \textquotedblleft
-likeliest solutions\textquotedblright\ (such as the least-squares method). We
+likeliest solution\textquotedblright\ (such as the least-squares method). We
 shall (hopefully) see some of these methods in these notes. A less alarmist
 slogan would thus be: You can do linear algebra with real numbers, but you
 should be aware of its limitations and keep track of the errors
@@ -4971,7 +4980,8 @@ In other words, $\left(I_n - A\right)_{i, j} = 0$ whenever
 $i > j$. This means that $I_n - A$ is upper-triangular (by the
 definition of ``upper-triangular''). 
 
-Moreover, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
+Recall again that matrices are subtracted entry by entry.
+Hence, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
 \begin{equation*}
 \left(I_n - A\right)_{i, i}
 = \underbrace{\left(I_n\right)_{i,i}}_{\substack{= 1 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}}
@@ -5024,7 +5034,8 @@ In other words, $A_{i, j} = 0$ whenever
 $i > j$. This means that $A$ is upper-triangular (by the
 definition of ``upper-triangular''). 
 
-Moreover, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
+Recall again that matrices are subtracted entry by entry.
+Hence, every $i \in \left\{1, 2, \ldots, n\right\}$ satisfies
 \begin{equation*}
 \left(I_n - A\right)_{i, i}
 = \underbrace{\left(I_n\right)_{i,i}}_{\substack{= 1 \\ \text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}}
@@ -6368,14 +6379,25 @@ The general proof of Theorem \ref{thm.triangular.Alamuv} follows the idea
 outlined in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}:
 
 \begin{proof}
-[Proof of Theorem \ref{thm.triangular.Alamuv}.]$\Longleftarrow$:
+[Proof of Theorem \ref{thm.triangular.Alamuv}.]$\Longleftarrow$:\footnote{The
+symbol ``$\Longleftarrow$'' means that we are now going to prove the
+``$\Longleftarrow$ direction'' of Theorem \ref{thm.triangular.Alamuv}
+(that is, we are going to prove that if $C$ is a product of lower
+addition matrices, then $C$ is lower-triangular). See
+Section \ref{sect.gauss.triang-proof1} for more about this notation.}
 We have already proven that
 every product of lower addition matrices is lower-unitriangular. Hence, if $C$
 is a product of lower addition matrices, then $C$ is lower-unitriangular.
 This proves the $\Longleftarrow$ direction of
 Theorem \ref{thm.triangular.Alamuv}.
 
-$\Longrightarrow$: We need to prove that if $C$ is
+$\Longrightarrow$:\footnote{The
+symbol ``$\Longrightarrow$'' means that we are now going to prove the
+``$\Longrightarrow$ direction'' of Theorem \ref{thm.triangular.Alamuv}
+(that is, we are going to prove that if $C$ is lower-triangular, then
+$C$ is a product of lower addition matrices). See
+Section \ref{sect.gauss.triang-proof1} for more about this notation.}
+We need to prove that if $C$ is
 lower-unitriangular, then $C$ is a product of lower addition matrices.
 
 So let us assume that $C$ is lower-unitriangular. Our goal is to prove that
