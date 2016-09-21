@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 20, 2016 20:33:56}
+%TCIDATA{LastRevised=Tuesday, September 20, 2016 21:08:48}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -497,8 +497,8 @@ then assemble these entries back into an $n\times m$-matrix (arranged in the
 same way as in $A$), then you get back $A$. In other words: For every $n\times
 m$-matrix $A$, we have%
 \begin{equation}
-\left(  A_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}%
-=A.\label{eq.matrix.A-through-Aij}%
+\left(  A_{i,j}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}=A.
+\label{eq.matrix.A-through-Aij}%
 \end{equation}
 
 
@@ -4196,15 +4196,16 @@ being applied in the induction step\textquotedblright, and declare the proof fin
 \end{proof}
 
 \begin{remark}
-It is common to define the product of $0$ square matrices of size $n\times n$
-(an \textquotedblleft empty product of $n\times n$-matrices\textquotedblright)
-as the identity matrix $I_{n}$ (similarly to how a product of $0$ numbers is
-defined to be $1$). With this convention, Proposition \ref{prop.inverses.A1Ak}
-holds for $k=0$ too (it then states that $\left(  I_{n}\right)  ^{-1}=I_{n}$),
-as long as we agree what size our non-existing matrices are considered to have
-(it has to be $n\times n$ for some $n\in\mathbb{N}$). With this convention, we
-could have started our induction (in the above proof of Proposition
-\ref{prop.inverses.A1Ak}) at $k=0$ instead of $k=1$.
+\label{rmk.prop.inverses.A1Ak.k=0}It is common to define the product of $0$
+square matrices of size $n\times n$ (an \textquotedblleft empty product of
+$n\times n$-matrices\textquotedblright) as the identity matrix $I_{n}$
+(similarly to how a product of $0$ numbers is defined to be $1$). With this
+convention, Proposition \ref{prop.inverses.A1Ak} holds for $k=0$ too (it then
+states that $\left(  I_{n}\right)  ^{-1}=I_{n}$), as long as we agree what
+size our non-existing matrices are considered to have (it has to be $n\times
+n$ for some $n\in\mathbb{N}$). With this convention, we could have started our
+induction (in the above proof of Proposition \ref{prop.inverses.A1Ak}) at
+$k=0$ instead of $k=1$.
 \end{remark}
 
 \begin{corollary}
@@ -4880,9 +4881,8 @@ upper-triangular matrix is invertible if and only if it is invertibly upper-tria
 Here is a simple fact to connect the above definitions:
 
 \begin{proposition}
-\label{prop.triangular.uni-inv}
-
-\textbf{(a)} Each upper-unitriangular matrix is invertibly upper-triangular.
+\label{prop.triangular.uni-inv}\textbf{(a)} Each upper-unitriangular matrix is
+invertibly upper-triangular.
 
 \textbf{(b)} Let $n \in\mathbb{N}$. Let $A$ be an $n \times n$-matrix. Then,
 $A$ is upper-unitriangular if and only if $I_{n} - A$ is strictly upper-triangular.
@@ -4990,6 +4990,22 @@ matrix. But this is clear by inspection.
 \ref{prop.inverses.AB}, we need to use Corollary \ref{cor.triangular.uni*uni}.
 \end{itemize}
 \end{proof}
+
+The reader can easily check that the following analogue of Proposition
+\ref{prop.triangular.UT=D} holds:
+
+\begin{proposition}
+\label{prop.triangular.UT=D.uni}Let $n\in\mathbb{N}$. Let $A$ be an $n\times
+n$-matrix. Then:
+
+\textbf{(a)} The matrix $A$ is upper-unitriangular if and only if $A^{T}$ is lower-unitriangular.
+
+\textbf{(b)} The matrix $A$ is invertibly upper-triangular if and only if
+$A^{T}$ is invertibly lower-triangular.
+
+\textbf{(c)} The matrix $A$ is strictly upper-triangular if and only if
+$A^{T}$ is strictly lower-triangular.
+\end{proposition}
 
 \subsection{\label{sect.gauss.triang-proof1} (*) Proof of Proposition
 \ref{prop.triangular.uni-inv}}
@@ -6727,13 +6743,188 @@ work? And what formulas do they result in?
 for every lower-unitriangular matrix $C$\textquotedblright.)
 \end{exercise}
 
+\subsection{The inverse of a lower-unitriangular matrix}
+
+Theorem \ref{thm.triangular.Alamuv} has the following neat consequence:
+
+\begin{theorem}
+\label{thm.triangular.inverse}Let $n\in\mathbb{N}$. Let $A$ be a
+lower-unitriangular $n\times n$-matrix. Then, $A$ is invertible, and its
+inverse $A^{-1}$ is again lower-unitriangular.
+\end{theorem}
+
+\begin{example}
+\label{exam.thm.triangular.inverse}Let $A$ be the lower-triangular $3\times
+3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+-2 & 1 & 0\\
+1 & 6 & 1
+\end{array}
+\right)  $. Theorem \ref{thm.triangular.inverse} (applied to $n=3$) then
+claims that $A$ is invertible, and that its inverse $A^{-1}$ is again
+lower-unitriangular. This can easily be checked: We have $A^{-1}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+2 & 1 & 0\\
+-13 & -6 & 1
+\end{array}
+\right)  $.
+\end{example}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.inverse}.] Theorem
+\ref{thm.triangular.Alamuv} (applied to $C=A$) shows that $A$ is
+lower-unitriangular if and only if $A$ is a product of lower addition
+matrices. Hence, $A$ is a product of lower addition matrices (since $A$ is
+lower-unitriangular). In other words, $A$ has the form $A=A_{1}A_{2}\cdots
+A_{k}$ for some $k\in\mathbb{N}$ and some $k$ lower addition matrices
+$A_{1},A_{2},\ldots,A_{k}$. Consider these $k$ and $A_{1},A_{2},\ldots,A_{k}$.
+
+We are in one of the following two cases:
+
+\begin{statement}
+\textit{Case 1:} We have $k\neq0$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} We have $k=0$.
+\end{statement}
+
+Let us deal with Case 1. In this case, we have $k\neq0$; thus, $k$ is a
+positive integer.
+
+For each $i\in\left\{  1,2,\ldots,k\right\}  $, the matrix $A_{i}$ is
+invertible\footnote{\textit{Proof.} Let $i\in\left\{  1,2,\ldots,k\right\}  $.
+We must show that the matrix $A_{i}$ is invertible.
+\par
+We know that $A_{i}$ is a lower addition matrix (since $A_{1},A_{2}%
+,\ldots,A_{k}$ are lower addition matrices). In other words, $A_{i}$ has the
+form $A_{i}=A_{u,v}^{\lambda}$, where $\lambda$ is a number, and where $u$ and
+$v$ are two elements of $\left\{  1,2,\ldots,n\right\}  $ satisfying $u>v$ (by
+the definition of a \textquotedblleft lower addition matrix\textquotedblright%
+). Consider these $\lambda$, $u$ and $v$. Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(c)} shows that the matrix $A_{u,v}%
+^{\lambda}$ is invertible. In other words, the matrix $A_{i}$ is invertible
+(since $A_{i}=A_{u,v}^{\lambda}$). This completes our proof.}, and its inverse
+$A_{i}^{-1}$ is again a lower addition matrix\footnote{\textit{Proof.} Let
+$i\in\left\{  1,2,\ldots,k\right\}  $. We must show that $A_{i}^{-1}$ is a
+lower addition matrix.
+\par
+We know that $A_{i}$ is a lower addition matrix (since $A_{1},A_{2}%
+,\ldots,A_{k}$ are lower addition matrices). In other words, $A_{i}$ has the
+form $A_{i}=A_{u,v}^{\lambda}$, where $\lambda$ is a number, and where $u$ and
+$v$ are two elements of $\left\{  1,2,\ldots,n\right\}  $ satisfying $u>v$ (by
+the definition of a \textquotedblleft lower addition matrix\textquotedblright%
+). Consider these $\lambda$, $u$ and $v$. Proposition
+\ref{prop.Alamuv.lambda+mu} \textbf{(c)} shows that the matrix $A_{u,v}%
+^{\lambda}$ is invertible, and that its inverse is $\left(  A_{u,v}^{\lambda
+}\right)  ^{-1}=A_{u,v}^{-\lambda}$.
+\par
+But $A_{u,v}^{-\lambda}$ is a lower addition matrix (since $-\lambda$ is a
+number, and since $u>v$). In other words, $A_{i}^{-1}$ is a lower addition
+matrix (since $\left(  \underbrace{A_{i}}_{=A_{u,v}^{\lambda}}\right)
+^{-1}=\left(  A_{u,v}^{\lambda}\right)  ^{-1}=A_{u,v}^{-\lambda}$). This
+completes our proof.}. In other words, the matrices $A_{1},A_{2},\ldots,A_{k}$
+are invertible, and their inverses $A_{1}^{-1},A_{2}^{-1},\ldots,A_{k}^{-1}$
+are again lower addition matrices. In other words, $A_{k}^{-1},A_{k-1}%
+^{-1},\ldots,A_{1}^{-1}$ are lower addition matrices.
+
+Now, Proposition \ref{prop.inverses.A1Ak} shows that the matrix $A_{1}%
+A_{2}\cdots A_{k}$ is invertible, and its inverse is $\left(  A_{1}A_{2}\cdots
+A_{k}\right)  ^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}^{-1}$. Since
+$A=A_{1}A_{2}\cdots A_{k}$, this rewrites as follows: The matrix $A$ is
+invertible, and its inverse is $A^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}%
+^{-1}$.
+
+The equality $A^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}^{-1}$ shows that
+$A^{-1}$ is a product of lower addition matrices (since $A_{k}^{-1}%
+,A_{k-1}^{-1},\ldots,A_{1}^{-1}$ are lower addition matrices). But Theorem
+\ref{thm.triangular.Alamuv} (applied to $C=A^{-1}$) shows that $A^{-1}$ is
+lower-unitriangular if and only if $A^{-1}$ is a product of lower addition
+matrices. Hence, $A^{-1}$ is lower-unitriangular (since $A^{-1}$ is a product
+of lower addition matrices). This completes the proof of Theorem
+\ref{thm.triangular.inverse} in Case 1.
+
+Case 2 is trivial (indeed, $A=I_{n}$ in this case) and is left to the
+reader.\footnote{Alternatively, our proof for Case 1 can be made to work in
+Case 2 as well, because Proposition \ref{prop.inverses.A1Ak} holds for $k=0$
+(as long as we define the empty product to be $I_{n}$). See Remark
+\ref{rmk.prop.inverses.A1Ak.k=0} for the details.} Thus, Theorem
+\ref{thm.triangular.inverse} is proven in both Cases 1 and 2; this shows that
+Theorem \ref{thm.triangular.inverse} is always valid.
+\end{proof}
+
+A similar result holds for upper-triangular matrices:
+
+\begin{theorem}
+\label{thm.triangular.inverse-up}Let $n\in\mathbb{N}$. Let $A$ be an
+upper-unitriangular $n\times n$-matrix. Then, $A$ is invertible, and its
+inverse $A^{-1}$ is again upper-unitriangular.
+\end{theorem}
+
+We could prove Theorem \ref{thm.triangular.inverse-up} by modifying our above
+proof of Theorem \ref{thm.triangular.inverse} (replacing \textquotedblleft
+lower\textquotedblright\ by \textquotedblleft upper\textquotedblright%
+\ everywhere); of course, this would necessitate an analogue for Theorem
+\ref{thm.triangular.Alamuv} concerning upper-unitriangular instead of
+lower-unitriangular matrices (and upper addition matrices instead of lower
+addition matrices\footnote{Of course, these upper addition matrices are
+defined exactly as you would expect: They are the matrices of the form
+$A_{u,v}^{\lambda}$, where $\lambda$ is a number, and where $u$ and $v$ are
+two elements of $\left\{  1,2,\ldots,n\right\}  $ satisfying $u<v$.}). The
+proof of this analogue would then proceed similarly to our proof of Theorem
+\ref{thm.triangular.Alamuv}, but again with some changes (e.g., instead of
+clearing out the columns from the first to the last, we would have to clear
+out the columns from the last to the first, and we would achieve this using
+\textquotedblleft upward row additions\textquotedblright).
+
+However, we can also quickly derive Theorem \ref{thm.triangular.inverse-up}
+from Theorem \ref{thm.triangular.inverse} using transposes:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.inverse-up}.] We know that $A$ is
+upper-unitriangular. Hence, by Proposition \ref{prop.triangular.UT=D.uni}
+\textbf{(a)}, we can conclude that $A^{T}$ is lower-unitriangular. Therefore,
+we can apply Theorem \ref{thm.triangular.inverse} to $A^{T}$ instead of $A$.
+As a result, we see that $A^{T}$ is invertible, and its inverse $\left(
+A^{T}\right)  ^{-1}$ is again lower-unitriangular.
+
+Hence, we can apply Proposition \ref{prop.transpose.opers} \textbf{(f)} to
+$A^{T}$ instead of $A$. Thus, we conclude that the matrix $\left(
+A^{T}\right)  ^{T}$ is invertible, and its inverse is $\left(  \left(
+A^{T}\right)  ^{T}\right)  ^{-1}=\left(  \left(  A^{T}\right)  ^{-1}\right)
+^{T}$. Since $\left(  A^{T}\right)  ^{T}=A$ (by Proposition
+\ref{prop.transpose.invol}, applied to $m=n$), this rewrites as follows: The
+matrix $A$ is invertible, and its inverse is $A^{-1}=\left(  \left(
+A^{T}\right)  ^{-1}\right)  ^{T}$.
+
+It remains to prove that $A^{-1}$ is upper-unitriangular. This is again quite
+easy: We have%
+\[
+\left(  \underbrace{A^{-1}}_{=\left(  \left(  A^{T}\right)  ^{-1}\right)
+^{T}}\right)  ^{T}=\left(  \left(  \left(  A^{T}\right)  ^{-1}\right)
+^{T}\right)  ^{T}=\left(  A^{T}\right)  ^{-1}%
+\]
+(by Proposition \ref{prop.transpose.invol}, applied to $n$ and $\left(
+A^{T}\right)  ^{-1}$ instead of $m$ and $A$). Hence, $\left(  A^{-1}\right)
+^{T}$ is lower-unitriangular (because we already know that $\left(
+A^{T}\right)  ^{-1}$ is lower-unitriangular). But Proposition
+\ref{prop.triangular.UT=D.uni} \textbf{(a)} (applied to $A^{-1}$ instead of
+$A$) shows that $A^{-1}$ is upper-unitriangular if and only if $\left(
+A^{-1}\right)  ^{T}$ is lower-unitriangular. Since $\left(  A^{-1}\right)
+^{T}$ is lower-unitriangular, we thus conclude that $A^{-1}$ is
+upper-unitriangular. This completes our proof of Theorem
+\ref{thm.triangular.inverse-up}.
+\end{proof}
+
+[...]
+
 \textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{itemize}
-\item Conclude that unitriangular matrices are invertible, with like inverses.
-
-\item Same for upper-triangular.
-
 \item Introduce $S_{i}^{\lambda}=I_{n}+\left(  \lambda-1\right)  E_{i,i}$, the
 identity matrix with the $i$-th diagonal $1$ replaced by a $\lambda$.
 
@@ -6744,7 +6935,10 @@ $\lambda\neq0$.
 
 \item $\left(  S_{i}^{\lambda}\right)  ^{T}=S_{i}^{\lambda}$.
 
-\item Conclude that invertibly triangular matrices are invertible, with like inverses.
+\item Conclude that invertibly lower-triangular matrices are invertible, with
+like inverses.
+
+\item Same for upper-triangular.
 
 \item Introduce $T_{u,v}=I_{n}+E_{u,v}+E_{v,u}-E_{u,u}-E_{v,v}$, the identity
 matrix with rows (or columns) $u$ and $v$ switched.
