@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, September 20, 2016 19:11:41}
+%TCIDATA{LastRevised=Tuesday, September 20, 2016 19:21:40}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -4928,20 +4928,21 @@ following two claims:
 \end{statement}
 
 We are going to prove both of these claims. But first, let us make a simple
-observation: Recall that $I_{n} = \left( \delta_{i,j}\right) _{1\leq i\leq n,
-\ 1\leq j\leq n}$. Hence, $\left( I_{n}\right) _{i, j} = \delta_{i, j}$ for
-all $i \in\left\{ 1,2,\ldots,n\right\} $ and $j \in\left\{ 1,2,\ldots
-,n\right\} $. In particular, for all $i \in\left\{ 1,2,\ldots,n\right\} $ and
-$j \in\left\{ 1,2,\ldots,n\right\} $ satisfying $i > j$, we have
+observation: Recall that $I_{n} = \left(  \delta_{i,j}\right)  _{1\leq i\leq
+n, \ 1\leq j\leq n}$. Hence, $\left(  I_{n}\right)  _{i, j} = \delta_{i, j}$
+for all $i \in\left\{  1,2,\ldots,n\right\}  $ and $j \in\left\{
+1,2,\ldots,n\right\}  $. In particular, for all $i \in\left\{  1,2,\ldots
+,n\right\}  $ and $j \in\left\{  1,2,\ldots,n\right\}  $ satisfying $i > j$,
+we have
 \begin{equation}
-\left( I_{n}\right) _{i, j} = \delta_{i, j} =
-0\label{pf.prop.triangular.uni-inv.b.1}%
+\left(  I_{n}\right)  _{i, j} = \delta_{i, j} = 0
+\label{pf.prop.triangular.uni-inv.b.1}%
 \end{equation}
 (since $i \neq j$ (because $i > j$)). Also, the diagonal entries of the matrix
-$I_{n}$ are $1$; in other words, every $i \in\left\{ 1,2,\ldots,n\right\} $
+$I_{n}$ are $1$; in other words, every $i \in\left\{  1,2,\ldots,n\right\}  $
 satisfies
 \begin{equation}
-\left( I_{n}\right) _{i, i} = 1.\label{pf.prop.triangular.uni-inv.b.2}%
+\left(  I_{n}\right)  _{i, i} = 1. \label{pf.prop.triangular.uni-inv.b.2}%
 \end{equation}
 
 
@@ -4952,33 +4953,33 @@ We have assumed that $A$ is upper-unitriangular. In other words, $A$ is
 upper-triangular and all its diagonal entries are $1$ (because this is what
 ``upper-unitriangular'' means). Since $A$ is upper-triangular, we have
 \begin{equation}
-A_{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i >
-j\label{pf.prop.triangular.uni-inv.b.to.1}%
+A_{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i > j
+\label{pf.prop.triangular.uni-inv.b.to.1}%
 \end{equation}
 (by the definition of ``upper-triangular''). Since all diagonal entries of $A$
 are $1$, we have
 \begin{equation}
-A_{i, i} = 1 \ \ \ \ \ \ \ \ \ \ \text{for each } i \in\left\{ 1,2,\ldots
-,n\right\}  .\label{pf.prop.triangular.uni-inv.b.to.2}%
+A_{i, i} = 1 \ \ \ \ \ \ \ \ \ \ \text{for each } i \in\left\{  1,2,\ldots
+,n\right\}  . \label{pf.prop.triangular.uni-inv.b.to.2}%
 \end{equation}
 
 
 Now, recall that matrices are subtracted entry by entry. Hence, for all $i
-\in\left\{ 1,2,\ldots,n\right\} $ and $j \in\left\{ 1,2,\ldots,n\right\} $
+\in\left\{  1,2,\ldots,n\right\}  $ and $j \in\left\{  1,2,\ldots,n\right\}  $
 satisfying $i > j$, we have
 \[
-\left( I_{n} - A\right) _{i, j} = \underbrace{\left( I_{n}\right) _{i,j}%
+\left(  I_{n} - A\right)  _{i, j} = \underbrace{\left(  I_{n}\right)  _{i,j}%
 }_{\substack{= 0 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.1}))}}} -
 \underbrace{A_{i,j}}_{\substack{= 0 \\\text{(by
 (\ref{pf.prop.triangular.uni-inv.b.to.1}))}}} = 0 - 0 = 0.
 \]
-In other words, $\left( I_{n} - A\right) _{i, j} = 0$ whenever $i > j$. This
+In other words, $\left(  I_{n} - A\right)  _{i, j} = 0$ whenever $i > j$. This
 means that $I_{n} - A$ is upper-triangular (by the definition of ``upper-triangular'').
 
 Recall again that matrices are subtracted entry by entry. Hence, every $i
-\in\left\{ 1, 2, \ldots, n\right\} $ satisfies
+\in\left\{  1, 2, \ldots, n\right\}  $ satisfies
 \[
-\left( I_{n} - A\right) _{i, i} = \underbrace{\left( I_{n}\right) _{i,i}%
+\left(  I_{n} - A\right)  _{i, i} = \underbrace{\left(  I_{n}\right)  _{i,i}%
 }_{\substack{= 1 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}} -
 \underbrace{A_{i,i}}_{\substack{= 1 \\\text{(by
 (\ref{pf.prop.triangular.uni-inv.b.to.2}))}}} = 1 - 1 = 0.
@@ -4998,43 +4999,44 @@ $I_{n} - A$ is upper-triangular and all its diagonal entries are $0$ (because
 this is what ``strictly upper-triangular'' means). Since $I_{n} - A$ is
 upper-triangular, we have
 \begin{equation}
-\left( I_{n} - A\right) _{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i >
-j\label{pf.prop.triangular.uni-inv.b.from.1}%
+\left(  I_{n} - A\right)  _{i, j} = 0 \ \ \ \ \ \ \ \ \ \ \text{whenever } i >
+j \label{pf.prop.triangular.uni-inv.b.from.1}%
 \end{equation}
 (by the definition of ``upper-triangular''). Since all diagonal entries of
 $I_{n} - A$ are $0$, we have
 \begin{equation}
-\left( I_{n} - A\right) _{i, i} = 0 \ \ \ \ \ \ \ \ \ \ \text{for each } i
-\in\left\{ 1,2,\ldots,n\right\}  .\label{pf.prop.triangular.uni-inv.b.from.2}%
+\left(  I_{n} - A\right)  _{i, i} = 0 \ \ \ \ \ \ \ \ \ \ \text{for each } i
+\in\left\{  1,2,\ldots,n\right\}  .
+\label{pf.prop.triangular.uni-inv.b.from.2}%
 \end{equation}
 
 
 Now, recall that matrices are subtracted entry by entry. Hence, for all $i
-\in\left\{ 1,2,\ldots,n\right\} $ and $j \in\left\{ 1,2,\ldots,n\right\} $
+\in\left\{  1,2,\ldots,n\right\}  $ and $j \in\left\{  1,2,\ldots,n\right\}  $
 satisfying $i > j$, we have
 \[
-\left( I_{n} - A\right) _{i, j} = \underbrace{\left( I_{n}\right) _{i,j}%
+\left(  I_{n} - A\right)  _{i, j} = \underbrace{\left(  I_{n}\right)  _{i,j}%
 }_{\substack{= 0 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.1}))}}} -
 A_{i, j} = 0 - A_{i, j} = - A_{i, j}%
 \]
 and therefore
 \[
-A_{i, j} = - \underbrace{\left( I_{n} - A\right) _{i,j}}_{\substack{= 0
+A_{i, j} = - \underbrace{\left(  I_{n} - A\right)  _{i,j}}_{\substack{= 0
 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.from.1}))}}} = - 0 = 0 .
 \]
 In other words, $A_{i, j} = 0$ whenever $i > j$. This means that $A$ is
 upper-triangular (by the definition of ``upper-triangular'').
 
 Recall again that matrices are subtracted entry by entry. Hence, every $i
-\in\left\{ 1, 2, \ldots, n\right\} $ satisfies
+\in\left\{  1, 2, \ldots, n\right\}  $ satisfies
 \[
-\left( I_{n} - A\right) _{i, i} = \underbrace{\left( I_{n}\right) _{i,i}%
+\left(  I_{n} - A\right)  _{i, i} = \underbrace{\left(  I_{n}\right)  _{i,i}%
 }_{\substack{= 1 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.2}))}}} -
 A_{i, i} = 1 - A_{i, i}%
 \]
 and therefore
 \[
-A_{i, i} = 1 - \underbrace{\left( I_{n} - A\right) _{i,i}}_{\substack{= 0
+A_{i, i} = 1 - \underbrace{\left(  I_{n} - A\right)  _{i,i}}_{\substack{= 0
 \\\text{(by (\ref{pf.prop.triangular.uni-inv.b.from.2}))}}} = 1 - 0 = 1.
 \]
 In other words, all diagonal entries of the matrix $A$ are $1$.
@@ -5066,8 +5068,8 @@ organized differently.} What we called Claim 1 in this proof would normally be
 called the ``$\Longrightarrow$ direction''\footnote{also known as the ``only
 if direction'' or the ``$\Longrightarrow$ part''} of Proposition
 \ref{prop.triangular.uni-inv} \textbf{(b)} (because, rewritten in logical
-symbols, it says that ``$\left( A \text{ is upper-unitriangular} \right)
-\Longrightarrow\left( I_{n} - A \text{ is strictly upper-triangular}\right)
+symbols, it says that ``$\left(  A \text{ is upper-unitriangular} \right)
+\Longrightarrow\left(  I_{n} - A \text{ is strictly upper-triangular}\right)
 $''), while our Claim 2 would be called the ``$\Longleftarrow$
 direction''\footnote{also known as the ``if direction'' or the
 ``$\Longleftarrow$ part''} of Proposition \ref{prop.triangular.uni-inv}
@@ -5096,25 +5098,26 @@ have unraveled the definitions of ``upper-unitriangular'' and of
 ``triangular'', the assumption translates into ``$A_{i,j} = 0$ whenever $i >
 j$, and $A_{i,i} = 1$ for all $i$''. Similarly, once you have unraveled the
 definitions of ``strictly upper-triangular'' and ``triangular'', the claim
-translates into ``$\left( I_{n}-A\right) _{i,j} = 0$ whenever $i > j$, and
-$\left( I_{n}-A\right) _{i,i} = 0$ for all $i$''. Thus, in order to get from
+translates into ``$\left(  I_{n}-A\right)  _{i,j} = 0$ whenever $i > j$, and
+$\left(  I_{n}-A\right)  _{i,i} = 0$ for all $i$''. Thus, in order to get from
 the assumption to the goal, you need to find a way to process knowledge about
 entries of $A$ into knowledge about entries of $I_{n} - A$. But there is one
-obvious way to do that: Observe that $\left( I_{n} - A\right) _{i,j} = \left(
-I_{n}\right) _{i,j} - A_{i,j}$, and recall the formula for $\left(
-I_{n}\right) _{i,j}$ (which is clear from the definition of $I_{n}$). The rest
-is simple arithmetic.
+obvious way to do that: Observe that $\left(  I_{n} - A\right)  _{i,j} =
+\left(  I_{n}\right)  _{i,j} - A_{i,j}$, and recall the formula for $\left(
+I_{n}\right)  _{i,j}$ (which is clear from the definition of $I_{n}$). The
+rest is simple arithmetic.
 
 \item Our proof of the $\Longleftarrow$ direction (i.e., of Claim 2) was
 essentially the proof of the $\Longrightarrow$ direction (i.e., of Claim 1)
 ``read backwards'' (the assumption and the claim have switched places, so we
 are taking the same argument but in reverse). To read an argument backwards
 means, whenever necessary, to switch reasons with consequences (for example,
-instead of deriving $\left( I_{n} - A\right) _{i, j} = 0$ from $A_{i, j} = 0$,
-we now derive $A_{i, j} = 0$ from $\left( I_{n} - A\right) _{i, j} = 0$). This
-is not possible (after all, not every valid statement remains valid if we
-switch the assumption and the claim!), but when it is, it is not a difficult
-task, so it can safely be left to the reader. (And it does work in our case.)
+instead of deriving $\left(  I_{n} - A\right)  _{i, j} = 0$ from $A_{i, j} =
+0$, we now derive $A_{i, j} = 0$ from $\left(  I_{n} - A\right)  _{i, j} =
+0$). This is not possible (after all, not every valid statement remains valid
+if we switch the assumption and the claim!), but when it is, it is not a
+difficult task, so it can safely be left to the reader. (And it does work in
+our case.)
 \end{itemize}
 
 Altogether, we can thus shrink down our above proof of Proposition
@@ -6396,7 +6399,7 @@ a^{\prime} & b^{\prime}\\
 a^{\prime\prime} & b^{\prime\prime}\\
 a^{\prime\prime\prime} & b^{\prime\prime\prime}%
 \end{array}
-\right) $ into $\left(
+\right)  $ into $\left(
 \begin{array}
 [c]{cc}%
 a & b\\
@@ -6404,7 +6407,7 @@ a^{\prime} & b^{\prime}\\
 a^{\prime\prime}+ \lambda a & b^{\prime\prime}+ \lambda b\\
 a^{\prime\prime\prime} & b^{\prime\prime\prime}%
 \end{array}
-\right) $.
+\right)  $.
 %We shall visually represent this fact as follows:
 %\[
 %\left(\begin{array}{cc} a & b \\ a' & b' \\ a'' & b'' \\ a''' & b''' \end{array}\right)
@@ -6452,8 +6455,6 @@ three-step procedure in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}
 for an illustration of this method.}
 
 \begin{itemize}
-
-
 \item At first, our matrix is
 \[
 C = \left(
@@ -6465,25 +6466,25 @@ C_{3,1} & C_{3,2} & 1 & \cdots & 0\\
 \vdots & \vdots & \vdots & \ddots & \vdots\\
 C_{n,1} & C_{n,2} & C_{n,3} & \cdots & 1
 \end{array}
-\right) .
+\right)  .
 \]
-In particular, its $1$-st row is $\left( 1,0,0,\ldots,0\right) $  (same as the
-$1$-st row of $I_{n}$).
+In particular, its $1$-st row is $\left(  1,0,0,\ldots,0\right)  $ (same as
+the $1$-st row of $I_{n}$).
 
-\item Now, we perform the downward row addition  $A^{\lambda}_{2,1}$ (for an
-appropriate choice of $\lambda$,  namely for $\lambda= -C_{2,1}$) to clear out
-the  $\left( 2,1\right) $-th entry of the matrix (i.e., to put a $0$  where
-this entry stood). This does not affect any of  the other entries, because the
-$1$-st row of the matrix  is $\left( 1,0,0,\ldots,0\right) $ (thus has only
-one nonzero  entry). Similarly, we then perform the downward row  addition
-$A^{\lambda}_{3,1}$ (with $\lambda= -C_{3,1}$) to  clear out the $\left(
-3,1\right) $-th entry; then, we perform  the downward row addition
-$A^{\lambda}_{4,1}$ (with  $\lambda= -C_{4,1}$) to clear out the $\left(
-4,1\right) $-th  entry; and so on, ending with the downward row addition
-$A^{\lambda}_{n,1}$ (with $\lambda= -C_{n,1}$) to clear out  the $\left(
-n,1\right) $-th entry. As the result, we have  cleared out all entries in the
-$1$-st column of our matrix,  except for the $1$ on the diagonal. In other
-words, our  matrix now looks as follows:
+\item Now, we perform the downward row addition $A^{\lambda}_{2,1}$ (for an
+appropriate choice of $\lambda$, namely for $\lambda= -C_{2,1}$) to clear out
+the $\left(  2,1\right)  $-th entry of the matrix (i.e., to put a $0$ where
+this entry stood). This does not affect any of the other entries, because the
+$1$-st row of the matrix is $\left(  1,0,0,\ldots,0\right)  $ (thus has only
+one nonzero entry). Similarly, we then perform the downward row addition
+$A^{\lambda}_{3,1}$ (with $\lambda= -C_{3,1}$) to clear out the $\left(
+3,1\right)  $-th entry; then, we perform the downward row addition
+$A^{\lambda}_{4,1}$ (with $\lambda= -C_{4,1}$) to clear out the $\left(
+4,1\right)  $-th entry; and so on, ending with the downward row addition
+$A^{\lambda}_{n,1}$ (with $\lambda= -C_{n,1}$) to clear out the $\left(
+n,1\right)  $-th entry. As the result, we have cleared out all entries in the
+$1$-st column of our matrix, except for the $1$ on the diagonal. In other
+words, our matrix now looks as follows:
 \[
 \left(
 \begin{array}
@@ -6494,19 +6495,19 @@ words, our  matrix now looks as follows:
 \vdots & \vdots & \vdots & \ddots & \vdots\\
 0 & C_{n,2} & C_{n,3} & \cdots & 1
 \end{array}
-\right) .
+\right)  .
 \]
-In particular, its $2$-nd row is  $\left( 0,1,0,0,\ldots,0\right) $ (same as
-the $2$-nd row of  $I_{n}$).
+In particular, its $2$-nd row is $\left(  0,1,0,0,\ldots,0\right)  $ (same as
+the $2$-nd row of $I_{n}$).
 
-\item Next, we similarly clear out all entries in the  $2$-nd column of the
-matrix, by performing the downward  row additions $A^{\lambda}_{3,2},
-A^{\lambda}_{4,2}, \ldots,  A^{\lambda}_{n,2}$ (each time picking an
-appropriate value of  $\lambda$). Again, this does not affect any of the
-other  entries, because the $2$-nd row of the matrix is  $\left(
-0,1,0,0,\ldots,0\right) $. As the result, we have  cleared out all entries in
-the $2$-nd column of our matrix,  except for the $1$ on the diagonal. In other
-words, our  matrix now looks as follows:
+\item Next, we similarly clear out all entries in the $2$-nd column of the
+matrix, by performing the downward row additions $A^{\lambda}_{3,2},
+A^{\lambda}_{4,2}, \ldots, A^{\lambda}_{n,2}$ (each time picking an
+appropriate value of $\lambda$). Again, this does not affect any of the other
+entries, because the $2$-nd row of the matrix is $\left(  0,1,0,0,\ldots
+,0\right)  $. As the result, we have cleared out all entries in the $2$-nd
+column of our matrix, except for the $1$ on the diagonal. In other words, our
+matrix now looks as follows:
 \[
 \left(
 \begin{array}
@@ -6517,16 +6518,16 @@ words, our  matrix now looks as follows:
 \vdots & \vdots & \vdots & \ddots & \vdots\\
 0 & 0 & C_{n,3} & \cdots & 1
 \end{array}
-\right) .
+\right)  .
 \]
-In particular, its $3$-rd row is  $\left( 0,0,1,0,0,\ldots,0\right) $ (same as
-the $3$-rd row of  $I_{n}$).
+In particular, its $3$-rd row is $\left(  0,0,1,0,0,\ldots,0\right)  $ (same
+as the $3$-rd row of $I_{n}$).
 
-\item Next, we similarly clear out all entries in the  $3$-rd column of the
-matrix, by performing the downward  row additions $A^{\lambda}_{4,3},
-A^{\lambda}_{5,3}, \ldots,  A^{\lambda}_{n,3}$. As the result, we have
-cleared out all entries in the $3$-rd column of our matrix,  except for the
-$1$ on the diagonal. In other words, our  matrix now looks as follows:
+\item Next, we similarly clear out all entries in the $3$-rd column of the
+matrix, by performing the downward row additions $A^{\lambda}_{4,3},
+A^{\lambda}_{5,3}, \ldots, A^{\lambda}_{n,3}$. As the result, we have cleared
+out all entries in the $3$-rd column of our matrix, except for the $1$ on the
+diagonal. In other words, our matrix now looks as follows:
 \[
 \left(
 \begin{array}
@@ -6537,13 +6538,13 @@ $1$ on the diagonal. In other words, our  matrix now looks as follows:
 \vdots & \vdots & \vdots & \ddots & \vdots\\
 0 & 0 & 0 & \cdots & 1
 \end{array}
-\right) .
+\right)  .
 \]
-Don't mistake this for the identity matrix $I_{n}$: There  might still be
-nonzero entries outside of the diagonal.  They are just hidden by the $\cdots$ notation.
+Don't mistake this for the identity matrix $I_{n}$: There might still be
+nonzero entries outside of the diagonal. They are just hidden by the $\cdots$ notation.
 
-\item We continue this process, clearing out column  after column, until the
-$n$-th column is cleared out. By  then, our matrix has become the identity
+\item We continue this process, clearing out column after column, until the
+$n$-th column is cleared out. By then, our matrix has become the identity
 matrix $I_{n}$.
 \end{itemize}
 
@@ -6551,52 +6552,84 @@ Thus, we have found an algorithm to transform our matrix $C$ into the identity
 matrix $I_{n}$ by a sequence of downward row additions. Therefore, we can
 conversely transform the identity matrix $I_{n}$ into $C$ by a sequence of
 downward row additions\footnote{because (as we have shown) any downward row
-addition $A^{\lambda}_{u,v}$ is invertible, and can be undone by another
+addition $A_{u,v}^{\lambda}$ is invertible, and can be undone by another
 downward row addition}. Let us denote these downward row additions (used to
-transform $I_{n}$ into $C$) by $A^{\lambda_{1}}_{u_{1},v_{1}}, A^{\lambda_{2}%
-}_{u_{2},v_{2}}, \cdots, A^{\lambda_{k}}_{u_{k},v_{k}}$, \textbf{numbered
+transform $I_{n}$ into $C$) by $A_{u_{1},v_{1}}^{\lambda_{1}},A_{u_{2},v_{2}%
+}^{\lambda_{2}},\cdots,A_{u_{k},v_{k}}^{\lambda_{k}}$, \textbf{numbered
 backwards} (i.e., starting from the one used last). Since each downward row
-addition $A^{\lambda}_{u,v}$ amounts to multiplying a matrix by the matrix
-$A^{\lambda}_{u,v}$ (that is, it sends any $n\times m$-matrix $B$ to
-$A^{\lambda}_{u,v} B$), we thus conclude that
+addition $A_{u,v}^{\lambda}$ amounts to multiplying a matrix by the matrix
+$A_{u,v}^{\lambda}$ (that is, it sends any $n\times m$-matrix $B$ to
+$A_{u,v}^{\lambda}B$), we thus conclude that
 \[
-C  = A^{\lambda_{1}}_{u_{1},v_{1}} A^{\lambda_{2}}_{u_{2},v_{2}} \cdots
-A^{\lambda_{k}}_{u_{k},v_{k}} I_{n}  = A^{\lambda_{1}}_{u_{1},v_{1}}
-A^{\lambda_{2}}_{u_{2},v_{2}} \cdots A^{\lambda_{k}}_{u_{k},v_{k}} .
+C=A_{u_{1},v_{1}}^{\lambda_{1}}A_{u_{2},v_{2}}^{\lambda_{2}}\cdots
+A_{u_{k},v_{k}}^{\lambda_{k}}I_{n}=A_{u_{1},v_{1}}^{\lambda_{1}}A_{u_{2}%
+,v_{2}}^{\lambda_{2}}\cdots A_{u_{k},v_{k}}^{\lambda_{k}}.
 \]
 Thus, $C$ is a product of lower addition matrices (because each of the
-matrices $A^{\lambda_{1}}_{u_{1},v_{1}}, A^{\lambda_{2}}_{u_{2},v_{2}},
-\cdots, A^{\lambda_{k}}_{u_{k},v_{k}}$ is a lower addition
+matrices $A_{u_{1},v_{1}}^{\lambda_{1}},A_{u_{2},v_{2}}^{\lambda_{2}}%
+,\cdots,A_{u_{k},v_{k}}^{\lambda_{k}}$ is a lower addition
 matrix\footnote{Here we are using the fact that, for any downward row addition
-$A^{\lambda}_{u,v}$, the matrix $A^{\lambda}_{u,v}$ is a lower addition
+$A_{u,v}^{\lambda}$, the matrix $A_{u,v}^{\lambda}$ is a lower addition
 matrix.}). This is precisely what we had to prove. This proves the
 $\Longrightarrow$ direction of Theorem \ref{thm.triangular.Alamuv}. Hence, the
 proof of Theorem \ref{thm.triangular.Alamuv} is complete.
 \end{proof}
 
+\begin{remark}
+Our proof of Theorem \ref{thm.triangular.Alamuv} (specifically, of its
+$\Longrightarrow$ direction) actually gives an explicit representation of a
+lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
+matrices:%
+\begin{align*}
+C &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
+}\right)  \left(  A_{3,2}^{-C_{3,2}}A_{4,2}^{-C_{4,2}}\cdots A_{n,2}%
+^{-C_{n,2}}\right)  \left(  A_{4,3}^{-C_{4,3}}A_{5,3}^{-C_{5,3}}\cdots
+A_{n,3}^{-C_{n,3}}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n,n-3}^{-C_{n,n-3}}A_{n-1,n-3}%
+^{-C_{n-1,n-3}}A_{n-2,n-3}^{-C_{n-2,n-3}}\right)  \left(  A_{n,n-2}%
+^{-C_{n,n-2}}A_{n-1,n-2}^{-C_{n-1,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
+}\right)  \left(  I_{n}\right)  .
+\end{align*}
+This complicated product consists of $n$ factors, each of which is itself a
+product. More precisely, the $k$-th factor is the product $A_{k+1,k}%
+^{-C_{k+1,k}}A_{k+2,k}^{-C_{k+2,k}}\cdots A_{n,k}^{-C_{n,k}}$ of all matrices
+$A_{i,k}^{-C_{i,k}}$ with $i>k$; this corresponds to the $n-k$ downward row
+additions that clear out the non-diagonal entries in the $k$-th column of the
+matrix. In particular, the $n$-th factor is thus an empty product, hence
+equals $I_{n}$; we could thus leave it out (but we prefer to keep it in, for
+reasons of clarity).
+
+The reason why the above explicit representation works is that in our process
+of clearing out zero entries, we have never modified any entry other than the
+one we were clearing out. Thus, for each $\left(  i,j\right)  $, the $\left(
+i,j\right)  $-th entry of our matrix remained equal to its original value
+$C_{i,j}$ up until the moment when we cleared it out.
+\end{remark}
+
 \begin{exercise}
 In Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}, we have cleared out
 the three sub-diagonal (= below the diagonal) entries of $C$ in a specific
-order: first the $\left( 2,1\right) $-th entry, then the $\left( 3,1\right)
-$-th entry, then the $\left( 3,2\right) $-th entry. We thus obtained the
-formula $C = A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}$.
+order: first the $\left(  2,1\right)  $-th entry, then the $\left(
+3,1\right)  $-th entry, then the $\left(  3,2\right)  $-th entry. We thus
+obtained the formula $C=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}$.
 
 We could also have proceeded differently: for instance, we could have cleared
-out the $\left( 3,2\right) $-th entry first, then the $\left( 3,1\right) $-th
-entry, then the $\left( 2,1\right) $-th entry. This would have resulted in the
-formula $C = A_{3,2}^{c} A_{3,1}^{b-ac} A_{2,1}^{a}$. (Be aware of the $b-ac$
-in the $A_{3,1}^{b-ac}$; this is because our first clearing operation has
-changed the $\left( 3,1\right) $-th entry.)
+out the $\left(  3,2\right)  $-th entry first, then the $\left(  3,1\right)
+$-th entry, then the $\left(  2,1\right)  $-th entry. This would have resulted
+in the formula $C=A_{3,2}^{c}A_{3,1}^{b-ac}A_{2,1}^{a}$. (Be aware of the
+$b-ac$ in the $A_{3,1}^{b-ac}$; this is because our first clearing operation
+has changed the $\left(  3,1\right)  $-th entry.)
 
 There is a total of $6$ different orders in which we can try clearing out the
-three sub-diagonal entries of our $3 \times3$-matrix $C$. The two of them just
+three sub-diagonal entries of our $3\times3$-matrix $C$. The two of them just
 shown work; on the other hand, in Example \ref{exam.thm.triangular.Alamuv}
 \textbf{(c)}, we have seen one order which does not (namely, starting with the
-$\left( 3,1\right) $-th entry, then doing the $\left( 3,2\right) $-th and then
-the $\left( 2,1\right) $-th one). Of the remaining three, which ones work? And
-what formulas do they result in?
+$\left(  3,1\right)  $-th entry, then doing the $\left(  3,2\right)  $-th and
+then the $\left(  2,1\right)  $-th one). Of the remaining three, which ones
+work? And what formulas do they result in?
 
-(By ``work'', I mean ``work for every lower-unitriangular matrix $C$''.)
+(By \textquotedblleft work\textquotedblright, I mean \textquotedblleft work
+for every lower-unitriangular matrix $C$\textquotedblright.)
 \end{exercise}
 
 \textbf{TO-DO LIST! (This will appear shortly:)}
