@@ -1363,7 +1363,7 @@ C_{1,k}=A_{i,k}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
 Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \begin{align*}
 &  \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
-\left(  AB\right)  \right)  \\
+\left(  AB\right)  \right) \\
 &  =\left(  \text{the }\left(  i,j\right)  \text{-th entry of }AB\right)
 =\left(  AB\right)  _{i,j}\\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j}%
@@ -1372,9 +1372,9 @@ Let $j\in\left\{  1,2,\ldots,p\right\}  $. Then,%
 \end{align*}
 Comparing this with%
 \begin{align*}
-&  \left(  \text{the }j\text{-th entry of }CB\right)  \\
+&  \left(  \text{the }j\text{-th entry of }CB\right) \\
 &  =\left(  \text{the }\left(  1,j\right)  \text{-th entry of }CB\right)
-\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right)  \\
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }CB\text{ is a row vector}\right) \\
 &  =\underbrace{C_{1,1}}_{\substack{=A_{i,1}\\\text{(by
 (\ref{pf.prop.matrix-prod.rc.c.1}))}}}B_{1,j}+\underbrace{C_{1,2}%
 }_{\substack{=A_{i,2}\\\text{(by (\ref{pf.prop.matrix-prod.rc.c.1}))}}%
@@ -1387,14 +1387,14 @@ Comparing this with%
 }1\text{, }C\text{ and }1\\
 \text{instead of }n\text{, }A\text{ and }i
 \end{array}
-\right)  \\
+\right) \\
 &  =A_{i,1}B_{1,j}+A_{i,2}B_{2,j}+\cdots+A_{i,m}B_{m,j},
 \end{align*}
 we obtain%
 \begin{equation}
 \left(  \text{the }j\text{-th entry of }\operatorname*{row}\nolimits_{i}%
 \left(  AB\right)  \right)  =\left(  \text{the }j\text{-th entry of
-}CB\right)  .\label{pf.prop.matrix-prod.rc.c.5}%
+}CB\right)  . \label{pf.prop.matrix-prod.rc.c.5}%
 \end{equation}
 
 
@@ -3280,6 +3280,9 @@ example of the fact that the operations \textquotedblleft$+$\textquotedblright%
 to do with addition and multiplication of numbers!).
 \end{itemize}
 
+Many more examples of commutative rings can be found in textbooks on abstract
+algebra (e.g., \cite[Chapter 11]{Artin10}).
+
 Matrices filled with elements of a commutative ring $\mathbb{K}$ are called
 \textit{matrices over }$\mathbb{K}$. More precisely:
 
@@ -3343,11 +3346,13 @@ field $\mathbb{K}$.
 
 \begin{remark}
 \textbf{(a)} The notion of a \textquotedblleft commutative
-ring\textquotedblright\ is not standard, unfortunately. Some authors omit the
-element \textquotedblleft$1$\textquotedblright\ (and the unitality axiom),
-while some (older) authors even omit the associativity of multiplication. If
-you read any text on abstract algebra, it is prudent to check whether the
-author's concept of a commutative ring agrees with yours.
+ring\textquotedblright\ is not standard, unfortunately. Some authors (e.g.,
+Dummit and Foote in \cite[Part II]{DumFoo04}, or Goodman in \cite[Chapters 1
+and 6]{Goodma15}) omit the element \textquotedblleft$1$\textquotedblright%
+\ (and the unitality axiom), while some (older) authors even omit the
+associativity of multiplication. If you read any text on abstract algebra, it
+is prudent to check whether the author's concept of a commutative ring agrees
+with yours.
 
 \textbf{(b)} As you might have guessed, there is also a notion of a
 \textquotedblleft noncommutative ring\textquotedblright. It is defined
@@ -6984,8 +6989,8 @@ left inverse by change of roles.
 
 \item (*) SageMath examples.
 
-\item Define row echelon matrices a la \cite{Kowals16}. Define pivot cells.
-Note at most one per row, at most one per column.
+\item Define row-echelon matrices a la \cite{Kowals16}. Define pivot cells.
+Note that there is at most one pivot cell per row, and at most one per column.
 
 \item Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
 elementary matrices ($A_{u,v}^{\lambda}$, $S_{i}^{\lambda}$, $T_{u,v}$) and
@@ -7013,6 +7018,9 @@ $U$ is a row-echelon matrix.
 \begin{thebibliography}{999999999}                                                                                        %
 
 
+\bibitem[Artin10]{Artin10}Michael Artin, \textit{Algebra}, 2nd edition,
+Pearson 2010.
+
 \bibitem[Camero08]{Camero08}Peter J. Cameron, \textit{Notes on Linear
 Algebra}, version 5 Sep 2008.\newline\url{http://www.maths.qmul.ac.uk/~pjc/notes/linalg.pdf}
 
@@ -7023,6 +7031,12 @@ Algebra}, version 5 Sep 2008.\newline\url{http://www.maths.qmul.ac.uk/~pjc/notes
 
 \bibitem[Drucker12]{Drucker12}D. Drucker, \textit{Annotated Bibliography of
 Linear Algebra Books}, February 2012.\newline\url{http://www.math.wayne.edu/~drucker/linalgrefsW12.pdf}
+
+\bibitem[DumFoo04]{DumFoo04}David S. Dummit, Richard M. Foote,
+\textit{Abstract Algebra}, 3rd edition 2004.
+
+\bibitem[Goodma15]{Goodma15}Frederick M. Goodman, \textit{Algebra: Abstract
+and Concrete}, edition 2.6.\newline\url{http://homepage.divms.uiowa.edu/~goodman/algebrabook.dir/download.htm}
 
 \bibitem[OlvSha06]{OlvSha06}Peter J. Olver, Chehrzad Shakiban, \textit{Applied
 Linear Algebra}, Prentice Hall, 2006.\newline See also
