@@ -2302,11 +2302,11 @@ Now that we have found formulas for the entries of all matrices involved, we
 can perform our computation: For all $i\in\left\{  1,2,\ldots,n\right\}  $ and
 $j\in\left\{  1,2,\ldots,q\right\}  $, we have%
 \begin{align*}
-\left(  A\left(  BC\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}A_{i,k}%
+\left(  A\left(  BC\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
 \underbrace{\left(  BC\right)  _{k,j}}_{\substack{=\sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.BC}), applied to }k\text{
 instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right) \\
+(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right)  \\
 &  =\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  \sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\right)  }_{\substack{=\sum_{\ell=1}^{p}A_{i,k}B_{k,\ell}C_{\ell
 ,j}\\\text{(by an application of}\\\text{Proposition \ref{prop.sum.dist})}%
@@ -2317,16 +2317,16 @@ instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 \end{align*}
 and%
 \begin{align*}
-\left(  \left(  AB\right)  C\right)  _{i,j}  &  =\sum_{\ell=1}^{p}%
+\left(  \left(  AB\right)  C\right)  _{i,j} &  =\sum_{\ell=1}^{p}%
 \underbrace{\left(  AB\right)  _{i,\ell}}_{\substack{=\sum_{k=1}^{m}%
 A_{i,k}B_{k,\ell}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.AB}), applied to
 }\ell\\\text{instead of }j\text{)}}}C_{\ell,j}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right) \\
-&  =\sum_{k=1}^{m}\underbrace{\left(  \sum_{k=1}^{m}A_{i,k}B_{k,\ell}\right)
-C_{\ell,j}}_{\substack{=C_{\ell,j}\sum_{k=1}^{m}A_{i,k}B_{k,\ell}=\sum
-_{\ell=1}^{p}C_{\ell,j}A_{i,k}B_{k,\ell}\\\text{(by an application
-of}\\\text{Proposition \ref{prop.sum.dist})}}}=\sum_{k=1}^{m}\sum_{\ell=1}%
-^{p}\underbrace{C_{\ell,j}A_{i,k}B_{k,\ell}}_{=A_{i,k}B_{k,\ell}C_{\ell,j}}\\
+\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right)  \\
+&  =\sum_{\ell=1}^{p}\underbrace{\left(  \sum_{k=1}^{m}A_{i,k}B_{k,\ell
+}\right)  C_{\ell,j}}_{\substack{=C_{\ell,j}\sum_{k=1}^{m}A_{i,k}B_{k,\ell
+}=\sum_{k=1}^{m}C_{\ell,j}A_{i,k}B_{k,\ell}\\\text{(by an application
+of}\\\text{Proposition \ref{prop.sum.dist})}}}=\sum_{\ell=1}^{p}\sum_{k=1}%
+^{m}\underbrace{C_{\ell,j}A_{i,k}B_{k,\ell}}_{=A_{i,k}B_{k,\ell}C_{\ell,j}}\\
 &  =\sum_{\ell=1}^{p}\sum_{k=1}^{m}A_{i,k}B_{k,\ell}C_{\ell,j}.
 \end{align*}
 Comparing these two equalities, we obtain
