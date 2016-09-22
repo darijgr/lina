@@ -1672,13 +1672,59 @@ We shall prove Proposition \ref{prop.matrix-laws.1} \textbf{(g)} further below
 (in Section \ref{sect.intro.sum}). General associativity can be derived from
 Proposition \ref{prop.matrix-laws.1} \textbf{(g)} in the general context of
 \textquotedblleft binary operations\textquotedblright; see (for
-example)\ \cite{Zuker14} for this argument.}.
+example)\ \cite{Zuker14} for this argument.}. Let me state this result again
+as a proposition, just to stress its importance:
+
+\begin{proposition}
+\label{prop.matrix-laws.ga-mult}Let $A_{1},A_{2},\ldots,A_{n}$ be $n$
+matrices. Assume that, for each $i\in\left\{  1,2,\ldots,n-1\right\}  $, the
+number of columns of $A_{i}$ equals the number of rows of $A_{i+1}$ (so that
+the product $A_{i}A_{i+1}$ makes sense). Then, the product $A_{1}A_{2}\cdots
+A_{n}$ is well-defined: Any way to compute this product (by parenthesizing it)
+yields the same result. In particular, it can be computed both as
+$A_{1}\left(  A_{2}\left(  A_{3}\left(  \cdots\left(  A_{n-1}A_{n}\right)
+\right)  \right)  \right)  $ and as $\left(  \left(  \left(  \left(
+A_{1}A_{2}\right)  A_{3}\right)  \cdots\right)  A_{n-1}\right)  A_{n}$.
+\end{proposition}
 
 Please take a moment to appreciate general associativity! Without it, we could
 not make sense of products like $ABC$ and $ABCDE$, because their values could
 depend on how we choose to compute them. This is one reason why, in the
 definition of $AB$, we multiply entries of the $i$-th row of $A$ with entries
-of the $j$-th column of $B$. Using rows both times would break associativity!
+of the $j$-th column of $B$. Using rows both times would break
+associativity!\footnote{Of course, our formulation of general associativity
+was far from rigorous. After all, we have not defined what a \textquotedblleft
+way to compute a product\textquotedblright\ means, or what \textquotedblleft
+parenthesizing a product\textquotedblright\ means. There are several ways to
+make Proposition \ref{prop.matrix-laws.ga-mult} rigorous. See
+\cite{m.se709196} for a discussion of such ways. (Note that the simplest way
+actually avoids defining \textquotedblleft parenthesizing\textquotedblright.
+Instead, it defines the product $A_{1}A_{2}\cdots A_{n}$ by recursion on $n$,
+namely defining it to be $A_{1}$ when $n=1$, and defining it to be $\left(
+A_{1}A_{2}\cdots A_{n-1}\right)  A_{n}$ otherwise (where we are using the
+already-defined product $A_{1}A_{2}\cdots A_{n-1}$). Informally speaking, this
+means that the product $A_{1}A_{2}\cdots A_{n}$ is defined as $\left(  \left(
+\left(  \left(  A_{1}A_{2}\right)  A_{3}\right)  \cdots\right)  A_{n-1}%
+\right)  A_{n}$. Now, general associativity says that this product $A_{1}%
+A_{2}\cdots A_{n}$ equals $\left(  A_{1}A_{2}\cdots A_{k}\right)  \left(
+A_{k+1}A_{k+2}\cdots A_{n}\right)  $ for each $k\in\left\{  1,2,\ldots
+,n-1\right\}  $. (This is not too hard to prove by induction over $n$.)
+Informally speaking, this shows that our product $A_{1}A_{2}\cdots A_{n}$ also
+equals the result of any way of computing it (not only the $\left(  \left(
+\left(  \left(  A_{1}A_{2}\right)  A_{3}\right)  \cdots\right)  A_{n-1}%
+\right)  A_{n}$ way).)}
+
+There is also a general associativity law for addition:
+
+\begin{proposition}
+\label{prop.matrix-laws.ga-add}Let $A_{1},A_{2},\ldots,A_{n}$ be $n$ matrices
+of the same size. Then, the sum $A_{1}+A_{2}+\cdots+A_{n}$ is well-defined:
+Any way to compute this sum (by parenthesizing it) yields the same result. In
+particular, it can be computed both as $A_{1}+\left(  A_{2}+\left(
+A_{3}+\left(  \cdots+\left(  A_{n-1}+A_{n}\right)  \right)  \right)  \right)
+$ and as $\left(  \left(  \left(  \left(  A_{1}+A_{2}\right)  +A_{3}\right)
++\cdots\right)  +A_{n-1}\right)  +A_{n}$.
+\end{proposition}
 
 We shall give proofs of parts \textbf{(d)} and \textbf{(g)} of Proposition
 \ref{prop.matrix-laws.1} in Section \ref{sect.intro.sum} below.
@@ -7010,12 +7056,14 @@ $U$ is a row-echelon matrix.
 
 \item Thus, solve $Cv=b$.
 
+\item $PLU$ decomposition (not sure).
+
 \item ...
 \end{itemize}
 
 [to be continued]
 
-\begin{thebibliography}{999999999}                                                                                        %
+\begin{thebibliography}{9999999999}                                                                                       %
 
 
 \bibitem[Artin10]{Artin10}Michael Artin, \textit{Algebra}, 2nd edition,
@@ -7052,6 +7100,10 @@ version 15 Sep 2016.\newline\url{https://people.math.ethz.ch/~kowalski/script-la
 \bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
 Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
 2016.\newline\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf}
+
+\bibitem[m.se709196]{m.se709196}Daniela Diaz and others, \textit{Definition of
+General Associativity for binary operations}, math.stackexchange question
+\#709196 .\newline\url{http://math.stackexchange.com/q/709196}
 
 \bibitem[Treil15]{Treil15}Sergei Treil, \textit{Linear Algebra Done Wrong},
 2015.\newline\url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf}
