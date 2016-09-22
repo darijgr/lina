@@ -6979,25 +6979,62 @@ upper-unitriangular. This completes our proof of Theorem
 \textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{itemize}
-\item Introduce $S_{i}^{\lambda}=I_{n}+\left(  \lambda-1\right)  E_{i,i}$, the
-identity matrix with the $i$-th diagonal $1$ replaced by a $\lambda$.
+\item Introduce the $n\times n$-matrix $S_{i}^{\lambda}=I_{n}+\left(
+\lambda-1\right)  E_{i,i}$ for each $i\in\left\{  1,2,\ldots,n\right\}  $.
+This is the identity matrix with the $i$-th diagonal $1$ replaced by a
+$\lambda$.
 
-\item Explain how $S_{i}^{\lambda}$ acts on matrices (by row/column scaling).
+Example: For $n=4$, we have%
+\[
+S_{3}^{\lambda}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & \lambda & 0\\
+0 & 0 & 0 & 1
+\end{array}
+\right)
+\]
+
+
+\item Explain how $S_{i}^{\lambda}$ acts on matrices: $S_{i}^{\lambda}C$ is
+obtained from $C$ by scaling the $i$-th row by $\lambda$. Similarly,
+$CS_{i}^{\lambda}$ is obtained from $C$ by scaling the $i$-th column by
+$\lambda$.
 
 \item $\left(  S_{i}^{\lambda}\right)  ^{-1}=S_{i}^{1/\lambda}$ for
 $\lambda\neq0$.
 
 \item $\left(  S_{i}^{\lambda}\right)  ^{T}=S_{i}^{\lambda}$.
 
-\item Conclude that invertibly lower-triangular matrices are invertible, with
-like inverses.
+\item Conclude that any invertibly lower-triangular matrix is invertible, and
+that its inverse is again invertibly lower-triangular.
 
-\item Same for upper-triangular.
+\item Same for invertibly upper-triangular.
 
-\item Introduce $T_{u,v}=I_{n}+E_{u,v}+E_{v,u}-E_{u,u}-E_{v,v}$, the identity
-matrix with rows (or columns) $u$ and $v$ switched.
+\item For any two distinct elements $u$ and $v$ of $\left\{  1,2,\ldots
+,n\right\}  $, introduce the $n\times n$-matrix $T_{u,v}=I_{n}+E_{u,v}%
++E_{v,u}-E_{u,u}-E_{v,v}$. This is the identity matrix with rows (or columns)
+$u$ and $v$ switched.
 
-\item Explain how $T_{u,v}$ acts on matrices (by row/column switching).
+Example: For $n=4$, we have%
+\[
+T_{1,3}=\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  .
+\]
+
+
+\item Explain how $T_{u,v}$ acts on matrices: $T_{u,v}C$ is obtained from $C$
+by switching the $u$-th row with the $v$-th row. Similarly, $CT_{u,v}$ is
+obtained from $C$ by switching the $u$-th column with the $v$-th column.
 
 \item $\left(  T_{u,v}\right)  ^{-1}=\left(  T_{u,v}\right)  ^{T}%
 =T_{u,v}=T_{v,u}$.
@@ -7005,15 +7042,18 @@ matrix with rows (or columns) $u$ and $v$ switched.
 \item Define permutation matrices as $n\times n$-matrices with entries $0$ and
 $1$ that have exactly one $1$ in each row and exactly one $1$ in each column.
 
-\item Examples of permutation matrices: $I_{n}$ and $T_{u,v}$.
+\item Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. But there are more.
 
 \item Permutation matrices are products of $T_{u,v}$'s.
 
 \item (*) Permutation matrices are products of $T_{k,k+1}$'s.
 
-\item Permutation matrices act by permuting rows.
+\item Permutation matrices act by permuting rows: If $P$ is a permutation
+matrix and $C$ is any matrix, then $PC$ has the same rows as $C$ but
+(possibly) in a different order. Similarly, $CP$ has the same columns as $C$
+but (possibly) in a different order.
 
-\item Permutation matrices are invertible, with like inverses.
+\item Permutation matrices are invertible, and their inverses are permutation matrices.
 
 \item (*) Strictly upper-triangular $n\times n$-matrices $N$ are nilpotent,
 with $N^{n}=0_{n\times n}$. More generally, any product of $n$ such matrices
@@ -7041,6 +7081,8 @@ Note that there is at most one pivot cell per row, and at most one per column.
 \item Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
 elementary matrices ($A_{u,v}^{\lambda}$, $S_{i}^{\lambda}$, $T_{u,v}$) and
 $U$ is a row-echelon matrix.
+
+\item How this generalizes things shown before.
 
 \item Example of Gaussian elimination: $C=\left(
 \begin{array}
