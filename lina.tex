@@ -6992,9 +6992,837 @@ upper-unitriangular. This completes our proof of Theorem
 \ref{thm.triangular.inverse-up}.
 \end{proof}
 
-[...]
+\subsection{(*) Products of strictly upper-triangular matrices}
 
-\end{noncompile}
+In this section, I shall give a different proof of Theorem
+\ref{thm.triangular.inverse}, which is somewhat of a digression from our road
+towards Gaussian elimination, but has the advantage of showing off some other
+ideas. The proof is motivated by the following example:
+
+\begin{example}
+\label{exam.triangular.strict.nilp}Let $A$ be a strictly lower-triangular
+$4\times4$-matrix. Thus, $A$ has the form $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+a & 0 & 0 & 0\\
+b & c & 0 & 0\\
+d & e & f & 0
+\end{array}
+\right)  $ for some numbers $a,b,c,d,e,f$. How do the powers of $A$ look like?
+
+Well, we can just compute the first few of them and see what happens:%
+\begin{align*}
+A^{1}  &  =\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+a & 0 & 0 & 0\\
+b & c & 0 & 0\\
+d & e & f & 0
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ A^{2}=\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+ac & 0 & 0 & 0\\
+ae+bf & cf & 0 & 0
+\end{array}
+\right)  ,\\
+A^{3}  &  =\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+acf & 0 & 0 & 0
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ A^{4}=\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  .
+\end{align*}
+Two things strike the eye:
+
+\begin{itemize}
+\item We have $A^{4}=0_{4\times4}$. As a consequence, every $n\geq4$ satisfies
+$A^{n}=\underbrace{A^{4}}_{=0_{4\times4}}A^{n-4}=0_{4\times4}A^{n-4}%
+=0_{4\times4}$. So we actually know all the powers of $A$.
+
+\item Every time we pass from one power of $A$ to the next (for example, from
+$A^{2}$ to $A^{3}$), the nonzero entries recede one level further towards the
+bottom-left corner. At the step from $A^{3}$ to $A^{4}$, they finally recede
+beyond that corner, so that only zeroes are left in the matrix.
+\end{itemize}
+\end{example}
+
+The pattern seen in Example \ref{exam.triangular.strict.nilp} actually
+generalizes: The powers of a strictly lower-triangular $n\times n$-matrix
+behave similarly, except that this time we have $A^{n}=0_{n\times n}$ instead
+of $A^{4}=0_{4\times4}$. Moreover, the same rule holds more generally if we
+multiply several strictly lower-triangular $n\times n$-matrices (instead of
+taking powers of one such matrix). In order to explore this more rigorously, I
+shall introduce a (nonstandard) notion:
+
+\begin{definition}
+\label{def.triangular.strict.k}Let $n\in\mathbb{N}$. Let $A$ be an $n\times
+n$-matrix. Let $k\in\mathbb{Z}$. We say that the matrix $A$ is $k$%
+\textit{-lower-triangular} if and only if we have%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k.
+\]
+
+\end{definition}
+
+\begin{example}
+Visually speaking, a square matrix $A$ is $k$-lower-triangular if and only if
+its nonzero entries begin no earlier than $k$ levels below the main diagonal.
+For example:
+
+\begin{itemize}
+\item Any $4\times4$-matrix is $k$-lower-triangular for $k\leq-3$.
+
+\item A $4\times4$-matrix is $-1$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+a & b & 0 & 0\\
+c & d & e & 0\\
+f & g & h & i\\
+j & k & l & m
+\end{array}
+\right)  $ for some numbers $a,b,c,d,e,f,g,h,i,j,k,l,m,n$.
+
+\item A $4\times4$-matrix is $0$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+a & 0 & 0 & 0\\
+b & c & 0 & 0\\
+d & e & f & 0\\
+g & h & i & j
+\end{array}
+\right)  $ for some numbers $a,b,c,d,e,f,g,h,i,j$. This is, of course, the
+same as being lower-triangular.
+
+\item A $4\times4$-matrix is $1$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+a & 0 & 0 & 0\\
+b & c & 0 & 0\\
+d & e & f & 0
+\end{array}
+\right)  $ for some numbers $a,b,c,d,e,f$. This is the same as being strictly lower-triangular.
+
+\item A $4\times4$-matrix is $2$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+a & 0 & 0 & 0\\
+b & c & 0 & 0
+\end{array}
+\right)  $ for some numbers $a,b,c$.
+
+\item A $4\times4$-matrix is $3$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+a & 0 & 0 & 0
+\end{array}
+\right)  $ for some number $a$.
+
+\item A $4\times4$-matrix is $4$-lower-triangular if and only if it has the
+form $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  $ (i.e., if and only if it is the zero matrix $0_{4\times4}$). The
+same holds for $5$-lower-triangular matrices and higher on.
+\end{itemize}
+\end{example}
+
+We state some simple facts (which should have been clear from the example already):
+
+\begin{proposition}
+\label{prop.triangular.strict.k.values}Let $n\in\mathbb{N}$. Let $A$ be an
+$n\times n$-matrix.
+
+\textbf{(a)} The matrix $A$ is $k$-lower-triangular for every integer $k$
+satisfying $k\leq-n+1$.
+
+\textbf{(b)} The matrix $A$ is $0$-lower-triangular if and only if $A$ is lower-triangular.
+
+\textbf{(c)} The matrix $A$ is $1$-lower-triangular if and only if $A$ is
+strictly lower-triangular.
+
+\textbf{(d)} Let $k$ be an integer such that $k\geq n$. The matrix $A$ is
+$k$-lower-triangular if and only if $A=0_{n\times n}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.strict.k.values}.]\textbf{(a)} Let
+$k$ be an integer satisfying $k\leq-n+1$. We shall show that the matrix $A$ is
+$k$-lower-triangular. In order to do so, we must prove that%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k
+\label{pf.prop.triangular.strict.k.values.a.goal}%
+\end{equation}
+(because this is how \textquotedblleft$k$-lower-triangular\textquotedblright%
+\ was defined).
+
+This is an example of a \textquotedblleft vacuously true\textquotedblright%
+\ statement. Let me explain the concept: A logical statement of the form
+\textquotedblleft if $\mathcal{A}$, then $\mathcal{B}$\textquotedblright\ is
+said to be \textit{vacuously true} if $\mathcal{A}$ never holds. For example,
+the statement \textquotedblleft if a positive integer $n$ is negative, then
+$n=15$\textquotedblright\ is vacuously true, since a positive integer $n$ will
+never be negative in the first place. Similarly, the statement
+\textquotedblleft we have $n=m$ for any two integers $n$ and $m$ satisfying
+$n=m+\dfrac{1}{2}$\textquotedblright\ is also vacuously true, since two
+integers $n$ and $m$ will never satisfy $n=m+\dfrac{1}{2}$. (I have not worded
+this statement as an \textquotedblleft if $\mathcal{A}$, then $\mathcal{B}%
+$\textquotedblright\ statement, but I could easily have done so, by rewriting
+it as \textquotedblleft if two integers $n$ and $m$ satisfy $n=m+\dfrac{1}{2}%
+$, then $n=m$\textquotedblright. The wording doesn't matter much.) Finally,
+the statement \textquotedblleft every element of the empty set is a prime
+number\textquotedblright\ is also vacuously true, since there is no element of
+the empty set. (Again, you can rewrite this statement as \textquotedblleft if
+$a$ is an element of the empty set, then $a$ is a prime
+number\textquotedblright\ in order to bring it into the \textquotedblleft if
+$\mathcal{A}$, then $\mathcal{B}$\textquotedblright\ form.)
+
+As the name suggests, mathematicians consider vacuously true statements to be
+true. The reasoning here is that, as long as you say nothing (and vacuously
+true statements say nothing, in a sense), you remain truthful.
+
+We are now going to prove that the statement
+(\ref{pf.prop.triangular.strict.k.values.a.goal}) is vacuously true. In other
+words, we are going to prove that two elements $i$ and $j$ of $\left\{
+1,2,\ldots,n\right\}  $ never satisfy $i<j+k$ in the first place.
+
+In fact, let $i$ and $j$ be two elements of $\left\{  1,2,\ldots,n\right\}  $
+that satisfy $i<j+k$. Then, $i\geq1$ (since $i\in\left\{  1,2,\ldots
+,n\right\}  $) and $j\leq n$ (since $j\in\left\{  1,2,\ldots,n\right\}  $), so
+that $\underbrace{j}_{\leq n}+\underbrace{k}_{\leq-n+1}\leq n+\left(
+-n+1\right)  =1\leq i$ (since $i\geq1$). This contradicts $i<j+k$.
+
+Now, forget that we fixed $i$ and $j$. We thus have found a contradiction
+\textbf{for any two elements }$i$ and $j$ of $\left\{  1,2,\ldots,n\right\}  $
+that satisfy $i<j+k$. This shows that there exist no two elements $i$ and $j$
+of $\left\{  1,2,\ldots,n\right\}  $ that satisfy $i<j+k$. In other words, two
+elements $i$ and $j$ of $\left\{  1,2,\ldots,n\right\}  $ never satisfy
+$i<j+k$. Thus, the statement (\ref{pf.prop.triangular.strict.k.values.a.goal})
+is vacuously true, and therefore true. In other words, the matrix $A$ is
+$k$-lower-triangular (by the definition of \textquotedblleft$k$%
+-lower-triangular\textquotedblright). This proves Proposition
+\ref{prop.triangular.strict.k.values} \textbf{(a)}.
+
+(Again, we shall be a lot briefer in proofs like this in the future.)
+
+\textbf{(b)} Behold the following chain of equivalent
+statements\footnote{After each equivalence, we give a justification for why it
+is an equivalence.}:%
+\begin{align*}
+&  \ \left(  A\text{ is }0\text{-lower-triangular}\right) \\
+&  \Longleftrightarrow\ \left(  A_{i,j}=0\text{ whenever }i<j+0\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft%
+}0\text{-lower-triangular\textquotedblright\ is defined}\right) \\
+&  \Longleftrightarrow\ \left(  A_{i,j}=0\text{ whenever }i<j\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have replaced }j+0\text{ by
+}j\text{, since every }j\text{ satisfies }j+0=j\right) \\
+&  \Longleftrightarrow\ \left(  A\text{ is lower-triangular}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{because this is how \textquotedblleft
+lower-triangular\textquotedblright\ is defined}\right)  .
+\end{align*}
+This proves Proposition \ref{prop.triangular.strict.k.values} \textbf{(b)}.
+
+\textbf{(c)} $\Longrightarrow:$ We must prove that if $A$ is $1$%
+-lower-triangular, then $A$ is strictly lower-triangular.
+
+Indeed, assume that $A$ is $1$-lower-triangular. In other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+1
+\label{pf.prop.triangular.strict.k.values.c.1}%
+\end{equation}
+(because this is how \textquotedblleft$1$-lower-triangular\textquotedblright%
+\ is defined).
+
+Now, we have $A_{i,j}=0$ whenever $i<j$\ \ \ \ \footnote{\textit{Proof.} Let
+$i$ and $j$ be two elements of $\left\{  1,2,\ldots,n\right\}  $ such that
+$i<j$. Then, $i<j<j+1$. Hence, (\ref{pf.prop.triangular.strict.k.values.c.1})
+shows that $A_{i,j}=0$. Qed.}. In other words, $A$ is lower-triangular (by the
+definition of \textquotedblleft lower-triangular\textquotedblright). Moreover,
+every $i\in\left\{  1,2,\ldots,n\right\}  $ satisfies $i<i+1$ and thus
+$A_{i,i}=0$ (by (\ref{pf.prop.triangular.strict.k.values.c.1}), applied to
+$j=i$). In other words, all diagonal entries of $A$ are $0$.
+
+So we have shown that the matrix $A$ is lower-triangular, and that all its
+diagonal entries are $0$. In other words, $A$ is strictly lower-triangular (by
+the definition of \textquotedblleft strictly
+lower-triangular\textquotedblright). This proves the $\Longrightarrow$
+direction of Proposition \ref{prop.triangular.strict.k.values} \textbf{(c)}.
+
+$\Longleftarrow:$ We must prove that if $A$ is strictly lower-triangular, then
+$A$ is $1$-lower-triangular.
+
+Indeed, assume that $A$ is strictly lower-triangular. According to the
+definition of \textquotedblleft strictly lower-triangular\textquotedblright,
+this means thatthe matrix $A$ is lower-triangular, and that all its diagonal
+entries are $0$.
+
+The matrix $A$ is lower-triangular; in other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j
+\label{pf.prop.triangular.strict.k.values.c.6}%
+\end{equation}
+(according to the definition of \textquotedblleft
+lower-triangular\textquotedblright). Also, all diagonal entries of $A$ are
+$0$; in other words,%
+\begin{equation}
+A_{i,i}=0\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{  1,2,\ldots
+,n\right\}  . \label{pf.prop.triangular.strict.k.values.c.7}%
+\end{equation}
+
+
+Now, we can easily see that%
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+1
+\]
+\footnote{\textit{Proof.} Let $i$ and $j$ be two elements of $\left\{
+1,2,\ldots,n\right\}  $ such that $i<j+1$. We must prove that $A_{i,j}=0$.
+\par
+We are in one of the following two cases:
+\par
+\textit{Case 1:} We have $i=j$.
+\par
+\textit{Case 2:} We have $i\neq j$.
+\par
+Let us first consider Case 1. In this case, we have $i=j$. Hence, $j=i$, so
+that $A_{i,j}=A_{i,i}=0$ (by (\ref{pf.prop.triangular.strict.k.values.c.7})).
+Hence, $A_{i,j}=0$ is proven in Case 1.
+\par
+Let us now consider Case 2. In this case, we have $i\neq j$. On the other
+hand, $i<j+1$, so that $i\leq\left(  j+1\right)  -1$ (since $i$ and $j+1$ are
+integers). Thus, $i\leq\left(  j+1\right)  -1=j$. Combining this with $i\neq
+j$, we obtain $i<j$. Hence, (\ref{pf.prop.triangular.strict.k.values.c.6})
+shows that $A_{i,j}=0$. Thus, $A_{i,j}=0$ is proven in Case 2.
+\par
+We now have proven $A_{i,j}=0$ in each of the two Cases 1 and 2. Thus,
+$A_{i,j}=0$ always holds, qed.}. But this means precisely that $A$ is
+$1$-lower-triangular (because this is how \textquotedblleft$1$%
+-lower-triangular\textquotedblright\ is defined). Thus, we have shown that $A$
+is $1$-lower-triangular. This proves the $\Longleftarrow$ direction of
+Proposition \ref{prop.triangular.strict.k.values} \textbf{(c)}.
+
+Now, the proof of Proposition \ref{prop.triangular.strict.k.values}
+\textbf{(c)} is complete (since both its $\Longrightarrow$ and its
+$\Longleftarrow$ directions are proven).
+
+\textbf{(d)} $\Longrightarrow:$ We must prove that if $A$ is $k$%
+-lower-triangular, then $A=0_{n\times n}$.
+
+Indeed, assume that the matrix $A$ is $k$-lower-triangular. In other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k
+\label{pf.prop.triangular.strict.k.values.d.1}%
+\end{equation}
+(by the definition of \textquotedblleft$k$-lower-triangular\textquotedblright).
+
+Now, let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $ be arbitrary. Then, $j\geq1$ (since $j\in\left\{
+1,2,\ldots,n\right\}  $) and $i\leq n$ (since $i\in\left\{  1,2,\ldots
+,n\right\}  $). Now, $\underbrace{j}_{\geq1}+\underbrace{k}_{\geq n}\geq
+1+n>n$, so that $n<j+k$ and thus $i\leq n<j+k$. Hence, $A_{i,j}=0$ (by
+(\ref{pf.prop.triangular.strict.k.values.d.1})). Comparing this with $\left(
+0_{n\times n}\right)  _{i,j}=0$ (since each entry of the matrix $0_{n\times
+n}$ is $0$), we obtain $A_{i,j}=\left(  0_{n\times n}\right)  _{i,j}$.
+
+Now, let us forget that we fixed $i$ and $j$. We thus have shown that
+$A_{i,j}=\left(  0_{n\times n}\right)  _{i,j}$ for each $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}  $. In other
+words, each entry of the matrix $A$ equals the corresponding entry of the
+matrix $0_{n\times n}$. In other words, $A=0_{n\times n}$. This proves the
+$\Longrightarrow$ direction of Proposition
+\ref{prop.triangular.strict.k.values} \textbf{(d)}.
+
+$\Longleftarrow:$ We must prove that if $A=0_{n\times n}$, then $A$ is $k$-lower-triangular.
+
+If $i$ and $j$ are two elements of $\left\{  1,2,\ldots,n\right\}  $
+satisfying $i<j+k$, then%
+\begin{align*}
+A_{i,j}  &  =\left(  0_{n\times n}\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }A=0_{n\times n}\right) \\
+&  =0\ \ \ \ \ \ \ \ \ \ \left(  \text{since each entry of the matrix
+}0_{n\times n}\text{ is }0\right)  .
+\end{align*}
+In other words, $A_{i,j}=0$ whenever $i<j+k$. But this means precisely that
+the matrix $A$ is $k$-lower-triangular (by the definition of \textquotedblleft%
+$k$-lower-triangular\textquotedblright). Hence, we have shown that $A$ is
+$k$-lower-triangular. This proves the $\Longleftarrow$ direction of
+Proposition \ref{prop.triangular.strict.k.values} \textbf{(d)}.
+
+Now, Proposition \ref{prop.triangular.strict.k.values} \textbf{(d)} is proven
+(since both its $\Longrightarrow$ and its $\Longleftarrow$ directions are proven).
+\end{proof}
+
+Next, we state a fact which is crucial for our argument:
+
+\begin{proposition}
+\label{prop.triangular.strict.k+l}Let $n\in\mathbb{N}$. Let $p$ and $q$ be two
+integers. Let $A$ be a $p$-lower-triangular $n\times n$-matrix. Let $B$ be a
+$q$-lower-triangular $n\times n$-matrix. Then, $AB$ is a $\left(  p+q\right)
+$-lower-triangular $n\times n$-matrix.
+\end{proposition}
+
+\begin{remark}
+Proposition \ref{prop.triangular.strict.k+l} generalizes Theorem
+\ref{thm.triangular.prod-down} \textbf{(a)}. In fact, recall that an $n\times
+n$-matrix is $0$-lower-triangular if and only if it is lower-triangular (by
+Proposition \ref{prop.triangular.strict.k.values} \textbf{(b)}). Hence,
+applying Proposition \ref{prop.triangular.strict.k+l} to $p=0$ and $q=0$, we
+obtain precisely Theorem \ref{thm.triangular.prod-down} \textbf{(a)}.
+\end{remark}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.strict.k+l}.]We shall imitate our
+above proof of Theorem \ref{thm.triangular.prod-down} \textbf{(a)} as well as
+we can.
+
+The matrix $A$ is $p$-lower-triangular. In other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+p
+\label{pf.prop.triangular.strict.k+l.A-tri}%
+\end{equation}
+(because this is what it means for $A$ to be $p$-lower-triangular).
+
+The matrix $B$ is $q$-lower-triangular. In other words,%
+\begin{equation}
+B_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+q
+\label{pf.prop.triangular.strict.k+l.B-tri}%
+\end{equation}
+(because this is what it means for $B$ to be $q$-lower-triangular).
+
+Now, fix two elements $i$ and $j$ of $\left\{  1,2,\ldots,n\right\}  $
+satisfying $i<j+\left(  p+q\right)  $. We shall prove that for every
+$k\in\left\{  1,2,\ldots,n\right\}  $, we have
+\begin{equation}
+A_{i,k}B_{k,j}=0. \label{pf.prop.triangular.strict.k+l.AB0}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.triangular.strict.k+l.AB0}):} Let
+$k\in\left\{  1,2,\ldots,n\right\}  $. Then, we are in one of the following
+two cases:
+
+\begin{statement}
+\textit{Case 1:} We have $i\geq k+p$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} We have $i<k+p$.
+\end{statement}
+
+We shall prove (\ref{pf.prop.triangular.strict.k+l.AB0}) in each of these two
+cases separately:
+
+\begin{enumerate}
+\item Let us first consider Case 1. In this case, we have $i\geq k+p$. Thus,
+$k+p\leq i<j+\left(  p+q\right)  =\left(  j+q\right)  +p$. Subtracting $p$
+from both sides of this inequality, we obtain $k<j+q$. Hence, we can apply
+(\ref{pf.prop.triangular.strict.k+l.B-tri}) to $k$ instead of $i$. As a
+result, we obtain $B_{k,j}=0$. Hence, $A_{i,k}\underbrace{B_{k,j}}%
+_{=0}=A_{i,k}0=0$. Thus, (\ref{pf.prop.triangular.strict.k+l.AB0}) is proven
+in Case 1.
+
+\item Let us now consider Case 2. In this case, we have $i<k+p$. Hence, we can
+apply (\ref{pf.prop.triangular.strict.k+l.A-tri}) to $k$ instead of $j$. As a
+result, we obtain $A_{i,k}=0$. Hence, $\underbrace{A_{i,k}}_{=0}%
+B_{k,j}=0B_{k,j}=0$. Thus, (\ref{pf.prop.triangular.strict.k+l.AB0}) is proven
+in Case 2.
+\end{enumerate}
+
+We have now proven (\ref{pf.prop.triangular.strict.k+l.AB0}) in both Cases 1
+and 2. Thus, (\ref{pf.prop.triangular.strict.k+l.AB0}) is proven.]
+
+Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} shows that%
+\begin{align*}
+\left(  AB\right)  _{i,j}  &  =\underbrace{A_{i,1}B_{1,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
+}_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
+\\\text{applied to }k=m\text{)}}}\\
+&  =0+0+\cdots+0=0.
+\end{align*}
+
+
+Now, forget that we fixed $i$ and $j$. We thus have shown that%
+\[
+\left(  AB\right)  _{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+\left(
+p+q\right)  .
+\]
+But this says precisely that the matrix $AB$ is $\left(  p+q\right)
+$-lower-triangular (by the definition of \textquotedblleft$\left(  p+q\right)
+$-lower-triangular\textquotedblright). Thus, Proposition
+\ref{prop.triangular.strict.k+l} is proven.
+\end{proof}
+
+Using Proposition \ref{prop.triangular.strict.k+l}, we can show the following fact:
+
+\begin{corollary}
+\label{cor.triangular.strict.kprod}Let $n\in\mathbb{N}$. Let $A_{1}%
+,A_{2},\ldots,A_{k}$ be $k$ strictly lower-triangular $n\times n$-matrices
+(where $k\in\mathbb{N}$). Then, the $n\times n$-matrix $A_{1}A_{2}\cdots
+A_{k}$ is $k$-lower-triangular.
+\end{corollary}
+
+This is proven by induction similarly to how we proved Proposition
+\ref{prop.inverses.A1Ak} (we are actually copying the structure of that proof):
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.strict.kprod}.]We prove Corollary
+\ref{cor.triangular.strict.kprod} by induction on $k$:
+
+\textit{Induction base:} If $k=0$, then Corollary
+\ref{cor.triangular.strict.kprod} says that the $n\times n$-matrix $A_{1}%
+A_{2}\cdots A_{0}$ is $0$-lower-triangular. But this is indeed
+true\footnote{\textit{Proof.} The product $A_{1}A_{2}\cdots A_{0}$ is an empty
+product of $n\times n$-matrices, and thus equals $I_{n}$ (by definition).
+\par
+But Proposition \ref{prop.triangular.strict.k.values} \textbf{(b)} (applied to
+$A=I_{n}$) shows that the matrix $I_{n}$\textbf{ }is $0$-lower-triangular if
+and only if $I_{n}$ is lower-triangular. Hence, the matrix $I_{n}$ is
+$0$-lower-triangular (since $I_{n}$ is lower-triangular). In other words, the
+$n\times n$-matrix $A_{1}A_{2}\cdots A_{0}$ is $0$-lower-triangular (since
+$A_{1}A_{2}\cdots A_{0}=I_{n}$). Qed.}. Hence, Corollary
+\ref{cor.triangular.strict.kprod} holds for $k=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $\ell$ be a positive integer. Assume (as our
+\textit{induction hypothesis}) that Corollary
+\ref{cor.triangular.strict.kprod} holds for $k=\ell$. In other words, for any
+$\ell$ strictly lower-triangular $n\times n$-matrices $A_{1},A_{2}%
+,\ldots,A_{\ell}$, the $n\times n$-matrix $A_{1}A_{2}\cdots A_{\ell}$ is
+$\ell$-lower-triangular.
+
+We must now show that Corollary \ref{cor.triangular.strict.kprod} also holds
+for $k=\ell+1$. So let us fix $\ell+1$ strictly lower-triangular $n\times
+n$-matrices $A_{1},A_{2},\ldots,A_{\ell+1}$. We must then show that the
+$n\times n$-matrix $A_{1}A_{2}\cdots A_{\ell+1}$ is $\left(  \ell+1\right)  $-lower-triangular.
+
+Clearly, $A_{1},A_{2},\ldots,A_{\ell}$ are $\ell$ strictly lower-triangular
+$n\times n$-matrices (since $A_{1},A_{2},\ldots,A_{\ell+1}$ are $\ell+1$
+strictly lower-triangular $n\times n$-matrices). Thus, we can apply our
+induction hypothesis, and conclude that the $n\times n$-matrix $A_{1}%
+A_{2}\cdots A_{\ell}$ is $\ell$-lower-triangular.
+
+But the $n\times n$-matrix $A_{\ell+1}$ is $1$%
+-lower-triangular\footnote{\textit{Proof.} We know that $A_{1},A_{2}%
+,\ldots,A_{\ell+1}$ are $\ell+1$ strictly lower-triangular $n\times
+n$-matrices. In particular, $A_{\ell+1}$ is a strictly lower-triangular
+$n\times n$-matrix.
+\par
+But Proposition \ref{prop.triangular.strict.k.values} \textbf{(c)} (applied to
+$A=A_{\ell+1}$) shows that the matrix $A_{\ell+1}$ is $1$-lower-triangular if
+and only if $A_{\ell+1}$ is strictly lower-triangular. Hence, the matrix
+$A_{\ell+1}$ is $1$-lower-triangular (since $A_{\ell+1}$ is strictly
+lower-triangular). Qed.}. Thus, we can apply Proposition
+\ref{prop.triangular.strict.k+l} to $p=\ell$, $q=1$, $A=A_{1}A_{2}\cdots
+A_{\ell}$ and $B=A_{\ell+1}$. As a result, we conclude that $\left(
+A_{1}A_{2}\cdots A_{\ell}\right)  A_{\ell+1}$ is an $\left(  \ell+1\right)
+$-lower-triangular $n\times n$-matrix. Since $\left(  A_{1}A_{2}\cdots
+A_{\ell}\right)  A_{\ell+1}=A_{1}A_{2}\cdots A_{\ell+1}$, this rewrites as
+follows: $A_{1}A_{2}\cdots A_{\ell+1}$ is an $\left(  \ell+1\right)
+$-lower-triangular $n\times n$-matrix. In other words, the $n\times n$-matrix
+$A_{1}A_{2}\cdots A_{\ell+1}$ is $\left(  \ell+1\right)  $-lower-triangular.
+This is precisely what we wanted to show! Thus, Corollary
+\ref{cor.triangular.strict.kprod} holds for $k=\ell+1$. This completes the
+induction step. Thus, Corollary \ref{cor.triangular.strict.kprod} is proven by induction.
+\end{proof}
+
+As a consequence of Corollary \ref{cor.triangular.strict.kprod}, we obtain the
+following fact, which we experimentally observed right after Example
+\ref{exam.triangular.strict.nilp}:
+
+\begin{corollary}
+\label{cor.triangular.strict.nprod}Let $n\in\mathbb{N}$. Let $A_{1}%
+,A_{2},\ldots,A_{n}$ be $n$ strictly lower-triangular $n\times n$-matrices.
+Then, $A_{1}A_{2}\cdots A_{n}=0_{n\times n}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.strict.nprod}.]Corollary
+\ref{cor.triangular.strict.kprod} (applied to $k=n$) shows that the $n\times
+n$-matrix $A_{1}A_{2}\cdots A_{n}$ is $n$-lower-triangular. But we have $n\geq
+n$. Hence, Proposition \ref{prop.triangular.strict.k.values} \textbf{(d)}
+(applied to $k=n$ and $A=A_{1}A_{2}\cdots A_{n}$) shows that the matrix
+$A_{1}A_{2}\cdots A_{n}$ is $n$-lower-triangular if and only if $A_{1}%
+A_{2}\cdots A_{n}=0_{n\times n}$. Hence, $A_{1}A_{2}\cdots A_{n}=0_{n\times
+n}$ (since we know that the matrix $A_{1}A_{2}\cdots A_{n}$ is $n$%
+-lower-triangular). Corollary \ref{cor.triangular.strict.nprod} is thus proven.
+\end{proof}
+
+The following corollary is obtained as a particular case of Corollary
+\ref{cor.triangular.strict.nprod} when we set all the $n$ matrices
+$A_{1},A_{2},\ldots,A_{n}$ equal to one and the same matrix $A$:
+
+\begin{corollary}
+\label{cor.triangular.strict.npow}Let $n\in\mathbb{N}$. Let $A$ be a strictly
+lower-triangular $n\times n$-matrix. Then, $A^{n}=0_{n\times n}$.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.strict.npow}.]Clearly,
+$\underbrace{A,A,\ldots,A}_{n\text{ times}}$ are $n$ strictly lower-triangular
+$n\times n$-matrices. Thus, Corollary \ref{cor.triangular.strict.nprod}
+(applied to $A_{i}=A$) shows that $\underbrace{AA\cdots A}_{n\text{ times}%
+}=0_{n\times n}$. Now, $A^{n}=\underbrace{AA\cdots A}_{n\text{ times}%
+}=0_{n\times n}$. Corollary \ref{cor.triangular.strict.npow} is proven.
+\end{proof}
+
+Another corollary of the preceding results is the following:
+
+\begin{corollary}
+\label{cor.triangular.strict.kpow-weak}Let $n\in\mathbb{N}$. Let $k$ be a
+positive integer. Let $A$ be a strictly lower-triangular $n\times n$-matrix.
+Then, the $n\times n$-matrix $A^{k}$ is strictly lower-triangular.
+\end{corollary}
+
+\begin{proof}
+[Proof of Corollary \ref{cor.triangular.strict.kpow-weak}.]Clearly,
+$\underbrace{A,A,\ldots,A}_{k\text{ times}}$ are $k$ strictly lower-triangular
+$n\times n$-matrices. Thus, Corollary \ref{cor.triangular.strict.kprod}
+(applied to $A_{i}=A$) shows that the $n\times n$-matrix $\underbrace{AA\cdots
+A}_{k\text{ times}}$ is $k$-lower-triangular. Since $\underbrace{AA\cdots
+A}_{k\text{ times}}=A^{k}$, this rewrites as follows: The $n\times n$-matrix
+$A^{k}$ is $k$-lower-triangular. In other words,%
+\begin{equation}
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k
+\label{pf.cor.triangular.strict.kpow-weak.1}%
+\end{equation}
+(according to the definition of \textquotedblleft$k$%
+-lower-triangular\textquotedblright).
+
+But $k$ is a positive integer. Thus, $1\leq k$, so that $j+\underbrace{1}%
+_{\leq k}\leq j+k$ for every $j\in\left\{  1,2,\ldots,n\right\}  $. Hence,
+every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,n\right\}  $ satisfying $i<j+1$ must also satisfy $i<j+k$ (since $i<j+1\leq
+j+k$) and consequently $A_{i,j}=0$ (by
+(\ref{pf.cor.triangular.strict.kpow-weak.1})). In other words,
+\[
+A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+1.
+\]
+In other words, the matrix $A^{k}$ is $1$-lower-triangular (by the definition
+of \textquotedblleft$1$-lower-triangular\textquotedblright).
+
+But Proposition \ref{prop.triangular.strict.k.values} \textbf{(c)} (applied to
+$A^{k}$ instead of $A$) shows that the matrix $A^{k}$ is $1$-lower-triangular
+if and only if $A^{k}$ is strictly lower-triangular. Hence, $A^{k}$ is
+strictly lower-triangular (since $A^{k}$ is $1$-lower-triangular). This proves
+Corollary \ref{cor.triangular.strict.kpow-weak}.
+\end{proof}
+
+So much for products of strictly lower-triangular matrices. What about their sums?
+
+\begin{proposition}
+\label{prop.triangular.strict.sum-of-stricts}Let $n\in\mathbb{N}$. Let
+$A_{1},A_{2},\ldots,A_{k}$ be $k$ strictly lower-triangular $n\times
+n$-matrices (where $k\in\mathbb{N}$). Then, $A_{1}+A_{2}+\cdots+A_{k}$ is a
+strictly lower-triangular $n\times n$-matrix.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.strict.sum-of-stricts}.]This is
+left to the reader. (What makes this proof easy is that matrices are added
+entry by entry.)
+\end{proof}
+
+Just as trivial is the following fact:
+
+\begin{proposition}
+\label{prop.triangular.strict.-strict}Let $n\in\mathbb{N}$. Let $A$ be a
+strictly lower-triangular $n\times n$-matrix. Then, $-A$ is a strictly
+lower-triangular $n\times n$-matrix.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.strict.-strict}.]Left to the reader.
+\end{proof}
+
+Let us also state an analogue of Proposition \ref{prop.triangular.uni-inv} for
+lower-triangular matrices:
+
+\begin{proposition}
+\label{prop.triangular.uni-inv.lower}\textbf{(a)} Each lower-unitriangular
+matrix is invertibly lower-triangular.
+
+\textbf{(b)} Let $n\in\mathbb{N}$. Let $A$ be an $n\times n$-matrix. Then, $A$
+is lower-unitriangular if and only if $I_{n}-A$ is strictly lower-triangular.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.uni-inv.lower}.]This is proven in
+the same way as we proved Proposition \ref{prop.triangular.uni-inv} (once the
+obvious modifications are made).
+\end{proof}
+
+Next, we show another simple fact:
+
+\begin{proposition}
+\label{prop.triangular.strict.geoseries}Let $n\in\mathbb{N}$. Let $A$ be an
+$n\times n$-matrix such that $A^{n}=0_{n\times n}$. Then, the matrix $I_{n}-A$
+is invertible, and its inverse is $\left(  I_{n}-A\right)  ^{-1}=A^{0}%
++A^{1}+\cdots+A^{n-1}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.triangular.strict.geoseries}.]Let $B$ be the
+$n\times n$-matrix $A^{0}+A^{1}+\cdots+A^{n-1}$.
+
+Multiplying the equalities $A=A$ and $B=A^{0}+A^{1}+\cdots+A^{n-1}$, we obtain%
+\begin{align*}
+AB  &  =A\left(  A^{0}+A^{1}+\cdots+A^{n-1}\right)  =\underbrace{AA^{0}%
+}_{=A^{1}}+\underbrace{AA^{1}}_{=A^{2}}+\cdots+\underbrace{AA^{n-1}}_{=A^{n}%
+}\\
+&  =A^{1}+A^{2}+\cdots+A^{n}=\left(  A^{1}+A^{2}+\cdots+A^{n-1}\right)
++\underbrace{A^{n}}_{=0_{n\times n}}=A^{1}+A^{2}+\cdots+A^{n-1}.
+\end{align*}
+Now,%
+\begin{align*}
+\left(  I_{n}-A\right)  B  &  =\underbrace{I_{n}B}_{=B=A^{0}+A^{1}%
++\cdots+A^{n-1}}-\underbrace{AB}_{=A^{1}+A^{2}+\cdots+A^{n-1}}\\
+&  =\left(  A^{0}+A^{1}+\cdots+A^{n-1}\right)  -\left(  A^{1}+A^{2}%
++\cdots+A^{n-1}\right)  =A^{0}=I_{n}.
+\end{align*}
+A similar argument shows that $B\left(  I_{n}-A\right)  =I_{n}$. (To be more
+precise: This is proven by multiplying the equalities $B=A^{0}+A^{1}%
++\cdots+A^{n-1}$ and $A=A$, as opposed to $A=A$ and $B=A^{0}+A^{1}%
++\cdots+A^{n-1}$.)
+
+The two equalities $\left(  I_{n}-A\right)  B=I_{n}$ and $B\left(
+I_{n}-A\right)  =I_{n}$ show that the matrix $B$ is an inverse of $I_{n}-A$.
+Thus, the matrix $I_{n}-A$ is invertible, and its inverse is $\left(
+I_{n}-A\right)  ^{-1}=B$. Hence, $\left(  I_{n}-A\right)  ^{-1}=B=A^{0}%
++A^{1}+\cdots+A^{n-1}$. The proof of Proposition
+\ref{prop.triangular.strict.geoseries} is thus complete.
+\end{proof}
+
+\begin{remark}
+\textbf{(a)} The above proof of Proposition
+\ref{prop.triangular.strict.geoseries} we gave might look like a slick and
+artful trick. However, it is actually an incarnation of a well-known idea: the
+same idea that enters in the proof of the infinite-sum formula%
+\[
+\dfrac{1}{1-a}=a^{0}+a^{1}+a^{2}+\cdots\ \ \ \ \ \ \ \ \ \ \text{for any real
+number }a\text{ with }-1<a<1.
+\]
+The main difference here is that we are working with a matrix $A$ instead of a
+real number $a$, and that the infinite sum $a^{0}+a^{1}+a^{2}+\cdots$ is
+replaced by a \textbf{finite} sum $A^{0}+A^{1}+\cdots+A^{n-1}$ (because all
+the powers $A^{n},A^{n+1},A^{n+2},\ldots$ equal the zero matrix).
+
+\textbf{(b)} Proposition \ref{prop.triangular.strict.geoseries} requires an
+$n\times n$ matrix $A$ satisfying $A^{n}=0_{n\times n}$. How do we find such matrices?
+
+Corollary \ref{cor.triangular.strict.npow} shows that every strictly
+lower-triangular $n\times n$-matrix $A$ has this property; this gives us an
+infinite supply of such matrices (at least for $n\geq2$). Similarly, every
+strictly upper-triangular $n\times n$-matrix $A$ has this property. But there
+are also others: For example, if $A$ is the $2\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+-1 & -1
+\end{array}
+\right)  $, then $A$ also satisfies $A^{2}=0_{2\times2}$, despite not being triangular.
+\end{remark}
+
+We can now prove Theorem \ref{thm.triangular.inverse} again:
+
+\begin{proof}
+[Second proof of Theorem \ref{thm.triangular.inverse}.]Proposition
+\ref{prop.triangular.uni-inv.lower} \textbf{(b)} shows that $A$ is
+lower-unitriangular if and only if $I_{n}-A$ is strictly lower-triangular.
+Hence, $I_{n}-A$ is strictly lower-triangular (because $A$ is lower-unitriangular).
+
+Let $C=I_{n}-A$. Thus, $C$ is strictly lower-triangular (since $I_{n}-A$ is
+strictly lower-triangular). Hence, Corollary \ref{cor.triangular.strict.npow}
+(applied to $C$ instead of $A$) shows that $C^{n}=0_{n\times n}$. Proposition
+\ref{prop.triangular.strict.geoseries} (applied to $C$ instead of $A$) thus
+shows that the matrix $I_{n}-C$ is invertible, and that its inverse is
+$\left(  I_{n}-C\right)  ^{-1}=C^{0}+C^{1}+\cdots+C^{n-1}$.
+
+We have $I_{n}-\underbrace{C}_{=I_{n}-A}=I_{n}-\left(  I_{n}-A\right)  =A$.
+Now, we know that the matrix $I_{n}-C$ is invertible. In other words, the
+matrix $A$ is invertible (since $I_{n}-C=A$). It remains to check that its
+inverse $A^{-1}$ is again lower-unitriangular.
+
+We assume WLOG that $n$ is positive (since otherwise, there is nothing to
+check). We have%
+\begin{align*}
+\left(  I_{n}-C\right)  ^{-1}  &  =C^{0}+C^{1}+\cdots+C^{n-1}%
+=\underbrace{C^{0}}_{=I_{n}}+\left(  C^{1}+C^{2}+\cdots+C^{n-1}\right) \\
+&  =I_{n}+\left(  C^{1}+C^{2}+\cdots+C^{n-1}\right)  .
+\end{align*}
+Since $I_{n}-C=A$, this rewrites as%
+\[
+A^{-1}=I_{n}+\left(  C^{1}+C^{2}+\cdots+C^{n-1}\right)  .
+\]
+Subtracting this equality from $I_{n}=I_{n}$, we obtain%
+\begin{align}
+I_{n}-A^{-1}  &  =I_{n}-\left(  I_{n}+\left(  C^{1}+C^{2}+\cdots
++C^{n-1}\right)  \right) \nonumber\\
+&  =-\left(  C^{1}+C^{2}+\cdots+C^{n-1}\right)  .
+\label{pf.thm.triangular.inverse.2nd.1}%
+\end{align}
+
+
+But recall that the matrix $C$ is strictly lower-triangular. Hence, for every
+positive integer $k$, the $n\times n$-matrix $C^{k}$ is strictly
+lower-triangular (by Corollary \ref{cor.triangular.strict.kpow-weak}, applied
+to $C$ instead of $A$). Thus, the matrices $C^{1},C^{2},\ldots,C^{n-1}$ are
+$n-1$ strictly lower-triangular $n\times n$-matrices. Proposition
+\ref{prop.triangular.strict.sum-of-stricts} (applied to $k=n-1$ and
+$A_{k}=C^{k}$) thus shows that $C^{1}+C^{2}+\cdots+C^{n-1}$ is a strictly
+lower-triangular $n\times n$-matrix. Hence, Proposition
+\ref{prop.triangular.strict.-strict} (applied to $C^{1}+C^{2}+\cdots+C^{n-1}$
+instead of $A$) yields that $-\left(  C^{1}+C^{2}+\cdots+C^{n-1}\right)  $ is
+a strictly lower-triangular $n\times n$-matrix. In light of
+(\ref{pf.thm.triangular.inverse.2nd.1}), this rewrites as follows:
+$I_{n}-A^{-1}$ is a strictly lower-triangular $n\times n$-matrix.
+
+But Proposition \ref{prop.triangular.uni-inv.lower} \textbf{(b)} (applied to
+$A^{-1}$ instead of $A$) shows that $A^{-1}$ is lower-unitriangular if and
+only if $I_{n}-A^{-1}$ is strictly lower-triangular. Since we have just seen
+that $I_{n}-A^{-1}$ is strictly lower-triangular, we can therefore conclude
+that $A^{-1}$ is lower-unitriangular. Thus, the second proof of Theorem
+\ref{thm.triangular.inverse} is complete.
+\end{proof}
+
+Of course, an analogous argument (with some inequality signs turned around,
+and some \textquotedblleft lower\textquotedblright s replaced by
+\textquotedblleft upper\textquotedblright s) can be used to prove Theorem
+\ref{thm.triangular.inverse-up}.
+
+[...]
 
 (to be continued)
 
@@ -7076,20 +7904,6 @@ matrix and $C$ is any matrix, then $PC$ has the same rows as $C$ but
 but (possibly) in a different order.
 
 \item Permutation matrices are invertible, and their inverses are permutation matrices.
-
-\item (*) Strictly upper-triangular $n\times n$-matrices $N$ are nilpotent,
-with $N^{n}=0_{n\times n}$. More generally, any product of $n$ such matrices
-is $0_{n\times n}$. Prove this using the \textquotedblleft receding
-front\textquotedblright\ argument: A $k$-upper-triangular $n\times n$-matrix
-means a matrix $A$ with $A_{i,j}=0$ whenever $i<j+k$. (So $1$-upper-triangular
-= upper-unitriangular, whereas $0$-upper-triangular = upper-triangular.) Show
-that the product of a $k$-upper-triangular and an $\ell$-upper-triangular
-matrix is $\left(  k+\ell\right)  $-upper triangular. Conclude by induction
-that the product of $n$ upper-triangular matrices is $n$-upper-triangular,
-which means it is $0_{n\times n}$.
-
-\item (*) Use this to give another proof of the invertibility of unitriangular
-matrices: the inverse of $I_{n}-N$ is $I_{n}+N+N^{2}+\cdots$.
 
 \item (*) Sketch yet another proof of the invertibility of unitriangular
 matrices: construct right inverse by back-substitution; argue that it is a
