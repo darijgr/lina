@@ -3050,7 +3050,7 @@ For a detailed introduction to complex numbers, see \cite[\S 2]{LaNaSc16}.
 
 \item We shall occasionally use another set: the set $\overline{\mathbb{Q}}$
 of all \textit{algebraic numbers}. These are complex numbers that are roots of
-polynomials with rational coefficients. For instance, $\sqrt{2}$ is an
+nonzero polynomials with rational coefficients. For instance, $\sqrt{2}$ is an
 algebraic number\footnote{because it is a root of the polynomial $X^{2}-2$},
 and $i$ is an algebraic number\footnote{since it is a root of $X^{2}+1$}, and
 $\dfrac{5}{2}$ is an algebraic number\footnote{since it is a root of
@@ -4179,7 +4179,7 @@ it as an example of proof by induction:
 
 \textit{Induction base:} If $k=1$, then Proposition \ref{prop.inverses.A1Ak}
 says that $A_{1}^{-1}=A_{1}^{-1}$; this is obviously true. Hence, Proposition
-\ref{prop.inverses.A1Ak} holds for $k=1$.
+\ref{prop.inverses.A1Ak} holds for $k=1$. This completes the induction base.
 
 \textit{Induction step:} Let $\ell$ be a positive integer. Assume (as our
 \textit{induction hypothesis}) that Proposition \ref{prop.inverses.A1Ak} holds
@@ -4499,16 +4499,17 @@ A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i\neq j.
 \end{definition}
 
 Notice that only square matrices can be upper-triangular or lower-triangular
-(by definition). Why the name \textquotedblleft triangular\textquotedblright?
-Because visually speaking, a matrix is upper-triangular if and only if all its
-entries (strictly) below the diagonal are $0$ (which means that its nonzero
-entries are concentrated in the \textbf{triangle} bordered by the diagonal,
-the upper rim and the right rim). I hope Example \ref{exam.triangular} will
-clarify this if it is unclear. Similarly, a matrix is lower-triangular if and
-only if all its entries (strictly) above the diagonal are $0$ (which again
-means that its nonzero entries are concentrated in a triangle, this time to
-the southwest of the diagonal). Finally, a matrix is diagonal if only if all
-its entries except for the diagonal entries are $0$.
+or diagonal (by definition). Why the name \textquotedblleft
+triangular\textquotedblright? Because visually speaking, a matrix is
+upper-triangular if and only if all its entries (strictly) below the diagonal
+are $0$ (which means that its nonzero entries are concentrated in the
+\textbf{triangle} bordered by the diagonal, the upper rim and the right rim).
+I hope Example \ref{exam.triangular} will clarify this if it is unclear.
+Similarly, a matrix is lower-triangular if and only if all its entries
+(strictly) above the diagonal are $0$ (which again means that its nonzero
+entries are concentrated in a triangle, this time to the southwest of the
+diagonal). Finally, a matrix is diagonal if and only if all its entries except
+for the diagonal entries are $0$.
 
 I think the following example should explain this:
 
@@ -4884,7 +4885,19 @@ if and only if it is upper-triangular and all its diagonal entries are $0$
 (that is, $A_{i,i}=0$ for all $i$).
 
 Similar notions can be defined with the word \textquotedblleft
-lower\textquotedblright\ instead of \textquotedblleft upper\textquotedblright.
+lower\textquotedblright\ instead of \textquotedblleft upper\textquotedblright:
+
+\textbf{(d)} The matrix $A$ is said to be \textit{lower-unitriangular} if and
+only if it is lower-triangular and all its diagonal entries are $1$ (that is,
+$A_{i,i}=1$ for all $i$).
+
+\textbf{(e)} The matrix $A$ is said to be \textit{invertibly lower-triangular}
+if and only if it is lower-triangular and all its diagonal entries are nonzero
+(that is, $A_{i,i}\neq0$ for all $i$).
+
+\textbf{(f)} The matrix $A$ is said to be \textit{strictly lower-triangular}
+if and only if it is lower-triangular and all its diagonal entries are $0$
+(that is, $A_{i,i}=0$ for all $i$).
 \end{definition}
 
 The words we have just defined are not as important as the word
