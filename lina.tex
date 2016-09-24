@@ -5948,7 +5948,8 @@ $\delta_{v,x}E_{u,y,n,p}$. Thus, $E_{u,v,n,m}E_{x,y,m,p}=\delta_{v,x}%
 E_{u,y,n,p}$. This proves Proposition \ref{prop.Euv.prod}.
 \end{proof}
 
-\subsection{The $\lambda$-addition matrices $A_{u,v}^{\lambda}$}
+\subsection{\label{sect.gauss.Alamuv}The $\lambda$-addition matrices
+$A_{u,v}^{\lambda}$}
 
 Now, we come to another important class of matrices (that can also be seen as
 building blocks of a kind): the $\lambda$\textit{-addition matrices}. Those
@@ -6371,7 +6372,8 @@ an inverse of $A_{u,v}^{\lambda}$. This proves Proposition
 \subsection{Unitriangular matrices are products of $A_{u,v}^{\lambda}$'s}
 
 We have already said that the matrices $A_{u,v}^{\lambda}$ are building blocks
-(of a sort). Here is what we mean by this:
+(of a sort). Before we explain what this means in detail, let us define a
+convenient word:
 
 \begin{definition}
 Let $n\in\mathbb{N}$. A \textit{lower addition }$n\times n$\textit{-matrix}
@@ -7855,21 +7857,41 @@ and some \textquotedblleft lower\textquotedblright s replaced by
 \textquotedblleft upper\textquotedblright s) can be used to prove Theorem
 \ref{thm.triangular.inverse-up}.
 
-[...]
+\subsection{The $\lambda$-scaling matrices $S_{u}^{\lambda}$}
 
-(to be continued)
+Now we shall explore another kind of square matrices not unlike the matrices
+$A_{u,v}^{\lambda}$ from Definition \ref{def.Alamuv}\footnote{The present
+section imitates the structure of Section \ref{sect.gauss.Alamuv}; this is, of
+course, fully intentional.}:
 
-\textbf{TO-DO LIST! (This will appear shortly:)}
+\begin{definition}
+\label{def.Slamu}Let $n\in\mathbb{N}$. Let $u\in\left\{  1,2,\ldots,n\right\}
+$. Let $\lambda$ be a number. Then, $S_{u}^{\lambda}$ shall denote the
+$n\times n$-matrix $I_{n}+\left(  \lambda-1\right)  E_{u,u}$ (where $E_{u,u}$
+means the $n\times n$-matrix $E_{u,u}$, that is, $E_{u,u,n,n}$).
 
-\begin{itemize}
-\item Introduce the $n\times n$-matrix $S_{i}^{\lambda}=I_{n}+\left(
-\lambda-1\right)  E_{i,i}$ for each $i\in\left\{  1,2,\ldots,n\right\}  $.
-This is the identity matrix with the $i$-th diagonal $1$ replaced by a
-$\lambda$.
+A few remarks about the notation:
 
-Example: For $n=4$, we have%
-\[
-S_{3}^{\lambda}=\left(
+\textbf{(a)} The superscript $\lambda$ in the notation \textquotedblleft%
+$S_{u}^{\lambda}$\textquotedblright\ is not an exponent; i.e., the matrix
+$S_{u}^{\lambda}$ is not the $\lambda$-th power of some matrix $S_{u}$.
+Instead, it is just an argument that we have chosen to write as a superscript
+instead of a subscript.
+
+\textbf{(b)} To be really precise, we ought to denote $S_{u}^{\lambda}$ by
+$S_{u,n}^{\lambda}$, because it depends on $n$. (This is similar to how we
+ought to denote $E_{u,v}$ by $E_{u,v,n,n}$.) But the $n$ will be really clear
+from the context almost every time we deal with these matrices, so we shall
+keep it out of our notation.
+
+\textbf{(c)} The notation $S_{u}^{\lambda}$ is not standard in the literature,
+but I will use this notation in the following.
+\end{definition}
+
+\begin{example}
+\label{exe.Slamu}Let $n=4$. Then,%
+\begin{align*}
+S_{3}^{\lambda}  &  =I_{n}+\left(  \lambda-1\right)  E_{3,3}=\left(
 \begin{array}
 [c]{cccc}%
 1 & 0 & 0 & 0\\
@@ -7877,20 +7899,417 @@ S_{3}^{\lambda}=\left(
 0 & 0 & \lambda & 0\\
 0 & 0 & 0 & 1
 \end{array}
-\right)
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+S_{4}^{\lambda}  &  =I_{n}+\left(  \lambda-1\right)  E_{4,4}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & \lambda
+\end{array}
+\right)  .
+\end{align*}
+
+\end{example}
+
+The pattern that you see on these examples is true in general:
+
+\begin{proposition}
+\label{prop.Slamu.entries}Let $n\in\mathbb{N}$. Let $u\in\left\{
+1,2,\ldots,n\right\}  $. Let $\lambda$ be a number. Then, the matrix
+$S_{u}^{\lambda}$ has the following entries:
+
+\begin{itemize}
+\item Its $\left(  u,u\right)  $-th entry is $\lambda$.
+
+\item All its other diagonal entries are $1$.
+
+\item All its remaining entries are $0$.
+\end{itemize}
+\end{proposition}
+
+Proposition \ref{prop.Slamu.entries} can be rewritten as follows: The matrix
+$S_{u}^{\lambda}$ (where $n\in\mathbb{N}$, where $u\in\left\{  1,2,\ldots
+,n\right\}  $, and where $\lambda$ is a number) is the $n\times n$-identity
+matrix $I_{n}$ with the $\left(  u,u\right)  $-th entry replaced by $\lambda$.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Slamu.entries}.]Recall that $E_{u,u}$ is the
+$n\times n$-matrix whose $\left(  u,u\right)  $-th entry is $1$ and whose all
+other entries are $0$ (indeed, this is how $E_{u,u}$ was defined). Since
+matrices are scaled entry by entry, we can therefore conclude how $\left(
+\lambda-1\right)  E_{u,u}$ looks like: Namely, $\left(  \lambda-1\right)
+E_{u,u}$ is the $n\times n$-matrix whose $\left(  u,u\right)  $-th entry is
+$\left(  \lambda-1\right)  \cdot1=\lambda-1$ and whose all other entries are
+$\left(  \lambda-1\right)  \cdot0=0$. Thus, we know the following:
+
+\begin{itemize}
+\item The matrix $I_{n}$ is the $n\times n$-matrix whose diagonal
+entries\footnote{This includes the $\left(  u,u\right)  $-th entry.} are $1$,
+and whose all other entries are $0$.
+
+\item The matrix $\left(  \lambda-1\right)  E_{u,u}$ is the $n\times n$-matrix
+whose $\left(  u,u\right)  $-th entry is $\lambda-1$, and whose all other
+entries are $0$.
+\end{itemize}
+
+Since matrices are added entry by entry, we can thus infer how $I_{n}+\left(
+\lambda-1\right)  E_{u,u}$ looks like: Namely, the matrix $I_{n}+\left(
+\lambda-1\right)  E_{u,u}$ is the $n\times n$-matrix whose $\left(
+u,u\right)  $-th entry is $1+\left(  \lambda-1\right)  =\lambda$, whose all
+other diagonal entries are $1+0=1$, and whose all other entries are $0+0=0$.
+Since $I_{n}+\left(  \lambda-1\right)  E_{u,u}=S_{u}^{\lambda}$, this rewrites
+as follows: The matrix $S_{u}^{\lambda}$ is the $n\times n$-matrix whose
+$\left(  u,u\right)  $-th entry is $\lambda$, whose all other diagonal entries
+are $1$, and whose all other entries are $0$. This proves Proposition
+\ref{prop.Slamu.entries}.
+\end{proof}
+
+We can next see what happens to a matrix when it is multiplied by
+$S_{u}^{\lambda}$:
+
+\begin{proposition}
+\label{prop.Slamu.laction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$u\in\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a number. Let $C$ be
+an $n\times m$-matrix. Then, $S_{u}^{\lambda}C$ is the $n\times m$-matrix
+obtained from $C$ by scaling the $u$-th row by $\lambda$.
+
+(Recall that the rows of $C$ are row vectors, and thus are scaled entry by
+entry. Hence, scaling the $u$-th row by $\lambda$ means multiplying each entry
+of the $u$-th row of $C$ by $\lambda$.)
+\end{proposition}
+
+\begin{example}
+\label{exam.prop.Slamu.laction}Let $n=3$ and $m=2$. Let $C$ be the $3\times
+2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  $. Let $\lambda$ be a number. Then, Proposition
+\ref{prop.Slamu.laction} (applied to $u=2$) claims that $S_{2}^{\lambda}C$ is
+the $3\times2$-matrix obtained from $C$ by scaling the $2$-nd row by $\lambda
+$. A computation confirms this claim:%
+\[
+S_{2}^{\lambda}C=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & \lambda & 0\\
+0 & 0 & 1
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+\lambda a^{\prime} & \lambda b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  .
 \]
 
+\end{example}
 
-\item Explain how $S_{i}^{\lambda}$ acts on matrices: $S_{i}^{\lambda}C$ is
-obtained from $C$ by scaling the $i$-th row by $\lambda$. Similarly,
-$CS_{i}^{\lambda}$ is obtained from $C$ by scaling the $i$-th column by
-$\lambda$.
+\begin{proposition}
+\label{prop.Slamu.raction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$u\in\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a number. Let $C$ be
+an $m\times n$-matrix. Then, $CS_{u}^{\lambda}$ is the $m\times n$-matrix
+obtained from $C$ by scaling the $u$-th column by $\lambda$.
+\end{proposition}
 
-\item $\left(  S_{i}^{\lambda}\right)  ^{-1}=S_{i}^{1/\lambda}$ for
-$\lambda\neq0$.
+I will prove Proposition \ref{prop.Slamu.laction} in Section
+\ref{sect.gauss.Slamu.proofs} below (although by now, this proof could be a
+simple exercise).
 
-\item $\left(  S_{i}^{\lambda}\right)  ^{T}=S_{i}^{\lambda}$.
+We shall refer to the matrix $S_{u}^{\lambda}$ defined in Definition
+\ref{def.Slamu} as a \textquotedblleft$\lambda$-scaling
+matrix\textquotedblright; it is the second of the previously announced three
+kinds of elementary matrices.
 
+Here are a few more properties of $\lambda$-scaling matrices:
+
+\begin{proposition}
+\label{prop.Slamu.transpose}Let $n\in\mathbb{N}$. Let $u\in\left\{
+1,2,\ldots,n\right\}  $. Let $\lambda$ be a number. Then, $\left(
+S_{u}^{\lambda}\right)  ^{T}=S_{u}^{\lambda}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Slamu.transpose}.]Very easy and left to the reader.
+\end{proof}
+
+\begin{proposition}
+\label{prop.Slamu.lambda+mu}Let $n\in\mathbb{N}$. Let $u\in\left\{
+1,2,\ldots,n\right\}  $.
+
+\textbf{(a)} We have $S_{u}^{1}=I_{n}$.
+
+\textbf{(b)} If $\lambda$ and $\mu$ are two numbers, then $S_{u}^{\lambda
+}S_{u}^{\mu}=S_{u}^{\lambda\mu}$.
+
+\textbf{(c)} Let $\lambda$ be a nonzero number. Then, the matrix
+$S_{u}^{\lambda}$ is invertible, and its inverse is $\left(  S_{u}^{\lambda
+}\right)  ^{-1}=S_{u}^{1/\lambda}$.
+\end{proposition}
+
+A proof of this proposition will also be given in Section
+\ref{sect.gauss.Slamu.proofs}.
+
+\subsection{\label{sect.gauss.Slamu.proofs}(*) Some proofs about the $\lambda
+$-scaling matrices}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Slamu.laction}.]Clearly, $S_{u}^{\lambda}C$ is
+an $n\times m$-matrix.
+
+Proposition \ref{prop.Euv.laction} (applied to $n$, $m$ and $u$ instead of
+$m$, $p$ and $v$) shows that $E_{u,u}C$ is the $n\times m$-matrix whose $u$-th
+row is the $u$-th row of $C$, and whose all other rows are filled with zeroes.
+Thus,%
+\begin{equation}
+\operatorname*{row}\nolimits_{u}\left(  E_{u,u}C\right)  =\operatorname*{row}%
+\nolimits_{u}C \label{pf.prop.Slamu.laction.1}%
+\end{equation}
+(since the $u$-the row of $E_{u,u}C$ is the $u$-th row of $C$) and%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  E_{u,u}C\right)  =0_{1\times
+m}\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots,n\right\}
+\text{ satisfying }i\neq u \label{pf.prop.Slamu.laction.2}%
+\end{equation}
+(since all other rows of $EuC$ are filled with zeroes).
+
+But recall that matrices are added entry by entry. Thus, matrices are also
+added by row by row -- i.e., if $U$ and $V$ are two $n\times m$-matrices, then
+any row of $U+V$ is the sum of the corresponding rows of $U$ and of $V$. In
+other words, if $U$ and $V$ are two $n\times m$-matrices, then%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  U+V\right)  =\operatorname*{row}%
+\nolimits_{i}U+\operatorname*{row}\nolimits_{i}V\ \ \ \ \ \ \ \ \ \ \text{for
+every }i\in\left\{  1,2,\ldots,n\right\}  . \label{pf.prop.Slamu.laction.5}%
+\end{equation}
+Also, if $U$ is an $n\times m$-matrix, then every number $\mu$ satisfies%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  \mu U\right)  =\mu\operatorname*{row}%
+\nolimits_{i}U\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots
+,n\right\}  \label{pf.prop.Slamu.laction.6}%
+\end{equation}
+(since matrices are scaled entry by entry).
+
+We have%
+\begin{align*}
+\underbrace{S_{u}^{\lambda}}_{=I_{n}+\left(  \lambda-1\right)  E_{u,u}}C  &
+=\left(  I_{n}+\left(  \lambda-1\right)  E_{u,u}\right)  C=\underbrace{I_{n}%
+C}_{=C}+\left(  \lambda-1\right)  E_{u,u}C\\
+&  =C+\left(  \lambda-1\right)  E_{u,u}C.
+\end{align*}
+Hence, for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align}
+\operatorname*{row}\nolimits_{i}\left(  \underbrace{S_{u}^{\lambda}%
+C}_{=C+\left(  \lambda-1\right)  E_{u,u}C}\right)   &  =\operatorname*{row}%
+\nolimits_{i}\left(  C+\left(  \lambda-1\right)  E_{u,u}C\right)
+=\operatorname*{row}\nolimits_{i}C+\underbrace{\operatorname*{row}%
+\nolimits_{i}\left(  \left(  \lambda-1\right)  E_{u,u}C\right)  }%
+_{\substack{=\left(  \lambda-1\right)  \operatorname*{row}\nolimits_{i}\left(
+E_{u,u}C\right)  \\\text{(by (\ref{pf.prop.Slamu.laction.6}), applied}%
+\\\text{to }\mu=\lambda-1\text{)}}}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Slamu.laction.5}),
+applied to }U=C\text{ and }V=\left(  \lambda-1\right)  E_{u,u}C\right)
+\nonumber\\
+&  =\operatorname*{row}\nolimits_{i}C+\left(  \lambda-1\right)
+\operatorname*{row}\nolimits_{i}\left(  E_{u,u}C\right)  .
+\label{pf.prop.Slamu.laction.9}%
+\end{align}
+
+
+Now, we must prove that $S_{u}^{\lambda}C$ is the $n\times m$-matrix obtained
+from $C$ by scaling the $u$-th row by $\lambda$. In other words, we must prove
+the following two claims:
+
+\begin{statement}
+\textit{Claim 1:} The $u$-th row of the $n\times m$-matrix $S_{u}^{\lambda}C$
+equals $\lambda$ times the $u$-th row of $C$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} For each $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying
+$i\neq u$, the $i$-th row of the $n\times m$-matrix $S_{u}^{\lambda}C$ equals
+the $i$-th row of $C$.
+\end{statement}
+
+\textit{Proof of Claim 1:} The $u$-th row of the $n\times m$-matrix
+$S_{u}^{\lambda}C$ is%
+\begin{align*}
+\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\lambda}C\right)   &
+=\operatorname*{row}\nolimits_{u}C+\left(  \lambda-1\right)
+\underbrace{\operatorname*{row}\nolimits_{u}\left(  E_{u,u}C\right)
+}_{\substack{=\operatorname*{row}\nolimits_{u}C\\\text{(by
+(\ref{pf.prop.Slamu.laction.1}))}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Slamu.laction.9}), applied to }i=u\right) \\
+&  =\operatorname*{row}\nolimits_{u}C+\left(  \lambda-1\right)
+\operatorname*{row}\nolimits_{u}C=\underbrace{\left(  1+\left(  \lambda
+-1\right)  \right)  }_{=\lambda}\operatorname*{row}\nolimits_{u}%
+C=\lambda\operatorname*{row}\nolimits_{u}C.
+\end{align*}
+In other words, the $u$-th row of the $n\times m$-matrix $S_{u}^{\lambda}C$
+equals $\lambda$ times the $u$-th row of $C$. This proves Claim 1.
+
+\textit{Proof of Claim 2:} Let $i\in\left\{  1,2,\ldots,n\right\}  $ be such
+that $i\neq u$. Then, the $i$-th row of the $n\times m$-matrix $S_{u}%
+^{\lambda}C$ is%
+\begin{align*}
+\operatorname*{row}\nolimits_{i}\left(  S_{u}^{\lambda}C\right)   &
+=\operatorname*{row}\nolimits_{i}C+\left(  \lambda-1\right)
+\underbrace{\operatorname*{row}\nolimits_{i}\left(  E_{u,u}C\right)
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Slamu.laction.2}))}%
+}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Slamu.laction.9})}\right)
+\\
+&  =\operatorname*{row}\nolimits_{i}C+\underbrace{\left(  \lambda-1\right)
+0_{1\times m}}_{=0_{1\times m}}=\operatorname*{row}\nolimits_{i}C+0_{1\times
+m}=\operatorname*{row}\nolimits_{i}C.
+\end{align*}
+In other words, the $i$-th row of the $n\times m$-matrix $S_{u}^{\lambda}C$
+equals the $i$-th row of $C$. This proves Claim 2.
+
+Now, we have proven both Claim 1 and Claim 2; this completes the proof of
+Proposition \ref{prop.Slamu.laction}.
+\end{proof}
+
+The proof of Proposition \ref{prop.Slamu.raction} is analogous.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Slamu.lambda+mu}.]\textbf{(a)} The definition
+of $S_{u}^{1}$ yields $S_{u}^{1}=I_{n}+\underbrace{\left(  1-1\right)
+E_{u,u}}_{=0E_{u,u}=0_{n\times n}}=I_{n}+0_{n\times n}=I_{n}$. This proves
+Proposition \ref{prop.Slamu.lambda+mu} \textbf{(a)}.
+
+\textbf{(b)} \textit{First proof:} Let $\lambda$ and $\mu$ be two numbers.
+Proposition \ref{prop.Slamu.entries} (applied to $\mu$ instead of $\lambda$)
+tells us how the matrix $S^{\mu}$ looks like: Its $\left(  u,u\right)  $-th
+entry is $\mu$; all its other diagonal entries are $1$; all its remaining
+entries are $0$. In particular, its $u$-th row is%
+\begin{equation}
+\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\mu}\right)  =\left(
+0,0,\ldots,0,\mu,0,0,\ldots,0\right)  \label{pf.prop.Slamu.lambda+mu.b.1}%
+\end{equation}
+(where the lonely $\mu$ stands in the $u$-th position).
+
+Proposition \ref{prop.Slamu.laction} (applied to $m=n$ and $C=S_{u}^{\mu}$)
+shows that $S_{u}^{\lambda}S_{u}^{\mu}$ is the $n\times n$-matrix obtained
+from $S_{u}^{\mu}$ by scaling the $u$-th row by $\lambda$. Thus, its $u$-th
+row is%
+\begin{align*}
+\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\lambda}S_{u}^{\mu}\right)   &
+=\lambda\underbrace{\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\mu
+}\right)  }_{\substack{=\left(  0,0,\ldots,0,\mu,0,0,\ldots,0\right)
+\\\text{(by (\ref{pf.prop.Slamu.lambda+mu.b.1}))}}}=\lambda\left(
+0,0,\ldots,0,\mu,0,0,\ldots,0\right) \\
+&  =\left(  \lambda0,\lambda0,\ldots,\lambda0,\lambda\mu,\lambda
+0,\lambda0,\ldots,\lambda0\right) \\
+&  =\left(  0,0,\ldots,0,\lambda\mu,0,0,\ldots,0\right)
+\end{align*}
+(where the lonely $\mu$ or $\lambda\mu$ stands in the $u$-th position, as
+before). This is the same as the $u$-th row of $S_{u}^{\mu}$, except that the
+$u$-th entry has become $\lambda\mu$ (whereas in the $u$-th row of $S_{u}%
+^{\mu}$ it used to be $\mu$). All other rows of $S_{u}^{\lambda}S_{u}^{\mu}$
+are equal to the corresponding rows of $S_{u}^{\mu}$ (since $S_{u}^{\lambda
+}S_{u}^{\mu}$ was obtained from $S_{u}^{\mu}$ by scaling the $u$-th row by
+$\lambda$). Summarizing, we thus conclude that the matrix $S_{u}^{\lambda
+}S_{u}^{\mu}$ differs from the matrix $S_{u}^{\mu}$ in only one entry, namely
+the $\left(  u,u\right)  $-th entry\footnote{If it differs from it at all! If
+$\lambda=\mu$, then the matrices $S_{u}^{\lambda}S_{u}^{\mu}$ and $S_{u}^{\mu
+}$ are completely equal (including in their $\left(  u,u\right)  $-th
+entries).}; and this $\left(  u,u\right)  $-th entry is $\lambda\mu$ (for the
+matrix $S_{u}^{\lambda}S_{u}^{\mu}$). Since we already know how the matrix
+$S_{u}^{\mu}$ looks like (namely, its $\left(  u,u\right)  $-th entry is $\mu
+$; all its other diagonal entries are $1$; all its remaining entries are $0$),
+we thus can conclude how the matrix $S_{u}^{\lambda}S_{u}^{\mu}$ looks like:
+Its $\left(  u,u\right)  $-th entry is $\lambda\mu$; all its other diagonal
+entries are $1$; all its remaining entries are $0$). But this is precisely how
+the matrix $S_{u}^{\lambda\mu}$ looks like (because of Proposition
+\ref{prop.Slamu.entries}, applied to $\lambda\mu$ instead of $\lambda$).
+Hence, $S_{u}^{\lambda}S_{u}^{\mu}=S_{u}^{\lambda\mu}$. This proves
+Proposition \ref{prop.Slamu.lambda+mu} \textbf{(b)}.
+
+\textit{Second proof:} We can also prove Proposition
+\ref{prop.Slamu.lambda+mu} \textbf{(b)} easily using Proposition
+\ref{prop.Euv.prod}: Indeed, we have $u=u$ and thus $\delta_{u,u}=1$. But
+Proposition \ref{prop.Euv.prod} (applied to $m=n$, $p=n$, $x=u$ and $y=u$)
+yields $E_{u,u,n,n}E_{u,u,n,n}=\delta_{u,u}E_{u,u,n,n}$. Since $E_{u,u,n,n}%
+=E_{u,u}$, this rewrites as $E_{u,u}E_{u,u}=\underbrace{\delta_{u,u}}%
+_{=1}E_{u,u}=1E_{u,u}=E_{u,u}$. Now, the definitions of $S_{u}^{\lambda}$ and
+$S_{u}^{\mu}$ yield $S_{u}^{\lambda}=I_{n}+\left(  \lambda-1\right)  E_{u,u}$
+and $S_{u}^{\mu}=I_{n}+\left(  \mu-1\right)  E_{u,u}$. Multiplying these two
+equalities, we find%
+\begin{align*}
+S_{u}^{\lambda}S_{u}^{\mu}  &  =\left(  I_{n}+\left(  \lambda-1\right)
+E_{u,u}\right)  \left(  I_{n}+\left(  \mu-1\right)  E_{u,u}\right) \\
+&  =\underbrace{I_{n}\left(  I_{n}+\left(  \mu-1\right)  E_{u,u}\right)
+}_{=I_{n}+\left(  \mu-1\right)  E_{u,u}}+\underbrace{\left(  \lambda-1\right)
+E_{u,u}\left(  I_{n}+\left(  \mu-1\right)  E_{u,u}\right)  }_{=\left(
+\lambda-1\right)  E_{u,u}I_{n}+\left(  \lambda-1\right)  E_{u,u}\left(
+\mu-1\right)  E_{u,u}}\\
+&  =I_{n}+\left(  \mu-1\right)  E_{u,u}+\left(  \lambda-1\right)
+\underbrace{E_{u,u}I_{n}}_{=E_{u,u}}+\underbrace{\left(  \lambda-1\right)
+E_{u,u}\left(  \mu-1\right)  E_{u,u}}_{=\left(  \lambda-1\right)  \left(
+\mu-1\right)  E_{u,u}E_{u,u}}\\
+&  =I_{n}+\underbrace{\left(  \mu-1\right)  E_{u,u}+\left(  \lambda-1\right)
+E_{u,u}}_{=\left(  \left(  \mu-1\right)  +\left(  \lambda-1\right)  \right)
+E_{u,u}}+\left(  \lambda-1\right)  \left(  \mu-1\right)  \underbrace{E_{u,u}%
+E_{u,u}}_{=E_{u,u}}\\
+&  =I_{n}+\underbrace{\left(  \left(  \mu-1\right)  +\left(  \lambda-1\right)
+\right)  E_{u,u}+\left(  \lambda-1\right)  \left(  \mu-1\right)  E_{u,u}%
+}_{=\left(  \left(  \mu-1\right)  +\left(  \lambda-1\right)  +\left(
+\lambda-1\right)  \left(  \mu-1\right)  \right)  E_{u,u}}\\
+&  =I_{n}+\underbrace{\left(  \left(  \mu-1\right)  +\left(  \lambda-1\right)
++\left(  \lambda-1\right)  \left(  \mu-1\right)  \right)  }_{=\lambda\mu
+-1}E_{u,u}=I_{n}+\left(  \lambda\mu-1\right)  E_{u,u}.
+\end{align*}
+Comparing this with
+\[
+S_{u}^{\lambda\mu}=I_{n}+\left(  \lambda\mu-1\right)  E_{u,u}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }S_{u}^{\lambda\mu
+}\right)  ,
+\]
+we obtain $S_{u}^{\lambda}S_{u}^{\mu}=S_{u}^{\lambda\mu}$. This proves
+Proposition \ref{prop.Slamu.lambda+mu} \textbf{(b)} again.
+
+\textbf{(c)} Notice that $1/\lambda$ is a well-defined number (since $\lambda$
+is nonzero). Proposition \ref{prop.Slamu.lambda+mu} \textbf{(b)} (applied to
+$\mu=1/\lambda$) yields $S_{u}^{\lambda}S_{u}^{1/\lambda}=S_{u}^{\lambda
+\left(  1/\lambda\right)  }=S_{u}^{1}=I_{n}$ (by Proposition
+\ref{prop.Slamu.lambda+mu} \textbf{(a)}).
+
+But we can also apply Proposition \ref{prop.Slamu.lambda+mu} \textbf{(b)} to
+$1/\lambda$ and $\lambda$ instead of $\lambda$ and $\mu$. We thus obtain
+$S_{u}^{1/\lambda}S_{u}^{\lambda}=S_{u}^{\left(  1/\lambda\right)  \lambda
+}=S_{u}^{1}=I_{n}$ (by Proposition \ref{prop.Slamu.lambda+mu} \textbf{(a)}).
+
+The two equalities $S_{u}^{\lambda}S_{u}^{1/\lambda}=I_{n}$ and $S_{u}%
+^{1/\lambda}S_{u}^{\lambda}=I_{n}$ show that $S_{u}^{1/\lambda}$ is an inverse
+of $S_{u}^{\lambda}$. This proves Proposition \ref{prop.Slamu.lambda+mu}
+\textbf{(c)}.
+\end{proof}
+
+\subsection{Invertibly triangular matrices are products of $S_{u}^{\lambda}$'s
+and $A_{u,v}^{\lambda}$'s}
+
+[...]
+
+(to be continued)
+
+\textbf{TO-DO LIST! (This will appear shortly:)}
+
+\begin{itemize}
 \item Conclude that any invertibly lower-triangular matrix is invertible, and
 that its inverse is again invertibly lower-triangular.
 
