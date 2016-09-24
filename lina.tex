@@ -6612,13 +6612,14 @@ in Step 1, we now obtain $C^{\prime\prime}=A_{3,2}^{c}C^{\prime\prime\prime}$.
 We have now removed all nonzero entries below the diagonal. Our final matrix
 $C^{\prime\prime\prime}$ is simply the identity matrix: $C^{\prime\prime
 \prime}=I_{3}$. Combining the three equalities we have found, we obtain%
-\begin{align*}
+\begin{align}
 C  &  =A_{2,1}^{a}\underbrace{C^{\prime}}_{=A_{3,1}^{b}C^{\prime\prime}%
 }=A_{2,1}^{a}A_{3,1}^{b}\underbrace{C^{\prime\prime}}_{=A_{3,2}^{c}%
 C^{\prime\prime\prime}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}\underbrace{C^{\prime
-\prime\prime}}_{=I_{3}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}I_{3}\\
+\prime\prime}}_{=I_{3}}=A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}I_{3}\nonumber\\
 &  =A_{2,1}^{a}A_{3,1}^{b}A_{3,2}^{c}.
-\end{align*}
+\label{eq.exam.thm.triangular.Alamuv.c.3}%
+\end{align}
 Thus we have represented $C$ as a product of lower addition matrices.
 
 Notice that we need to be careful about the order in which we perform the
@@ -6871,13 +6872,13 @@ $\Longrightarrow$ direction) actually gives an explicit representation of a
 lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
 matrices:%
 \begin{align*}
-C  &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
+C &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
 }\right)  \left(  A_{3,2}^{-C_{3,2}}A_{4,2}^{-C_{4,2}}\cdots A_{n,2}%
 ^{-C_{n,2}}\right)  \left(  A_{4,3}^{-C_{4,3}}A_{5,3}^{-C_{5,3}}\cdots
-A_{n,3}^{-C_{n,3}}\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n,n-3}^{-C_{n,n-3}}A_{n-1,n-3}%
-^{-C_{n-1,n-3}}A_{n-2,n-3}^{-C_{n-2,n-3}}\right)  \left(  A_{n,n-2}%
-^{-C_{n,n-2}}A_{n-1,n-2}^{-C_{n-1,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
+A_{n,3}^{-C_{n,3}}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n-2,n-3}^{-C_{n-2,n-3}}A_{n-1,n-3}%
+^{-C_{n-1,n-3}}A_{n,n-3}^{-C_{n,n-3}}\right)  \left(  A_{n-1,n-2}%
+^{-C_{n-1,n-2}}A_{n,n-2}^{-C_{n,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
 }\right)  \left(  I_{n}\right)  .
 \end{align*}
 This complicated product consists of $n$ factors, each of which is itself a
