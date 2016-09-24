@@ -5146,6 +5146,28 @@ upper-triangular $n\times n$-matrix.
 and Corollary \ref{cor.triangular.inv*inv*inv}.
 \end{exercise}
 
+Similarly, analogues of the above-mentioned results hold for lower-triangular
+matrices. For example, the following analogues of Corollary
+\ref{cor.triangular.uni*uni*uni} and of Corollary
+\ref{cor.triangular.inv*inv*inv} hold:
+
+\begin{corollary}
+\label{cor.triangular.uni*uni*uni.lower}Let $n\in\mathbb{N}$. If $A_{1}%
+,A_{2},\ldots,A_{k}$ (for some $k\in\mathbb{N}$) are lower-unitriangular
+$n\times n$-matrices, then $A_{1}A_{2}\cdots A_{k}$ is also a
+lower-unitriangular $n\times n$-matrix.
+\end{corollary}
+
+\begin{corollary}
+\label{cor.triangular.inv*inv*inv.lower}Let $n\in\mathbb{N}$. If $A_{1}%
+,A_{2},\ldots,A_{k}$ (for some $k\in\mathbb{N}$) are invertibly
+lower-triangular $n\times n$-matrices, then $A_{1}A_{2}\cdots A_{k}$ is also
+an invertibly lower-triangular $n\times n$-matrix.
+\end{corollary}
+
+As usual, the proofs of these analogues can be obtained from the proofs of the
+original versions through minor (and straightforward) modifications.
+
 The reader can easily check that the following analogue of Proposition
 \ref{prop.triangular.UT=D} holds:
 
@@ -6484,11 +6506,11 @@ the meaning of \textquotedblleft lower-unitriangular\textquotedblright.}
 the diagonal are $0$, and its diagonal entries are $1$). Thus, every product
 of lower addition matrices is a product of lower-unitriangular matrices, and
 thus itself must be lower-unitriangular\footnote{because Corollary
-\ref{cor.triangular.uni*uni*uni} shows that any product of lower-unitriangular
-matrices is lower-unitriangular}. It turns out that the converse is also true:
-Every lower-unitriangular matrix is a product of lower addition matrices! This
-is a first, simple particular case of Gaussian elimination; let me state it as
-a theorem:
+\ref{cor.triangular.uni*uni*uni.lower} shows that any product of
+lower-unitriangular matrices is lower-unitriangular}. It turns out that the
+converse is also true: Every lower-unitriangular matrix is a product of lower
+addition matrices! This is a first, simple particular case of Gaussian
+elimination; let me state it as a theorem:
 
 \begin{theorem}
 \label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $C$
