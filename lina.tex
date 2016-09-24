@@ -4856,6 +4856,35 @@ needs to be changed. This is not plagiarism for the purpose of this exercise!)
 and \textbf{(c)}, but you don't need to write it up.)
 \end{exercise}
 
+The following result is an analogue of Theorem \ref{thm.triangular.prod-up}
+and Theorem \ref{thm.triangular.prod-down} for diagonal matrices:
+
+\begin{theorem}
+\label{thm.triangular.prod-diag}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two
+diagonal $n\times n$-matrices.
+
+\textbf{(a)} Then, $AB$ is a diagonal $n\times n$-matrix.
+
+\textbf{(b)} The diagonal entries of $AB$ are%
+\[
+\left(  AB\right)  _{i,i}=A_{i,i}B_{i,i}\ \ \ \ \ \ \ \ \ \ \text{for all
+}i\in\left\{  1,2,\ldots,n\right\}  .
+\]
+Thus, diagonal matrices actually \textbf{are} mutliplied entry by entry!
+
+\textbf{(c)} Also, $A+B$ is a diagonal $n\times n$-matrix. Furthermore,
+$\lambda A$ is a diagonal matrix whenever $\lambda$ is a number.
+\end{theorem}
+
+\begin{exercise}
+\label{exe.thm.triangular.prod-diag}Prove Theorem
+\ref{thm.triangular.prod-diag}.
+\end{exercise}
+
+The proof of Theorem \ref{thm.triangular.prod-down} is analogous to that of
+Theorem \ref{thm.triangular.prod-up}, and the changes required are fairly
+straightforward (change some inequality signs). Let me pose this as an exercise:
+
 Lower-triangular and upper-triangular matrices are not only analogues of each
 other; they are also closely related:
 
@@ -5095,6 +5124,27 @@ matrix. But this is clear by inspection.
 \ref{prop.inverses.AB}, we need to use Corollary \ref{cor.triangular.uni*uni}.
 \end{itemize}
 \end{proof}
+
+Analogues of Corollary \ref{cor.triangular.uni*uni} and Corollary
+\ref{cor.triangular.uni*uni*uni} hold for invertibly upper-triangular matrices:
+
+\begin{corollary}
+\label{cor.triangular.inv*inv}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two
+invertibly upper-triangular $n\times n$-matrices. Then, $AB$ is also an
+invertibly upper-triangular $n\times n$-matrix.
+\end{corollary}
+
+\begin{corollary}
+\label{cor.triangular.inv*inv*inv}Let $n\in\mathbb{N}$. If $A_{1},A_{2}%
+,\ldots,A_{k}$ (for some $k\in\mathbb{N}$) are invertibly upper-triangular
+$n\times n$-matrices, then $A_{1}A_{2}\cdots A_{k}$ is also an invertibly
+upper-triangular $n\times n$-matrix.
+\end{corollary}
+
+\begin{exercise}
+\label{exe.cor.triangular.inv*inv}Prove Corollary \ref{cor.triangular.inv*inv}
+and Corollary \ref{cor.triangular.inv*inv*inv}.
+\end{exercise}
 
 The reader can easily check that the following analogue of Proposition
 \ref{prop.triangular.UT=D} holds:
