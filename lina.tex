@@ -175,7 +175,7 @@ Also, some previous iterations of Math 4242 have left behind interesting notes:
 \item Stephen Lewis, Fall 2014, \url{http://www.stephen-lewis.net/4242/}
 (enable javascript!).
 
-\item Nathalie Sheils, Fall 2015,
+\item Natalie Sheils, Fall 2015,
 \url{http://math.umn.edu/~nesheils/F15_M4242/LectureNotes.html} (yes, those
 are on dropbox).
 \end{itemize}
@@ -1868,7 +1868,7 @@ satisfying $BC=A$ is not unique.
 1 & 0\\
 0 & 0
 \end{array}
-\right)  $. Then, there exists no matrix $C$ satisfing $BC=A$. Indeed, if
+\right)  $. Then, there exists no matrix $C$ satisfying $BC=A$. Indeed, if
 $C=\left(
 \begin{array}
 [c]{cc}%
@@ -2335,11 +2335,11 @@ Now that we have found formulas for the entries of all matrices involved, we
 can perform our computation: For all $i\in\left\{  1,2,\ldots,n\right\}  $ and
 $j\in\left\{  1,2,\ldots,q\right\}  $, we have%
 \begin{align*}
-\left(  A\left(  BC\right)  \right)  _{i,j} &  =\sum_{k=1}^{m}A_{i,k}%
+\left(  A\left(  BC\right)  \right)  _{i,j}  &  =\sum_{k=1}^{m}A_{i,k}%
 \underbrace{\left(  BC\right)  _{k,j}}_{\substack{=\sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.BC}), applied to }k\text{
 instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right)  \\
+(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right) \\
 &  =\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  \sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\right)  }_{\substack{=\sum_{\ell=1}^{p}A_{i,k}B_{k,\ell}C_{\ell
 ,j}\\\text{(by an application of}\\\text{Proposition \ref{prop.sum.dist})}%
@@ -2350,11 +2350,11 @@ instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 \end{align*}
 and%
 \begin{align*}
-\left(  \left(  AB\right)  C\right)  _{i,j} &  =\sum_{\ell=1}^{p}%
+\left(  \left(  AB\right)  C\right)  _{i,j}  &  =\sum_{\ell=1}^{p}%
 \underbrace{\left(  AB\right)  _{i,\ell}}_{\substack{=\sum_{k=1}^{m}%
 A_{i,k}B_{k,\ell}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.AB}), applied to
 }\ell\\\text{instead of }j\text{)}}}C_{\ell,j}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right)  \\
+\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right) \\
 &  =\sum_{\ell=1}^{p}\underbrace{\left(  \sum_{k=1}^{m}A_{i,k}B_{k,\ell
 }\right)  C_{\ell,j}}_{\substack{=C_{\ell,j}\sum_{k=1}^{m}A_{i,k}B_{k,\ell
 }=\sum_{k=1}^{m}C_{\ell,j}A_{i,k}B_{k,\ell}\\\text{(by an application
@@ -2485,8 +2485,8 @@ are pairs of numbers.
 
 The notation $\delta_{i,j}$ defined in (\ref{eq.def.In.eq}) is called the
 \textit{Kronecker delta}; it is extremely simple and yet highly useful. It has
-the obvious property that $\delta_{i,j}=\delta_{j,i}$ for any $i$ and $j$
-(beacuse $i=j$ holds if and only if $j=i$).
+the property that $\delta_{i,j}=\delta_{j,i}$ for any $i$ and $j$ (because
+$i=j$ holds if and only if $j=i$).
 
 \begin{definition}
 Let $n\in\mathbb{N}$. Then, the $n\times n$ \textit{identity matrix} means the
@@ -3202,7 +3202,7 @@ systems (e.g., SageMath) can work with algebraic numbers with 100\%
 precision.\footnote{This is \textbf{not} easy! For example, a classical puzzle
 asks you to prove that $\sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}=1$. This is
 not obvious; there are no straightforward \textquotedblleft
-simplications\textquotedblright\ that take you from $\sqrt[3]{2+\sqrt{5}%
+simplifications\textquotedblright\ that take you from $\sqrt[3]{2+\sqrt{5}%
 }+\sqrt[3]{2-\sqrt{5}}$ to $1$. Yet, this is one of the things that the
 computer must be taught to do, since otherwise it could not decide whether the
 linear equation $\left(  \sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}-1\right)
@@ -4870,7 +4870,7 @@ diagonal $n\times n$-matrices.
 \left(  AB\right)  _{i,i}=A_{i,i}B_{i,i}\ \ \ \ \ \ \ \ \ \ \text{for all
 }i\in\left\{  1,2,\ldots,n\right\}  .
 \]
-Thus, diagonal matrices actually \textbf{are} mutliplied entry by entry!
+Thus, diagonal matrices actually \textbf{are} multiplied entry by entry!
 
 \textbf{(c)} Also, $A+B$ is a diagonal $n\times n$-matrix. Furthermore,
 $\lambda A$ is a diagonal matrix whenever $\lambda$ is a number.
@@ -6872,10 +6872,10 @@ $\Longrightarrow$ direction) actually gives an explicit representation of a
 lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
 matrices:%
 \begin{align*}
-C &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
+C  &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
 }\right)  \left(  A_{3,2}^{-C_{3,2}}A_{4,2}^{-C_{4,2}}\cdots A_{n,2}%
 ^{-C_{n,2}}\right)  \left(  A_{4,3}^{-C_{4,3}}A_{5,3}^{-C_{5,3}}\cdots
-A_{n,3}^{-C_{n,3}}\right)  \\
+A_{n,3}^{-C_{n,3}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n-2,n-3}^{-C_{n-2,n-3}}A_{n-1,n-3}%
 ^{-C_{n-1,n-3}}A_{n,n-3}^{-C_{n,n-3}}\right)  \left(  A_{n-1,n-2}%
 ^{-C_{n-1,n-2}}A_{n,n-2}^{-C_{n,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
@@ -7196,8 +7196,8 @@ For example:
 \begin{itemize}
 \item Any $4\times4$-matrix is $k$-lower-triangular for $k\leq-3$.
 
-\item A $4\times4$-matrix is $-1$-lower-triangular if and only if it has the
-form $\left(
+\item A $4\times4$-matrix is $\left(  -1\right)  $-lower-triangular if and
+only if it has the form $\left(
 \begin{array}
 [c]{cccc}%
 a & b & 0 & 0\\
@@ -7392,7 +7392,7 @@ $A$ is $1$-lower-triangular.
 
 Indeed, assume that $A$ is strictly lower-triangular. According to the
 definition of \textquotedblleft strictly lower-triangular\textquotedblright,
-this means thatthe matrix $A$ is lower-triangular, and that all its diagonal
+this means that the matrix $A$ is lower-triangular, and that all its diagonal
 entries are $0$.
 
 The matrix $A$ is lower-triangular; in other words,%
@@ -7572,12 +7572,12 @@ and 2. Thus, (\ref{pf.prop.triangular.strict.k+l.AB0}) is proven.]
 Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} shows that%
 \begin{align*}
 \left(  AB\right)  _{i,j}  &  =\underbrace{A_{i,1}B_{1,j}}%
-_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
-\\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
-_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
-\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
-}_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
-\\\text{applied to }k=m\text{)}}}\\
+_{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
+),}\\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
+),}\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
+}_{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
+),}\\\text{applied to }k=m\text{)}}}\\
 &  =0+0+\cdots+0=0.
 \end{align*}
 
@@ -7723,7 +7723,7 @@ A}_{k\text{ times}}$ is $k$-lower-triangular. Since $\underbrace{AA\cdots
 A}_{k\text{ times}}=A^{k}$, this rewrites as follows: The $n\times n$-matrix
 $A^{k}$ is $k$-lower-triangular. In other words,%
 \begin{equation}
-A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k
+\left(  A^{k}\right)  _{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+k
 \label{pf.cor.triangular.strict.kpow-weak.1}%
 \end{equation}
 (according to the definition of \textquotedblleft$k$%
@@ -7733,10 +7733,10 @@ But $k$ is a positive integer. Thus, $1\leq k$, so that $j+\underbrace{1}%
 _{\leq k}\leq j+k$ for every $j\in\left\{  1,2,\ldots,n\right\}  $. Hence,
 every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,n\right\}  $ satisfying $i<j+1$ must also satisfy $i<j+k$ (since $i<j+1\leq
-j+k$) and consequently $A_{i,j}=0$ (by
+j+k$) and consequently $\left(  A^{k}\right)  _{i,j}=0$ (by
 (\ref{pf.cor.triangular.strict.kpow-weak.1})). In other words,
 \[
-A_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+1.
+\left(  A^{k}\right)  _{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i<j+1.
 \]
 In other words, the matrix $A^{k}$ is $1$-lower-triangular (by the definition
 of \textquotedblleft$1$-lower-triangular\textquotedblright).
@@ -7835,9 +7835,9 @@ I_{n}-A\right)  ^{-1}=B$. Hence, $\left(  I_{n}-A\right)  ^{-1}=B=A^{0}%
 
 \begin{remark}
 \textbf{(a)} The above proof of Proposition
-\ref{prop.triangular.strict.geoseries} we gave might look like a slick and
-artful trick. However, it is actually an incarnation of a well-known idea: the
-same idea that enters in the proof of the infinite-sum formula%
+\ref{prop.triangular.strict.geoseries} might look like a slick and artful
+trick. However, it is actually an incarnation of a well-known idea: the same
+idea that enters in the proof of the infinite-sum formula%
 \[
 \dfrac{1}{1-a}=a^{0}+a^{1}+a^{2}+\cdots\ \ \ \ \ \ \ \ \ \ \text{for any real
 number }a\text{ with }-1<a<1.
