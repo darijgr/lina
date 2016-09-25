@@ -8376,6 +8376,565 @@ of $S_{u}^{\lambda}$. This proves Proposition \ref{prop.Slamu.lambda+mu}
 \subsection{Invertibly triangular matrices are products of $S_{u}^{\lambda}$'s
 and $A_{u,v}^{\lambda}$'s}
 
+In the same way as the matrices $A_{u,v}^{\lambda}$ served as
+\textquotedblleft building blocks\textquotedblright\ for unitriangular
+matrices (in Theorem \ref{thm.triangular.Alamuv}), we can obtain
+\textquotedblleft building blocks\textquotedblright\ for invertibly triangular
+matrices if we accompany these matrices $A_{u,v}^{\lambda}$ by the matrices
+$S_{u}^{\lambda}$ with nonzero $\lambda$. We shall state this soon in some
+precision; let us first introduce terminology:
+
+\begin{definition}
+\label{def.Slamu.scaling}Let $n\in\mathbb{N}$. A \textit{scaling }$n\times
+n$\textit{-matrix} means a matrix of the form $S_{u}^{\lambda}$, where
+$\lambda$ is a \textbf{nonzero} number, and where $u$ is an element of
+$\left\{  1,2,\ldots,n\right\}  $. When $n$ is clear from the context, we
+shall omit the \textquotedblleft$n\times n$-\textquotedblright\ and simply say
+\textquotedblleft scaling matrix\textquotedblright.
+\end{definition}
+
+The name \textquotedblleft scaling matrix\textquotedblright\ is, again, not
+standard, but it will be useful for me in this chapter.
+
+\begin{example}
+If $n=3$, then the scaling $3\times3$-matrices are the matrices of the form%
+\begin{align*}
+S_{1}^{\lambda}  &  =\left(
+\begin{array}
+[c]{ccc}%
+\lambda & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ S_{2}^{\lambda}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & \lambda & 0\\
+0 & 0 & 1
+\end{array}
+\right)  ,\\
+S_{3}^{\lambda}  &  =\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & \lambda
+\end{array}
+\right)
+\end{align*}
+for all numbers $\lambda$.
+\end{example}
+
+It is clear that each scaling matrix is diagonal (and therefore
+lower-triangular and upper-triangular). Thus, every product of scaling
+matrices is a product of diagonal matrices, and thus itself must be
+diagonal\footnote{Here we are using the fact that any product of diagonal
+matrices is diagonal. This is not hard to check.}. Moreover, both scaling
+matrices and lower addition matrices\footnote{Those were defined in Definition
+\ref{def.Alamuv.laddition}.} are invertibly lower-triangular\footnote{Here, we
+are using the requirement that $\lambda$ is nonzero in Definition
+\ref{def.Slamu.scaling}. Without this requirement, $S_{u}^{\lambda}$ would not
+be invertibly lower-triangular!}. Hence, every product of scaling matrices and
+lower addition matrices is a product of invertibly lower-triangular matrices,
+and thus itself must be invertibly lower-triangular\footnote{because Corollary
+\ref{cor.triangular.inv*inv*inv.lower} shows that any product of invertibly
+lower-triangular matrices is invertibly lower-triangular}. It turns out that
+the converse is also true: Every invertibly lower-triangular matrix is a
+product of scaling matrices and lower addition matrices! This is again a
+simple particular case of Gaussian elimination, similar to Theorem
+\ref{thm.triangular.Alamuv}; let me state it as a theorem:
+
+\begin{theorem}
+\label{thm.triangular.Slamu}Let $n\in\mathbb{N}$. An $n\times n$-matrix $C$ is
+invertibly lower-triangular if and only if $C$ is a product of scaling
+matrices and lower addition matrices.
+\end{theorem}
+
+\begin{example}
+\label{exam.thm.triangular.Slamu}\textbf{(a)} The invertibly lower-triangular
+$2\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+2 & 0\\
+5 & 3
+\end{array}
+\right)  $ is a product of scaling matrices and lower addition matrices:
+Namely, it equals $S_{1}^{2}S_{2}^{3}A_{2,1}^{5/3}$.
+
+\textbf{(b)} The invertibly lower-triangular $1\times1$-matrix $\left(
+\begin{array}
+[c]{c}%
+5
+\end{array}
+\right)  $ is a product of scaling matrices and lower addition matrices:
+Namely, it is $S_{1}^{5}$.
+
+\textbf{(c)} Let $C$ be the invertibly lower-triangular $3\times3$-matrix
+$\left(
+\begin{array}
+[c]{ccc}%
+u & 0 & 0\\
+a & v & 0\\
+b & c & w
+\end{array}
+\right)  $. Then, $C$ is a product of lower addition matrices: Namely, it
+equals $S_{1}^{u}S_{2}^{v}S_{3}^{w}A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}$.
+
+Let us actually see how this representation of $C$ can be found. We shall
+proceed by writing $C$ as a product of one scaling matrix with a second matrix
+$C^{\prime}$, which is still invertibly lower-triangular but has one diagonal
+entry equal to $1$. We then will do the same with $C^{\prime}$, obtaining a
+third matrix $C^{\prime\prime}$; then, do the same with $C^{\prime\prime}$,
+and so on. At the end, we will be left with an invertibly lower-triangular
+matrix whose \textbf{all} diagonal entries are $1$. This means that we will be
+left with a lower-unitriangular matrix. But from Theorem
+\ref{thm.triangular.Alamuv}, we already know that this latter matrix must be a
+product of lower addition matrices. In more detail: We first observe that the
+diagonal entries $u,v,w$ of $C$ are nonzero (since $C$ is invertibly
+lower-triangular). Now, we proceed in several steps:
+
+\begin{description}
+\item[Step 1:] Let us turn the $\left(  1,1\right)  $-st entry of $C$ into $1$
+by scaling row $1$ by $1/u$. Denote the resulting matrix by $C^{\prime}$.
+Thus, $C^{\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+a & v & 0\\
+b & c & w
+\end{array}
+\right)  $. Notice that the new matrix $C^{\prime}$ is still invertibly
+lower-triangular (since only row $1$ has been changed, and since the scaling
+has left all the zero entries in place), but now has a $1$ in its first
+diagonal entry. Since $C^{\prime}$ was obtained by scaling row $1$ by $1/u$,
+we can conversely obtain $C$ from $C^{\prime}$ by scaling row $1$ by $u$.
+According to Proposition \ref{prop.Slamu.laction} (applied to $n$, $1$, $u$
+and $C^{\prime}$ instead of $m$, $u$, $\lambda$ and $C$), this means that
+$C=S_{1}^{u}C^{\prime}$.
+
+\item[Step 2:] Let us turn the $\left(  2,2\right)  $-st entry of $C^{\prime}$
+into $1$ by scaling row $2$ by $1/v$. Denote the resulting matrix by
+$C^{\prime\prime}$. Thus, $C^{\prime\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+a/v & 1 & 0\\
+b & c & w
+\end{array}
+\right)  $. Again, the new matrix $C^{\prime\prime}$ is still invertibly
+lower-triangular (since only row $2$ has been changed, and all zeroes have
+survived the scaling), and moreover the first diagonal entry is still $1$
+(because only row $2$ has been changed); but now the second diagonal entry is
+also $1$. Similarly to how we found that $C=S_{1}^{u}C^{\prime}$ in Step 1, we
+now obtain $C^{\prime}=S_{2}^{v}C^{\prime\prime}$.
+
+\item[Step 3:] Let us turn the $\left(  3,3\right)  $-st entry of
+$C^{\prime\prime}$ into $1$ by scaling row $3$ by $1/w$. Denote the resulting
+matrix by $C^{\prime\prime\prime}$. Thus, $C^{\prime\prime\prime}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+a/v & 1 & 0\\
+b/w & c/w & 1
+\end{array}
+\right)  $. Again, the new matrix $C^{\prime\prime\prime}$ is still invertibly
+lower-triangular, and the first two diagonal entries are still equal to $1$;
+and now the third diagonal entry has become $1$ as well. Similarly to how we
+found that $C=S_{1}^{u}C^{\prime}$ in Step 1, we now obtain $C^{\prime\prime
+}=S_{3}^{w}C^{\prime\prime\prime}$.
+\end{description}
+
+We have thus turned all diagonal entries into $1$. Our final matrix
+$C^{\prime\prime\prime}$ is thus upper-unitriangular. Thus, Theorem
+\ref{thm.triangular.Alamuv} shows that $C^{\prime\prime\prime}$ is a product
+of lower addition matrices. Explicitly, it can be written as follows:%
+\[
+C^{\prime\prime\prime}=A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}.
+\]
+(Indeed, this follows from (\ref{eq.exam.thm.triangular.Alamuv.c.3}), applied
+to $a/v$, $b/w$ and $c/w$ instead of $a$, $b$ and $c$). Combining the three
+equalities we have found, we obtain%
+\begin{align*}
+C  &  =S_{1}^{u}\underbrace{C^{\prime}}_{=S_{1}^{v}C^{\prime\prime}}=S_{1}%
+^{u}S_{1}^{v}\underbrace{C^{\prime\prime}}_{=S_{1}^{w}C^{\prime\prime\prime}%
+}=S_{1}^{u}S_{1}^{v}S_{1}^{w}\underbrace{C^{\prime\prime\prime}}%
+_{=A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}}\\
+&  =S_{1}^{u}S_{1}^{v}S_{1}^{w}A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}.
+\end{align*}
+Thus we have represented $C$ as a product of scaling matrices and lower
+addition matrices.
+\end{example}
+
+The general proof of Theorem \ref{thm.triangular.Slamu} follows the idea
+outlined in Example \ref{exam.thm.triangular.Slamu} \textbf{(c)}. The proof is
+so similar to the proof of Theorem \ref{thm.triangular.Alamuv} that I shall be
+copying the structure of the latter proof:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.Slamu}.]$\Longleftarrow$: We have
+already proven that every product of scaling matrices and lower addition
+matrices is invertibly lower-triangular. Hence, if $C$ is a product of scaling
+matrices and lower addition matrices, then $C$ is invertibly lower-triangular.
+This proves the $\Longleftarrow$ direction of Theorem
+\ref{thm.triangular.Slamu}.
+
+$\Longrightarrow$: We need to prove that if $C$ is invertibly
+lower-triangular, then $C$ is a product of scaling matrices and lower addition matrices.
+
+So let us assume that $C$ is invertibly lower-triangular. Our goal is to prove
+that $C$ is a product of scaling matrices and lower addition matrices.
+
+Let me introduce a notation first: A \textit{row scaling} shall mean a
+transformation that changes an $n\times m$-matrix (for some $m\in\mathbb{N}$)
+by scaling one of its rows by some nonzero number. In more formal terms: A
+\textit{row scaling} means a transformation of the form \textquotedblleft
+scale the $u$-th row by $\lambda$\textquotedblright, for some fixed nonzero
+number $\lambda$ and some fixed $u\in\left\{  1,2,\ldots,n\right\}  $. As we
+know from Proposition \ref{prop.Slamu.laction}, this transformation amounts to
+multiplying a matrix by $S_{u}^{\lambda}$ from the left (i.e., this
+transformation sends any $n\times m$-matrix $B$ to $S_{u}^{\lambda}B$); we
+shall therefore denote this transformation itself by $S_{u}^{\lambda}$ as well
+(hoping that the reader will not confuse the transformation with the matrix).
+
+Here is an example (for $n=4$): The row scaling $S_{3}^{\lambda}$ is the
+transformation that changes a $4\times m$-matrix by scaling the $3$-rd row by
+$\lambda$. For example, it transforms the $4\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}\\
+a^{\prime\prime\prime} & b^{\prime\prime\prime}%
+\end{array}
+\right)  $ into $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+\lambda a^{\prime\prime} & \lambda b^{\prime\prime}\\
+a^{\prime\prime\prime} & b^{\prime\prime\prime}%
+\end{array}
+\right)  $.
+
+Notice that any row scaling $S_{u}^{\lambda}$ is invertible: Namely, it can be
+undone by the row scaling $S_{u}^{1/\lambda}$.\ \ \ \ \footnote{Here are two
+ways to prove this:
+\par
+\textit{First proof:} The row scaling $S_{u}^{\lambda}$ transforms a matrix by
+scaling the $u$-th row by $\lambda$, i.e., by multiplying each entry of the
+$u$-th row by $\lambda$. The row scaling $S_{u}^{1/\lambda}$ transforms a
+matrix by scaling the $u$-th row by $1/\lambda$, i.e., by dividing each entry
+of the $u$-th row by $\lambda$. Hence, these two row scalings undo each other
+(i.e., if we perform one and then the other, then we arrive back at the matrix
+we have started with), because each entry of the $u$-th row is multiplied by
+$\lambda$ by the former row scaling and divided by $\lambda$ by the latter
+(whereas entries in other rows are left unchanged by both scalings). So we
+have shown that the row scaling $S_{u}^{\lambda}$ can be undone by the row
+scaling $S_{u}^{1/\lambda}$. Qed.
+\par
+\textit{Second proof:} Proposition \ref{prop.Slamu.lambda+mu} \textbf{(c)}
+shows that the matrix $S_{u}^{1/\lambda}$ is the inverse of the matrix
+$S_{u}^{\lambda}$. Hence, multiplying a matrix by $S_{u}^{1/\lambda}$ undoes
+multiplying a matrix by $S_{u}^{\lambda}$. In other words, the row scaling
+$S_{u}^{1/\lambda}$ undoes the row scaling $S_{u}^{\lambda}$. Qed.}
+
+Notice that, for any row scaling $S_{u}^{\lambda}$, the matrix $S_{u}%
+^{\lambda}$ is a row scaling matrix.
+
+I claim that we can transform the invertibly lower-triangular $n\times
+n$-matrix $C$ into a lower-unitriangular matrix by performing a sequence of
+row scalings. Namely, we should proceed by the following method:\footnote{See
+the three-step procedure in Example \ref{exam.thm.triangular.Slamu}
+\textbf{(c)} for an illustration of this method.}
+
+\begin{itemize}
+\item At first, our matrix is
+\[
+C=\left(
+\begin{array}
+[c]{ccccc}%
+C_{1,1} & 0 & 0 & \cdots & 0\\
+C_{2,1} & C_{2,2} & 0 & \cdots & 0\\
+C_{3,1} & C_{3,2} & C_{3,3} & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+C_{n,1} & C_{n,2} & C_{n,3} & \cdots & C_{n,n}%
+\end{array}
+\right)  .
+\]
+Its diagonal entries $C_{1,1},C_{2,2},\ldots,C_{n,n}$ are nonzero (since $C$
+is invertibly lower-triangular).
+
+\item Now, we perform the row scaling $S_{1}^{\lambda}$ (for an appropriate
+choice of $\lambda$, namely for $\lambda=1/C_{1,1}$) to turn the $\left(
+1,1\right)  $-th entry of the matrix into $1$. This operation preserves the
+invertibly lower-triangular nature of the matrix (i.e., the matrix remains
+invertibly lower-triangular\footnote{In fact, this holds for any row scaling:
+If $B$ is any invertibly lower-triangular matrix and $S_{u}^{\mu}$ is a row
+scaling, then the result of applying $S_{u}^{\mu}$ to $B$ will still be
+invertibly lower-triangular. To prove this, just observe that all zero entries
+of $B$ remain zero when the row scaling $S_{u}^{\mu}$ is applied (since
+$S_{u}^{\mu}$ merely scales a row), whereas all nonzero diagonal entries of
+$B$ remain nonzero (since $S_{u}^{\mu}$ scales a row by the \textbf{nonzero}
+number $\mu$).}). As the result, we have turned the $\left(  1,1\right)  $-th
+entry of the matrix into $1$. In other words, our matrix now looks as
+follows:
+\[
+\left(
+\begin{array}
+[c]{ccccc}%
+1 & 0 & 0 & \cdots & 0\\
+C_{2,1} & C_{2,2} & 0 & \cdots & 0\\
+C_{3,1} & C_{3,2} & C_{3,3} & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+C_{n,1} & C_{n,2} & C_{n,3} & \cdots & C_{n,n}%
+\end{array}
+\right)  .
+\]
+
+
+\item Next, we similarly perform the row scaling $S_{2}^{\lambda}$ (for an
+appropriate choice of $\lambda$, namely for $\lambda=1/C_{2,2}$) to turn the
+$\left(  2,2\right)  $-th entry of the matrix into $1$. Again, this operation
+preserves the invertibly lower-triangular nature of the matrix (i.e., the
+matrix remains invertibly lower-triangular)\footnote{\textbf{Warning:} Unlike
+in our proof of Theorem \ref{thm.triangular.Alamuv}, this operation will
+(usually) change not only the $\left(  2,2\right)  $-th entry, but also the
+$\left(  2,1\right)  $-nd entry of our matrix. In our proof of Theorem
+\ref{thm.triangular.Alamuv}, each of the operations that we performed changed
+only one entry of our matrix; but here in the proof of Theorem
+\ref{thm.triangular.Slamu}, this is not the case. Nevertheless, the proof
+works, because the exact values of the entries below the diagonal are not
+important.}. Furthermore, the $\left(  1,1\right)  $-th entry of the matrix
+has not been changed by $S_{2}^{\lambda}$ (since $S_{2}^{\lambda}$ only
+changes the $2$-nd row), and thus is still $1$. As the result, we have turned
+the $\left(  2,2\right)  $-th entry of the matrix into $1$. In other words,
+our matrix now looks as follows:
+\[
+\left(
+\begin{array}
+[c]{ccccc}%
+1 & 0 & 0 & \cdots & 0\\
+C_{2,1}/C_{2,2} & 1 & 0 & \cdots & 0\\
+C_{3,1} & C_{3,2} & C_{3,3} & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+C_{n,1} & C_{n,2} & C_{n,3} & \cdots & C_{n,n}%
+\end{array}
+\right)  .
+\]
+
+
+\item Next, we similarly perform the row scaling $S_{3}^{\lambda}$ (for an
+appropriate choice of $\lambda$, namely for $\lambda=1/C_{3,3}$) to turn the
+$\left(  3,3\right)  $-th entry of the matrix into $1$. As the result, we have
+turned the $\left(  3,3\right)  $-th entry of the matrix into $1$. In other
+words, our matrix now looks as follows:
+\[
+\left(
+\begin{array}
+[c]{ccccc}%
+1 & 0 & 0 & \cdots & 0\\
+C_{2,1}/C_{2,2} & 1 & 0 & \cdots & 0\\
+C_{3,1}/C_{3,3} & C_{3,2}/C_{3,3} & 1 & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+C_{n,1} & C_{n,2} & C_{n,3} & \cdots & C_{n,n}%
+\end{array}
+\right)  .
+\]
+
+
+\item We continue this process, changing each diagonal entry of the matrix
+into $1$ (one at a time). At the end, our matrix looks as follows:%
+\[
+\left(
+\begin{array}
+[c]{ccccc}%
+1 & 0 & 0 & \cdots & 0\\
+C_{2,1}/C_{2,2} & 1 & 0 & \cdots & 0\\
+C_{3,1}/C_{3,3} & C_{3,2}/C_{3,3} & 1 & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+C_{n,1}/C_{n,n} & C_{n,2}/C_{n,n} & C_{n,3}/C_{n,n} & \cdots & 1
+\end{array}
+\right)  .
+\]
+This is a lower-unitriangular matrix. Denote it by $D$. Theorem
+\ref{thm.triangular.Alamuv} (applied to $D$ instead of $C$) shows that $D$ is
+lower-unitriangular if and only if $D$ is a product of lower addition
+matrices. Hence, $D$ is product of lower addition matrices (since $D$ is lower-unitriangular).
+\end{itemize}
+
+Thus, we have found an algorithm to transform our matrix $C$ into a
+lower-unitriangular matrix $D$ by a sequence of row scalings. Therefore, we
+can conversely transform the matrix $D$ into $C$ by a sequence of row
+scalings\footnote{because (as we have shown) any row scaling $S_{u}^{\lambda}$
+is invertible, and can be undone by another row scaling}. Let us denote these
+row scalings (used to transform $D$ into $C$) by $S_{u_{1}}^{\lambda_{1}%
+},S_{u_{2}}^{\lambda_{2}},\ldots,S_{u_{k}}^{\lambda_{k}}$, \textbf{numbered
+backwards} (i.e., starting from the one used last). Since each row scaling
+$S_{u}^{\lambda}$ amounts to multiplying a matrix by the matrix $S_{u}%
+^{\lambda}$ (that is, it sends any $n\times m$-matrix $B$ to $S_{u}^{\lambda
+}B$), we thus conclude that
+\begin{equation}
+C=S_{u_{1}}^{\lambda_{1}}S_{u_{2}}^{\lambda_{2}}\cdots S_{u_{k}}^{\lambda_{k}%
+}D. \label{pf.thm.triangular.Slamu.res1}%
+\end{equation}
+
+
+But $S_{u_{1}}^{\lambda_{1}}S_{u_{2}}^{\lambda_{2}}\cdots S_{u_{k}}%
+^{\lambda_{k}}$ is a product of scaling matrices (because each of the matrices
+$S_{u_{1}}^{\lambda_{1}},S_{u_{2}}^{\lambda_{2}},\ldots,S_{u_{k}}^{\lambda
+_{k}}$ is a scaling matrix\footnote{Here we are using the fact that, for any
+row scaling $S_{u}^{\lambda}$, the matrix $S_{u}^{\lambda}$ is a scaling
+matrix.}). Hence, (\ref{pf.thm.triangular.Slamu.res1}) rewrites as follows:%
+\[
+C=\underbrace{S_{u_{1}}^{\lambda_{1}}S_{u_{2}}^{\lambda_{2}}\cdots S_{u_{k}%
+}^{\lambda_{k}}}_{\substack{\text{this is a product of}\\\text{scaling
+matrices}}}\underbrace{D}_{\substack{\text{this is a product of}\\\text{lower
+addition matrices}}}.
+\]
+Hence, $C$ is a product of scaling matrices and lower addition matrices. This
+is precisely what we had to prove. This proves the $\Longrightarrow$ direction
+of Theorem \ref{thm.triangular.Slamu}. Hence, the proof of Theorem
+\ref{thm.triangular.Slamu} is complete.
+\end{proof}
+
+\begin{remark}
+Our proof of Theorem \ref{thm.triangular.Slamu} (specifically, of its
+$\Longrightarrow$ direction) actually gives an explicit representation of a
+invertibly lower-triangular $n\times n$-matrix $C$ as a product of scaling
+matrices and lower addition matrices. We leave the details to the reader.
+\end{remark}
+
+We can use Theorem \ref{thm.triangular.Slamu} to prove the following analogue
+of Theorem \ref{thm.triangular.inverse}, in the same way as we used Theorem
+\ref{thm.triangular.Alamuv} to prove Theorem \ref{thm.triangular.inverse} itself:
+
+\begin{theorem}
+\label{thm.triangular.inverse.inv}Let $n\in\mathbb{N}$. Let $A$ be an
+invertibly lower-triangular $n\times n$-matrix. Then, $A$ is invertible, and
+its inverse $A^{-1}$ is again invertibly lower-triangular.
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.inverse.inv}.]Theorem
+\ref{thm.triangular.Slamu} (applied to $C=A$) shows that $A$ is invertibly
+lower-triangular if and only if $A$ is a product of scaling matrices and lower
+addition matrices. Hence, $A$ is product of scaling matrices and lower
+addition matrices (since $A$ is invertibly lower-triangular). In other words,
+$A$ has the form $A=A_{1}A_{2}\cdots A_{k}$ for some $k\in\mathbb{N}$ and some
+$k$ matrices $A_{1},A_{2},\ldots,A_{k}$, where each of $A_{1},A_{2}%
+,\ldots,A_{k}$ is either a scaling matrix or a lower addition matrix. Consider
+these $k$ and $A_{1},A_{2},\ldots,A_{k}$.
+
+Observe the following fact:
+
+\begin{statement}
+\textit{Fact 1:} Let $i\in\left\{  1,2,\ldots,k\right\}  $. Then, the matrix
+$A_{i}$ is invertible, and its inverse $A_{i}^{-1}$ is either a scaling matrix
+or a lower addition matrix.
+\end{statement}
+
+[\textit{Proof of Fact 1:} We know that $A_{i}$ is either a scaling matrix or
+a lower addition matrix (since each of $A_{1},A_{2},\ldots,A_{k}$ is either a
+scaling matrix or a lower addition matrix). In other words, we are in one of
+the following two cases:
+
+\begin{statement}
+\textit{Case 1:} The matrix $A_{i}$ is a scaling matrix.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} The matrix $A_{i}$ is a lower addition matrix.
+\end{statement}
+
+Let us consider Case 1 first. In this case, $A_{i}$ is a scaling matrix. In
+other words, $A_{i}$ has the form $A_{i}=S_{u}^{\lambda}$ for some nonzero
+number $\lambda$ and some $u\in\left\{  1,2,\ldots,n\right\}  $. Consider
+these $\lambda$ and $u$. Proposition \ref{prop.Slamu.lambda+mu} \textbf{(c)}
+shows that the matrix $S_{u}^{\lambda}$ is invertible, and its inverse is
+$\left(  S_{u}^{\lambda}\right)  ^{-1}=S_{u}^{1/\lambda}$. Since
+$S_{u}^{\lambda}=A_{i}$, this rewrites as follows: The matrix $A_{i}$ is
+invertible, and its inverse is $A_{i}^{-1}=S_{u}^{1/\lambda}$. But
+$S_{u}^{1/\lambda}$ is a scaling matrix. In other words, $A_{i}^{-1}$ is a
+scaling matrix (since $A_{i}^{-1}=S_{u}^{1/\lambda}$). Hence, $A_{i}^{-1}$ is
+either a scaling matrix or a lower addition matrix. Thus, Fact 1 is proven in
+Case 1 (since we have already shown that $A_{i}$ is invertible).
+
+Let us now consider Case 2. In this case, $A_{i}$ is a lower addition matrix.
+In other words, $A_{i}$ has the form $A_{i}=A_{u,v}^{\lambda}$, where
+$\lambda$ is a number, and where $u$ and $v$ are two elements of $\left\{
+1,2,\ldots,n\right\}  $ satisfying $u>v$ (by the definition of a
+\textquotedblleft lower addition matrix\textquotedblright). Consider these
+$\lambda$, $u$ and $v$. Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(c)}
+shows that the matrix $A_{u,v}^{\lambda}$ is invertible, and its inverse is
+$\left(  A_{u,v}^{\lambda}\right)  ^{-1}=A_{u,v}^{-\lambda}$. Since
+$A_{u,v}^{\lambda}=A_{i}$, this rewrites as follows: The matrix $A_{i}$ is
+invertible, and its inverse is $A_{i}^{-1}=A_{u,v}^{-\lambda}$. But
+$A_{u,v}^{-\lambda}$ is a lower addition matrix (since $u>v$). In other words,
+$A_{i}^{-1}$ is a lower addition matrix (since $A_{i}^{-1}=A_{u,v}^{-\lambda}%
+$). Hence, $A_{i}^{-1}$ is either a scaling matrix or a lower addition matrix.
+Thus, Fact 1 is proven in Case 2 (since we have already shown that $A_{i}$ is invertible).
+
+We have now proven Fact 1 in each of the two Cases 1 and 2. Thus, Fact 1 is proven.]
+
+We are in one of the following two cases:
+
+\begin{statement}
+\textit{Case 1:} We have $k\neq0$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} We have $k=0$.
+\end{statement}
+
+Let us deal with Case 1. In this case, we have $k\neq0$; thus, $k$ is a
+positive integer.
+
+Fact 1 shows that, for each $i\in\left\{  1,2,\ldots,k\right\}  $, the matrix
+$A_{i}$ is invertible, and its inverse $A_{i}^{-1}$ is either a scaling matrix
+or a lower addition matrix. In other words, the matrices $A_{1},A_{2}%
+,\ldots,A_{k}$ are invertible, and each of their inverses $A_{1}^{-1}%
+,A_{2}^{-1},\ldots,A_{k}^{-1}$ is either a scaling matrix or a lower addition
+matrix. In other words, each of $A_{k}^{-1},A_{k-1}^{-1},\ldots,A_{1}^{-1}$ is
+either a scaling matrix or a lower addition matrix.
+
+Now, Proposition \ref{prop.inverses.A1Ak} shows that the matrix $A_{1}%
+A_{2}\cdots A_{k}$ is invertible, and its inverse is $\left(  A_{1}A_{2}\cdots
+A_{k}\right)  ^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}^{-1}$. Since
+$A=A_{1}A_{2}\cdots A_{k}$, this rewrites as follows: The matrix $A$ is
+invertible, and its inverse is $A^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}%
+^{-1}$.
+
+The equality $A^{-1}=A_{k}^{-1}A_{k-1}^{-1}\cdots A_{1}^{-1}$ shows that
+$A^{-1}$ is a product of scaling matrices and lower addition matrices (since
+each of $A_{k}^{-1},A_{k-1}^{-1},\ldots,A_{1}^{-1}$ is either a scaling matrix
+or a lower addition matrix). But Theorem \ref{thm.triangular.Slamu} (applied
+to $C=A^{-1}$) shows that $A^{-1}$ is invertibly lower-triangular if and only
+if $A^{-1}$ is a product of scaling matrices and lower addition matrices.
+Hence, $A^{-1}$ is invertibly lower-triangular (since $A^{-1}$ is a product of
+scaling matrices and lower addition matrices). This completes the proof of
+Theorem \ref{thm.triangular.inverse.inv} in Case 1.
+
+Case 2 is trivial (indeed, $A=I_{n}$ in this case) and is left to the
+reader.\footnote{Alternatively, our proof for Case 1 can be made to work in
+Case 2 as well, because Proposition \ref{prop.inverses.A1Ak} holds for $k=0$
+(as long as we define the empty product to be $I_{n}$). See Remark
+\ref{rmk.prop.inverses.A1Ak.k=0} for the details.} Thus, Theorem
+\ref{thm.triangular.inverse.inv} is proven in both Cases 1 and 2; this shows
+that Theorem \ref{thm.triangular.inverse.inv} is always valid.
+\end{proof}
+
+Again, a similar result holds for upper-triangular matrices (and, again, has a
+similar proof):
+
+\begin{theorem}
+\label{thm.triangular.inverse-up.inv}Let $n\in\mathbb{N}$. Let $A$ be an
+invertibly upper-triangular $n\times n$-matrix. Then, $A$ is invertible, and
+its inverse $A^{-1}$ is again invertibly upper-triangular.
+\end{theorem}
+
+\subsection{The switching matrices $T_{u,v}$}
+
 [...]
 
 (to be continued)
@@ -8383,11 +8942,6 @@ and $A_{u,v}^{\lambda}$'s}
 \textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{itemize}
-\item Conclude that any invertibly lower-triangular matrix is invertible, and
-that its inverse is again invertibly lower-triangular.
-
-\item Same for invertibly upper-triangular.
-
 \item For any two distinct elements $u$ and $v$ of $\left\{  1,2,\ldots
 ,n\right\}  $, introduce the $n\times n$-matrix $T_{u,v}=I_{n}+E_{u,v}%
 +E_{v,u}-E_{u,u}-E_{v,v}$. This is the identity matrix with rows (or columns)
