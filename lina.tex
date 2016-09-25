@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 25, 2016 01:31:47}
+%TCIDATA{LastRevised=Sunday, September 25, 2016 02:33:42}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -53,10 +53,6 @@
 \newenvironment{condition}[1][]
 {\begin{conv}[#1]\begin{leftbar}}
 {\end{leftbar}\end{conv}}
-\newtheorem{quest}[theo]{Question}
-\newenvironment{algorithm}[1][]
-{\begin{quest}[#1]\begin{leftbar}}
-{\end{leftbar}\end{quest}}
 \newtheorem{warn}[theo]{Warning}
 \newenvironment{conclusion}[1][]
 {\begin{warn}[#1]\begin{leftbar}}
@@ -74,6 +70,10 @@
 {\begin{exmp}[#1]\begin{leftbar}}
 {\end{leftbar}\end{exmp}}
 \newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newtheorem{quest}[theo]{TODO}
+\newenvironment{todo}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
@@ -9403,23 +9403,40 @@ changes usually boil down to replacing \textquotedblleft$\neq0$%
 proof can safely be left to the reader (who would thus obtain the third proof
 of Theorem \ref{thm.triangular.inverse}!).
 
-\subsection{The switching matrices $T_{u,v}$}
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+The swapping matrices $T_{u,v}$}
 
-[...]
+The $\lambda$-addition matrices $A_{u,v}^{\lambda}$ from Definition
+\ref{def.Alamuv} and the $\lambda$-scaling matrices $S_{u}^{\lambda}$ from
+Definition \ref{def.Slamu} are two of the three kinds of matrices commonly
+called \textquotedblleft elementary matrices\textquotedblright. The third kind
+are the \textit{swapping matrices}:
 
-(to be continued)
+\begin{definition}
+\label{def.Tuv}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct elements
+of $\left\{  1,2,\ldots,n\right\}  $. Then, $T_{u,v}$ shall denote the
+$n\times n$-matrix $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$ (where
+$E_{u,u}=E_{u,u,n,n}$, $E_{v,v}=E_{v,v,n,n}$, $E_{u,v}=E_{u,v,n,n}$ and
+$E_{v,u}=E_{v,u,n,n}$).
 
-\textbf{TO-DO LIST! (This will appear shortly:)}
+Again, the notation $T_{u,v}$ is hiding the dependency on $n$, and we ought to
+write $T_{u,v,n}$ instead; but we will not, because there will not be any real
+occasion for confusion.
+\end{definition}
 
-\begin{itemize}
-\item For any two distinct elements $u$ and $v$ of $\left\{  1,2,\ldots
-,n\right\}  $, introduce the $n\times n$-matrix $T_{u,v}=I_{n}+E_{u,v}%
-+E_{v,u}-E_{u,u}-E_{v,v}$. This is the identity matrix with rows (or columns)
-$u$ and $v$ switched.
-
-Example: For $n=4$, we have%
-\[
-T_{1,3}=\left(
+\begin{example}
+Let $n=4$. Then,%
+\begin{align*}
+T_{1,3}  &  =I_{n}-E_{1,1}-E_{3,3}+E_{1,3}+E_{3,1}=\left(
 \begin{array}
 [c]{cccc}%
 0 & 0 & 1 & 0\\
@@ -9427,45 +9444,143 @@ T_{1,3}=\left(
 1 & 0 & 0 & 0\\
 0 & 0 & 0 & 1
 \end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+T_{2,3}  &  =I_{n}-E_{2,2}-E_{3,3}+E_{2,3}+E_{3,2}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1
+\end{array}
 \right)  .
-\]
+\end{align*}
 
+\end{example}
 
-\item Explain how $T_{u,v}$ acts on matrices: $T_{u,v}C$ is obtained from $C$
-by switching the $u$-th row with the $v$-th row. Similarly, $CT_{u,v}$ is
+The pattern that you see on these examples is true in general:
+
+\begin{proposition}
+\label{prop.Tuv.entries}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct
+elements of $\left\{  1,2,\ldots,n\right\}  $. Then, the matrix $T_{u,v}$ has
+the following entries:
+
+\begin{itemize}
+\item Its $\left(  u,u\right)  $-th and $\left(  v,v\right)  $-th entries are
+$0$.
+
+\item All its other diagonal entries are $1$.
+
+\item Its $\left(  u,v\right)  $-th and $\left(  v,u\right)  $-th entries are
+$1$.
+
+\item All its remaining entries are $0$.
+\end{itemize}
+\end{proposition}
+
+[...]
+
+(to be continued)
+
+\textbf{TO-DO LIST! (This will appear shortly:)}
+
+\begin{todo}
+Prove Proposition \ref{prop.Tuv.entries} and similar simple facts.
+\end{todo}
+
+\begin{todo}
+Explain that $T_{u,v}$ is the identity matrix with rows (or columns) $u$ and
+$v$ switched.
+\end{todo}
+
+\begin{todo}
+Explain how $T_{u,v}$ acts on matrices: $T_{u,v}C$ is obtained from $C$ by
+switching the $u$-th row with the $v$-th row. Similarly, $CT_{u,v}$ is
 obtained from $C$ by switching the $u$-th column with the $v$-th column.
+\end{todo}
 
-\item $\left(  T_{u,v}\right)  ^{-1}=\left(  T_{u,v}\right)  ^{T}%
-=T_{u,v}=T_{v,u}$.
+\begin{todo}
+$\left(  T_{u,v}\right)  ^{-1}=\left(  T_{u,v}\right)  ^{T}=T_{u,v}=T_{v,u}$.
+\end{todo}
 
-\item Define permutation matrices as $n\times n$-matrices with entries $0$ and
-$1$ that have exactly one $1$ in each row and exactly one $1$ in each column.
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Permutation matrices}
 
-\item Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. But there are more.
+\begin{todo}
+Define permutation matrices as $n\times n$-matrices with entries $0$ and $1$
+that have exactly one $1$ in each row and exactly one $1$ in each column.
+\end{todo}
 
-\item Permutation matrices are products of $T_{u,v}$'s.
+\begin{todo}
+Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. But there are more.
+\end{todo}
 
-\item (*) Permutation matrices are products of $T_{k,k+1}$'s.
+\begin{todo}
+Switching rows in a permutation matrix returns a permutation matrix.
+\end{todo}
 
-\item Permutation matrices act by permuting rows: If $P$ is a permutation
-matrix and $C$ is any matrix, then $PC$ has the same rows as $C$ but
-(possibly) in a different order. Similarly, $CP$ has the same columns as $C$
-but (possibly) in a different order.
+\begin{todo}
+Thus, products of permutation matrices are permutation matrices.
+\end{todo}
 
-\item Permutation matrices are invertible, and their inverses are permutation matrices.
+\begin{todo}
+Permutation matrices are products of $T_{u,v}$'s.
+\end{todo}
 
-\item (*) SageMath examples.
+\begin{todo}
+(*) Permutation matrices are products of $T_{k,k+1}$'s.
+\end{todo}
 
-\item Define row-echelon matrices a la \cite{Kowals16}. Define pivot cells.
-Note that there is at most one pivot cell per row, and at most one per column.
+\begin{todo}
+Permutation matrices act by permuting rows: If $P$ is a permutation matrix and
+$C$ is any matrix, then $PC$ has the same rows as $C$ but (possibly) in a
+different order. Similarly, $CP$ has the same columns as $C$ but (possibly) in
+a different order.
+\end{todo}
 
-\item Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
+\begin{todo}
+Permutation matrices are invertible, and their inverses are permutation matrices.
+\end{todo}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Gaussian elimination and the row echelon form}
+
+\begin{todo}
+Define row-echelon matrices a la \cite[Definition 2.10.4]{Kowals16}. Define
+pivot cells. Note that a row-echelon matrix has at most one pivot cell per
+row, and at most one per column.
+\end{todo}
+
+\begin{todo}
+Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
 elementary matrices ($A_{u,v}^{\lambda}$, $S_{i}^{\lambda}$, $T_{u,v}$) and
 $U$ is a row-echelon matrix.
+\end{todo}
 
-\item How this generalizes things shown before.
+\begin{todo}
+How this generalizes things shown before.
+\end{todo}
 
-\item Example of Gaussian elimination: $C=\left(
+\begin{todo}
+Example of Gaussian elimination: $C=\left(
 \begin{array}
 [c]{cccc}%
 3 & 2 & 1 & 6\\
@@ -9474,15 +9589,367 @@ $U$ is a row-echelon matrix.
 -1 & 2 & -3 & 0
 \end{array}
 \right)  $.
+\end{todo}
 
-\item How to solve $Uv=b$ (back-substitution; beware of zero rows).
+\begin{todo}
+History: \cite{Grcar10} reference.
+\end{todo}
 
-\item Thus, solve $Cv=b$.
+\begin{todo}
+How to solve $Uv=b$ (back-substitution; beware of zero rows).
+\end{todo}
 
-\item $PLU$ decomposition (not sure).
+\begin{todo}
+Thus, solve $Cv=b$.
+\end{todo}
 
-\item ...
+\begin{todo}
+How to see whether a matrix $C$ is invertible using Gauss.
+\end{todo}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+$PLU$ decomposition}
+
+\begin{todo}
+$PLU$ decomposition (not sure). (I didn't do $PLU$ in class properly, and
+doing it right is subtle. \cite[Example 1.12]{OlvSha06} does it.)
+\end{todo}
+
+\begin{todo}
+Most of the time, $P=I_{n}$, because there is no need to permute rows when the
+entries are nonzero.
+\end{todo}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Determinants (briefly)}
+
+Determinants are not a central player in these notes. Nevertheless, they are
+sufficiently important to be mentioned. I consider them to be one of the most
+beautiful objects in mathematics, and they are also one of the most useful in
+\textbf{pure} mathematics (particularly, in all breeds of algebra and
+combinatorics). However, their use in applied mathematics is rather limited
+(apart from \textquotedblleft small\textquotedblright\ cases like matrices of
+size $2\times2$, $3\times3$ and $4\times4$, occurring in physics and geometry
+for well-known reasons). Thus, I shall give no proofs and barely state the
+most crucial results. Three good references on determinants are:
+
+\begin{itemize}
+\item \cite[Chapter 8]{LaNaSc16} does the definitions and the basic properties
+really well. I highly recommend it.
+
+\item \cite[Chapter Four]{Heffer16} also has a neat treatment of determinants,
+although unfortunately it requires Gauss-Jordan elimination (which I have not
+done above, and which I find out-of-place in an introduction to determinants).
+It has many examples and explains the geometric meaning of $2\times
+2$-determinants (as areas of triangles) and $3\times3$-determinants (as
+volumes of tetrahedra).
+
+\item \cite[Chapter 4]{BarSch73} doesn't always have the best proof (in
+particular, it uses some properties of singular matrices that we have not yet
+learned), but seems to be written well and with attention to detail.
 \end{itemize}
+
+Apart from that, lots of other texts define and discuss determinants: some
+sloppily, some rather well.\footnote{Olver's and Shakiban's treatment of
+determinants in \cite[\S 1.9]{OlvSha06} is very minimalistic and incomplete
+(in particular, they never bother proving that the determinant is
+well-defined), but various other books do it well. On the opposite\ side of
+the spectrum, two really rigorous and detailed treatments are Gill
+Williamson's notes \cite[Chapter 3]{Gill} and my \cite{detnotes}; but the
+downside of \textquotedblleft rigorous\textquotedblright\ is \textquotedblleft
+unmotivated and lacking intuition\textquotedblright, and the downside of
+\textquotedblleft detailed\textquotedblright\ is \textquotedblleft extremely
+long\textquotedblright. You will want to strike your own balance. As I said, I
+recommend \cite[Chapter 8]{LaNaSc16}.} When reading other sources, be aware of
+a possible conflict of notations: Namely, we are using the notation $A_{i,j}$
+for the $\left(  i,j\right)  $-th entry of a matrix $A$; but most authors use
+the notation $A_{i,j}$ for something different (namely, the $\left(
+i,j\right)  $-th \textquotedblleft cofactor\textquotedblright\ of $A$).
+
+\begin{todo}
+Recall Example \ref{exam.inverses} \textbf{(e)}: The number $ad-bc$ governs
+whether the matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  $ is an inverse. Does such a number exist for larger matrices? Yes,
+it does and is called the determinant.
+\end{todo}
+
+\begin{todo}
+The determinant of an $n\times n$-matrix $A$ is a number, denoted by $\det A$
+and defined later. (Some authors call it $\left\vert A\right\vert $, but we
+will not.)
+\end{todo}
+
+\begin{todo}
+Defining the determinant of an $n\times n$-matrix is not that easy. Let us
+first do it for small cases:%
+\begin{align*}
+\det\left(
+\begin{array}
+[c]{cc}%
+a_{1} & a_{2}\\
+b_{1} & b_{2}%
+\end{array}
+\right)   &  =a_{1}b_{2}-a_{2}b_{1};\\
+\det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1} & b_{2} & b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)   &  =a_{1}b_{2}c_{3}-a_{1}c_{2}b_{3}-b_{1}a_{2}c_{3}+b_{1}c_{2}%
+a_{3}+c_{1}a_{2}b_{3}-c_{1}b_{2}a_{3};\\
+\det\left(
+\begin{array}
+[c]{c}%
+a
+\end{array}
+\right)   &  =a;\\
+\det\left(  {}\right)   &  =1.
+\end{align*}
+(The last equality says that the determinant of a $0\times0$-matrix is $1$,
+and yes, that's sometimes useful.)
+\end{todo}
+
+\begin{todo}
+Definition for all $n$, informal version:%
+\begin{align*}
+&  \det\left(
+\begin{array}
+[c]{cccc}%
+a_{1} & a_{2} & \cdots & a_{n}\\
+b_{1} & b_{2} & \cdots & b_{n}\\
+\vdots & \vdots & \ddots & \vdots\\
+z_{1} & z_{2} & \cdots & z_{n}%
+\end{array}
+\right) \\
+&  =\text{sum of terms of the form }\pm?_{1}?_{2}\cdots?_{n},
+\end{align*}
+where the question marks in each term are some permutation (= rearrangement)
+of the letters $a,b,\ldots,z$, and the $\pm$ sign depends on the
+rearrangement. How exactly? Any rearrangement can be sorted into increasing
+order (i.e., into $ab\ldots z$) by switching pairs of letters; e.g. (for
+$n=5$) we can sort the rearrangement $caebd$ as follows:%
+\begin{align*}
+caebd  &  \rightarrow cabed\ \ \ \ \ \ \ \ \ \ \left(  \text{here we switched
+}e\text{ with }b\right) \\
+&  \rightarrow baced\ \ \ \ \ \ \ \ \ \ \left(  \text{here we switched
+}c\text{ with }b\right) \\
+&  \rightarrow abced\ \ \ \ \ \ \ \ \ \ \left(  \text{here we switched
+}b\text{ with }a\right) \\
+&  \rightarrow abcde\ \ \ \ \ \ \ \ \ \ \left(  \text{here we switched
+}e\text{ with }d\right)  .
+\end{align*}
+Notice that we used $4$ switches here. The rule for the $\pm$ sign is: If the
+rearrangement needs an even number of switches, then it's a $+$; if an odd
+number, then it's a $-$.
+
+Definition for all $n$, formal version: Recall that each permutation matrix
+$P$ is a product of several swapping matrices (i.e., of $T_{u,v}$'s). Define
+$\operatorname*{sign}\left(  P\right)  $ to be $+1$ if $P$ is the product of
+an even number of swapping matrices; define $\operatorname*{sign}\left(
+P\right)  $ to be $-1$ if $P$ is the product of an odd number of swapping
+matrices. It is not obvious that this definition is legitimate (because if $P$
+would be representable both as an even product and as an odd product, then
+$\operatorname*{sign}\left(  P\right)  $ would have to be $+1$ and $-1$ at the
+same time!), but it is nevertheless true (it can be shown that no $P$ can ever
+be representable both as even product and as odd product). If $P$ is a
+permutation matrix and $A$ is an $n\times n$-matrix, then the $P$%
+\textit{-product of }$A$ shall mean the product of all entries of $A$ in those
+cells in which $P$ has a $1$. For example, if $P=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & 0 & 1\\
+0 & 1 & 0
+\end{array}
+\right)  $, then the $P$-product of $\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1} & b_{2} & b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)  $ is $a_{1}b_{3}c_{2}$, because the cells in which $P$ has a $1$ are
+the cells $\left(  1,1\right)  $, $\left(  2,3\right)  $ and $\left(
+3,2\right)  $, and the entries of $A$ in these cells are $a_{1}$, $b_{3}$ and
+$c_{2}$. Now, the determinant $\det A$ of $A$ is the sum of%
+\[
+\operatorname*{sign}\left(  P\right)  \cdot\left(  \text{the }P\text{-product
+of }A\right)
+\]
+for all permutation matrices $P$.
+
+Usually this definition is worded in terms of permutations, not permutation
+matrices; but this is just another terminology.
+\end{todo}
+
+\begin{todo}
+State the main properties of determinants:
+
+\begin{itemize}
+\item We have $\det\left(  0_{n\times n}\right)  =0$ for all $n>0$.
+
+\item We have $\det\left(  I_{n}\right)  =1$ for all $n$.
+
+\item We have $\det\left(  A^{T}\right)  =\det A$ for any square matrix $A$.
+
+\item The determinant is multilinear in the rows (i.e., linear \textbf{in each
+row}, as long as the other rows are fixed). For example,%
+\begin{align*}
+&  \det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1}+b_{1}^{\prime} & b_{2}+b_{2}^{\prime} & b_{3}+b_{3}^{\prime}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right) \\
+&  =\det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1} & b_{2} & b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)  +\det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1}^{\prime} & b_{2}^{\prime} & b_{3}^{\prime}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)
+\end{align*}
+and%
+\[
+\det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+\lambda b_{1} & \lambda b_{2} & \lambda b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)  =\lambda\det\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1} & b_{2} & b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)  .
+\]
+See \cite[Theorem 8.2.3, 3.]{LaNaSc16} for a precise statement (but for
+columns instead of rows).
+
+\item Note that $\det\left(  A+B\right)  \neq\det A+\det B$ in general.
+
+\item Switching two rows of a matrix $A$ negates $\det A$ (that is, if $B$ is
+obtained from $A$ by switching two rows, then $\det B=-\det A$).
+
+\item If $A$ has two equal rows, then $\det A=0$.
+
+\item If $A$ has a row filled with zeroes, then $\det A=0$.
+
+\item If we add a multiple of some row of $A$ to another row, then $\det A$
+does not change.
+
+\item All of the above properties that reference rows also hold for columns.
+
+\item If $A$ is upper-triangular or lower-triangular, then $\det A$ is the
+product of the diagonal entries of $A$.
+
+\item We have $\det\left(  AB\right)  =\det A\cdot\det B$ for any two $n\times
+n$-matrices $A$ and $B$. This fact is not obvious, and is one of the miracles
+of mathematics. It is probably the main reason why determinants are useful!
+
+\item An $n\times n$-matrix $A$ is invertible if and only if $\det A\neq0$.
+
+\item For each $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $, let $A_{\sim i,\sim j}$ denote the $\left(
+n-1\right)  \times\left(  n-1\right)  $-matrix obtained from $A$ by removing
+the $i$-th row and the $j$-th column. For example,%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+a_{1} & a_{2} & a_{3}\\
+b_{1} & b_{2} & b_{3}\\
+c_{1} & c_{2} & c_{3}%
+\end{array}
+\right)  _{1,2}=\left(
+\begin{array}
+[c]{cc}%
+b_{1} & b_{3}\\
+c_{1} & c_{3}%
+\end{array}
+\right)  .
+\]
+Let $\operatorname*{adj}A$ be the $n\times n$-matrix $\left(  \left(
+-1\right)  ^{i+j}\det\left(  A_{\sim j,\sim i}\right)  \right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}$. (This is called the \textit{adjugate} of $A$.) Then,%
+\[
+A\cdot\operatorname*{adj}A=\operatorname*{adj}A\cdot A=\det A\cdot I_{n}.
+\]
+
+
+\item For every $p\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\[
+\det A=\sum_{q=1}^{n}\left(  -1\right)  ^{p+q}A_{p,q}\det\left(  A_{\sim
+p,\sim q}\right)  .
+\]
+This is called \textquotedblleft Laplace expansion in the $p$-th
+row\textquotedblright, and gives us a way to compute $\det A$ using
+determinants of $\left(  n-1\right)  \times\left(  n-1\right)  $-matrices.
+
+\item For every $q\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\[
+\det A=\sum_{p=1}^{n}\left(  -1\right)  ^{p+q}A_{p,q}\det\left(  A_{\sim
+p,\sim q}\right)  .
+\]
+This is called \textquotedblleft Laplace expansion in the $q$-th
+column\textquotedblright.
+\end{itemize}
+\end{todo}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+The rest}
+
+\begin{todo}
+(*) SageMath examples.
+\end{todo}
 
 [to be continued]
 
@@ -9491,6 +9958,9 @@ $U$ is a row-echelon matrix.
 
 \bibitem[Artin10]{Artin10}Michael Artin, \textit{Algebra}, 2nd edition,
 Pearson 2010.
+
+\bibitem[BarSch73]{BarSch73}Hans Schneider, George Phillip Barker,
+\textit{Matrices and Linear Algebra}, 2nd edition, Dover 1973.
 
 \bibitem[Camero08]{Camero08}Peter J. Cameron, \textit{Notes on Linear
 Algebra}, version 5 Sep 2008.\newline\url{http://www.maths.qmul.ac.uk/~pjc/notes/linalg.pdf}
@@ -9512,6 +9982,14 @@ and Concrete}, edition 2.6.\newline\url{http://homepage.divms.uiowa.edu/~goodman
 \bibitem[Grcar10]{Grcar10}Joseph F. Grcar, \textit{How ordinary elimination
 became Gaussian elimination}, Historia Mathematica, Volume 38, Issue 2, May
 2011, pp. 163--218.\newline\url{http://www.sciencedirect.com/science/article/pii/S0315086010000376}
+
+\bibitem[Gill12]{Gill}%
+\href{http://cseweb.ucsd.edu/~gill/CILASite/Resources/LinearAlgebra.pdf}{Stanley
+Gill Williamson, \textit{Matrix Canonical Forms: notational skills and proof
+techniques}, 15 July 2015.}
+
+\bibitem[Grinbe16]{detnotes}Darij Grinberg, \textit{Notes on the combinatorial
+fundamentals of algebra}, 4 September 2016.\newline\url{http://web.mit.edu/~darij/www/primes2015/sols.pdf}
 
 \bibitem[OlvSha06]{OlvSha06}Peter J. Olver, Chehrzad Shakiban, \textit{Applied
 Linear Algebra}, Prentice Hall, 2006.\newline See also
