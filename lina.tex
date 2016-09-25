@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 25, 2016 00:48:14}
+%TCIDATA{LastRevised=Sunday, September 25, 2016 01:31:47}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5078,7 +5078,7 @@ Au=\left(
 \]
 In fact, once these vectors are found, assembling them into a matrix yields a
 right inverse of $A$ (why?). Find these $u,v,w$. Then, check that the
-resulting right-inverse of $A$ is also a left-inverse.]
+resulting right inverse of $A$ is also a left inverse.]
 \end{exercise}
 
 \begin{corollary}
@@ -8939,13 +8939,20 @@ its inverse $A^{-1}$ is again invertibly upper-triangular.
 \subsection{(*) Yet another proof of triangular invertibility}
 
 Let us now give a second proof of Theorem \ref{thm.triangular.inverse.inv}. We
-first shall show two lemmas:
+first shall show a lemma:
 
 \begin{lemma}
 \label{lem.triangular.inverse.inv.3rd.1}Let $n\in\mathbb{N}$. Let $A$ be an
-invertibly lower-triangular $n\times n$-matrix. Let $b$ be an column vector of
-size $n$ (that is, an $n\times1$-matrix). Then, there exists a vector $v$ of
-size $n$ satisfying $Av=b$.
+invertibly lower-triangular $n\times n$-matrix. Let $b=\left(  b_{1}%
+,b_{2},\ldots,b_{n}\right)  ^{T}$ be an column vector of size $n$ (that is, an
+$n\times1$-matrix). Let $r\in\left\{  1,2,\ldots,n\right\}  $ be such that
+$b_{1}=b_{2}=\cdots=b_{r-1}=0$. (Notice that if $r=1$, then the equality
+$b_{1}=b_{2}=\cdots=b_{r-1}=0$ claims nothing, and thus is automatically true
+-- i.e., the numbers $b_{1},b_{2},\ldots,b_{n}$ can be arbitrary in this case.)
+
+Then, there exists a column vector $v=\left(  v_{1},v_{2},\ldots,v_{n}\right)
+^{T}$ of size $n$ satisfying $Av=b$ and $v_{1}=v_{2}=\cdots=v_{r-1}=0$ and
+$v_{r}=\dfrac{1}{A_{r,r}}b_{r}$.
 \end{lemma}
 
 \begin{proof}
@@ -8966,19 +8973,54 @@ A_{i,i}\neq0\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{  1,2,\ldots
 \end{equation}
 
 
-Set $b_{i}=b_{i,1}$ for each $i\in\left\{  1,2,\ldots,n\right\}  $. Thus,%
+We shall now define $n$ numbers $v_{1},v_{2},\ldots,v_{n}$. Our definition is
+recursive: For each $i\in\left\{  1,2,\ldots,n\right\}  $, we assume that the
+first $i-1$ numbers $v_{1},v_{2},\ldots,v_{i-1}$ are already defined, and we
+define the next number $v_{i}$ by%
 \begin{equation}
-b=\left(
-\begin{array}
-[c]{c}%
-b_{1}\\
-b_{2}\\
-\vdots\\
-b_{n}%
-\end{array}
-\right)  . \label{pf.lem.triangular.inverse.inv.3rd.1.b=}%
+v_{i}=\dfrac{1}{A_{i,i}}\left(  b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}%
++\cdots+A_{i,i-1}v_{i-1}\right)  \right)
+\label{pf.lem.triangular.inverse.inv.3rd.1.rec}%
 \end{equation}
-Also, $A=\left(
+\footnote{The division by $A_{i,i}$ is allowed because of
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.inv}).}. This is a valid recursive
+definition, because it gives us a way to compute the numbers $v_{1}%
+,v_{2},\ldots,v_{n}$ one by one (beginning with $v_{1}$, then proceeding to
+$v_{2}$, then to $v_{3}$, and so on). Here is how this computation will look like:
+
+\begin{itemize}
+\item The number $v_{1}$ is defined (and can be computed) by $v_{1}=\dfrac
+{1}{A_{1,1}}b_{1}$. (This is the particular case of
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) for $i=1$%
+.\ \ \ \ \footnote{Note that the sum $A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots
++A_{i,i-1}v_{i-1}$ becomes an empty sum when $i=1$, and thus equals $0$;
+therefore, we have omitted it.})
+
+\item The number $v_{2}$ is defined (and can be computed) by $v_{2}=\dfrac
+{1}{A_{2,2}}\left(  b_{2}-A_{2,1}v_{1}\right)  $.
+
+\item The number $v_{3}$ is defined (and can be computed) by $v_{3}=\dfrac
+{1}{A_{3,3}}\left(  b_{3}-\left(  A_{3,1}v_{1}+A_{3,2}v_{2}\right)  \right)  $.
+
+\item And so on, up to $v_{n}$.
+\end{itemize}
+
+We furthermore define a column vector $v$ by $v=\left(  v_{1},v_{2}%
+,\ldots,v_{n}\right)  ^{T}$. Now, we claim the following:
+
+\begin{statement}
+\textit{Claim 1:} We have $Av=b$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} We have $v_{1}=v_{2}=\cdots=v_{r-1}=0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} We have $v_{r}=\dfrac{1}{A_{r,r}}b_{r}$.
+\end{statement}
+
+[\textit{Proof of Claim 1:} Multiplying the equalities $A=\left(
 \begin{array}
 [c]{cccc}%
 A_{1,1} & A_{1,2} & \cdots & A_{1,n}\\
@@ -8986,7 +9028,7 @@ A_{2,1} & A_{2,2} & \cdots & A_{2,n}\\
 \vdots & \vdots & \ddots & \vdots\\
 A_{n,1} & A_{n,2} & \cdots & A_{n,n}%
 \end{array}
-\right)  $. Hence, every column vector $\left(
+\right)  $ and $v=\left(  v_{1},v_{2},\ldots,v_{n}\right)  ^{T}=\left(
 \begin{array}
 [c]{c}%
 v_{1}\\
@@ -8994,7 +9036,7 @@ v_{2}\\
 \vdots\\
 v_{n}%
 \end{array}
-\right)  $ satisfies%
+\right)  $, we obtain%
 \begin{align}
 Av  &  =\left(
 \begin{array}
@@ -9023,54 +9065,41 @@ A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}%
 \end{array}
 \right)  . \label{pf.lem.triangular.inverse.inv.3rd.1.Av=}%
 \end{align}
-
-
-We are looking for a column vector $v$ of size $n$ satisfying $Av=b$. Renaming
-the vector $v$ as $\left(
+But for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align*}
+&  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,n}v_{n}\\
+&  =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{A_{i,i+1}}%
+_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}%
+),}\\\text{applied to }j=i+1\text{)}}}v_{i+1}+\underbrace{A_{i,i+2}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}%
+),}\\\text{applied to }j=i+2\text{)}}}v_{i+2}+\cdots+\underbrace{A_{i,n}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}%
+),}\\\text{applied to }j=n\text{)}}}v_{n}\right) \\
+&  =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\right)
++\underbrace{\left(  0v_{i+1}+0v_{i+2}+\cdots+0v_{n}\right)  }_{=0}\\
+&  =A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\\
+&  =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
++\underbrace{A_{i,i}v_{i}}_{\substack{=b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}%
+v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)  \\\text{(by
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}))}}}\\
+&  =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
++b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
+=b_{i}.
+\end{align*}
+In other words, the $n$ equalities%
+\[%
 \begin{array}
 [c]{c}%
-v_{1}\\
-v_{2}\\
+A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}=b_{1};\\
+A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}=b_{2};\\
 \vdots\\
-v_{n}%
+A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}=b_{n}%
 \end{array}
-\right)  $, we can restate this goal as follows: We are looking for a column
-vector $\left(
-\begin{array}
-[c]{c}%
-v_{1}\\
-v_{2}\\
-\vdots\\
-v_{n}%
-\end{array}
-\right)  $ satisfying $A\left(
-\begin{array}
-[c]{c}%
-v_{1}\\
-v_{2}\\
-\vdots\\
-v_{n}%
-\end{array}
-\right)  =b$. In other words, we are looking for $n$ numbers $v_{1}%
-,v_{2},\ldots,v_{n}$ satisfying $A\left(
-\begin{array}
-[c]{c}%
-v_{1}\\
-v_{2}\\
-\vdots\\
-v_{n}%
-\end{array}
-\right)  =b$.
-
-But the equation $A\left(
-\begin{array}
-[c]{c}%
-v_{1}\\
-v_{2}\\
-\vdots\\
-v_{n}%
-\end{array}
-\right)  =b$ is equivalent to the equation $\left(
+\]
+hold. In other words,%
+\[
+\left(
 \begin{array}
 [c]{c}%
 A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}\\
@@ -9086,93 +9115,293 @@ b_{2}\\
 \vdots\\
 b_{n}%
 \end{array}
-\right)  $ (because of (\ref{pf.lem.triangular.inverse.inv.3rd.1.Av=}) and
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.b=})), and this latter equation is
-(in turn) equivalent to the system%
-\begin{equation}
-\left\{
+\right)  .
+\]
+Thus, (\ref{pf.lem.triangular.inverse.inv.3rd.1.Av=}) becomes
+\[
+Av=\left(
 \begin{array}
 [c]{c}%
-A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}=b_{1};\\
-A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}=b_{2};\\
+A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}\\
+A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}\\
 \vdots\\
-A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}=b_{n}%
+A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}%
 \end{array}
-\right.  .\label{pf.lem.triangular.inverse.inv.3rd.1.sys}%
-\end{equation}
-Hence, we are looking for $n$ numbers $v_{1},v_{2},\ldots,v_{n}$ satisfying
-the system (\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}). Once we can find
-such $n$ numbers, we will have proven Lemma
-\ref{lem.triangular.inverse.inv.3rd.1}.
+\right)  =\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n}%
+\end{array}
+\right)  =b.
+\]
+This proves Claim 1.]
 
-We shall explicitly define $n$ numbers $v_{1},v_{2},\ldots,v_{n}$, and then
-check that they satisfy the system
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}). We define the numbers
-$v_{1},v_{2},\ldots,v_{n}$ recursively: For each $i\in\left\{  1,2,\ldots
-,n\right\}  $, we assume that the first $i-1$ numbers $v_{1},v_{2}%
-,\ldots,v_{i-1}$ are already defined, and we define the next number $v_{i}$ by%
+[\textit{Proof of Claim 2:} We shall show that%
 \begin{equation}
-v_{i}=\dfrac{1}{A_{i,i}}\left(  b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}%
-+\cdots+A_{i,i-1}v_{i-1}\right)  \right)
-.\label{pf.lem.triangular.inverse.inv.3rd.1.rec}%
+v_{1}=v_{2}=\cdots=v_{k-1}=0\ \ \ \ \ \ \ \ \ \ \text{for each }k\in\left\{
+1,2,\ldots,r\right\}  \text{.} \label{pf.lem.triangular.inverse.inv.3rd.1.C2a}%
 \end{equation}
-This is a valid recursive definition, because it gives us a way to compute the
-numbers $v_{1},v_{2},\ldots,v_{n}$ one by one (beginning with $v_{1}$, then
-proceeding to $v_{2}$, then to $v_{3}$, and so on). Here is how this
-computation will look like:
+Our proof of (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) will proceed by
+induction over $k$:
 
-\begin{itemize}
-\item The number $v_{1}$ is defined (and can be computed) by $v_{1}=\dfrac
-{1}{A_{1,1}}b_{1}$. (This is the particular case of
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) for $i=1$.\ \ \ \ \footnote{
-Note that the sum $A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}$ becomes
-an empty sum when $i=1$, and thus equals $0$; therefore, we have omitted it.})
+\textit{Induction base:} For $k=1$, the equality
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) claims nothing (because there
+are no numbers $v_{1},v_{2},\ldots,v_{k-1}$ when $k=1$), and thus is true (for
+the stupid reason that an empty claim is always true). This completes the
+induction base.
 
-\item The number $v_{2}$ is defined (and can be computed) by $v_{2}=\dfrac
-{1}{A_{2,2}}\left(  b_{2}-A_{2,1}v_{1}\right)  $.
+\textit{Induction step:} Let $i\in\left\{  1,2,\ldots,r-1\right\}  $. Assume
+that (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) holds for $k=i$. We must
+now prove that (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) holds for
+$k=i+1$.
 
-\item The number $v_{3}$ is defined (and can be computed)  by $v_{3}=\dfrac
-{1}{A_{3,3}}\left(  b_{3}-\left(  A_{3,1}v_{1}+A_{3,2}v_{2}\right)  \right)  $.
+We have $i\in\left\{  1,2,\ldots,r-1\right\}  $ and thus $b_{i}=0$ (since
+$b_{1}=b_{2}=\cdots=b_{r-1}=0$).
 
-\item And so on, up to $v_{n}$.
-\end{itemize}
+We have assumed that (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) holds for
+$k=i$. In other words, we have $v_{1}=v_{2}=\cdots=v_{i-1}=0$. In other words,%
+\begin{equation}
+v_{\ell}=0\ \ \ \ \ \ \ \ \ \ \text{for each }\ell\in\left\{  1,2,\ldots
+,i-1\right\}  . \label{pf.lem.triangular.inverse.inv.3rd.1.C2a.pf.1}%
+\end{equation}
 
-Why do these numbers $v_{1},v_{2},\ldots,v_{n}$ satisfy the system
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.sys})? For each $i\in\left\{
-1,2,\ldots,n\right\}  $, we have%
+
+But now, (\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) yields
 \begin{align*}
-& A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,n}v_{n}\\
-& =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\right)  +\left(
-\underbrace{A_{i,i+1}}_{\substack{=0\\\text{(by
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}),}\\\text{applied to
-}j=i+1\text{)}}}v_{i+1}+\underbrace{A_{i,i+2}}_{\substack{=0\\\text{(by
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}),}\\\text{applied to
-}j=i+2\text{)}}}v_{i+2}+\cdots+\underbrace{A_{i,n}}_{\substack{=0\\\text{(by
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}),}\\\text{applied to
-}j=n\text{)}}}v_{n}\right)  \\
-& =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\right)
-+\underbrace{\left(  0v_{i+1}+0v_{i+2}+\cdots+0v_{n}\right)  }_{=0}\\
-& =A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i}v_{i}\\
-& =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
-+\underbrace{A_{i,i}v_{i}}_{\substack{=b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}%
-v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)  \\\text{(by
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}))}}}\\
-& =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
-+b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
-=b_{i}.
+v_{i}  &  =\dfrac{1}{A_{i,i}}\left(  b_{i}-\left(  A_{i,1}\underbrace{v_{1}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a.pf.1}%
+), applied}\\\text{to }\ell=1\text{)}}}+A_{i,2}\underbrace{v_{2}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a.pf.1}%
+), applied}\\\text{to }\ell=2\text{)}}}+\cdots+A_{i,i-1}\underbrace{v_{i-1}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a.pf.1}%
+), applied}\\\text{to }\ell=i-1\text{)}}}\right)  \right) \\
+&  =\dfrac{1}{A_{i,i}}\left(  b_{i}-\underbrace{\left(  A_{i,1}0+A_{i,2}%
+0+\cdots+A_{i,i-1}0\right)  }_{=0}\right)  =\dfrac{1}{A_{i,i}}%
+\underbrace{b_{i}}_{=0}=0.
 \end{align*}
-In other words, for each $i\in\left\{  1,2,\ldots,n\right\}  $, the $i$-th
-equation of the system (\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}) holds.
-Thus, all equations of the system
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}) hold; in other words, the
-numbers $v_{1},v_{2},\ldots,v_{n}$ satisfy the system
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}). Thus, we have found $n$
-numbers $v_{1},v_{2},\ldots,v_{n}$ satisfying the system
-(\ref{pf.lem.triangular.inverse.inv.3rd.1.sys}). As we have said, this proves
-Lemma \ref{lem.triangular.inverse.inv.3rd.1}.
+Combining this with $v_{1}=v_{2}=\cdots=v_{i-1}=0$, we obtain $v_{1}%
+=v_{2}=\cdots=v_{i}=0$. In other words,
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) holds for $k=i+1$. This
+completes the induction step. Hence,
+(\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) is proven.
+
+Now that we have proven (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}), we
+can apply (\ref{pf.lem.triangular.inverse.inv.3rd.1.C2a}) to $k=r$. We thus
+obtain $v_{1}=v_{2}=\cdots=v_{r-1}=0$. This proves Claim 2.]
+
+[\textit{Proof of Claim 3:} Claim 2 shows that $v_{1}=v_{2}=\cdots=v_{r-1}=0$.
+In other words,%
+\begin{equation}
+v_{\ell}=0\ \ \ \ \ \ \ \ \ \ \text{for each }\ell\in\left\{  1,2,\ldots
+,i-1\right\}  . \label{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+\end{equation}
+But (\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) (applied to $i=r$) yields
+\begin{align*}
+v_{r}  &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\left(  A_{r,1}\underbrace{v_{1}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+), applied}\\\text{to }\ell=1\text{)}}}+A_{r,2}\underbrace{v_{2}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+), applied}\\\text{to }\ell=2\text{)}}}+\cdots+A_{r,r-1}\underbrace{v_{r-1}%
+}_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+), applied}\\\text{to }\ell=r-1\text{)}}}\right)  \right) \\
+&  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\underbrace{\left(  A_{r,1}0+A_{r,2}%
+0+\cdots+A_{r,r-1}0\right)  }_{=0}\right)  =\dfrac{1}{A_{r,r}}b_{r}.
+\end{align*}
+This proves Claim 3.]
+
+We have now proven all three claims. Thus, our column vector $v=\left(
+v_{1},v_{2},\ldots,v_{n}\right)  ^{T}$ satisfies $Av=b$ and $v_{1}%
+=v_{2}=\cdots=v_{r-1}=0$ and $v_{r}=\dfrac{1}{A_{r,r}}b_{r}$. This shows that
+such a vector exists; in other words, Lemma
+\ref{lem.triangular.inverse.inv.3rd.1} is proven.
 \end{proof}
 
-[...]
+Next, we prove a lemma which is \textquotedblleft almost\textquotedblright%
+\ Theorem \ref{thm.triangular.inverse.inv}:
+
+\begin{lemma}
+\label{lem.triangular.inverse.inv.3rd.2}Let $n\in\mathbb{N}$. Let $A$ be an
+invertibly lower-triangular $n\times n$-matrix. Then, there exists an
+invertibly lower-triangular $n\times n$-matrix $B$ such that $AB=I_{n}$.
+\end{lemma}
+
+The matrix $B$ in Lemma \ref{lem.triangular.inverse.inv.3rd.2} will turn out
+to be the inverse of $A$; but Lemma \ref{lem.triangular.inverse.inv.3rd.2}
+does not yet claim this (instead, Lemma \ref{lem.triangular.inverse.inv.3rd.2}
+only guarantees that $B$ is a right inverse of $A$).
+
+\begin{proof}
+[Proof of Lemma \ref{lem.triangular.inverse.inv.3rd.2}.]For each $j\in\left\{
+1,2,\ldots,n\right\}  $, we construct a column vector $v_{\left[  j\right]  }$
+of size $n$ as follows:
+
+Consider the vector $\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)  $;
+this is the $j$-th column of the identity matrix $I_{n}$. Since $I_{n}=\left(
+\delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$, we have%
+\[
+\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)  =\left(
+\begin{array}
+[c]{c}%
+\delta_{1,j}\\
+\delta_{2,j}\\
+\vdots\\
+\delta_{n,j}%
+\end{array}
+\right)  =\left(  \delta_{1,j},\delta_{2,j},\ldots,\delta_{n,j}\right)  ^{T}.
+\]
+This vector $\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)  $ is a
+column vector of size $n$, and satisfies $\delta_{1,j}=\delta_{2,j}%
+=\cdots=\delta_{j-1,j}=0$ (since none of the numbers $1,2,\ldots,j-1$ equals
+$j$). Hence, Lemma \ref{lem.triangular.inverse.inv.3rd.1} (applied to
+$b=\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)  $ and $b_{i}%
+=\delta_{i,j}$ and $r=j$) says that there exists a column vector $v=\left(
+v_{1},v_{2},\ldots,v_{n}\right)  ^{T}$ of size $n$ satisfying
+$Av=\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)  $ and $v_{1}%
+=v_{2}=\cdots=v_{j-1}=0$ and $v_{j}=\dfrac{1}{A_{j,j}}\delta_{j,j}$. Denote
+this vector $v$ by $v_{\left[  j\right]  }$, and denote its entries
+$v_{1},v_{2},\ldots,v_{n}$ by $v_{1,j},v_{2,j},\ldots,v_{n,j}$ (in order to
+stress that they depend on $j$).
+
+Now, forget that we fixed $j$. Thus, for each $j\in\left\{  1,2,\ldots
+,n\right\}  $, we have found a column vector
+\begin{equation}
+v_{\left[  j\right]  }=\left(  v_{1,j},v_{2,j},\ldots,v_{n,j}\right)  ^{T}
+\label{pf.lem.triangular.inverse.inv.3rd.2.vj.1}%
+\end{equation}
+of size $n$ satisfying
+\begin{equation}
+Av_{\left[  j\right]  }=\operatorname*{col}\nolimits_{j}\left(  I_{n}\right)
+\label{pf.lem.triangular.inverse.inv.3rd.2.vj.2}%
+\end{equation}
+and
+\begin{equation}
+v_{1,j}=v_{2,j}=\cdots=v_{j-1,j}=0
+\label{pf.lem.triangular.inverse.inv.3rd.2.vj.3}%
+\end{equation}
+and
+\begin{equation}
+v_{j,j}=\dfrac{1}{A_{j,j}}\delta_{j,j}.
+\label{pf.lem.triangular.inverse.inv.3rd.2.vj.4}%
+\end{equation}
+Altogether, these are $n$ column vectors $v_{\left[  1\right]  },v_{\left[
+2\right]  },\ldots,v_{\left[  n\right]  }$ of size $n$. We can assemble them
+into a matrix $B$: Namely, set
+\[
+B=\left(  v_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}.
+\]
+This matrix $B$ therefore satisfies%
+\begin{equation}
+B_{i,j}=v_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{  1,2,\ldots
+,n\right\}  \text{ and }j\in\left\{  1,2,\ldots,n\right\}  .
+\label{pf.lem.triangular.inverse.inv.3rd.2.B=v}%
+\end{equation}
+Hence, the matrix $B$ is lower-triangular\footnote{\textit{Proof.} Let
+$j\in\left\{  1,2,\ldots,n\right\}  $. Then, $v_{1,j}=v_{2,j}=\cdots
+=v_{j-1,j}=0$ (by (\ref{pf.lem.triangular.inverse.inv.3rd.2.vj.3})). In other
+words, $v_{i,j}=0$ for every $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying
+$i<j$. In light of (\ref{pf.lem.triangular.inverse.inv.3rd.2.B=v}), this
+rewrites as $B_{i,j}=0$ for every $i\in\left\{  1,2,\ldots,n\right\}  $
+satisfying $i<j$.
+\par
+Now, forget that we fixed $j$. We thus have shown that $B_{i,j}=0$ whenever
+$i<j$. In other words, the matrix $B$ is lower-triangular.} and all its
+diagonal entries are nonzero\footnote{\textit{Proof.} Let $i\in\left\{
+1,2,\ldots,n\right\}  $. Applying
+(\ref{pf.lem.triangular.inverse.inv.3rd.2.vj.4}) to $j=i$, we find
+$v_{i,i}=\dfrac{1}{A_{i,i}}\underbrace{\delta_{i,i}}%
+_{\substack{=1\\\text{(since }i=i\text{)}}}=\dfrac{1}{A_{i,i}}\neq0$. But
+(\ref{pf.lem.triangular.inverse.inv.3rd.2.B=v}) (applied to $j=i$) yields
+$B_{i,i}=v_{i,i}\neq0$.
+\par
+Now, forget that we fixed $i$. We thus have learnt that $B_{i,i}\neq0$ for
+each $i\in\left\{  1,2,\ldots,n\right\}  $. In other words, the diagonal
+entries of the matrix $B$ are nonzero.}. In other words, the matrix $B$ is
+invertibly lower-triangular.
+
+Also, recall that $B=\left(  v_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}%
+$. Hence, every $j\in\left\{  1,2,\ldots,n\right\}  $ satisfies%
+\begin{equation}
+\operatorname*{col}\nolimits_{j}B=\left(
+\begin{array}
+[c]{c}%
+v_{1,j}\\
+v_{2,j}\\
+\vdots\\
+v_{n,j}%
+\end{array}
+\right)  =\left(  v_{1,j},v_{2,j},\ldots,v_{n,j}\right)  ^{T}=v_{\left[
+j\right]  }\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.triangular.inverse.inv.3rd.2.vj.1})}\right)  .
+\label{pf.lem.triangular.inverse.inv.3rd.2.coljB}%
+\end{equation}
+Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(d)} (applied to $m=n$ and
+$p=n$) shows that, for each $j\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\[
+\operatorname*{col}\nolimits_{j}\left(  AB\right)  =A\cdot
+\underbrace{\operatorname*{col}\nolimits_{j}B}_{\substack{=v_{\left[
+j\right]  }\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.2.coljB}))}%
+}}=Av_{\left[  j\right]  }=\operatorname*{col}\nolimits_{j}\left(
+I_{n}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.triangular.inverse.inv.3rd.2.vj.2})}\right)  .
+\]
+In other words, each column of the $n\times n$-matrix $AB$ equals the
+corresponding column of $I_{n}$. Thus, $AB=I_{n}$.
+
+Hence, we have found an invertibly lower-triangular $n\times n$-matrix $B$
+such that $AB=I_{n}$. This proves Lemma \ref{lem.triangular.inverse.inv.3rd.2}.
+\end{proof}
+
+We are now ready to prove Theorem \ref{thm.triangular.inverse.inv} by a rather
+cunning trick:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.triangular.inverse.inv}.]Lemma
+\ref{lem.triangular.inverse.inv.3rd.2} shows that there exists an invertibly
+lower-triangular $n\times n$-matrix $B$ such that $AB=I_{n}$. Fix such a $B$,
+and denote it by $C$. Thus, $C$ is an invertibly lower-triangular $n\times
+n$-matrix such that $AC=I_{n}$.
+
+But we can also apply Lemma \ref{lem.triangular.inverse.inv.3rd.2} to $C$
+instead of $B$. As the result, we conclude that there exists an invertibly
+lower-triangular $n\times n$-matrix $B$ such that $CB=I_{n}$. Fix such a $B$,
+and denote it by $D$. Thus, $D$ is an invertibly lower-triangular $n\times
+n$-matrix such that $CD=I_{n}$.
+
+Now, the matrix $A$ is a left inverse of $C$ (since $AC=I_{n}$), whereas the
+matrix $D$ is a right inverse of $C$ (since $CD=I_{n}$). Hence, Proposition
+\ref{prop.inverses.L=R} \textbf{(a)} (applied to $n$, $C$, $A$ and $D$ instead
+of $m$, $A$, $L$ and $R$) reveals that $A=D$. Hence, $C\underbrace{A}%
+_{=D}=CD=I_{n}$. Combining $CA=I_{n}$ with $AC=I_{n}$, we conclude that $C$ is
+an inverse of $A$. Thus, the matrix $A$ is invertible, and its inverse is
+$A^{-1}=C$. Thus, $A^{-1}$ is invertibly lower-triangular (since $C$ is
+invertibly lower-triangular, but $A^{-1}=C$). This proves Theorem
+\ref{thm.triangular.inverse.inv}.
+\end{proof}
+
+We have thus proven Theorem \ref{thm.triangular.inverse.inv} again.
+
+We could similarly prove Theorem \ref{thm.triangular.inverse-up.inv}, though
+this would require an analogue of Lemma \ref{lem.triangular.inverse.inv.3rd.1}
+in which (for example) the condition $b_{1}=b_{2}=\cdots=b_{r-1}=0$ would be
+replaced by $b_{r+1}=b_{r+2}=\cdots=b_{n}=0$ (and in the proof, we would have
+to define the $v_{1},v_{2},\ldots,v_{n}$ by \textquotedblleft reverse
+recursion\textquotedblright, beginning with $v_{n}$ and then proceeding with
+$v_{n-1}$ and so on). It is probably quicker to derive Theorem
+\ref{thm.triangular.inverse-up.inv} from Theorem
+\ref{thm.triangular.inverse.inv} in the same way as we derived Theorem
+\ref{thm.triangular.inverse-up} from Theorem \ref{thm.triangular.inverse}.
+Either way, the proof is straightforward (given what has already been shown),
+and is left to the reader.
+
+Theorem \ref{thm.triangular.inverse} and Theorem
+\ref{thm.triangular.inverse-up} can also be proven in the same way; the
+changes usually boil down to replacing \textquotedblleft$\neq0$%
+\textquotedblright\ by \textquotedblleft$=1$\textquotedblright. Again, this
+proof can safely be left to the reader (who would thus obtain the third proof
+of Theorem \ref{thm.triangular.inverse}!).
 
 \subsection{The switching matrices $T_{u,v}$}
 
@@ -9224,10 +9453,6 @@ matrix and $C$ is any matrix, then $PC$ has the same rows as $C$ but
 but (possibly) in a different order.
 
 \item Permutation matrices are invertible, and their inverses are permutation matrices.
-
-\item (*) Sketch yet another proof of the invertibility of unitriangular
-matrices: construct right inverse by back-substitution; argue that it is a
-left inverse by change of roles.
 
 \item (*) SageMath examples.
 
