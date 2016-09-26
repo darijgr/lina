@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 25, 2016 20:51:25}
+%TCIDATA{LastRevised=Sunday, September 25, 2016 21:02:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6912,7 +6912,7 @@ out the $\left(  3,2\right)  $-th entry first, then the $\left(  3,1\right)
 $-th entry, then the $\left(  2,1\right)  $-th entry. This would have resulted
 in the formula $C=A_{3,2}^{c}A_{3,1}^{b-ac}A_{2,1}^{a}$. (Be aware of the
 $b-ac$ in the $A_{3,1}^{b-ac}$; this is because our first clearing operation
-has changed the $\left(  3,1\right)  $-th entry.)
+has changed the $\left(  3,1\right)  $-th entry to $b-ac$.)
 
 There is a total of $6$ different orders in which we can try clearing out the
 three sub-diagonal entries of our $3\times3$-matrix $C$. The two of them just
@@ -8162,7 +8162,7 @@ Thus,%
 m}\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots,n\right\}
 \text{ satisfying }i\neq u \label{pf.prop.Slamu.laction.2}%
 \end{equation}
-(since all other rows of $EuC$ are filled with zeroes).
+(since all other rows of $E_{u,u}C$ are filled with zeroes).
 
 But recall that matrices are added entry by entry. Thus, matrices are also
 added by row by row -- i.e., if $U$ and $V$ are two $n\times m$-matrices, then
@@ -8270,8 +8270,8 @@ Proposition \ref{prop.Slamu.lambda+mu} \textbf{(a)}.
 
 \textbf{(b)} \textit{First proof:} Let $\lambda$ and $\mu$ be two numbers.
 Proposition \ref{prop.Slamu.entries} (applied to $\mu$ instead of $\lambda$)
-tells us how the matrix $S^{\mu}$ looks like: Its $\left(  u,u\right)  $-th
-entry is $\mu$; all its other diagonal entries are $1$; all its remaining
+tells us how the matrix $S_{u}^{\mu}$ looks like: Its $\left(  u,u\right)
+$-th entry is $\mu$; all its other diagonal entries are $1$; all its remaining
 entries are $0$. In particular, its $u$-th row is%
 \begin{equation}
 \operatorname*{row}\nolimits_{u}\left(  S_{u}^{\mu}\right)  =\left(
@@ -8288,9 +8288,9 @@ row is%
 =\lambda\underbrace{\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\mu
 }\right)  }_{\substack{=\left(  0,0,\ldots,0,\mu,0,0,\ldots,0\right)
 \\\text{(by (\ref{pf.prop.Slamu.lambda+mu.b.1}))}}}=\lambda\left(
-0,0,\ldots,0,\mu,0,0,\ldots,0\right) \\
+0,0,\ldots,0,\mu,0,0,\ldots,0\right)  \\
 &  =\left(  \lambda0,\lambda0,\ldots,\lambda0,\lambda\mu,\lambda
-0,\lambda0,\ldots,\lambda0\right) \\
+0,\lambda0,\ldots,\lambda0\right)  \\
 &  =\left(  0,0,\ldots,0,\lambda\mu,0,0,\ldots,0\right)
 \end{align*}
 (where the lonely $\mu$ or $\lambda\mu$ stands in the $u$-th position, as
@@ -8302,15 +8302,15 @@ are equal to the corresponding rows of $S_{u}^{\mu}$ (since $S_{u}^{\lambda
 $\lambda$). Summarizing, we thus conclude that the matrix $S_{u}^{\lambda
 }S_{u}^{\mu}$ differs from the matrix $S_{u}^{\mu}$ in only one entry, namely
 the $\left(  u,u\right)  $-th entry\footnote{If it differs from it at all! If
-$\lambda=\mu$, then the matrices $S_{u}^{\lambda}S_{u}^{\mu}$ and $S_{u}^{\mu
-}$ are completely equal (including in their $\left(  u,u\right)  $-th
-entries).}; and this $\left(  u,u\right)  $-th entry is $\lambda\mu$ (for the
-matrix $S_{u}^{\lambda}S_{u}^{\mu}$). Since we already know how the matrix
+$\lambda=1$ or $\mu=0$, then the matrices $S_{u}^{\lambda}S_{u}^{\mu}$ and
+$S_{u}^{\mu}$ are completely equal (including in their $\left(  u,u\right)
+$-th entries).}; and this $\left(  u,u\right)  $-th entry is $\lambda\mu$ (for
+the matrix $S_{u}^{\lambda}S_{u}^{\mu}$). Since we already know how the matrix
 $S_{u}^{\mu}$ looks like (namely, its $\left(  u,u\right)  $-th entry is $\mu
 $; all its other diagonal entries are $1$; all its remaining entries are $0$),
 we thus can conclude how the matrix $S_{u}^{\lambda}S_{u}^{\mu}$ looks like:
 Its $\left(  u,u\right)  $-th entry is $\lambda\mu$; all its other diagonal
-entries are $1$; all its remaining entries are $0$). But this is precisely how
+entries are $1$; all its remaining entries are $0$. But this is precisely how
 the matrix $S_{u}^{\lambda\mu}$ looks like (because of Proposition
 \ref{prop.Slamu.entries}, applied to $\lambda\mu$ instead of $\lambda$).
 Hence, $S_{u}^{\lambda}S_{u}^{\mu}=S_{u}^{\lambda\mu}$. This proves
@@ -9678,11 +9678,11 @@ The matrix $C^{\prime\prime\prime\prime\prime}$ is in row echelon form; its
 pivot entries are in cells $\left(  1,1\right)  $, $\left(  2,2\right)  $ and
 $\left(  3,4\right)  $. Altogether,%
 \begin{align*}
-C  & =A_{2,1}^{1}\underbrace{C^{\prime}}_{=A_{4,1}^{-1/3}C^{\prime\prime}%
+C  &  =A_{2,1}^{1}\underbrace{C^{\prime}}_{=A_{4,1}^{-1/3}C^{\prime\prime}%
 }=A_{2,1}^{1}A_{4,1}^{-1/3}\underbrace{C^{\prime\prime}}_{=T_{2,3}%
 C^{\prime\prime\prime}}=A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}\underbrace{C^{\prime
 \prime\prime}}_{=A_{4,2}^{8/3}C^{\prime\prime\prime\prime}}\\
-& =A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}A_{4,2}^{8/3}\underbrace{C^{\prime
+&  =A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}A_{4,2}^{8/3}\underbrace{C^{\prime
 \prime\prime\prime}}_{=A_{4,3}^{2}C^{\prime\prime\prime\prime\prime}}%
 =A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}A_{4,2}^{8/3}A_{4,3}^{2}C^{\prime\prime
 \prime\prime\prime}.
