@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 25, 2016 02:33:42}
+%TCIDATA{LastRevised=Sunday, September 25, 2016 20:51:25}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9580,7 +9580,7 @@ How this generalizes things shown before.
 \end{todo}
 
 \begin{todo}
-Example of Gaussian elimination: $C=\left(
+\textbf{Example of Gaussian elimination:} Start with the matrix $C=\left(
 \begin{array}
 [c]{cccc}%
 3 & 2 & 1 & 6\\
@@ -9588,7 +9588,120 @@ Example of Gaussian elimination: $C=\left(
 0 & 1 & -1 & 0\\
 -1 & 2 & -3 & 0
 \end{array}
-\right)  $.
+\right)  $. Want to bring it into row echelon form by using downward row
+additions (i.e., row operations $A_{u,v}^{\lambda}$ with $u>v$), row scalings
+(i.e., row operations $S_{u}^{\lambda}$ with $\lambda\neq0$) and row swappings
+(i.e., row operations $T_{u,v}$) only.
+
+Subtracting row $1$ from row $2$ gives new matrix $C^{\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0\\
+-1 & 2 & -3 & 0
+\end{array}
+\right)  $. Thus $C=A_{2,1}^{1}C^{\prime}$.
+
+Subtracting $\dfrac{-1}{3}$ times row $1$ from row $4$ gives new matrix
+$C^{\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 0 & 0 & 1\\
+0 & 1 & -1 & 0\\
+0 & \dfrac{8}{3} & -\dfrac{8}{3} & 2
+\end{array}
+\right)  $. Thus $C^{\prime}=A_{4,1}^{-1/3}C^{\prime\prime}$.
+
+Now, the first column looks like row echelon form.
+
+The entry $0$ in cell $\left(  2,2\right)  $ prevents the first two columns
+from being row-echelon. Thus, swap it with a nonzero entry further down.
+
+Swapping rows $2$ and $3$ gives new matrix $C^{\prime\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 1 & -1 & 0\\
+0 & 0 & 0 & 1\\
+0 & \dfrac{8}{3} & -\dfrac{8}{3} & 2
+\end{array}
+\right)  $. Thus $C^{\prime\prime}=T_{2,3}C^{\prime\prime\prime}$.
+
+Subtracting $\dfrac{8}{3}$ times row $2$ from row $4$ gives new matrix
+$C^{\prime\prime\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 1 & -1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 2
+\end{array}
+\right)  $. Thus $C^{\prime\prime\prime}=A_{4,2}^{8/3}C^{\prime\prime
+\prime\prime}$.
+
+Subtracting $\dfrac{8}{3}$ times row $2$ from row $4$ gives new matrix
+$C^{\prime\prime\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 1 & -1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 2
+\end{array}
+\right)  $. Thus $C^{\prime\prime\prime}=A_{4,2}^{8/3}C^{\prime\prime
+\prime\prime}$.
+
+Now, the first two columns look like row echelon form.
+
+Usually we would have to do some operations for the third column, but this
+time we are in luck: The first three columns already look like row echelon
+form, so no operations are needed here.
+
+However, the fourth column still needs an operation: It has a nonzero entry
+below its pivot $1$.
+
+Subtracting $2$ times row $3$ from row $4$ gives new matrix $C^{\prime
+\prime\prime\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+3 & 2 & 1 & 6\\
+0 & 1 & -1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  $. Thus $C^{\prime\prime\prime\prime}=A_{4,3}^{2}C^{\prime
+\prime\prime\prime\prime}$.
+
+The matrix $C^{\prime\prime\prime\prime\prime}$ is in row echelon form; its
+pivot entries are in cells $\left(  1,1\right)  $, $\left(  2,2\right)  $ and
+$\left(  3,4\right)  $. Altogether,%
+\begin{align*}
+C  & =A_{2,1}^{1}\underbrace{C^{\prime}}_{=A_{4,1}^{-1/3}C^{\prime\prime}%
+}=A_{2,1}^{1}A_{4,1}^{-1/3}\underbrace{C^{\prime\prime}}_{=T_{2,3}%
+C^{\prime\prime\prime}}=A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}\underbrace{C^{\prime
+\prime\prime}}_{=A_{4,2}^{8/3}C^{\prime\prime\prime\prime}}\\
+& =A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}A_{4,2}^{8/3}\underbrace{C^{\prime
+\prime\prime\prime}}_{=A_{4,3}^{2}C^{\prime\prime\prime\prime\prime}}%
+=A_{2,1}^{1}A_{4,1}^{-1/3}T_{2,3}A_{4,2}^{8/3}A_{4,3}^{2}C^{\prime\prime
+\prime\prime\prime}.
+\end{align*}
+
+
+We could tweak $C^{\prime\prime\prime\prime\prime}$ furthermore (by row
+operations) to obtain a \textit{row-reduced echelon matrix}, which is
+characterized by the properties that \textbf{(a)} each pivot entry equals $1$,
+and \textbf{(b)} in each column containing a pivot entry, all other entries
+are $0$. To achieve \textbf{(a)}, we merely have to apply some row scaling
+operations. To achieve \textbf{(b)}, we need to apply \textit{upward row
+additions}, i.e., row operations $A_{u,v}^{\lambda}$ with $u<v$; this way we
+can clear out the entries above each pivot.
+
+But if we allow ourselves column operations as well, then we can even end up
+with a matrix which has entries $1$ in cells $\left(  1,1\right)  ,\left(
+2,2\right)  ,\ldots,\left(  k,k\right)  $ for some $k$, and entries $0$ in all
+other cells. (Think of it as a truncated identity matrix, except that it is rectangular.)
 \end{todo}
 
 \begin{todo}
