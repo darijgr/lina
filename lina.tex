@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 26, 2016 20:58:13}
+%TCIDATA{LastRevised=Monday, September 26, 2016 21:00:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9769,21 +9769,21 @@ equals the $i$-th row of $C$.
 \textit{Proof of Claim 1:} The $u$-th row of the $n\times m$-matrix $T_{u,v}C$
 is%
 \begin{align*}
-\operatorname*{row}\nolimits_{u}\left(  T_{u,v}C\right)   &
-=\operatorname*{row}\nolimits_{u}C-\underbrace{\operatorname*{row}%
+&  \operatorname*{row}\nolimits_{u}\left(  T_{u,v}C\right)  \\
+&  =\operatorname*{row}\nolimits_{u}C-\underbrace{\operatorname*{row}%
 \nolimits_{u}\left(  E_{u,u}C\right)  }_{\substack{=\operatorname*{row}%
 \nolimits_{u}C\\\text{(by (\ref{pf.prop.Tuv.laction.1}), applied
 to}\\x=u\text{ and }y=u\text{)}}}-\underbrace{\operatorname*{row}%
 \nolimits_{u}\left(  E_{v,v}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
-(\ref{pf.prop.Tuv.laction.2a}), applied to }y=v\text{)}}%
+(\ref{pf.prop.Tuv.laction.2a}),}\\\text{applied to }y=v\text{)}}%
 }+\underbrace{\operatorname*{row}\nolimits_{u}\left(  E_{u,v}C\right)
 }_{\substack{=\operatorname*{row}\nolimits_{v}C\\\text{(by
 (\ref{pf.prop.Tuv.laction.1}), applied to}\\x=u\text{ and }y=v\text{)}%
 }}+\underbrace{\operatorname*{row}\nolimits_{u}\left(  E_{v,u}C\right)
-}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2a}), applied
-to }y=u\text{)}}}\\
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2a}%
+),}\\\text{applied to }y=u\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.laction.9}), applied
-to }i=u\right) \\
+to }i=u\right)  \\
 &  =\operatorname*{row}\nolimits_{u}C-\operatorname*{row}\nolimits_{u}%
 C-0_{1\times m}+\operatorname*{row}\nolimits_{v}C+0_{1\times m}%
 =\operatorname*{row}\nolimits_{v}C.
@@ -9794,8 +9794,8 @@ $v$-th row of $C$. This proves Claim 1.
 \textit{Proof of Claim 2:} The $v$-th row of the $n\times m$-matrix $T_{u,v}C$
 is%
 \begin{align*}
-\operatorname*{row}\nolimits_{i}\left(  T_{u,v}C\right)   &
-=\operatorname*{row}\nolimits_{i}C-\underbrace{\operatorname*{row}%
+&  \operatorname*{row}\nolimits_{i}\left(  T_{u,v}C\right)  \\
+&  =\operatorname*{row}\nolimits_{i}C-\underbrace{\operatorname*{row}%
 \nolimits_{i}\left(  E_{u,u}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
 (\ref{pf.prop.Tuv.laction.2}), applied to}\\x=u\text{ and }y=u\text{)}%
 }}-\underbrace{\operatorname*{row}\nolimits_{i}\left(  E_{v,v}C\right)
@@ -9858,25 +9858,25 @@ then%
 The definition of $T_{u,v}$ yields $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}%
 +E_{u,v}+E_{v,u}$. Hence,%
 \begin{align*}
-\left(  T_{u,v}\right)  ^{T}  &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}%
+\left(  T_{u,v}\right)  ^{T} &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}%
 +E_{v,u}\right)  ^{T}\\
 &  =\underbrace{\left(  I_{n}\right)  ^{T}}_{\substack{=I_{n}\\\text{(by
 Proposition \ref{prop.transpose.opers} \textbf{(a)})}}}-\underbrace{\left(
 E_{u,u}\right)  ^{T}}_{\substack{=E_{u,u}\\\text{(by Proposition
-\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }u\text{ and }u\text{
-instead of }m\text{, }u\text{ and }v\text{)}}}-\underbrace{\left(
+\ref{prop.Euv.transpose},}\\\text{applied to }n\text{, }u\text{ and
+}u\\\text{instead of }m\text{, }u\text{ and }v\text{)}}}-\underbrace{\left(
 E_{v,v}\right)  ^{T}}_{\substack{=E_{v,v}\\\text{(by Proposition
-\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }v\text{ and }v\text{
-instead of }m\text{, }u\text{ and }v\text{)}}}+\underbrace{\left(
-E_{u,v}\right)  ^{T}}_{\substack{=E_{v,u}\\\text{(by Proposition
-\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }u\text{ and }v\text{
-instead of }m\text{, }u\text{ and }v\text{)}}}+\underbrace{\left(
-E_{v,u}\right)  ^{T}}_{\substack{=E_{u,v}\\\text{(by Proposition
-\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }v\text{ and }u\text{
-instead of }m\text{, }u\text{ and }v\text{)}}}\\
+\ref{prop.Euv.transpose},}\\\text{applied to }n\text{, }v\text{ and
+}v\\\text{instead of }m\text{, }u\text{ and }v\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{\left(  E_{u,v}\right)  ^{T}%
+}_{\substack{=E_{v,u}\\\text{(by Proposition \ref{prop.Euv.transpose}%
+,}\\\text{applied to }m=n\text{)}}}+\underbrace{\left(  E_{v,u}\right)  ^{T}%
+}_{\substack{=E_{u,v}\\\text{(by Proposition \ref{prop.Euv.transpose}%
+,}\\\text{applied to }n\text{, }v\text{ and }u\\\text{instead of }m\text{,
+}u\text{ and }v\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.transpose.3}),
 applied to }A=I_{n}\text{, }B=E_{u,u}\text{, }C=E_{v,v}\text{, }%
-D=E_{u,v}\text{ and }E=E_{v,u}\right) \\
+D=E_{u,v}\text{ and }E=E_{v,u}\right)  \\
 &  =I_{n}-E_{u,u}-E_{v,v}+E_{v,u}+E_{u,v}\\
 &  =I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}=T_{u,v}.
 \end{align*}
