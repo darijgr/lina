@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 26, 2016 21:23:58}
+%TCIDATA{LastRevised=Monday, September 26, 2016 22:31:19}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -9073,7 +9073,7 @@ v_{n}%
 \begin{array}
 [c]{c}%
 A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}\\
-A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}\\
+A_{2,1}v_{1}+A_{2,2}v_{2}+\cdots+A_{2,n}v_{n}\\
 \vdots\\
 A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}%
 \end{array}
@@ -9098,15 +9098,15 @@ _{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.tria}%
 v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)  \\\text{(by
 (\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}))}}}\\
 &  =\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
-+b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right)
-=b_{i}.
++b_{i}-\left(  A_{i,1}v_{1}+A_{i,2}v_{2}+\cdots+A_{i,i-1}v_{i-1}\right) \\
+&  =b_{i}.
 \end{align*}
 In other words, the $n$ equalities%
 \[%
 \begin{array}
 [c]{c}%
 A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}=b_{1};\\
-A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}=b_{2};\\
+A_{2,1}v_{1}+A_{2,2}v_{2}+\cdots+A_{2,n}v_{n}=b_{2};\\
 \vdots\\
 A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}=b_{n}%
 \end{array}
@@ -9117,7 +9117,7 @@ hold. In other words,%
 \begin{array}
 [c]{c}%
 A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}\\
-A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}\\
+A_{2,1}v_{1}+A_{2,2}v_{2}+\cdots+A_{2,n}v_{n}\\
 \vdots\\
 A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}%
 \end{array}
@@ -9137,7 +9137,7 @@ Av=\left(
 \begin{array}
 [c]{c}%
 A_{1,1}v_{1}+A_{1,2}v_{2}+\cdots+A_{1,n}v_{n}\\
-A_{2,1}v_{1}+A_{2,1}v_{2}+\cdots+A_{2,n}v_{n}\\
+A_{2,1}v_{1}+A_{2,2}v_{2}+\cdots+A_{2,n}v_{n}\\
 \vdots\\
 A_{n,1}v_{1}+A_{n,2}v_{2}+\cdots+A_{n,n}v_{n}%
 \end{array}
@@ -9414,8 +9414,8 @@ Theorem \ref{thm.triangular.inverse} and Theorem
 \ref{thm.triangular.inverse-up} can also be proven in the same way; the
 changes usually boil down to replacing \textquotedblleft$\neq0$%
 \textquotedblright\ by \textquotedblleft$=1$\textquotedblright. Again, this
-proof can safely be left to the reader (who would thus obtain the third proof
-of Theorem \ref{thm.triangular.inverse}!).
+proof can safely be left to the reader (who would thus obtain a third proof of
+Theorem \ref{thm.triangular.inverse}!).
 
 \subsection{The swapping matrices $T_{u,v}$}
 
@@ -9428,9 +9428,10 @@ are the \textit{swapping matrices}:
 \begin{definition}
 \label{def.Tuv}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct elements
 of $\left\{  1,2,\ldots,n\right\}  $. Then, $T_{u,v}$ shall denote the
-$n\times n$-matrix $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$ (where
-$E_{u,u}=E_{u,u,n,n}$, $E_{v,v}=E_{v,v,n,n}$, $E_{u,v}=E_{u,v,n,n}$ and
-$E_{v,u}=E_{v,u,n,n}$).
+$n\times n$-matrix $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$. (Here, all the
+matrices of the form $E_{p,q}$ are meant to be $n\times n$-matrices: that is,
+$E_{p,q}=E_{p,q,n,n}$ for all $p\in\left\{  1,2,\ldots,n\right\}  $ and
+$q\in\left\{  1,2,\ldots,n\right\}  $.)
 
 Again, the notation $T_{u,v}$ is hiding the dependency on $n$, and we ought to
 write $T_{u,v,n}$ instead; but we will not, because there will not be any real
@@ -9535,9 +9536,9 @@ $1$, its $\left(  u,v\right)  $-th entry is $1$, and all its remaining entries
 are $0$.
 
 \item Adding $E_{v,u}$ to $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}$ has the effect that
-the $\left(  u,v\right)  $-th entry is increased by $1$; thus, it becomes
-$0+1=1$ (because it was $0$ in $I_{n}-E_{u,u}-E_{v,v}$). Hence, the $\left(
-u,u\right)  $-th and $\left(  v,v\right)  $-th entries of the matrix
+the $\left(  v,u\right)  $-th entry is increased by $1$; thus, it becomes
+$0+1=1$ (because it was $0$ in $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}$). Hence, the
+$\left(  u,u\right)  $-th and $\left(  v,v\right)  $-th entries of the matrix
 $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$ are $0$, all its other diagonal
 entries are $1$, its $\left(  u,v\right)  $-th and $\left(  v,u\right)  $-th
 entries are $1$, and all its remaining entries are $0$. Since $I_{n}%
