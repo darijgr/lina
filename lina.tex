@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, September 25, 2016 21:02:29}
+%TCIDATA{LastRevised=Monday, September 26, 2016 20:58:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2496,7 +2496,21 @@ other entries equal $0$. It is denoted by $I_{n}$. (Other people call it $I$
 or $E$ or $E_{n}$.)
 \end{definition}
 
-For example, the $3\times3$ identity matrix is $I_{3}=\left(
+The $n\times n$ identity matrix $I_{n}$ looks as follows:%
+\[
+I_{n}=\left(
+\begin{array}
+[c]{ccccc}%
+1 & 0 & 0 & \cdots & 0\\
+0 & 1 & 0 & \cdots & 0\\
+0 & 0 & 1 & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & \cdots & 1
+\end{array}
+\right)
+\]
+(with $n$ rows and $n$ columns). For example, the $3\times3$ identity matrix
+is $I_{3}=\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -8288,9 +8302,9 @@ row is%
 =\lambda\underbrace{\operatorname*{row}\nolimits_{u}\left(  S_{u}^{\mu
 }\right)  }_{\substack{=\left(  0,0,\ldots,0,\mu,0,0,\ldots,0\right)
 \\\text{(by (\ref{pf.prop.Slamu.lambda+mu.b.1}))}}}=\lambda\left(
-0,0,\ldots,0,\mu,0,0,\ldots,0\right)  \\
+0,0,\ldots,0,\mu,0,0,\ldots,0\right) \\
 &  =\left(  \lambda0,\lambda0,\ldots,\lambda0,\lambda\mu,\lambda
-0,\lambda0,\ldots,\lambda0\right)  \\
+0,\lambda0,\ldots,\lambda0\right) \\
 &  =\left(  0,0,\ldots,0,\lambda\mu,0,0,\ldots,0\right)
 \end{align*}
 (where the lonely $\mu$ or $\lambda\mu$ stands in the $u$-th position, as
@@ -9478,30 +9492,560 @@ $1$.
 \end{itemize}
 \end{proposition}
 
-[...]
+\begin{proof}
+[Proof of Proposition \ref{prop.Tuv.entries}.]For each $p\in\left\{
+1,2,\ldots,n\right\}  $ and $q\in\left\{  1,2,\ldots,n\right\}  $, the matrix
+$E_{p,q}$ is the $n\times n$-matrix whose $\left(  p,q\right)  $-th entry is
+$1$ and whose all other entries are $0$ (indeed, this is how $E_{p,q}$ was
+defined). Hence, we obtain the following two facts:
 
-(to be continued)
+\begin{statement}
+\textit{Fact 1:} Adding $E_{p,q}$ to an $n\times n$-matrix $C$ has the effect
+that the $\left(  p,q\right)  $-th entry of $C$ is increased by $1$ (while all
+other entries remain unchanged).
+\end{statement}
 
-\textbf{TO-DO LIST! (This will appear shortly:)}
+\begin{statement}
+\textit{Fact 2:} Subtracting $E_{p,q}$ from an $n\times n$-matrix $C$ has the
+effect that the $\left(  p,q\right)  $-th entry of $C$ is decreased by $1$
+(while all other entries remain unchanged).
+\end{statement}
 
-\begin{todo}
-Prove Proposition \ref{prop.Tuv.entries} and similar simple facts.
-\end{todo}
+But recall that $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$. Thus, the
+matrix $T_{u,v}$ is obtained from the matrix $I_{n}$ by first subtracting
+$E_{u,u}$, then subtracting $E_{v,v}$, then adding $E_{u,v}$, and then adding
+$E_{v,u}$. Using Fact 1 and Fact 2, we can see how these subtractions and
+additions affect the entries of a matrix; thus, we can find all entries of the
+matrix $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$:
 
-\begin{todo}
-Explain that $T_{u,v}$ is the identity matrix with rows (or columns) $u$ and
-$v$ switched.
-\end{todo}
+\begin{itemize}
+\item The matrix $I_{n}$ is the $n\times n$-matrix whose diagonal
+entries\footnote{This includes the $\left(  u,u\right)  $-th entry.} are $1$,
+and whose all other entries are $0$.
 
-\begin{todo}
-Explain how $T_{u,v}$ acts on matrices: $T_{u,v}C$ is obtained from $C$ by
-switching the $u$-th row with the $v$-th row. Similarly, $CT_{u,v}$ is
-obtained from $C$ by switching the $u$-th column with the $v$-th column.
-\end{todo}
+\item Subtracting $E_{u,u}$ from $I_{n}$ has the effect that the $\left(
+u,u\right)  $-th entry is decreased by $1$; thus, it becomes $1-1=0$ (because
+it was $1$ in $I_{n}$). Hence, the $\left(  u,u\right)  $-th entry of the
+matrix $I_{n}-E_{u,u}$ is $0$, all its other diagonal entries are $1$, and all
+its remaining entries are $0$.
 
-\begin{todo}
-$\left(  T_{u,v}\right)  ^{-1}=\left(  T_{u,v}\right)  ^{T}=T_{u,v}=T_{v,u}$.
-\end{todo}
+\item Subtracting $E_{v,v}$ from $I_{n}-E_{u,u}$ has the effect that the
+$\left(  v,v\right)  $-th entry is decreased by $1$; thus, it becomes $1-1=0$
+(because it was $1$ in $I_{n}-E_{u,u}$). Hence, the $\left(  u,u\right)  $-th
+and $\left(  v,v\right)  $-th entries of the matrix $I_{n}-E_{u,u}-E_{v,v}$
+are $0$, all its other diagonal entries are $1$, and all its remaining entries
+are $0$.
+
+\item Adding $E_{u,v}$ to $I_{n}-E_{u,u}-E_{v,v}$ has the effect that the
+$\left(  u,v\right)  $-th entry is increased by $1$; thus, it becomes $0+1=1$
+(because it was $0$ in $I_{n}-E_{u,u}-E_{v,v}$). Hence, the $\left(
+u,u\right)  $-th and $\left(  v,v\right)  $-th entries of the matrix
+$I_{n}-E_{u,u}-E_{v,v}+E_{u,v}$ are $0$, all its other diagonal entries are
+$1$, its $\left(  u,v\right)  $-th entry is $1$, and all its remaining entries
+are $0$.
+
+\item Adding $E_{v,u}$ to $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}$ has the effect that
+the $\left(  u,v\right)  $-th entry is increased by $1$; thus, it becomes
+$0+1=1$ (because it was $0$ in $I_{n}-E_{u,u}-E_{v,v}$). Hence, the $\left(
+u,u\right)  $-th and $\left(  v,v\right)  $-th entries of the matrix
+$I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$ are $0$, all its other diagonal
+entries are $1$, its $\left(  u,v\right)  $-th and $\left(  v,u\right)  $-th
+entries are $1$, and all its remaining entries are $0$. Since $I_{n}%
+-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}=T_{u,v}$, this rewrites as follows: The
+$\left(  u,u\right)  $-th and $\left(  v,v\right)  $-th entries of the matrix
+$T_{u,v}$ are $0$, all its other diagonal entries are $1$, its $\left(
+u,v\right)  $-th and $\left(  v,u\right)  $-th entries are $1$, and all its
+remaining entries are $0$. This proves Proposition \ref{prop.Tuv.entries}.
+\end{itemize}
+\end{proof}
+
+We can next see what happens to a matrix when it is multiplied by $T_{u,v}$:
+
+\begin{proposition}
+\label{prop.Tuv.laction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$ and
+$v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $C$ be
+an $n\times m$-matrix. Then, $T_{u,v}C$ is the $n\times m$-matrix obtained
+from $C$ by swapping the $u$-th row with the $v$-th row.
+\end{proposition}
+
+\begin{example}
+\label{exam.prop.Tuv.laction}Let $n=3$ and $m=2$. Let $C$ be the $3\times
+2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  $. Then, Proposition \ref{prop.Tuv.laction} (applied to $u=1$ and
+$v=3$) claims that $T_{1,3}C$ is the $3\times2$-matrix obtained from $C$ by
+swapping the $1$-st row with the $3$-rd row. A computation confirms this
+claim:%
+\[
+T_{1,3}C=\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a^{\prime\prime} & b^{\prime\prime}\\
+a^{\prime} & b^{\prime}\\
+a & b
+\end{array}
+\right)  .
+\]
+
+\end{example}
+
+\begin{proposition}
+\label{prop.Tuv.raction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $u$ and
+$v$ be two distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $C$ be
+an $m\times n$-matrix. Then, $CT_{u,v}$ is the $m\times n$-matrix obtained
+from $C$ by swapping the $u$-th column with the $v$-th column.
+\end{proposition}
+
+\begin{corollary}
+\label{cor.Tuv.as-switch}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct
+elements of $\left\{  1,2,\ldots,n\right\}  $. Then:
+
+\textbf{(a)} The matrix $T_{u,v}$ can be obtained from $I_{n}$ by swapping the
+$u$-th row with the $v$-th row.
+
+\textbf{(b)} The matrix $T_{u,v}$ can be obtained from $I_{n}$ by swapping the
+$u$-th column with the $v$-th column.
+\end{corollary}
+
+I will prove Proposition \ref{prop.Tuv.laction} in Section
+\ref{sect.gauss.Tuv.proofs} below.
+
+We shall refer to the matrix $T_{u,v}$ defined in Definition \ref{def.Tuv} as
+a \textquotedblleft swapping matrix\textquotedblright.\footnote{The letter $T$
+in \textquotedblleft$T_{u,v}$\textquotedblright\ stands for \textquotedblleft
+transposition\textquotedblright, but this is not really related to the
+transpose of a matrix. It is instead due to the fact that the word
+\textquotedblleft transposition\textquotedblright\ means \textquotedblleft
+changing the positions (of something)\textquotedblright, and in mathematics is
+often used for swapping two things.} It is the third type of elementary matrices.
+
+Here are a few more properties of swapping matrices:
+
+\begin{proposition}
+\label{prop.Tuv.transpose}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Then, $\left(
+T_{u,v}\right)  ^{T}=T_{u,v}$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop.Tuv.lambda+mu}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $.
+
+\textbf{(a)} We have $T_{u,v}=I_{n}$.
+
+\textbf{(b)} The matrix $T_{u,v}$ is invertible, and its inverse is $\left(
+T_{u,v}\right)  ^{-1}=T_{u,v}$.
+
+\textbf{(c)} We have $T_{v,u}=T_{u,v}$.
+\end{proposition}
+
+These facts will be proven in Section \ref{sect.gauss.Tuv.proofs}.
+
+\subsection{\label{sect.gauss.Tuv.proofs}(*) Some proofs about the swapping
+matrices}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Tuv.laction}.]Clearly, $T_{u,v}C$ is an
+$n\times m$-matrix.
+
+Let $x$ and $y$ be two elements of $\left\{  1,2,\ldots,n\right\}  $.
+Proposition \ref{prop.Euv.laction} (applied to $n$, $m$, $x$ and $y$ instead
+of $m$, $p$, $u$ and $v$) shows that $E_{x,y}C$ is the $n\times m$-matrix
+whose $x$-th row is the $y$-th row of $C$, and whose all other rows are filled
+with zeroes. Thus,%
+\begin{equation}
+\operatorname*{row}\nolimits_{x}\left(  E_{x,y}C\right)  =\operatorname*{row}%
+\nolimits_{y}C \label{pf.prop.Tuv.laction.1}%
+\end{equation}
+(since the $x$-the row of $E_{x,y}C$ is the $y$-th row of $C$) and%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  E_{x,y}C\right)  =0_{1\times
+m}\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{  1,2,\ldots,n\right\}
+\text{ satisfying }i\neq x \label{pf.prop.Tuv.laction.2}%
+\end{equation}
+(since all other rows of $E_{x,y}C$ are filled with zeroes).
+
+Now, forget that we fixed $x$ and $y$. We thus have proven
+(\ref{pf.prop.Tuv.laction.1}) and (\ref{pf.prop.Tuv.laction.2}) for every two
+elements $x$ and $y$ of $\left\{  1,2,\ldots,n\right\}  $. In particular,
+every $y\in\left\{  1,2,\ldots,n\right\}  $ satisfies%
+\begin{equation}
+\operatorname*{row}\nolimits_{u}\left(  E_{v,y}C\right)  =0_{1\times m}
+\label{pf.prop.Tuv.laction.2a}%
+\end{equation}
+(by (\ref{pf.prop.Tuv.laction.2}), applied to $i=u$ and $x=v$ (since $u\neq
+v$)) and%
+\begin{equation}
+\operatorname*{row}\nolimits_{v}\left(  E_{u,y}C\right)  =0_{1\times m}
+\label{pf.prop.Tuv.laction.2b}%
+\end{equation}
+(by (\ref{pf.prop.Tuv.laction.2}), applied to $i=v$ and $x=u$ (since $v\neq u$)).
+
+But recall that matrices are added entry by entry. Thus, matrices are also
+added by row by row -- i.e., if $U$ and $V$ are two $n\times m$-matrices, then
+any row of $U+V$ is the sum of the corresponding rows of $U$ and of $V$. In
+other words, if $U$ and $V$ are two $n\times m$-matrices, then%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  U+V\right)  =\operatorname*{row}%
+\nolimits_{i}U+\operatorname*{row}\nolimits_{i}V\ \ \ \ \ \ \ \ \ \ \text{for
+every }i\in\left\{  1,2,\ldots,n\right\}  . \label{pf.prop.Tuv.laction.5}%
+\end{equation}
+Similarly,%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  U-V\right)  =\operatorname*{row}%
+\nolimits_{i}U-\operatorname*{row}\nolimits_{i}V\ \ \ \ \ \ \ \ \ \ \text{for
+every }i\in\left\{  1,2,\ldots,n\right\}  . \label{pf.prop.Tuv.laction.6}%
+\end{equation}
+Using (\ref{pf.prop.Tuv.laction.5}) and (\ref{pf.prop.Tuv.laction.6})
+repeatedly, we can show that%
+\begin{equation}
+\operatorname*{row}\nolimits_{i}\left(  U-V-W+X+Y\right)  =\operatorname*{row}%
+\nolimits_{i}U-\operatorname*{row}\nolimits_{i}V-\operatorname*{row}%
+\nolimits_{i}W+\operatorname*{row}\nolimits_{i}X+\operatorname*{row}%
+\nolimits_{i}Y \label{pf.prop.Tuv.laction.7}%
+\end{equation}
+for every $i\in\left\{  1,2,\ldots,n\right\}  $.
+
+We have%
+\begin{align*}
+\underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}C  &  =\left(
+I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  C\\
+&  =\underbrace{I_{n}C}_{=C}-E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C\\
+&  =C-E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C.
+\end{align*}
+Hence, for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align}
+&  \operatorname*{row}\nolimits_{i}\left(  \underbrace{T_{u,v}C}%
+_{=C-E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C}\right) \nonumber\\
+&  =\operatorname*{row}\nolimits_{i}\left(  C-E_{u,u}C-E_{v,v}C+E_{u,v}%
+C+E_{v,u}C\right) \nonumber\\
+&  =\operatorname*{row}\nolimits_{i}C-\operatorname*{row}\nolimits_{i}\left(
+E_{u,u}C\right)  -\operatorname*{row}\nolimits_{i}\left(  E_{v,v}C\right)
++\operatorname*{row}\nolimits_{i}\left(  E_{u,v}C\right)  +\operatorname*{row}%
+\nolimits_{i}\left(  E_{v,u}C\right)  \label{pf.prop.Tuv.laction.9}%
+\end{align}
+(by (\ref{pf.prop.Tuv.laction.7}), applied to $U=C$, $V=E_{u,u}C$,
+$W=E_{v,v}C$, $X=E_{u,v}C$ and $Y=E_{v,u}C$).
+
+Now, we must prove that $T_{u,v}C$ is the $n\times m$-matrix obtained from $C$
+by swapping the $u$-th row with the $v$-th row. In other words, we must prove
+the following three claims:
+
+\begin{statement}
+\textit{Claim 1:} The $u$-th row of the $n\times m$-matrix $T_{u,v}C$ equals
+the $v$-th row of $C$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} The $v$-th row of the $n\times m$-matrix $T_{u,v}C$ equals
+the $u$-th row of $C$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 3:} For each $i\in\left\{  1,2,\ldots,n\right\}  $ satisfying
+$i\neq u$ and $i\neq v$, the $i$-th row of the $n\times m$-matrix $T_{u,v}C$
+equals the $i$-th row of $C$.
+\end{statement}
+
+\textit{Proof of Claim 1:} The $u$-th row of the $n\times m$-matrix $T_{u,v}C$
+is%
+\begin{align*}
+\operatorname*{row}\nolimits_{u}\left(  T_{u,v}C\right)   &
+=\operatorname*{row}\nolimits_{u}C-\underbrace{\operatorname*{row}%
+\nolimits_{u}\left(  E_{u,u}C\right)  }_{\substack{=\operatorname*{row}%
+\nolimits_{u}C\\\text{(by (\ref{pf.prop.Tuv.laction.1}), applied
+to}\\x=u\text{ and }y=u\text{)}}}-\underbrace{\operatorname*{row}%
+\nolimits_{u}\left(  E_{v,v}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
+(\ref{pf.prop.Tuv.laction.2a}), applied to }y=v\text{)}}%
+}+\underbrace{\operatorname*{row}\nolimits_{u}\left(  E_{u,v}C\right)
+}_{\substack{=\operatorname*{row}\nolimits_{v}C\\\text{(by
+(\ref{pf.prop.Tuv.laction.1}), applied to}\\x=u\text{ and }y=v\text{)}%
+}}+\underbrace{\operatorname*{row}\nolimits_{u}\left(  E_{v,u}C\right)
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2a}), applied
+to }y=u\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.laction.9}), applied
+to }i=u\right) \\
+&  =\operatorname*{row}\nolimits_{u}C-\operatorname*{row}\nolimits_{u}%
+C-0_{1\times m}+\operatorname*{row}\nolimits_{v}C+0_{1\times m}%
+=\operatorname*{row}\nolimits_{v}C.
+\end{align*}
+In other words, the $u$-th row of the $n\times m$-matrix $T_{u,v}C$ equals the
+$v$-th row of $C$. This proves Claim 1.
+
+\textit{Proof of Claim 2:} The $v$-th row of the $n\times m$-matrix $T_{u,v}C$
+is%
+\begin{align*}
+\operatorname*{row}\nolimits_{i}\left(  T_{u,v}C\right)   &
+=\operatorname*{row}\nolimits_{i}C-\underbrace{\operatorname*{row}%
+\nolimits_{i}\left(  E_{u,u}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
+(\ref{pf.prop.Tuv.laction.2}), applied to}\\x=u\text{ and }y=u\text{)}%
+}}-\underbrace{\operatorname*{row}\nolimits_{i}\left(  E_{v,v}C\right)
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2}), applied
+to}\\x=v\text{ and }y=v\text{)}}}+\underbrace{\operatorname*{row}%
+\nolimits_{i}\left(  E_{u,v}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
+(\ref{pf.prop.Tuv.laction.2}), applied to}\\x=u\text{ and }y=v\text{)}%
+}}+\underbrace{\operatorname*{row}\nolimits_{v}\left(  E_{v,u}C\right)
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2}), applied
+to}\\x=v\text{ and }y=u\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.laction.9})}\right)
+\\
+&  =\operatorname*{row}\nolimits_{i}C-0_{1\times m}-0_{1\times m}+0_{1\times
+m}+0_{1\times m}=\operatorname*{row}\nolimits_{i}C.
+\end{align*}
+In other words, the $i$-th row of the $n\times m$-matrix $T_{u,v}C$ equals the
+$i$-th row of $C$. This proves Claim 3.
+
+Now, we have proven Claim 1, Claim 2 and Claim 3; this completes the proof of
+Proposition \ref{prop.Tuv.laction}.
+\end{proof}
+
+The proof of Proposition \ref{prop.Tuv.raction} is analogous.
+
+\begin{proof}
+[Proof of Corollary \ref{cor.Tuv.as-switch}.]\textbf{(a)} Proposition
+\ref{prop.Tuv.laction} (applied to $m=n$ and $C=I_{n}$) shows that
+$T_{u,v}I_{n}$ is the $n\times n$-matrix obtained from $I_{n}$ by swapping the
+$u$-th row with the $v$-th row. In other words, $T_{u,v}$ is the $n\times
+n$-matrix obtained from $I_{n}$ by swapping the $u$-th row with the $v$-th row
+(since $T_{u,v}I_{n}=T_{u,v}$). This proves Corollary \ref{cor.Tuv.as-switch}
+\textbf{(a)}.
+
+\textbf{(b)} The proof of Corollary \ref{cor.Tuv.as-switch} \textbf{(b)} is
+similar, except that now we have to use Proposition \ref{prop.Tuv.raction}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Tuv.transpose}.]Proposition
+\ref{prop.transpose.opers} \textbf{(d)} shows that any two $n\times
+m$-matrices $A$ and $B$ (where $m\in\mathbb{N}$) satisfy%
+\begin{equation}
+\left(  A+B\right)  ^{T}=A^{T}+B^{T}. \label{pf.prop.Tuv.transpose.1}%
+\end{equation}
+Similarly, any two $n\times m$-matrices $A$ and $B$ (where $m\in\mathbb{N}$)
+satisfy%
+\begin{equation}
+\left(  A-B\right)  ^{T}=A^{T}-B^{T}. \label{pf.prop.Tuv.transpose.2}%
+\end{equation}
+By repeated application of (\ref{pf.prop.Tuv.transpose.1}) and
+(\ref{pf.prop.Tuv.transpose.2}), we can show the following fact: If $A$, $B$,
+$C$, $D$ and $E$ are five $n\times m$-matrices (for some $m\in\mathbb{N}$),
+then%
+\begin{equation}
+\left(  A-B-C+D+E\right)  ^{T}=A^{T}-B^{T}-C^{T}+D^{T}+E^{T}.
+\label{pf.prop.Tuv.transpose.3}%
+\end{equation}
+
+
+The definition of $T_{u,v}$ yields $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}%
++E_{u,v}+E_{v,u}$. Hence,%
+\begin{align*}
+\left(  T_{u,v}\right)  ^{T}  &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}%
++E_{v,u}\right)  ^{T}\\
+&  =\underbrace{\left(  I_{n}\right)  ^{T}}_{\substack{=I_{n}\\\text{(by
+Proposition \ref{prop.transpose.opers} \textbf{(a)})}}}-\underbrace{\left(
+E_{u,u}\right)  ^{T}}_{\substack{=E_{u,u}\\\text{(by Proposition
+\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }u\text{ and }u\text{
+instead of }m\text{, }u\text{ and }v\text{)}}}-\underbrace{\left(
+E_{v,v}\right)  ^{T}}_{\substack{=E_{v,v}\\\text{(by Proposition
+\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }v\text{ and }v\text{
+instead of }m\text{, }u\text{ and }v\text{)}}}+\underbrace{\left(
+E_{u,v}\right)  ^{T}}_{\substack{=E_{v,u}\\\text{(by Proposition
+\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }u\text{ and }v\text{
+instead of }m\text{, }u\text{ and }v\text{)}}}+\underbrace{\left(
+E_{v,u}\right)  ^{T}}_{\substack{=E_{u,v}\\\text{(by Proposition
+\ref{prop.Euv.transpose}, applied}\\\text{to }n\text{, }v\text{ and }u\text{
+instead of }m\text{, }u\text{ and }v\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.transpose.3}),
+applied to }A=I_{n}\text{, }B=E_{u,u}\text{, }C=E_{v,v}\text{, }%
+D=E_{u,v}\text{ and }E=E_{v,u}\right) \\
+&  =I_{n}-E_{u,u}-E_{v,v}+E_{v,u}+E_{u,v}\\
+&  =I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}=T_{u,v}.
+\end{align*}
+This proves Proposition \ref{prop.Tuv.transpose}.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Tuv.lambda+mu}.]\textbf{(a)} The definition of
+$T_{u,u}$ yields $T_{u,u}=I_{n}-E_{u,u}-E_{u,u}+E_{u,u}+E_{u,u}=I_{n}$. This
+proves Proposition \ref{prop.Tuv.lambda+mu} \textbf{(a)}.
+
+\textbf{(b)} \textit{First proof:} Corollary \ref{cor.Tuv.as-switch}
+\textbf{(a)} shows that $T_{u,v}$ is the $n\times n$-matrix obtained from
+$I_{n}$ by swapping the $u$-th row with the $v$-th row. Proposition
+\ref{prop.Tuv.laction} (applied to $m=n$ and $C=T_{u,v}$) shows that
+$T_{u,v}T_{u,v}$ is the $n\times n$-matrix obtained from $T_{u,v}$ by swapping
+the $u$-th row with the $v$-th row. Thus, in order to obtain the matrix
+$T_{u,v}T_{u,v}$ from $I_{n}$, we have to do the following procedure:
+
+\begin{itemize}
+\item swap the $u$-th row with the $v$-th row;
+
+\item then, \textbf{again} swap the $u$-th row with the $v$-th row.
+\end{itemize}
+
+But this procedure clearly returns the matrix $I_{n}$ with which we started
+(since the second swap undoes the first swap). Thus, $T_{u,v}T_{u,v}=I_{n}$.
+
+From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is the one
+equality repeated twice), it follows that the matrix $T_{u,v}$ is an inverse
+of $T_{u,v}$. Hence, the matrix $T_{u,v}$ is invertible, and its inverse is
+$\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$. This proves Proposition
+\ref{prop.Tuv.lambda+mu} \textbf{(b)}.
+
+\textit{Second proof:} We can also prove Proposition \ref{prop.Tuv.lambda+mu}
+\textbf{(b)} using Proposition \ref{prop.Euv.prod}, provided that we can
+tolerate some rather lengthy computations.
+
+If $i$, $j$, $x$ and $y$ are four elements of $\left\{  1,2,\ldots,n\right\}
+$, then
+\begin{equation}
+E_{i,j}E_{x,y}=\delta_{j,x}E_{i,y} \label{pf.prop.Tuv.lambda+mu.2nd.1}%
+\end{equation}
+(where all three matrices $E_{i,j}$, $E_{x,y}$ and $E_{i,y}$ have to be
+understood as $n\times n$-matrices)\footnote{\textit{Proof of
+(\ref{pf.prop.Tuv.lambda+mu.2nd.1}):} Let $i$, $j$, $x$ and $y$ be four
+elements of $\left\{  1,2,\ldots,n\right\}  $. Then, Proposition
+\ref{prop.Euv.prod} (applied to $n$, $n$, $i$ and $j$ instead of $m$, $p$, $u$
+and $v$) shows that $E_{i,j,n,n}E_{x,y,n,n}=\delta_{j,x}E_{i,y,n,n}$. Since we
+abbreviate the matrices $E_{i,j,n,n}$, $E_{x,y,n,n}$ and $E_{i,y,n,n}$ as
+$E_{i,j}$, $E_{x,y}$ and $E_{i,y}$ (respectively), this can be rewritten as
+$E_{i,j}E_{x,y}=\delta_{j,x}E_{i,y}$. Thus, (\ref{pf.prop.Tuv.lambda+mu.2nd.1}%
+) is proven.}. In particular, every $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$y\in\left\{  1,2,\ldots,n\right\}  $ satisfy%
+\begin{equation}
+E_{i,u}E_{v,y}=0_{n\times n} \label{pf.prop.Tuv.lambda+mu.2nd.2}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.Tuv.lambda+mu.2nd.2}):} Let
+$i\in\left\{  1,2,\ldots,n\right\}  $ and $y\in\left\{  1,2,\ldots,n\right\}
+$. Then, (\ref{pf.prop.Tuv.lambda+mu.2nd.1}) (applied to $j=u$ and $x=v$)
+yields $E_{i,u}E_{v,y}=\underbrace{\delta_{u,v}}_{\substack{=0\\\text{(since
+}u\neq v\text{)}}}E_{i,y}=0E_{i,y}=0_{n\times n}$, qed.} and%
+\begin{equation}
+E_{i,v}E_{u,y}=0_{n\times n} \label{pf.prop.Tuv.lambda+mu.2nd.3}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.Tuv.lambda+mu.2nd.3}):} Let
+$i\in\left\{  1,2,\ldots,n\right\}  $ and $y\in\left\{  1,2,\ldots,n\right\}
+$. Then, (\ref{pf.prop.Tuv.lambda+mu.2nd.1}) (applied to $j=v$ and $x=u$)
+yields $E_{i,v}E_{u,y}=\underbrace{\delta_{v,u}}_{\substack{=0\\\text{(since
+}v\neq u\text{)}}}E_{i,y}=0E_{i,y}=0_{n\times n}$, qed.}. Furthermore, if $i$,
+$x$ and $y$ are three elements of $\left\{  1,2,\ldots,n\right\}  $, then%
+\begin{equation}
+E_{i,x}E_{x,y}=E_{i,y} \label{pf.prop.Tuv.lambda+mu.2nd.4}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.Tuv.lambda+mu.2nd.4}):} Let $i$, $j$
+and $x$ be three elements of $\left\{  1,2,\ldots,n\right\}  $. Then,
+(\ref{pf.prop.Tuv.lambda+mu.2nd.1}) (applied to $j=x$) yields $E_{i,x}%
+E_{x,y}=\underbrace{\delta_{x,x}}_{\substack{=1\\\text{(since }x=x\text{)}%
+}}E_{i,y}=1E_{i,y}=E_{i,y}$, qed.}.
+
+Now, the definition of $T_{u,v}$ yields $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}%
++E_{u,v}+E_{v,u}$. Hence,%
+\begin{align*}
+&  \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}%
+\underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}\\
+&  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \left(
+I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right) \\
+&  =\underbrace{I_{n}\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)
+}_{=I_{n}I_{n}-I_{n}E_{u,u}-I_{n}E_{v,v}+I_{n}E_{u,v}+I_{n}E_{v,u}}\\
+&  \ \ \ \ \ \ \ \ \ \ -\underbrace{E_{u,u}\left(  I_{n}-E_{u,u}%
+-E_{v,v}+E_{u,v}+E_{v,u}\right)  }_{=E_{u,u}I_{n}-E_{u,u}E_{u,u}%
+-E_{u,u}E_{v,v}+E_{u,u}E_{u,v}+E_{u,u}E_{v,u}}\\
+&  \ \ \ \ \ \ \ \ \ \ -\underbrace{E_{v,v}\left(  I_{n}-E_{u,u}%
+-E_{v,v}+E_{u,v}+E_{v,u}\right)  }_{=E_{v,v}I_{n}-E_{v,v}E_{u,u}%
+-E_{v,v}E_{v,v}+E_{v,v}E_{u,v}+E_{v,v}E_{v,u}}\\
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{E_{u,v}\left(  I_{n}-E_{u,u}%
+-E_{v,v}+E_{u,v}+E_{v,u}\right)  }_{=E_{u,v}I_{n}-E_{u,v}E_{u,u}%
+-E_{u,v}E_{v,v}+E_{u,v}E_{u,v}+E_{u,v}E_{v,u}}\\
+&  \ \ \ \ \ \ \ \ \ \ +\underbrace{E_{v,u}\left(  I_{n}-E_{u,u}%
+-E_{v,v}+E_{u,v}+E_{v,u}\right)  }_{=E_{v,u}I_{n}-E_{v,u}E_{u,u}%
+-E_{v,u}E_{v,v}+E_{v,u}E_{u,v}+E_{v,u}E_{v,u}}%
+\end{align*}%
+\begin{align*}
+&  =\left(  \underbrace{I_{n}I_{n}}_{=I_{n}}-\underbrace{I_{n}E_{u,u}%
+}_{=E_{u,u}}-\underbrace{I_{n}E_{v,v}}_{=E_{v,v}}+\underbrace{I_{n}E_{u,v}%
+}_{=E_{u,v}}+\underbrace{I_{n}E_{v,u}}_{=E_{v,u}}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{u,u}I_{n}}_{=E_{u,u}%
+}-\underbrace{E_{u,u}E_{u,u}}_{\substack{=E_{u,u}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=u\text{, }x=u\text{
+and }y=u\text{)}}}-\underbrace{E_{u,u}E_{v,v}}_{\substack{=0_{n\times
+n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
+}i=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,u}E_{u,v}}_{\substack{=E_{u,v}%
+\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
+}i=u\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,u}E_{v,u}%
+}_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
+applied}\\\text{to }i=u\text{ and }y=u\text{)}}}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{v,v}I_{n}}_{=E_{v,v}%
+}-\underbrace{E_{v,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=v\text{ and
+}y=u\text{)}}}-\underbrace{E_{v,v}E_{v,v}}_{\substack{=E_{v,v}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=v\text{, }x=v\text{
+and }y=v\text{)}}}+\underbrace{E_{v,v}E_{u,v}}_{\substack{=0_{n\times
+n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
+}i=v\text{ and }y=v\text{)}}}+\underbrace{E_{v,v}E_{v,u}}_{\substack{=E_{v,u}%
+\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
+}i=v\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{u,v}I_{n}}_{=E_{u,v}%
+}-\underbrace{E_{u,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=u\text{ and
+}y=u\text{)}}}-\underbrace{E_{u,v}E_{v,v}}_{\substack{=E_{u,v}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=u\text{, }x=v\text{
+and }y=v\text{)}}}+\underbrace{E_{u,v}E_{u,v}}_{\substack{=0_{n\times
+n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
+}i=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,v}E_{v,u}}_{\substack{=E_{u,u}%
+\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
+}i=u\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{v,u}I_{n}}_{=E_{v,u}%
+}-\underbrace{E_{v,u}E_{u,u}}_{\substack{=E_{v,u}\\\text{(by
+(\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=v\text{, }x=u\text{
+and }y=u\text{)}}}-\underbrace{E_{v,u}E_{v,v}}_{\substack{=0_{n\times
+n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
+}i=v\text{ and }y=v\text{)}}}+\underbrace{E_{v,u}E_{u,v}}_{\substack{=E_{v,v}%
+\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
+}i=v\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{v,u}E_{v,u}%
+}_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
+applied}\\\text{to }i=v\text{ and }y=u\text{)}}}\right) \\
+&  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  -\left(
+E_{u,u}-E_{u,u}+0_{n\times n}+E_{u,v}+0_{n\times n}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  E_{v,v}-0_{n\times n}-E_{v,v}+0_{n\times
+n}+E_{v,u}\right)  +\left(  E_{u,v}-0_{n\times n}-E_{u,v}+0_{n\times
+n}+E_{u,u}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  E_{v,u}-E_{v,u}+0_{n\times n}+E_{v,v}%
++0_{n\times n}\right) \\
+&  =I_{n}.
+\end{align*}
+
+
+From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is the one
+equality repeated twice), it follows that the matrix $T_{u,v}$ is an inverse
+of $T_{u,v}$. Hence, the matrix $T_{u,v}$ is invertible, and its inverse is
+$\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$. This proves Proposition
+\ref{prop.Tuv.lambda+mu} \textbf{(b)} again.
+
+\textbf{(c)} The definition of $T_{v,u}$ yields $T_{v,u}=I_{n}-E_{v,v}%
+-E_{u,u}+E_{v,u}+E_{u,v}=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$. Comparing
+this with $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$, we obtain
+$T_{v,u}=T_{u,v}$. This proves Proposition \ref{prop.Tuv.lambda+mu}
+\textbf{(c)}.
+\end{proof}
 
 \subsection{%
 %TCIMACRO{\TEXTsymbol{<}}%
@@ -9515,13 +10059,102 @@ $>$
 %EndExpansion
 Permutation matrices}
 
+In Theorem \ref{thm.triangular.Alamuv}, we have characterized
+lower-unitriangular matrices as products of lower addition matrices.
+Similarly, in Theorem \ref{thm.triangular.Slamu}, we have characterized
+invertibly lower-triangular matrices as products of scaling matrices and lower
+addition matrices. What kind of matrices are characterized as products of
+swapping matrices $T_{u,v}$ ? We should not expect anything with
+\textquotedblleft triangular\textquotedblright\ in its name (after all, the
+matrices $T_{u,v}$ themselves are not triangular). Instead, we obtain the
+so-called permutation matrices.
+
+\begin{definition}
+\label{def.permat}Let $n\in\mathbb{N}$. An $n\times n$-matrix $A$ is said to
+be a \textit{permutation matrix} if it satisfies the following condition:
+
+\textbf{(a)} Each entry of $A$ is either a $0$ or a $1$.
+
+\textbf{(b)} Each row of $A$ has exactly one entry equal to $1$.
+
+\textbf{(c)} Each column of $A$ has exactly one entry equal to $1$.
+\end{definition}
+
+\begin{example}
+\label{exam.permat}\textbf{(a)} The $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 1\\
+1 & 0 & 0
+\end{array}
+\right)  $ is a permutation matrix.
+
+\textbf{(b)} The $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 3\\
+1 & 0 & 0
+\end{array}
+\right)  $ is not a permutation matrix, since it fails condition \textbf{(a)}
+of Definition \ref{def.permat}.
+
+\textbf{(c)} The $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 1
+\end{array}
+\right)  $ is not a permutation matrix, since it fails condition \textbf{(c)}
+of Definition \ref{def.permat} (namely, the $3$-rd column has two entries
+equal to $1$, whereas the $1$-st column has none).
+
+\textbf{(d)} The $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+0 & 0 & 0\\
+0 & 1 & 1\\
+1 & 0 & 0
+\end{array}
+\right)  $ is not a permutation matrix, since it fails condition \textbf{(b)}
+of Definition \ref{def.permat} (namely, the $2$-nd row has two entries equal
+to $1$, whereas the $1$-st row has none).
+
+\textbf{(e)} For each $n\in\mathbb{N}$, the $n\times n$ identity matrix
+$I_{n}$ is a permutation matrix.
+
+\textbf{(f)} Let $n\in\mathbb{N}$. Let $u$ and $v$ be two elements of
+$\left\{  1,2,\ldots,n\right\}  $. Then, the switching matrix $T_{u,v}$
+(defined in Definition \ref{def.Tuv}) is a permutation matrix.
+\end{example}
+
+These examples do not exhaust the set of all permutation matrices. However
+(unlike, e.g., the lower-triangular matrices), this set is finite for each
+$n\in\mathbb{N}$. More precisely:
+
+\begin{proposition}
+\label{prop.permat.n!}Let $n\in\mathbb{N}$. Then, there are precisely $n!$
+permutation matrices of size $n\times n$.
+
+(Recall that $n!$ denotes the number $1\cdot2\cdot3\cdot\cdots\cdot n$; it is
+called the \textquotedblleft factorial of $n$\textquotedblright. For instance,
+$5!=1\cdot2\cdot3\cdot4\cdot5=120$.)
+\end{proposition}
+
+[...]
+
+(to be continued)
+
+\textbf{TO-DO LIST! (This will appear shortly:)}
+
 \begin{todo}
-Define permutation matrices as $n\times n$-matrices with entries $0$ and $1$
-that have exactly one $1$ in each row and exactly one $1$ in each column.
+There are $n!$ permutation matrices. (Reference for proof, or proof sketch?)
 \end{todo}
 
 \begin{todo}
-Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. But there are more.
+Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. (Proof?)
 \end{todo}
 
 \begin{todo}
