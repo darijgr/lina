@@ -9865,9 +9865,14 @@ E_{v,v}\right)  ^{T}}_{\substack{=E_{v,v}\\\text{(by Proposition
 }_{\substack{=E_{u,v}\\\text{(by Proposition \ref{prop.Euv.transpose}%
 ,}\\\text{applied to }n\text{, }v\text{ and }u\\\text{instead of }m\text{,
 }u\text{ and }v\text{)}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.transpose.3}),
-applied to }A=I_{n}\text{, }B=E_{u,u}\text{, }C=E_{v,v}\text{, }%
-D=E_{u,v}\text{ and }E=E_{v,u}\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by (\ref{pf.prop.Tuv.transpose.3}), applied to }m=n\text{, }%
+A=I_{n}\text{, }B=E_{u,u}\text{,}\\
+C=E_{v,v}\text{, }D=E_{u,v}\text{ and }E=E_{v,u}%
+\end{array}
+\right) \\
 &  =I_{n}-E_{u,u}-E_{v,v}+E_{v,u}+E_{u,v}\\
 &  =I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}=T_{u,v}.
 \end{align*}
@@ -10202,8 +10207,8 @@ A=T_{1,2}T_{2,3},\ \ \ \ \ \ \ \ \ \ B=T_{2,3}T_{1,2}.
 (Of course, they can also be written as products of swapping matrices in many
 other ways. For instance, $A=T_{1,3}T_{1,2}=T_{2,3}T_{2,3}T_{1,2}%
 T_{2,3}=T_{2,3}T_{1,2}T_{2,3}T_{1,2}$.) This is not a coincidence: As we will
-see shortly (in Theorem \ref{thm.triangular.Tuv}), the permutation matrices
-are precisely the products of swapping matrices.
+see shortly (in Theorem \ref{thm.permat.Tuv}), the permutation matrices are
+precisely the products of swapping matrices.
 \end{example}
 
 \begin{theorem}
@@ -10329,18 +10334,6 @@ Swapping rows $2$ and $3$ gives new matrix $C^{\prime\prime\prime}=\left(
 0 & \dfrac{8}{3} & -\dfrac{8}{3} & 2
 \end{array}
 \right)  $. Thus $C^{\prime\prime}=T_{2,3}C^{\prime\prime\prime}$.
-
-Subtracting $\dfrac{8}{3}$ times row $2$ from row $4$ gives new matrix
-$C^{\prime\prime\prime\prime}=\left(
-\begin{array}
-[c]{cccc}%
-3 & 2 & 1 & 6\\
-0 & 1 & -1 & 0\\
-0 & 0 & 0 & 1\\
-0 & 0 & 0 & 2
-\end{array}
-\right)  $. Thus $C^{\prime\prime\prime}=A_{4,2}^{8/3}C^{\prime\prime
-\prime\prime}$.
 
 Subtracting $\dfrac{8}{3}$ times row $2$ from row $4$ gives new matrix
 $C^{\prime\prime\prime\prime}=\left(
