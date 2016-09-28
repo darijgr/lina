@@ -9617,8 +9617,8 @@ $u$-th row with the $v$-th row.
 $u$-th column with the $v$-th column.
 \end{corollary}
 
-I will prove Proposition \ref{prop.Tuv.laction} in Section
-\ref{sect.gauss.Tuv.proofs} below.
+I will prove Proposition \ref{prop.Tuv.laction} and Corollary
+\ref{cor.Tuv.as-switch} in Section \ref{sect.gauss.Tuv.proofs} below.
 
 We shall refer to the matrix $T_{u,v}$ defined in Definition \ref{def.Tuv} as
 a \textquotedblleft swapping matrix\textquotedblright.\footnote{The letter $T$
@@ -9901,7 +9901,7 @@ $T_{u,v}T_{u,v}$ from $I_{n}$, we have to do the following procedure:
 But this procedure clearly returns the matrix $I_{n}$ with which we started
 (since the second swap undoes the first swap). Thus, $T_{u,v}T_{u,v}=I_{n}$.
 
-From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is the one
+From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is one
 equality repeated twice), it follows that the matrix $T_{u,v}$ is an inverse
 of $T_{u,v}$. Hence, the matrix $T_{u,v}$ is invertible, and its inverse is
 $\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$. This proves Proposition
@@ -9959,7 +9959,7 @@ Now, the definition of $T_{u,v}$ yields $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}%
 &  \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}%
 \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}\\
 &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \left(
-I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right) \\
+I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \\
 &  =\underbrace{I_{n}\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)
 }_{=I_{n}I_{n}-I_{n}E_{u,u}-I_{n}E_{v,v}+I_{n}E_{u,v}+I_{n}E_{v,u}}\\
 &  \ \ \ \ \ \ \ \ \ \ -\underbrace{E_{u,u}\left(  I_{n}-E_{u,u}%
@@ -9978,7 +9978,7 @@ I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right) \\
 \begin{align*}
 &  =\left(  \underbrace{I_{n}I_{n}}_{=I_{n}}-\underbrace{I_{n}E_{u,u}%
 }_{=E_{u,u}}-\underbrace{I_{n}E_{v,v}}_{=E_{v,v}}+\underbrace{I_{n}E_{u,v}%
-}_{=E_{u,v}}+\underbrace{I_{n}E_{v,u}}_{=E_{v,u}}\right) \\
+}_{=E_{u,v}}+\underbrace{I_{n}E_{v,u}}_{=E_{v,u}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{u,u}I_{n}}_{=E_{u,u}%
 }-\underbrace{E_{u,u}E_{u,u}}_{\substack{=E_{u,u}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=u\text{, }x=u\text{
@@ -9988,7 +9988,7 @@ n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
 }i=u\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,u}E_{v,u}%
 }_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
-applied}\\\text{to }i=u\text{ and }y=u\text{)}}}\right) \\
+applied}\\\text{to }i=u\text{ and }y=u\text{)}}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{v,v}I_{n}}_{=E_{v,v}%
 }-\underbrace{E_{v,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=v\text{ and
@@ -9998,7 +9998,7 @@ and }y=v\text{)}}}+\underbrace{E_{v,v}E_{u,v}}_{\substack{=0_{n\times
 n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
 }i=v\text{ and }y=v\text{)}}}+\underbrace{E_{v,v}E_{v,u}}_{\substack{=E_{v,u}%
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
-}i=v\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
+}i=v\text{, }x=v\text{ and }y=u\text{)}}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{u,v}I_{n}}_{=E_{u,v}%
 }-\underbrace{E_{u,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=u\text{ and
@@ -10008,7 +10008,7 @@ and }y=v\text{)}}}+\underbrace{E_{u,v}E_{u,v}}_{\substack{=0_{n\times
 n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
 }i=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,v}E_{v,u}}_{\substack{=E_{u,u}%
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
-}i=u\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
+}i=u\text{, }x=v\text{ and }y=u\text{)}}}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{v,u}I_{n}}_{=E_{v,u}%
 }-\underbrace{E_{v,u}E_{u,u}}_{\substack{=E_{v,u}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=v\text{, }x=u\text{
@@ -10018,19 +10018,19 @@ n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
 }i=v\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{v,u}E_{v,u}%
 }_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
-applied}\\\text{to }i=v\text{ and }y=u\text{)}}}\right) \\
+applied}\\\text{to }i=v\text{ and }y=u\text{)}}}\right)  \\
 &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  -\left(
-E_{u,u}-E_{u,u}+0_{n\times n}+E_{u,v}+0_{n\times n}\right) \\
+E_{u,u}-E_{u,u}-0_{n\times n}+E_{u,v}+0_{n\times n}\right)  \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  E_{v,v}-0_{n\times n}-E_{v,v}+0_{n\times
 n}+E_{v,u}\right)  +\left(  E_{u,v}-0_{n\times n}-E_{u,v}+0_{n\times
-n}+E_{u,u}\right) \\
-&  \ \ \ \ \ \ \ \ \ \ +\left(  E_{v,u}-E_{v,u}+0_{n\times n}+E_{v,v}%
-+0_{n\times n}\right) \\
+n}+E_{u,u}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ +\left(  E_{v,u}-E_{v,u}-0_{n\times n}+E_{v,v}%
++0_{n\times n}\right)  \\
 &  =I_{n}.
 \end{align*}
 
 
-From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is the one
+From $T_{u,v}T_{u,v}=I_{n}$ and $T_{u,v}T_{u,v}=I_{n}$ (yes, this is one
 equality repeated twice), it follows that the matrix $T_{u,v}$ is an inverse
 of $T_{u,v}$. Hence, the matrix $T_{u,v}$ is invertible, and its inverse is
 $\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$. This proves Proposition
