@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 26, 2016 22:31:19}
+%TCIDATA{LastRevised=Thursday, September 29, 2016 02:06:35}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10098,17 +10098,7 @@ $T_{v,u}=T_{u,v}$. This proves Proposition \ref{prop.Tuv.lambda+mu}
 \textbf{(c)}.
 \end{proof}
 
-\subsection{%
-%TCIMACRO{\TEXTsymbol{<}}%
-%BeginExpansion
-$<$%
-%EndExpansion
-TODO%
-%TCIMACRO{\TEXTsymbol{>} }%
-%BeginExpansion
-$>$
-%EndExpansion
-Permutation matrices}
+\subsection{Permutation matrices}
 
 \begin{definition}
 \label{def.Tuv.swapping}Let $n\in\mathbb{N}$. A \textit{swapping }$n\times
@@ -10131,7 +10121,7 @@ so-called permutation matrices.
 
 \begin{definition}
 \label{def.permat}Let $n\in\mathbb{N}$. An $n\times n$-matrix $A$ is said to
-be a \textit{permutation matrix} if it satisfies the following condition:
+be a \textit{permutation matrix} if it satisfies the following conditions:
 
 \textbf{(a)} Each entry of $A$ is either a $0$ or a $1$.
 
@@ -10183,11 +10173,13 @@ of Definition \ref{def.permat} (namely, the $2$-nd row has two entries equal
 to $1$, whereas the $1$-st row has none).
 
 \textbf{(e)} For each $n\in\mathbb{N}$, the $n\times n$ identity matrix
-$I_{n}$ is a permutation matrix.
+$I_{n}$ is a permutation matrix. (This is Lemma \ref{lem.permat.Tuv.In}
+further below.)
 
-\textbf{(f)} Let $n\in\mathbb{N}$. Let $u$ and $v$ be two elements of
+\textbf{(f)} Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct elements of
 $\left\{  1,2,\ldots,n\right\}  $. Then, the swapping matrix $T_{u,v}$
-(defined in Definition \ref{def.Tuv}) is a permutation matrix.
+(defined in Definition \ref{def.Tuv}) is a permutation matrix. (This is a
+particular case of Lemma \ref{lem.permat.Tuv.prod-swap} below.)
 \end{example}
 
 These examples do not exhaust the set of all permutation matrices. However
@@ -10271,6 +10263,992 @@ precisely the products of swapping matrices.
 permutation matrix if and only if $C$ is a product of swapping matrices.
 \end{theorem}
 
+Some authors (e.g., Olver and Shakiban in \cite[Chapter 1, Definition
+1.8]{OlvSha06}) use Theorem \ref{thm.permat.Tuv} as a definition of
+permutation matrices. (I.e., they \textbf{define} permutation matrices as
+products of swapping matrices, instead of using Definition \ref{def.permat}.)
+More precisely, the following equivalent definitions of permutation matrices exist:
+
+\begin{itemize}
+\item Our Definition \ref{def.permat} above.
+
+\item An $n\times n$-matrix is called a \textit{permutation matrix} if it is a
+product of swapping matrices. (This is the definition used in \cite[Chapter 1,
+Definition 1.8]{OlvSha06}; and Theorem \ref{thm.permat.Tuv} reveals that it is
+equivalent to our Definition \ref{def.permat}.)
+
+\item An $n\times n$-matrix is called a \textit{permutation matrix} if it has
+the same rows as $I_{n}$ but (possibly) in a different order.
+
+\item An $n\times n$-matrix is called a \textit{permutation matrix} if it has
+the same columns as $I_{n}$ but (possibly) in a different order.
+
+\item An $n\times n$-matrix is called a \textit{permutation matrix} if it has
+the form $\left(  \delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq
+n,\ 1\leq j\leq n}$ for some bijective map $w:\left\{  1,2,\ldots,n\right\}
+\rightarrow\left\{  1,2,\ldots,n\right\}  $. (This is the definition used in
+Stanley's \cite[\S 1.5]{Stanley-EC1}.)
+\end{itemize}
+
+The equivalence of all these definitions is easy to see (once Theorem
+\ref{thm.permat.Tuv} is proven); nevertheless, we shall be using Definition
+\ref{def.permat} only.
+
+We shall give a complete proof of Theorem \ref{thm.permat.Tuv} in Section
+\ref{sect.gauss.permat.proofs}; but first, let us state some basic facts on
+which said proof relies:
+
+\begin{lemma}
+\label{lem.permat.Tuv.1}Let $n\in\mathbb{N}$. Let $A$ be an $n\times
+n$-matrix. Assume that $A$ is a permutation matrix. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $B$ be the matrix
+obtained from $A$ by swapping the $u$-th row with the $v$-th row. Then, $B$ is
+a permutation matrix.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.permat.Tuv.1}.]We know that $A$ is a permutation
+matrix. According to the definition of a \textquotedblleft permutation
+matrix\textquotedblright, this means that $A$ satisfies the following three statements:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $A$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+Thus, we know that Statements 1, 2 and 3 are satisfied.
+
+On the other hand, we want to prove that $B$ is a permutation matrix.
+According to the definition of a \textquotedblleft permutation
+matrix\textquotedblright, this means proving that $B$ satisfies the following
+three statements:
+
+\begin{statement}
+\textit{Statement 4:} Each entry of $B$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 5:} Each row of $B$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 6:} Each column of $B$ has exactly one entry equal to $1$.
+\end{statement}
+
+Hence, it remains to prove that Statements 4, 5 and 6 are satisfied.
+
+Recall that the matrix $B$ is obtained from $A$ by swapping the $u$-th row
+with the $v$-th row. Hence, each row of $B$ equals some row of $A$. Thus,
+Statement 5 follows from Statement 2. Therefore, Statement 5 is satisfied.
+
+Also, each entry of $B$ equals some entry of $A$ (since each row of $B$ equals
+some row of $A$). Thus, Statement 4 follows from Statement 1. Hence, Statement
+4 is satisfied.
+
+Recall again that the matrix $B$ is obtained from $A$ by swapping the $u$-th
+row with the $v$-th row. Hence, each column of $B$ is obtained from the
+corresponding column of $A$ by swapping the $u$-th entry with the $v$-th
+entry. Hence, each column of $B$ has exactly as many entries equal to $1$ as
+the corresponding column of $A$ (because swapping two entries does not change
+the number of entries equal to $1$). Therefore, Statement 6 follows from
+Statement 3. Hence, Statement 6 is satisfied.
+
+We thus have shown that Statements 4, 5 and 6 are satisfied. As we have said,
+this completes the proof of Lemma \ref{lem.permat.Tuv.1}.
+\end{proof}
+
+\begin{lemma}
+\label{lem.permat.Tuv.In}Let $n\in\mathbb{N}$. Then, the identity matrix
+$I_{n}$ is a permutation matrix.
+\end{lemma}
+
+Lemma \ref{lem.permat.Tuv.In} is very easy to prove (and will be proven in
+detail in Section \ref{sect.gauss.permat.proofs} below).
+
+\begin{lemma}
+\label{lem.permat.Tuv.prod-swap}Let $n\in\mathbb{N}$. Then, any product of
+swapping $n\times n$-matrices is a permutation matrix.
+
+(Here, we are again using the convention that the empty product of $n\times
+n$-matrices is $I_{n}$.)
+\end{lemma}
+
+Lemma \ref{lem.permat.Tuv.prod-swap} is, of course, the $\Longleftarrow$
+direction of Theorem \ref{thm.permat.Tuv}; it can be proven by induction using
+Lemma \ref{lem.permat.Tuv.1} and Proposition \ref{prop.Tuv.laction}. The
+(rather straightforward) proof can be found in Section
+\ref{sect.gauss.permat.proofs} below.
+
+Now, let me give some examples for Theorem \ref{thm.permat.Tuv}:
+
+\begin{example}
+\label{exam.thm.permat.Tuv}\textbf{(a)} For each $n\in\mathbb{N}$, the
+$n\times n$ identity matrix $I_{n}$ is a product of swapping matrices: Namely,
+it is the empty product (since the empty product of $n\times n$-matrices is
+$I_{n}$ by definition).
+
+\textbf{(b)} Each swapping matrix $T_{u,v}$ itself is a product of swapping
+matrices: namely, it is a product of itself.
+
+\textbf{(c)} Let $C$ be the permutation matrix $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 1 & 0\\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 1 & 0 & 0
+\end{array}
+\right)  $. Then, $C$ is a product of swapping matrices: Namely, it equals
+$T_{1,2}T_{2,4}T_{3,4}$.
+
+Let us actually see how this representation of $C$ can be found. We shall
+proceed by writing $C$ as a product of one swapping matrix with a second
+matrix $C^{\prime}$, which is still a permutation matrix but has one diagonal
+entry equal to $1$. We then will do the same with $C^{\prime}$, obtaining a
+third matrix $C^{\prime\prime}$; then, do the same with $C^{\prime\prime}$,
+and so on. At the end, we will be left with a permutation matrix whose
+\textbf{all} diagonal entries are $1$. This means that we will be left with
+the identity matrix $I_{4}$.
+
+In more detail: We proceed in several steps:
+
+\begin{description}
+\item[Step 1:] Let us turn the $\left(  1,1\right)  $-th entry of $C$ into $1$
+by swapping the $1$-st row with the $2$-nd row. Denote the resulting matrix by
+$C^{\prime}$. Thus, $C^{\prime}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 1 & 0 & 0
+\end{array}
+\right)  $. Notice that the new matrix $C^{\prime}$ is still a permutation
+matrix (by Lemma \ref{lem.permat.Tuv.1}, applied to $A=C$, $B=C^{\prime}$,
+$u=1$ and $v=2$), but now has its first diagonal entry equal to $1$. Since
+$C^{\prime}$ was obtained from $C$ by swapping the $1$-st row with the $2$-nd
+row, we can conversely obtain $C$ from $C^{\prime}$ by swapping the $1$-st row
+with the $2$-nd row. According to Proposition \ref{prop.Tuv.laction} (applied
+to $n$, $1$, $2$ and $C^{\prime}$ instead of $m$, $u$, $v$ and $C$), this
+means that $C=T_{1,2}C^{\prime}$.
+
+\item[Step 2:] Let us turn the $\left(  2,2\right)  $-th entry of $C^{\prime}$
+into $1$ by swapping the $2$-nd row with the $4$-th row. Denote the resulting
+matrix by $C^{\prime\prime}$. Thus, $C^{\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0
+\end{array}
+\right)  $. Again, the new matrix $C^{\prime\prime}$ is still a permutation
+matrix (by Lemma \ref{lem.permat.Tuv.1}, applied to $A=C^{\prime}$,
+$B=C^{\prime\prime}$, $u=2$ and $v=4$), and still has its first diagonal entry
+equal to $1$ (since the $1$-st row has not been changed); but now its second
+diagonal entry is also $1$. Similarly to how we found that $C=T_{1,2}%
+C^{\prime}$ in Step 1, we now obtain $C^{\prime}=T_{2,4}C^{\prime\prime}$.
+
+\item[Step 3:] Let us turn the $\left(  3,3\right)  $-th entry of
+$C^{\prime\prime}$ into $1$ by swapping the $3$-rd row with the $4$-th row.
+Denote the resulting matrix by $C^{\prime\prime\prime}$. Thus, $C^{\prime
+\prime\prime}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}
+\right)  $. Again, the new matrix $C^{\prime\prime\prime}$ is still a
+permutation matrix, and the first two diagonal entries are still equal to $1$;
+and now the third diagonal entry has become $1$ as well. Similarly to how we
+found that $C=T_{1,2}C^{\prime}$ in Step 1, we now obtain $C^{\prime\prime
+}=T_{3,4}C^{\prime\prime\prime}$.
+
+\item[Step 4:] We should now turn the $\left(  4,4\right)  $-th entry of
+$C^{\prime\prime\prime}$ into $1$, but fortunately this is unnecessary: It
+already is $1$.
+\end{description}
+
+We have thus turned all diagonal entries into $1$. Our final matrix
+$C^{\prime\prime\prime}$ thus equals $I_{4}$ (since it is a permutation
+matrix). Combining the three equalities we have found, we obtain%
+\begin{align*}
+C  &  =T_{1,2}\underbrace{C^{\prime}}_{=T_{2,4}C^{\prime\prime}}%
+=T_{1,2}T_{2,4}\underbrace{C^{\prime\prime}}_{=T_{3,4}C^{\prime\prime\prime}%
+}=T_{1,2}T_{2,4}T_{3,4}\underbrace{C^{\prime\prime\prime}}_{=I_{4}}\\
+&  =T_{1,2}T_{2,4}T_{3,4}I_{4}=T_{1,2}T_{2,4}T_{3,4}.
+\end{align*}
+Thus we have represented $C$ as a product of permutation matrices.
+\end{example}
+
+Example \ref{exam.thm.permat.Tuv} \textbf{(c)} essentially demonstrates how
+Theorem \ref{thm.permat.Tuv} (or, more precisely, the $\Longrightarrow$
+direction of Theorem \ref{thm.permat.Tuv}) can be proven in the general case
+(similarly to how Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}
+outlines the proof of Theorem \ref{thm.triangular.Alamuv}, and how Example
+\ref{exam.thm.triangular.Slamu} \textbf{(c)} outlines the proof of Theorem
+\ref{thm.triangular.Slamu}). Transforming the example into an actual rigorous
+proof, however, requires work: Not only would we have to formalize the
+algorithm, but we would also need to formally justify that the algorithm
+works\footnote{For example, we would need to verify that each step results in
+a permutation matrix, and that the $k$-th step (for each $k$) leaves the first
+$k-1$ diagonal entries unchanged.}. In Section \ref{sect.gauss.permat.proofs},
+we shall give a proof of Theorem \ref{thm.permat.Tuv} which is, \textbf{more
+or less}, the one suggested by Example \ref{exam.thm.permat.Tuv} \textbf{(c)};
+however, it will be organized rather differently (for the sake of easier
+readability)\footnote{Namely, instead of using a procedure with several steps,
+it will be based on an induction argument. The ideas will, of course, be the
+same; this is just an example of how algorithmic arguments can be rewritten as
+induction proofs.}.
+
+One easy corollary of Theorem \ref{thm.permat.Tuv} is the following:
+
+\begin{proposition}
+\label{prop.permat.AB}Let $n\in\mathbb{N}$. Let $A$ and $B$ be two $n\times
+n$-matrices that are permutation matrices. Then, $AB$ is also a permutation matrix.
+\end{proposition}
+
+Furthermore, we can show:
+
+\begin{proposition}
+\label{prop.permat.inverse}Let $n\in\mathbb{N}$. Let $A$ be an $n\times
+n$-matrix that is a permutation matrix. Then:
+
+\textbf{(a)} The matrix $A$ is invertible.
+
+\textbf{(b)} Its inverse is $A^{-1}=A^{T}$.
+
+\textbf{(c)} This inverse $A^{-1}$ is a permutation matrix.
+\end{proposition}
+
+\subsection{\label{sect.gauss.permat.proofs}(*) Proofs about permutation
+matrices}
+
+Let us now catch up on some proofs that we promised in the previous section.
+
+\begin{proof}
+[Proof of Lemma \ref{lem.permat.Tuv.In}.]We want to prove that $I_{n}$ is a
+permutation matrix. According to the definition of a \textquotedblleft
+permutation matrix\textquotedblright, this means proving that $I_{n}$
+satisfies the following three statements:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $I_{n}$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $I_{n}$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $I_{n}$ has exactly one entry equal to
+$1$.
+\end{statement}
+
+Hence, it remains to prove that Statements 1, 2 and 3 are satisfied.
+
+But Statement 1 is obvious. Statement 2 is also clear (since each row of
+$I_{n}$ has exactly one entry equal to $1$ -- namely, the diagonal entry), and
+Statement 3 is clear as well (for similar reasons). Thus, Statements 1, 2 and
+3 are satisfied. This proves Lemma \ref{lem.permat.Tuv.In}.
+\end{proof}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.permat.Tuv.prod-swap}.]Let $M$ be any product of
+swapping $n\times n$-matrices. We must show that $M$ is a permutation matrix.
+
+We have assumed that $M$ is a product of swapping $n\times n$-matrices. In
+other words, $M=A_{k}A_{k-1}\cdots A_{1}$ for some $k\in\mathbb{N}$ and some
+$k$ swapping $n\times n$-matrices $A_{1},A_{2},\ldots,A_{k}$. Consider this
+$k$ and these $A_{1},A_{2},\ldots,A_{k}$.
+
+We shall show that%
+\begin{equation}
+A_{i}A_{i-1}\cdots A_{1}\text{ is a permutation matrix}
+\label{pf.lem.permat.Tuv.prod-swap.goal}%
+\end{equation}
+for every $i\in\left\{  0,1,\ldots,k\right\}  $ (where, as usual, $A_{0}%
+A_{-1}\cdots A_{1}$ has to be interpreted as an empty product and thus equals
+$I_{n}$).
+
+[\textit{Proof of (\ref{pf.lem.permat.Tuv.prod-swap.goal}):} We will prove
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}) by induction over $i$:
+
+\textit{Induction base:} Lemma \ref{lem.permat.Tuv.In} says that $I_{n}$ is a
+permutation matrix. In other words, $A_{0}A_{-1}\cdots A_{1}$ is a permutation
+matrix\footnote{since $A_{0}A_{-1}\cdots A_{1}=\left(  \text{empty product of
+}n\times n\text{-matrices}\right)  =I_{n}$}. In other words,
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}) holds for $i=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $j\in\left\{  0,1,\ldots,k\right\}  $ be
+positive. Assume (as the \textit{induction hypothesis}) that
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}) holds for $i=j-1$. We must show that
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}) holds for $i=j$.
+
+The induction hypothesis tells us that (\ref{pf.lem.permat.Tuv.prod-swap.goal}%
+) holds for $i=j-1$. In other words, $A_{j-1}A_{j-2}\cdots A_{1}$ is a
+permutation matrix. Set $C=A_{j-1}A_{j-2}\cdots A_{1}$. Thus, $C$ is a
+permutation matrix (since $A_{j-1}A_{j-2}\cdots A_{1}$ is a permutation matrix).
+
+But $A_{j}$ is a swapping $n\times n$-matrix (since $A_{1},A_{2},\ldots,A_{k}$
+are $k$ swapping $n\times n$-matrices). In other words, $A_{j}$ has the form
+$A_{j}=T_{u,v}$, where $u$ and $v$ are two distinct elements of $\left\{
+1,2,\ldots,n\right\}  $. Consider these $u$ and $v$.
+
+Now,%
+\begin{equation}
+A_{j}A_{j-1}\cdots A_{1}=\underbrace{A_{j}}_{=T_{u,v}}\underbrace{\left(
+A_{1}A_{2}\cdots A_{j-1}\right)  }_{=C}=T_{u,v}C.
+\label{pf.lem.permat.Tuv.prod-swap.goal.pf.1}%
+\end{equation}
+
+
+But Proposition \ref{prop.Tuv.laction} (applied to $m=n$) shows that
+$T_{u,v}C$ is the $n\times n$-matrix obtained from $C$ by swapping the $u$-th
+row with the $v$-th row. Hence, Lemma \ref{lem.permat.Tuv.1} (applied to $A=C$
+and $B=T_{u,v}C$) shows that $T_{u,v}C$ is a permutation matrix. In light of
+(\ref{pf.lem.permat.Tuv.prod-swap.goal.pf.1}), this rewrites as follows:
+$A_{j}A_{j-1}\cdots A_{1}$ is a permutation matrix. In other words,
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}) holds for $i=j$. This completes the
+induction step, and thus the inductive proof of
+(\ref{pf.lem.permat.Tuv.prod-swap.goal}).]
+
+Now, (\ref{pf.lem.permat.Tuv.prod-swap.goal}) (applied to $i=k$) yields that
+$A_{k}A_{k-1}\cdots A_{1}$ is a permutation matrix. In other words, $M$ is a
+permutation matrix (since $M=A_{k}A_{k-1}\cdots A_{1}$). This completes the
+proof of Lemma \ref{lem.permat.Tuv.prod-swap}.
+\end{proof}
+
+The general proof of Theorem \ref{thm.permat.Tuv} follows the idea outlined in
+Example \ref{exam.thm.permat.Tuv} \textbf{(c)}, but we are going to make it
+more manageable by introducing a convenient notion:
+
+\begin{definition}
+\label{def.thm.permat.Tuv.k-id}Let $n\in\mathbb{N}$ and $k\in\left\{
+0,1,\ldots,n\right\}  $. An $n\times n$-matrix $A$ is said to be
+$k$\textit{-identical} if it satisfies $A_{1,1}=A_{2,2}=\cdots=A_{k,k}=1$.
+(Note that the condition $A_{1,1}=A_{2,2}=\cdots=A_{k,k}=1$ means
+\textquotedblleft$A_{i,i}=1$ for each $i\in\left\{  1,2,\ldots,k\right\}
+$\textquotedblright. Thus, if $k=0$, then this condition is vacuously true,
+since there exists no $i\in\left\{  1,2,\ldots,k\right\}  $ in this case.)
+\end{definition}
+
+This notion allows us to speak about our procedure from Example
+\ref{exam.thm.permat.Tuv} \textbf{(c)} more crisply: We started with an
+arbitrary permutation matrix $C$, which was $0$-identical. Then, in Step 1, we
+made it $1$-identical by switching two rows. Then, in Step 2, we made it
+$2$-identical by switching two further rows. Then, in Step 3, we made it
+$3$-identical by switching two further rows. Then, in Step 4, we made it
+$4$-identical by doing nothing (since it already was $4$-identical). At the
+end of the procedure, it was an identity matrix.
+
+Here are some properties of $k$-identical permutation matrices:
+
+\begin{lemma}
+\label{lem.permat.Tuv.k-id.1}Let $n\in\mathbb{N}$ and $k\in\left\{
+0,1,\ldots,n\right\}  $. Let $A$ be an $n\times n$-matrix. Assume that $A$ is
+a $k$-identical permutation matrix.
+
+\textbf{(a)} If $k=n$, then $A=I_{n}$.
+
+\textbf{(b)} For each $v\in\left\{  k+1,k+2,\ldots,n\right\}  $, there exists
+some $u\in\left\{  k+1,k+2,\ldots,n\right\}  $ such that $A_{u,v}=1$.
+
+\textbf{(c)} If $k<n$ and $A_{k+1,k+1}=1$, then $A$ is a $\left(  k+1\right)
+$-identical permutation matrix.
+
+\textbf{(d)} If $u$ and $v$ are two distinct elements of $\left\{
+k+1,k+2,\ldots,n\right\}  $ satisfying $v=k+1$ and $A_{u,v}=1$, then
+$T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation matrix.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.permat.Tuv.k-id.1}.]We have assumed that $A$ is a
+permutation matrix. According to the definition of a \textquotedblleft
+permutation matrix\textquotedblright, this means that $A$ satisfies the
+following three statements:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $A$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+Thus, we know that Statements 1, 2 and 3 are satisfied.
+
+We have assumed that $A$ is $k$-identical. In other words,%
+\begin{equation}
+A_{1,1}=A_{2,2}=\cdots=A_{k,k}=1 \label{pf.lem.permat.Tuv.k-id.1.1}%
+\end{equation}
+(by the definition of \textquotedblleft$k$-identical\textquotedblright). In
+other words,%
+\begin{equation}
+A_{i,i}=1\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{  1,2,\ldots
+,k\right\}  . \label{pf.lem.permat.Tuv.k-id.1.1b}%
+\end{equation}
+Next, we observe that%
+\begin{equation}
+A_{i,j}=\delta_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{
+1,2,\ldots,k\right\}  \text{ and }j\in\left\{  1,2,\ldots,n\right\}
+\label{pf.lem.permat.Tuv.k-id.1.2}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.lem.permat.Tuv.k-id.1.2}):} Let
+$i\in\left\{  1,2,\ldots,k\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}
+$. We must prove that $A_{i,j}=\delta_{i,j}$.
+\par
+We have $i\in\left\{  1,2,\ldots,n\right\}  =\left\{  1,2,\ldots,k\right\}  $
+(since $n=k$). Hence, $A_{i,i}=1$ (by (\ref{pf.lem.permat.Tuv.k-id.1.1b})).
+\par
+We are in one of the following two cases:
+\par
+\textit{Case 1:} We have $i=j$.
+\par
+\textit{Case 2:} We have $i\neq j$.
+\par
+Let us first consider Case 1. In this case, we have $i=j$. Hence, $j=i$, so
+that $A_{i,j}=A_{i,i}=1$. Comparing this with $\delta_{i,j}=1$ (since $i=j$),
+we obtain $A_{i,j}=\delta_{i,j}$. Hence, $A_{i,j}=\delta_{i,j}$ is proven in
+Case 1.
+\par
+Let us now consider Case 2. In this case, we have $i\neq j$. Thus,
+$\delta_{i,j}=0$.
+\par
+Now, assume (for the sake of contradiction) that $A_{i,j}\neq0$. But,
+$A_{i,j}$ is an entry of $A$, and thus is either a $0$ or a $1$ (by Statement
+1). In other words, $A_{i,j}=0$ or $A_{i,j}=1$. Therefore, $A_{i,j}=1$ (since
+$A_{i,j}\neq0$). Combining this with $A_{i,i}=1$, we conclude that the $i$-th
+row of $A$ has at least two entries equal to $1$: namely, the entries
+$A_{i,i}$ and $A_{i,j}$. (And these are indeed two distinct entries, since
+$i\neq j$.)
+\par
+Recall that $A$ is a permutation matrix. Hence, each row of $A$ has exactly
+one entry equal to $1$. In particular, the $i$-th row of $A$ has exactly one
+entry equal to $1$. This contradicts the fact that the $i$-th row of $A$ has
+at least two entries equal to $1$. This contradiction shows that our
+assumption (that $A_{i,j}\neq0$) was false. Hence, we have $A_{i,j}=0$.
+Compared with $\delta_{i,j}=0$, this yields $A_{i,j}=\delta_{i,j}$. Thus,
+$A_{i,j}=\delta_{i,j}$ is proven in Case 2.
+\par
+Now, $A_{i,j}=\delta_{i,j}$ is proven in each of the two Cases 1 and 2. Hence,
+$A_{i,j}=\delta_{i,j}$ always holds. In other words,
+(\ref{pf.lem.permat.Tuv.k-id.1.2}) is proven.}.
+
+\textbf{(a)} Assume that $k=n$. Then, every $i\in\left\{  1,2,\ldots
+,n\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}  $ satisfy $A_{i,j}%
+=\left(  I_{n}\right)  _{i,j}$\ \ \ \ \footnote{\textit{Proof.} Recall that
+$I_{n}=\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$ (by the
+definition of $I_{n}$). Hence, every $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,n\right\}  $ satisfy%
+\begin{equation}
+\left(  I_{n}\right)  _{i,j}=\delta_{i,j}.
+\label{pf.lem.permat.Tuv.k-id.1.fn5.1}%
+\end{equation}
+But $\left\{  1,2,\ldots,n\right\}  =\left\{  1,2,\ldots,k\right\}  $ (since
+$n=k$). Now, every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $ satisfy%
+\begin{align*}
+A_{i,j}  &  =\delta_{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.permat.Tuv.k-id.1.2}), since }i\in\left\{  1,2,\ldots,n\right\}
+=\left\{  1,2,\ldots,k\right\}  \right) \\
+&  =\left(  I_{n}\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.lem.permat.Tuv.k-id.1.fn5.1})}\right)  .
+\end{align*}
+}. In other words, each entry of the matrix $A$ equals the corresponding entry
+of $I_{n}$. In other words, $A=I_{n}$. This proves Lemma
+\ref{lem.permat.Tuv.k-id.1} \textbf{(a)}.
+
+\textbf{(b)} Let $v\in\left\{  k+1,k+2,\ldots,n\right\}  $. Statement 3 shows
+that each column of $A$ has exactly one entry equal to $1$. In particular, the
+$v$-th column has exactly one entry equal to $1$. In other words, there exists
+exactly one $i\in\left\{  1,2,\ldots,n\right\}  $ such that $A_{i,v}=1$.
+Consider this $i$. We are going to show that $i\in\left\{  k+1,k+2,\ldots
+,n\right\}  $.
+
+In fact, assume the contrary. Thus, $i\notin\left\{  k+1,k+2,\ldots,n\right\}
+$. Combining $i\in\left\{  1,2,\ldots,n\right\}  $ with $i\notin\left\{
+k+1,k+2,\ldots,n\right\}  $, we obtain%
+\[
+i\in\left\{  1,2,\ldots,n\right\}  \setminus\left\{  k+1,k+2,\ldots,n\right\}
+=\left\{  1,2,\ldots,k\right\}  .
+\]
+Hence, $A_{i,v}=\delta_{i,v}$ (by (\ref{pf.lem.permat.Tuv.k-id.1.2}), applied
+to $j=v$). But $i\in\left\{  1,2,\ldots,k\right\}  $, so that $i\leq k$.
+However, $v\geq k+1$ (since $v\in\left\{  k+1,k+2,\ldots,n\right\}  $). Hence,
+$k+1\leq v$, and thus $i\leq k<k+1\leq v$. Thus, $i\neq v$, so that
+$\delta_{i,v}=0$ and thus $A_{i,v}=\delta_{i,v}=0$. This contradicts
+$A_{i,v}=1\neq0$.
+
+This contradiction shows that our assumption was false. Hence, $i\in\left\{
+k+1,k+2,\ldots,n\right\}  $ is proven. Thus, there exists some $u\in\left\{
+k+1,k+2,\ldots,n\right\}  $ such that $A_{u,v}=1$ (namely, $u=i$). This proves
+Lemma \ref{lem.permat.Tuv.k-id.1} \textbf{(b)}.
+
+\textbf{(c)} Assume that $k<n$ and $A_{k+1,k+1}=1$. We need to show that $A$
+is a $\left(  k+1\right)  $-identical permutation matrix.
+
+Combining (\ref{pf.lem.permat.Tuv.k-id.1.1}) with $A_{k+1,k+1}=1$, we obtain
+$A_{1,1}=A_{2,2}=\cdots=A_{k+1,k+1}=1$.
+
+But the matrix $A$ is $\left(  k+1\right)  $-identical if and only if
+$A_{1,1}=A_{2,2}=\cdots=A_{k+1,k+1}=1$ (because this is how \textquotedblleft%
+$\left(  k+1\right)  $-identical\textquotedblright\ is defined). Thus, the
+matrix $A$ is $\left(  k+1\right)  $-identical (since $A_{1,1}=A_{2,2}%
+=\cdots=A_{k+1,k+1}=1$). Also, $A$ is a permutation matrix. The proof of Lemma
+\ref{lem.permat.Tuv.k-id.1} \textbf{(c)} is thus complete.
+
+\textbf{(d)} Let $u$ and $v$ be two distinct elements of $\left\{
+k+1,k+2,\ldots,n\right\}  $ satisfying $v=k+1$ and $A_{u,v}=1$. We must prove
+that $T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation matrix.
+
+Let $B=T_{u,v}A$. Proposition \ref{prop.Tuv.laction} (applied to $m=n$ and
+$C=A$) shows that $T_{u,v}A$ is the $n\times n$-matrix obtained from $A$ by
+swapping the $u$-th row with the $v$-th row. Since $B=T_{u,v}A$, this rewrites
+as follows: $B$ is the $n\times n$-matrix obtained from $A$ by swapping the
+$u$-th row with the $v$-th row. Hence, Lemma \ref{lem.permat.Tuv.1} shows that
+$B$ is a permutation matrix. We shall next show that $B$ is $\left(
+k+1\right)  $-identical.
+
+Recall that $B$ is the $n\times n$-matrix obtained from $A$ by swapping the
+$u$-th row with the $v$-th row. Hence, the following facts hold:
+
+\begin{statement}
+\textit{Fact 4:} The $u$-th row of the matrix $B$ equals the $v$-th row of $A$.
+\end{statement}
+
+\begin{statement}
+\textit{Fact 5:} The $v$-th row of the matrix $B$ equals the $u$-th row of $A$.
+\end{statement}
+
+\begin{statement}
+\textit{Fact 6:} If $i\in\left\{  1,2,\ldots,n\right\}  $ is such that $i\neq
+u$ and $i\neq v$, then the $i$-th row of the matrix $B$ equals the $i$-th row
+of $A$.
+\end{statement}
+
+Now, using Fact 6, we can easily see that $B_{i,i}=A_{i,i}$ for each
+$i\in\left\{  1,2,\ldots,k\right\}  $\ \ \ \ \footnote{\textit{Proof.} Let
+$i\in\left\{  1,2,\ldots,k\right\}  $. Then, $i\leq k<k+1\leq u$ (since $u\geq
+k+1$ (since $u\in\left\{  k+1,k+2,\ldots,n\right\}  $)). Hence, $i\neq u$. The
+same argument (but made for $v$ instead of $u$) shows that $i\neq v$. Hence,
+Fact 6 shows that the $i$-th row of the matrix $B$ equals the $i$-th row of
+$A$. In other words, each entry of the $i$-th row of the matrix $B$ equals the
+corresponding entry of the $i$-th row of $A$. In other words, $B_{i,j}%
+=A_{i,j}$ for each $j\in\left\{  1,2,\ldots,n\right\}  $. Applying this to
+$j=i$, we obtain $B_{i,i}=A_{i,i}$. Qed.}. Hence, for each $i\in\left\{
+1,2,\ldots,k\right\}  $, we have $B_{i,i}=A_{i,i}=1$ (by
+(\ref{pf.lem.permat.Tuv.k-id.1.1b})). In other words,%
+\begin{equation}
+B_{1,1}=B_{2,2}=\cdots=B_{k,k}=1. \label{pf.lem.permat.Tuv.k-id.1.d.1}%
+\end{equation}
+
+
+But Fact 5 shows that each entry of the $v$-th row of the matrix $B$ equals
+the corresponding entry of the $u$-th row of $A$. In other words,
+$B_{v,j}=A_{u,j}$ for each $j\in\left\{  1,2,\ldots,n\right\}  $. Applying
+this to $j=v$, we obtain $B_{v,v}=A_{u,v}=1$. Since $v=k+1$, this rewrites as
+$B_{k+1,k+1}=1$. Combining this with (\ref{pf.lem.permat.Tuv.k-id.1.d.1}), we
+obtain $B_{1,1}=B_{2,2}=\cdots=B_{k+1,k+1}=1$.
+
+But the matrix $B$ is $\left(  k+1\right)  $-identical if and only if
+$B_{1,1}=B_{2,2}=\cdots=B_{k+1,k+1}=1$ (because this is how \textquotedblleft%
+$\left(  k+1\right)  $-identical\textquotedblright\ is defined). Thus, the
+matrix $B$ is $\left(  k+1\right)  $-identical (since $B_{1,1}=B_{2,2}%
+=\cdots=B_{k+1,k+1}=1$). Hence, $B$ is a $\left(  k+1\right)  $-identical
+permutation matrix (since we already know that $B$ is a permutation matrix).
+In other words, $T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation
+matrix (since $B=T_{u,v}A$). This proves Lemma \ref{lem.permat.Tuv.k-id.1}
+\textbf{(d)}.
+\end{proof}
+
+Next, we show a slightly stronger version of the $\Longrightarrow$ direction
+of Theorem \ref{thm.permat.Tuv}:
+
+\begin{lemma}
+\label{lem.permat.Tuv.k-id.2}Let $n\in\mathbb{N}$ and $p\in\left\{
+0,1,\ldots,n\right\}  $. Let $A$ be an $n\times n$-matrix. If $A$ is an
+$\left(  n-p\right)  $-identical permutation matrix, then $A$ is a product of
+at most $p$ swapping matrices.
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.permat.Tuv.k-id.2}.]We shall prove Lemma
+\ref{lem.permat.Tuv.k-id.2} by induction over $p$:
+
+\textit{Induction base:} If $A$ is an $\left(  n-0\right)  $-identical
+permutation matrix, then $A$ is a product of at most $0$ swapping
+matrices\footnote{\textit{Proof.} Assume that $A$ is an $\left(  n-0\right)
+$-identical permutation matrix. In other words, $A$ is an $n$-identical
+permutation matrix. Lemma \ref{lem.permat.Tuv.k-id.1} \textbf{(a)} (applied to
+$k=n$) thus yields $A=I_{n}$. Thus $A=I_{n}=\left(  \text{the empty product of
+swapping matrices}\right)  $ (since the empty product of swapping matrices is
+defined to be $I_{n}$). Hence, $A$ is a product of $0$ swapping matrices.
+Thus, $A$ is a product of at most $0$ swapping matrices. Qed.}. In other
+words, Lemma \ref{lem.permat.Tuv.k-id.2} holds for $p=0$. This completes the
+induction base.
+
+\textit{Induction step:} Let $q \in\left\{  0,1,\ldots,n\right\}  $ be
+positive. Assume (as the \textit{induction hypothesis}) that Lemma
+\ref{lem.permat.Tuv.k-id.2} holds for $p=q-1$. We must now prove that Lemma
+\ref{lem.permat.Tuv.k-id.2} holds for $p=q$.
+
+Assume that $A$ is an $\left(  n-q\right)  $-identical permutation matrix. We
+shall show that
+\begin{equation}
+A\text{ is a product of at most }q\text{ swapping matrices.}
+\label{pf.lem.permat.Tuv.k-id.2.indgoal}%
+\end{equation}
+
+
+Set $k = n-q$. Thus, $A$ is a $k$-identical permutation matrix (since $A$ is
+an $\left(  n-q\right)  $-identical permutation matrix).
+
+We have $k=n-q\in\left\{  0,1,\ldots,n\right\}  $ (since $q\in\left\{
+0,1,\ldots,n\right\}  $). Furthermore, $k=n-q<n$ (since $q$ is positive), so
+that $k\leq n-1$ (since $k$ and $n$ are integers).
+
+Set $v=k+1$. Then, $v=k+1\geq k+1$ and $v=k+1\leq n$ (since $k\leq n-1$), so
+that $v\in\left\{  k+1,k+2,\ldots,n\right\}  $. Hence, Lemma
+\ref{lem.permat.Tuv.k-id.1} \textbf{(b)} shows that there exists some
+$u\in\left\{  k+1,k+2,\ldots,n\right\}  $ such that $A_{u,v}=1$. Consider this
+$u$. We are in one of the following two cases:
+
+\begin{statement}
+\textit{Case 1:} We have $u=k+1$.
+\end{statement}
+
+\begin{statement}
+\textit{Case 2:} We have $u\neq k+1$.
+\end{statement}
+
+Let us first consider Case 1. In this case, we have $u=k+1$. From $u=k+1$ and
+$v=k+1$, we obtain $A_{u,v}=A_{k+1,k+1}$, so that $A_{k+1,k+1}=A_{u,v}=1$.
+Hence, Lemma \ref{lem.permat.Tuv.k-id.1} \textbf{(c)} shows that $A$ is a
+$\left(  k+1\right)  $-identical permutation matrix. Since $\underbrace{k}%
+_{=n-q}+1=n-q+1=n-\left(  q-1\right)  $, this rewrites as follows: $A$ is an
+$\left(  n-\left(  q-1\right)  \right)  $-identical permutation matrix. But
+the induction hypothesis shows that Lemma \ref{lem.permat.Tuv.k-id.2} holds
+for $p=q-1$. Hence, Lemma \ref{lem.permat.Tuv.k-id.2} can be applied to
+$p=q-1$ (since $A$ is a $\left(  n-\left(  q-1\right)  \right)  $-identical
+permutation matrix). As a result, we conclude that $A$ is a product of at most
+$q-1$ swapping matrices. In other words, there exists some $s\in\left\{
+0,1,\ldots,q-1\right\}  $ such that $A$ is a product of at most $s$ swapping
+matrices. Consider this $s$. Thus, $A$ is a product of at most $q$ swapping
+matrices (since $A$ is a product of $s$ swapping matrices, but we have
+$s\in\left\{  0,1,\ldots,q-1\right\}  \subseteq\left\{  0,1,\ldots,q\right\}
+$). In other words, (\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) holds. Hence,
+(\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) is proven in Case 1.
+
+Let us now consider Case 2. In this case, we have $u\neq k+1$. Thus, $u\neq
+k+1=v$. Therefore, Lemma \ref{lem.permat.Tuv.k-id.1} \textbf{(d)} reveals that
+$T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation matrix. But the
+induction hypothesis shows that Lemma \ref{lem.permat.Tuv.k-id.2} holds for
+$p=q-1$. Hence, Lemma \ref{lem.permat.Tuv.k-id.2} can be applied to $q-1$ and
+$T_{u,v}A$ instead of $p$ and $A$ (since $T_{u,v}A$ is a $\left(  n-\left(
+q-1\right)  \right)  $-identical permutation matrix). As a result, we conclude
+that $T_{u,v}A$ is a product of at most $q-1$ swapping matrices. In other
+words, there exists some $s\in\left\{  0,1,\ldots,q-1\right\}  $ and some $s$
+swapping matrices $M_{1},M_{2},\ldots,M_{s}$ such that $T_{u,v}A=M_{1}%
+M_{2}\cdots M_{s}$. Consider this $s$ and these $M_{1},M_{2},\ldots,M_{s}$.
+
+From $s\in\left\{  0,1,\ldots,q-1\right\}  $, we obtain $s+1\in\left\{
+1,2,\ldots,q\right\}  \subseteq\left\{  0,1,\ldots,q\right\}  $.
+
+Proposition \ref{prop.Tuv.lambda+mu} \textbf{(b)} yields that the matrix
+$T_{u,v}$ is invertible, and its inverse is $\left(  T_{u,v}\right)
+^{-1}=T_{u,v}$. Thus, $T_{u,v}T_{u,v}=I_{n}$. Hence, $\underbrace{T_{u,v}%
+T_{u,v}}_{=I_{n}}A=I_{n}A=A$, so that%
+\[
+A=T_{u,v}\underbrace{T_{u,v}A}_{=M_{1}M_{2}\cdots M_{s}}=T_{u,v}M_{1}%
+M_{2}\cdots M_{s}.
+\]
+But $T_{u,v}$ is a swapping matrix (by the definition of a \textquotedblleft
+swapping matrix\textquotedblright), and the matrices $M_{1},M_{2},\ldots
+,M_{s}$ are swapping matrices as well. Hence, $T_{u,v},M_{1},M_{2}%
+,\ldots,M_{s}$ are swapping matrices. Thus, $T_{u,v}M_{1}M_{2}\cdots M_{s}$ is
+a product of $s+1$ swapping matrices. In other words, $A$ is a product of
+$s+1$ swapping matrices (since $A=T_{u,v}M_{1}M_{2}\cdots M_{s}$). Hence, $A$
+is a product of at most $q$ swapping matrices (since $s+1\in\left\{
+0,1,\ldots,q\right\}  $). In other words,
+(\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) holds. Hence,
+(\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) is proven in Case 2.
+
+Now, we have proven (\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) in each of the
+two Cases 1 and 2. Hence, (\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) always
+holds. In other words, $A$ is a product of at most $q$ swapping matrices.
+
+Now, forget that we assumed that $A$ is an $\left(  n-q\right)  $-identical
+permutation matrix. Thus, we have shown that if $A$ is an $\left(  n-q\right)
+$-identical permutation matrix, then $A$ is a product of at most $q$ swapping
+matrices. In other words, Lemma \ref{lem.permat.Tuv.k-id.2} holds for $p=q$.
+This completes the induction step. Thus, Lemma \ref{lem.permat.Tuv.k-id.2} is
+proven by induction.
+\end{proof}
+
+Theorem \ref{thm.permat.Tuv} is now an easy consequence of the above:
+
+\begin{proof}
+[Proof of Theorem \ref{thm.permat.Tuv}.]$\Longleftarrow$: Lemma
+\ref{lem.permat.Tuv.prod-swap} says that any product of swapping matrices is a
+permutation matrix. Hence, if $C$ is a product of swapping matrices, then $C$
+is a permutation matrix. This proves the $\Longleftarrow$ direction of Theorem
+\ref{thm.permat.Tuv}.
+
+$\Longrightarrow$: We need to prove that if $C$ is a permutation matrix, then
+$C$ is a product of swapping matrices.
+
+So let us assume that $C$ is a permutation matrix. Clearly, the matrix $C$ is
+$0$-identical\footnote{\textit{Proof.} The matrix $C$ satisfies the equality
+$C_{1,1}=C_{2,2}=\cdots=C_{0,0}=1$ (in fact, this equality is vacuously true).
+But according to the definition of \textquotedblleft$0$%
+-identical\textquotedblright, this means precisely that $C$ is $0$-identical.
+Qed.}. In other words, the matrix $C$ is $\left(  n-n\right)  $-identical
+(since $0=n-n$). Thus, Lemma \ref{lem.permat.Tuv.k-id.2} (applied to $p=n$ and
+$C=A$) shows that $C$ is a product of at most $n$ swapping matrices. Hence,
+$C$ is a product of swapping matrices. This is precisely what we had to prove.
+This proves the $\Longrightarrow$ direction of Theorem \ref{thm.permat.Tuv}.
+Hence, the proof of Theorem \ref{thm.permat.Tuv} is complete.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.AB}.]Theorem \ref{thm.permat.Tuv}
+(applied to $C=A$) shows that $A$ is a permutation matrix if and only if $A$
+is a product of swapping matrices. Thus, $A$ is a product of swapping matrices
+(since $A$ is a permutation matrix). The same argument (applied to $B$ instead
+of $A$) shows that $B$ is a product of swapping matrices.
+
+Now, we know that each of the two matrices $A$ and $B$ is a product of
+swapping matrices. Hence, their product $AB$ is the product of two products of
+swapping matrices. Therefore, $AB$ is itself a product of swapping matrices
+(since a product of two products of swapping matrices must itself be a product
+of swapping matrices).
+
+Theorem \ref{thm.permat.Tuv} (applied to $C=AB$) shows that $AB$ is a
+permutation matrix if and only if $AB$ is a product of swapping matrices.
+Thus, $AB$ is a permutation matrix (since $AB$ is a product of swapping
+matrices). This proves Proposition \ref{prop.permat.AB}.
+\end{proof}
+
+Let us now come to the proof of Proposition \ref{prop.permat.inverse}. Parts
+\textbf{(a)} and \textbf{(c)} of Proposition \ref{prop.permat.inverse} could
+be verified similarly to how we have proved Theorem
+\ref{thm.triangular.inverse} (but using Theorem \ref{thm.permat.Tuv} now); but
+this would not help us proving part \textbf{(b)}. So we take a different path instead.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.inverse}.]We have assumed that $A$ is a
+permutation matrix. According to the definition of a \textquotedblleft
+permutation matrix\textquotedblright, this means that $A$ satisfies the
+following three statements:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $A$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $A$ has exactly one entry equal to $1$.
+\end{statement}
+
+Thus, we know that Statements 1, 2 and 3 are satisfied.
+
+We have $A^{T}=\left(  A_{j,i}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$ (by
+the definition of $A^{T}$). Hence,%
+\begin{equation}
+\left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for every }%
+i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,n\right\}  . \label{pf.prop.permat.inverse.c.1}%
+\end{equation}
+
+
+We are next going to show that%
+\begin{equation}
+A^{T}\text{ is a permutation matrix.} \label{pf.prop.permat.inverse.ATper}%
+\end{equation}
+[\textit{Proof of (\ref{pf.prop.permat.inverse.ATper}):} We must show that
+$A^{T}$ is a permutation matrix. According to the definition of a
+\textquotedblleft permutation matrix\textquotedblright, this means proving
+that $A^{T}$ satisfies the following three statements:
+
+\begin{statement}
+\textit{Statement 4:} Each entry of $A^{T}$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 5:} Each row of $A^{T}$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 6:} Each column of $A^{T}$ has exactly one entry equal to
+$1$.
+\end{statement}
+
+Hence, it remains to prove that Statements 4, 5 and 6 are satisfied.
+
+The definition of $A^{T}$ shows that the entries of $A^{T}$ are precisely the
+entries of $A$, just moved to different cells. Thus, Statement 4 follows from
+Statement 1. Hence, Statement 4 is satisfied.
+
+Let $i\in\left\{  1,2,\ldots,n\right\}  $. The $i$-th column of $A$ has
+exactly one entry equal to $1$ (by Statement 3). In other words, there exists
+exactly one $j\in\left\{  1,2,\ldots,n\right\}  $ satisfying $A_{j,i}=1$. In
+view of (\ref{pf.prop.permat.inverse.c.1}), this rewrites as follows: There
+exists exactly one $j\in\left\{  1,2,\ldots,n\right\}  $ satisfying $\left(
+A^{T}\right)  _{i,j}=1$. In other words, the $i$-th row of $A^{T}$ has exactly
+one entry equal to $1$.
+
+Now, forget that we fixed $i$. We thus have shown that for each $i\in\left\{
+1,2,\ldots,n\right\}  $, the $i$-th row of $A^{T}$ has exactly one entry equal
+to $1$. In other words, each row of $A^{T}$ has exactly one entry equal to
+$1$. This proves Statement 5.
+
+A similar argument (but with the roles of rows and columns switched, and also
+the roles of $i$ and $j$ switched, and using Statement 2 instead of Statement
+3) can be used to prove Statement 6.
+
+We thus have shown that Statements 4, 5 and 6 are satisfied. As we have said,
+this completes the proof of (\ref{pf.prop.permat.inverse.ATper}).]
+
+Every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,n\right\}  $ satisfy%
+\begin{equation}
+\left(  AA^{T}\right)  _{i,j}=\delta_{i,j}. \label{pf.prop.permat.inverse.a.1}%
+\end{equation}
+
+
+[\textit{Proof of (\ref{pf.prop.permat.inverse.a.1}):} Let $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}  $.
+
+The $i$-th row of $A$ has exactly one entry equal to $1$ (by Statement 2). In
+other words, there exists a unique $u\in\left\{  1,2,\ldots,n\right\}  $
+satisfying $A_{i,u}=1$. Consider this $u$. We have%
+\begin{equation}
+A_{i,k}=\delta_{k,u}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
+1,2,\ldots,n\right\}  \label{pf.prop.permat.inverse.a.1.pf.1}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.permat.inverse.a.1.pf.1}):} Let
+$k\in\left\{  1,2,\ldots,n\right\}  $. We must prove that $A_{i,k}%
+=\delta_{k,u}$.
+\par
+We will prove this by contradiction. Thus, assume the contrary. Hence,
+$A_{i,k}\neq\delta_{k,u}$.
+\par
+If we had $k=u$, then we would have $A_{i,k}=A_{i,u}=1=\delta_{k,u}$ (since
+$\delta_{k,u}=1$ (because $k=u$)), which would contradict $A_{i,k}\neq
+\delta_{k,u}$. Thus, we cannot have $k=u$. We therefore must have $k\neq u$.
+(Yes, we have just done a proof by contradiction inside a proof by
+contradiction. This is perfectly legitimate!)
+\par
+Since $k\neq u$, we have $\delta_{k,u}=0$. On the other hand, Statement 1
+shows that each entry of $A$ is either a $0$ or a $1$. In particular,
+$A_{i,k}$ is either a $0$ or a $1$ (since $A_{i,k}$ is an entry of $A$). Since
+$A_{i,k}$ is not a $0$ (because $A_{i,k}\neq\delta_{k,u}=0$), we therefore
+conclude that $A_{i,k}$ is a $1$. In other words, $A_{i,k}=1$.
+\par
+So we know that both numbers $A_{i,k}$ and $A_{i,u}$ are equal to $1$. These
+numbers $A_{i,k}$ and $A_{i,u}$ are two entries of the $i$-th row of $A$, and
+lie in different cells (since $k\neq u$). Thus, the $i$-th row of $A$ has at
+least two entries equal to $1$ (namely, the entries $A_{i,k}$ and $A_{i,u}$).
+This contradicts the fact that the $i$-th row of $A$ has exactly one entry
+equal to $1$. This contradiction shows that our assumption must have been
+false. Hence, $A_{i,k}=\delta_{k,u}$ is proven. In other words,
+(\ref{pf.prop.permat.inverse.a.1.pf.1}) is proven.}.
+
+On the other hand, the $u$-th column of $A$ has exactly one entry equal to $1$
+(by Statement 3). We can use this to show that%
+\begin{equation}
+A_{j,u}=\delta_{i,j} \label{pf.prop.permat.inverse.a.1.pf.2}%
+\end{equation}
+\footnote{\textit{Proof of (\ref{pf.prop.permat.inverse.a.1.pf.2}):} We will
+prove this by contradiction. Thus, assume the contrary. Hence, $A_{j,u}%
+\neq\delta_{i,j}$.
+\par
+If we had $i=j$, then we would have%
+\begin{align*}
+A_{j,u}  &  =A_{i,u}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }j=i\right) \\
+&  =1=\delta_{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\delta
+_{i,j}=1\text{ (because }i=j\text{)}\right)  ,
+\end{align*}
+which would contradict $A_{j,u}\neq\delta_{i,j}$. Thus, we cannot have $i=j$.
+We therefore must have $i\neq j$. (Once again, we have just made a proof by
+contradiction within a proof by contradiction.)
+\par
+Since $i\neq j$, we have $\delta_{i,j}=0$. On the other hand, Statement 1
+shows that each entry of $A$ is either a $0$ or a $1$. In particular,
+$A_{j,u}$ is either a $0$ or a $1$ (since $A_{j,u}$ is an entry of $A$). Since
+$A_{j,u}$ is not a $0$ (because $A_{j,u}\neq\delta_{i,j}=0$), we therefore
+conclude that $A_{j,u}$ is a $1$. In other words, $A_{j,u}=1$.
+\par
+So we know that both numbers $A_{i,u}$ and $A_{j,u}$ are equal to $1$. These
+numbers $A_{i,u}$ and $A_{j,u}$ are two entries of the $u$-th column of $A$,
+and lie in different cells (since $i\neq j$). Thus, the $u$-th column of $A$
+has at least two entries equal to $1$ (namely, the entries $A_{i,u}$ and
+$A_{j,u}$). This contradicts the fact that the $u$-th column of $A$ has
+exactly one entry equal to $1$. This contradiction shows that our assumption
+must have been false. Hence, $A_{j,u}=\delta_{i,j}$ is proven. In other words,
+(\ref{pf.prop.permat.inverse.a.1.pf.2}) is proven.}.
+
+But Proposition \ref{prop.AB} (applied to $m=n$, $p=n$ and $B=A^{T}$) shows
+that%
+\[
+\left(  AA^{T}\right)  _{i,j}=\sum_{k=1}^{n}\underbrace{A_{i,k}}%
+_{\substack{=\delta_{k,u}\\\text{(by (\ref{pf.prop.permat.inverse.a.1.pf.1}%
+))}}}\underbrace{\left(  A^{T}\right)  _{k,j}}_{\substack{=A_{j,k}\\\text{(by
+(\ref{pf.prop.permat.inverse.c.1}), applied}\\\text{to }k\text{ instead of
+}i\text{)}}}=\sum_{k=1}^{n}\delta_{k,u}A_{j,k}=\sum_{k=1}^{n}A_{j,k}%
+\delta_{k,u}=A_{j,u}%
+\]
+(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=n$, $r=u$ and
+$a_{k}=A_{j,k}$). Hence, $\left(  AA^{T}\right)  _{i,j}=A_{j,u}=\delta_{i,j}$
+(by (\ref{pf.prop.permat.inverse.a.1.pf.2})). This proves
+(\ref{pf.prop.permat.inverse.a.1}).]
+
+On the other hand, $I_{n}=\left(  \delta_{i,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq n}$. Hence, every $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,n\right\}  $ satisfy $\left(  I_{n}\right)
+_{i,j}=\delta_{i,j}$. Comparing this with (\ref{pf.prop.permat.inverse.a.1}),
+we find that every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $ satisfy $\left(  AA^{T}\right)  _{i,j}=\left(
+I_{n}\right)  _{i,j}$. In other words, each entry of the matrix $AA^{T}$
+equals the corresponding entry of $I_{n}$. Therefore, $AA^{T}=I_{n}$.
+
+Now, let us change our point of view. We have just shown that $AA^{T}=I_{n}$.
+But Proposition \ref{prop.permat.inverse} \textbf{(c)} shows that $A^{T}$ is a
+permutation matrix. Hence, the argument that we used to prove $AA^{T}=I_{n}$
+can also be applied to $A^{T}$ instead of $A$. It therefore yields
+$A^{T}\left(  A^{T}\right)  ^{T}=I_{n}$. Since $\left(  A^{T}\right)  ^{T}=A$
+(indeed, this follows from Proposition \ref{prop.transpose.invol}), this
+rewrites as $A^{T}A=I_{n}$.
+
+Now, the two equalities $AA^{T}=I_{n}$ and $A^{T}A=I_{n}$ (combined) show that
+the matrix $A^{T}$ is an inverse of $A$. Hence, the matrix $A$ is invertible,
+and its inverse is $A^{-1}=A^{T}$. This proves parts \textbf{(a)} and
+\textbf{(b)} of Proposition \ref{prop.permat.inverse}. It remains to prove
+part \textbf{(c)}. But this is obvious now: From
+(\ref{pf.prop.permat.inverse.ATper}), we know that $A^{T}$ is a permutation
+matrix. Since $A^{-1}=A^{T}$, this rewrites as follows: $A^{-1}$ is a
+permutation matrix. This proves Proposition \ref{prop.permat.inverse}
+\textbf{(c)}.
+\end{proof}
+
 [...]
 
 (to be continued)
@@ -10282,22 +11260,6 @@ There are $n!$ permutation matrices. (Reference for proof, or proof sketch?)
 \end{todo}
 
 \begin{todo}
-Examples of permutation matrices: $I_{n}$ and $T_{u,v}$. (Proof?)
-\end{todo}
-
-\begin{todo}
-Switching rows in a permutation matrix returns a permutation matrix.
-\end{todo}
-
-\begin{todo}
-Thus, products of permutation matrices are permutation matrices.
-\end{todo}
-
-\begin{todo}
-Permutation matrices are products of $T_{u,v}$'s.
-\end{todo}
-
-\begin{todo}
 (*) Permutation matrices are products of $T_{k,k+1}$'s.
 \end{todo}
 
@@ -10306,10 +11268,6 @@ Permutation matrices act by permuting rows: If $P$ is a permutation matrix and
 $C$ is any matrix, then $PC$ has the same rows as $C$ but (possibly) in a
 different order. Similarly, $CP$ has the same columns as $C$ but (possibly) in
 a different order.
-\end{todo}
-
-\begin{todo}
-Permutation matrices are invertible, and their inverses are permutation matrices.
 \end{todo}
 
 \subsection{%
@@ -10533,12 +11491,12 @@ Apart from that, lots of other texts define and discuss determinants: some
 sloppily, some rather well.\footnote{Olver's and Shakiban's treatment of
 determinants in \cite[\S 1.9]{OlvSha06} is very minimalistic and incomplete
 (in particular, they never bother proving that the determinant is
-well-defined), but various other books do it well. On the opposite\ side of
-the spectrum, two really rigorous and detailed treatments are Gill
-Williamson's notes \cite[Chapter 3]{Gill} and my \cite{detnotes}; but the
-downside of \textquotedblleft rigorous\textquotedblright\ is \textquotedblleft
-unmotivated and lacking intuition\textquotedblright, and the downside of
-\textquotedblleft detailed\textquotedblright\ is \textquotedblleft extremely
+well-defined), but various other books do it well. On the opposite side of the
+spectrum, two really rigorous and detailed treatments are Gill Williamson's
+notes \cite[Chapter 3]{Gill} and my \cite{detnotes}; but the downside of
+\textquotedblleft rigorous\textquotedblright\ is \textquotedblleft unmotivated
+and lacking intuition\textquotedblright, and the downside of \textquotedblleft
+detailed\textquotedblright\ is \textquotedblleft extremely
 long\textquotedblright. You will want to strike your own balance. As I said, I
 recommend \cite[Chapter 8]{LaNaSc16}.} When reading other sources, be aware of
 a possible conflict of notations: Namely, we are using the notation $A_{i,j}$
@@ -10871,6 +11829,10 @@ Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
 \bibitem[m.se709196]{m.se709196}Daniela Diaz and others, \textit{Definition of
 General Associativity for binary operations}, math.stackexchange question
 \#709196 .\newline\url{http://math.stackexchange.com/q/709196}
+
+\bibitem[Stanle12]{Stanley-EC1}Richard P. Stanley, \textit{Enumerative
+Combinatorics, Volume 1}, 2nd edition, CUP 2012.\newline See
+\url{http://math.mit.edu/~rstan/ec/ec1/} for a preliminary version.
 
 \bibitem[Treil15]{Treil15}Sergei Treil, \textit{Linear Algebra Done Wrong},
 2015.\newline\url{https://www.math.brown.edu/~treil/papers/LADW/book.pdf}
