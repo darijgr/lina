@@ -1089,6 +1089,61 @@ d
 \right)  $.
 \end{exercise}
 
+\begin{exercise}
+\label{exe.some-products.mt1p}\textbf{(a)} Let $A_{3}=\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+1 & 0 & 1\\
+0 & 1 & 0
+\end{array}
+\right)  $ and $B_{3}=\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 1\\
+0 & 1 & 0\\
+1 & 0 & 1
+\end{array}
+\right)  $. Compute $A_{3}^{2}$, $B_{3}^{2}$, $A_{3}B_{3}$ and $B_{3}A_{3}$.
+
+\textbf{(b)} Let $A_{4}=\left(
+\begin{array}
+[c]{cccc}%
+0 & 1 & 0 & 1\\
+1 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+1 & 0 & 1 & 0
+\end{array}
+\right)  $ and $B_{4}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 1 & 0\\
+0 & 1 & 0 & 1\\
+1 & 0 & 1 & 0\\
+0 & 1 & 0 & 1
+\end{array}
+\right)  $. Compute $A_{4}^{2}$, $B_{4}^{2}$, $A_{4}B_{4}$ and $B_{4}A_{4}$.
+
+\textbf{(c)} For any $n\in\mathbb{N}$, define two \textquotedblleft
+checkerboard-pattern\textquotedblright\ $n\times n$-matrices $A_{n}$ and
+$B_{n}$ by%
+\[
+A_{n}=\left(  \left(  i+j\right)  \%2\right)  _{1\leq i\leq n,\ 1\leq j\leq
+n},\ \ \ \ \ \ \ \ \ \ B_{n}=\left(  \left(  i+j-1\right)  \%2\right)  _{1\leq
+i\leq n,\ 1\leq j\leq n},
+\]
+where $k\%2$ denotes the remainder left when $k$ is divided by $2$ (so $k\%2=%
+\begin{cases}
+1, & \text{if }k\text{ is even;}\\
+0, & \text{if }k\text{ is odd}%
+\end{cases}
+$). (The matrices $A_{3}$ and $B_{3}$ in part \textbf{(a)} of this problem, as
+well as the matrices $A_{4}$ and $B_{4}$ in its part \textbf{(b)}, are
+particular cases of this construction.) Prove that each \textbf{even}
+$n\in\mathbb{N}$ satisfies $A_{n}^{2}=B_{n}^{2}$ and $A_{n}B_{n}=B_{n}A_{n}$.
+Prove that each \textbf{odd} $n\geq3$ satisfies $A_{n}B_{n}\neq B_{n}A_{n}$.
+\end{exercise}
+
 \subsection{The matrix product rewritten}
 
 Let me show another way to restate our above definition of a product of two
@@ -8817,7 +8872,7 @@ of Theorem \ref{thm.triangular.Slamu}. Hence, the proof of Theorem
 
 \begin{remark}
 Our proof of Theorem \ref{thm.triangular.Slamu} (specifically, of its
-$\Longrightarrow$ direction) actually gives an explicit representation of a
+$\Longrightarrow$ direction) actually gives an explicit representation of an
 invertibly lower-triangular $n\times n$-matrix $C$ as a product of scaling
 matrices and lower addition matrices. We leave the details to the reader.
 \end{remark}
@@ -9959,7 +10014,7 @@ Now, the definition of $T_{u,v}$ yields $T_{u,v}=I_{n}-E_{u,u}-E_{v,v}%
 &  \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}%
 \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}\\
 &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \left(
-I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \\
+I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right) \\
 &  =\underbrace{I_{n}\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)
 }_{=I_{n}I_{n}-I_{n}E_{u,u}-I_{n}E_{v,v}+I_{n}E_{u,v}+I_{n}E_{v,u}}\\
 &  \ \ \ \ \ \ \ \ \ \ -\underbrace{E_{u,u}\left(  I_{n}-E_{u,u}%
@@ -9978,7 +10033,7 @@ I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  \\
 \begin{align*}
 &  =\left(  \underbrace{I_{n}I_{n}}_{=I_{n}}-\underbrace{I_{n}E_{u,u}%
 }_{=E_{u,u}}-\underbrace{I_{n}E_{v,v}}_{=E_{v,v}}+\underbrace{I_{n}E_{u,v}%
-}_{=E_{u,v}}+\underbrace{I_{n}E_{v,u}}_{=E_{v,u}}\right)  \\
+}_{=E_{u,v}}+\underbrace{I_{n}E_{v,u}}_{=E_{v,u}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{u,u}I_{n}}_{=E_{u,u}%
 }-\underbrace{E_{u,u}E_{u,u}}_{\substack{=E_{u,u}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=u\text{, }x=u\text{
@@ -9988,7 +10043,7 @@ n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
 }i=u\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,u}E_{v,u}%
 }_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
-applied}\\\text{to }i=u\text{ and }y=u\text{)}}}\right)  \\
+applied}\\\text{to }i=u\text{ and }y=u\text{)}}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  \underbrace{E_{v,v}I_{n}}_{=E_{v,v}%
 }-\underbrace{E_{v,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=v\text{ and
@@ -9998,7 +10053,7 @@ and }y=v\text{)}}}+\underbrace{E_{v,v}E_{u,v}}_{\substack{=0_{n\times
 n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
 }i=v\text{ and }y=v\text{)}}}+\underbrace{E_{v,v}E_{v,u}}_{\substack{=E_{v,u}%
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
-}i=v\text{, }x=v\text{ and }y=u\text{)}}}\right)  \\
+}i=v\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{u,v}I_{n}}_{=E_{u,v}%
 }-\underbrace{E_{u,v}E_{u,u}}_{\substack{=0_{n\times n}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to }i=u\text{ and
@@ -10008,7 +10063,7 @@ and }y=v\text{)}}}+\underbrace{E_{u,v}E_{u,v}}_{\substack{=0_{n\times
 n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.3}), applied}\\\text{to
 }i=u\text{ and }y=v\text{)}}}+\underbrace{E_{u,v}E_{v,u}}_{\substack{=E_{u,u}%
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
-}i=u\text{, }x=v\text{ and }y=u\text{)}}}\right)  \\
+}i=u\text{, }x=v\text{ and }y=u\text{)}}}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  \underbrace{E_{v,u}I_{n}}_{=E_{v,u}%
 }-\underbrace{E_{v,u}E_{u,u}}_{\substack{=E_{v,u}\\\text{(by
 (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to }i=v\text{, }x=u\text{
@@ -10018,14 +10073,14 @@ n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}), applied}\\\text{to
 \\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.4}), applied}\\\text{to
 }i=v\text{, }x=u\text{ and }y=v\text{)}}}+\underbrace{E_{v,u}E_{v,u}%
 }_{\substack{=0_{n\times n}\\\text{(by (\ref{pf.prop.Tuv.lambda+mu.2nd.2}),
-applied}\\\text{to }i=v\text{ and }y=u\text{)}}}\right)  \\
+applied}\\\text{to }i=v\text{ and }y=u\text{)}}}\right) \\
 &  =\left(  I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  -\left(
-E_{u,u}-E_{u,u}-0_{n\times n}+E_{u,v}+0_{n\times n}\right)  \\
+E_{u,u}-E_{u,u}-0_{n\times n}+E_{u,v}+0_{n\times n}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ -\left(  E_{v,v}-0_{n\times n}-E_{v,v}+0_{n\times
 n}+E_{v,u}\right)  +\left(  E_{u,v}-0_{n\times n}-E_{u,v}+0_{n\times
-n}+E_{u,u}\right)  \\
+n}+E_{u,u}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ +\left(  E_{v,u}-E_{v,u}-0_{n\times n}+E_{v,v}%
-+0_{n\times n}\right)  \\
++0_{n\times n}\right) \\
 &  =I_{n}.
 \end{align*}
 
