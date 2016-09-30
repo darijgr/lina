@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, September 29, 2016 02:06:35}
+%TCIDATA{LastRevised=Friday, September 30, 2016 18:34:04}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -7280,7 +7280,7 @@ c & d & e & 0\\
 f & g & h & i\\
 j & k & l & m
 \end{array}
-\right)  $ for some numbers $a,b,c,d,e,f,g,h,i,j,k,l,m,n$.
+\right)  $ for some numbers $a,b,c,d,e,f,g,h,i,j,k,l,m$.
 
 \item A $4\times4$-matrix is $0$-lower-triangular if and only if it has the
 form $\left(
@@ -9271,17 +9271,17 @@ obtain $v_{1}=v_{2}=\cdots=v_{r-1}=0$. This proves Claim 2.]
 In other words,%
 \begin{equation}
 v_{\ell}=0\ \ \ \ \ \ \ \ \ \ \text{for each }\ell\in\left\{  1,2,\ldots
-,r-1\right\}  .\label{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+,r-1\right\}  . \label{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 \end{equation}
 But (\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) (applied to $i=r$) yields
 \begin{align*}
-v_{r} &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\left(  A_{r,1}\underbrace{v_{1}%
+v_{r}  &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\left(  A_{r,1}\underbrace{v_{1}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 ), applied}\\\text{to }\ell=1\text{)}}}+A_{r,2}\underbrace{v_{2}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 ), applied}\\\text{to }\ell=2\text{)}}}+\cdots+A_{r,r-1}\underbrace{v_{r-1}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
-), applied}\\\text{to }\ell=r-1\text{)}}}\right)  \right)  \\
+), applied}\\\text{to }\ell=r-1\text{)}}}\right)  \right) \\
 &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\underbrace{\left(  A_{r,1}0+A_{r,2}%
 0+\cdots+A_{r,r-1}0\right)  }_{=0}\right)  =\dfrac{1}{A_{r,r}}b_{r}.
 \end{align*}
@@ -10201,11 +10201,14 @@ called the \textquotedblleft factorial of $n$\textquotedblright. For instance,
 $5!=1\cdot2\cdot3\cdot4\cdot5=120$.)
 \end{proposition}
 
+We will outline a proof of Proposition \ref{prop.permat.n!} in Section
+\ref{sect.gauss.permat.perms}.
+
 \begin{example}
 Proposition \ref{prop.permat.n!} (applied to $n=3$) says that there are
 precisely $3!=6$ permutation matrices of size $3\times3$. Here are they:%
 \begin{align*}
-I_{3}  &  =\left(
+I_{3} &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -10220,7 +10223,7 @@ I_{3}  &  =\left(
 0 & 0 & 1
 \end{array}
 \right)  ,\\
-T_{1,3}  &  =\left(
+T_{1,3} &  =\left(
 \begin{array}
 [c]{ccc}%
 0 & 0 & 1\\
@@ -10235,7 +10238,7 @@ T_{1,3}  &  =\left(
 0 & 1 & 0
 \end{array}
 \right)  ,\\
-A  &  =\left(
+A &  =\left(
 \begin{array}
 [c]{ccc}%
 0 & 0 & 1\\
@@ -10293,7 +10296,8 @@ the same columns as $I_{n}$ but (possibly) in a different order.
 the form $\left(  \delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq
 n,\ 1\leq j\leq n}$ for some bijective map $w:\left\{  1,2,\ldots,n\right\}
 \rightarrow\left\{  1,2,\ldots,n\right\}  $. (This is the definition used in
-Stanley's \cite[\S 1.5]{Stanley-EC1}.)
+Stanley's \cite[\S 1.5]{Stanley-EC1}. We will discuss it in some more detail
+in Section \ref{sect.gauss.permat.perms}.)
 \end{itemize}
 
 The equivalence of all these definitions is easy to see (once Theorem
@@ -11255,15 +11259,429 @@ permutation matrix. This proves Proposition \ref{prop.permat.inverse}
 \textbf{(c)}.
 \end{proof}
 
+\subsection{\label{sect.gauss.permat.perms}(*) Permutation matrices and
+permutations}
+
+In Definition \ref{def.permat}, we have defined permutation matrices as
+matrices satisfying three particular conditions. This may not be their most
+natural definition, and certainly has the disadvantage of making them looking
+as curiosities rather than as something important. In this section, I shall
+show a different approach to them which better demonstrates their
+significance. The idea is that permutation matrices are matrix representations
+of \textit{permutations}, a fundamental notion of combinatorics (= the theory
+of finite sets).
+
+First, let me recall some basic terminology:
+
+\begin{itemize}
+\item A map\footnote{The words \textquotedblleft map\textquotedblright,
+\textquotedblleft mapping\textquotedblright, \textquotedblleft
+function\textquotedblright, \textquotedblleft transformation\textquotedblright%
+\ and \textquotedblleft operator\textquotedblright\ are synonyms in
+mathematics. (That said, mathematicians often show some nuance by using one of
+them and not the other. However, we do not need to concern ourselves with this
+here.)} $f:X\rightarrow Y$ between two sets $X$ and $Y$ is said to be
+\textit{injective} if it has the following property: If $x_{1}$ and $x_{2}$
+are two elements of $X$ satisfying $f\left(  x_{1}\right)  =f\left(
+x_{2}\right)  $, then $x_{1}=x_{2}$. (In words: If two elements of $X$ are
+sent to one and the same element of $Y$ by $f$, then these two elements of $X$
+must have been equal in the first place. In other words: An element of $X$ is
+uniquely determined by its image under $f$.) Injective maps are often called
+\textquotedblleft one-to-one maps\textquotedblright\ or \textquotedblleft
+injections\textquotedblright.
+
+For example:
+
+\begin{itemize}
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto2x$ (this is the map
+that sends each integer $x$ to $2x$) is injective, because if $x_{1}$ and
+$x_{2}$ are two integers satisfying $2x_{1}=2x_{2}$, then $x_{1}=x_{2}$.
+
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x^{2}$ (this is the
+map that sends each integer $x$ to $x^{2}$) is \textbf{not} injective, because
+if $x_{1}$ and $x_{2}$ are two integers satisfying $x_{1}^{2}=x_{2}^{2}$, then
+we do not necessarily have $x_{1}=x_{2}$. (For example, if $x_{1}=-1$ and
+$x_{2}=1$, then $x_{1}^{2}=x_{2}^{2}$ but not $x_{1}=x_{2}$.)
+\end{itemize}
+
+\item A map $f:X\rightarrow Y$ between two sets $X$ and $Y$ is said to be
+\textit{surjective} if it has the following property: For each $y\in Y$, there
+exists some $x\in X$ satisfying $f\left(  x\right)  =y$. (In words: Each
+element of $Y$ is an image of some element of $X$ under $f$.) Surjective maps
+are often called \textquotedblleft onto maps\textquotedblright\ or
+\textquotedblleft surjections\textquotedblright.
+
+For example:
+
+\begin{itemize}
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x+1$ (this is the
+map that sends each integer $x$ to $x+1$) is surjective, because each integer
+$y$ has some integer satisfying $x+1=y$ (namely, $x=y-1$).
+
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto2x$ (this is the map
+that sends each integer $x$ to $2x$) is \textbf{not} surjective, because not
+each integer $y$ has some integer $x$ satisfying $2x=y$. (For instance, $y=1$
+has no such $x$, since $y$ is odd.)
+
+\item The map $\left\{  1,2,3,4\right\}  \rightarrow\left\{
+1,2,3,4,5\right\}  ,\ x\mapsto x$ (this is the map sending each $x$ to $x$) is
+\textbf{not} surjective, because not each $y\in\left\{  1,2,3,4,5\right\}  $
+has some $x\in\left\{  1,2,3,4\right\}  $ satisfying $x=y$. (Namely, $y=5$ has
+no such $x$.)
+\end{itemize}
+
+\item A map $f:X\rightarrow Y$ between two sets $X$ and $Y$ is said to be
+\textit{bijective} if it is both injective and surjective. Bijective maps are
+often called \textquotedblleft one-to-one correspondences\textquotedblright%
+\ or \textquotedblleft bijections\textquotedblright.
+
+For example:
+
+\begin{itemize}
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x+1$ is bijective,
+since it is both injective and surjective.
+
+\item The map $\left\{  1,2,3,4\right\}  \rightarrow\left\{
+1,2,3,4,5\right\}  ,\ x\mapsto x$ is \textbf{not} bijective, since it is not surjective.
+
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x^{2}$ is
+\textbf{not} bijective, since it is not injective. (It also is not surjective.)
+\end{itemize}
+
+\item If $X$ is a set, then $\operatorname*{id}\nolimits_{X}$ denotes the map
+from $X$ to $X$ that sends each $x\in X$ to $x$ itself. (In words:
+$\operatorname*{id}\nolimits_{X}$ denotes the map which sends each element of
+$X$ to itself.) The map $\operatorname*{id}\nolimits_{X}$ is often called the
+\textit{identity map on }$X$, and often denoted by $\operatorname*{id}$ (when
+$X$ is clear from the context or irrelevant).
+
+\item If $f:X\rightarrow Y$ and $g:Y\rightarrow Z$ are two maps, then the
+\textit{composition} $g\circ f$ of the maps $g$ and $f$ is defined to be the
+map from $X$ to $Z$ that sends each $x\in X$ to $g\left(  f\left(  x\right)
+\right)  $. (In words: The composition $g\circ f$ is the map from $X$ to $Z$
+that applies the map $f$ \textbf{first} and \textbf{then} applies the map
+$g$.) You might find it confusing that this map is denoted by $g\circ f$
+(rather than $f\circ g$), given that it proceeds by applying $f$ first and $g$
+last; however, this has its reasons: It satisfies $\left(  g\circ f\right)
+\left(  x\right)  =g\left(  f\left(  x\right)  \right)  $. Arguably, having
+$\left(  f\circ g\right)  \left(  x\right)  $ equal $g\left(  f\left(
+x\right)  \right)  $ would be even more confusing.
+
+\item If $f:X\rightarrow Y$ is a map between two sets $X$ and $Y$, then an
+\textit{inverse} of $f$ means a map $g:Y\rightarrow X$ satisfying $f\circ
+g=\operatorname*{id}\nolimits_{Y}$ and $g\circ f=\operatorname*{id}%
+\nolimits_{X}$. (In words, the condition \textquotedblleft$f\circ
+g=\operatorname*{id}\nolimits_{Y}$\textquotedblright\ means \textquotedblleft
+if you start with some element $y\in Y$, then apply $g$, then apply $f$, then
+you get $y$ back\textquotedblright, or equivalently \textquotedblleft the map
+$f$ undoes the map $g$\textquotedblright. Similarly, the condition
+\textquotedblleft$g\circ f=\operatorname*{id}\nolimits_{X}$\textquotedblright%
+\ means \textquotedblleft if you start with some element $x\in X$, then apply
+$f$, then apply $g$, then you get $x$ back\textquotedblright, or equivalently
+\textquotedblleft the map $g$ undoes the map $f$\textquotedblright. Thus, an
+inverse of $f$ means a map $g:Y\rightarrow X$ that both undoes and is undone
+by $f$.)
+
+The map $f:X\rightarrow Y$ is said to be \textit{invertible} if and only if an
+inverse of $f$ exists. If an inverse of $f$ exists, then it is
+unique\footnote{This is not hard to show. In fact, the situation is very
+similar to inverses of matrices; in particular, we can define
+\textquotedblleft left inverses\textquotedblright\ and \textquotedblleft right
+inverses\textquotedblright, and prove analogues of Proposition
+\ref{prop.inverses.L=R} and Corollary \ref{cor.inverses.unique} for maps
+instead of matrices.}, and thus is called \textit{the inverse of }$f$, and is
+denoted by $f^{-1}$.
+
+For example:
+
+\begin{itemize}
+\item The map $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x+1$ is invertible,
+and its inverse is $\mathbb{Z}\rightarrow\mathbb{Z},\ x\mapsto x-1$.
+
+\item The map $\mathbb{Q}\setminus\left\{  1\right\}  \rightarrow
+\mathbb{Q}\setminus\left\{  0\right\}  ,\ x\mapsto\dfrac{1}{1-x}$ is
+invertible, and its inverse is the map $\mathbb{Q}\setminus\left\{  0\right\}
+\rightarrow\mathbb{Q}\setminus\left\{  1\right\}  ,\ x\mapsto1-\dfrac{1}{x}$.
+\end{itemize}
+
+A map $f:X\rightarrow Y$ is invertible if and only if it is bijective.
+
+\item If $X$ is a set, then a \textit{permutation} of $X$ means a bijective
+(i.e., invertible) map $X\rightarrow X$.
+\end{itemize}
+
+Each permutation of the set $\left\{  1,2,\ldots,n\right\}  $ (for any
+$n\in\mathbb{N}$) determines a permutation matrix:
+
+\begin{definition}
+\label{def.permat.permat-from-perm}Let $n\in\mathbb{N}$. Let $w$ be a
+permutation of $\left\{  1,2,\ldots,n\right\}  $ (that is, a bijection
+$\left\{  1,2,\ldots,n\right\}  \rightarrow\left\{  1,2,\ldots,n\right\}  $).
+Then, we define an $n\times n$-matrix $P_{w}$ by $P_{w}=\left(  \delta
+_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$. In other
+words, $P_{w}$ is the $n\times n$-matrix with the following entries:
+
+\begin{itemize}
+\item For each $i\in\left\{  1,2,\ldots,n\right\}  $, the $i$-th row has an
+entry equal to $1$ in the $w\left(  i\right)  $-th position (that is, the
+$\left(  i,w\left(  i\right)  \right)  $-th entry of the matrix is $1$).
+
+\item All other entries are $0$.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+Let $n=4$. There are $24$ permutations of the set $\left\{  1,2,3,4\right\}
+$. One of them is the map $u:\left\{  1,2,3,4\right\}  \rightarrow\left\{
+1,2,3,4\right\}  $ that sends $1,2,3,4$ to $3,1,4,2$, respectively. The matrix
+$P_{u}$ corresponding to this map $u$ is $\left(
+\begin{array}
+[c]{cccc}%
+0 & 0 & 1 & 0\\
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 1 & 0 & 0
+\end{array}
+\right)  $.
+\end{example}
+
+\begin{proposition}
+\label{prop.permat.permat-from-perm}Let $n\in\mathbb{N}$.
+
+\textbf{(a)} If $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $,
+then $P_{w}$ is a permutation matrix.
+
+\textbf{(b)} Let $P$ be a permutation matrix of size $n\times n$. Then, there
+exists a \textbf{unique} permutation $w$ of $\left\{  1,2,\ldots,n\right\}  $
+such that $P=P_{w}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.permat-from-perm} (sketched).]
+\textbf{(a)} Let $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $.
+Thus, $w$ is a bijective map, i.e., an injective and surjective map.
+
+We want to show that $P_{w}$ is a permutation matrix. According to the
+definition of a \textquotedblleft permutation matrix\textquotedblright, we
+must prove the following three statements:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $P_{w}$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $P_{w}$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $P_{w}$ has exactly one entry equal to
+$1$.
+\end{statement}
+
+Statement 1 follows immediately from the definition of $P_{w}$.
+
+Statement 2 follows from the definition as well: For each $i\in\left\{
+1,2,\ldots,n\right\}  $, the $i$-th row of $P_{w}$ has exactly one entry equal
+to $1$ (namely, the entry in position $w\left(  i\right)  $).
+
+It remains to prove Statement 3. Fix $j\in\left\{  1,2,\ldots,n\right\}  $. We
+must show that the $j$-th column of $P_{w}$ has exactly one entry equal to
+$1$. In other words, we must prove that there exists exactly one $i\in\left\{
+1,2,\ldots,n\right\}  $ satisfying $w\left(  i\right)  =j$.
+
+Since $w$ is surjective, there exists \textbf{at least one} such $i$. Since
+$w$ is injective, there exists \textbf{at most one} such $i$ (because if
+$i_{1}$ and $i_{2}$ are two such $i$, then $w\left(  i_{1}\right)  =j$ and
+$w\left(  i_{2}\right)  =j$, so that $w\left(  i_{1}\right)  =w\left(
+i_{2}\right)  $, and thus the injectivity of $w$ leads to $i_{1}=i_{2}$).
+Combining the previous two sentences, we conclude that there exists
+\textbf{exactly one} such $i$. Thus, Statement 3 is proven.
+
+We have now proven all three Statements 1, 2 and 3. Hence, $P_{w}$ is a
+permutation matrix, so that we have proven Proposition
+\ref{prop.permat.permat-from-perm} \textbf{(a)}.
+
+\textbf{(b)} We know that $P$ is a permutation matrix. In other words, the
+following three statements hold:
+
+\begin{statement}
+\textit{Statement 1:} Each entry of $P$ is either a $0$ or a $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 2:} Each row of $P$ has exactly one entry equal to $1$.
+\end{statement}
+
+\begin{statement}
+\textit{Statement 3:} Each column of $P$ has exactly one entry equal to $1$.
+\end{statement}
+
+Now, define a map $w:\left\{  1,2,\ldots,n\right\}  \rightarrow\left\{
+1,2,\ldots,n\right\}  $ as follows:
+
+Let $i\in\left\{  1,2,\ldots,n\right\}  $. Then, the $i$-th row of $P$ has
+exactly one entry equal to $1$ (by Statement 1). In other words, there exists
+exactly one $j\in\left\{  1,2,\ldots,n\right\}  $ such that $P_{i,j}=1$.
+Define $w\left(  i\right)  $ to be this $j$.
+
+Thus, we have defined $w\left(  i\right)  $ for each $i\in\left\{
+1,2,\ldots,n\right\}  $. Hence, the map $w:\left\{  1,2,\ldots,n\right\}
+\rightarrow\left\{  1,2,\ldots,n\right\}  $ is defined.
+
+Described in words, the map $w$ sends each $i\in\left\{  1,2,\ldots,n\right\}
+$ to the position of the unique entry equal to $1$ in the $i$-th row of $P$.
+Condition 1 shows that all the other entries are zeroes. Thus, the matrix $P$
+equals $\left(  \delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq
+j\leq n}$.
+
+Now, the map $w$ is injective\footnote{\textit{Proof.} Let $i_{1}$ and $i_{2}$
+be two elements of $\left\{  1,2,\ldots,n\right\}  $ such that $w\left(
+i_{1}\right)  =w\left(  i_{2}\right)  $. We must show that $i_{1}=i_{2}$.
+\par
+We have $P_{i_{1},w\left(  i_{1}\right)  }=1$ (by the definition of $w$) and
+$P_{i_{2},w\left(  i_{2}\right)  }=1$ (similarly). Since $w\left(
+i_{1}\right)  =w\left(  i_{2}\right)  $, we have $P_{i_{2},w\left(
+i_{1}\right)  }=P_{i_{2},w\left(  i_{2}\right)  }=1$.
+\par
+If $i_{1}\neq i_{2}$, then the equalities $P_{i_{1},w\left(  i_{1}\right)
+}=1$ and $P_{i_{2},w\left(  i_{1}\right)  }=1$ show that the $w\left(
+i_{1}\right)  $-th column of $P$ has (at least) two entries equal to $1$
+(namely, the entries in cells $\left(  i_{1},w\left(  i_{1}\right)  \right)  $
+and $\left(  i_{2},w\left(  i_{1}\right)  \right)  $); but this flies in the
+face of the fact that the $w\left(  i_{1}\right)  $-th column of $P$ has
+exactly one entry equal to $1$ (which follows from Statement 3). Hence, we
+cannot have $i_{1}\neq i_{2}$. We thus have $i_{1}=i_{2}$. This completes the
+proof that $w$ is injective.} and surjective\footnote{\textit{Proof.} Let
+$j\in\left\{  1,2,\ldots,n\right\}  $. Then, the $j$-th column of $P$ has
+exactly one entry equal to $1$ (by Statement 3). In other words, there exists
+exactly one $i\in\left\{  1,2,\ldots,n\right\}  $ such that $P_{i,j}=1$.
+Consider this $i$. Then, $P_{i,j}=1$, so that $w\left(  i\right)  =j$ (by the
+definition of $w$). Hence, we have shown that, for each $j\in\left\{
+1,2,\ldots,n\right\}  $, there exists some $i\in\left\{  1,2,\ldots,n\right\}
+$ satisfying $w\left(  i\right)  =j$. In other words, the map $w$ is
+surjective.}. Hence, $w$ is bijective. Thus, $w$ is a permutation of $\left\{
+1,2,\ldots,n\right\}  $. The definition of $P_{w}$ thus yields $P_{w}=\left(
+\delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
+Comparing this with $P=\left(  \delta_{w\left(  i\right)  ,j}\right)  _{1\leq
+i\leq n,\ 1\leq j\leq n}$, we obtain $P=P_{w}$.
+
+We thus have shown that there exists \textbf{at least one} permutation $w$ of
+$\left\{  1,2,\ldots,n\right\}  $ such that $P=P_{w}$. It remains to prove
+that there exists \textbf{at most one} such permutation $w$. Fortunately, this
+is easy: The requirement that $P=P_{w}$ determines $w$ uniquely, since the
+values of $w$ can be read off the matrix $P_{w}$ (namely, $w\left(  i\right)
+$ is the position of the entry equal to $1$ in the $i$-th row of $P_{w}$).
+Hence, Proposition \ref{prop.permat.permat-from-perm} \textbf{(b)} is proven.
+\end{proof}
+
+Proposition \ref{prop.permat.permat-from-perm} shows that the permutation
+matrices of size $n\times n$ (for any given $n\in\mathbb{N}$) are precisely
+the matrices of the form $P_{w}$ with $w$ being a permutation of $\left\{
+1,2,\ldots,n\right\}  $. Moreover, it shows that each permutation matrix can
+be written in this form in a unique way. Hence, the map%
+\begin{align*}
+\left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}    &
+\rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
+w  & \mapsto P_{w}%
+\end{align*}
+is a bijection. Therefore, there are as many permutation matrices of size
+$n\times n$ as there are permutations of $\left\{  1,2,\ldots,n\right\}  $.
+This allows us to prove Proposition \ref{prop.permat.n!}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.n!} (sketched).]We have just seen that
+there are as many permutation matrices of size $n\times n$ as there are
+permutations of $\left\{  1,2,\ldots,n\right\}  $. Hence, it suffices to show
+that there are precisely $n!$ permutations of $\left\{  1,2,\ldots,n\right\}
+$.
+
+How do we choose a permutation $w$ of $\left\{  1,2,\ldots,n\right\}  $ ?
+Clearly, it suffices to choose each of its $n$ values $w\left(  1\right)
+,w\left(  2\right)  ,\ldots,w\left(  n\right)  $ among the numbers in the set
+$\left\{  1,2,\ldots,n\right\}  $. Clearly, these $n$ values must be distinct
+(because $w$ has to be a permutation, and thus injective). Also, these $n$
+values must cover all of the set $\left\{  1,2,\ldots,n\right\}  $ (since $w$
+has to be a permutation, and thus surjective); however, it turns out that this
+is already guaranteed if we choose these $n$ values to be distinct (because
+$n$ distinct values chosen among the numbers in $\left\{  1,2,\ldots
+,n\right\}  $ will \textbf{always} cover all of the set $\left\{
+1,2,\ldots,n\right\}  $). Hence, we need to choose $n$ distinct numbers
+$w\left(  1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n\right)  $ among the
+numbers in the set $\left\{  w\left(  1\right)  ,w\left(  2\right)
+,\ldots,w\left(  n\right)  \right\}  $. Here is one way to do this:
+
+\begin{itemize}
+\item First, choose a value for $w\left(  1\right)  $. There are $n$ possible
+choices for this (since $w\left(  1\right)  $ has to belong to $\left\{
+1,2,\ldots,n\right\}  $).
+
+\item Second, choose a value for $w\left(  2\right)  $. There are $n-1$
+possible choices for this (since $w\left(  2\right)  $ has to belong to
+$\left\{  1,2,\ldots,n\right\}  $, but must not equal $w\left(  1\right)  $,
+since we want the $n$ numbers $w\left(  1\right)  ,w\left(  2\right)
+,\ldots,w\left(  n\right)  $ to be distinct).
+
+\item Third, choose a value for $w\left(  3\right)  $. There are $n-2$
+possible choices for this (since $w\left(  3\right)  $ has to belong to
+$\left\{  1,2,\ldots,n\right\}  $, but must not equal any of $w\left(
+1\right)  $ and $w\left(  2\right)  $, since we want the $n$ numbers $w\left(
+1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n\right)  $ to be distinct).
+
+\item Fourth, choose a value for $w\left(  4\right)  $. There are $n-3$
+possible choices for this (since $w\left(  4\right)  $ has to belong to
+$\left\{  1,2,\ldots,n\right\}  $, but must not equal any of $w\left(
+1\right)  ,w\left(  2\right)  ,w\left(  3\right)  $, since we want the $n$
+numbers $w\left(  1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n\right)  $
+to be distinct).
+
+\item And so on.
+
+\item At the last setep, choose a value for $w\left(  n\right)  $. There are
+$n-\left(  n-1\right)  $ possible choices for this (since $w\left(  n\right)
+$ has to belong to $\left\{  1,2,\ldots,n\right\}  $, but must not equal any
+of $w\left(  1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n-1\right)  $,
+since we want the $n$ numbers $w\left(  1\right)  ,w\left(  2\right)
+,\ldots,w\left(  n\right)  $ to be distinct).
+\end{itemize}
+
+We thus get a total of $n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)
+\cdot\left(  n-3\right)  \cdot\cdots\cdot\left(  n-\left(  n-1\right)
+\right)  $ possible choices. In other words, we get a total of $n!$ possible
+choices\footnote{since
+\begin{align*}
+& n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(  n-3\right)
+\cdot\cdots\cdot\left(  n-\left(  n-1\right)  \right)  \\
+& =n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(  n-3\right)
+\cdot\cdots\cdot1=1\cdot2\cdot\cdots\cdot n=n!
+\end{align*}
+}. Hence, there are precisely $n!$ permutations of $\left\{  1,2,\ldots
+,n\right\}  $. As we have said, this proves Proposition \ref{prop.permat.n!}.
+\end{proof}
+
+Here is a further property of permutation matrices constructed out of permutations:
+
+\begin{proposition}
+\label{prop.permat.prod-of-perms}Let $n\in\mathbb{N}$.
+
+\textbf{(a)} If $u$ and $v$ are two permutations of $\left\{  1,2,\ldots
+,n\right\}  $, then $P_{u}\circ P_{v}=P_{u\circ v}$.
+
+\textbf{(b)} If $u$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $,
+then $\left(  P_{u}\right)  ^{-1}=P_{u^{-1}}$.
+
+\textbf{(c)} We have $P_{\operatorname*{id}\nolimits_{\left\{  1,2,\ldots
+,n\right\}  }}=I_{n}$.
+\end{proposition}
+
+We leave the easy proof to the reader.
+
+
+
 [...]
 
 (to be continued)
 
 \textbf{TO-DO LIST! (This will appear shortly:)}
-
-\begin{todo}
-There are $n!$ permutation matrices. (Reference for proof, or proof sketch?)
-\end{todo}
 
 \begin{todo}
 (*) Permutation matrices are products of $T_{k,k+1}$'s.
