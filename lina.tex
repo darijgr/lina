@@ -9019,7 +9019,7 @@ first shall show a lemma:
 \begin{lemma}
 \label{lem.triangular.inverse.inv.3rd.1}Let $n\in\mathbb{N}$. Let $A$ be an
 invertibly lower-triangular $n\times n$-matrix. Let $b=\left(  b_{1}%
-,b_{2},\ldots,b_{n}\right)  ^{T}$ be an column vector of size $n$ (that is, an
+,b_{2},\ldots,b_{n}\right)  ^{T}$ be a column vector of size $n$ (that is, an
 $n\times1$-matrix). Let $r\in\left\{  1,2,\ldots,n\right\}  $ be such that
 $b_{1}=b_{2}=\cdots=b_{r-1}=0$. (Notice that if $r=1$, then the equality
 $b_{1}=b_{2}=\cdots=b_{r-1}=0$ claims nothing, and thus is automatically true
@@ -9271,17 +9271,17 @@ obtain $v_{1}=v_{2}=\cdots=v_{r-1}=0$. This proves Claim 2.]
 In other words,%
 \begin{equation}
 v_{\ell}=0\ \ \ \ \ \ \ \ \ \ \text{for each }\ell\in\left\{  1,2,\ldots
-,i-1\right\}  . \label{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
+,r-1\right\}  .\label{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 \end{equation}
 But (\ref{pf.lem.triangular.inverse.inv.3rd.1.rec}) (applied to $i=r$) yields
 \begin{align*}
-v_{r}  &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\left(  A_{r,1}\underbrace{v_{1}%
+v_{r} &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\left(  A_{r,1}\underbrace{v_{1}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 ), applied}\\\text{to }\ell=1\text{)}}}+A_{r,2}\underbrace{v_{2}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
 ), applied}\\\text{to }\ell=2\text{)}}}+\cdots+A_{r,r-1}\underbrace{v_{r-1}%
 }_{\substack{=0\\\text{(by (\ref{pf.lem.triangular.inverse.inv.3rd.1.C3.pf.1}%
-), applied}\\\text{to }\ell=r-1\text{)}}}\right)  \right) \\
+), applied}\\\text{to }\ell=r-1\text{)}}}\right)  \right)  \\
 &  =\dfrac{1}{A_{r,r}}\left(  b_{r}-\underbrace{\left(  A_{r,1}0+A_{r,2}%
 0+\cdots+A_{r,r-1}0\right)  }_{=0}\right)  =\dfrac{1}{A_{r,r}}b_{r}.
 \end{align*}
