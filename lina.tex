@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 01, 2016 14:19:55}
+%TCIDATA{LastRevised=Saturday, October 01, 2016 15:04:21}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11289,7 +11289,7 @@ $. Again, there are many possibilities.)
 \end{example}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.permat.Tkk+1} (sketched).] We will not need
+[Proof of Proposition \ref{prop.permat.Tkk+1} (sketched).]We will not need
 Proposition \ref{prop.permat.Tkk+1}, so let me only give a brief outline of
 its proof.
 
@@ -11298,7 +11298,7 @@ of simple swapping matrices. But the $\Longrightarrow$ direction of Theorem
 \ref{thm.permat.Tuv} shows that each permutation matrix of size $n\times n$ is
 a product of swapping matrices. Hence, it suffices to prove that%
 \begin{equation}
-\text{each swapping matrix is a product of simple swapping matrices.}%
+\text{each swapping matrix is a product of simple swapping matrices.}
 \label{pf.prop.permat.Tkk+1.goal2}%
 \end{equation}
 
@@ -11310,8 +11310,8 @@ $v$, without changing $A$ because $T_{u,v}=T_{v,u}$). So, assume this. Then, I
 claim that%
 \begin{equation}
 T_{u,v}=\left(  T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}\right)  T_{v-1,v}%
-\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)
-.\label{pf.prop.permat.Tkk+1.goal4}%
+\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)  .
+\label{pf.prop.permat.Tkk+1.goal4}%
 \end{equation}
 (To ease understanding, let me explain how the right hand side of
 (\ref{pf.prop.permat.Tkk+1.goal4}) should be interpreted: The first
@@ -11332,8 +11332,8 @@ One way to prove (\ref{pf.prop.permat.Tkk+1.goal4}) is to rewrite the right
 hand side of (\ref{pf.prop.permat.Tkk+1.goal4}) as%
 \begin{equation}
 \left(  T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}\right)  T_{v-1,v}\left(
-T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)  I_{n}%
-.\label{pf.prop.permat.Tkk+1.RHS}%
+T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)  I_{n}.
+\label{pf.prop.permat.Tkk+1.RHS}%
 \end{equation}
 By using Proposition \ref{prop.Tuv.laction} repeatedly, we thus see that it is
 the matrix obtained from $I_{n}$ by:
@@ -11700,7 +11700,7 @@ be written in this form in a unique way. Hence, the map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w &  \mapsto P_{w}%
+w  &  \mapsto P_{w}%
 \end{align*}
 \footnote{By this, I mean: the map from the set of all permutations of
 $\left\{  1,2,\ldots,n\right\}  $ to the set of all permutation matrices of
@@ -11808,7 +11808,7 @@ map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w &  \mapsto P_{w}%
+w  &  \mapsto P_{w}%
 \end{align*}
 is a bijection. This map provides a \textquotedblleft
 dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
@@ -11827,7 +11827,7 @@ $I_{n}$. Finally, Proposition \ref{prop.permat.prod-of-perms} \textbf{(d)}
 shows that the permutations $\tau_{u,v}$ \textquotedblleft
 correspond\textquotedblright\ to the swapping matrices $T_{u,v}$. Using this
 \textquotedblleft dictionary\textquotedblright, we can translate theorems
-about permutations into theorems about permutation matrices, and vice versa. 
+about permutations into theorems about permutation matrices, and vice versa.
 
 [...]
 
@@ -11836,7 +11836,7 @@ about permutations into theorems about permutation matrices, and vice versa.
 \textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{todo}
-(*) Permutation matrices are products of $T_{k,k+1}$'s.
+(*) Permutation matrices are products of $T_{k,k+1}$'s. (More detail?)
 \end{todo}
 
 \begin{todo}
@@ -12346,6 +12346,267 @@ The rest}
 \begin{todo}
 (*) SageMath examples.
 \end{todo}
+
+
+
+\begin{todo}
+(*) What holds over rings, what over fields.
+\end{todo}
+
+\section{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Vector spaces}
+
+\begin{todo}
+Introduction into vector spaces.
+
+We shall now switch to what feels like a different subject: the theory of
+vector spaces. Soon, we will see that this is closely related to the matrix
+algebra that we have been doing above, and in some sense is like doing linear
+algebra in a more abstract language (as opposed to doing something completely
+different). But first, we introduce the relevant notions without reference to
+the matrix theory done above.
+
+(...... This all needs to be filled in. So far, this is a stenographic lecture
+plan rather than a set of lecture notes ......)
+\end{todo}
+
+\textbf{References for vector spaces:} \cite[\S 4.1-\S 4.2]{LaNaSc16}
+(possibly the best one), \cite[\S 2.1]{OlvSha06} (focusses on the
+analysis-related and applied stuff) and \cite[Two.I.1]{Heffer16}.
+
+\begin{definition}
+\label{def.vectspace}A \textit{vector space (over }$\mathbb{R}$\textit{)} is a
+set $V$ equipped with two binary operations:
+
+\begin{itemize}
+\item a binary operation called \textquotedblleft$+$\textquotedblright, which
+takes as its input two elements $v$ and $w$ of $V$, and yields an element of
+$V$ called $v+w$;
+
+\item a binary operation called \textquotedblleft$\cdot$\textquotedblright,
+which takes as its input a number $\lambda\in\mathbb{R}$ and an element $v$ of
+$V$, and yields an element of $V$ called $\lambda\cdot v$ or $\lambda v$,
+\end{itemize}
+
+as well as a chosen element of $V$ called $\overrightarrow{0}$, with the
+following properties:
+
+\textbf{(a)} We have $v+w=w+v$ for all $v\in V$ and $w\in V$. (This is called
+\textquotedblleft commutativity of addition\textquotedblright.)
+
+\textbf{(b)} We have $u+\left(  v+w\right)  =\left(  u+v\right)  +w$ for all
+$u\in V$, $v\in V$ and $w\in V$. (This is called \textquotedblleft
+associativity of addition\textquotedblright.)
+
+\textbf{(c)} We have $v+\overrightarrow{0}=\overrightarrow{0}+v=v$ for all
+$v\in V$. (This is called \textquotedblleft neutrality of $\overrightarrow{0}%
+$\textquotedblright.)
+
+\textbf{(d)} For each $v\in V$, there exists some element $w\in V$ satisfying
+$v+w=w+v=0$. (This is called \textquotedblleft existence of additive
+inverses\textquotedblright. The element $w$ is called the \textit{additive
+inverse of }$v$, and is usually called $-v$; it is uniquely determined by $v$
+(this is not hard to check).)
+
+\textbf{(e)} We have $\left(  \lambda+\mu\right)  v=\lambda v+\mu v$ for all
+$\lambda\in\mathbb{R}$, $\mu\in\mathbb{R}$ and $v\in V$. (This is called
+\textquotedblleft right distributivity\textquotedblright.)
+
+\textbf{(f)} We have $\lambda\left(  v+w\right)  =\lambda v+\lambda w$ for all
+$\lambda\in\mathbb{R}$, $v\in V$ and $w\in V$. (This is called
+\textquotedblleft left distributivity\textquotedblright.)
+
+\textbf{(g)} We have $\left(  \lambda\mu\right)  v=\lambda\left(  \mu
+v\right)  $ for all $\lambda\in\mathbb{R}$, $\mu\in\mathbb{R}$ and $v\in V$.
+(This is called \textquotedblleft associativity of scaling\textquotedblright.
+It allows us to write $\lambda\mu v$ for both $\left(  \lambda\mu\right)  v$
+and $\lambda\left(  \mu v\right)  $.)
+
+\textbf{(h)} We have $1v=v$ for all $v\in V$. (This is called
+\textquotedblleft neutrality of $1$\textquotedblright.)
+
+\textbf{(i)} We have $0v=\overrightarrow{0}$ for all $v\in V$.
+
+\textbf{(j)} We have $\lambda\overrightarrow{0}=\overrightarrow{0}$ for all
+$\lambda\in\mathbb{R}$.
+
+The operation $+$ is called the \textit{addition} of the vector space; the
+operation $\cdot$ is called the \textit{scaling} of the vector space; the
+element $\overrightarrow{0}$ is called the \textit{zero vector} (or the
+\textit{origin}) of the vector space. The elements of $V$ are called
+\textit{vectors}. (These are familiar-sounding names for abstract things. The
+operation $+$ may and may not have anything to do with addition of numbers.
+The operation $\cdot$ may and may not be related to scaling of numbers. The
+element $\overrightarrow{0}$ may and may not be the number $0$. The elements
+of $V$, which we call \textquotedblleft vectors\textquotedblright, may and may
+not be the kinds of vectors we are used to seeing (i.e., row vectors and
+column vectors); they can just as well be polynomials or functions or numbers
+or matrices. You should think of the word \textquotedblleft
+vector\textquotedblright\ as meaning \textquotedblleft element of a vector
+space\textquotedblright, not as meaning \textquotedblleft a list of
+numbers\textquotedblright; the latter meaning is too restrictive. The
+properties \textbf{(a)}, \textbf{(b)}, $\ldots$, \textbf{(j)} are requiring
+that the operations $+$ and $\cdot$ and the element $\overrightarrow{0}$
+\textquotedblleft behave like\textquotedblright\ the addition and
+multiplication of matrices and the zero matrix, at least as far as their most
+basic properties are concerned; however, they still leave a lot of freedom to
+decide what these operations and this elements should be.)
+
+We shall often speak of \textquotedblleft the vector space $V$%
+\textquotedblright\ or say that \textquotedblleft$V$ is a vector
+space\textquotedblright, but of course, the vector space is not just the set
+$V$; it is (as we have defined it) the set $V$ endowed with the two operations
+$+$ and $\cdot$ and the element $\overrightarrow{0}$. The two operations and
+the element $\overrightarrow{0}$ are part of the data; if you modify them,
+then you end up with a different vector space, even if the set $V$ is the
+same! However, most of the time, we will not have several different vector
+spaces sharing one and the same set $V$; therefore, we will be able to speak
+of \textquotedblleft the vector space $V$\textquotedblright\ and assume that
+the reader knows what operations $+$ and $\cdot$ and what element
+$\overrightarrow{0}$ we mean.
+\end{definition}
+
+We have just defined the notion of a \textquotedblleft vector space over
+$\mathbb{R}$\textquotedblright\ (also known as a \textquotedblleft real vector
+space\textquotedblright). We can similarly define a \textquotedblleft vector
+space over $\mathbb{Q}$\textquotedblright\ (by replacing each
+\textquotedblleft$\mathbb{R}$\textquotedblright\ in the above definition by
+\textquotedblleft$\mathbb{Q}$\textquotedblright) and a \textquotedblleft
+vector space over $\mathbb{C}$\textquotedblright\ (by replacing each
+\textquotedblleft$\mathbb{R}$\textquotedblright\ in the above definition by
+\textquotedblleft$\mathbb{C}$\textquotedblright). Most of the vector spaces we
+shall be studying below are vector spaces over $\mathbb{R}$, but the other
+options are also useful. (If you have read Definition \ref{def.field}, you
+will have no trouble defining a \textquotedblleft vector space over
+$\mathbb{K}$\textquotedblright\ for every field $\mathbb{K}$.)
+
+Note that our definition of a vector space is somewhat similar to the
+definition of a commutative ring (Definition \ref{def.commring}). At least as
+far as the operation $+$ alone is concerned, the requirements on it are
+literally the same in the two definitions\footnote{assuming that we identify
+the $\overrightarrow{0}$ in Definition \ref{def.vectspace} with the $0$ in
+Definition \ref{def.commring}} (commutativity of addition, associativity of
+addition, neutrality of $\overrightarrow{0}$ and existence of additive
+inverses). However, the similarity ends here: The binary operation $\cdot$
+(\textquotedblleft multiplication\textquotedblright) in Definition
+\ref{def.commring} works differently from the binary operation $\cdot$
+(\textquotedblleft scaling\textquotedblright) in Definition
+\ref{def.vectspace}. The former takes two inputs in the commutative ring,
+whereas the latter takes one input in $\mathbb{R}$ and one input in the vector
+space. The axioms still have certain similarities, but they should not fool
+you into believing that commutative rings are vector spaces (or vice versa).
+
+If you compare our Definition \ref{def.vectspace} with other definitions of a
+\textquotedblleft vector space\textquotedblright\ you find in the literature
+(for example, \cite[Definition 4.1.1]{LaNaSc16}, \cite[Definition
+2.1]{OlvSha06} or \cite[Definition Two.I.1]{Heffer16}), you will notice that
+they are slightly different: For example, \cite[Definition 4.1.1]{LaNaSc16},
+\cite[Definition 2.1]{OlvSha06} or \cite[Definition Two.I.1]{Heffer16} are
+lacking our properties \textbf{(i)} and \textbf{(j)}, whereas \cite[Definition
+2.3.1]{Kowals16} is missing our properties \textbf{(d)} and \textbf{(j)}.
+However, the definitions are nevertheless \textbf{equivalent} (i.e., they
+define precisely the same notion of a vector space). The reason for that is
+some of the properties we required in Definition \ref{def.vectspace} are
+\textbf{redundant} (i.e., they follow from the other properties, so that
+nothing changes if we leave them out). For example:
+
+\begin{itemize}
+\item Property \textbf{(d)} follows from properties \textbf{(e)}, \textbf{(h)}
+and \textbf{(i)}\footnote{\textit{Proof.} Assume that properties \textbf{(e)},
+\textbf{(h)} and \textbf{(i)} hold. We must now prove property \textbf{(d)}.
+\par
+Let $v\in V$. Then,
+\begin{align*}
+\left(  -1\right)  v+\underbrace{v}_{\substack{=1v\\\text{(by property
+\textbf{(h)})}}}  & =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
+-1\right)  +1\right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by property \textbf{(e)}, applied to}\\
+\lambda=-1\text{ and }\mu=1
+\end{array}
+\right)  \\
+& =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
+\textbf{(i)}}\right)
+\end{align*}
+and%
+\begin{align*}
+\underbrace{v}_{\substack{=1v\\\text{(by property \textbf{(h)})}}}+\left(
+-1\right)  v  & =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
+-1\right)  \right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by property \textbf{(e)}, applied to}\\
+\lambda=1\text{ and }\mu=-1
+\end{array}
+\right)  \\
+& =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
+\textbf{(i)}}\right)  .
+\end{align*}
+Hence, there exists some element $w\in V$ satisfying $v+w=w+v=0$ (namely,
+$w=\left(  -1\right)  v$). Thus, property \textbf{(d)} is proven.}. Thus, we
+could leave out property \textbf{(d)} from the definition.
+
+\item Property \textbf{(j)} follows from properties \textbf{(g)} and
+\textbf{(i)}\footnote{\textit{Proof.} Assume that properties \textbf{(g)} and
+\textbf{(i)} hold. We must now prove property \textbf{(j)}.
+\par
+Let $\lambda\in\mathbb{R}$. Then, property \textbf{(i)} (applied to
+$v=\overrightarrow{0}$) yields $0\cdot\overrightarrow{0}=\overrightarrow{0}$.
+Thus, $\lambda\left(  0\cdot\overrightarrow{0}\right)  =\lambda
+\overrightarrow{0}$, so that%
+\begin{align*}
+\lambda\overrightarrow{0}  & =\lambda\left(  0\cdot\overrightarrow{0}\right)
+=\underbrace{\left(  \lambda\cdot0\right)  }_{=0}\overrightarrow{0}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by property \textbf{(g)}, applied to }%
+\mu=0\text{ and }v=\overrightarrow{0}\right)  \\
+& =0\cdot\overrightarrow{0}=\overrightarrow{0}.
+\end{align*}
+Thus, property \textbf{(j)} is proven.}. Thus, we could omit property
+\textbf{(j)} from the definition.
+
+\item Property \textbf{(i)} follows from properties \textbf{(b)},
+\textbf{(c)}, \textbf{(d)} and \textbf{(e)}\footnote{\textit{Proof.} Assume
+that properties \textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)}
+hold. We must now prove property \textbf{(i)}.
+\par
+Let $v\in V$. Property \textbf{(e)} (applied to $\lambda=0$ and $\mu=0$)
+yields $\left(  0+0\right)  v=0v+0v$. Hence, $0v+0v=\underbrace{\left(
+0+0\right)  }_{=0}v=0v$.
+\par
+But we can apply property \textbf{(d)} to $0v$ instead of $v$. We thus
+conclude that there exists some element $w\in V$ satisfying
+$0v+w=w+0v=\overrightarrow{0}$. Consider this $w$.
+\par
+Property \textbf{(b)} (applied to $0v$, $0v$ and $w$ instead of $u$, $v$ and
+$w$) yields $0v+\left(  0v+w\right)  =\underbrace{\left(  0v+0v\right)
+}_{=0v}+w=0v+w$. Since $0v+w=\overrightarrow{0}$, this rewrites as
+$0v+\overrightarrow{0}=\overrightarrow{0}$.
+\par
+Property \textbf{(c)} (applied to $0v$ instead of $v$) yields
+$0v+\overrightarrow{0}=\overrightarrow{0}+0v=0v$. Comparing
+$0v+\overrightarrow{0}=\overrightarrow{0}$ with $0v+\overrightarrow{0}=0v$, we
+obtain $0v=\overrightarrow{0}$. Thus, property \textbf{(i)} is proven.}. Thus,
+we could omit property \textbf{(i)} from the definition.
+\end{itemize}
+
+However, we \textbf{cannot} simultaneously omit \textbf{both} properties
+\textbf{(d)} and \textbf{(i)} from the definition: Each of them is redundant
+provided the other stays in, but without the other they are not redundant.
+
+The vector $\overrightarrow{0}$ in Definition \ref{def.vectspace} is often
+written as $0$. This is an \textquotedblleft abuse of
+notation\textquotedblright\ (it is still not the number $0$), but mostly
+harmless as there is rarely a possibility of confusion.
 
 [to be continued]
 
