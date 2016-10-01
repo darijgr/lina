@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Friday, September 30, 2016 18:34:04}
+%TCIDATA{LastRevised=Saturday, October 01, 2016 14:19:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10208,7 +10208,7 @@ We will outline a proof of Proposition \ref{prop.permat.n!} in Section
 Proposition \ref{prop.permat.n!} (applied to $n=3$) says that there are
 precisely $3!=6$ permutation matrices of size $3\times3$. Here are they:%
 \begin{align*}
-I_{3} &  =\left(
+I_{3}  &  =\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -10223,7 +10223,7 @@ I_{3} &  =\left(
 0 & 0 & 1
 \end{array}
 \right)  ,\\
-T_{1,3} &  =\left(
+T_{1,3}  &  =\left(
 \begin{array}
 [c]{ccc}%
 0 & 0 & 1\\
@@ -10238,7 +10238,7 @@ T_{1,3} &  =\left(
 0 & 1 & 0
 \end{array}
 \right)  ,\\
-A &  =\left(
+A  &  =\left(
 \begin{array}
 [c]{ccc}%
 0 & 0 & 1\\
@@ -11259,6 +11259,124 @@ permutation matrix. This proves Proposition \ref{prop.permat.inverse}
 \textbf{(c)}.
 \end{proof}
 
+Let me add one more result, which somewhat extends the $\Longrightarrow$
+direction of Theorem \ref{thm.permat.Tuv}:
+
+\begin{proposition}
+\label{prop.permat.Tkk+1}Let $n\in\mathbb{N}$. A \textit{simple swapping
+matrix} will mean an $n\times n$-matrix of the form $T_{k,k+1}$ for some
+$k\in\left\{  1,2,\ldots,n-1\right\}  $.
+
+Each permutation matrix of size $n\times n$ is a product of simple swapping matrices.
+\end{proposition}
+
+\begin{example}
+Let $n=3$. Then, there are three swapping matrices: $T_{1,2}$, $T_{1,3}$ and
+$T_{2,3}$. (You can also write down $T_{2,1}$, $T_{3,1}$ and $T_{3,2}$, but
+these are the same three matrices by different names.) Out of these three
+matrices, two (namely, $T_{1,2}$ and $T_{2,3}$) are simple swapping matrices
+(in the sense of Proposition \ref{prop.permat.Tkk+1}), whereas the third
+($T_{1,3}$) is not.
+
+Proposition \ref{prop.permat.Tkk+1} (applied to $n=3$) says that each
+permutation matrix of size $3\times3$ is a product of simple swapping
+matrices. Let us check this for the permutation matrix $T_{1,3}$. Just writing
+$T_{1,3}$ as the product of itself alone does not count anymore, because (as
+we said) $T_{1,3}$ is not a simple swapping matrix. However, we can write
+$T_{1,3}$ as the product $T_{1,2}T_{2,3}T_{1,2}$, and this does the trick.
+(Alternatively, you can write $T_{1,3}$ as the product $T_{2,3}T_{1,2}T_{2,3}%
+$. Again, there are many possibilities.)
+\end{example}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.Tkk+1} (sketched).] We will not need
+Proposition \ref{prop.permat.Tkk+1}, so let me only give a brief outline of
+its proof.
+
+We want to prove that each permutation matrix of size $n\times n$ is a product
+of simple swapping matrices. But the $\Longrightarrow$ direction of Theorem
+\ref{thm.permat.Tuv} shows that each permutation matrix of size $n\times n$ is
+a product of swapping matrices. Hence, it suffices to prove that%
+\begin{equation}
+\text{each swapping matrix is a product of simple swapping matrices.}%
+\label{pf.prop.permat.Tkk+1.goal2}%
+\end{equation}
+
+
+So let $A$ be a swapping matrix. Thus, $A=T_{u,v}$ for two distinct elements
+$u$ and $v$ of $\left\{  1,2,\ldots,n\right\}  $. Consider these $u$ and $v$.
+We can WLOG assume that $u<v$ (since otherwise, we can simply switch $u$ with
+$v$, without changing $A$ because $T_{u,v}=T_{v,u}$). So, assume this. Then, I
+claim that%
+\begin{equation}
+T_{u,v}=\left(  T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}\right)  T_{v-1,v}%
+\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)
+.\label{pf.prop.permat.Tkk+1.goal4}%
+\end{equation}
+(To ease understanding, let me explain how the right hand side of
+(\ref{pf.prop.permat.Tkk+1.goal4}) should be interpreted: The first
+parenthesized factor, $T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}$, is the product
+of all $T_{k,k+1}$ with $k$ ranging over $\left\{  u,u+1,\ldots,v-2\right\}  $
+\textbf{in increasing order}. If the set $\left\{  u,u+1,\ldots,v-2\right\}  $
+is empty, then this product has to be understood as the empty product, thus
+$I_{n}$ as usual. The second parenthesized factor, $T_{v-2,v-1}T_{v-3,v-2}%
+\cdots T_{u,u+1}$, is the product of all $T_{k,k+1}$ with $k$ ranging over
+$\left\{  u,u+1,\ldots,v-2\right\}  $ \textbf{in decreasing order}. Again, it
+is $I_{n}$ if $\left\{  u,u+1,\ldots,v-2\right\}  $ is empty.)
+
+Clearly, the equality (\ref{pf.prop.permat.Tkk+1.goal4}) represents $T_{u,v}$
+as a product of simple swapping matrices; thus, once it is proven, the claim
+(\ref{pf.prop.permat.Tkk+1.goal2}) will immediately follow.
+
+One way to prove (\ref{pf.prop.permat.Tkk+1.goal4}) is to rewrite the right
+hand side of (\ref{pf.prop.permat.Tkk+1.goal4}) as%
+\begin{equation}
+\left(  T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}\right)  T_{v-1,v}\left(
+T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)  I_{n}%
+.\label{pf.prop.permat.Tkk+1.RHS}%
+\end{equation}
+By using Proposition \ref{prop.Tuv.laction} repeatedly, we thus see that it is
+the matrix obtained from $I_{n}$ by:
+
+\begin{itemize}
+\item first, swapping the $u$-th row with the $\left(  u+1\right)  $-th row,
+
+\item then, swapping the $\left(  u+1\right)  $-th row with the $\left(
+u+2\right)  $-th row,
+
+\item and so on, until finally swapping the $\left(  v-2\right)  $-th row with
+the $\left(  v-1\right)  $-th row,
+
+\item then, swapping the $\left(  v-1\right)  $-th row with the $v$-th row,
+
+\item then, swapping the $\left(  v-2\right)  $-th row with the $\left(
+v-1\right)  $-th row,
+
+\item then, swapping the $\left(  v-3\right)  $-th row with the $\left(
+v-2\right)  $-th row,
+
+\item and so on, until finally swapping the $u$-th row with the $\left(
+u+1\right)  $-th row.
+\end{itemize}
+
+This sequence of swappings has the following consequence: The $u$-th row has
+been moved further and further down (by repeatedly getting swapped with the
+next row) until it finally found rest in the position of the $v$-th row; then,
+the former $v$-th row has been moved further and further up (by repeatedly
+getting swapped with the previous row) until it finally found rest in the
+position of the $u$-th row. At the end of this process, the $u$-th and the
+$v$-th rows have traded places, but all the other rows have remained at the
+positions where they started out (although some of them were temporarily moved
+back and forth in the process). So the right hand side of
+(\ref{pf.prop.permat.Tkk+1.goal4}) can be obtained from $I_{n}$ by swapping
+the $u$-th row with the $v$-th row. But (according to Corollary
+\ref{cor.Tuv.as-switch} \textbf{(a)}) the matrix $T_{u,v}$ can be obtained in
+exactly the same way. Hence, the right hand side of
+(\ref{pf.prop.permat.Tkk+1.goal4}) simply is $T_{u,v}$. Thus,
+(\ref{pf.prop.permat.Tkk+1.goal4}) is proven. As explained, this proves
+Proposition \ref{prop.permat.Tkk+1}.
+\end{proof}
+
 \subsection{\label{sect.gauss.permat.perms}(*) Permutation matrices and
 permutations}
 
@@ -11457,7 +11575,7 @@ such that $P=P_{w}$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.permat.permat-from-perm} (sketched).]
+[Proof of Proposition \ref{prop.permat.permat-from-perm} (sketched).]%
 \textbf{(a)} Let $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $.
 Thus, $w$ is a bijective map, i.e., an injective and surjective map.
 
@@ -11580,13 +11698,16 @@ the matrices of the form $P_{w}$ with $w$ being a permutation of $\left\{
 1,2,\ldots,n\right\}  $. Moreover, it shows that each permutation matrix can
 be written in this form in a unique way. Hence, the map%
 \begin{align*}
-\left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}    &
+\left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w  & \mapsto P_{w}%
+w &  \mapsto P_{w}%
 \end{align*}
-is a bijection. Therefore, there are as many permutation matrices of size
-$n\times n$ as there are permutations of $\left\{  1,2,\ldots,n\right\}  $.
-This allows us to prove Proposition \ref{prop.permat.n!}:
+\footnote{By this, I mean: the map from the set of all permutations of
+$\left\{  1,2,\ldots,n\right\}  $ to the set of all permutation matrices of
+size $n\times n$ that sends each permutation $w$ to the permutation matrix
+$P_{w}$.} is a bijection. Therefore, there are as many permutation matrices of
+size $n\times n$ as there are permutations of $\left\{  1,2,\ldots,n\right\}
+$. This allows us to prove Proposition \ref{prop.permat.n!}:
 
 \begin{proof}
 [Proof of Proposition \ref{prop.permat.n!} (sketched).]We have just seen that
@@ -11649,10 +11770,10 @@ We thus get a total of $n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)
 \right)  $ possible choices. In other words, we get a total of $n!$ possible
 choices\footnote{since
 \begin{align*}
-& n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(  n-3\right)
-\cdot\cdots\cdot\left(  n-\left(  n-1\right)  \right)  \\
-& =n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(  n-3\right)
-\cdot\cdots\cdot1=1\cdot2\cdot\cdots\cdot n=n!
+&  n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(  n-3\right)
+\cdot\cdots\cdot\left(  n-\left(  n-1\right)  \right) \\
+&  =n\cdot\left(  n-1\right)  \cdot\left(  n-2\right)  \cdot\left(
+n-3\right)  \cdot\cdots\cdot1=1\cdot2\cdot\cdots\cdot n=n!
 \end{align*}
 }. Hence, there are precisely $n!$ permutations of $\left\{  1,2,\ldots
 ,n\right\}  $. As we have said, this proves Proposition \ref{prop.permat.n!}.
@@ -11663,19 +11784,50 @@ Here is a further property of permutation matrices constructed out of permutatio
 \begin{proposition}
 \label{prop.permat.prod-of-perms}Let $n\in\mathbb{N}$.
 
-\textbf{(a)} If $u$ and $v$ are two permutations of $\left\{  1,2,\ldots
-,n\right\}  $, then $P_{u}\circ P_{v}=P_{u\circ v}$.
+\textbf{(a)} If $x$ and $y$ are two permutations of $\left\{  1,2,\ldots
+,n\right\}  $, then $P_{x}P_{y}=P_{x\circ y}$.
 
-\textbf{(b)} If $u$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $,
-then $\left(  P_{u}\right)  ^{-1}=P_{u^{-1}}$.
+\textbf{(b)} If $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $,
+then $\left(  P_{w}\right)  ^{-1}=P_{w^{-1}}$.
 
 \textbf{(c)} We have $P_{\operatorname*{id}\nolimits_{\left\{  1,2,\ldots
 ,n\right\}  }}=I_{n}$.
+
+\textbf{(d)} Let $u$ and $v$ be two distinct elements of $\left\{
+1,2,\ldots,n\right\}  $. Let $\tau_{u,v}$ be the permutation of $\left\{
+1,2,\ldots,n\right\}  $ which sends $u$ to $v$, sends $v$ to $u$, and sends
+each other element of $\left\{  1,2,\ldots,n\right\}  $ to itself. (For
+example, if $n=7$, then $\tau_{2,5}$ sends $1,2,3,4,5,6,7$ to $1,5,3,4,2,6,7$,
+respectively.) Then, $P_{\tau_{u,v}}=T_{u,v}$.
 \end{proposition}
 
 We leave the easy proof to the reader.
 
-
+As we have said, Proposition \ref{prop.permat.permat-from-perm} shows that the
+map%
+\begin{align*}
+\left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
+\rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
+w &  \mapsto P_{w}%
+\end{align*}
+is a bijection. This map provides a \textquotedblleft
+dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
+,n\right\}  $ and permutation matrices of size $n\times n$ (so to speak).
+Proposition \ref{prop.permat.prod-of-perms} \textbf{(a)} shows that (under
+this \textquotedblleft dictionary\textquotedblright) composition of
+permutations \textquotedblleft corresponds\textquotedblright\ to
+multiplication of permutation matrices. Proposition
+\ref{prop.permat.prod-of-perms} \textbf{(b)} shows that the inverse of a
+permutation gets \textquotedblleft translated\textquotedblright\ into the
+inverse of the corresponding permutation matrix. Proposition
+\ref{prop.permat.prod-of-perms} \textbf{(c)} shows that the identity
+permutation $\operatorname*{id}\nolimits_{\left\{  1,2,\ldots,n\right\}  }$
+\textquotedblleft corresponds\textquotedblright\ to the identity matrix
+$I_{n}$. Finally, Proposition \ref{prop.permat.prod-of-perms} \textbf{(d)}
+shows that the permutations $\tau_{u,v}$ \textquotedblleft
+correspond\textquotedblright\ to the swapping matrices $T_{u,v}$. Using this
+\textquotedblleft dictionary\textquotedblright, we can translate theorems
+about permutations into theorems about permutation matrices, and vice versa. 
 
 [...]
 
