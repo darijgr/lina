@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 01, 2016 15:04:21}
+%TCIDATA{LastRevised=Sunday, October 02, 2016 15:02:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12347,8 +12347,6 @@ The rest}
 (*) SageMath examples.
 \end{todo}
 
-
-
 \begin{todo}
 (*) What holds over rings, what over fields.
 \end{todo}
@@ -12378,6 +12376,18 @@ the matrix theory done above.
 (...... This all needs to be filled in. So far, this is a stenographic lecture
 plan rather than a set of lecture notes ......)
 \end{todo}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Vector spaces}
 
 \textbf{References for vector spaces:} \cite[\S 4.1-\S 4.2]{LaNaSc16}
 (possibly the best one), \cite[\S 2.1]{OlvSha06} (focusses on the
@@ -12527,29 +12537,29 @@ and \textbf{(i)}\footnote{\textit{Proof.} Assume that properties \textbf{(e)},
 Let $v\in V$. Then,
 \begin{align*}
 \left(  -1\right)  v+\underbrace{v}_{\substack{=1v\\\text{(by property
-\textbf{(h)})}}}  & =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
+\textbf{(h)})}}}  &  =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
 -1\right)  +1\right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=-1\text{ and }\mu=1
 \end{array}
-\right)  \\
-& =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
+\right) \\
+&  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)
 \end{align*}
 and%
 \begin{align*}
 \underbrace{v}_{\substack{=1v\\\text{(by property \textbf{(h)})}}}+\left(
--1\right)  v  & =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
+-1\right)  v  &  =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
 -1\right)  \right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=1\text{ and }\mu=-1
 \end{array}
-\right)  \\
-& =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
+\right) \\
+&  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)  .
 \end{align*}
 Hence, there exists some element $w\in V$ satisfying $v+w=w+v=0$ (namely,
@@ -12565,11 +12575,11 @@ $v=\overrightarrow{0}$) yields $0\cdot\overrightarrow{0}=\overrightarrow{0}$.
 Thus, $\lambda\left(  0\cdot\overrightarrow{0}\right)  =\lambda
 \overrightarrow{0}$, so that%
 \begin{align*}
-\lambda\overrightarrow{0}  & =\lambda\left(  0\cdot\overrightarrow{0}\right)
+\lambda\overrightarrow{0}  &  =\lambda\left(  0\cdot\overrightarrow{0}\right)
 =\underbrace{\left(  \lambda\cdot0\right)  }_{=0}\overrightarrow{0}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by property \textbf{(g)}, applied to }%
-\mu=0\text{ and }v=\overrightarrow{0}\right)  \\
-& =0\cdot\overrightarrow{0}=\overrightarrow{0}.
+\mu=0\text{ and }v=\overrightarrow{0}\right) \\
+&  =0\cdot\overrightarrow{0}=\overrightarrow{0}.
 \end{align*}
 Thus, property \textbf{(j)} is proven.}. Thus, we could omit property
 \textbf{(j)} from the definition.
@@ -12607,6 +12617,195 @@ The vector $\overrightarrow{0}$ in Definition \ref{def.vectspace} is often
 written as $0$. This is an \textquotedblleft abuse of
 notation\textquotedblright\ (it is still not the number $0$), but mostly
 harmless as there is rarely a possibility of confusion.
+
+Before we do anything interesting with vector spaces, let me show various
+examples of them:
+
+\begin{example}
+\label{exam.vectspace.Rnm}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. The set
+of all $n\times m$-matrices with real entries shall be denoted by
+$\mathbb{R}^{n\times m}$. This set $\mathbb{R}^{n\times m}$ is a vector space
+-- or, more precisely, it becomes a vector space if we define the operation
+\textquotedblleft$+$\textquotedblright\ as addition of matrices (conveniently,
+we have already been denoting this addition by \textquotedblleft%
+$+$\textquotedblright\ throughout these notes), define the operation
+\textquotedblleft$\cdot$\textquotedblright\ as scaling of matrices (again, we
+have fortunately always been calling it \textquotedblleft$\cdot$%
+\textquotedblright), and define the zero vector $\overrightarrow{0}$ as the
+zero matrix $0_{n\times m}$. Proving that the properties in Definition
+\ref{def.vectspace} are satisfied is easy; in fact, they all boil down to
+simple facts about matrices.
+
+Thus, $n\times m$-matrices are vectors (in the vector space $\mathbb{R}%
+^{n\times m}$). This does not mean that they are row vectors or column
+vectors; we are instead using the word \textquotedblleft
+vector\textquotedblright\ in its general meaning of \textquotedblleft element
+of a vector space\textquotedblright\ here.
+
+Of course, row vectors and column vectors are vectors as well (because they
+are matrices). The vector space of all column vectors of size $n$ is
+$\mathbb{R}^{n\times1}$ (since column vectors of size $n$ are $n\times
+1$-matrices). This vector space is often denoted by $\mathbb{R}^{n}$ (though
+some authors also use the notation $\mathbb{R}^{n}$ for the vector space of
+all row vectors of size $n$ , which is $\mathbb{R}^{1\times n}$).
+
+Notice that multiplication of matrices does not matter for the vector space
+$\mathbb{R}^{n\times m}$. Even if there was no such thing as a product of two
+matrices, $\mathbb{R}^{n\times m}$ would still be a vector space, since vector
+spaces only need addition and scaling (and $\overrightarrow{0}$), but no
+multiplication of vectors.
+\end{example}
+
+\begin{example}
+\label{exam.vectspace.RC0}Some simpler examples:
+
+\begin{itemize}
+\item The set $\mathbb{R}$ of all real numbers itself is a vector space (with
+addition being addition, scaling being multiplication, and $\overrightarrow{0}%
+$ being the number $0$.)
+
+\item The set $\mathbb{C}$ of all complex numbers is a vector space (with
+addition being addition, scaling being multiplication, and $\overrightarrow{0}%
+$ being the number $0$.)
+
+\item The one-element set $\left\{  0\right\}  $ is also a vector space (with
+addition, scaling and $\overrightarrow{0}$ being defined in the only possible
+way -- there is only one choice). 
+\end{itemize}
+\end{example}
+
+\begin{example}
+\label{exam.vectspace.Rinf}The set $\left(  a_{1},a_{2},a_{3},\ldots\right)
+\in\mathbb{R}^{\infty}$ of all infinite sequences of real numbers is also a
+vector space, with addition defined by%
+\[
+\left(  a_{1},a_{2},a_{3},\ldots\right)  +\left(  b_{1},b_{2},b_{3}%
+,\ldots\right)  =\left(  a_{1}+b_{1},a_{2}+b_{2},a_{3}+b_{3},\ldots\right)
+\]
+(that is, entry by entry), scaling defined by%
+\[
+\lambda\left(  a_{1},a_{2},a_{3},\ldots\right)  =\left(  \lambda a_{1},\lambda
+a_{2},\lambda a_{3},\ldots\right)
+\]
+(thus, again, entry by entry), and $\overrightarrow{0}$ defined by%
+\[
+\overrightarrow{0}=\left(  0,0,0,\ldots\right)  .
+\]
+(It makes sense to think of infinite sequences as $1\times\infty$-matrices;
+thus, the above definitions of $+$, $\cdot$ and $\overrightarrow{0}$ are
+precisely the rules we set for matrices.)
+\end{example}
+
+\begin{example}
+\label{exam.vectspace.RS}Let $S$ be \textbf{any} set. Consider the set
+$\mathbb{R}^{S}$ of all maps from $S$ to $\mathbb{R}$. Then, $\mathbb{R}^{S}$
+becomes a vector space, if we define $+$, $\cdot$ and $\overrightarrow{0}$ as follows:
+
+\begin{itemize}
+\item If $f\in\mathbb{R}^{S}$ and $g\in\mathbb{R}^{S}$ are two maps, then
+their sum $f+g$ is defined to be the map from $S$ to $\mathbb{R}$ that sends
+each $s\in S$ to $f\left(  s\right)  +g\left(  s\right)  $. Thus,%
+\[
+\left(  f+g\right)  \left(  s\right)  =f\left(  s\right)  +g\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
+\]
+This is called \textit{pointwise addition} (because it means that we add two
+maps by adding their values at each point.)
+
+\item If $f\in\mathbb{R}^{S}$ is a map and $\lambda$ is a number, then the map
+$\lambda f$ is defined to be the map from $S$ to $\mathbb{R}$ that sends each
+$s\in S$ to $\lambda\cdot f\left(  s\right)  $. Thus,%
+\[
+\left(  \lambda f\right)  \left(  s\right)  =\lambda\cdot f\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
+\]
+This is called \textit{pointwise scaling} (because it means that we scale a
+map by scaling its value at each point.)
+
+\item We define $\overrightarrow{0}\in\mathbb{R}^{S}$ to be the map from $S$
+to $\mathbb{R}$ that sends each $s\in S$ to $0$. This is called the
+\textit{constant-}$0$\textit{ map}, since it is constant and all its values
+are $0$.
+\end{itemize}
+
+This example can be viewed as a generalization of the previous examples. Namely:
+
+\begin{itemize}
+\item An $n\times m$-matrix $A$ with real entries can be viewed as a map from
+$\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $ to
+$\mathbb{R}$ (namely, as the map which sends each $\left(  i,j\right)
+\in\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $ to
+the $\left(  i,j\right)  $-th entry $A_{i,j}$ of the matrix $A$). Conversely,
+each map from $\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots
+,m\right\}  $ to $\mathbb{R}$ can be encoded by an $n\times m$-matrix (whose
+entries are the values of the map). Thus, we can identify the $n\times
+m$-matrices (with real entries) with the maps from $\left\{  1,2,\ldots
+,n\right\}  \times\left\{  1,2,\ldots,m\right\}  $ to $\mathbb{R}$. In other
+words, we can identify the set $\mathbb{R}^{n\times m}$ with the set
+$\mathbb{R}^{\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots
+,m\right\}  }$. It is easily seen that the addition $+$, the scaling $\cdot$
+and the zero vector $\overrightarrow{0}$ of the vector space $\mathbb{R}%
+^{n\times m}$ (as defined in Example \ref{exam.vectspace.Rnm}) are identical
+with the addition $+$, the scaling $\cdot$ and the zero vector
+$\overrightarrow{0}$ of the vector space $\mathbb{R}^{\left\{  1,2,\ldots
+,n\right\}  \times\left\{  1,2,\ldots,m\right\}  }$ (as defined in the current
+example), once we identify the two sets. Hence, the \textbf{vector space}
+$\mathbb{R}^{n\times m}$ can be identified with the \textbf{vector space}
+$\mathbb{R}^{\left\{  1,2,\ldots,n\right\}  \times\left\{  1,2,\ldots
+,m\right\}  }$.
+
+\item The vector space $\mathbb{R}$ (from Example \ref{exam.vectspace.RC0})
+can be identified with the vector space $\mathbb{R}^{\left\{  1\right\}  }$.
+
+\item The vector space $\mathbb{C}$ (from Example \ref{exam.vectspace.RC0})
+can be identified with the vector space $\mathbb{R}^{\left\{  1,2\right\}  }$
+(since a complex number is defined as a pair of two real numbers, and since
+the addition of two complex numbers is componentwise, and so is the scaling of
+a complex number by a real number).
+
+\item The vector space $\left\{  0\right\}  $ (from Example
+\ref{exam.vectspace.RC0}) can be identified with the vector space
+$\mathbb{R}^{\varnothing}$. Indeed, the only element $0$ of $\left\{
+0\right\}  $ can be equated with the only map from $\varnothing$ to
+$\mathbb{R}$.
+
+\item The vector space $\mathbb{R}^{\infty}$ (from Example
+\ref{exam.vectspace.Rinf}) can be identified with the vector space
+$\mathbb{R}^{\left\{  1,2,3,\ldots\right\}  }$.
+\end{itemize}
+
+I have not explained what it really means to \textquotedblleft
+identify\textquotedblright\ two sets or vector spaces. Roughly speaking,
+identifying two sets $S$ and $T$ means matching up each element of $S$ with an
+element of $T$ (in such a way that each element of $T$ ends up matched with
+exactly one element of $S$) and pretending that each element is identical to
+its match. When $S$ and $T$ are vector spaces, one additionally ensure that
+this matching has the property that adding two elements of $S$ has the same
+result as adding their matches in $T$, and similarly for scaling, and finally
+that the zero vector of $S$ is matched with the zero vector of $T$. This is
+all satisfied in our above examples. Of course, this is still vague and
+imprecise. A rigorous way to formalize the idea of \textquotedblleft
+identifying\textquotedblright\ is the concept of \textit{isomorphisms} (i.e.,
+invertible \textit{linear maps}) between vector spaces; we shall introduce
+this concept later.
+\end{example}
+
+\begin{example}
+The set of continuous functions from $\mathbb{R}$ to $\mathbb{R}$ is a vector
+space as well. Again, addition and scaling are pointwise (i.e., defined in the
+same way as in Example \ref{exam.vectspace.RS}), and again the zero vector is
+constant-$0$ map. What makes this definition work is that:
+
+\begin{itemize}
+\item the sum of two continuous functions is continuous;
+
+\item the result of scaling a continuous function by a real $\lambda$ is again continuous;
+
+\item the constant-$0$ map is continuous.
+\end{itemize}
+\end{example}
+
+
 
 [to be continued]
 
