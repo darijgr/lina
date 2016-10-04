@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, October 02, 2016 15:02:46}
+%TCIDATA{LastRevised=Monday, October 03, 2016 23:32:36}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11576,12 +11576,12 @@ such that $P=P_{w}$.
 
 \begin{proof}
 [Proof of Proposition \ref{prop.permat.permat-from-perm} (sketched).]%
-\textbf{(a)} Let $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $.
+\textbf{(a)} Let $w$ be a permutation of $\left\{  1,2,\ldots,n\right\}  $.
 Thus, $w$ is a bijective map, i.e., an injective and surjective map.
 
 We want to show that $P_{w}$ is a permutation matrix. According to the
 definition of a \textquotedblleft permutation matrix\textquotedblright, we
-must prove the following three statements:
+therefor must prove the following three statements:
 
 \begin{statement}
 \textit{Statement 1:} Each entry of $P_{w}$ is either a $0$ or a $1$.
@@ -11638,7 +11638,7 @@ Now, define a map $w:\left\{  1,2,\ldots,n\right\}  \rightarrow\left\{
 1,2,\ldots,n\right\}  $ as follows:
 
 Let $i\in\left\{  1,2,\ldots,n\right\}  $. Then, the $i$-th row of $P$ has
-exactly one entry equal to $1$ (by Statement 1). In other words, there exists
+exactly one entry equal to $1$ (by Statement 2). In other words, there exists
 exactly one $j\in\left\{  1,2,\ldots,n\right\}  $ such that $P_{i,j}=1$.
 Define $w\left(  i\right)  $ to be this $j$.
 
@@ -11648,9 +11648,18 @@ Thus, we have defined $w\left(  i\right)  $ for each $i\in\left\{
 
 Described in words, the map $w$ sends each $i\in\left\{  1,2,\ldots,n\right\}
 $ to the position of the unique entry equal to $1$ in the $i$-th row of $P$.
-Condition 1 shows that all the other entries are zeroes. Thus, the matrix $P$
-equals $\left(  \delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq
-j\leq n}$.
+Condition 1 shows that all the other entries are zeroes. Hence, the entries of
+the matrix $P$ can be described as follows:
+
+\begin{itemize}
+\item For each $i\in\left\{  1,2,\ldots,n\right\}  $, the $\left(  i,w\left(
+i\right)  \right)  $-th entry of $P$ is $1$.
+
+\item All remaining entries of $P$ are $0$.
+\end{itemize}
+
+Thus, the matrix $P$ equals $\left(  \delta_{w\left(  i\right)  ,j}\right)
+_{1\leq i\leq n,\ 1\leq j\leq n}$.
 
 Now, the map $w$ is injective\footnote{\textit{Proof.} Let $i_{1}$ and $i_{2}$
 be two elements of $\left\{  1,2,\ldots,n\right\}  $ such that $w\left(
@@ -12670,7 +12679,7 @@ $ being the number $0$.)
 
 \item The one-element set $\left\{  0\right\}  $ is also a vector space (with
 addition, scaling and $\overrightarrow{0}$ being defined in the only possible
-way -- there is only one choice). 
+way -- there is only one choice).
 \end{itemize}
 \end{example}
 
@@ -12804,8 +12813,6 @@ constant-$0$ map. What makes this definition work is that:
 \item the constant-$0$ map is continuous.
 \end{itemize}
 \end{example}
-
-
 
 [to be continued]
 
