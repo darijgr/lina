@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 03, 2016 23:32:36}
+%TCIDATA{LastRevised=Monday, October 03, 2016 23:59:21}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -10540,6 +10540,79 @@ n$-matrix that is a permutation matrix. Then:
 \textbf{(c)} This inverse $A^{-1}$ is a permutation matrix.
 \end{proposition}
 
+\begin{proposition}
+\label{prop.permat.laction}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $P$
+be an $n\times n$-matrix that is a permutation matrix. Let $C$ be an $n\times
+m$-matrix. Then, the $n\times m$-matrix $PC$ can be obtained from $C$ by
+rearranging the rows in a certain way that depends on $P$. (In more rigorous
+terms, this means that there exists a bijective map $w:\left\{  1,2,\ldots
+,n\right\}  \rightarrow\left\{  1,2,\ldots,n\right\}  $ such that every
+$i\in\left\{  1,2,\ldots,n\right\}  $ satisfies $\operatorname*{row}%
+\nolimits_{i}\left(  PC\right)  =\operatorname*{row}\nolimits_{w\left(
+i\right)  }C$. If this sounds confusing to you, think of this map $w$ as a way
+to match up the rows of $PC$ with the rows of $C$ such that each row of $PC$
+equals the corresponding row of $C$. We will go over this in more detail in
+Section \ref{sect.gauss.permat.perms}.)
+\end{proposition}
+
+\begin{example}
+Let $n=3$ and $m=2$. Let $C$ be the $3\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  $. Let $P$ be the $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 1\\
+1 & 0 & 0
+\end{array}
+\right)  $; as we know, this is a permutation matrix. Then, Proposition
+\ref{prop.permat.laction} claims that the $3\times2$-matrix $PC$ can be
+obtained from $C$ by rearranging the rows in a certain way. And this can
+indeed be confirmed by a computation:%
+\[
+PC=\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+0 & 0 & 1\\
+1 & 0 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+a^{\prime} & b^{\prime}\\
+a^{\prime\prime} & b^{\prime\prime}\\
+a & b
+\end{array}
+\right)  .
+\]
+The rearrangement moves the first row to the very bottom, while letting the
+other two rows slide up one level. Other permutation matrices $P$ would
+produce other rearrangements.
+\end{example}
+
+Proposition \ref{prop.permat.laction} is (in a sense) a partial generalization
+of Proposition \ref{prop.Tuv.laction} (although, of course, not a complete
+generalization, since it fails to specify the precise rearrangement). A
+similar partial generalization can be stated for Proposition
+\ref{prop.Tuv.raction}; this time, of course, it will be the columns (not the
+rows) that get rearranged in $CP$.
+
+We will prove Proposition \ref{prop.permat.laction} in Section
+\ref{sect.gauss.permat.perms}.
+
 \subsection{\label{sect.gauss.permat.proofs}(*) Proofs about permutation
 matrices}
 
@@ -11817,7 +11890,7 @@ map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w  &  \mapsto P_{w}%
+w &  \mapsto P_{w}%
 \end{align*}
 is a bijection. This map provides a \textquotedblleft
 dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
@@ -11838,12 +11911,99 @@ correspond\textquotedblright\ to the swapping matrices $T_{u,v}$. Using this
 \textquotedblleft dictionary\textquotedblright, we can translate theorems
 about permutations into theorems about permutation matrices, and vice versa.
 
-[...]
+Next, let us prove Proposition \ref{prop.permat.laction}. Let us first state a
+more precise version of this proposition:
 
-(to be continued)
+\begin{proposition}
+\label{prop.permat.laction.Pw}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$w$ be a permutation of $\left\{  1,2,\ldots,n\right\}  $. Let $P$ be the
+$n\times n$-matrix $P_{w}$. Let $C$ be an $n\times m$-matrix. Then,%
+\[
+\operatorname*{row}\nolimits_{i}\left(  PC\right)  =\operatorname*{row}%
+\nolimits_{w\left(  i\right)  }C\ \ \ \ \ \ \ \ \ \ \text{for every }%
+i\in\left\{  1,2,\ldots,n\right\}  .
+\]
 
-\textbf{TO-DO LIST! (This will appear shortly:)}
+\end{proposition}
 
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.laction.Pw}.] We have $P=P_{w}=\left(
+\delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
+Thus,%
+\begin{equation}
+P_{i,j}=\delta_{w\left(  i\right)  ,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
+i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
+,n\right\}  .\label{pf.prop.permat.laction.Pw.Pij=}%
+\end{equation}
+
+
+Now, Proposition \ref{prop.AB} (applied to $n$, $m$, $P$ and $C$ instead of
+$m$, $p$, $A$ and $B$) shows that%
+\[
+\left(  PC\right)  _{i,j}=\sum_{k=1}^{m}P_{i,k}C_{k,j}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{  1,2,\ldots,n\right\}  \text{
+and }j\in\left\{  1,2,\ldots,m\right\}  .
+\]
+Hence, for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,m\right\}  $, we have%
+\begin{align}
+\left(  PC\right)  _{i,j}  & =\sum_{k=1}^{m}\underbrace{P_{i,k}}%
+_{\substack{=\delta_{w\left(  i\right)  ,k}\\\text{(by
+(\ref{pf.prop.permat.laction.Pw.Pij=}))}}}C_{k,j}=\sum_{k=1}^{m}%
+\underbrace{\delta_{w\left(  i\right)  ,k}C_{k,j}}_{=C_{k,j}\delta_{w\left(
+i\right)  ,k}}=\sum_{k=1}^{m}C_{k,j}\underbrace{\delta_{w\left(  i\right)
+,k}}_{\substack{=\delta_{k,w\left(  i\right)  }\\\text{(since }\delta
+_{u,v}=\delta_{v,u}\\\text{for any two}\\\text{objects }u\text{ and }%
+v\text{)}}}\nonumber\\
+& =\sum_{k=1}^{m}C_{k,j}\delta_{k,w\left(  i\right)  }=C_{w\left(  i\right)
+,j}\label{pf.prop.permat.laction.Pw.PCij=}%
+\end{align}
+(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=w\left(
+i\right)  $ and $a_{k}=C_{k,j}$).
+
+Now, let $i\in\left\{  1,2,\ldots,n\right\}  $. Then, the definition of
+$\operatorname*{row}\nolimits_{w\left(  i\right)  }C$ yields
+$\operatorname*{row}\nolimits_{w\left(  i\right)  }C=\left(  C_{w\left(
+i\right)  ,y}\right)  _{1\leq x\leq1,\ 1\leq y\leq m}$. But the definition of
+$\operatorname*{row}\nolimits_{i}\left(  PC\right)  $ yields%
+\[
+\operatorname*{row}\nolimits_{i}\left(  PC\right)  =\left(
+\underbrace{\left(  PC\right)  _{i,y}}_{\substack{=C_{w\left(  i\right)
+,y}\\\text{(by (\ref{pf.prop.permat.laction.Pw.PCij=}), applied to
+}j=y\text{)}}}\right)  _{1\leq x\leq1,\ 1\leq y\leq m}=\left(  C_{w\left(
+i\right)  ,y}\right)  _{1\leq x\leq1,\ 1\leq y\leq m}.
+\]
+Comparing this with $\operatorname*{row}\nolimits_{w\left(  i\right)
+}C=\left(  C_{w\left(  i\right)  ,y}\right)  _{1\leq x\leq1,\ 1\leq y\leq m}$,
+we obtain $\operatorname*{row}\nolimits_{i}\left(  PC\right)
+=\operatorname*{row}\nolimits_{w\left(  i\right)  }C$. This proves Proposition
+\ref{prop.permat.laction.Pw}.
+\end{proof}
+
+
+
+\begin{proof}
+[Proof of Proposition \ref{prop.permat.laction}.] Proposition
+\ref{prop.permat.permat-from-perm} \textbf{(b)} shows that there exists a
+\textbf{unique} permutation $w$ of $\left\{  1,2,\ldots,n\right\}  $ such that
+$P=P_{w}$. Consider this $w$. Proposition \ref{prop.permat.laction.Pw} yields
+that%
+\[
+\operatorname*{row}\nolimits_{i}\left(  PC\right)  =\operatorname*{row}%
+\nolimits_{w\left(  i\right)  }C\ \ \ \ \ \ \ \ \ \ \text{for every }%
+i\in\left\{  1,2,\ldots,n\right\}  .
+\]
+In other words, the $i$-th row of $PC$ equals the $w\left(  i\right)  $-th row
+of $C$ for each $i\in\left\{  1,2,\ldots,n\right\}  $. Since $w$ is a
+permutation of $\left\{  1,2,\ldots,n\right\}  $, this shows that the rows of
+$PC$ are the rows of $C$, rearranged. Hence, the matrix $PC$ can be obtained
+from $C$ by rearranging the rows. This proves Proposition
+\ref{prop.permat.laction}.
+\end{proof}
+
+
+
+\begin{noncompile}
 \begin{todo}
 (*) Permutation matrices are products of $T_{k,k+1}$'s. (More detail?)
 \end{todo}
@@ -11854,6 +12014,7 @@ $C$ is any matrix, then $PC$ has the same rows as $C$ but (possibly) in a
 different order. Similarly, $CP$ has the same columns as $C$ but (possibly) in
 a different order.
 \end{todo}
+\end{noncompile}
 
 \subsection{%
 %TCIMACRO{\TEXTsymbol{<}}%
@@ -11866,6 +12027,12 @@ TODO%
 $>$
 %EndExpansion
 Gaussian elimination and the row echelon form}
+
+[...]
+
+(to be continued)
+
+\textbf{TO-DO LIST! (This will appear shortly:)}
 
 \begin{todo}
 Define row-echelon matrices a la \cite[Definition 2.10.4]{Kowals16}. Define
