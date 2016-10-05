@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 03, 2016 23:59:21}
+%TCIDATA{LastRevised=Tuesday, October 04, 2016 19:07:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -3424,13 +3424,15 @@ Fix some set $S$, and let $\mathcal{P}\left(  S\right)  $ denote the set of
 all subsets of $S$. The set $\mathcal{P}\left(  S\right)  $ equipped with the
 operation $\bigtriangleup$ (playing the role of \textquotedblleft%
 $+$\textquotedblright), the operation $\cap$ (playing the role of
-\textquotedblleft$\cdot$\textquotedblright), the element $\varnothing$
-(playing the role of \textquotedblleft$0$\textquotedblright) and the element
-$S$ (playing the role of \textquotedblleft$1$\textquotedblright) is a
-commutative ring. This is an example of a \textit{Boolean ring} (and also an
-example of the fact that the operations \textquotedblleft$+$\textquotedblright%
-\ and \textquotedblleft$\cdot$\textquotedblright\ don't always have anything
-to do with addition and multiplication of numbers!).
+\textquotedblleft$\cdot$\textquotedblright), the element\footnote{The notation
+$\varnothing$ stands for the empty set, i.e., the set $\left\{  {}\right\}
+$.} $\varnothing$ (playing the role of \textquotedblleft$0$\textquotedblright)
+and the element $S$ (playing the role of \textquotedblleft$1$%
+\textquotedblright) is a commutative ring. This is an example of a
+\textit{Boolean ring} (and also an example of the fact that the operations
+\textquotedblleft$+$\textquotedblright\ and \textquotedblleft$\cdot
+$\textquotedblright\ don't always have anything to do with addition and
+multiplication of numbers!).
 \end{itemize}
 
 Many more examples of commutative rings can be found in textbooks on abstract
@@ -11890,7 +11892,7 @@ map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w &  \mapsto P_{w}%
+w  &  \mapsto P_{w}%
 \end{align*}
 is a bijection. This map provides a \textquotedblleft
 dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
@@ -11927,13 +11929,13 @@ i\in\left\{  1,2,\ldots,n\right\}  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.permat.laction.Pw}.] We have $P=P_{w}=\left(
+[Proof of Proposition \ref{prop.permat.laction.Pw}.]We have $P=P_{w}=\left(
 \delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
 Thus,%
 \begin{equation}
 P_{i,j}=\delta_{w\left(  i\right)  ,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  .\label{pf.prop.permat.laction.Pw.Pij=}%
+,n\right\}  . \label{pf.prop.permat.laction.Pw.Pij=}%
 \end{equation}
 
 
@@ -11947,16 +11949,16 @@ and }j\in\left\{  1,2,\ldots,m\right\}  .
 Hence, for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,m\right\}  $, we have%
 \begin{align}
-\left(  PC\right)  _{i,j}  & =\sum_{k=1}^{m}\underbrace{P_{i,k}}%
-_{\substack{=\delta_{w\left(  i\right)  ,k}\\\text{(by
+\left(  PC\right)  _{i,j}  &  =\sum_{k=1}^{m}\underbrace{P_{i,k}%
+}_{\substack{=\delta_{w\left(  i\right)  ,k}\\\text{(by
 (\ref{pf.prop.permat.laction.Pw.Pij=}))}}}C_{k,j}=\sum_{k=1}^{m}%
 \underbrace{\delta_{w\left(  i\right)  ,k}C_{k,j}}_{=C_{k,j}\delta_{w\left(
 i\right)  ,k}}=\sum_{k=1}^{m}C_{k,j}\underbrace{\delta_{w\left(  i\right)
 ,k}}_{\substack{=\delta_{k,w\left(  i\right)  }\\\text{(since }\delta
 _{u,v}=\delta_{v,u}\\\text{for any two}\\\text{objects }u\text{ and }%
 v\text{)}}}\nonumber\\
-& =\sum_{k=1}^{m}C_{k,j}\delta_{k,w\left(  i\right)  }=C_{w\left(  i\right)
-,j}\label{pf.prop.permat.laction.Pw.PCij=}%
+&  =\sum_{k=1}^{m}C_{k,j}\delta_{k,w\left(  i\right)  }=C_{w\left(  i\right)
+,j} \label{pf.prop.permat.laction.Pw.PCij=}%
 \end{align}
 (by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=w\left(
 i\right)  $ and $a_{k}=C_{k,j}$).
@@ -11980,10 +11982,8 @@ we obtain $\operatorname*{row}\nolimits_{i}\left(  PC\right)
 \ref{prop.permat.laction.Pw}.
 \end{proof}
 
-
-
 \begin{proof}
-[Proof of Proposition \ref{prop.permat.laction}.] Proposition
+[Proof of Proposition \ref{prop.permat.laction}.]Proposition
 \ref{prop.permat.permat-from-perm} \textbf{(b)} shows that there exists a
 \textbf{unique} permutation $w$ of $\left\{  1,2,\ldots,n\right\}  $ such that
 $P=P_{w}$. Consider this $w$. Proposition \ref{prop.permat.laction.Pw} yields
@@ -12000,8 +12000,6 @@ $PC$ are the rows of $C$, rearranged. Hence, the matrix $PC$ can be obtained
 from $C$ by rearranging the rows. This proves Proposition
 \ref{prop.permat.laction}.
 \end{proof}
-
-
 
 \begin{noncompile}
 \begin{todo}
@@ -12027,6 +12025,93 @@ TODO%
 $>$
 %EndExpansion
 Gaussian elimination and the row echelon form}
+
+I shall now introduce row operations -- certain transformations acting on
+matrices, changing some of their rows while leaving others unchanged. We have
+already encountered them in some proofs above (for instance, the
+\textquotedblleft downward row additions\textquotedblright\ in the proof of
+Theorem \ref{thm.triangular.Alamuv} were one type of row operations), but now
+we shall give them the systematic treatment they deserve and see them
+collaborate on producing in Gaussian elimination.
+
+\begin{definition}
+\label{def.row-ops.row-add}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a number.
+
+Consider the transformation which transforms an $n\times m$-matrix $C$ (for
+some $m\in\mathbb{N}$) into the product $A_{u,v}^{\lambda}C$, where
+$A_{u,v}^{\lambda}$ is the $\lambda$-addition matrix as defined in Definition
+\ref{def.Alamuv}. It is the transformation that modifies an $n\times m$-matrix
+$C$ by adding $\lambda\operatorname*{row}\nolimits_{v}C$ to the $u$-th row
+(according to Proposition \ref{prop.Alamuv.laction}). This transformation will
+be denoted as \textit{the row addition }$A_{u,v}^{\lambda}$. (We are using the
+same symbol $A_{u,v}^{\lambda}$ for the transformation and for the $\lambda
+$-addition matrix, since they are so closely related; nevertheless, they are
+not one and the same thing. I hope that the reader will be able to keep them apart.)
+
+The row addition $A_{u,v}^{\lambda}$ is called a \textit{downward row
+addition} if $u>v$, and is called an \textit{upward row addition} if $u<v$.
+
+We shall use the \textit{arrow notation} for row additions: When $C$ and $D$
+are two $n\times m$-matrices (for some $m\in\mathbb{N}$), then we will use the
+notation \textquotedblleft$C\overset{A_{u,v}^{\lambda}}{\longrightarrow}%
+D$\textquotedblright\ when we want to say that the row addition $A_{u,v}%
+^{\lambda}$ transforms $C$ into $D$. Of course, saying this is equivalent to
+saying that $D=A_{u,v}^{\lambda}C$ (since the row addition $A_{u,v}^{\lambda}$
+transforms $C$ into $A_{u,v}^{\lambda}C$).
+\end{definition}
+
+\begin{example}
+The row addition $A_{1,3}^{5}$ modifies a $3\times m$-matrix $C$ by adding
+$5\operatorname*{row}\nolimits_{3}C$ to the $1$-st row of $C$. Thus, this row
+addition transforms any $3\times4$-matrix $\left(
+\begin{array}
+[c]{cccc}%
+a_{1} & b_{1} & c_{1} & d_{1}\\
+a_{2} & b_{2} & c_{2} & d_{2}\\
+a_{3} & b_{3} & c_{3} & d_{3}%
+\end{array}
+\right)  $ into $\left(
+\begin{array}
+[c]{cccc}%
+a_{1}+5a_{3} & b_{1}+5b_{3} & c_{1}+5c_{3} & d_{1}+5d_{3}\\
+a_{2} & b_{2} & c_{2} & d_{2}\\
+a_{3} & b_{3} & c_{3} & d_{3}%
+\end{array}
+\right)  $. For example, it transforms the $3\times4$-matrix $\left(
+\begin{array}
+[c]{cccc}%
+1 & 3 & 2 & 1\\
+0 & 4 & -1 & 1\\
+2 & -1 & 3 & 1
+\end{array}
+\right)  $ into $\left(
+\begin{array}
+[c]{cccc}%
+11 & -2 & 17 & 6\\
+0 & 4 & -1 & 1\\
+2 & -1 & 3 & 1
+\end{array}
+\right)  $. Using the arrow notation, we can write this as follows:%
+\[
+\left(
+\begin{array}
+[c]{cccc}%
+1 & 3 & 2 & 1\\
+0 & 4 & -1 & 1\\
+2 & -1 & 3 & 1
+\end{array}
+\right)  \overset{A_{1,3}^{5}}{\longrightarrow}\left(
+\begin{array}
+[c]{cccc}%
+11 & -2 & 17 & 6\\
+0 & 4 & -1 & 1\\
+2 & -1 & 3 & 1
+\end{array}
+\right)  .
+\]
+
+\end{example}
 
 [...]
 
@@ -12939,7 +13024,8 @@ can be identified with the vector space $\mathbb{R}^{\left\{  1,2\right\}  }$
 the addition of two complex numbers is componentwise, and so is the scaling of
 a complex number by a real number).
 
-\item The vector space $\left\{  0\right\}  $ (from Example
+\item Recall that $\varnothing$ denotes the empty set (i.e., the set $\left\{
+{}\right\}  $). The vector space $\left\{  0\right\}  $ (from Example
 \ref{exam.vectspace.RC0}) can be identified with the vector space
 $\mathbb{R}^{\varnothing}$. Indeed, the only element $0$ of $\left\{
 0\right\}  $ can be equated with the only map from $\varnothing$ to
