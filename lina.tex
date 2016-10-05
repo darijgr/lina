@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, October 04, 2016 19:32:10}
+%TCIDATA{LastRevised=Wednesday, October 05, 2016 10:48:55}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12033,7 +12033,7 @@ a different order.
 \end{todo}
 \end{noncompile}
 
-\subsection{%
+\subsection{\label{sect.gauss.gauss}%
 %TCIMACRO{\TEXTsymbol{<}}%
 %BeginExpansion
 $<$%
@@ -12054,6 +12054,49 @@ we shall give them the systematic treatment they deserve and see them
 collaborate on producing in Gaussian elimination.
 
 \begin{definition}
+For the whole Section \ref{sect.gauss.gauss}, we shall use the word
+\textquotedblleft transformation\textquotedblright\ in a rather specific
+meaning: Let $n\in\mathbb{N}$. A \textit{transformation of }$n$\textit{-rowed
+matrices} will mean a map%
+\[
+\left\{  \text{matrices with }n\text{ rows}\right\}  \rightarrow\left\{
+\text{matrices with }n\text{ rows}\right\}  .
+\]
+In other words, a \textit{transformation of }$n$\textit{-rowed matrices} is a
+map that transforms each matrix with $n$ rows into a new matrix with $n$ rows.
+
+We shall use the arrow notation for transformations: If $\mathcal{O}$ is some
+transformation of $n$-rowed matrices, and if $C$ and $D$ are two matrices,
+then we will use the notation \textquotedblleft$C\overset{\mathcal{O}%
+}{\longrightarrow}D$\textquotedblright\ when we want to say that the
+transformation $\mathcal{O}$ transforms $C$ into $D$. For example, if
+$\mathcal{M}$ denotes the transformation of $2$-rowed matrices that multiplies
+each entry of a matrix by $3$, then $\left(
+\begin{array}
+[c]{ccc}%
+a & b & c\\
+a^{\prime} & b^{\prime} & c^{\prime}%
+\end{array}
+\right)  \overset{\mathcal{M}}{\longrightarrow}\left(
+\begin{array}
+[c]{ccc}%
+3a & 3b & 3c\\
+3a^{\prime} & 3b^{\prime} & 3c^{\prime}%
+\end{array}
+\right)  $.
+
+More generally, if $\mathcal{O}_{1},\mathcal{O}_{2},\ldots,\mathcal{O}_{m}$ is
+a sequence of transformations of $n$-rowed matrices, and if $C_{0}%
+,C_{1},\ldots,C_{m}$ are some matrices, then we will use the notation
+\textquotedblleft$C_{0}\overset{\mathcal{O}_{1}}{\longrightarrow}%
+C_{1}\overset{\mathcal{O}_{2}}{\longrightarrow}\cdots\overset{\mathcal{O}%
+_{m}}{\longrightarrow}C_{m}$\textquotedblright\ when we want to say that the
+transposition $\mathcal{O}_{i}$ transforms $C_{i-1}$ into $C_{i}$ for each
+$i\in\left\{  1,2,\ldots,m\right\}  $. Examples for this will appear below
+once we have defined some actual transformations.
+\end{definition}
+
+\begin{definition}
 \label{def.row-ops.row-add}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
 distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a number.
 
@@ -12063,7 +12106,7 @@ $A_{u,v}^{\lambda}$ is the $\lambda$-addition matrix as defined in Definition
 \ref{def.Alamuv}. It is the transformation that modifies an $n\times m$-matrix
 $C$ by adding $\lambda\operatorname*{row}\nolimits_{v}C$ to the $u$-th row
 (according to Proposition \ref{prop.Alamuv.laction}). This transformation will
-be denoted as \textit{the row addition }$A_{u,v}^{\lambda}$. (We are using the
+be called \textit{the row addition }$A_{u,v}^{\lambda}$. (We are using the
 same symbol $A_{u,v}^{\lambda}$ for the transformation and for the $\lambda
 $-addition matrix, since they are so closely related; nevertheless, they are
 not one and the same thing. I hope that the reader will be able to keep them apart.)
@@ -12071,13 +12114,10 @@ not one and the same thing. I hope that the reader will be able to keep them apa
 The row addition $A_{u,v}^{\lambda}$ is called a \textit{downward row
 addition} if $u>v$, and is called an \textit{upward row addition} if $u<v$.
 
-We shall use the \textit{arrow notation} for row additions: When $C$ and $D$
-are two $n\times m$-matrices (for some $m\in\mathbb{N}$), then we will use the
-notation \textquotedblleft$C\overset{A_{u,v}^{\lambda}}{\longrightarrow}%
-D$\textquotedblright\ when we want to say that the row addition $A_{u,v}%
-^{\lambda}$ transforms $C$ into $D$. Of course, saying this is equivalent to
-saying that $D=A_{u,v}^{\lambda}C$ (since the row addition $A_{u,v}^{\lambda}$
-transforms $C$ into $A_{u,v}^{\lambda}C$).
+Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
+$C\overset{A_{u,v}^{\lambda}}{\longrightarrow}D$ if and only if they satisfy
+$D=A_{u,v}^{\lambda}C$. (This is because the row addition $A_{u,v}^{\lambda}$
+transforms each $n\times m$-matrix $C$ into $A_{u,v}^{\lambda}C$.)
 \end{definition}
 
 \begin{example}
@@ -12097,23 +12137,25 @@ a_{1}+5a_{3} & b_{1}+5b_{3} & c_{1}+5c_{3} & d_{1}+5d_{3}\\
 a_{2} & b_{2} & c_{2} & d_{2}\\
 a_{3} & b_{3} & c_{3} & d_{3}%
 \end{array}
-\right)  $. For example, it transforms the $3\times4$-matrix $\left(
-\begin{array}
-[c]{cccc}%
-1 & 3 & 2 & 1\\
-0 & 4 & -1 & 1\\
-2 & -1 & 3 & 1
-\end{array}
-\right)  $ into $\left(
-\begin{array}
-[c]{cccc}%
-11 & -2 & 17 & 6\\
-0 & 4 & -1 & 1\\
-2 & -1 & 3 & 1
-\end{array}
 \right)  $. Using the arrow notation, we can write this as follows:%
 \[
 \left(
+\begin{array}
+[c]{cccc}%
+a_{1} & b_{1} & c_{1} & d_{1}\\
+a_{2} & b_{2} & c_{2} & d_{2}\\
+a_{3} & b_{3} & c_{3} & d_{3}%
+\end{array}
+\right)  \overset{A_{1,3}^{5}}{\longrightarrow}\left(
+\begin{array}
+[c]{cccc}%
+a_{1}+5a_{3} & b_{1}+5b_{3} & c_{1}+5c_{3} & d_{1}+5d_{3}\\
+a_{2} & b_{2} & c_{2} & d_{2}\\
+a_{3} & b_{3} & c_{3} & d_{3}%
+\end{array}
+\right)  .
+\]
+For example, $\left(
 \begin{array}
 [c]{cccc}%
 1 & 3 & 2 & 1\\
@@ -12127,9 +12169,123 @@ a_{3} & b_{3} & c_{3} & d_{3}%
 0 & 4 & -1 & 1\\
 2 & -1 & 3 & 1
 \end{array}
+\right)  $.
+\end{example}
+
+\begin{definition}
+\label{def.row-ops.row-scale}Let $n\in\mathbb{N}$. Let $u\in\left\{
+1,2,\ldots,n\right\}  $. Let $\lambda$ be a nonzero number.
+
+Consider the transformation which transforms an $n\times m$-matrix $C$ (for
+some $m\in\mathbb{N}$) into the product $S_{u}^{\lambda}C$, where
+$S_{u}^{\lambda}$ is the $\lambda$-scaling matrix as defined in Definition
+\ref{def.Slamu}. It is the transformation that modifies an $n\times m$-matrix
+$C$ by scaling the $u$-th row by $\lambda$ (according to Proposition
+\ref{prop.Slamu.entries}). This transformation will be called \textit{the row
+scaling }$S_{u}^{\lambda}$. (We are using the same symbol $S_{u}^{\lambda}$
+for the transformation and for the $\lambda$-scaling matrix. Again, this
+should not lead to confusion.)
+
+Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
+$C\overset{S_{u}^{\lambda}}{\longrightarrow}D$ if and only if they satisfy
+$D=S_{u}^{\lambda}C$. (This is because the row scaling $S_{u}^{\lambda}$
+transforms each $n\times m$-matrix $C$ into $S_{u}^{\lambda}C$.)
+\end{definition}
+
+\begin{example}
+The row scaling $S_{2}^{5}$ modifies a $3\times m$-matrix $C$ by scaling the
+$2$-nd row by $5$. Thus, this row scaling transforms any $3\times2$-matrix
+$\left(
+\begin{array}
+[c]{cc}%
+a_{1} & b_{1}\\
+a_{2} & b_{2}\\
+a_{3} & b_{3}%
+\end{array}
+\right)  $ into $\left(
+\begin{array}
+[c]{cc}%
+a_{1} & b_{1}\\
+5a_{2} & 5b_{2}\\
+a_{3} & b_{3}%
+\end{array}
+\right)  $.
+\end{example}
+
+\begin{definition}
+\label{def.row-ops.row-swap}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
+distinct elements of $\left\{  1,2,\ldots,n\right\}  $.
+
+Consider the transformation which transforms an $n\times m$-matrix $C$ (for
+some $m\in\mathbb{N}$) into the product $T_{u,v}C$, where $T_{u,v}$ is the
+swapping matrix as defined in Definition \ref{def.Tuv}. It is the
+transformation that modifies an $n\times m$-matrix $C$ by swapping the $u$-th
+row with the $v$-th row (according to Proposition \ref{prop.Tuv.laction}).
+This transformation will be called \textit{the row swap }$T_{u,v}$. (We are
+using the same symbol $T_{u,v}$ for the transformation and for the swapping matrix.)
+
+Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
+$C\overset{T_{u,v}}{\longrightarrow}D$ if and only if they satisfy
+$D=T_{u,v}C$. (This is because the row swap $T_{u,v}$ transforms each $n\times
+m$-matrix $C$ into $T_{u,v}C$.)
+\end{definition}
+
+\begin{example}
+The row swap $T_{1,3}$ modifies a $4\times m$-matrix $C$ by swapping the
+$1$-st row of $C$ with the $3$-rd row of $C$. Thus, this row swap transforms
+any $4\times2$-matrix $\left(
+\begin{array}
+[c]{cc}%
+a_{1} & b_{1}\\
+a_{2} & b_{2}\\
+a_{3} & b_{3}\\
+a_{4} & b_{4}%
+\end{array}
+\right)  $ into $\left(
+\begin{array}
+[c]{cc}%
+a_{3} & b_{3}\\
+a_{2} & b_{2}\\
+a_{1} & b_{1}\\
+a_{4} & b_{4}%
+\end{array}
+\right)  $. Using the arrow notation, we can write this as follows:%
+\[
+\left(
+\begin{array}
+[c]{cc}%
+a_{1} & b_{1}\\
+a_{2} & b_{2}\\
+a_{3} & b_{3}\\
+a_{4} & b_{4}%
+\end{array}
+\right)  \overset{T_{1,3}}{\longrightarrow}\left(
+\begin{array}
+[c]{cc}%
+a_{3} & b_{3}\\
+a_{2} & b_{2}\\
+a_{1} & b_{1}\\
+a_{4} & b_{4}%
+\end{array}
 \right)  .
 \]
-
+For example, $\left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+3 & 4\\
+5 & 6\\
+7 & 8
+\end{array}
+\right)  \overset{T_{1,3}}{\longrightarrow}\left(
+\begin{array}
+[c]{cc}%
+5 & 6\\
+3 & 4\\
+1 & 2\\
+7 & 8
+\end{array}
+\right)  $.
 \end{example}
 
 [...]
@@ -12137,6 +12293,12 @@ a_{3} & b_{3} & c_{3} & d_{3}%
 (to be continued)
 
 \textbf{TO-DO LIST! (This will appear shortly:)}
+
+\begin{todo}
+What it means to undo operations.
+\end{todo}
+
+
 
 \begin{todo}
 Define row-echelon matrices a la \cite[Definition 2.10.4]{Kowals16}. Define
@@ -13084,6 +13246,18 @@ constant-$0$ map. What makes this definition work is that:
 
 \item the constant-$0$ map is continuous.
 \end{itemize}
+\end{example}
+
+\begin{example}
+The set of all polynomial functions from $\mathbb{R}$ to $\mathbb{R}$ is a
+vector space, too. (A function $f:\mathbb{R}\rightarrow\mathbb{R}$ is said to
+be a \textit{polynomial function} if there exist some $n\in\mathbb{N}$ and
+some $a_{0},a_{1},\ldots,a_{n}\in\mathbb{R}$ such that every $x\in\mathbb{R}$
+satisfies $f\left(  x\right)  =a_{0}+a_{1}x+a_{2}x^{2}+\cdots+a_{n}x^{n}$. For
+instance, the function $f$ that sends each $x\in\mathbb{R}$ to $2\left(
+x+3\right)  ^{2}+2$ is a polynomial function, because it satisfies $f\left(
+x\right)  =2\left(  x+3\right)  ^{2}x^{3}+2=2+0x+0x^{2}+18x^{3}+12x^{4}%
++2x^{5}$ for all $x\in\mathbb{R}$.)
 \end{example}
 
 [to be continued]
