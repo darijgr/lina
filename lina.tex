@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, October 05, 2016 21:14:12}
+%TCIDATA{LastRevised=Thursday, October 06, 2016 09:02:33}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6950,10 +6950,10 @@ $\Longrightarrow$ direction) actually gives an explicit representation of a
 lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
 matrices:%
 \begin{align*}
-C &  =\left(  A_{2,1}^{C_{2,1}}A_{3,1}^{C_{3,1}}\cdots A_{n,1}^{C_{n,1}%
+C  &  =\left(  A_{2,1}^{C_{2,1}}A_{3,1}^{C_{3,1}}\cdots A_{n,1}^{C_{n,1}%
 }\right)  \left(  A_{3,2}^{C_{3,2}}A_{4,2}^{C_{4,2}}\cdots A_{n,2}^{C_{n,2}%
 }\right)  \left(  A_{4,3}^{C_{4,3}}A_{5,3}^{C_{5,3}}\cdots A_{n,3}^{C_{n,3}%
-}\right)  \\
+}\right) \\
 &  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n-2,n-3}^{C_{n-2,n-3}}A_{n-1,n-3}%
 ^{C_{n-1,n-3}}A_{n,n-3}^{C_{n,n-3}}\right)  \left(  A_{n-1,n-2}^{C_{n-1,n-2}%
 }A_{n,n-2}^{C_{n,n-2}}\right)  \left(  A_{n,n-1}^{C_{n,n-1}}\right)  \left(
@@ -12034,28 +12034,18 @@ a different order.
 \end{todo}
 \end{noncompile}
 
-\subsection{\label{sect.gauss.gauss}%
-%TCIMACRO{\TEXTsymbol{<}}%
-%BeginExpansion
-$<$%
-%EndExpansion
-TODO%
-%TCIMACRO{\TEXTsymbol{>} }%
-%BeginExpansion
-$>$
-%EndExpansion
-Gaussian elimination and the row echelon form}
+\subsection{The standard row operations}
 
-I shall now introduce row operations -- certain transformations acting on
-matrices, changing some of their rows while leaving others unchanged. We have
-already encountered them in some proofs above (for instance, the
-\textquotedblleft downward row additions\textquotedblright\ in the proof of
-Theorem \ref{thm.triangular.Alamuv} were one type of row operations), but now
-we shall give them the systematic treatment they deserve and see them
-collaborate on producing in Gaussian elimination.
+I shall now introduce the standard row operations -- certain transformations
+acting on matrices, changing some of their rows while leaving others
+unchanged. We have already encountered them in some proofs above (for
+instance, the \textquotedblleft downward row additions\textquotedblright\ in
+the proof of Theorem \ref{thm.triangular.Alamuv} were one type of row
+operations), but now we shall give them the systematic treatment they deserve
+and see them collaborate on producing in Gaussian elimination.
 
 \begin{definition}
-For the whole Section \ref{sect.gauss.gauss}, we shall use the word
+For the rest of Chapter \ref{sect.gauss}, we shall use the word
 \textquotedblleft transformation\textquotedblright\ in a rather specific
 meaning: Let $n\in\mathbb{N}$. A \textit{transformation of }$n$\textit{-rowed
 matrices} will mean a map%
@@ -12095,6 +12085,20 @@ _{m}}{\longrightarrow}C_{m}$\textquotedblright\ when we want to say that the
 transposition $\mathcal{O}_{i}$ transforms $C_{i-1}$ into $C_{i}$ for each
 $i\in\left\{  1,2,\ldots,m\right\}  $. Examples for this will appear below
 once we have defined some actual transformations.
+
+We will also sometimes draw arrows in two directions. Namely: If $\mathcal{O}$
+and $\mathcal{P}$ are two transformations of $n$-rowed matrices, and if $C$
+and $D$ are two matrices, then we will use the notation \textquotedblleft%
+$C\underset{\mathcal{P}}{\overset{\mathcal{O}}{%
+%TCIMACRO{\QTATOP{\longrightarrow}{\longleftarrow}}%
+%BeginExpansion
+\genfrac{}{}{0pt}{1}{\longrightarrow}{\longleftarrow}%
+%EndExpansion
+}}D$\textquotedblright\ when we want to say that the transformation
+$\mathcal{O}$ transforms $C$ into $D$ while the transformation $\mathcal{P}$
+transforms $D$ into $C$. This will often happen when two transformations
+$\mathcal{O}$ and $\mathcal{P}$ are inverse to each other (i.e., each of them
+undoes the other).
 \end{definition}
 
 \begin{definition}
@@ -12119,6 +12123,17 @@ Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
 $C\overset{A_{u,v}^{\lambda}}{\longrightarrow}D$ if and only if they satisfy
 $D=A_{u,v}^{\lambda}C$. (This is because the row addition $A_{u,v}^{\lambda}$
 transforms each $n\times m$-matrix $C$ into $A_{u,v}^{\lambda}C$.)
+
+Note that the row addition $A_{u,v}^{\lambda}$ is inverse to the row addition
+$A_{u,v}^{-\lambda}$ (since the matrices $A_{u,v}^{\lambda}$ and
+$A_{u,v}^{-\lambda}$ are inverse). Hence, if two matrices $C$ and $D$ (with
+$n$ rows each) satisfy $C\overset{A_{u,v}^{\lambda}}{\longrightarrow}D$, then
+they satisfy $C\underset{A_{u,v}^{-\lambda}}{\overset{A_{u,v}^{\lambda}}{%
+%TCIMACRO{\QTATOP{\longrightarrow}{\longleftarrow}}%
+%BeginExpansion
+\genfrac{}{}{0pt}{1}{\longrightarrow}{\longleftarrow}%
+%EndExpansion
+}}D$.
 \end{definition}
 
 \begin{example}
@@ -12191,6 +12206,17 @@ Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
 $C\overset{S_{u}^{\lambda}}{\longrightarrow}D$ if and only if they satisfy
 $D=S_{u}^{\lambda}C$. (This is because the row scaling $S_{u}^{\lambda}$
 transforms each $n\times m$-matrix $C$ into $S_{u}^{\lambda}C$.)
+
+Note that the row scaling $S_{u}^{\lambda}$ is inverse to the row scaling
+$S_{u}^{1/\lambda}$ (since the matrices $S_{u}^{\lambda}$ and $S_{u}%
+^{1/\lambda}$ are inverse). Hence, if two matrices $C$ and $D$ (with $n$ rows
+each) satisfy $C\overset{S_{u}^{\lambda}}{\longrightarrow}D$, then they
+satisfy $C\underset{S_{u}^{1/\lambda}}{\overset{S_{u}^{\lambda}}{%
+%TCIMACRO{\QTATOP{\longrightarrow}{\longleftarrow}}%
+%BeginExpansion
+\genfrac{}{}{0pt}{1}{\longrightarrow}{\longleftarrow}%
+%EndExpansion
+}}D$.
 \end{definition}
 
 \begin{example}
@@ -12229,6 +12255,16 @@ Note that two matrices $C$ and $D$ (with $n$ rows each) satisfy
 $C\overset{T_{u,v}}{\longrightarrow}D$ if and only if they satisfy
 $D=T_{u,v}C$. (This is because the row swap $T_{u,v}$ transforms each $n\times
 m$-matrix $C$ into $T_{u,v}C$.)
+
+Note that the row swap $T_{u,v}$ is inverse to itself (since the matrices
+$T_{u,v}$ and $T_{u,v}$ are inverse). Hence, if two matrices $C$ and $D$ (with
+$n$ rows each) satisfy $C\overset{T_{u,v}}{\longrightarrow}D$, then they
+satisfy $C\underset{T_{u,v}}{\overset{T_{u,v}}{%
+%TCIMACRO{\QTATOP{\longrightarrow}{\longleftarrow}}%
+%BeginExpansion
+\genfrac{}{}{0pt}{1}{\longrightarrow}{\longleftarrow}%
+%EndExpansion
+}}D$.
 \end{definition}
 
 \begin{example}
@@ -12288,6 +12324,36 @@ For example, $\left(
 \end{array}
 \right)  $.
 \end{example}
+
+\begin{definition}
+Let $n\in\mathbb{N}$. The \textit{standard row operations} (on $n\times
+n$-matrices) are:
+
+\begin{itemize}
+\item row additions (i.e., transformations of the form $A_{u,v}^{\lambda}$);
+
+\item row scalings (i.e., transformations of the form $S_{u}^{\lambda}$);
+
+\item row swaps (i.e., transformations of the form $T_{u,v}$).
+\end{itemize}
+\end{definition}
+
+These row operations allow us to \textquotedblleft reduce\textquotedblright%
+\ any matrix to a certain simple form -- called a row echelon form -- that has
+many zeroes (in a sense, it is close to upper-triangular, although the two
+notions are not exactly the same) and that allows for easily solving linear systems.
+
+\subsection{\label{sect.gauss.gauss}%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Gaussian elimination and the row echelon form}
 
 [...]
 
