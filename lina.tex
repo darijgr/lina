@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, October 05, 2016 10:48:55}
+%TCIDATA{LastRevised=Wednesday, October 05, 2016 21:14:12}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6786,31 +6786,32 @@ a^{\prime\prime\prime} & b^{\prime\prime\prime}%
 %used is the downward row addition $A^\lambda_{3,1}$.)
 
 
-Notice that any downward row addition $A^{\lambda}_{u,v}$ is invertible:
-Namely, it can be undone by the downward row addition $A^{-\lambda}_{u,v}%
+Notice that any downward row addition $A_{u,v}^{\lambda}$ is invertible:
+Namely, it can be undone by the downward row addition $A_{u,v}^{-\lambda}%
 $.\ \ \ \ \footnote{Here are two ways to prove this:
 \par
-\textit{First proof:} The downward row addition $A^{\lambda}_{u,v}$ transforms
+\textit{First proof:} The downward row addition $A_{u,v}^{\lambda}$ transforms
 a matrix by adding $\lambda$ times the $v$-th row to the $u$-th row. The
-downward row addition $A^{-\lambda}_{u,v}$ transforms a matrix by adding
+downward row addition $A_{u,v}^{-\lambda}$ transforms a matrix by adding
 $-\lambda$ times the $v$-th row to the $u$-th row, i.e., by subtracting
 $\lambda$ times the $v$-th row from the $u$-th row. Hence, these two row
 additions undo each other (i.e., if we perform one and then the other, then we
 arrive back at the matrix we have started with), because (for example) adding
 $\lambda$ times the $v$-th row to the $u$-th row and then subtracting it back
-recovers the original $u$-th row. (Here, we have tacitly used the fact that $u
-\neq v$. If we had $u = v$, then adding $\lambda$ times the $v$-th row to the
+recovers the original $u$-th row. (Here, we have tacitly used the fact that
+$u\neq v$. If we had $u=v$, then adding $\lambda$ times the $v$-th row to the
 $u$-th row would have changed the $v$-th row, and then subtracting it back
-would mean subtracting a \textbf{changed} $v$-th row from the $u$-th row.) So
-we have shown that the downward row addition $A^{\lambda}_{u,v}$ can be undone
-by the downward row addition $A^{-\lambda}_{u,v}$. Qed.
+would mean subtracting $\lambda$ times a \textbf{changed} $v$-th row from the
+$u$-th row.) So we have shown that the downward row addition $A_{u,v}%
+^{\lambda}$ can be undone by the downward row addition $A_{u,v}^{-\lambda}$.
+Qed.
 \par
 \textit{Second proof:} Proposition \ref{prop.Alamuv.lambda+mu} \textbf{(c)}
-shows that the matrix $A^{-\lambda}_{u,v}$ is the inverse of the matrix
-$A^{\lambda}_{u,v}$. Hence, multiplying a matrix by $A^{-\lambda}_{u,v}$
-undoes multiplying a matrix by $A^{\lambda}_{u,v}$. In other words, the
-downward row addition $A^{-\lambda}_{u,v}$ undoes the downward row addition
-$A^{\lambda}_{u,v}$. Qed.}
+shows that the matrix $A_{u,v}^{-\lambda}$ is the inverse of the matrix
+$A_{u,v}^{\lambda}$. Hence, multiplying a matrix by $A_{u,v}^{-\lambda}$
+undoes multiplying a matrix by $A_{u,v}^{\lambda}$. In other words, the
+downward row addition $A_{u,v}^{-\lambda}$ undoes the downward row addition
+$A_{u,v}^{\lambda}$. Qed.}
 
 Notice that, for any downward row addition $A^{\lambda}_{u,v}$, the matrix
 $A^{\lambda}_{u,v}$ is a lower addition matrix. This is because $u > v$ (by
@@ -6949,19 +6950,19 @@ $\Longrightarrow$ direction) actually gives an explicit representation of a
 lower-unitriangular $n\times n$-matrix $C$ as a product of lower addition
 matrices:%
 \begin{align*}
-C  &  =\left(  A_{2,1}^{-C_{2,1}}A_{3,1}^{-C_{3,1}}\cdots A_{n,1}^{-C_{n,1}%
-}\right)  \left(  A_{3,2}^{-C_{3,2}}A_{4,2}^{-C_{4,2}}\cdots A_{n,2}%
-^{-C_{n,2}}\right)  \left(  A_{4,3}^{-C_{4,3}}A_{5,3}^{-C_{5,3}}\cdots
-A_{n,3}^{-C_{n,3}}\right) \\
-&  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n-2,n-3}^{-C_{n-2,n-3}}A_{n-1,n-3}%
-^{-C_{n-1,n-3}}A_{n,n-3}^{-C_{n,n-3}}\right)  \left(  A_{n-1,n-2}%
-^{-C_{n-1,n-2}}A_{n,n-2}^{-C_{n,n-2}}\right)  \left(  A_{n,n-1}^{-C_{n,n-1}%
-}\right)  \left(  I_{n}\right)  .
+C &  =\left(  A_{2,1}^{C_{2,1}}A_{3,1}^{C_{3,1}}\cdots A_{n,1}^{C_{n,1}%
+}\right)  \left(  A_{3,2}^{C_{3,2}}A_{4,2}^{C_{4,2}}\cdots A_{n,2}^{C_{n,2}%
+}\right)  \left(  A_{4,3}^{C_{4,3}}A_{5,3}^{C_{5,3}}\cdots A_{n,3}^{C_{n,3}%
+}\right)  \\
+&  \ \ \ \ \ \ \ \ \ \ \cdots\left(  A_{n-2,n-3}^{C_{n-2,n-3}}A_{n-1,n-3}%
+^{C_{n-1,n-3}}A_{n,n-3}^{C_{n,n-3}}\right)  \left(  A_{n-1,n-2}^{C_{n-1,n-2}%
+}A_{n,n-2}^{C_{n,n-2}}\right)  \left(  A_{n,n-1}^{C_{n,n-1}}\right)  \left(
+I_{n}\right)  .
 \end{align*}
 This complicated product consists of $n$ factors, each of which is itself a
 product. More precisely, the $k$-th factor is the product $A_{k+1,k}%
-^{-C_{k+1,k}}A_{k+2,k}^{-C_{k+2,k}}\cdots A_{n,k}^{-C_{n,k}}$ of all matrices
-$A_{i,k}^{-C_{i,k}}$ with $i>k$; this corresponds to the $n-k$ downward row
+^{C_{k+1,k}}A_{k+2,k}^{C_{k+2,k}}\cdots A_{n,k}^{C_{n,k}}$ of all matrices
+$A_{i,k}^{C_{i,k}}$ with $i>k$; this corresponds to the $n-k$ downward row
 additions that clear out the non-diagonal entries in the $k$-th column of the
 matrix. In particular, the $n$-th factor is thus an empty product, hence
 equals $I_{n}$; we could thus leave it out (but we prefer to keep it in, for
@@ -12297,8 +12298,6 @@ For example, $\left(
 \begin{todo}
 What it means to undo operations.
 \end{todo}
-
-
 
 \begin{todo}
 Define row-echelon matrices a la \cite[Definition 2.10.4]{Kowals16}. Define
