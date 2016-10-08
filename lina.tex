@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 06, 2016 09:02:33}
+%TCIDATA{LastRevised=Saturday, October 08, 2016 03:30:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11451,6 +11451,17 @@ exactly the same way. Hence, the right hand side of
 (\ref{pf.prop.permat.Tkk+1.goal4}) simply is $T_{u,v}$. Thus,
 (\ref{pf.prop.permat.Tkk+1.goal4}) is proven. As explained, this proves
 Proposition \ref{prop.permat.Tkk+1}.
+
+(If you are looking for a more rigorous proof of
+(\ref{pf.prop.permat.Tkk+1.goal4}) -- without the swapping process so
+confusingly described above --, you can also proceed by induction over $v-u$.
+In the induction step, (\ref{pf.prop.permat.Tkk+1.goal4}) is derived from the
+equality
+\[
+T_{u+1,v}=\left(  T_{u+1,u+2}T_{u+2,u+3}\cdots T_{v-2,v-1}\right)
+T_{v-1,v}\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u+1,u+2}\right)  ,
+\]
+which follows from the induction hypothesis. The details are, again, omitted.)
 \end{proof}
 
 \subsection{\label{sect.gauss.permat.perms}(*) Permutation matrices and
@@ -11932,6 +11943,28 @@ shows that the permutations $\tau_{u,v}$ \textquotedblleft
 correspond\textquotedblright\ to the swapping matrices $T_{u,v}$. Using this
 \textquotedblleft dictionary\textquotedblright, we can translate theorems
 about permutations into theorems about permutation matrices, and vice versa.
+For instance, the translation of Proposition \ref{prop.permat.Tkk+1} into the
+language of permutations is the following fact:
+
+\begin{proposition}
+\label{prop.permat.Tkk+1.perm}Let $n\in\mathbb{N}$. A \textit{simple
+transposition} will mean a permutation in $S_{n}$ that has the form
+$\tau_{k,k+1}$ for some $k\in\left\{  1,2,\ldots,n-1\right\}  $ (where
+$\tau_{k,k+1}$ is defined as in Proposition \ref{prop.permat.prod-of-perms}
+\textbf{(d)}).
+
+Each permutation of $\left\{  1,2,\ldots,n\right\}  $ is a product of simple transpositions.
+\end{proposition}
+
+Arguably, in this translated form, this proposition is rather obvious. It
+merely says that any rearrangement of the numbers $1,2,\ldots,n$ can be
+obtained from the list $\left(  1,2,\ldots,n\right)  $ by repeatedly swapping
+adjacent entries. This should be quite clear, at least intuitively
+(\href{https://en.wikipedia.org/wiki/Bubble_sort}{the \textquotedblleft bubble
+sort\textquotedblright\ algorithm} provides a way to obtain the list $\left(
+1,2,\ldots,n\right)  $ from our rearrangement by repeatedly swapping adjacent
+entries; now, all that remains to be done is to perform these swaps backwards
+in order to get from $\left(  1,2,\ldots,n\right)  $ to the rearrangement).
 
 Next, let us prove Proposition \ref{prop.permat.laction}. Let us first state a
 more precise version of this proposition:
@@ -12343,6 +12376,277 @@ These row operations allow us to \textquotedblleft reduce\textquotedblright%
 many zeroes (in a sense, it is close to upper-triangular, although the two
 notions are not exactly the same) and that allows for easily solving linear systems.
 
+\subsection{\label{sect.gauss.row-echelon}Row-echelon matrices}
+
+\begin{definition}
+Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. An $n\times m$-matrix $A$ is said
+to be \textit{zero} if and only if $A=0_{n\times m}$. In other words, an
+$n\times m$-matrix is said to be \textit{zero} if and only if all entries of
+$A$ are zero.
+
+An $n\times m$-matrix $A$ is said to be \textit{nonzero} if $A$ is not zero.
+(This does not mean that all entries of $A$ are nonzero!)
+\end{definition}
+
+\begin{definition}
+\label{def.pivot}Let $m\in\mathbb{N}$. Let $v=\left(  v_{1},v_{2},\ldots
+,v_{m}\right)  $ be a $1\times m$-matrix (i.e., a row vector of size $m$). If
+$v$ is nonzero (i.e., if not all entries of $v$ are zero), then the smallest
+$i\in\left\{  1,2,\ldots,m\right\}  $ satisfying $v_{i}\neq0$ is called the
+\textbf{pivot index} of $v$ and will be denoted by $\operatorname*{pivind}v$.
+Furthermore, the value of $v_{i}$ for this smallest $i$ is called the
+\textbf{pivot entry} of $v$.
+\end{definition}
+
+\begin{example}
+The row vector $\left(  0,6,7,0,9\right)  $ has pivot index $2$ (because if we
+write it as $\left(  v_{1},v_{2},v_{3},v_{4},v_{5}\right)  $, then the
+smallest $i\in\left\{  1,2,3,4,5\right\}  $ satisfying $v_{i}\neq0$ is $2$)
+and pivot entry $6$.
+
+The row vector $\left(  0,0,-1,-1,0\right)  $ has pivot index $3$ and pivot
+entry $-1$.
+
+The row vector $\left(  0,0,0,0,0\right)  $ has no pivot index (since it is zero).
+\end{example}
+
+\begin{definition}
+\label{def.pivot-cells}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be
+an $n\times m$-matrix.
+
+\textbf{(a)} Let $i\in\left\{  1,2,\ldots,n\right\}  $ be such that
+$\operatorname*{row}\nolimits_{i}A$ is nonzero. Then, the cell $\left(
+i,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
+\right)  $ is called the \textit{pivot cell} in the $i$-th row of $A$. (In
+words, this is the leftmost cell in the $i$-th row of $A$ that has a nonzero entry.)
+
+\textbf{(b)} The \textit{pivot cells} of $A$ are the pivot cells in the $i$-th
+row of $A$, where $i$ ranges over all elements of $\left\{  1,2,\ldots
+,n\right\}  $ for which $\operatorname*{row}\nolimits_{i}A$ is nonzero. The
+\textit{pivot entries} of $A$ are the entries of $A$ in the pivot cells. (In
+other words, the pivot entries of $A$ are the leftmost nonzero entries of all
+nonzero rows.)
+\end{definition}
+
+\begin{example}
+The pivot cells of the matrix $\left(
+\begin{array}
+[c]{ccc}%
+7 & 3 & 1\\
+0 & 0 & 0\\
+0 & 0 & 4\\
+0 & -1 & 2
+\end{array}
+\right)  $ are $\left(  1,1\right)  $, $\left(  3,3\right)  $ and $\left(
+4,2\right)  $, and the respective pivot entries are $7$, $4$ and $-1$. There
+is no pivot cell in the $2$-nd row, since this row is zero.
+\end{example}
+
+\begin{definition}
+\label{def.row-echelon}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be
+an $n\times m$-matrix.
+
+We say that $A$ is a \textit{row-echelon matrix} if for each $i\in\left\{
+1,2,\ldots,n-1\right\}  $, the following holds:
+
+\begin{itemize}
+\item \textbf{either} $\operatorname*{row}\nolimits_{i+1}A$ is zero,
+
+\item \textbf{or} both rows $\operatorname*{row}\nolimits_{i}A$ and
+$\operatorname*{row}\nolimits_{i+1}A$ are nonzero, and satisfy
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $
+(that is, the pivot cell in the $i$-th row of $A$ is strictly further left
+than the pivot cell in the $\left(  i+1\right)  $-th row of $A$).
+\end{itemize}
+
+Instead of saying that \textquotedblleft$A$ is a row-echelon
+matrix\textquotedblright, it is customary to say that \textquotedblleft$A$ is
+in row-echelon form\textquotedblright.
+\end{definition}
+
+\begin{example}
+\label{exam.row-echelon}\textbf{(a)} Let $A$ be the $3\times4$-matrix $\left(
+%
+\begin{array}
+[c]{cccc}%
+-2 & 3 & 4 & 5\\
+0 & 0 & 2 & 1\\
+0 & 0 & 0 & 3
+\end{array}
+\right)  $. Then, $A$ is a row-echelon matrix. In fact, all rows of $A$ are
+nonzero, and each $i\in\left\{  1,2\right\}  $ satisfies
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $
+(indeed, we have $\operatorname*{pivind}\left(  \operatorname*{row}%
+\nolimits_{1}A\right)  =1$, $\operatorname*{pivind}\left(  \operatorname*{row}%
+\nolimits_{2}A\right)  =3$ and $\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{3}A\right)  =4$). The pivot cells of $A$ are
+$\left(  1,1\right)  $, $\left(  2,3\right)  $ and $\left(  3,4\right)  $.
+
+\textbf{(b)} Let $A$ be the $3\times4$-matrix $\left(
+\begin{array}
+[c]{cccc}%
+-2 & 3 & 4 & 5\\
+0 & 0 & 2 & 1\\
+0 & 0 & 4 & 3
+\end{array}
+\right)  $ instead. Then, $A$ is not a row-echelon matrix. Indeed, $i=2$ fails
+to satisfy the condition in Definition \ref{def.row-echelon} (because
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)  =3$
+and $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{3}A\right)
+=3$, but $\operatorname*{row}\nolimits_{i+1}A$ is nonzero). The pivot cells of
+$A$ are $\left(  1,1\right)  $, $\left(  2,3\right)  $ and $\left(
+3,3\right)  $.
+
+\textbf{(c)} Let $A$ be the $5\times4$-matrix $\left(
+\begin{array}
+[c]{cccc}%
+7 & 3 & 1 & 0\\
+0 & -1 & 2 & 2\\
+0 & 0 & 3 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  $ instead. Then, $A$ is a row-echelon matrix. In fact, each
+$i\in\left\{  1,2\right\}  $ satisfies $\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{i}A\right)  <\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{i+1}A\right)  $ (because $\operatorname*{pivind}%
+\left(  \operatorname*{row}\nolimits_{1}A\right)  =1$, $\operatorname*{pivind}%
+\left(  \operatorname*{row}\nolimits_{2}A\right)  =2$ and
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{3}A\right)  =3$),
+whereas for each $i\in\left\{  3,4\right\}  $, the vector $\operatorname*{row}%
+\nolimits_{i+1}A$ is zero (since $\operatorname*{row}\nolimits_{4}A$ and
+$\operatorname*{row}\nolimits_{5}A$ is zero). The pivot cells of $A$ are
+$\left(  1,1\right)  $, $\left(  2,2\right)  $ and $\left(  3,3\right)  $.
+
+\textbf{(d)} Let $A$ be the $3\times4$-matrix $\left(
+\begin{array}
+[c]{cccc}%
+7 & 3 & 1 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 3 & 0
+\end{array}
+\right)  $ instead. Then, $A$ is not a row-echelon matrix. Indeed, $i=2$ fails
+to satisfy the condition in the definition of \ref{def.row-echelon} (because
+$\operatorname*{row}\nolimits_{i}A$ is zero, but $\operatorname*{row}%
+\nolimits_{i+1}A$ is nonzero). The pivot cells of $A$ are $\left(  1,1\right)
+$ and $\left(  3,3\right)  $.
+
+\textbf{(e)} Let $A$ be an invertibly upper-triangular $n\times n$-matrix (for
+some $n\in\mathbb{N}$) instead. (See Definition \ref{def.triangular.uni-up}
+\textbf{(b)} for the meaning of \textquotedblleft invertibly
+upper-triangular\textquotedblright). Then, $A$ is a row-echelon matrix. In
+fact, each $i\in\left\{  1,2,\ldots,n-1\right\}  $ satisfies
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $
+(because $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
+A\right)  =k$ for each $k\in\left\{  1,2,\ldots,n\right\}  $). The pivot cells
+of $A$ are $\left(  1,1\right)  ,\left(  2,2\right)  ,\ldots,\left(
+n,n\right)  $.
+
+\textbf{(f)} On the other hand, not every upper-triangular $n\times n$-matrix
+is a row-echelon matrix. For instance, $\left(
+\begin{array}
+[c]{ccc}%
+1 & 2 & 3\\
+0 & 0 & 1\\
+0 & 0 & 1
+\end{array}
+\right)  $ is not a row-echelon matrix, since the pivot indices of its $2$-nd
+and $3$-rd rows are equal.
+\end{example}
+
+From the examples just given, it shouldn't be hard to build an intuition for
+row-echelon matrices. Roughly speaking, a matrix $A$ is row-echelon if and
+only if
+
+\begin{itemize}
+\item a nonzero row of $A$ cannot follow a zero row of $A$, and
+
+\item the first nonzero entry in each nonzero row of $A$ is strictly further
+right than that in the row before.
+\end{itemize}
+
+Here is a first simple observation:
+
+\begin{proposition}
+\label{prop.row-echelon.pivcells}Let $A$ be a matrix.
+
+\textbf{(a)} Each row of $A$ has at most one pivot cell.
+
+\textbf{(b)} Assume that $A$ is a row-echelon matrix. Each column of $A$ has
+at most one pivot cell.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.row-echelon.pivcells}.] \textbf{(a)} This is
+clear from the definition of a pivot cell. (More precisely, each nonzero row
+of $A$ has exactly one pivot cell, whereas a nonzero row of $A$ has no pivot cell.)
+
+\textbf{(b)} The matrix $A$ is a row-echelon matrix. Thus, the condition in
+Definition \ref{def.row-echelon} shows that, for each $i\in\left\{
+1,2,\ldots,n-1\right\}  $, if $\operatorname*{row}\nolimits_{i+1}A$ is
+nonzero, then $\operatorname*{row}\nolimits_{i}A$ is nonzero. Hence, a nonzero
+row of $A$ cannot follow a zero row. Thus, there exists some $k\in\left\{
+0,1,\ldots,n\right\}  $ such that the first $k$ rows of $A$ are nonzero
+whereas the last $n-k$ rows of $A$ are zero. Consider this $k$. (Note that
+$k=0$ if all rows of $A$ are zero, and $k=n$ if all rows of $A$ are nonzero.)
+The condition in Definition \ref{def.row-echelon} now further shows that each
+$i\in\left\{  1,2,\ldots,k-1\right\}  $ satisfies $\operatorname*{pivind}%
+\left(  \operatorname*{row}\nolimits_{i}A\right)  <\operatorname*{pivind}%
+\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $. In other words,%
+\begin{equation}
+\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
+<\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
+A\right)  .\label{pf.prop.row-echelon.pivcells.ineq}%
+\end{equation}
+
+
+Now, the pivot cells of $A$ are the pivot cells in the first $k$ rows of $A$
+(since the first $k$ rows of $A$ are nonzero whereas the last $n-k$ rows of
+$A$ are zero). In other words, they are the $k$ cells
+\[
+\left(  1,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}%
+A\right)  \right)  ,\left(  2,\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{2}A\right)  \right)  ,\ldots,\left(
+k,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}A\right)
+\right)  .
+\]
+Therefore, (\ref{pf.prop.row-echelon.pivcells.ineq}) shows that each of these
+cells lies strictly further left than the next. Therefore, these cells lie in
+distinct columns. In other words, each column of $A$ has at most one pivot
+cell. This proves Proposition \ref{prop.row-echelon.pivcells} \textbf{(b)}.
+\end{proof}
+
+The main importance of row-echelon matrices is that when $A$ is a row-echelon
+matrix, the equation $Ax=b$ can be solved by a simple method called
+\textquotedblleft back-substitution\textquotedblright. Let me give an example first:
+
+\begin{example}
+\label{exam.row-echelon.backsub}Let $A=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 5
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. We want to solve the equation $Ax=b$; in other words, we want to
+find all column vectors $x$ of size $4$ that satisfy $Ax=b$.
+
+[...]
+\end{example}
+
+[...]
+
 \subsection{\label{sect.gauss.gauss}%
 %TCIMACRO{\TEXTsymbol{<}}%
 %BeginExpansion
@@ -12360,16 +12664,6 @@ Gaussian elimination and the row echelon form}
 (to be continued)
 
 \textbf{TO-DO LIST! (This will appear shortly:)}
-
-\begin{todo}
-What it means to undo operations.
-\end{todo}
-
-\begin{todo}
-Define row-echelon matrices a la \cite[Definition 2.10.4]{Kowals16}. Define
-pivot cells. Note that a row-echelon matrix has at most one pivot cell per
-row, and at most one per column.
-\end{todo}
 
 \begin{todo}
 Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
@@ -12574,11 +12868,11 @@ Apart from that, lots of other texts define and discuss determinants: some
 sloppily, some rather well.\footnote{Olver's and Shakiban's treatment of
 determinants in \cite[\S 1.9]{OlvSha06} is very minimalistic and incomplete
 (in particular, they never bother proving that the determinant is
-well-defined), but various other books do it well. On the opposite side of the
-spectrum, two really rigorous and detailed treatments are Gill Williamson's
-notes \cite[Chapter 3]{Gill} and my \cite{detnotes}; but the downside of
-\textquotedblleft rigorous\textquotedblright\ is \textquotedblleft unmotivated
-and lacking intuition\textquotedblright, and the downside of \textquotedblleft
+well-defined). On the opposite side of the spectrum, two really rigorous and
+detailed treatments are Gill Williamson's notes \cite[Chapter 3]{Gill} and my
+\cite{detnotes}; but the downside of \textquotedblleft
+rigorous\textquotedblright\ is \textquotedblleft unmotivated and lacking
+intuition\textquotedblright, and the downside of \textquotedblleft
 detailed\textquotedblright\ is \textquotedblleft extremely
 long\textquotedblright. You will want to strike your own balance. As I said, I
 recommend \cite[Chapter 8]{LaNaSc16}.} When reading other sources, be aware of
@@ -12595,8 +12889,8 @@ whether the matrix $\left(
 a & b\\
 c & d
 \end{array}
-\right)  $ is an inverse. Does such a number exist for larger matrices? Yes,
-it does and is called the determinant.
+\right)  $ has an inverse. Does such a number exist for larger matrices? Yes,
+it does, and is called the determinant.
 \end{todo}
 
 \begin{todo}
@@ -12638,7 +12932,10 @@ and yes, that's sometimes useful.)
 \end{todo}
 
 \begin{todo}
-Definition for all $n$, informal version:%
+Let me give three versions of the definition of $\det A$ for all $n$:
+
+\begin{itemize}
+\item \textit{First version} (informal and sloppy)\textit{:} Set\textit{ }%
 \begin{align*}
 &  \det\left(
 \begin{array}
@@ -12670,7 +12967,7 @@ Notice that we used $4$ switches here. The rule for the $\pm$ sign is: If the
 rearrangement needs an even number of switches, then it's a $+$; if an odd
 number, then it's a $-$.
 
-Definition for all $n$, formal version: Recall that each permutation matrix
+\item \textit{Second version} (formal): Recall that each permutation matrix
 $P$ is a product of several swapping matrices (i.e., of $T_{u,v}$'s). Define
 $\operatorname*{sign}\left(  P\right)  $ to be $+1$ if $P$ is the product of
 an even number of swapping matrices; define $\operatorname*{sign}\left(
@@ -12706,8 +13003,26 @@ of }A\right)
 \]
 for all permutation matrices $P$.
 
-Usually this definition is worded in terms of permutations, not permutation
-matrices; but this is just another terminology.
+\item \textit{Third version} (formal, uses Section
+\ref{sect.gauss.permat.perms})\textit{:} Let%
+\[
+\det A=\sum_{\sigma\in S_{n}}\left(  -1\right)  ^{\sigma}A_{1,\sigma\left(
+1\right)  }A_{2,\sigma\left(  2\right)  }\cdots A_{n,\sigma\left(  n\right)
+},
+\]
+where $S_{n}$ denotes the set of all permutations of $\left\{  1,2,\ldots
+,n\right\}  $, and the number $\left(  -1\right)  ^{\sigma}$ is defined as
+follows: Proposition \ref{prop.permat.Tkk+1.perm} shows that the permutation
+$\sigma$ can be written as a product of $k$ simple transpositions for some
+$k\in\mathbb{N}$. If this $k$ is even, then set $\left(  -1\right)  ^{\sigma
+}=1$; if this $k$ is odd, then set $\left(  -1\right)  ^{\sigma}=-1$. (Again,
+we need to prove that this definition is legitimate, i.e., that $\left(
+-1\right)  ^{\sigma}$ is never defined to be $1$ and $-1$ at the same time.)
+\end{itemize}
+
+Note that the third version of the definition is merely the formalization of
+the first version. The second version is just the translation of the third
+version into the language of permutation matrices.
 \end{todo}
 
 \begin{todo}
