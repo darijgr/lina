@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 08, 2016 03:30:54}
+%TCIDATA{LastRevised=Monday, October 10, 2016 18:33:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12381,8 +12381,8 @@ notions are not exactly the same) and that allows for easily solving linear syst
 \begin{definition}
 Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. An $n\times m$-matrix $A$ is said
 to be \textit{zero} if and only if $A=0_{n\times m}$. In other words, an
-$n\times m$-matrix is said to be \textit{zero} if and only if all entries of
-$A$ are zero.
+$n\times m$-matrix $A$ is said to be \textit{zero} if and only if all entries
+of $A$ are zero.
 
 An $n\times m$-matrix $A$ is said to be \textit{nonzero} if $A$ is not zero.
 (This does not mean that all entries of $A$ are nonzero!)
@@ -12568,7 +12568,127 @@ only if
 right than that in the row before.
 \end{itemize}
 
-Here is a first simple observation:
+Here are some first simple observations:
+
+\begin{proposition}
+\label{prop.row-echelon.pivrows}Let $A$ be an $n\times m$-matrix. Assume that
+$A$ is a row-echelon matrix. Let $k$ be the number of nonzero rows of $A$.
+
+\textbf{(a)} The first $k$ rows of $A$ are nonzero, whereas the last $n-k$
+rows of $A$ are zero.
+
+\textbf{(b)} The pivot cells of $A$ are the $k$ cells
+\[
+\left(  1,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}%
+A\right)  \right)  ,\left(  2,\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{2}A\right)  \right)  ,\ldots,\left(
+k,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}A\right)
+\right)  .
+\]
+
+
+\textbf{(c)} We have
+\[
+\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
+<\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
+A\right)  .
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.row-echelon.pivrows}.] The matrix $A$ is a
+row-echelon matrix. Thus, the condition in Definition \ref{def.row-echelon}
+shows that, for each $i\in\left\{  1,2,\ldots,n-1\right\}  $, the following
+holds:%
+\begin{equation}
+\text{if }\operatorname*{row}\nolimits_{i+1}A\text{ is nonzero, then
+}\operatorname*{row}\nolimits_{i}A\text{ is nonzero.}%
+\label{pf.prop.row-echelon.pivrows.ifthen}%
+\end{equation}
+Hence, a nonzero row of $A$ cannot follow a zero row. Using this fact, it is
+easy to see that the nonzero rows of $A$ are \textquotedblleft concentrated at
+the top\textquotedblright, i.e., there exists some $\ell\in\left\{
+0,1,\ldots,n\right\}  $ such that the first $\ell$ rows of $A$ are nonzero
+whereas the last $n-\ell$ rows of $A$ are zero. Consider this $\ell$. (Note
+that $\ell=0$ if all rows of $A$ are zero, and $\ell=n$ if all rows of $A$ are
+nonzero.) Clearly, the number of nonzero rows of $A$ is $\ell$. But we have
+denoted this number by $k$. Thus, $\ell=k$. So we conclude that the first $k$
+rows of $A$ are nonzero whereas the last $n-k$ rows of $A$ are zero (since the
+first $\ell$ rows of $A$ are nonzero whereas the last $n-\ell$ rows of $A$ are
+zero). This proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)}%
+.\footnote{If you find this proof insufficiently rigorous, you can argue as
+follows instead: If all rows of $A$ are zero, then $k=0$ (since $k$ is the
+number of nonzero rows of $A$), and therefore Proposition
+\ref{prop.row-echelon.pivrows} \textbf{(a)} is obvious in this case. Hence, we
+WLOG assume that $k\neq0$. Thus, there exists at least one nonzero row of $A$.
+In other words, there exists at least one $i\in\left\{  1,2,\ldots,n\right\}
+$ such that $\operatorname*{row}\nolimits_{i}A$ is nonzero. Let $h$ be the
+\textbf{largest} such $i$. Thus, $\operatorname*{row}\nolimits_{h}A$ is
+nonzero, but all the rows $\operatorname*{row}\nolimits_{h+1}%
+A,\operatorname*{row}\nolimits_{h+2}A,\ldots,\operatorname*{row}%
+\nolimits_{n}A$ are zero.
+\par
+We know that $\operatorname*{row}\nolimits_{h}A$ is nonzero. Hence, by
+applying (\ref{pf.prop.row-echelon.pivrows.ifthen}) repeatedly, we can
+conclude that all the $h$ rows $\operatorname*{row}\nolimits_{h}%
+A,\operatorname*{row}\nolimits_{h-1}A,\operatorname*{row}\nolimits_{h-2}%
+A,\ldots,\operatorname*{row}\nolimits_{1}A$ are nonzero. (Strictly speaking,
+we are saying that $\operatorname*{row}\nolimits_{h-j}A$ is nonzero for each
+$j\in\left\{  0,1,\ldots,h-1\right\}  $; this can be proven by induction over
+$j$.) In other words, all the $h$ rows $\operatorname*{row}\nolimits_{1}%
+A,\operatorname*{row}\nolimits_{2}A,\ldots,\operatorname*{row}\nolimits_{h}A$
+are nonzero (since their order does not matter for us). In other words, the
+first $h$ rows of $A$ are nonzero (since the first $h$ rows of $A$ are
+$\operatorname*{row}\nolimits_{1}A,\operatorname*{row}\nolimits_{2}%
+A,\ldots,\operatorname*{row}\nolimits_{h}A$).
+\par
+But recall that $\operatorname*{row}\nolimits_{h+1}A,\operatorname*{row}%
+\nolimits_{h+2}A,\ldots,\operatorname*{row}\nolimits_{n}A$ are zero. In other
+words, the last $n-h$ rows of $A$ are zero (since the last $n-h$ rows of $A$
+are $\operatorname*{row}\nolimits_{h+1}A,\operatorname*{row}\nolimits_{h+2}%
+A,\ldots,\operatorname*{row}\nolimits_{n}A$ are zero).
+\par
+Thus, we know that the first $h$ rows of $A$ are nonzero, whereas the last
+$n-h$ rows of $A$ are zero. Hence, the number of nonzero rows of $A$ is $h$.
+But the number of nonzero rows of $A$ is $k$ (since this is how we defined
+$k$). Comparing the previous two sentences, we obtain $h=k$.
+\par
+But recall that the first $h$ rows of $A$ are nonzero, whereas the last $n-h$
+rows of $A$ are zero. Since $h=k$, this rewrites sa follows: The first $k$
+rows of $A$ are nonzero, whereas the last $n-k$ rows of $A$ are zero. This
+proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)} again.}
+
+\textbf{(c)} Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)} shows
+that the first $k$ rows of $A$ are nonzero. In other words,
+$\operatorname*{row}\nolimits_{i+1}A$ is nonzero for each $i\in\left\{
+0,1,\ldots,k-1\right\}  $. The condition in Definition \ref{def.row-echelon}
+thus shows that each $i\in\left\{  1,2,\ldots,k-1\right\}  $ satisfies
+$\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $
+(since $A$ is a row echelon matrix). In other words,%
+\begin{equation}
+\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
+<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
+<\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
+A\right)  .\label{pf.prop.row-echelon.pivcells.ineq}%
+\end{equation}
+This proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(c)}.
+
+\textbf{(b)} Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)} shows
+that the first $k$ rows of $A$ are nonzero whereas the last $n-k$ rows of $A$
+are zero. Thus, the pivot cells of $A$ are the pivot cells in the first $k$
+rows of $A$. In other words, they are the $k$ cells
+\[
+\left(  1,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}%
+A\right)  \right)  ,\left(  2,\operatorname*{pivind}\left(
+\operatorname*{row}\nolimits_{2}A\right)  \right)  ,\ldots,\left(
+k,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}A\right)
+\right)  .
+\]
+This proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(b)}.
+\end{proof}
 
 \begin{proposition}
 \label{prop.row-echelon.pivcells}Let $A$ be a matrix.
@@ -12580,33 +12700,23 @@ at most one pivot cell.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.row-echelon.pivcells}.] \textbf{(a)} This is
+[Proof of Proposition \ref{prop.row-echelon.pivcells}.]\textbf{(a)} This is
 clear from the definition of a pivot cell. (More precisely, each nonzero row
 of $A$ has exactly one pivot cell, whereas a nonzero row of $A$ has no pivot cell.)
 
-\textbf{(b)} The matrix $A$ is a row-echelon matrix. Thus, the condition in
-Definition \ref{def.row-echelon} shows that, for each $i\in\left\{
-1,2,\ldots,n-1\right\}  $, if $\operatorname*{row}\nolimits_{i+1}A$ is
-nonzero, then $\operatorname*{row}\nolimits_{i}A$ is nonzero. Hence, a nonzero
-row of $A$ cannot follow a zero row. Thus, there exists some $k\in\left\{
-0,1,\ldots,n\right\}  $ such that the first $k$ rows of $A$ are nonzero
-whereas the last $n-k$ rows of $A$ are zero. Consider this $k$. (Note that
-$k=0$ if all rows of $A$ are zero, and $k=n$ if all rows of $A$ are nonzero.)
-The condition in Definition \ref{def.row-echelon} now further shows that each
-$i\in\left\{  1,2,\ldots,k-1\right\}  $ satisfies $\operatorname*{pivind}%
-\left(  \operatorname*{row}\nolimits_{i}A\right)  <\operatorname*{pivind}%
-\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $. In other words,%
+\textbf{(b)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$ be such that $A$ is an
+$n\times m$-matrix. Let $k$ be the number of nonzero rows of $A$. Proposition
+\ref{prop.row-echelon.pivrows} \textbf{(c)} yields%
 \begin{equation}
 \operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
 <\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
 <\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
-A\right)  .\label{pf.prop.row-echelon.pivcells.ineq}%
+A\right)  .\label{pf.prop.row-echelon.pivcells.ineq2}%
 \end{equation}
 
 
-Now, the pivot cells of $A$ are the pivot cells in the first $k$ rows of $A$
-(since the first $k$ rows of $A$ are nonzero whereas the last $n-k$ rows of
-$A$ are zero). In other words, they are the $k$ cells
+Proposition \ref{prop.row-echelon.pivrows} \textbf{(b)} shows that the pivot
+cells of $A$ are the $k$ cells
 \[
 \left(  1,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}%
 A\right)  \right)  ,\left(  2,\operatorname*{pivind}\left(
@@ -12614,7 +12724,7 @@ A\right)  \right)  ,\left(  2,\operatorname*{pivind}\left(
 k,\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}A\right)
 \right)  .
 \]
-Therefore, (\ref{pf.prop.row-echelon.pivcells.ineq}) shows that each of these
+Therefore, (\ref{pf.prop.row-echelon.pivcells.ineq2}) shows that each of these
 cells lies strictly further left than the next. Therefore, these cells lie in
 distinct columns. In other words, each column of $A$ has at most one pivot
 cell. This proves Proposition \ref{prop.row-echelon.pivcells} \textbf{(b)}.
@@ -12622,7 +12732,8 @@ cell. This proves Proposition \ref{prop.row-echelon.pivcells} \textbf{(b)}.
 
 The main importance of row-echelon matrices is that when $A$ is a row-echelon
 matrix, the equation $Ax=b$ can be solved by a simple method called
-\textquotedblleft back-substitution\textquotedblright. Let me give an example first:
+\textquotedblleft back-substitution\textquotedblright. Before explaining this
+method in full generality, let me give four examples (in increasing order of complexity):
 
 \begin{example}
 \label{exam.row-echelon.backsub}Let $A=\left(
@@ -12641,6 +12752,74 @@ matrix, the equation $Ax=b$ can be solved by a simple method called
 \end{array}
 \right)  $. We want to solve the equation $Ax=b$; in other words, we want to
 find all column vectors $x$ of size $4$ that satisfy $Ax=b$.
+
+Let $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  $ be a column vector of size $4$. Then, $Ax=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 5
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+5x_{4}%
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. Hence, the equation $Ax=b$ rewrites as $\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+5x_{4}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. This, in turn, is equivalent to the following system of linear
+equations:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}=3;\\
+-x_{2}+3x_{3}+2x_{4}=1;\\
+5x_{4}=5
+\end{array}
+\right.  .\label{eq.exam.row-echelon.backsub.sys}%
+\end{equation}
+
+
+The system (\ref{eq.exam.row-echelon.backsub.sys}) has a particularly simple
+form: 
 
 [...]
 \end{example}
