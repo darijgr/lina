@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 10, 2016 19:58:46}
+%TCIDATA{LastRevised=Monday, October 10, 2016 20:51:18}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5765,16 +5765,18 @@ We shall prove (\ref{pf.prop.Euv.deltas.5}) in each of the three cases:
 \item Let us first consider Case 1. In this case, we have $i\neq u$. Hence,
 $\left(  i,j\right)  \neq\left(  u,v\right)  $. Thus, $\delta_{\left(
 i,j\right)  ,\left(  u,v\right)  }=0$. Comparing this with $\underbrace{\delta
-_{i,u}}_{=0}\delta_{j,v}=0\delta_{j,v}=0$, we find $\delta_{\left(
-i,j\right)  ,\left(  u,v\right)  }=\delta_{i,u}\delta_{j,v}$. Hence,
-(\ref{pf.prop.Euv.deltas.5}) is proven in Case 1.
+_{i,u}}_{\substack{=0\\\text{(since }i\neq u\text{)}}}\delta_{j,v}%
+=0\delta_{j,v}=0$, we find $\delta_{\left(  i,j\right)  ,\left(  u,v\right)
+}=\delta_{i,u}\delta_{j,v}$. Hence, (\ref{pf.prop.Euv.deltas.5}) is proven in
+Case 1.
 
 \item Let us next consider Case 2. In this case, we have $j\neq v$. Hence,
 $\left(  i,j\right)  \neq\left(  u,v\right)  $. Thus, $\delta_{\left(
 i,j\right)  ,\left(  u,v\right)  }=0$. Comparing this with $\delta
-_{i,u}\underbrace{\delta_{j,v}}_{=0}=\delta_{i,u}0=0$, we find $\delta
-_{\left(  i,j\right)  ,\left(  u,v\right)  }=\delta_{i,u}\delta_{j,v}$. Hence,
-(\ref{pf.prop.Euv.deltas.5}) is proven in Case 2.
+_{i,u}\underbrace{\delta_{j,v}}_{\substack{=0\\\text{(since }j\neq v\text{)}%
+}}=\delta_{i,u}0=0$, we find $\delta_{\left(  i,j\right)  ,\left(  u,v\right)
+}=\delta_{i,u}\delta_{j,v}$. Hence, (\ref{pf.prop.Euv.deltas.5}) is proven in
+Case 2.
 
 \item Let us finally consider Case 3. In this case, we have neither $i\neq u$
 and $j\neq v$. Hence, $i=u$ (since not $i\neq u$) and $j=v$ (since not $j\neq
@@ -5842,14 +5844,14 @@ both claims easily:
 \textit{Proof of Claim 1:} For every $j\in\left\{  1,2,\ldots,p\right\}  $, we
 have%
 \begin{align*}
-\left(  E_{u,v}C\right)  _{u,j}  &  =\underbrace{\delta_{u,u}}%
+\left(  E_{u,v}C\right)  _{u,j} &  =\underbrace{\delta_{u,u}}%
 _{\substack{=1\\\text{(since }u=u\text{)}}}C_{v,j}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{pf.prop.Euv.laction.2}), applied to }i=u\right) \\
+\text{by (\ref{pf.prop.Euv.laction.2}), applied to }i=u\right)  \\
 &  =C_{v,j}.
 \end{align*}
 In other words, for every $j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(
 u,j\right)  $-th entry of the matrix $E_{u,v}C$ equals the $\left(
-u,j\right)  $-th entry of the matrix $C$. In other words, each entry of the
+v,j\right)  $-th entry of the matrix $C$. In other words, each entry of the
 $u$-th row of $E_{u,v}C$ equals the corresponding entry of the $v$-th row of
 $C$. In other words, the $u$-th row of the $n\times p$-matrix $E_{u,v}C$ is
 the $v$-th row of $C$. This proves Claim 1.
@@ -6047,10 +6049,10 @@ for all $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots
 ,p\right\}  $.
 
 The same reasoning that gave us (\ref{pf.prop.Euv.prod.1}) can also be applied
-to $n$, $p$, $u$ and $y$ instead of $n$, $m$, $x$ and $y$. As a result, we
+to $n$, $p$, $u$ and $y$ instead of $n$, $m$, $u$ and $v$. As a result, we
 find%
 \begin{equation}
-\left(  E_{u,y,n,p}\right)  _{i,j}=\delta_{i,u}\delta_{j,y}
+\left(  E_{u,y,n,p}\right)  _{i,j}=\delta_{i,u}\delta_{j,y}%
 \label{pf.prop.Euv.prod.3}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -12598,13 +12600,13 @@ A\right)  .
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.row-echelon.pivrows}.] The matrix $A$ is a
+[Proof of Proposition \ref{prop.row-echelon.pivrows}.]The matrix $A$ is a
 row-echelon matrix. Thus, the condition in Definition \ref{def.row-echelon}
 shows that, for each $i\in\left\{  1,2,\ldots,n-1\right\}  $, the following
 holds:%
 \begin{equation}
 \text{if }\operatorname*{row}\nolimits_{i+1}A\text{ is nonzero, then
-}\operatorname*{row}\nolimits_{i}A\text{ is nonzero.}%
+}\operatorname*{row}\nolimits_{i}A\text{ is nonzero.}
 \label{pf.prop.row-echelon.pivrows.ifthen}%
 \end{equation}
 Hence, a nonzero row of $A$ cannot follow a zero row. Using this fact, it is
@@ -12672,7 +12674,7 @@ $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
 \operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
 <\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
 <\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
-A\right)  .\label{pf.prop.row-echelon.pivcells.ineq}%
+A\right)  . \label{pf.prop.row-echelon.pivcells.ineq}%
 \end{equation}
 This proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(c)}.
 
@@ -12711,7 +12713,7 @@ $n\times m$-matrix. Let $k$ be the number of nonzero rows of $A$. Proposition
 \operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{1}A\right)
 <\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)
 <\cdots<\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{k}%
-A\right)  .\label{pf.prop.row-echelon.pivcells.ineq2}%
+A\right)  . \label{pf.prop.row-echelon.pivcells.ineq2}%
 \end{equation}
 
 
@@ -12842,7 +12844,7 @@ equations:%
 -x_{2}+2x_{3}=1;\\
 5x_{3}=5
 \end{array}
-\right.  .\label{eq.exam.row-echelon.backsub.1.sys}%
+\right.  . \label{eq.exam.row-echelon.backsub.1.sys}%
 \end{equation}
 
 
@@ -13015,7 +13017,7 @@ equations:%
 -x_{2}+3x_{3}+2x_{4}=1;\\
 5x_{4}=5
 \end{array}
-\right.  .\label{eq.exam.row-echelon.backsub.2.sys}%
+\right.  . \label{eq.exam.row-echelon.backsub.2.sys}%
 \end{equation}
 
 
@@ -13065,7 +13067,7 @@ x=\left(
 r\\
 1
 \end{array}
-\right)  .\label{eq.exam.row-echelon.backsub.2.sol}%
+\right)  . \label{eq.exam.row-echelon.backsub.2.sol}%
 \end{equation}
 Thus, we have found that each column vector $x$ satisfying $Ax=b$ must have
 the form (\ref{eq.exam.row-echelon.backsub.2.sol}) for \textbf{some} number
@@ -13167,7 +13169,7 @@ equations:%
 -x_{2}+3x_{3}+2x_{4}=1;\\
 0=5
 \end{array}
-\right.  .\label{eq.exam.row-echelon.backsub.3.sys}%
+\right.  . \label{eq.exam.row-echelon.backsub.3.sys}%
 \end{equation}
 
 
@@ -13257,7 +13259,7 @@ equations:%
 -x_{2}+3x_{3}+2x_{4}=1;\\
 0=0
 \end{array}
-\right.  .\label{eq.exam.row-echelon.backsub.4.sys}%
+\right.  . \label{eq.exam.row-echelon.backsub.4.sys}%
 \end{equation}
 
 
@@ -13310,7 +13312,7 @@ x=\left(
 s\\
 r
 \end{array}
-\right)  .\label{eq.exam.row-echelon.backsub.4.sol}%
+\right)  . \label{eq.exam.row-echelon.backsub.4.sol}%
 \end{equation}
 Thus, we have found that each column vector $x$ satisfying $Ax=b$ must have
 the form (\ref{eq.exam.row-echelon.backsub.4.sol}) for \textbf{some} numbers
