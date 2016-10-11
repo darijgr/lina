@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 10, 2016 18:33:43}
+%TCIDATA{LastRevised=Monday, October 10, 2016 19:58:46}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -12733,10 +12733,211 @@ cell. This proves Proposition \ref{prop.row-echelon.pivcells} \textbf{(b)}.
 The main importance of row-echelon matrices is that when $A$ is a row-echelon
 matrix, the equation $Ax=b$ can be solved by a simple method called
 \textquotedblleft back-substitution\textquotedblright. Before explaining this
-method in full generality, let me give four examples (in increasing order of complexity):
+method in full generality, let me give four examples (in increasing order of
+complexity):\footnote{Notice that in each of the following examples, $A$ is a
+row-echelon matrix. However, the pivot cells differ:
+\par
+\begin{itemize}
+\item In Example \ref{exam.row-echelon.backsub.1}, each row has a pivot cell,
+and each column has a pivot cell.
+\par
+\item In Example \ref{exam.row-echelon.backsub.2}, each row has a pivot cell,
+but not each column does.
+\par
+\item In Example \ref{exam.row-echelon.backsub.3} and in Example
+\ref{exam.row-echelon.backsub.4}, not each row has a pivot cell. These two
+examples differ in $b$ (specifically, in the entry of $b$ in the row in which
+$A$ has no pivot cell).
+\end{itemize}
+}
 
 \begin{example}
-\label{exam.row-echelon.backsub}Let $A=\left(
+\label{exam.row-echelon.backsub.1}Let $A=\left(
+\begin{array}
+[c]{ccc}%
+4 & 3 & 4\\
+0 & -1 & 2\\
+0 & 0 & 5
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. We want to solve the equation $Ax=b$; in other words, we want to
+find all column vectors $x$ of size $3$ that satisfy $Ax=b$.
+
+Write the unknown vector $x$ in the form $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}%
+\end{array}
+\right)  $. Multiplying the equalities $A=\left(
+\begin{array}
+[c]{ccc}%
+4 & 3 & 4\\
+0 & -1 & 2\\
+0 & 0 & 5
+\end{array}
+\right)  $ and $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}%
+\end{array}
+\right)  $, we obtain $Ax=\left(
+\begin{array}
+[c]{ccc}%
+4 & 3 & 4\\
+0 & -1 & 2\\
+0 & 0 & 5
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{3}\\
+-x_{2}+2x_{3}\\
+5x_{3}%
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. Hence, the equation $Ax=b$ rewrites as $\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{3}\\
+-x_{2}+2x_{3}\\
+5x_{3}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. This, in turn, is equivalent to the following system of linear
+equations:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{3}=3;\\
+-x_{2}+2x_{3}=1;\\
+5x_{3}=5
+\end{array}
+\right.  .\label{eq.exam.row-echelon.backsub.1.sys}%
+\end{equation}
+
+
+The system (\ref{eq.exam.row-echelon.backsub.1.sys}) has a particularly simple
+form: each of its equations can be solved for some variable as long as we
+resolve them in the appropriate order. Namely:
+
+\begin{enumerate}
+\item We can solve the third equation in
+(\ref{eq.exam.row-echelon.backsub.1.sys}) for $x_{3}$, yielding the solution
+$x_{3}=1$.
+
+\item Now that we have found the value of $x_{3}$, we can substitute it into
+the second equation in (\ref{eq.exam.row-echelon.backsub.1.sys}), so that the
+latter equation becomes $-x_{2}+2\cdot1=1$. We can now solve this equation for
+$x_{2}$, obtaining $x_{2}=1$.
+
+\item Now that we have found the values of $x_{2}$ and $x_{3}$, we can
+substitute them into the first equation in
+(\ref{eq.exam.row-echelon.backsub.1.sys}), so that the latter equation becomes
+$4x_{1}+3\cdot1+4\cdot1=3$. We can now solve this equation for $x_{1}$,
+obtaining $x_{1}=-1$.
+\end{enumerate}
+
+Altogether, we have now found $x_{1}=-1$, $x_{2}=1$ and $x_{3}=1$. In other
+words, $x=\left(
+\begin{array}
+[c]{c}%
+-1\\
+1\\
+1
+\end{array}
+\right)  $. Thus, we have shown that each column vector $x$ satisfying $Ax=b$
+must equal to $\left(
+\begin{array}
+[c]{c}%
+-1\\
+1\\
+1
+\end{array}
+\right)  $.
+
+Conversely, the vector $x=\left(
+\begin{array}
+[c]{c}%
+-1\\
+1\\
+1
+\end{array}
+\right)  $ actually \textbf{does} satisfy $Ax=b$; this is because we did not
+\textquotedblleft throw away any requirements\textquotedblright:
+
+\begin{enumerate}
+\item When we solved the third equation in
+(\ref{eq.exam.row-echelon.backsub.1.sys}) for $x_{3}$, we ensured that our
+solution $x_{3}=1$ actually does satisfy this third equation.
+
+\item When we rewrote the second equation in
+(\ref{eq.exam.row-echelon.backsub.1.sys}) as $-x_{2}+2\cdot1=1$ and solved it
+for $x_{2}$, we ensured that our solution $x_{2}=1$ actually does satisfy the
+second equation, as long as $x_{3}=1$.
+
+\item When we rewrote the first equation in
+(\ref{eq.exam.row-echelon.backsub.1.sys}) as $4x_{1}+3\cdot1+4\cdot1=3$ and
+solved it for $x_{1}$, we ensured that our solution $x_{1}=-1$ actually does
+satisfy the second equation, as long as $x_{2}=1$ and $x_{3}=1$.
+\end{enumerate}
+
+Looking back at these steps, we thus conclude that the values $x_{1}=-1$,
+$x_{2}=1$ and $x_{3}=1$ (that is, $x=\left(
+\begin{array}
+[c]{c}%
+-1\\
+1\\
+1
+\end{array}
+\right)  $) do satisfy all the three equations in
+(\ref{eq.exam.row-echelon.backsub.1.sys}). (Of course, we could also have
+checked this by computing $Ax$ for these values; but it is important to know
+that this computation is unnecessary -- the method we used comes with a
+guarantee that its result is correct!)
+
+We can now conclude that the equation $Ax=b$ has a unique solution, namely
+$x=\left(
+\begin{array}
+[c]{c}%
+-1\\
+1\\
+1
+\end{array}
+\right)  $.
+\end{example}
+
+\begin{example}
+\label{exam.row-echelon.backsub.2}Let $A=\left(
 \begin{array}
 [c]{cccc}%
 4 & 3 & 0 & 4\\
@@ -12753,7 +12954,7 @@ method in full generality, let me give four examples (in increasing order of com
 \right)  $. We want to solve the equation $Ax=b$; in other words, we want to
 find all column vectors $x$ of size $4$ that satisfy $Ax=b$.
 
-Let $x=\left(
+Write the unknown vector $x$ in the form $x=\left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -12761,7 +12962,7 @@ x_{2}\\
 x_{3}\\
 x_{4}%
 \end{array}
-\right)  $ be a column vector of size $4$. Then, $Ax=\left(
+\right)  $. Then, $Ax=\left(
 \begin{array}
 [c]{cccc}%
 4 & 3 & 0 & 4\\
@@ -12814,15 +13015,322 @@ equations:%
 -x_{2}+3x_{3}+2x_{4}=1;\\
 5x_{4}=5
 \end{array}
-\right.  .\label{eq.exam.row-echelon.backsub.sys}%
+\right.  .\label{eq.exam.row-echelon.backsub.2.sys}%
 \end{equation}
 
 
-The system (\ref{eq.exam.row-echelon.backsub.sys}) has a particularly simple
-form: 
+The system (\ref{eq.exam.row-echelon.backsub.2.sys}) can be solved similarly
+to (\ref{eq.exam.row-echelon.backsub.1.sys}), with one more complication:
 
-[...]
+\begin{enumerate}
+\item We can solve the third equation in
+(\ref{eq.exam.row-echelon.backsub.2.sys}) for $x_{4}$, yielding the solution
+$x_{4}=1$.
+
+\item There is no equation (\ref{eq.exam.row-echelon.backsub.2.sys}) that
+\textquotedblleft begins with $x_{3}$\textquotedblright\ (i.e., that has
+$x_{3}$ appear with nonzero coefficient, but $x_{1}$ and $x_{2}$ with zero
+coefficients). Thus, we have nothing to solve for $x_{3}$. (Of course, we
+could try solving the second equation in
+(\ref{eq.exam.row-echelon.backsub.2.sys}) for $x_{3}$; but this would require
+a value of $x_{2}$, which for now is just as unknown as $x_{3}$.)
+
+Instead of solving an equation for $x_{3}$, let us treat $x_{3}$ as a known!
+In other words, let us define a number $r$ by $r=x_{3}$, and pretend that
+$x_{3}=r$ is an explicit value for $x_{3}$.
+
+\item Now that we have \textquotedblleft found\textquotedblright\ the values
+of $x_{3}$ and $x_{4}$ (the word \textquotedblleft found\textquotedblright\ is
+in scare quotes because all we know about $x_{3}$ is that $x_{3}=r$), we can
+substitute them into the second equation in
+(\ref{eq.exam.row-echelon.backsub.2.sys}), so that the latter equation becomes
+$-x_{2}+3r+2\cdot1=1$. We can now solve this equation for $x_{2}$, obtaining
+$x_{2}=3r+1$.
+
+\item Now that we have \textquotedblleft found\textquotedblright\ the values
+of $x_{2}$, $x_{3}$ and $x_{4}$, we can substitute them into the first
+equation in (\ref{eq.exam.row-echelon.backsub.2.sys}), so that the latter
+equation becomes $4x_{1}+3\left(  3r+1\right)  +4\cdot1=3$. We can now solve
+this equation for $x_{1}$, obtaining $x_{1}=-\dfrac{9}{4}r-1$.
+\end{enumerate}
+
+Altogether, we have now found $x_{1}=-\dfrac{9}{4}r-1$, $x_{2}=3r+1$,
+$x_{3}=r$ and $x_{4}=1$. In other words,
+\begin{equation}
+x=\left(
+\begin{array}
+[c]{c}%
+-\dfrac{9}{4}r-1\\
+3r+1\\
+r\\
+1
+\end{array}
+\right)  .\label{eq.exam.row-echelon.backsub.2.sol}%
+\end{equation}
+Thus, we have found that each column vector $x$ satisfying $Ax=b$ must have
+the form (\ref{eq.exam.row-echelon.backsub.2.sol}) for \textbf{some} number
+$r\in\mathbb{R}$.
+
+Conversely, any column vector $x$ of the form
+(\ref{eq.exam.row-echelon.backsub.2.sol}) (for \textbf{any} real number
+$r\in\mathbb{R}$) actually \textbf{does} satisfy $Ax=b$. The reason for this
+is similar to the one we gave in Example \ref{exam.row-echelon.backsub.1}:
+Namely, in the process of finding the solution
+(\ref{eq.exam.row-echelon.backsub.2.sol}), we did not \textquotedblleft throw
+away any requirements\textquotedblright.
+
+So we have learned that a column vector $x$ satisfies $Ax=b$ if and only if it
+has the form (\ref{eq.exam.row-echelon.backsub.2.sol}) for \textbf{some}
+number $r\in\mathbb{R}$. Thus, the equation $Ax=b$ has infinitely many
+solutions -- namely, its solutions are all vectors $x$ of the form
+(\ref{eq.exam.row-echelon.backsub.2.sol}) with $r\in\mathbb{R}$. This explains
+why we were unable to find an equation to solve for $x_{3}$: Different
+solutions $x$ have different values of $x_{3}$.
 \end{example}
+
+\begin{example}
+\label{exam.row-echelon.backsub.3}Let $A=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. We want to solve the equation $Ax=b$; in other words, we want to
+find all column vectors $x$ of size $4$ that satisfy $Ax=b$.
+
+Write the unknown vector $x$ in the form $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  $. Then, $Ax=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+0
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. Hence, the equation $Ax=b$ rewrites as $\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+5
+\end{array}
+\right)  $. This, in turn, is equivalent to the following system of linear
+equations:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}=3;\\
+-x_{2}+3x_{3}+2x_{4}=1;\\
+0=5
+\end{array}
+\right.  .\label{eq.exam.row-echelon.backsub.3.sys}%
+\end{equation}
+
+
+The system (\ref{eq.exam.row-echelon.backsub.3.sys}) can be solved very
+easily: Its third equation (that is, $0=5$) is \textbf{never} satisfied (no
+matter what $x$ is). Thus, the whole system
+(\ref{eq.exam.row-echelon.backsub.3.sys}) is never satisfied. In other words,
+$Ax=b$ is never satisfied. Hence, $Ax=b$ has no solutions.
+\end{example}
+
+\begin{example}
+\label{exam.row-echelon.backsub.4}Let $A=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+0
+\end{array}
+\right)  $. We want to solve the equation $Ax=b$; in other words, we want to
+find all column vectors $x$ of size $4$ that satisfy $Ax=b$.
+
+Write the unknown vector $x$ in the form $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  $. Then, $Ax=\left(
+\begin{array}
+[c]{cccc}%
+4 & 3 & 0 & 4\\
+0 & -1 & 3 & 2\\
+0 & 0 & 0 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+0
+\end{array}
+\right)  $ and $b=\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+0
+\end{array}
+\right)  $. Hence, the equation $Ax=b$ rewrites as $\left(
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}\\
+-x_{2}+3x_{3}+2x_{4}\\
+0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+0
+\end{array}
+\right)  $. This, in turn, is equivalent to the following system of linear
+equations:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+4x_{1}+3x_{2}+4x_{4}=3;\\
+-x_{2}+3x_{3}+2x_{4}=1;\\
+0=0
+\end{array}
+\right.  .\label{eq.exam.row-echelon.backsub.4.sys}%
+\end{equation}
+
+
+The system (\ref{eq.exam.row-echelon.backsub.4.sys}) can be solved similarly
+to (\ref{eq.exam.row-echelon.backsub.4.sys}), after a very simple first step:
+
+\begin{enumerate}
+\item The third equation in (\ref{eq.exam.row-echelon.backsub.4.sys}) is
+\textbf{always} satisfied (since it says that $0=0$), and thus places no
+restrictions on $x$. Hence, it can be discarded.
+
+\item There is no equation (\ref{eq.exam.row-echelon.backsub.4.sys}) that
+\textquotedblleft begins with $x_{4}$\textquotedblright\ (i.e., that has
+$x_{4}$ appear with nonzero coefficient, but $x_{1}$, $x_{2}$ and $x_{3}$ with
+zero coefficients). As in Example \ref{exam.row-echelon.backsub.2}, we use
+this as an opportunity to treat $x_{4}$ as a known. In other words, let us
+define a number $r$ by $r=x_{4}$, and pretend that $x_{4}=r$ is an explicit
+value for $x_{4}$.
+
+\item There is no equation (\ref{eq.exam.row-echelon.backsub.4.sys}) that
+\textquotedblleft begins with $x_{3}$\textquotedblright\ (i.e., that has
+$x_{3}$ appear with nonzero coefficient, but $x_{1}$ and $x_{2}$ with zero
+coefficients). As in Example \ref{exam.row-echelon.backsub.2}, we use this as
+an opportunity to treat $x_{3}$ as a known. In other words, let us define a
+number $s$ by $s=x_{3}$, and pretend that $x_{3}=s$ is an explicit value for
+$x_{3}$. (Of course, we must not reuse an existing variable such as $r$ here.)
+
+\item Now that we have \textquotedblleft found\textquotedblright\ the values
+of $x_{3}$ and $x_{4}$, we can substitute them into the second equation in
+(\ref{eq.exam.row-echelon.backsub.4.sys}), so that the latter equation becomes
+$-x_{2}+3s+2r=1$. We can now solve this equation for $x_{2}$, obtaining
+$x_{2}=2r+3s-1$.
+
+\item Now that we have \textquotedblleft found\textquotedblright\ the values
+of $x_{2}$, $x_{3}$ and $x_{4}$, we can substitute them into the first
+equation in (\ref{eq.exam.row-echelon.backsub.4.sys}), so that the latter
+equation becomes $4x_{1}+3\left(  2r+3s-1\right)  +4r=3$. We can now solve
+this equation for $x_{1}$, obtaining $x_{1}=\dfrac{3}{2}-\dfrac{9}{4}%
+s-\dfrac{5}{2}r$.
+\end{enumerate}
+
+Altogether, we have now found $x_{1}=\dfrac{3}{2}-\dfrac{9}{4}s-\dfrac{5}{2}%
+r$, $x_{2}=2r+3s-1$, $x_{3}=s$ and $x_{4}=r$. In other words,
+\begin{equation}
+x=\left(
+\begin{array}
+[c]{c}%
+\dfrac{3}{2}-\dfrac{9}{4}s-\dfrac{5}{2}r\\
+2r+3s-1\\
+s\\
+r
+\end{array}
+\right)  .\label{eq.exam.row-echelon.backsub.4.sol}%
+\end{equation}
+Thus, we have found that each column vector $x$ satisfying $Ax=b$ must have
+the form (\ref{eq.exam.row-echelon.backsub.4.sol}) for \textbf{some} numbers
+$r,s\in\mathbb{R}$.
+
+Conversely, any column vector $x$ of the form
+(\ref{eq.exam.row-echelon.backsub.4.sys}) (for \textbf{any} real numbers
+$r,s\in\mathbb{R}$) actually \textbf{does} satisfy $Ax=b$. This holds, again,
+for the same reason as in Example \ref{exam.row-echelon.backsub.1}.
+
+So we have learned that a column vector $x$ satisfies $Ax=b$ if and only if it
+has the form (\ref{eq.exam.row-echelon.backsub.4.sys}) for \textbf{some}
+numbers $r,s\in\mathbb{R}$. Thus, the equation $Ax=b$ has infinitely many
+solutions -- namely, its solutions are all vectors $x$ of the form
+(\ref{eq.exam.row-echelon.backsub.4.sys}) with $r,s\in\mathbb{R}$.
+\end{example}
+
+We have now seen four examples of an algorithm for solving equations of the
+form $Ax=b$ where $A$ is a row-echelon matrix. The general form of the
+algorithm should now be easy to guess, but let me pin it down:
 
 [...]
 
