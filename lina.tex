@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 10, 2016 20:51:18}
+%TCIDATA{LastRevised=Monday, October 10, 2016 21:03:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -663,23 +663,23 @@ satisfies%
 \begin{equation}
 \left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  . \label{pf.prop.transpose.invol.AT}%
+,n\right\}  .\label{pf.prop.transpose.invol.AT}%
 \end{equation}
 Hence,%
 \begin{equation}
 \left(  A^{T}\right)  _{j,i}=A_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,m\right\}  . \label{pf.prop.transpose.invol.AT2}%
+,m\right\}  .\label{pf.prop.transpose.invol.AT2}%
 \end{equation}
-(indeed, this follows by applying (\ref{pf.prop.transpose.invol.AT}) to $j$
-and $i$ instead of $i$ and $j$).
+(Indeed, this follows by applying (\ref{pf.prop.transpose.invol.AT}) to $j$
+and $i$ instead of $i$ and $j$.)
 
 Now, the definition of $\left(  A^{T}\right)  ^{T}$ yields%
 \[
 \left(  A^{T}\right)  ^{T}=\left(  \underbrace{\left(  A^{T}\right)  _{j,i}%
 }_{\substack{=A_{i,j}\\\text{(by (\ref{pf.prop.transpose.invol.AT2}))}%
-}}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}=\left(  A_{i,j}\right)  _{1\leq
-i\leq m,\ 1\leq j\leq n}=A
+}}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}=\left(  A_{i,j}\right)  _{1\leq
+i\leq n,\ 1\leq j\leq m}=A
 \]
 (by (\ref{eq.matrix.A-through-Aij})). This proves Proposition
 \ref{prop.transpose.invol}.
@@ -5844,9 +5844,9 @@ both claims easily:
 \textit{Proof of Claim 1:} For every $j\in\left\{  1,2,\ldots,p\right\}  $, we
 have%
 \begin{align*}
-\left(  E_{u,v}C\right)  _{u,j} &  =\underbrace{\delta_{u,u}}%
+\left(  E_{u,v}C\right)  _{u,j}  &  =\underbrace{\delta_{u,u}}%
 _{\substack{=1\\\text{(since }u=u\text{)}}}C_{v,j}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{pf.prop.Euv.laction.2}), applied to }i=u\right)  \\
+\text{by (\ref{pf.prop.Euv.laction.2}), applied to }i=u\right) \\
 &  =C_{v,j}.
 \end{align*}
 In other words, for every $j\in\left\{  1,2,\ldots,p\right\}  $, the $\left(
@@ -5887,8 +5887,70 @@ $. Then, $\left(  E_{u,v}\right)  ^{T}=E_{v,u}$. (More precisely: $\left(
 E_{u,v,n,m}\right)  ^{T}=E_{v,u,m,n}$.)
 \end{proposition}
 
+The proof of Proposition \ref{prop.Euv.transpose} is easy enough that it could
+be left as an exercise at this point, but let me nevertheless give it for the
+sake of completeness:
+
 \begin{proof}
-[Proof of Proposition \ref{prop.Euv.transpose}.]Very easy and left to the reader.
+[Proof of Proposition \ref{prop.Euv.transpose}.]We first notice that both
+$\left(  E_{u,v,n,m}\right)  ^{T}$ and $E_{v,u,m,n}$ are $m\times n$-matrices.
+
+For every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{\left(  i,j\right)  ,\left(
+u,v\right)  }=\delta_{i,u}\delta_{j,v}.\label{pf.prop.Euv.transpose.1}%
+\end{equation}
+(Indeed, this is just a more precise way to state (\ref{eq.prop.Euv.deltas.1}%
+), because the \textquotedblleft$E_{u,v}$\textquotedblright\ in
+(\ref{eq.prop.Euv.deltas.1}) is a shorthand for \textquotedblleft$E_{u,v,n,m}%
+$\textquotedblright.) Thus, in particular, every $i\in\left\{  1,2,\ldots
+,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $ satisfy%
+\begin{equation}
+\left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
+.\label{pf.prop.Euv.transpose.2}%
+\end{equation}
+(This is an immediate consequence of (\ref{pf.prop.Euv.transpose.1}).)
+
+The definition of the transpose $\left(  E_{u,v,n,m}\right)  ^{T}$ now yields
+$\left(  E_{u,v,n,m}\right)  ^{T}=\left(  \left(  E_{u,v,n,m}\right)
+_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$. Hence, for every
+$i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}
+$, we have%
+\begin{equation}
+\left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}=\left(  E_{u,v,n,m}%
+\right)  _{j,i}=\delta_{j,u}\delta_{i,v}\label{pf.prop.Euv.transpose.3}%
+\end{equation}
+(by (\ref{pf.prop.Euv.transpose.2}), applied to $j$ and $i$ instead of $i$ and
+$j$).
+
+On the other hand, the same reasoning that we used to obtain
+(\ref{pf.prop.Euv.transpose.2}) can be applied to $m$, $n$, $v$ and $u$
+instead of $n$, $m$, $u$ and $v$. As a result of this reasoning, we then find
+that every $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $ satisfy%
+\begin{equation}
+\left(  E_{v,u,m,n}\right)  _{i,j}=\delta_{i,v}\delta_{j,u}%
+.\label{pf.prop.Euv.transpose.4}%
+\end{equation}
+Hence, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,m\right\}  $, we have%
+\begin{align*}
+\left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}  & =\delta_{j,u}%
+\delta_{i,v}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Euv.transpose.3})}\right)  \\
+& =\delta_{i,v}\delta_{j,u}=\left(  E_{v,u,m,n}\right)  _{i,j}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Euv.transpose.4})}\right)
+.
+\end{align*}
+In other words, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and
+$j\in\left\{  1,2,\ldots,m\right\}  $, the $\left(  i,j\right)  $-th entry of
+the matrix $\left(  E_{u,v,n,m}\right)  ^{T}$ equals the $\left(  i,j\right)
+$-th entry of the matrix $E_{v,u,m,n}$. In other words, each entry of the
+matrix $\left(  E_{u,v,n,m}\right)  ^{T}$ equals the corresponding entry of
+the matrix $E_{v,u,m,n}$. Hence, $\left(  E_{u,v,n,m}\right)  ^{T}%
+=E_{v,u,m,n}$. Using our shorthand notations, this rewrites as $\left(
+E_{u,v}\right)  ^{T}=E_{v,u}$. Thus, Proposition \ref{prop.Euv.transpose} is proven.
 \end{proof}
 
 As I have said, the standard matrix units are building blocks for matrices:
@@ -6052,7 +6114,7 @@ The same reasoning that gave us (\ref{pf.prop.Euv.prod.1}) can also be applied
 to $n$, $p$, $u$ and $y$ instead of $n$, $m$, $u$ and $v$. As a result, we
 find%
 \begin{equation}
-\left(  E_{u,y,n,p}\right)  _{i,j}=\delta_{i,u}\delta_{j,y}%
+\left(  E_{u,y,n,p}\right)  _{i,j}=\delta_{i,u}\delta_{j,y}
 \label{pf.prop.Euv.prod.3}%
 \end{equation}
 for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
@@ -6290,11 +6352,6 @@ distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Let $\lambda$ be a
 number. Then, $\left(  A_{u,v}^{\lambda}\right)  ^{T}=A_{v,u}^{\lambda}$.
 \end{proposition}
 
-\begin{proof}
-[Proof of Proposition \ref{prop.Alamuv.transpose}.]Very easy and left to the
-reader (see Example \ref{exam.Alamuv} for inspiration).
-\end{proof}
-
 \begin{proposition}
 \label{prop.Alamuv.lambda+mu}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
 distinct elements of $\left\{  1,2,\ldots,n\right\}  $.
@@ -6425,6 +6482,35 @@ Proposition \ref{prop.Alamuv.laction}.
 \end{proof}
 
 The proof of Proposition \ref{prop.Alamuv.raction} is analogous.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Alamuv.transpose}.]Proposition
+\ref{prop.Euv.transpose} (applied to $m=n$) yields $\left(  E_{u,v}\right)
+^{T}=E_{v,u}$.
+
+We have $A_{u,v}^{\lambda}=I_{n}+\lambda E_{u,v}$ (by the definition of
+$A_{u,v}^{\lambda}$) and $A_{v,u}^{\lambda}=I_{n}+\lambda E_{v,u}$ (by the
+definition of $A_{v,u}^{\lambda}$). Now,
+\begin{align*}
+\left(  \underbrace{A_{u,v}^{\lambda}}_{=I_{n}+\lambda E_{u,v}}\right)  ^{T}
+& =\left(  I_{n}+\lambda E_{u,v}\right)  ^{T}=\underbrace{\left(
+I_{n}\right)  ^{T}}_{\substack{=I_{n}\\\text{(by Proposition
+\ref{prop.transpose.opers} \textbf{(a)})}}}+\underbrace{\left(  \lambda
+E_{u,v}\right)  ^{T}}_{\substack{=\lambda\left(  E_{u,v}\right)
+^{T}\\\text{(by Proposition \ref{prop.transpose.opers} \textbf{(c)}%
+,}\\\text{applied to }m=n\text{ and }A=E_{u,v}\text{)}}}\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{by Proposition \ref{prop.transpose.opers} \textbf{(d)},}\\
+\text{applied to }m=n\text{, }A=I_{n}\text{ and }B=\lambda E_{u,v}%
+\end{array}
+\right)  \\
+& =I_{n}+\lambda\underbrace{\left(  E_{u,v}\right)  ^{T}}_{=E_{v,u}}%
+=I_{n}+\lambda E_{v,u}=A_{v,u}^{\lambda}.
+\end{align*}
+Thus, Proposition \ref{prop.Alamuv.transpose} is proven.
+\end{proof}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.Alamuv.lambda+mu}.]\textbf{(a)} The definition
@@ -8200,10 +8286,6 @@ Here are a few more properties of $\lambda$-scaling matrices:
 S_{u}^{\lambda}\right)  ^{T}=S_{u}^{\lambda}$.
 \end{proposition}
 
-\begin{proof}
-[Proof of Proposition \ref{prop.Slamu.transpose}.]Very easy and left to the reader.
-\end{proof}
-
 \begin{proposition}
 \label{prop.Slamu.lambda+mu}Let $n\in\mathbb{N}$. Let $u\in\left\{
 1,2,\ldots,n\right\}  $.
@@ -8341,6 +8423,11 @@ Proposition \ref{prop.Slamu.laction}.
 \end{proof}
 
 The proof of Proposition \ref{prop.Slamu.raction} is analogous.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Slamu.transpose}.]Very easy and left to the
+reader. (See the proof of Proposition \ref{prop.Alamuv.transpose} for inspiration.)
+\end{proof}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.Slamu.lambda+mu}.]\textbf{(a)} The definition
