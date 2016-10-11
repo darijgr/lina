@@ -13981,7 +13981,7 @@ plan rather than a set of lecture notes ......)
 %BeginExpansion
 $<$%
 %EndExpansion
-TODO%
+DRAFT%
 %TCIMACRO{\TEXTsymbol{>} }%
 %BeginExpansion
 $>$
@@ -14128,85 +14128,112 @@ some of the properties we required in Definition \ref{def.vectspace} are
 \textbf{redundant} (i.e., they follow from the other properties, so that
 nothing changes if we leave them out). For example:
 
-\begin{itemize}
-\item Property \textbf{(d)} follows from properties \textbf{(e)}, \textbf{(h)}
-and \textbf{(i)}\footnote{\textit{Proof.} Assume that properties \textbf{(e)},
-\textbf{(h)} and \textbf{(i)} hold. We must now prove property \textbf{(d)}.
-\par
+\begin{proposition}
+\label{prop.vectspace.redundant.d}Property \textbf{(d)} in Definition
+\ref{def.vectspace} follows from properties \textbf{(e)}, \textbf{(h)} and
+\textbf{(i)}. Thus, we could leave out property \textbf{(d)} from the definition.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.vectspace.redundant.d}.] Assume that
+properties \textbf{(e)}, \textbf{(h)} and \textbf{(i)} hold. We must now prove
+property \textbf{(d)}.
+
 Let $v\in V$. Then,
 \begin{align*}
 \left(  -1\right)  v+\underbrace{v}_{\substack{=1v\\\text{(by property
-\textbf{(h)})}}}  &  =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
+\textbf{(h)})}}} &  =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
 -1\right)  +1\right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=-1\text{ and }\mu=1
 \end{array}
-\right) \\
+\right)  \\
 &  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)
 \end{align*}
 and%
 \begin{align*}
 \underbrace{v}_{\substack{=1v\\\text{(by property \textbf{(h)})}}}+\left(
--1\right)  v  &  =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
+-1\right)  v &  =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
 -1\right)  \right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=1\text{ and }\mu=-1
 \end{array}
-\right) \\
+\right)  \\
 &  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)  .
 \end{align*}
 Hence, there exists some element $w\in V$ satisfying $v+w=w+v=0$ (namely,
-$w=\left(  -1\right)  v$). Thus, property \textbf{(d)} is proven.}. Thus, we
-could leave out property \textbf{(d)} from the definition.
+$w=\left(  -1\right)  v$). Thus, property \textbf{(d)} is proven. Hence, we
+have shown that property \textbf{(d)} follows from properties \textbf{(e)},
+\textbf{(h)} and \textbf{(i)}. This proves Proposition
+\ref{prop.vectspace.redundant.d}.
+\end{proof}
 
-\item Property \textbf{(j)} follows from properties \textbf{(g)} and
-\textbf{(i)}\footnote{\textit{Proof.} Assume that properties \textbf{(g)} and
-\textbf{(i)} hold. We must now prove property \textbf{(j)}.
-\par
+\begin{proposition}
+\label{prop.vectspace.redundant.j}Property \textbf{(j)} in Definition
+\ref{def.vectspace} follows from properties \textbf{(g)} and \textbf{(i)}.
+Thus, we could omit property \textbf{(j)} from the definition.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.vectspace.redundant.j}.] Assume that
+properties \textbf{(g)} and \textbf{(i)} hold. We must now prove property
+\textbf{(j)}.
+
 Let $\lambda\in\mathbb{R}$. Then, property \textbf{(i)} (applied to
 $v=\overrightarrow{0}$) yields $0\cdot\overrightarrow{0}=\overrightarrow{0}$.
 Thus, $\lambda\left(  0\cdot\overrightarrow{0}\right)  =\lambda
 \overrightarrow{0}$, so that%
 \begin{align*}
-\lambda\overrightarrow{0}  &  =\lambda\left(  0\cdot\overrightarrow{0}\right)
+\lambda\overrightarrow{0} &  =\lambda\left(  0\cdot\overrightarrow{0}\right)
 =\underbrace{\left(  \lambda\cdot0\right)  }_{=0}\overrightarrow{0}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by property \textbf{(g)}, applied to }%
-\mu=0\text{ and }v=\overrightarrow{0}\right) \\
+\mu=0\text{ and }v=\overrightarrow{0}\right)  \\
 &  =0\cdot\overrightarrow{0}=\overrightarrow{0}.
 \end{align*}
-Thus, property \textbf{(j)} is proven.}. Thus, we could omit property
-\textbf{(j)} from the definition.
+Thus, property \textbf{(j)} is proven. Hence, we have shown that property
+\textbf{(j)} follows from properties \textbf{(g)} and \textbf{(i)}. This
+proves Proposition \ref{prop.vectspace.redundant.j}.
+\end{proof}
 
-\item Property \textbf{(i)} follows from properties \textbf{(b)},
-\textbf{(c)}, \textbf{(d)} and \textbf{(e)}\footnote{\textit{Proof.} Assume
-that properties \textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)}
-hold. We must now prove property \textbf{(i)}.
-\par
+\begin{proposition}
+\label{prop.vectspace.redundant.i}Property \textbf{(i)} in Definition
+\ref{def.vectspace} follows from properties \textbf{(b)}, \textbf{(c)},
+\textbf{(d)} and \textbf{(e)}. Thus, we could omit property \textbf{(i)} from
+the definition.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.vectspace.redundant.i}.] Assume that
+properties \textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)} hold. We
+must now prove property \textbf{(i)}.
+
 Let $v\in V$. Property \textbf{(e)} (applied to $\lambda=0$ and $\mu=0$)
 yields $\left(  0+0\right)  v=0v+0v$. Hence, $0v+0v=\underbrace{\left(
 0+0\right)  }_{=0}v=0v$.
-\par
+
 But we can apply property \textbf{(d)} to $0v$ instead of $v$. We thus
 conclude that there exists some element $w\in V$ satisfying
 $0v+w=w+0v=\overrightarrow{0}$. Consider this $w$.
-\par
+
 Property \textbf{(b)} (applied to $0v$, $0v$ and $w$ instead of $u$, $v$ and
 $w$) yields $0v+\left(  0v+w\right)  =\underbrace{\left(  0v+0v\right)
 }_{=0v}+w=0v+w$. Since $0v+w=\overrightarrow{0}$, this rewrites as
 $0v+\overrightarrow{0}=\overrightarrow{0}$.
-\par
+
 Property \textbf{(c)} (applied to $0v$ instead of $v$) yields
 $0v+\overrightarrow{0}=\overrightarrow{0}+0v=0v$. Comparing
 $0v+\overrightarrow{0}=\overrightarrow{0}$ with $0v+\overrightarrow{0}=0v$, we
-obtain $0v=\overrightarrow{0}$. Thus, property \textbf{(i)} is proven.}. Thus,
-we could omit property \textbf{(i)} from the definition.
-\end{itemize}
+obtain $0v=\overrightarrow{0}$. Thus, property \textbf{(i)} is proven. Hence,
+we have shown that property \textbf{(j)} follows from properties \textbf{(b)},
+\textbf{(c)}, \textbf{(d)} and \textbf{(e)}. This proves Proposition
+\ref{prop.vectspace.redundant.i}.
+\end{proof}
 
 However, we \textbf{cannot} simultaneously omit \textbf{both} properties
 \textbf{(d)} and \textbf{(i)} from the definition: Each of them is redundant
@@ -14244,9 +14271,11 @@ of a vector space\textquotedblright\ here.
 Of course, row vectors and column vectors are vectors as well (because they
 are matrices). The vector space of all column vectors of size $n$ is
 $\mathbb{R}^{n\times1}$ (since column vectors of size $n$ are $n\times
-1$-matrices). This vector space is often denoted by $\mathbb{R}^{n}$ (though
-some authors also use the notation $\mathbb{R}^{n}$ for the vector space of
-all row vectors of size $n$ , which is $\mathbb{R}^{1\times n}$).
+1$-matrices). We will denote this vector space by $\mathbb{R}^{n}$. (Beware
+that some authors also use the notation $\mathbb{R}^{n}$ for the vector space
+of all row vectors of size $n$, which is $\mathbb{R}^{1\times n}$. Some
+authors go as far as pretend that column vectors and row vectors are the same,
+but this is dangerous, since matrix multiplication treats them differently!)
 
 Notice that multiplication of matrices does not matter for the vector space
 $\mathbb{R}^{n\times m}$. Even if there was no such thing as a product of two
@@ -14379,12 +14408,12 @@ identify\textquotedblright\ two sets or vector spaces. Roughly speaking,
 identifying two sets $S$ and $T$ means matching up each element of $S$ with an
 element of $T$ (in such a way that each element of $T$ ends up matched with
 exactly one element of $S$) and pretending that each element is identical to
-its match. When $S$ and $T$ are vector spaces, one additionally ensure that
-this matching has the property that adding two elements of $S$ has the same
-result as adding their matches in $T$, and similarly for scaling, and finally
-that the zero vector of $S$ is matched with the zero vector of $T$. This is
-all satisfied in our above examples. Of course, this is still vague and
-imprecise. A rigorous way to formalize the idea of \textquotedblleft
+its match. When $S$ and $T$ are vector spaces, one additionally wants to
+ensure that this matching has the property that adding two elements of $S$ has
+the same result as adding their matches in $T$, and similarly for scaling, and
+finally that the zero vector of $S$ is matched with the zero vector of $T$.
+This is all satisfied in our above examples. Of course, this is still vague
+and imprecise. A rigorous way to formalize the idea of \textquotedblleft
 identifying\textquotedblright\ is the concept of \textit{isomorphisms} (i.e.,
 invertible \textit{linear maps}) between vector spaces; we shall introduce
 this concept later.
@@ -14416,6 +14445,383 @@ x+3\right)  ^{2}x^{3}+2$ is a polynomial function, because it satisfies
 $f\left(  x\right)  =2\left(  x+3\right)  ^{2}x^{3}+2=2+0x+0x^{2}%
 +18x^{3}+12x^{4}+2x^{5}$ for all $x\in\mathbb{R}$.)
 \end{example}
+
+\begin{example}
+The set of all constant functions from $\mathbb{R}$ to $\mathbb{R}$ is a
+vector space as well. But it can be identified with the vector space
+$\mathbb{R}$ (see Example \ref{exam.vectspace.RS} for the meaning of
+\textquotedblleft identify\textquotedblright); in fact, any real number
+$r\in\mathbb{R}$ corresponds to the constant function that sends everything to
+$r$.
+\end{example}
+
+\begin{example}
+You probably have seen at least two notions of \textquotedblleft
+vectors\textquotedblright\ in analytic geometry: vectors in the plane, and
+vectors in space. The former kind of vectors can be identified with elements
+of $\mathbb{R}^{2}$, and the latter can be identified with elements of
+$\mathbb{R}^{3}$. Namely:
+
+\begin{itemize}
+\item In the plane, a vector that starts at the origin and ends at the point
+$\left(  a,b\right)  $ is identified with the column vector $\left(
+\begin{array}
+[c]{c}%
+a\\
+b
+\end{array}
+\right)  \in\mathbb{R}^{2}$. (Every vector in the plane can be made to start
+at the origin, and its ending point is then uniquely determined; thus, this
+definition is legitimate.)
+
+\item In space, a vector that starts at the origin and ends at the point
+$\left(  a,b,c\right)  $ is identified with the column vector $\left(
+\begin{array}
+[c]{c}%
+a\\
+b\\
+c
+\end{array}
+\right)  \in\mathbb{R}^{3}$.
+\end{itemize}
+\end{example}
+
+Let me show two ways to construct new vector spaces from given vector spaces;
+this, of course, can be used to obtain lots of further examples.
+
+\begin{definition}
+\label{def.vectspace.product}Let $V$ and $W$ be two sets. Recall that $V\times
+W$ denotes the set of all pairs $\left(  v,w\right)  $ with $v\in V$ and $w\in
+W$. This set $V\times W$ is called the \textit{Cartesian product} (or simply
+the \textit{product}) of the two sets $V$ and $W$.
+
+Now, assume that $V$ and $W$ are two vector spaces. Then, we make the
+Cartesian product $V\times W$ into a vector space as well. Namely, we define
+
+\begin{itemize}
+\item its addition by%
+\begin{equation}
+\left(  v_{1},w_{1}\right)  +\left(  v_{2},w_{2}\right)  =\left(  v_{1}%
++v_{2},w_{1}+w_{2}\right)  \label{eq.def.vectspace.product.add}%
+\end{equation}
+(that is, entry by entry),
+
+\item its scaling by%
+\begin{equation}
+\lambda\left(  v,w\right)  =\left(  \lambda v,\lambda w\right)
+\label{eq.def.vectspace.product.scal}%
+\end{equation}
+(that is, entry by entry), and
+
+\item its zero vector by%
+\begin{equation}
+\overrightarrow{0}=\left(  \overrightarrow{0},\overrightarrow{0}\right)
+\label{eq.def.vectspace.product.0}%
+\end{equation}
+(that is, entry by entry again).
+\end{itemize}
+
+(Let me dwell on the precise meaning of the equalities
+(\ref{eq.def.vectspace.product.add}), (\ref{eq.def.vectspace.product.scal})
+and (\ref{eq.def.vectspace.product.0}). The sign \textquotedblleft%
+$+$\textquotedblright\ appears three times in
+(\ref{eq.def.vectspace.product.add}), and each time it has a slightly
+different meaning. Namely, the sign \textquotedblleft$+$\textquotedblright\ on
+the left hand side of (\ref{eq.def.vectspace.product.add}) stands for the
+addition of the vector space $V\times W$ (which we are defining). The sign
+\textquotedblleft$+$\textquotedblright\ in \textquotedblleft$v_{1}+v_{2}%
+$\textquotedblright\ stands for the addition of the vector space $V$. The sign
+\textquotedblleft$+$\textquotedblright\ in \textquotedblleft$w_{1}+w_{2}%
+$\textquotedblright\ stands for the addition of the vector space $W$.
+Similarly, the meanings of the expressions \textquotedblleft$\lambda\left(
+v,w\right)  $\textquotedblright, \textquotedblleft$\lambda v$%
+\textquotedblright\ and \textquotedblleft$\lambda w$\textquotedblright\ in
+(\ref{eq.def.vectspace.product.scal}) are slightly different, since each of
+these refers to the scaling of a different vector space. Finally, the three
+terms \textquotedblleft$\overrightarrow{0}$\textquotedblright\ in
+(\ref{eq.def.vectspace.product.0}) are the zero vectors of three different
+vector spaces (namely, of $V\times W$, of $V$ and of $W$, in order of appearance).
+
+The vector space $V\times W$ is called the \textit{Cartesian product} of the
+vector spaces $V$ and $W$.
+
+We can similarly define the Cartesian product of several vector spaces
+$V_{1},V_{2},\ldots,V_{n}$. It is again a vector space; its elements are
+$n$-tuples $\left(  v_{1},v_{2},\ldots,v_{n}\right)  $ for which each $v_{i}$
+belongs to the corresponding $V_{i}$; its addition, scaling and zero vector
+are again defined entry by entry.
+\end{definition}
+
+\begin{definition}
+\label{def.vectspace.StoV}Let $V$ be a vector space. Let $S$ be a set. Recall
+that $V^{S}$ denotes the set of all maps from $S$ to $V$. We make $V^{S}$ into
+a vector space as well. Namely, we define its addition $+$, its scaling
+$\cdot$, and its zero vector $\overrightarrow{0}$ as follows:
+
+\begin{itemize}
+\item If $f\in V^{S}$ and $g\in V^{S}$ are two maps, then their sum $f+g$ is
+defined to be the map from $S$ to $V$ that sends each $s\in S$ to $f\left(
+s\right)  +g\left(  s\right)  $ (where the \textquotedblleft$+$%
+\textquotedblright\ in \textquotedblleft$f\left(  s\right)  +g\left(
+s\right)  $\textquotedblright\ refers to the addition of $V$). Thus,%
+\[
+\left(  f+g\right)  \left(  s\right)  =f\left(  s\right)  +g\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
+\]
+This is called \textit{pointwise addition} (because it means that we add two
+maps by adding their values at each point.)
+
+\item If $f\in V^{S}$ is a map and $\lambda$ is a number, then the map
+$\lambda f$ is defined to be the map from $S$ to $V$ that sends each $s\in S$
+to $\lambda\cdot f\left(  s\right)  $ (where the \textquotedblleft$\cdot
+$\textquotedblright\ in \textquotedblleft$\lambda\cdot f\left(  s\right)
+$\textquotedblright\ refers to the scaling of $V$). Thus,%
+\[
+\left(  \lambda f\right)  \left(  s\right)  =\lambda\cdot f\left(  s\right)
+\ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
+\]
+This is called \textit{pointwise scaling} (because it means that we scale a
+map by scaling its value at each point.)
+
+\item We define $\overrightarrow{0}\in V^{S}$ to be the map from $S$ to $V$
+that sends each $s\in S$ to $\overrightarrow{0}$ (the zero vector of $V$).
+This is called the \textit{constant-}$\overrightarrow{0}$\textit{ map}, since
+it is constant and all its values are $\overrightarrow{0}$.
+\end{itemize}
+
+This example, of course, generalizes Example \ref{exam.vectspace.RS}: If we
+set $V=\mathbb{R}$, then $V^{S}$ becomes precisely the vector space
+$\mathbb{R}^{S}$ defined in Example \ref{exam.vectspace.RS}.
+\end{definition}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Subspaces}
+
+\textbf{References for subspaces:} \cite[\S 4.3]{LaNaSc16} (possibly the best
+one), \cite[\S 2.2]{OlvSha06} (focusses on the analysis-related and applied
+stuff) and \cite[Two.I.2]{Heffer16}.
+
+When $U$ is a subset of a vector space $V$, we can try to make $U$ itself into
+a vector space by \textquotedblleft inheriting\textquotedblright\ the
+addition, the scaling and the zero vector from $V$: That is, we define the sum
+$v+w$ of two vectors $v\in U$ and $w\in U$ to be the result of adding $v$ and
+$w$ as elements of $V$. Similarly, we define $\lambda v$ for $\lambda
+\in\mathbb{R}$ to $v\in U$ to be the result of scaling $v$ by $\lambda$ as
+element of $V$. Finally, we define the zero vector $\overrightarrow{0}$ of $U$
+as the zero vector $\overrightarrow{0}$ of $V$. However, this all works (i.e.,
+makes $U$ into a vector space) only if the vectors appearing in these
+definitions end up in $U$: For example, our definition of $v+w$ actually
+defines an addition on $U$ only if the sum $v+w$ actually belongs to $U$ for
+all $v\in U$ and $w\in U$. Similarly, scaling on $U$ is well-defined only if
+$\lambda v\in U$ for all $\lambda\in\mathbb{R}$ and $v\in U$. Finally, the
+zero vector $\overrightarrow{0}$ of $U$ is well-defined only if the zero
+vector $\overrightarrow{0}$ of $V$ actually belongs to $U$. Let me collect all
+these conditions in one notion:
+
+\begin{definition}
+\label{def.subspace}Let $U$ be a subset of a vector space $V$. We say that $U$
+is a \textit{subspace} (or \textit{vector subspace}) of $V$ if the following
+three conditions hold:
+
+\textbf{(a)} We have $\overrightarrow{0}\in U$ (where $\overrightarrow{0}$ is
+the zero vector of $V$).
+
+\textbf{(b)} We have $v+w\in U$ for all $v\in U$ and $w\in U$.
+
+\textbf{(c)} We have $\lambda v\in U$ for all $\lambda\in\mathbb{R}$ and $v\in
+U$.
+
+Note that condition \textbf{(b)} is often put into words as follows:
+\textquotedblleft The subset $U$ is closed under addition\textquotedblright%
+\ (since it says, roughly speaking, that if you start with elements of $U$,
+then you cannot escape $U$ by applying addition). Similarly, condition
+\textbf{(c)} is often stated as follows: \textquotedblleft The subset $U$ is
+closed under scaling\textquotedblright.
+\end{definition}
+
+\begin{proposition}
+\label{prop.subspace.space}Let $U$ be a subspace of a vector space $V$. Then,
+$U$ becomes a vector space, if we let it \textquotedblleft
+inherit\textquotedblright\ the addition $+$, the scaling $\cdot$ and the zero
+vector $\overrightarrow{0}$ from $V$. Here, \textquotedblleft
+inheriting\textquotedblright\ means that:
+
+\begin{itemize}
+\item we define the sum $v+w$ of two vectors $v\in U$ and $w\in U$ to be the
+result of adding $v$ and $w$ as elements of $V$.
+
+\item we define $\lambda v$ for $\lambda\in\mathbb{R}$ to $v\in U$ to be the
+result of scaling $v$ by $\lambda$ as element of $V$.
+
+\item we define the zero vector $\overrightarrow{0}$ of $U$ as the zero vector
+$\overrightarrow{0}$ of $V$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.space}.] The \textquotedblleft
+inherited\textquotedblright\ operations on $U$ are clearly well-defined. (For
+example, the condition \textbf{(b)} in Definition \ref{def.subspace} shows
+that the \textquotedblleft inherited\textquotedblright\ addition is actually
+an addition on $U$. Similarly, condition \textbf{(c)} shows that the
+\textquotedblleft inherited\textquotedblright\ scaling is actually a scaling,
+and condition \textbf{(a)} shows that the \textquotedblleft
+inherited\textquotedblright\ zero vector actually is in $U$.)
+
+It remains to prove that the ten properties \textbf{(a)}, \textbf{(b)},
+\textbf{(c)}, \textbf{(d)}, \textbf{(e)}, \textbf{(f)}, \textbf{(g)},
+\textbf{(h)}, \textbf{(i)} and \textbf{(j)} from Definition
+\ref{def.vectspace} are satisfied for $U$ instead of $V$. This is almost
+completely straightforward: We know that these ten properties are satisfied
+for $V$ (since $V$ is a vector space). Since the operations on $U$ are
+\textquotedblleft inherited\textquotedblright\ from $V$, this immediately
+yields that the nine properties \textbf{(a)}, \textbf{(b)}, \textbf{(c)},
+\textbf{(e)}, \textbf{(f)}, \textbf{(g)}, \textbf{(h)}, \textbf{(i)} and
+\textbf{(j)} are also satisfied for $U$ instead of $V$. However, for the
+property \textbf{(d)}, this is not immediately obvious: We know that it holds
+for $V$, but we cannot immediately conclude that it must also holds for $U$
+instead of $V$ (because there is no obvious reason why the element $w$ must
+necessarily belong to $U$). Fortunately, we can ignore property \textbf{(d)},
+since Proposition \ref{prop.vectspace.redundant.d} shows that this property is
+redundant. Hence, $U$ is a vector space (since the nine properties
+\textbf{(a)}, \textbf{(b)}, \textbf{(c)}, \textbf{(e)}, \textbf{(f)},
+\textbf{(g)}, \textbf{(h)}, \textbf{(i)} and \textbf{(j)} are satisfied for
+$U$ instead of $V$). This proves Proposition \ref{prop.subspace.space}.
+\end{proof}
+
+\begin{remark}
+Some authors replace condition \textbf{(a)} in Definition \ref{def.subspace}
+by the seemingly weaker condition that $U$ be nonempty. However, this weaker
+condition is actually equivalent to condition \textbf{(a)} (as long as
+condition \textbf{(c)} is assumed). Indeed, if $U$ is nonempty, then we can
+pick any $v\in U$, and then we can apply condition \textbf{(c)} to $\lambda=0$
+to conclude that $0v\in U$, so that $\overrightarrow{0}=0v\in U$; thus,
+condition \textbf{(a)} holds.
+\end{remark}
+
+[...]
+
+\begin{todo}
+Examples for subspaces: $0$ and $V$.
+\end{todo}
+
+
+
+\begin{todo}
+$\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
+\ x_{1}-x_{2}+2x_{3}=0\right\}  $ is a subspace of $\mathbb{R}^{3}%
+=\mathbb{R}^{3\times1}$.
+
+Generalize to subspaces carved out by homogeneous linear equations.
+\end{todo}
+
+
+
+\begin{todo}
+$\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
+\ x_{1}-x_{2}+2x_{3}=1\right\}  $ is not a subspace.
+\end{todo}
+
+
+
+\begin{todo}
+Polynomials $p$ such that $p\left(  3\right)  =0$.
+\end{todo}
+
+
+
+\begin{todo}
+Functions $f$ such that $f$ is continuous.
+\end{todo}
+
+
+
+\begin{todo}
+Are functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ are a subspace of
+the functions $\mathbb{R}\rightarrow\mathbb{R}$ ? No, since they are not even
+a subset.
+\end{todo}
+
+
+
+\begin{todo}
+Are functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
+-1,1\right]  $ a subspace of the functions $\mathbb{R}\rightarrow\mathbb{R}$ ?
+No (e.g., scaling fails).
+\end{todo}
+
+
+
+\begin{todo}
+Subspaces of $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$ in geometric terms.
+
+
+\end{todo}
+
+[...]
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Spans}
+
+\textbf{References for vector spaces:} \cite[\S 5.1]{LaNaSc16} (possibly the
+best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
+applied stuff) and \cite[Two.I.2]{Heffer16}.
+
+[...]
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Linear independence}
+
+\textbf{References for vector spaces:} \cite[\S 5.2]{LaNaSc16} (possibly the
+best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
+applied stuff) and \cite[Two.II]{Heffer16}.
+
+[...]
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+TODO%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Bases and dimension}
+
+\textbf{References for vector spaces:} \cite[\S 5.3-5.4]{LaNaSc16} (possibly
+the best one), \cite[\S 2.4]{OlvSha06} (focusses on the analysis-related and
+applied stuff) and \cite[Two.III]{Heffer16}.
+
+[...]
 
 [to be continued]
 
