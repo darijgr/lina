@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:38:44}
+%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:41:43}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2976,7 +2976,11 @@ from Proposition \ref{prop.sum.matrices.multi}:
 
 \begin{proof}
 [Proof of Proposition \ref{prop.sum.matrices.multi.pq}.]Let $h=q+1-p$. Then,
-$h=q+1-p\geq0$ (since $p\leq q+1$), so that $h\in\mathbb{N}$.
+$h=q+1-p\geq0$ (since $p\leq q+1$), so that $h\in\mathbb{N}$. Also,
+\[
+p-1+\underbrace{h}_{=q+1-p}=p-1+q+1-p=q.
+\]
+
 
 Notice that $A_{p},A_{p+1},\ldots,A_{q}$ are $q+1-p$ matrices. In other words,
 $A_{p},A_{p+1},\ldots,A_{q}$ are $h$ matrices (since $h=q+1-p$). Denote these
@@ -2991,19 +2995,24 @@ Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,m\right\}  $. We have
 \begin{align}
 \sum_{k=1}^{h}\underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
-(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}  &  =\sum_{k=1}^{h}%
-A_{p-1+k}=A_{p}+A_{p+1}+\cdots+A_{q}\nonumber\\
-&  =\sum_{k=p}^{q}A_{k} \label{pf.prop.sum.matrices.multi.pq.1}%
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}} &  =\sum_{k=1}^{h}%
+A_{p-1+k}=A_{p}+A_{p+1}+\cdots+A_{p-1+h}\nonumber\\
+&  =A_{p}+A_{p+1}+\cdots+A_{q}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
+}p-1+h=q\right)  \nonumber\\
+&  =\sum_{k=p}^{q}A_{k}\label{pf.prop.sum.matrices.multi.pq.1}%
 \end{align}
 and%
 \begin{align}
 \sum_{k=1}^{h}\left(  \underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
-(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}\right)  _{i,j}  &  =\sum
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}\right)  _{i,j} &  =\sum
 _{k=1}^{h}\left(  A_{p-1+k}\right)  _{i,j}=\left(  A_{p}\right)
-_{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(  A_{q}\right)
+_{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(  A_{p-1+h}\right)
 _{i,j}\nonumber\\
-&  =\sum_{k=p}^{q}\left(  A_{k}\right)  _{i,j}.
-\label{pf.prop.sum.matrices.multi.pq.2}%
+&  =\left(  A_{p}\right)  _{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(
+A_{q}\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p-1+h=q\right)
+\nonumber\\
+&  =\sum_{k=p}^{q}\left(  A_{k}\right)  _{i,j}%
+.\label{pf.prop.sum.matrices.multi.pq.2}%
 \end{align}
 But Proposition \ref{prop.sum.matrices.multi} (applied to $B_{1},B_{2}%
 ,\ldots,B_{h}$ instead of $A_{1},A_{2},\ldots,A_{h}$) shows that%
