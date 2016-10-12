@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 10, 2016 21:03:59}
+%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:16:16}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -663,13 +663,13 @@ satisfies%
 \begin{equation}
 \left(  A^{T}\right)  _{i,j}=A_{j,i}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,m\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,n\right\}  .\label{pf.prop.transpose.invol.AT}%
+,n\right\}  . \label{pf.prop.transpose.invol.AT}%
 \end{equation}
 Hence,%
 \begin{equation}
 \left(  A^{T}\right)  _{j,i}=A_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
-,m\right\}  .\label{pf.prop.transpose.invol.AT2}%
+,m\right\}  . \label{pf.prop.transpose.invol.AT2}%
 \end{equation}
 (Indeed, this follows by applying (\ref{pf.prop.transpose.invol.AT}) to $j$
 and $i$ instead of $i$ and $j$.)
@@ -2745,6 +2745,234 @@ two powers of a square matrix commute. (In other words: For any $n\times
 n$-matrix $A$, and any $u\in\mathbb{N}$ and $v\in\mathbb{N}$, the two matrices
 $A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
 A^{v}=A^{u+v}=A^{v}A^{u}$.)
+
+\subsection{(*) The summation sign for matrices}
+
+In Definition \ref{def.sum}, we have introduced a notation for sums of
+arbitrary (finite) lists of numbers. The same notation can be used for sums of
+arbitrary (finite) lists of matrices:
+
+\begin{definition}
+\label{def.sum.matrices}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $p$ and
+$q$ be two integers such that $p\leq q+1$. Let $A_{p},A_{p+1},\ldots,A_{q}$ be
+some $n\times m$-matrices. Then, $\sum_{k=p}^{q}A_{k}$ means the sum
+$A_{p}+A_{p+1}+\cdots+A_{q}$. (This sum is well-defined due to Proposition
+\ref{prop.matrix-laws.ga-add}. Moreover, the order of its addends does not
+matter, as can be proven using Proposition \ref{prop.matrix-laws.1}
+\textbf{(a)}.)
+
+The notation $\sum_{k=p}^{q}A_{k}$ is analogous to the notation $\sum
+_{k=p}^{q}a_{k}$ introduced in Definition \ref{def.sum}. The same remarks and
+clarifications done for the latter notation in Definition \ref{def.sum.2}
+apply to the former notation. There is only one difference: When the sum
+$\sum_{k=p}^{q}A_{k}$ has no addends (i.e., when $p\geq q+1$), its value is
+defined to be the zero matrix $0_{n\times m}$ rather than the number $0$.
+(This is not much of a difference, seeing that the zero matrix $0_{n\times m}$
+and the number $0$ behave similarly; see, e.g., Proposition
+\ref{prop.matrix-laws.0}.)
+\end{definition}
+
+Recall that addition of matrices was defined entry by entry. Let me restate
+this in terms of a single entry of a sum:
+
+\begin{proposition}
+\label{prop.sum.matrices.A+B}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$A$ and $B$ be two $n\times m$-matrices. For every $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\[
+\left(  A+B\right)  _{i,j}=A_{i,j}+B_{i,j}.
+\]
+
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.matrices.A+B}.]We have $A+B=\left(
+A_{i,j}+B_{i,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq m}$ (by the definition
+of $A+B$). Thus, $\left(  A+B\right)  _{i,j}=A_{i,j}+B_{i,j}$ for each
+$i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}
+$. This proves Proposition \ref{prop.sum.matrices.A+B}.
+\end{proof}
+
+Proposition \ref{prop.sum.matrices.A+B} concerns the sum of two matrices.
+Using the summation sign, we can state an analogue of Proposition
+\ref{prop.sum.matrices.A+B} for the sum of \textbf{several} matrices:
+
+\begin{proposition}
+\label{prop.sum.matrices.multi}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$p$ and $q$ be two integers such that $p\leq q+1$. Let $A_{p},A_{p+1}%
+,\ldots,A_{q}$ be some $n\times m$-matrices. For every $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  \sum_{k=p}^{q}A_{k}\right)  _{i,j}=\sum_{k=p}^{q}\left(  A_{k}\right)
+_{i,j}. \label{eq.prop.sum.matrices.multi.eq}%
+\end{equation}
+
+\end{proposition}
+
+Notice that the $\sum$ sign on the left hand side of
+(\ref{eq.prop.sum.matrices.multi.eq}) stands for a sum of several matrices,
+while the $\sum$ sign on the right hand side stands for a sum of several numbers.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.matrices.multi}.]We could say that proving
+Proposition \ref{prop.sum.matrices.multi} is just a matter of applying
+Proposition \ref{prop.sum.matrices.A+B} several times (since a sum of finitely
+many matrices can be obtained by repeatedly adding one matrix to another).
+This single sentence might not be a rigorous proof in itself, but it would
+pass for a proof in an mathematical paper or textbook, because any
+mathematician can easily make it as rigorous as she wants to have it by
+filling in the missing (straightforward) details.\footnote{Actually, there is
+one more subtlety involved: Namely, if $p=q+1$, then the sums appearing in
+(\ref{eq.prop.sum.matrices.multi.eq}) are not obtained by addition (in fact,
+they are empty), and therefore we cannot use Proposition
+\ref{prop.sum.matrices.A+B} to prove (\ref{eq.prop.sum.matrices.multi.eq}) in
+this case. However, (\ref{eq.prop.sum.matrices.multi.eq}) is completely
+obvious in this case anyway (since it just says that $\left(  0_{n\times
+m}\right)  _{i,j}=0$).}
+
+However, these notes are supposed to double as an introduction to proofs, so
+let me actually show how a rigorous proof of Proposition
+\ref{prop.sum.matrices.multi} looks like (even though it is exactly as
+straightforward and dull as you would expect it to be).
+
+Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $. We claim that%
+\begin{equation}
+\left(  \sum_{k=p}^{p-1+\ell}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+\ell}\left(
+A_{k}\right)  _{i,j} \label{pf.prop.sum.matrices.multi.1}%
+\end{equation}
+for every $\ell\in\left\{  0,1,\ldots,q-p+1\right\}  $. (Once this is proven,
+then we will be able to obtain (\ref{eq.prop.sum.matrices.multi.eq}) simply by
+applying (\ref{pf.prop.sum.matrices.multi.1}) to $\ell=q-p+1$.)
+
+We will prove (\ref{pf.prop.sum.matrices.multi.1}) by \textit{induction over
+}$\ell$. (If you have never seen a proof by induction: this here is an
+example.) This means that we shall prove the following two claims:
+
+\begin{statement}
+\textit{Claim 1:} (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=0$.
+\end{statement}
+
+\begin{statement}
+\textit{Claim 2:} If $L\in\left\{  0,1,\ldots,q-p\right\}  $ is such that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$, then
+(\ref{pf.prop.sum.matrices.multi.1}) also holds for $\ell=L+1$.
+\end{statement}
+
+Once these two claims are proven, the \textit{principle of mathematical
+induction} will yield that (\ref{pf.prop.sum.matrices.multi.1}) holds for all
+$\ell\in\left\{  0,1,\ldots,q-p+1\right\}  $. In fact:
+
+\begin{itemize}
+\item Claim 1 shows that (\ref{pf.prop.sum.matrices.multi.1}) holds for
+$\ell=0$;
+
+\item thus, Claim 2 (applied to $L=0$) shows that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=1$;
+
+\item thus, Claim 2 (applied to $L=1$) shows that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=2$;
+
+\item thus, Claim 2 (applied to $L=2$) shows that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=3$;
+
+\item and so on, applying Claim 2 for higher and higher $L$, until we arrive
+at $\ell=q-p+1$.
+\end{itemize}
+
+(See \cite[Chapter 5]{LeLeMe16} for an introduction to proofs by induction.)
+
+Of course, we still have to prove the two claims.
+
+\begin{enumerate}
+\item \textit{Proof of Claim 1:} For $L=0$, the statement
+(\ref{pf.prop.sum.matrices.multi.1}) claims that $\left(  \sum_{k=p}%
+^{p-1+0}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+0}\left(  A_{k}\right)  _{i,j}$.
+But
+\[
+\sum_{k=p}^{p-1+0}A_{k}=\sum_{k=p}^{p-1}A_{k}=\left(  \text{an empty sum of
+}n\times m\text{-matrices}\right)  =0_{n\times m}%
+\]
+(since an empty sum of $n\times m$-matrices was \textbf{defined} to be
+$0_{n\times m}$). Hence,%
+\[
+\left(  \sum_{k=p}^{p-1+0}A_{k}\right)  _{i,j}=\left(  0_{n\times m}\right)
+_{i,j}=0
+\]
+(since every entry of the zero matrix $0_{n\times m}$ is $0$). Compared with
+\[
+\sum_{k=p}^{p-1+0}\left(  A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1}\left(
+A_{k}\right)  _{i,j}=\left(  \text{an empty sum of numbers}\right)  =0,
+\]
+this yields $\left(  \sum_{k=p}^{p-1+0}A_{k}\right)  _{i,j}=\sum_{k=p}%
+^{p-1+0}\left(  A_{k}\right)  _{i,j}$. In other words,
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=0$. This proves Claim 1.
+
+\item \textit{Proof of Claim 2:} Let $L\in\left\{  0,1,\ldots,q-p\right\}  $
+be such that (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$. We must
+show that (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L+1$.
+
+Since (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$, we have%
+\begin{equation}
+\left(  \sum_{k=p}^{p-1+L}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+L}\left(
+A_{k}\right)  _{i,j}.\label{pf.prop.sum.matrices.multi.1.pf.1}%
+\end{equation}
+
+
+Now,%
+\[
+\sum_{k=p}^{p-1+\left(  L+1\right)  }A_{k}=\sum_{k=p}^{\left(  p-1+L\right)
++1}A_{k}=\sum_{k=p}^{p-1+L}A_{k}+A_{p-1}%
+\]
+
+
+\item 
+
+\item $j\in\left\{  0,1,\ldots,k-1\right\}  $ be such that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$. () We must show that
+(\ref{pf.prop.sum.matrices.multi.1}) also holds for $i=j+1$.
+
+Since (\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$, we have
+$u_{1}+u_{2}+\cdots+u_{j}\in U$. Now,%
+\[
+u_{1}+u_{2}+\cdots+u_{j+1}=\underbrace{\left(
+%TCIMACRO{\TeXButton{blanka}{\blanka}}%
+%BeginExpansion
+\blanka
+%EndExpansion
+\right)  }_{\in U}+\underbrace{%
+%TCIMACRO{\TeXButton{blanka}{\blanka}}%
+%BeginExpansion
+\blanka
+%EndExpansion
+}_{\in U}.
+\]
+This is a sum of two vectors in $U$, and thus belongs to $U$ (since $U$ is
+closed under addition). In other words, $u_{1}+u_{2}+\cdots+u_{j+1}\in U$.
+Thus, (\ref{pf.prop.sum.matrices.multi.1}) also holds for $i=j+1$. This proves
+Claim 2.
+\end{enumerate}
+
+Now, both Claims 1 and 2 are proven, so that the proof of
+(\ref{pf.prop.sum.matrices.multi.1}) is complete.
+
+(Usually, the proof of Claim 1 is called the \textquotedblleft induction
+base\textquotedblright, and the proof of Claim 2 is called the
+\textquotedblleft induction step\textquotedblright. The statement that
+(\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$ is called the
+\textit{induction hypothesis}.)
+
+Now that (\ref{pf.prop.sum.matrices.multi.1}) is proven, we can simply apply
+(\ref{pf.prop.sum.matrices.multi.1}) to $i=k$, and conclude that $u_{1}%
++u_{2}+\cdots+u_{k}\in U$. This proves Proposition \ref{prop.subspace.closed}
+\textbf{(a)}.
+\end{proof}
+
+[...]
+
+TODO: multisum pf
+
+TODO: refer to multisum when necessary
 
 \subsection{(*) Application: Fibonacci numbers}
 
@@ -5900,7 +6128,7 @@ For every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,m\right\}  $, we have%
 \begin{equation}
 \left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{\left(  i,j\right)  ,\left(
-u,v\right)  }=\delta_{i,u}\delta_{j,v}.\label{pf.prop.Euv.transpose.1}%
+u,v\right)  }=\delta_{i,u}\delta_{j,v}. \label{pf.prop.Euv.transpose.1}%
 \end{equation}
 (Indeed, this is just a more precise way to state (\ref{eq.prop.Euv.deltas.1}%
 ), because the \textquotedblleft$E_{u,v}$\textquotedblright\ in
@@ -5908,8 +6136,8 @@ u,v\right)  }=\delta_{i,u}\delta_{j,v}.\label{pf.prop.Euv.transpose.1}%
 $\textquotedblright.) Thus, in particular, every $i\in\left\{  1,2,\ldots
 ,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $ satisfy%
 \begin{equation}
-\left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}%
-.\label{pf.prop.Euv.transpose.2}%
+\left(  E_{u,v,n,m}\right)  _{i,j}=\delta_{i,u}\delta_{j,v}.
+\label{pf.prop.Euv.transpose.2}%
 \end{equation}
 (This is an immediate consequence of (\ref{pf.prop.Euv.transpose.1}).)
 
@@ -5920,7 +6148,7 @@ $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}
 $, we have%
 \begin{equation}
 \left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}=\left(  E_{u,v,n,m}%
-\right)  _{j,i}=\delta_{j,u}\delta_{i,v}\label{pf.prop.Euv.transpose.3}%
+\right)  _{j,i}=\delta_{j,u}\delta_{i,v} \label{pf.prop.Euv.transpose.3}%
 \end{equation}
 (by (\ref{pf.prop.Euv.transpose.2}), applied to $j$ and $i$ instead of $i$ and
 $j$).
@@ -5931,16 +6159,16 @@ instead of $n$, $m$, $u$ and $v$. As a result of this reasoning, we then find
 that every $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{
 1,2,\ldots,n\right\}  $ satisfy%
 \begin{equation}
-\left(  E_{v,u,m,n}\right)  _{i,j}=\delta_{i,v}\delta_{j,u}%
-.\label{pf.prop.Euv.transpose.4}%
+\left(  E_{v,u,m,n}\right)  _{i,j}=\delta_{i,v}\delta_{j,u}.
+\label{pf.prop.Euv.transpose.4}%
 \end{equation}
 Hence, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,m\right\}  $, we have%
 \begin{align*}
-\left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}  & =\delta_{j,u}%
-\delta_{i,v}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.Euv.transpose.3})}\right)  \\
-& =\delta_{i,v}\delta_{j,u}=\left(  E_{v,u,m,n}\right)  _{i,j}%
+\left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}  &  =\delta
+_{j,u}\delta_{i,v}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.prop.Euv.transpose.3})}\right) \\
+&  =\delta_{i,v}\delta_{j,u}=\left(  E_{v,u,m,n}\right)  _{i,j}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Euv.transpose.4})}\right)
 .
 \end{align*}
@@ -6494,20 +6722,20 @@ $A_{u,v}^{\lambda}$) and $A_{v,u}^{\lambda}=I_{n}+\lambda E_{v,u}$ (by the
 definition of $A_{v,u}^{\lambda}$). Now,
 \begin{align*}
 \left(  \underbrace{A_{u,v}^{\lambda}}_{=I_{n}+\lambda E_{u,v}}\right)  ^{T}
-& =\left(  I_{n}+\lambda E_{u,v}\right)  ^{T}=\underbrace{\left(
+&  =\left(  I_{n}+\lambda E_{u,v}\right)  ^{T}=\underbrace{\left(
 I_{n}\right)  ^{T}}_{\substack{=I_{n}\\\text{(by Proposition
 \ref{prop.transpose.opers} \textbf{(a)})}}}+\underbrace{\left(  \lambda
 E_{u,v}\right)  ^{T}}_{\substack{=\lambda\left(  E_{u,v}\right)
 ^{T}\\\text{(by Proposition \ref{prop.transpose.opers} \textbf{(c)}%
 ,}\\\text{applied to }m=n\text{ and }A=E_{u,v}\text{)}}}\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by Proposition \ref{prop.transpose.opers} \textbf{(d)},}\\
 \text{applied to }m=n\text{, }A=I_{n}\text{ and }B=\lambda E_{u,v}%
 \end{array}
-\right)  \\
-& =I_{n}+\lambda\underbrace{\left(  E_{u,v}\right)  ^{T}}_{=E_{v,u}}%
+\right) \\
+&  =I_{n}+\lambda\underbrace{\left(  E_{u,v}\right)  ^{T}}_{=E_{v,u}}%
 =I_{n}+\lambda E_{v,u}=A_{v,u}^{\lambda}.
 \end{align*}
 Thus, Proposition \ref{prop.Alamuv.transpose} is proven.
@@ -13422,6 +13650,168 @@ We have now seen four examples of an algorithm for solving equations of the
 form $Ax=b$ where $A$ is a row-echelon matrix. The general form of the
 algorithm should now be easy to guess, but let me pin it down:
 
+\begin{theorem}
+\label{thm.row-echelon.backsub}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+$A$ be an $n\times m$-matrix. Let $b$ be an $n\times1$-vector. Assume that $A$
+is a row-echelon matrix.
+
+Consider the problem of finding all solutions to the equation $Ax=b$. In other
+words, we want to find all $m\times1$-matrices $x$ satisfying $Ax=b$. This
+problem can be solved by the following algorithm (\textit{called
+back-substitution}):
+
+\begin{enumerate}
+\item Set $b=\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n}%
+\end{array}
+\right)  $ and $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{m}%
+\end{array}
+\right)  $. Multiplying the equalities $A=\left(
+\begin{array}
+[c]{cccc}%
+A_{1,1} & A_{1,2} & \cdots & A_{1,m}\\
+A_{2,1} & A_{2,2} & \cdots & A_{2,m}\\
+\vdots & \vdots & \ddots & \vdots\\
+A_{n,1} & A_{n,2} & \cdots & A_{n,m}%
+\end{array}
+\right)  $ and $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{m}%
+\end{array}
+\right)  $, we obtain%
+\begin{align*}
+Ax  &  =\left(
+\begin{array}
+[c]{cccc}%
+A_{1,1} & A_{1,2} & \cdots & A_{1,m}\\
+A_{2,1} & A_{2,2} & \cdots & A_{2,m}\\
+\vdots & \vdots & \ddots & \vdots\\
+A_{n,1} & A_{n,2} & \cdots & A_{n,m}%
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{m}%
+\end{array}
+\right) \\
+&  =\left(
+\begin{array}
+[c]{c}%
+A_{1,1}x_{1}+A_{1,2}x_{2}+\cdots+A_{1,m}x_{m}\\
+A_{2,1}x_{1}+A_{2,2}x_{2}+\cdots+A_{2,m}x_{m}\\
+\vdots\\
+A_{n,1}x_{1}+A_{n,2}x_{2}+\cdots+A_{n,m}x_{m}%
+\end{array}
+\right)  .
+\end{align*}
+Thus, the equation $Ax=b$ rewrites as
+\[
+\left(
+\begin{array}
+[c]{c}%
+A_{1,1}x_{1}+A_{1,2}x_{2}+\cdots+A_{1,m}x_{m}\\
+A_{2,1}x_{1}+A_{2,2}x_{2}+\cdots+A_{2,m}x_{m}\\
+\vdots\\
+A_{n,1}x_{1}+A_{n,2}x_{2}+\cdots+A_{n,m}x_{m}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n}%
+\end{array}
+\right)
+\]
+(since $b=\left(
+\begin{array}
+[c]{c}%
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n}%
+\end{array}
+\right)  $). Hence, it is equivalent to the system%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+A_{1,1}x_{1}+A_{1,2}x_{2}+\cdots+A_{1,m}x_{m}=b_{1};\\
+A_{2,1}x_{1}+A_{2,2}x_{2}+\cdots+A_{2,m}x_{m}=b_{2};\\
+\vdots\\
+A_{n,1}x_{1}+A_{n,2}x_{2}+\cdots+A_{n,m}x_{m}=b_{n}%
+\end{array}
+\right.  . \label{eq.thm.row-echelon.backsub.sys}%
+\end{equation}
+This is a system of $n$ linear equations in the $m$ unknowns $x_{1}%
+,x_{2},\ldots,x_{m}$. We thus focus on solving this system.
+
+\item Let $k$ be the number of nonzero rows of $A$. Then, the last $n-k$ rows
+of $A$ are zero (by Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)}).
+Hence, the last $n-k$ equations in the system
+(\ref{eq.thm.row-echelon.backsub.sys}) have the form $0=b_{i}$ for some
+$i\in\left\{  n-k+1,n-k+2,\ldots,n\right\}  $. If \textbf{at least one} of the
+values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ is nonzero, then the equation $Ax=b$
+has no solution. In this case, we should stop right here, since the problem is
+solved. (This is the situation we have encountered in Example
+\ref{exam.row-echelon.backsub.3}.)
+
+\item Assume now that none of the values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ is
+nonzero. Thus, all of the values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ are zero.
+Hence, the last $n-k$ equations in the system
+(\ref{eq.thm.row-echelon.backsub.sys}) have the form $0=0$, and therefore can
+be discarded (since they are automatically true). (Notice that if $n-k=0$,
+then we are discarding nothing.)
+
+We are thus left with the first $k$ equations:%
+\begin{equation}
+\left\{
+\begin{array}
+[c]{c}%
+A_{1,1}x_{1}+A_{1,2}x_{2}+\cdots+A_{1,m}x_{m}=b_{1};\\
+A_{2,1}x_{1}+A_{2,2}x_{2}+\cdots+A_{2,m}x_{m}=b_{2};\\
+\vdots\\
+A_{k,1}x_{1}+A_{k,2}x_{2}+\cdots+A_{k,m}x_{m}=b_{k}%
+\end{array}
+\right.  \label{eq.thm.row-echelon.backsub.sysk}%
+\end{equation}
+
+
+\item For each $i\in\left\{  1,2,\ldots,k\right\}  $, set $\phi\left(
+i\right)  =\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}%
+A\right)  $. Then, Proposition \ref{prop.row-echelon.pivrows} \textbf{(c)}
+says that%
+\[
+\phi\left(  1\right)  <\phi\left(  2\right)  <\cdots<\phi\left(  k\right)  .
+\]
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+[Proof of Theorem \ref{thm.row-echelon.backsub}.]We only need to show that in
+step 2 [...]
+\end{proof}
+
 [...]
 
 \subsection{\label{sect.gauss.gauss}%
@@ -14135,35 +14525,35 @@ nothing changes if we leave them out). For example:
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.vectspace.redundant.d}.] Assume that
-properties \textbf{(e)}, \textbf{(h)} and \textbf{(i)} hold. We must now prove
-property \textbf{(d)}.
+[Proof of Proposition \ref{prop.vectspace.redundant.d}.]Assume that properties
+\textbf{(e)}, \textbf{(h)} and \textbf{(i)} hold. We must now prove property
+\textbf{(d)}.
 
 Let $v\in V$. Then,
 \begin{align*}
 \left(  -1\right)  v+\underbrace{v}_{\substack{=1v\\\text{(by property
-\textbf{(h)})}}} &  =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
+\textbf{(h)})}}}  &  =\left(  -1\right)  v+1v=\underbrace{\left(  \left(
 -1\right)  +1\right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=-1\text{ and }\mu=1
 \end{array}
-\right)  \\
+\right) \\
 &  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)
 \end{align*}
 and%
 \begin{align*}
 \underbrace{v}_{\substack{=1v\\\text{(by property \textbf{(h)})}}}+\left(
--1\right)  v &  =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
+-1\right)  v  &  =1v+\left(  -1\right)  v=\underbrace{\left(  1+\left(
 -1\right)  \right)  }_{=0}v\ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{by property \textbf{(e)}, applied to}\\
 \lambda=1\text{ and }\mu=-1
 \end{array}
-\right)  \\
+\right) \\
 &  =0v=\overrightarrow{0}\ \ \ \ \ \ \ \ \ \ \left(  \text{by property
 \textbf{(i)}}\right)  .
 \end{align*}
@@ -14181,19 +14571,18 @@ Thus, we could omit property \textbf{(j)} from the definition.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.vectspace.redundant.j}.] Assume that
-properties \textbf{(g)} and \textbf{(i)} hold. We must now prove property
-\textbf{(j)}.
+[Proof of Proposition \ref{prop.vectspace.redundant.j}.]Assume that properties
+\textbf{(g)} and \textbf{(i)} hold. We must now prove property \textbf{(j)}.
 
 Let $\lambda\in\mathbb{R}$. Then, property \textbf{(i)} (applied to
 $v=\overrightarrow{0}$) yields $0\cdot\overrightarrow{0}=\overrightarrow{0}$.
 Thus, $\lambda\left(  0\cdot\overrightarrow{0}\right)  =\lambda
 \overrightarrow{0}$, so that%
 \begin{align*}
-\lambda\overrightarrow{0} &  =\lambda\left(  0\cdot\overrightarrow{0}\right)
+\lambda\overrightarrow{0}  &  =\lambda\left(  0\cdot\overrightarrow{0}\right)
 =\underbrace{\left(  \lambda\cdot0\right)  }_{=0}\overrightarrow{0}%
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by property \textbf{(g)}, applied to }%
-\mu=0\text{ and }v=\overrightarrow{0}\right)  \\
+\mu=0\text{ and }v=\overrightarrow{0}\right) \\
 &  =0\cdot\overrightarrow{0}=\overrightarrow{0}.
 \end{align*}
 Thus, property \textbf{(j)} is proven. Hence, we have shown that property
@@ -14209,9 +14598,9 @@ the definition.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.vectspace.redundant.i}.] Assume that
-properties \textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)} hold. We
-must now prove property \textbf{(i)}.
+[Proof of Proposition \ref{prop.vectspace.redundant.i}.]Assume that properties
+\textbf{(b)}, \textbf{(c)}, \textbf{(d)} and \textbf{(e)} hold. We must now
+prove property \textbf{(i)}.
 
 Let $v\in V$. Property \textbf{(e)} (applied to $\lambda=0$ and $\mu=0$)
 yields $\left(  0+0\right)  v=0v+0v$. Hence, $0v+0v=\underbrace{\left(
@@ -14668,7 +15057,7 @@ $\overrightarrow{0}$ of $V$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.subspace.space}.] The \textquotedblleft
+[Proof of Proposition \ref{prop.subspace.space}.]The \textquotedblleft
 inherited\textquotedblright\ operations on $U$ are clearly well-defined. (For
 example, the condition \textbf{(b)} in Definition \ref{def.subspace} shows
 that the \textquotedblleft inherited\textquotedblright\ addition is actually
@@ -14714,8 +15103,6 @@ condition \textbf{(a)} holds.
 Examples for subspaces: $0$ and $V$.
 \end{todo}
 
-
-
 \begin{todo}
 $\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
 \ x_{1}-x_{2}+2x_{3}=0\right\}  $ is a subspace of $\mathbb{R}^{3}%
@@ -14724,26 +15111,18 @@ $\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
 Generalize to subspaces carved out by homogeneous linear equations.
 \end{todo}
 
-
-
 \begin{todo}
 $\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
 \ x_{1}-x_{2}+2x_{3}=1\right\}  $ is not a subspace.
 \end{todo}
 
-
-
 \begin{todo}
 Polynomials $p$ such that $p\left(  3\right)  =0$.
 \end{todo}
 
-
-
 \begin{todo}
 Functions $f$ such that $f$ is continuous.
 \end{todo}
-
-
 
 \begin{todo}
 Are functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ are a subspace of
@@ -14751,20 +15130,14 @@ the functions $\mathbb{R}\rightarrow\mathbb{R}$ ? No, since they are not even
 a subset.
 \end{todo}
 
-
-
 \begin{todo}
 Are functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
 -1,1\right]  $ a subspace of the functions $\mathbb{R}\rightarrow\mathbb{R}$ ?
 No (e.g., scaling fails).
 \end{todo}
 
-
-
 \begin{todo}
 Subspaces of $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$ in geometric terms.
-
-
 \end{todo}
 
 [...]
@@ -14877,6 +15250,10 @@ version 15 Sep 2016.\newline\url{https://people.math.ethz.ch/~kowalski/script-la
 \bibitem[LaNaSc16]{LaNaSc16}Isaiah Lankham, Bruno Nachtergaele, Anne
 Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
 2016.\newline\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf}
+
+\bibitem[LeLeMe16]{LeLeMe16}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
+\textit{Mathematics for Computer Science}, revised Thursday 28th September,
+2016, \newline\url{https://courses.csail.mit.edu/6.042/spring16/mcs.pdf} .
 
 \bibitem[m.se709196]{m.se709196}Daniela Diaz and others, \textit{Definition of
 General Associativity for binary operations}, math.stackexchange question
