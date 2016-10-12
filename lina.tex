@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:41:43}
+%TCIDATA{LastRevised=Wednesday, October 12, 2016 02:21:54}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2995,24 +2995,24 @@ Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,m\right\}  $. We have
 \begin{align}
 \sum_{k=1}^{h}\underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
-(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}} &  =\sum_{k=1}^{h}%
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}  &  =\sum_{k=1}^{h}%
 A_{p-1+k}=A_{p}+A_{p+1}+\cdots+A_{p-1+h}\nonumber\\
 &  =A_{p}+A_{p+1}+\cdots+A_{q}\ \ \ \ \ \ \ \ \ \ \left(  \text{since
-}p-1+h=q\right)  \nonumber\\
-&  =\sum_{k=p}^{q}A_{k}\label{pf.prop.sum.matrices.multi.pq.1}%
+}p-1+h=q\right) \nonumber\\
+&  =\sum_{k=p}^{q}A_{k} \label{pf.prop.sum.matrices.multi.pq.1}%
 \end{align}
 and%
 \begin{align}
 \sum_{k=1}^{h}\left(  \underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
-(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}\right)  _{i,j} &  =\sum
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}\right)  _{i,j}  &  =\sum
 _{k=1}^{h}\left(  A_{p-1+k}\right)  _{i,j}=\left(  A_{p}\right)
 _{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(  A_{p-1+h}\right)
 _{i,j}\nonumber\\
 &  =\left(  A_{p}\right)  _{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(
 A_{q}\right)  _{i,j}\ \ \ \ \ \ \ \ \ \ \left(  \text{since }p-1+h=q\right)
 \nonumber\\
-&  =\sum_{k=p}^{q}\left(  A_{k}\right)  _{i,j}%
-.\label{pf.prop.sum.matrices.multi.pq.2}%
+&  =\sum_{k=p}^{q}\left(  A_{k}\right)  _{i,j}.
+\label{pf.prop.sum.matrices.multi.pq.2}%
 \end{align}
 But Proposition \ref{prop.sum.matrices.multi} (applied to $B_{1},B_{2}%
 ,\ldots,B_{h}$ instead of $A_{1},A_{2},\ldots,A_{h}$) shows that%
@@ -3916,7 +3916,10 @@ Thus, (\ref{eq.exam.systems.2}) is equivalent to%
 But this is clearly equivalent to (\ref{eq.exam.systems.1}).
 \end{example}
 
-More generally, the system of $m$ linear equations
+More generally:
+
+\begin{proposition}
+\label{prop.systems.Ax=b}The system of $m$ linear equations
 \[
 \left\{
 \begin{array}
@@ -3955,15 +3958,15 @@ b_{2}\\
 \vdots\\
 b_{m}%
 \end{array}
-\right)  . \label{eq.exam.systems.gen}%
+\right)  .\label{eq.exam.systems.gen}%
 \end{equation}
 In other words, it is equivalent to the vector equation%
 \begin{equation}
-Ax=b, \label{eq.exam.systems.gen.short}%
+Ax=b,\label{eq.exam.systems.gen.short}%
 \end{equation}
 where%
 \begin{align*}
-A  &  =\left(
+A &  =\left(
 \begin{array}
 [c]{cccc}%
 a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
@@ -3972,7 +3975,7 @@ a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
 a_{m,1} & a_{m,2} & \cdots & a_{m,n}%
 \end{array}
 \right)  ,\\
-x  &  =\left(
+x &  =\left(
 \begin{array}
 [c]{c}%
 x_{1}\\
@@ -3994,6 +3997,7 @@ b_{m}%
 (\ref{eq.exam.systems.gen.short}) in boldface in order to stress that these
 are matrices, not numbers. We shall not.) The matrix $A$ and the vector $b$
 are known; the vector $x$ is what we want to find.
+\end{proposition}
 
 Thus, matrices give us a way to rewrite systems of linear equations as single
 equations between vectors. Moreover, as we will see, they give us a way to
@@ -13709,6 +13713,8 @@ We have now seen four examples of an algorithm for solving equations of the
 form $Ax=b$ where $A$ is a row-echelon matrix. The general form of the
 algorithm should now be easy to guess, but let me pin it down:
 
+[...] [THE\ BELOW\ IS\ INCOMPLETE]
+
 \begin{theorem}
 \label{thm.row-echelon.backsub}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
 $A$ be an $n\times m$-matrix. Let $b$ be an $n\times1$-vector. Assume that $A$
@@ -13862,7 +13868,7 @@ says that%
 \[
 \phi\left(  1\right)  <\phi\left(  2\right)  <\cdots<\phi\left(  k\right)  .
 \]
-
+[...]
 \end{enumerate}
 \end{theorem}
 
@@ -14692,6 +14698,18 @@ written as $0$. This is an \textquotedblleft abuse of
 notation\textquotedblright\ (it is still not the number $0$), but mostly
 harmless as there is rarely a possibility of confusion.
 
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+DRAFT%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Examples and constructions of vector spaces}
+
 Before we do anything interesting with vector spaces, let me show various
 examples of them:
 
@@ -14731,6 +14749,12 @@ matrices, $\mathbb{R}^{n\times m}$ would still be a vector space, since vector
 spaces only need addition and scaling (and $\overrightarrow{0}$), but no
 multiplication of vectors.
 \end{example}
+
+\begin{definition}
+The notations $\mathbb{R}^{n\times m}$ and $\mathbb{R}^{n}$ introduced in
+Example \ref{exam.vectspace.Rnm}, as well as the vector space structure on
+$\mathbb{R}^{n\times m}$, will be used throughout these notes.
+\end{definition}
 
 \begin{example}
 \label{exam.vectspace.RC0}Some simpler examples:
@@ -15093,7 +15117,9 @@ Note that condition \textbf{(b)} is often put into words as follows:
 \ (since it says, roughly speaking, that if you start with elements of $U$,
 then you cannot escape $U$ by applying addition). Similarly, condition
 \textbf{(c)} is often stated as follows: \textquotedblleft The subset $U$ is
-closed under scaling\textquotedblright.
+closed under scaling\textquotedblright. Hence, the subset $U$ is a subspace of
+$V$ if and only if $U$ contains the zero vector, is closed under addition and
+is closed under scaling.
 \end{definition}
 
 \begin{proposition}
@@ -15134,16 +15160,17 @@ for $V$ (since $V$ is a vector space). Since the operations on $U$ are
 \textquotedblleft inherited\textquotedblright\ from $V$, this immediately
 yields that the nine properties \textbf{(a)}, \textbf{(b)}, \textbf{(c)},
 \textbf{(e)}, \textbf{(f)}, \textbf{(g)}, \textbf{(h)}, \textbf{(i)} and
-\textbf{(j)} are also satisfied for $U$ instead of $V$. However, for the
-property \textbf{(d)}, this is not immediately obvious: We know that it holds
-for $V$, but we cannot immediately conclude that it must also holds for $U$
-instead of $V$ (because there is no obvious reason why the element $w$ must
-necessarily belong to $U$). Fortunately, we can ignore property \textbf{(d)},
-since Proposition \ref{prop.vectspace.redundant.d} shows that this property is
-redundant. Hence, $U$ is a vector space (since the nine properties
-\textbf{(a)}, \textbf{(b)}, \textbf{(c)}, \textbf{(e)}, \textbf{(f)},
-\textbf{(g)}, \textbf{(h)}, \textbf{(i)} and \textbf{(j)} are satisfied for
-$U$ instead of $V$). This proves Proposition \ref{prop.subspace.space}.
+\textbf{(j)} are also satisfied for $U$ instead of $V$. However, this argument
+does not prove that property \textbf{(d)} is satisfied for $U$ instead of $V$:
+We know that it holds for $V$, but we cannot immediately conclude that it must
+also hold for $U$ instead of $V$ (because there is no obvious reason why the
+element $w$ whose existence is claimed in property \textbf{(d)} must belong to
+$U$). Fortunately, we can ignore property \textbf{(d)}, since Proposition
+\ref{prop.vectspace.redundant.d} shows that this property is redundant. Hence,
+$U$ is a vector space (since the nine properties \textbf{(a)}, \textbf{(b)},
+\textbf{(c)}, \textbf{(e)}, \textbf{(f)}, \textbf{(g)}, \textbf{(h)},
+\textbf{(i)} and \textbf{(j)} are satisfied for $U$ instead of $V$). This
+proves Proposition \ref{prop.subspace.space}.
 \end{proof}
 
 \begin{remark}
@@ -15151,28 +15178,606 @@ Some authors replace condition \textbf{(a)} in Definition \ref{def.subspace}
 by the seemingly weaker condition that $U$ be nonempty. However, this weaker
 condition is actually equivalent to condition \textbf{(a)} (as long as
 condition \textbf{(c)} is assumed). Indeed, if $U$ is nonempty, then we can
-pick any $v\in U$, and then we can apply condition \textbf{(c)} to $\lambda=0$
-to conclude that $0v\in U$, so that $\overrightarrow{0}=0v\in U$; thus,
-condition \textbf{(a)} holds.
+pick any $v\in U$, and then we can observe that $\overrightarrow{0}=0v\in U$
+(by condition \textbf{(c)}, applied to $\lambda=0$); thus, condition
+\textbf{(a)} holds.
 \end{remark}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+DRAFT%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+Examples and constructions of subspaces}
+
+\subsubsection{$\left\{  \protect\overrightarrow{0}\right\}  $ and $V$}
+
+Examples of subspaces, and general ways to construct subspaces, abound. Let us
+first go for the very lowest-hanging fruits:
+
+\begin{proposition}
+\label{prop.subspace.0V}Let $V$ be a vector space.
+
+\textbf{(a)} The subset $\left\{  \overrightarrow{0}\right\}  $ of $V$ is a
+subspace of $V$.
+
+\textbf{(b)} The subset $V$ of $V$ is a subspace of $V$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.0V}.] Straightforward, and left to
+the reader. (For instance, $\left\{  \overrightarrow{0}\right\}  $ is closed
+under addition because the only possible sum of two elements of $\left\{
+\overrightarrow{0}\right\}  $ is $\overrightarrow{0}+\overrightarrow{0}%
+=\overrightarrow{0}$, which of course belongs to $\left\{  \overrightarrow{0}%
+\right\}  $.)
+\end{proof}
+
+Please notice that the subset $\left\{  \overrightarrow{0}\right\}  $ in
+Proposition \ref{prop.subspace.0V} \textbf{(a)} is \textbf{not} the empty set!
+(It contains the zero vector $\overrightarrow{0}$, whereas the empty set
+contains nothing.) That said, it is \textquotedblleft as close to the empty
+set as a subspace of $V$ can get\textquotedblright: It contains only the zero
+vector $\overrightarrow{0}$, which any subspace of $V$ is forced to contain.
+It is easy to see that $\left\{  \overrightarrow{0}\right\}  $ is the
+intersection of all subspaces of $V$. (In contrast, the empty set
+$\varnothing$ is the intersection of all \textbf{subsets} of $V$.)
+
+\subsubsection{Some examples of subspaces of $\mathbb{R}^{3}$}
+
+Let us now get our hands dirty and verify some examples of subspaces and non-subspaces:
+
+\begin{example}
+\label{exam.subspace.R3}Recall that $\mathbb{R}^{n}$ denotes the vector space
+of all column vectors of size $n$. (We defined this in Example
+\ref{exam.vectspace.Rnm}.)
+
+\textbf{(a)} Let $A$ be the subset
+\[
+\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\in\mathbb{R}^{3}\ \mid
+\ x_{1}-x_{2}+2x_{3}=0\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $A$ is a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(b)} Let $B$ be the subset%
+\[
+\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\in\mathbb{R}^{3}\ \mid
+\ x_{1}=2x_{2}=3x_{3}\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $B$ is a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(c)} Let $C$ be the subset%
+\[
+\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\in\mathbb{R}^{3}\ \mid
+\ x_{1}-x_{2}+2x_{3}=1\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $C$ is \textbf{not} a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(d)} Let $D$ be the subset%
+\[
+\left\{  \left(  u,0,2u+v\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}
+\]
+of $\mathbb{R}^{3}$. (Note that the letter $v$ stands for a number here, not
+for a vector.) Then, $D$ is a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(e)} Let $E$ be the subset%
+\[
+\left\{  \left(  u,0,u+1\right)  ^{T}\ \mid\ u\in\mathbb{R}\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $E$ is \textbf{not} a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(f)} Let $F$ be the subset%
+\[
+\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\ \mid\ x_{1}x_{2}%
+x_{3}=0\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $F$ is \textbf{not} a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(g)} Let $G$ be the subset%
+\[
+\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\ \mid\ x_{1},x_{2},x_{3}%
+\in\mathbb{Q}\right\}
+\]
+of $\mathbb{R}^{3}$. (Recall that $\mathbb{Q}$ is the set of all rational
+numbers.) Then, $G$ is \textbf{not} a subspace of $\mathbb{R}^{3}$.
+
+\textbf{(h)} Let $H$ be the subset%
+\[
+\left\{  \left(  u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}
+\]
+of $\mathbb{R}^{3}$. Then, $H$ is a subspace of $\mathbb{R}^{3}$. (Actually,
+$H=D$.)
+\end{example}
+
+\begin{proof}
+[Proof of Example \ref{exam.subspace.R3}.] Recall how subspaces are defined
+(see Definition \ref{def.subspace}). Thus, in order to prove that some subset
+$U$ of a vector space $V$ is a subspace of $\mathbb{R}^{3}$, we must prove
+that it satisfies the three conditions \textbf{(a)}, \textbf{(b)} and
+\textbf{(c)} of Definition \ref{def.subspace} (i.e., that it contains the zero
+vector, is closed under addition, and is closed under scaling). On the other
+hand, in order to prove that some subset $U$ of a vector space $V$ is
+\textbf{not} a subspace of $\mathbb{R}^{3}$, it suffices to prove that it
+fails \textbf{at least one} of these three conditions \textbf{(a)},
+\textbf{(b)} and \textbf{(c)}. (Often, a subset $U$ will fail two or all three
+of these conditions, but we do not need to check them all.) Let us now apply
+this strategy to the subsets $A$, $B$, $C$, $D$, $E$, $F$ and $G$:
+
+\textbf{(a)} We want to show that $A$ is a subspace of $\mathbb{R}^{3}$. Thus,
+we need to show that $A$ contains the zero vector, is closed under addition,
+and is closed under scaling. Let us do this:
+
+\textit{Proof that }$A$\textit{ contains the zero vector:} Recall that the
+zero vector of $\mathbb{R}^{3}$ is $0_{3\times1}=\left(  0,0,0\right)  ^{T}$.
+This vector $0_{3\times1}$ lies in $A$ if and only if $0-0+2\cdot0=0$ (by the
+definition of $A$). Thus, $0_{3\times1}$ lies in $A$ (since $0-0+2\cdot0=0$
+holds). In other words, $A$ contains the zero vector.
+
+\textit{Proof that }$A$ \textit{is closed under addition:} Let $v\in A$ and
+$w\in A$. We must prove that $v+w\in A$.
+
+Write the vector $v\in A\subseteq\mathbb{R}^{3}$ in the form $v=\left(
+v_{1},v_{2},v_{3}\right)  ^{T}$ (for three real numbers $v_{1},v_{2},v_{3}%
+\in\mathbb{R}$). Since $\left(  v_{1},v_{2},v_{3}\right)  ^{T}=v\in A$, we
+have $v_{1}-v_{2}+2v_{3}=0$.
+
+Write the vector $w\in A\subseteq\mathbb{R}^{3}$ in the form $w=\left(
+w_{1},w_{2},w_{3}\right)  ^{T}$ (for three real numbers $w_{1},w_{2},w_{3}%
+\in\mathbb{R}$). Since $\left(  w_{1},w_{2},w_{3}\right)  ^{T}=w\in A$, we
+have $w_{1}-w_{2}+2w_{3}=0$.
+
+From $v=\left(  v_{1},v_{2},v_{3}\right)  ^{T}$ and $w=\left(  w_{1}%
+,w_{2},w_{3}\right)  ^{T}$, we obtain%
+\[
+v+w=\left(  v_{1},v_{2},v_{3}\right)  ^{T}+\left(  w_{1},w_{2},w_{3}\right)
+^{T}=\left(  v_{1}+w_{1},v_{2}+w_{2},v_{3}+w_{3}\right)  ^{T}%
+\]
+(since column vectors are added entry by entry). Thus, in order to prove that
+$v+w\in A$, we must show that $\left(  v_{1}+w_{1}\right)  -\left(
+v_{2}+w_{2}\right)  +2\left(  v_{3}+w_{3}\right)  =0$ (by the definition of
+$A$). But showing this is easy: Just notice that%
+\begin{align*}
+& \left(  v_{1}+w_{1}\right)  -\left(  v_{2}+w_{2}\right)  +2\left(
+v_{3}+w_{3}\right)  \\
+& =\underbrace{\left(  v_{1}-v_{2}+2v_{3}\right)  }_{=0}+\underbrace{\left(
+w_{1}-w_{2}+2w_{3}\right)  }_{=0}=0+0=0.
+\end{align*}
+Thus, we have proven that $v+w\in A$. This completes the proof of the fact
+that $A$ is closed under addition.
+
+\textit{Proof that }$A$ \textit{is closed under scaling:} Let $\lambda
+\in\mathbb{R}$ and $v\in A$. We must prove that $\lambda v\in A$.
+
+Write the vector $v\in A\subseteq\mathbb{R}^{3}$ in the form $v=\left(
+v_{1},v_{2},v_{3}\right)  ^{T}$ (for three real numbers $v_{1},v_{2},v_{3}%
+\in\mathbb{R}$). Since $\left(  v_{1},v_{2},v_{3}\right)  ^{T}=v\in A$, we
+have $v_{1}-v_{2}+2v_{3}=0$.
+
+From $v=\left(  v_{1},v_{2},v_{3}\right)  ^{T}$, we obtain%
+\[
+\lambda v=\lambda\left(  v_{1},v_{2},v_{3}\right)  ^{T}=\left(  \lambda
+v_{1},\lambda v_{2},\lambda v_{3}\right)  ^{T}%
+\]
+(since column vectors are scaled entry by entry). Thus, in order to prove that
+$\lambda v\in A$, we must show that $\lambda v_{1}-\lambda v_{2}+2\lambda
+v_{3}=0$ (by the definition of $A$). But showing this is easy: Just notice
+that%
+\[
+\lambda v_{1}-\lambda v_{2}+2\lambda v_{3}=\lambda\underbrace{\left(
+v_{1}-v_{2}+2v_{3}\right)  }_{=0}=\lambda0=0.
+\]
+Thus, we have proven that $\lambda v\in A$. This completes the proof of the
+fact that $A$ is closed under scaling.
+
+We now have shown that $A$ contains the zero vector, is closed under addition,
+and is closed under scaling. Hence, $A$ is a subspace of $\mathbb{R}^{3}$.
+Example \ref{exam.subspace.R3} \textbf{(a)} is proven.
+
+\textbf{(b)} The chain of equations $x_{1}=2x_{2}=3x_{3}$ in the definition of
+$B$ is equivalent to \textquotedblleft$x_{1}=2x_{2}$ and $2x_{2}=3x_{3}%
+$\textquotedblright. The proof of Example \ref{exam.subspace.R3} \textbf{(b)}
+proceeds similarly to the above proof of Example \ref{exam.subspace.R3}
+\textbf{(a)}, with the only difference that instead of the single equation
+$x_{1}-x_{2}+2x_{3}=0$, we now have to keep track of the two equations
+$x_{1}=2x_{2}$ and $2x_{2}=3x_{3}$. Let me only show one part of the proof,
+namely the verification that $B$ is closed under addition:
+
+\textit{Proof that }$B$ \textit{is closed under addition:} Let $v\in B$ and
+$w\in B$. We must prove that $v+w\in B$.
+
+Write the vector $v\in B\subseteq\mathbb{R}^{3}$ in the form $v=\left(
+v_{1},v_{2},v_{3}\right)  ^{T}$ (for three real numbers $v_{1},v_{2},v_{3}%
+\in\mathbb{R}$). Since $\left(  v_{1},v_{2},v_{3}\right)  ^{T}=v\in B$, we
+have $v_{1}=2v_{2}$ and $2v_{2}=3v_{3}$.
+
+Write the vector $w\in B\subseteq\mathbb{R}^{3}$ in the form $w=\left(
+w_{1},w_{2},w_{3}\right)  ^{T}$ (for three real numbers $w_{1},w_{2},w_{3}%
+\in\mathbb{R}$). Since $\left(  w_{1},w_{2},w_{3}\right)  ^{T}=w\in B$, we
+have $w_{1}=2w_{2}$ and $2w_{2}=3w_{3}$.
+
+From $v=\left(  v_{1},v_{2},v_{3}\right)  ^{T}$ and $w=\left(  w_{1}%
+,w_{2},w_{3}\right)  ^{T}$, we obtain%
+\[
+v+w=\left(  v_{1},v_{2},v_{3}\right)  ^{T}+\left(  w_{1},w_{2},w_{3}\right)
+^{T}=\left(  v_{1}+w_{1},v_{2}+w_{2},v_{3}+w_{3}\right)  ^{T}%
+\]
+(since column vectors are added entry by entry). Thus, in order to prove that
+$v+w\in B$, we must show that $v_{1}+w_{1}=2\left(  v_{2}+w_{2}\right)  $ and
+$2\left(  v_{2}+w_{2}\right)  =3\left(  v_{3}+w_{3}\right)  $ (by the
+definition of $B$). But showing this is easy: Just notice that%
+\begin{align*}
+\underbrace{v_{1}}_{=2v_{2}}+\underbrace{w_{1}}_{=2w_{2}}  & =2v_{2}%
++2w_{2}=2\left(  v_{2}+w_{2}\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+2\left(  v_{2}+w_{2}\right)    & =\underbrace{2v_{2}}_{=3v_{3}}%
++\underbrace{2w_{2}}_{=3w_{3}}=3v_{3}+3w_{3}=3\left(  v_{3}+w_{3}\right)  .
+\end{align*}
+Thus, we have proven that $v+w\in B$. This completes the proof of the fact
+that $B$ is closed under addition.
+
+Proving that $B$ contains the zero vector and is closed under scaling is left
+to the reader. (As I have said, the proofs are similar to the corresponding
+proofs for $A$, and the changes that need to be done are essentially the same
+as we did in the proof that $B$ is closed under addition.) Thus, Example
+\ref{exam.subspace.R3} \textbf{(b)} is proven.
+
+\textbf{(c)} The zero vector $\overrightarrow{0}=0_{3\times1}=\left(
+0,0,0\right)  ^{T}$ of $\mathbb{R}^{3}$ does not belong to $C$ (since it does
+not satisfy $0-0+2\cdot0=1$). Hence, $C$ does not contain the zero vector. As
+a consequence, $C$ cannot be a subspace of $\mathbb{R}^{3}$. Thus, Example
+\ref{exam.subspace.R3} \textbf{(c)} is proven.
+
+(Notice that $C$ furthermore fails to be closed under addition, and also fails
+to be closed under scaling. Each of these failures gives another reason why
+$C$ is not a subspace of $\mathbb{R}^{3}$. We just chose to use the simplest
+reason instead, namely that it fails to contain the zero vector.)
+
+\textbf{(d)} We want to show that $D$ is a subspace of $\mathbb{R}^{3}$. Thus,
+we need to show that $D$ contains the zero vector, is closed under addition,
+and is closed under scaling. Before we do this, let us rewrite the definition
+of $D$ as follows:%
+\begin{align}
+D  & =\left\{  \left(  u,0,2u+v\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}
+\nonumber\\
+& =\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in\mathbb{R}\right\}
+\label{pf.exam.subspace.R3.d.D}%
+\end{align}
+(here, we have renamed the indices $u$ and $v$ as $x$ and $y$). (The reason
+for rewriting $D$ this way was to get rid of the letters $u$ and $v$; indeed,
+we are going to reuse these letters for vectors.)
+
+\textit{Proof that }$D$\textit{ contains the zero vector:} Recall that the
+zero vector of $\mathbb{R}^{3}$ is $0_{3\times1}=\left(  0,0,0\right)  ^{T}$.
+This vector $0_{3\times1}$ has the form $\left(  u,0,2u+v\right)  ^{T}$ for
+some $u,v\in\mathbb{R}$ (namely, for $u=0$ and $v=0$). Thus, it belongs to $D$
+(by the definition of $D$). In other words, $D$ contains the zero vector.
+
+\textit{Proof that }$D$ \textit{is closed under addition:} Let $v\in D$ and
+$w\in D$. We must prove that $v+w\in D$.
+
+We have $v\in D=\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in
+\mathbb{R}\right\}  $ (by (\ref{pf.exam.subspace.R3.d.D})). In other words,
+$v$ has the form $\left(  x,0,2x+y\right)  ^{T}$ for some $x,y\in\mathbb{R}$.
+Fix two such $x,y$, and denote them by $x_{v},y_{v}$. (I do not want to simply
+call them $x,y$, because I will introduce two other such $x,y$ shortly.) Thus,
+$x_{v},y_{v}$ are real numbers and satisfy $v=\left(  x_{v},0,2x_{v}%
++y_{v}\right)  ^{T}$.
+
+We have $w\in D=\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in
+\mathbb{R}\right\}  $ (by (\ref{pf.exam.subspace.R3.d.D})). In other words,
+$w$ has the form $\left(  x,0,2x+y\right)  ^{T}$ for some $x,y\in\mathbb{R}$.
+Fix two such $x,y$, and denote them by $x_{w},y_{w}$. Thus, $x_{w},y_{w}$ are
+real numbers and satisfy $w=\left(  x_{w},0,2x_{w}+y_{w}\right)  ^{T}$.
+
+From $v=\left(  x_{v},0,2x_{v}+y_{v}\right)  ^{T}$ and $w=\left(
+x_{w},0,2x_{w}+y_{w}\right)  ^{T}$, we obtain%
+\begin{align*}
+v+w  & =\left(  x_{v},0,2x_{v}+y_{v}\right)  ^{T}+\left(  x_{w},0,2x_{w}%
++y_{w}\right)  ^{T}\\
+& =\left(  x_{v}+x_{w},\underbrace{0+0}_{=0},\underbrace{\left(  2x_{v}%
++y_{v}\right)  +\left(  2x_{w}+y_{w}\right)  }_{=2\left(  x_{v}+x_{w}\right)
++\left(  y_{v}+y_{w}\right)  }\right)  ^{T}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since column vectors are added entry by
+entry}\right)  \\
+& =\left(  x_{v}+x_{w},0,2\left(  x_{v}+x_{w}\right)  +\left(  y_{v}%
++y_{w}\right)  \right)  ^{T}.
+\end{align*}
+Thus, the vector $v+w$ has the form $\left(  x,0,2x+y\right)  ^{T}$ for some
+$x,y\in\mathbb{R}$ (namely, for $x=x_{v}+x_{w}$ and $y=y_{v}+y_{w}$). In other
+words, $v+w\in\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in
+\mathbb{R}\right\}  $. In view of (\ref{pf.exam.subspace.R3.d.D}), this
+rewrites as $v+w\in D$. This completes the proof of the fact that $D$ is
+closed under addition.
+
+\textit{Proof that }$D$ \textit{is closed under scaling:} Let $\lambda
+\in\mathbb{R}$ and $v\in D$. We must prove that $\lambda v\in D$.
+
+We have $v\in D=\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in
+\mathbb{R}\right\}  $ (by (\ref{pf.exam.subspace.R3.d.D})). In other words,
+$v$ has the form $\left(  x,0,2x+y\right)  ^{T}$ for some $x,y\in\mathbb{R}$.
+Fix two such $x,y$, and denote them by $x_{v},y_{v}$. Thus, $x_{v},y_{v}$ are
+real numbers and satisfy $v=\left(  x_{v},0,2x_{v}+y_{v}\right)  ^{T}$.
+
+Hence,%
+\begin{align*}
+\lambda v  & =\lambda\left(  x_{v},0,2x_{v}+y_{v}\right)  ^{T}=\left(  \lambda
+x_{v},\underbrace{\lambda0}_{=0},\underbrace{\lambda\left(  2x_{v}%
++y_{v}\right)  }_{=2\cdot\lambda x_{v}+\lambda y_{v}}\right)  ^{T}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{since column vectors are scaled entry by
+entry}\right)  \\
+& =\left(  \lambda x_{v},0,2\cdot\lambda x_{v}+\lambda y_{v}\right)  ^{T}.
+\end{align*}
+
+
+Thus, the vector $\lambda v$ has the form $\left(  x,0,2x+y\right)  ^{T}$ for
+some $x,y\in\mathbb{R}$ (namely, for $x=\lambda x_{v}$ and $y=\lambda y_{v}$).
+In other words, $\lambda v\in\left\{  \left(  x,0,2x+y\right)  ^{T}%
+\ \mid\ x,y\in\mathbb{R}\right\}  $. In view of (\ref{pf.exam.subspace.R3.d.D}%
+), this rewrites as $\lambda v\in D$. This completes the proof of the fact
+that $D$ is closed under scaling.
+
+We now have shown that $D$ contains the zero vector, is closed under addition,
+and is closed under scaling. Hence, $D$ is a subspace of $\mathbb{R}^{3}$.
+Example \ref{exam.subspace.R3} \textbf{(d)} is proven.
+
+\textbf{(e)} There exists no $u\in\mathbb{R}$ satisfying $\left(
+0,0,0\right)  ^{T}=\left(  u,0,u+1\right)  ^{T}$ (because any such $u$ would
+have to satisfy $0=u$ and $0=u+1$ at the same time; but this is clearly
+impossible). In other words, $\left(  0,0,0\right)  ^{T}$ is \textbf{not} a
+vector of the form $\left(  u,0,u+1\right)  ^{T}$ with $u\in\mathbb{R}$. In
+other words, $\left(  0,0,0\right)  ^{T}\notin\left\{  \left(  u,0,u+1\right)
+^{T}\ \mid\ u\in\mathbb{R}\right\}  $. Since $E=\left\{  \left(
+u,0,u+1\right)  ^{T}\ \mid\ u\in\mathbb{R}\right\}  $, this rewrites as
+$\left(  0,0,0\right)  ^{T}\notin E$.
+
+But recall that the zero vector of the vector space $\mathbb{R}^{3}$ is
+$\left(  0,0,0\right)  ^{T}$. Hence, this zero vector does not lie in $E$
+(since $\left(  0,0,0\right)  ^{T}\notin E$). In other words, $E$ does not
+contain the zero vector. Consequently, $E$ cannot be a subspace of
+$\mathbb{R}^{3}$. Thus, Example \ref{exam.subspace.R3} \textbf{(e)} is proven.
+
+\textbf{(f)} The subset $F$ is not closed under addition. In fact, if we set
+$v=\left(  1,0,0\right)  ^{T}$ and $w=\left(  0,1,1\right)  ^{T}$, then $v\in
+F$ (since $1\cdot0\cdot0=0$) and $w\in F$ (since $0\cdot1\cdot1=0$), but
+$v+w=\left(  1,1,1\right)  ^{T}\notin F$ (since $1\cdot1\cdot1\neq0$).
+
+Since $F$ is not closed under addition, $F$ is not a subspace of
+$\mathbb{R}^{3}$ (even though, as the reader can easily check, $F$ contains
+the zero vector and is closed under scaling). This proves Example
+\ref{exam.subspace.R3} \textbf{(f)}.
+
+\textbf{(g)} The subset $G$ is not close under scaling. In fact, if we set
+$\lambda=\sqrt{2}$ and $v=\left(  1,0,0\right)  ^{T}$, then $v\in G$ (since
+$1,0,0\in\mathbb{Q}$), but $\lambda v=\left(  \sqrt{2},0,0\right)  ^{T}\notin
+G$ (since not all of $\sqrt{2},0,0$ belong to $\mathbb{Q}$).
+
+Since $G$ is not closed under scaling, $G$ is not a subspace of $\mathbb{R}%
+^{3}$ (even though, as the reader can easily check, $G$ contains the zero
+vector and is closed under addition). This proves Example
+\ref{exam.subspace.R3} \textbf{(g)}.
+
+\textbf{(h)} I claim that $H=D$.
+
+In order to prove this, it suffices to show that $H\subseteq D$ and
+$D\subseteq H$.
+
+\textit{Proof of }$H\subseteq D$\textit{:} Let $h\in H$. Thus, $h\in
+H=\left\{  \left(  u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}  $.
+In other words, $h$ has the form $\left(  u,0,2u+v+1\right)  ^{T}$ for some
+$u,v\in\mathbb{R}$. Consider these $u,v$.
+
+Now, $h=\left(  u,0,2u+v+1\right)  ^{T}$. Hence, $h$ has the form $\left(
+x,0,2x+y\right)  ^{T}$ for some $x,y\in\mathbb{R}$ (namely, for $x=u$ and
+$y=v+1$). In other words, $h\in\left\{  \left(  x,0,2x+y\right)  ^{T}%
+\ \mid\ x,y\in\mathbb{R}\right\}  $. In view of (\ref{pf.exam.subspace.R3.d.D}%
+), this rewrites as $h\in D$.
+
+Now, we have proven that $h\in D$ for each $h\in H$. In other words,
+$H\subseteq D$.
+
+\textit{Proof of }$D\subseteq H$\textit{:} Let $d\in D$. Then, $d\in
+D=\left\{  \left(  x,0,2x+y\right)  ^{T}\ \mid\ x,y\in\mathbb{R}\right\}  $
+(by (\ref{pf.exam.subspace.R3.d.D})). In other words, $d$ has the form
+$d=\left(  x,0,2x+y\right)  ^{T}$ for some $x,y\in\mathbb{R}$. Consider these
+$x,y$.
+
+Now, $d=\left(  x,0,2x+\underbrace{y}_{=\left(  y-1\right)  +1}\right)
+^{T}=\left(  x,0,2x+\left(  y-1\right)  +1\right)  ^{T}$. Hence, $d$ has the
+form $\left(  u,0,2u+v+1\right)  ^{T}$ for some $u,v\in\mathbb{R}$ (namely,
+for $u=x$ and $v=y-1$). In other words, $d\in\left\{  \left(
+u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}  $. In light of
+$\left\{  \left(  u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}
+=H$, this rewrites as $d\in H$.
+
+We have now shown that $d\in H$ for each $d\in D$. In other words, $D\subseteq
+H$.
+
+Combining the relations $H\subseteq D$ and $D\subseteq H$, we obtain $H=D$.
+Since $D$ is a subspace of $\mathbb{R}^{3}$ (this was proven in Example
+\ref{exam.subspace.R3} \textbf{(d)}), we thus know that $H$ is a subspace of
+$\mathbb{R}^{3}$. Example \ref{exam.subspace.R3} \textbf{(h)} is proven.
+\end{proof}
+
+\subsubsection{The kernel of a matrix}
+
+You might have spotted some patterns in Example \ref{exam.subspace.R3}. For
+instance, you have noticed that the subsets $A$ and $B$ were \textquotedblleft
+carved out\textquotedblright\ of $\mathbb{R}^{3}$ by systems of linear
+equations with no constant terms (i.e., linear equations of the form
+$a_{1}x_{1}+a_{2}x_{2}+a_{3}x_{3}=0$, or equivalent to such equations). This
+is a general pattern: Any subset of $\mathbb{R}^{n}$ \textquotedblleft carved
+out\textquotedblright\ by a system of linear equations with no constant
+terms\footnote{Such systems are called \textit{homogeneous systems} in
+\cite[\S 1.8]{OlvSha06}.} is a subspace of $\mathbb{R}^{n}$. Let me state (and
+prove) this fact in a slightly cleaner form, replacing the system of linear
+equation by a matrix equation\footnote{In fact, recall (from Proposition
+\ref{prop.systems.Ax=b}) that a system of linear equations in $n$ unknowns
+$x_{1},x_{2},\ldots,x_{n}$ can be rewritten as a single equation $Ax=b$ for
+the column vector $x=\left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{n}%
+\end{array}
+\right)  \in\mathbb{R}^{n}$. When the system has no constant terms, the vector
+$b$ is the zero vector $0_{m\times1}$, and so the single equation $Ax=b$
+becomes $Ax=0_{m\times1}$.}:
+
+\begin{proposition}
+\label{prop.subspace.kerA}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$
+be an $m\times n$-matrix. Let $\operatorname*{Ker}A$ denote the subset%
+\[
+\left\{  x\in\mathbb{R}^{n}\ \mid\ Ax=0_{m\times1}\right\}
+\]
+of $\mathbb{R}^{n}$. (Recall that $\mathbb{R}^{n}$ stands for the vector space
+$\mathbb{R}^{n\times1}$ of all column vectors of size $n$.) Then,
+$\operatorname*{Ker}A$ is a subspace of $\mathbb{R}^{n}$.
+\end{proposition}
+
+Proposition \ref{prop.subspace.kerA} generalizes both Example
+\ref{exam.subspace.R3} \textbf{(a)} and Example \ref{exam.subspace.R3}
+\textbf{(b)}.\footnote{Indeed, you can easily check that the subset $A$ of
+$\mathbb{R}^{3}$ in Example \ref{exam.subspace.R3} \textbf{(a)} is
+$\operatorname*{Ker}\left(
+\begin{array}
+[c]{ccc}%
+1 & -1 & 2
+\end{array}
+\right)  $, whereas the subset $B$ of $\mathbb{R}^{3}$ in Example
+\ref{exam.subspace.R3} \textbf{(b)} is $\operatorname*{Ker}\left(
+\begin{array}
+[c]{ccc}%
+1 & -2 & 0\\
+0 & 2 & -3
+\end{array}
+\right)  $ (since the condition $x_{1}=2x_{2}=3x_{3}$ defining $B$ is
+equivalent to the system $\left\{
+\begin{array}
+[c]{c}%
+x_{1}-2x_{2}=0;\\
+2x_{2}-3x_{3}=0
+\end{array}
+\right.  $).} The proof of Proposition \ref{prop.subspace.kerA} is essentially
+like the proofs given for those examples, but shorter because working with
+matrices is simpler than dealing with lots of single entries:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.kerA}.] We want to show that
+$\operatorname*{Ker}A$ is a subspace of $\mathbb{R}^{3}$. Thus, we need to
+show that $\operatorname*{Ker}A$ contains the zero vector, is closed under
+addition, and is closed under scaling. Let us do this:
+
+\textit{Proof that }$\operatorname*{Ker}A$\textit{ contains the zero vector:}
+We have $A0_{n\times1}=0_{m\times1}$. Hence, $0_{n\times1}\in\left\{
+x\in\mathbb{R}^{n}\ \mid\ Ax=0_{m\times1}\right\}  =\operatorname*{Ker}A$. In
+other words, $\operatorname*{Ker}A$ contains the zero vector (since
+$0_{n\times1}$ is the zero vector of the vector space $\mathbb{R}^{n}$).
+
+\textit{Proof that }$\operatorname*{Ker}A$ \textit{is closed under addition:}
+Let $v\in\operatorname*{Ker}A$ and $w\in\operatorname*{Ker}A$. We must prove
+that $v+w\in\operatorname*{Ker}A$.
+
+We have $v\in\operatorname*{Ker}A=\left\{  x\in\mathbb{R}^{n}\ \mid
+\ Ax=0_{m\times1}\right\}  $. In other words, $Av=0_{m\times1}$. Similarly,
+$Aw=0_{m\times1}$. Now, $A\left(  v+w\right)  =\underbrace{Av}_{=0_{m\times1}%
+}+\underbrace{Aw}_{=0_{m\times1}}=0_{m\times1}+0_{m\times1}=0_{m\times1}$.
+Hence, $v+w\in\left\{  x\in\mathbb{R}^{n}\ \mid\ Ax=0_{m\times1}\right\}
+=\operatorname*{Ker}A$. This completes the proof of the fact that
+$\operatorname*{Ker}A$ is closed under addition.
+
+\textit{Proof that }$\operatorname*{Ker}A$ \textit{is closed under scaling:}
+Let $\lambda\in\mathbb{R}$ and $v\in\operatorname*{Ker}A$. We must prove that
+$\lambda v\in\operatorname*{Ker}A$.
+
+We have $v\in\operatorname*{Ker}A=\left\{  x\in\mathbb{R}^{n}\ \mid
+\ Ax=0_{m\times1}\right\}  $. In other words, $Av=0_{m\times1}$. Now,
+$A\left(  \lambda v\right)  =\lambda\underbrace{Av}_{=0_{m\times1}}%
+=\lambda0_{m\times1}=0_{m\times1}$. Hence, $\lambda v\in\left\{
+x\in\mathbb{R}^{n}\ \mid\ Ax=0_{m\times1}\right\}  =\operatorname*{Ker}A$.
+This completes the proof of the fact that $\operatorname*{Ker}A$ is closed
+under scaling.
+
+We now have shown that $\operatorname*{Ker}A$ contains the zero vector, is
+closed under addition, and is closed under scaling. Hence,
+$\operatorname*{Ker}A$ is a subspace of $\mathbb{R}^{n}$. This proves
+Proposition \ref{prop.subspace.kerA}.
+\end{proof}
+
+\begin{definition}
+\label{def.subspace.kerA}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let $A$ be
+an $m\times n$-matrix. The subspace $\operatorname*{Ker}A$ of $\mathbb{R}^{n}$
+introduced in Proposition \ref{prop.subspace.kerA} is called the
+\textit{kernel} (or the \textit{nullspace}) of $A$.
+\end{definition}
+
+\subsubsection{The span of $k$ vectors}
+
+Here is another fairly general construction of a subspace:
+
+\begin{definition}
+\label{def.subspace.span}Let $V$ be a vector space. Let $v_{1},v_{2}%
+,\ldots,v_{k}$ be finitely many vectors in $V$.
+
+\textbf{(a)} A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means
+a vector of the form%
+\[
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
+\ \ \ \ \ \ \ \ \ \ \text{with }\lambda_{1},\lambda_{2},\ldots,\lambda_{k}%
+\in\mathbb{R}.
+\]
+(In words: A \textit{linear combination} of $v_{1},v_{2},\ldots,v_{k}$ means a
+vector obtained by first scaling each of $v_{1},v_{2},\ldots,v_{k}$ by some
+real number, and then adding the results.)
+
+\textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is the set of all
+linear combinations of $v_{1},v_{2},\ldots,v_{k}$. This set is denoted by
+$\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $ or by
+$\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $.
+
+Note that $\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $ is defined as
+the set of all linear combinations of $v_{1},v_{2},\ldots,v_{k}$; but the
+latter linear combinations are the vectors of the form $\lambda_{1}%
+v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with $\lambda_{1},\lambda
+_{2},\ldots,\lambda_{k}\in\mathbb{R}$. Hence, $\left\langle v_{1},v_{2}%
+,\ldots,v_{k}\right\rangle $ is the set of all vectors of the form
+$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with $\lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$. In other words,%
+\begin{equation}
+\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle =\left\{  \lambda_{1}%
+v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda_{1},\lambda
+_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+.\label{eq.def.subspace.span.explicit}%
+\end{equation}
+
+\end{definition}
+
+\begin{proposition}
+\label{prop.subspace.span}Let $V$ be a vector space. Let $v_{1},v_{2}%
+,\ldots,v_{k}$ be finitely many vectors in $V$. Then, $\left\langle
+v_{1},v_{2},\ldots,v_{k}\right\rangle $ (that is, the span of $v_{1}%
+,v_{2},\ldots,v_{k}$) is a subspace of $V$.
+\end{proposition}
+
+
 
 [...]
 
 \begin{todo}
-Examples for subspaces: $0$ and $V$.
+Span: also an example above.
+
+Intersction of subspaces.
+
+Sum of subspaces.
 \end{todo}
 
 \begin{todo}
-$\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
-\ x_{1}-x_{2}+2x_{3}=0\right\}  $ is a subspace of $\mathbb{R}^{3}%
-=\mathbb{R}^{3\times1}$.
-
-Generalize to subspaces carved out by homogeneous linear equations.
-\end{todo}
-
-\begin{todo}
-$\left\{  \left(  x_{1},x_{2},x_{3}\right)  \in\mathbb{R}^{3}\ \mid
-\ x_{1}-x_{2}+2x_{3}=1\right\}  $ is not a subspace.
+image of a matrix.
 \end{todo}
 
 \begin{todo}
@@ -15211,7 +15816,7 @@ TODO%
 %BeginExpansion
 $>$
 %EndExpansion
-Spans}
+More on spans}
 
 \textbf{References for vector spaces:} \cite[\S 5.1]{LaNaSc16} (possibly the
 best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
