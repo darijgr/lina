@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:16:16}
+%TCIDATA{LastRevised=Tuesday, October 11, 2016 21:38:44}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2746,7 +2746,8 @@ n$-matrix $A$, and any $u\in\mathbb{N}$ and $v\in\mathbb{N}$, the two matrices
 $A^{u}$ and $A^{v}$ commute. This follows by observing that $A^{u}%
 A^{v}=A^{u+v}=A^{v}A^{u}$.)
 
-\subsection{(*) The summation sign for matrices}
+\subsection{\label{sect.intro.sum-matrices}(*) The summation sign for
+matrices}
 
 In Definition \ref{def.sum}, we have introduced a notation for sums of
 arbitrary (finite) lists of numbers. The same notation can be used for sums of
@@ -2799,11 +2800,11 @@ Using the summation sign, we can state an analogue of Proposition
 
 \begin{proposition}
 \label{prop.sum.matrices.multi}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
-$p$ and $q$ be two integers such that $p\leq q+1$. Let $A_{p},A_{p+1}%
-,\ldots,A_{q}$ be some $n\times m$-matrices. For every $i\in\left\{
-1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+$h\in\mathbb{N}$. Let $A_{1},A_{2},\ldots,A_{h}$ be some $n\times m$-matrices.
+For every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
+1,2,\ldots,m\right\}  $, we have%
 \begin{equation}
-\left(  \sum_{k=p}^{q}A_{k}\right)  _{i,j}=\sum_{k=p}^{q}\left(  A_{k}\right)
+\left(  \sum_{k=1}^{h}A_{k}\right)  _{i,j}=\sum_{k=1}^{h}\left(  A_{k}\right)
 _{i,j}. \label{eq.prop.sum.matrices.multi.eq}%
 \end{equation}
 
@@ -2822,7 +2823,7 @@ This single sentence might not be a rigorous proof in itself, but it would
 pass for a proof in an mathematical paper or textbook, because any
 mathematician can easily make it as rigorous as she wants to have it by
 filling in the missing (straightforward) details.\footnote{Actually, there is
-one more subtlety involved: Namely, if $p=q+1$, then the sums appearing in
+one more subtlety involved: Namely, if $h=0$, then the sums appearing in
 (\ref{eq.prop.sum.matrices.multi.eq}) are not obtained by addition (in fact,
 they are empty), and therefore we cannot use Proposition
 \ref{prop.sum.matrices.A+B} to prove (\ref{eq.prop.sum.matrices.multi.eq}) in
@@ -2838,12 +2839,12 @@ straightforward and dull as you would expect it to be).
 Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
 ,m\right\}  $. We claim that%
 \begin{equation}
-\left(  \sum_{k=p}^{p-1+\ell}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+\ell}\left(
+\left(  \sum_{k=1}^{\ell}A_{k}\right)  _{i,j}=\sum_{k=1}^{\ell}\left(
 A_{k}\right)  _{i,j} \label{pf.prop.sum.matrices.multi.1}%
 \end{equation}
-for every $\ell\in\left\{  0,1,\ldots,q-p+1\right\}  $. (Once this is proven,
-then we will be able to obtain (\ref{eq.prop.sum.matrices.multi.eq}) simply by
-applying (\ref{pf.prop.sum.matrices.multi.1}) to $\ell=q-p+1$.)
+for every $\ell\in\left\{  0,1,\ldots,h\right\}  $. (Once this is proven, then
+we will be able to obtain (\ref{eq.prop.sum.matrices.multi.eq}) simply by
+applying (\ref{pf.prop.sum.matrices.multi.1}) to $\ell=h$.)
 
 We will prove (\ref{pf.prop.sum.matrices.multi.1}) by \textit{induction over
 }$\ell$. (If you have never seen a proof by induction: this here is an
@@ -2854,14 +2855,14 @@ example.) This means that we shall prove the following two claims:
 \end{statement}
 
 \begin{statement}
-\textit{Claim 2:} If $L\in\left\{  0,1,\ldots,q-p\right\}  $ is such that
+\textit{Claim 2:} If $L\in\left\{  0,1,\ldots,h-1\right\}  $ is such that
 (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$, then
 (\ref{pf.prop.sum.matrices.multi.1}) also holds for $\ell=L+1$.
 \end{statement}
 
 Once these two claims are proven, the \textit{principle of mathematical
 induction} will yield that (\ref{pf.prop.sum.matrices.multi.1}) holds for all
-$\ell\in\left\{  0,1,\ldots,q-p+1\right\}  $. In fact:
+$\ell\in\left\{  0,1,\ldots,h\right\}  $. In fact:
 
 \begin{itemize}
 \item Claim 1 shows that (\ref{pf.prop.sum.matrices.multi.1}) holds for
@@ -2877,7 +2878,7 @@ $\ell=0$;
 (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=3$;
 
 \item and so on, applying Claim 2 for higher and higher $L$, until we arrive
-at $\ell=q-p+1$.
+at $\ell=h$.
 \end{itemize}
 
 (See \cite[Chapter 5]{LeLeMe16} for an introduction to proofs by induction.)
@@ -2886,93 +2887,138 @@ Of course, we still have to prove the two claims.
 
 \begin{enumerate}
 \item \textit{Proof of Claim 1:} For $L=0$, the statement
-(\ref{pf.prop.sum.matrices.multi.1}) claims that $\left(  \sum_{k=p}%
-^{p-1+0}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+0}\left(  A_{k}\right)  _{i,j}$.
-But
+(\ref{pf.prop.sum.matrices.multi.1}) claims that $\left(  \sum_{k=1}^{0}%
+A_{k}\right)  _{i,j}=\sum_{k=1}^{0}\left(  A_{k}\right)  _{i,j}$. But
 \[
-\sum_{k=p}^{p-1+0}A_{k}=\sum_{k=p}^{p-1}A_{k}=\left(  \text{an empty sum of
-}n\times m\text{-matrices}\right)  =0_{n\times m}%
+\sum_{k=1}^{0}A_{k}=\left(  \text{an empty sum of }n\times m\text{-matrices}%
+\right)  =0_{n\times m}%
 \]
 (since an empty sum of $n\times m$-matrices was \textbf{defined} to be
 $0_{n\times m}$). Hence,%
 \[
-\left(  \sum_{k=p}^{p-1+0}A_{k}\right)  _{i,j}=\left(  0_{n\times m}\right)
+\left(  \sum_{k=1}^{0}A_{k}\right)  _{i,j}=\left(  0_{n\times m}\right)
 _{i,j}=0
 \]
 (since every entry of the zero matrix $0_{n\times m}$ is $0$). Compared with
 \[
-\sum_{k=p}^{p-1+0}\left(  A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1}\left(
-A_{k}\right)  _{i,j}=\left(  \text{an empty sum of numbers}\right)  =0,
+\sum_{k=1}^{0}\left(  A_{k}\right)  _{i,j}=\left(  \text{an empty sum of
+numbers}\right)  =0,
 \]
-this yields $\left(  \sum_{k=p}^{p-1+0}A_{k}\right)  _{i,j}=\sum_{k=p}%
-^{p-1+0}\left(  A_{k}\right)  _{i,j}$. In other words,
-(\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=0$. This proves Claim 1.
+this yields $\left(  \sum_{k=1}^{0}A_{k}\right)  _{i,j}=\sum_{k=1}^{0}\left(
+A_{k}\right)  _{i,j}$. In other words, (\ref{pf.prop.sum.matrices.multi.1})
+holds for $\ell=0$. This proves Claim 1.
 
-\item \textit{Proof of Claim 2:} Let $L\in\left\{  0,1,\ldots,q-p\right\}  $
+\item \textit{Proof of Claim 2:} Let $L\in\left\{  0,1,\ldots,h-1\right\}  $
 be such that (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$. We must
 show that (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L+1$.
 
 Since (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$, we have%
 \begin{equation}
-\left(  \sum_{k=p}^{p-1+L}A_{k}\right)  _{i,j}=\sum_{k=p}^{p-1+L}\left(
-A_{k}\right)  _{i,j}.\label{pf.prop.sum.matrices.multi.1.pf.1}%
+\left(  \sum_{k=1}^{L}A_{k}\right)  _{i,j}=\sum_{k=1}^{L}\left(  A_{k}\right)
+_{i,j}. \label{pf.prop.sum.matrices.multi.1.pf.1}%
 \end{equation}
 
 
 Now,%
 \[
-\sum_{k=p}^{p-1+\left(  L+1\right)  }A_{k}=\sum_{k=p}^{\left(  p-1+L\right)
-+1}A_{k}=\sum_{k=p}^{p-1+L}A_{k}+A_{p-1}%
+\sum_{k=1}^{L+1}A_{k}=\sum_{k=1}^{L}A_{k}+A_{L+1}.
 \]
-
-
-\item 
-
-\item $j\in\left\{  0,1,\ldots,k-1\right\}  $ be such that
-(\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$. () We must show that
-(\ref{pf.prop.sum.matrices.multi.1}) also holds for $i=j+1$.
-
-Since (\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$, we have
-$u_{1}+u_{2}+\cdots+u_{j}\in U$. Now,%
-\[
-u_{1}+u_{2}+\cdots+u_{j+1}=\underbrace{\left(
-%TCIMACRO{\TeXButton{blanka}{\blanka}}%
-%BeginExpansion
-\blanka
-%EndExpansion
-\right)  }_{\in U}+\underbrace{%
-%TCIMACRO{\TeXButton{blanka}{\blanka}}%
-%BeginExpansion
-\blanka
-%EndExpansion
-}_{\in U}.
-\]
-This is a sum of two vectors in $U$, and thus belongs to $U$ (since $U$ is
-closed under addition). In other words, $u_{1}+u_{2}+\cdots+u_{j+1}\in U$.
-Thus, (\ref{pf.prop.sum.matrices.multi.1}) also holds for $i=j+1$. This proves
-Claim 2.
+Thus,%
+\begin{align*}
+\left(  \sum_{k=1}^{L+1}A_{k}\right)  _{i,j}  &  =\left(  \sum_{k=1}^{L}%
+A_{k}+A_{L+1}\right)  _{i,j}=\underbrace{\left(  \sum_{k=1}^{L}A_{k}\right)
+_{i,j}}_{\substack{=\sum_{k=1}^{L}\left(  A_{k}\right)  _{i,j}\\\text{(by
+(\ref{pf.prop.sum.matrices.multi.1.pf.1}))}}}+\left(  A_{L+1}\right)  _{i,j}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition
+\ref{prop.sum.matrices.A+B}, applied to }A=\sum_{k=1}^{L}A_{k}\text{ and
+}B=A_{L+1}\right) \\
+&  =\sum_{k=1}^{L}\left(  A_{k}\right)  _{i,j}+\left(  A_{L+1}\right)
+_{i,j}=\sum_{k=1}^{L+1}\left(  A_{k}\right)  _{i,j}.
+\end{align*}
+In other words, (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L+1$.
+This proves Claim 2.
 \end{enumerate}
 
-Now, both Claims 1 and 2 are proven, so that the proof of
-(\ref{pf.prop.sum.matrices.multi.1}) is complete.
+Now, both Claims 1 and 2 are proven, and thus (as we have explained above) the
+proof of (\ref{pf.prop.sum.matrices.multi.1}) is complete.
 
-(Usually, the proof of Claim 1 is called the \textquotedblleft induction
-base\textquotedblright, and the proof of Claim 2 is called the
-\textquotedblleft induction step\textquotedblright. The statement that
-(\ref{pf.prop.sum.matrices.multi.1}) holds for $i=j$ is called the
-\textit{induction hypothesis}.)
+(The way we organized our proof of (\ref{pf.prop.sum.matrices.multi.1}) is
+typical for a proof by mathematical induction. Usually, the proof of Claim 1
+is called the \textquotedblleft induction base\textquotedblright, and the
+proof of Claim 2 is called the \textquotedblleft induction
+step\textquotedblright. In the induction step, we have made the assumption
+that (\ref{pf.prop.sum.matrices.multi.1}) holds for $\ell=L$; this assumption
+is called the \textquotedblleft induction hypothesis\textquotedblright.)
 
 Now that (\ref{pf.prop.sum.matrices.multi.1}) is proven, we can simply apply
-(\ref{pf.prop.sum.matrices.multi.1}) to $i=k$, and conclude that $u_{1}%
-+u_{2}+\cdots+u_{k}\in U$. This proves Proposition \ref{prop.subspace.closed}
-\textbf{(a)}.
+(\ref{pf.prop.sum.matrices.multi.1}) to $\ell=h$, and conclude that $\left(
+\sum_{k=1}^{h}A_{k}\right)  _{i,j}=\sum_{k=1}^{h}\left(  A_{k}\right)  _{i,j}%
+$. This proves Proposition \ref{prop.sum.matrices.multi}.
 \end{proof}
 
-[...]
+The sums in Proposition \ref{prop.sum.matrices.multi} range from $k=1$ to $h$;
+but we can make the same statement for arbitrary sums:
 
-TODO: multisum pf
+\begin{proposition}
+\label{prop.sum.matrices.multi.pq}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$.
+Let $p$ and $q$ be two integers such that $p\leq q+1$. Let $A_{p}%
+,A_{p+1},\ldots,A_{q}$ be some $n\times m$-matrices. For every $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  \sum_{k=p}^{q}A_{k}\right)  _{i,j}=\sum_{k=p}^{q}\left(  A_{k}\right)
+_{i,j}. \label{eq.prop.sum.matrices.multi.pq.eq}%
+\end{equation}
 
-TODO: refer to multisum when necessary
+\end{proposition}
+
+As a further illustration of manipulating sums, let me derive this proposition
+from Proposition \ref{prop.sum.matrices.multi}:
+
+\begin{proof}
+[Proof of Proposition \ref{prop.sum.matrices.multi.pq}.]Let $h=q+1-p$. Then,
+$h=q+1-p\geq0$ (since $p\leq q+1$), so that $h\in\mathbb{N}$.
+
+Notice that $A_{p},A_{p+1},\ldots,A_{q}$ are $q+1-p$ matrices. In other words,
+$A_{p},A_{p+1},\ldots,A_{q}$ are $h$ matrices (since $h=q+1-p$). Denote these
+$h$ matrices by $B_{1},B_{2},\ldots,B_{h}$. Thus,
+\begin{equation}
+B_{k}=A_{p-1+k}\ \ \ \ \ \ \ \ \ \ \text{for every }k\in\left\{
+1,2,\ldots,h\right\}  . \label{pf.prop.sum.matrices.multi.pq.Bk=}%
+\end{equation}
+
+
+Let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots
+,m\right\}  $. We have
+\begin{align}
+\sum_{k=1}^{h}\underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}  &  =\sum_{k=1}^{h}%
+A_{p-1+k}=A_{p}+A_{p+1}+\cdots+A_{q}\nonumber\\
+&  =\sum_{k=p}^{q}A_{k} \label{pf.prop.sum.matrices.multi.pq.1}%
+\end{align}
+and%
+\begin{align}
+\sum_{k=1}^{h}\left(  \underbrace{B_{k}}_{\substack{=A_{p-1+k}\\\text{(by
+(\ref{pf.prop.sum.matrices.multi.pq.Bk=}))}}}\right)  _{i,j}  &  =\sum
+_{k=1}^{h}\left(  A_{p-1+k}\right)  _{i,j}=\left(  A_{p}\right)
+_{i,j}+\left(  A_{p+1}\right)  _{i,j}+\cdots+\left(  A_{q}\right)
+_{i,j}\nonumber\\
+&  =\sum_{k=p}^{q}\left(  A_{k}\right)  _{i,j}.
+\label{pf.prop.sum.matrices.multi.pq.2}%
+\end{align}
+But Proposition \ref{prop.sum.matrices.multi} (applied to $B_{1},B_{2}%
+,\ldots,B_{h}$ instead of $A_{1},A_{2},\ldots,A_{h}$) shows that%
+\[
+\left(  \sum_{k=1}^{h}B_{k}\right)  _{i,j}=\sum_{k=1}^{h}\left(  B_{k}\right)
+_{i,j}.
+\]
+In view of (\ref{pf.prop.sum.matrices.multi.pq.1}) and
+(\ref{pf.prop.sum.matrices.multi.pq.2}), this rewrites as%
+\[
+\left(  \sum_{k=p}^{q}A_{k}\right)  _{i,j}=\sum_{k=p}^{q}\left(  A_{k}\right)
+_{i,j}.
+\]
+Thus, Proposition \ref{prop.sum.matrices.multi.pq} is proven.
+\end{proof}
 
 \subsection{(*) Application: Fibonacci numbers}
 
@@ -6192,7 +6238,7 @@ $n\times m$-matrix. Then,%
 A=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}.
 \]
 Here, we are using the $\sum$ symbol introduced in Section
-\ref{sect.intro.sum}. (Of course, $E_{u,v}$ means $E_{u,v,n,m}$ here.)
+\ref{sect.intro.sum-matrices}. (Of course, $E_{u,v}$ means $E_{u,v,n,m}$ here.)
 \end{proposition}
 
 \begin{example}
@@ -6270,11 +6316,15 @@ in the general case). The proof below is just for the fans of formal reasoning.
 1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
 \begin{align*}
 &  \left(  \sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}E_{u,v}\right)  _{i,j}\\
+&  =\sum_{u=1}^{n}\underbrace{\left(  \sum_{v=1}^{m}A_{u,v}E_{u,v}\right)
+_{i,j}}_{\substack{=\sum_{v=1}^{m}\left(  A_{u,v}E_{u,v}\right)
+_{i,j}\\\text{(by an application of}\\\text{Proposition
+\ref{prop.sum.matrices.multi})}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by an application of Proposition
+\ref{prop.sum.matrices.multi}}\right) \\
 &  =\sum_{u=1}^{n}\sum_{v=1}^{m}\underbrace{\left(  A_{u,v}E_{u,v}\right)
 _{i,j}}_{\substack{=A_{u,v}\left(  E_{u,v}\right)  _{i,j}\\\text{(since
 matrices are scaled entry by entry)}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
-entry}\right) \\
 &  =\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}\underbrace{\left(  E_{u,v}\right)
 _{i,j}}_{\substack{=\delta_{i,u}\delta_{j,v}\\\text{(by
 (\ref{eq.prop.Euv.deltas.1}))}}}=\sum_{u=1}^{n}\sum_{v=1}^{m}A_{u,v}%
