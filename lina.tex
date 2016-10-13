@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, October 12, 2016 21:09:14}
+%TCIDATA{LastRevised=Thursday, October 13, 2016 00:32:03}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14810,7 +14810,7 @@ each $s\in S$ to $f\left(  s\right)  +g\left(  s\right)  $. Thus,%
 \ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
 \]
 This is called \textit{pointwise addition} (because it means that we add two
-maps by adding their values at each point.)
+maps by adding their values at each point).
 
 \item If $f\in\mathbb{R}^{S}$ is a map and $\lambda$ is a number, then the map
 $\lambda f$ is defined to be the map from $S$ to $\mathbb{R}$ that sends each
@@ -14820,7 +14820,7 @@ $s\in S$ to $\lambda\cdot f\left(  s\right)  $. Thus,%
 \ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
 \]
 This is called \textit{pointwise scaling} (because it means that we scale a
-map by scaling its value at each point.)
+map by scaling its value at each point).
 
 \item We define $\overrightarrow{0}\in\mathbb{R}^{S}$ to be the map from $S$
 to $\mathbb{R}$ that sends each $s\in S$ to $0$. This is called the
@@ -15041,7 +15041,7 @@ s\right)  $\textquotedblright\ refers to the addition of $V$). Thus,%
 \ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
 \]
 This is called \textit{pointwise addition} (because it means that we add two
-maps by adding their values at each point.)
+maps by adding their values at each point).
 
 \item If $f\in V^{S}$ is a map and $\lambda$ is a number, then the map
 $\lambda f$ is defined to be the map from $S$ to $V$ that sends each $s\in S$
@@ -15053,7 +15053,7 @@ $\textquotedblright\ refers to the scaling of $V$). Thus,%
 \ \ \ \ \ \ \ \ \ \ \text{for every }s\in S.
 \]
 This is called \textit{pointwise scaling} (because it means that we scale a
-map by scaling its value at each point.)
+map by scaling its value at each point).
 
 \item We define $\overrightarrow{0}\in V^{S}$ to be the map from $S$ to $V$
 that sends each $s\in S$ to $\overrightarrow{0}$ (the zero vector of $V$).
@@ -15065,6 +15065,95 @@ This example, of course, generalizes Example \ref{exam.vectspace.RS}: If we
 set $V=\mathbb{R}$, then $V^{S}$ becomes precisely the vector space
 $\mathbb{R}^{S}$ defined in Example \ref{exam.vectspace.RS}.
 \end{definition}
+
+\subsection{%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+DRAFT%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+(*) The summation sign for vectors}
+
+In Section \ref{sect.intro.sum}, we have introduced the summation sign $\sum$
+for sums of numbers; in Section \ref{sect.intro.sum-matrices}, we have
+introduced the analogous summation sign $\sum$ for sums of matrices. In the
+same way, we can define the summation sign $\sum$ for sums of vectors in an
+arbitrary vector space:
+
+\begin{definition}
+\label{def.sum.vectors}Let $V$ be a vector space. Let $p$ and $q$ be two
+integers such that $p\leq q+1$. Let $v_{p},v_{p+1},\ldots,v_{q}$ be some
+vectors in $V$. Then, $\sum_{k=p}^{q}v_{k}$ means the sum $v_{p}%
++v_{p+1}+\cdots+v_{q}$. (This sum is well-defined, since each vector space
+satisfies a \textquotedblleft general associativity law\textquotedblright%
+\ similar to Proposition \ref{prop.matrix-laws.ga-add}. Moreover, the order of
+its addends does not matter, as can be proven using property \textbf{(a)} in
+Definition \ref{def.vectspace}.)
+
+The notation $\sum_{k=p}^{q}v_{k}$ is analogous to the notation $\sum
+_{k=p}^{q}a_{k}$ introduced in Definition \ref{def.sum} (and to the notation
+$\sum_{k=p}^{q}A_{k}$ introduced in Definition \ref{def.sum.matrices}). The
+same remarks and clarifications done for the latter notation in Definition
+\ref{def.sum.2} apply to the former notation. There is only one difference:
+When the sum $\sum_{k=p}^{q}v_{k}$ has no addends (i.e., when $p\geq q+1$),
+its value is defined to be the zero vector $\overrightarrow{0}$ (of the vector
+space $V$) rather than the number $0$.
+\end{definition}
+
+The summation sign $\sum$ for vectors (that we have just defined) generalizes
+both the summation sign $\sum$ for numbers and the summation sign $\sum$ for
+matrices (since numbers and matrices can both be viewed as vectors).
+
+Most properties of the summation sign $\sum$ that hold for numbers can be
+straightforwardly generalized to vectors (in an arbitrary vector space). Some
+of them can even be generalized in several ways: For example, in Proposition
+\ref{prop.sum.dist}, we can replace the numbers $a_{p},a_{p+1},\ldots,a_{q}$
+by vectors (while $b$ remains a number), \textbf{or} we can replace the number
+$b$ by a vector (while $a_{p},a_{p+1},\ldots,a_{q}$ remain numbers; for this
+generalization, we should rewrite the products $ba_{k}$ and $b\sum_{k=p}%
+^{q}a_{k}$ as $a_{k}b$ and $\left(  \sum_{k=p}^{q}a_{k}\right)  b$). (We
+cannot replace both $a_{p},a_{p+1},\ldots,a_{q}$ and $b$ by vectors, since the
+product of two vectors is not defined!) Let me state the two resulting
+generalizations explicitly (with slightly modified names):
+
+\begin{proposition}
+\label{prop.sum.vectors.dist1}Let $V$ be a vector space. Let $p$ and $q$ be
+two integers such that $p\leq q+1$. Let $v_{p},v_{p+1},\ldots,v_{q}$ be some
+vectors in $V$. Let $b$ be a number. Then,
+\[
+\sum_{k=p}^{q}bv_{k}=b\sum_{k=p}^{q}v_{k}.
+\]
+(The expression $\sum_{k=p}^{q}bv_{k}$ has to be read as $\sum_{k=p}%
+^{q}\left(  bv_{k}\right)  $.)
+\end{proposition}
+
+\begin{proposition}
+\label{prop.sum.vectors.dist2}Let $V$ be a vector space. Let $p$ and $q$ be
+two integers such that $p\leq q+1$. Let $a_{p},a_{p+1},\ldots,a_{q}$ be some
+numbers. Let $v\in V$ be a vector. Then,
+\[
+\sum_{k=p}^{q}a_{k}v=\left(  \sum_{k=p}^{q}a_{k}\right)  v.
+\]
+(The expression $\sum_{k=p}^{q}a_{k}v$ has to be read as $\sum_{k=p}%
+^{q}\left(  a_{k}v\right)  $.)
+\end{proposition}
+
+Let me also state the straightforward generalization of Proposition
+\ref{prop.sum.delta} to vectors:
+
+\begin{proposition}
+\label{prop.sum.vectors.delta}Let $V$ be a vector space. Let $p$ and $q$ be
+two integers such that $p\leq q$. Let $r\in\left\{  p,p+1,\ldots,q\right\}  $.
+Let $v_{p},v_{p+1},\ldots,v_{q}$ be some vectors in $V$. Then,%
+\[
+\sum_{k=p}^{q}\delta_{k,r}v_{k}=v_{r}.
+\]
+
+\end{proposition}
 
 \subsection{%
 %TCIMACRO{\TEXTsymbol{<}}%
@@ -15766,7 +15855,7 @@ v_{1},v_{2},\ldots,v_{k}\right\rangle $ (that is, the span of $v_{1}%
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.subspace.span}.] We want to show that
+[Proof of Proposition \ref{prop.subspace.span}.]We want to show that
 $\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $ is a subspace of
 $\mathbb{R}^{3}$. Thus, we need to show that $\left\langle v_{1},v_{2}%
 ,\ldots,v_{k}\right\rangle $ contains the zero vector, is closed under
@@ -15823,13 +15912,13 @@ v_{1}+\kappa_{2}v_{2}+\cdots+\kappa_{k}v_{k}$.
 Adding the equalities $v=\mu_{1}v_{1}+\mu_{2}v_{2}+\cdots+\mu_{k}v_{k}$ and
 $w=\kappa_{1}v_{1}+\kappa_{2}v_{2}+\cdots+\kappa_{k}v_{k}$, we obtain%
 \begin{align*}
-v+w  & =\left(  \mu_{1}v_{1}+\mu_{2}v_{2}+\cdots+\mu_{k}v_{k}\right)  +\left(
-\kappa_{1}v_{1}+\kappa_{2}v_{2}+\cdots+\kappa_{k}v_{k}\right)  \\
-& =\left(  \mu_{1}v_{1}+\kappa_{1}v_{1}\right)  +\left(  \mu_{2}v_{2}%
+v+w  &  =\left(  \mu_{1}v_{1}+\mu_{2}v_{2}+\cdots+\mu_{k}v_{k}\right)
++\left(  \kappa_{1}v_{1}+\kappa_{2}v_{2}+\cdots+\kappa_{k}v_{k}\right) \\
+&  =\left(  \mu_{1}v_{1}+\kappa_{1}v_{1}\right)  +\left(  \mu_{2}v_{2}%
 +\kappa_{2}v_{2}\right)  +\cdots+\left(  \mu_{k}v_{k}+\kappa_{k}v_{k}\right)
 \\
-& =\left(  \mu_{1}+\kappa_{1}\right)  v_{1}+\left(  \mu_{2}+\kappa_{2}\right)
-v_{2}+\cdots+\left(  \mu_{k}+\kappa_{k}\right)  v_{k}.
+&  =\left(  \mu_{1}+\kappa_{1}\right)  v_{1}+\left(  \mu_{2}+\kappa
+_{2}\right)  v_{2}+\cdots+\left(  \mu_{k}+\kappa_{k}\right)  v_{k}.
 \end{align*}
 Hence, the vector $v+w$ has the form $\lambda_{1}v_{1}+\lambda_{2}v_{2}%
 +\cdots+\lambda_{k}v_{k}$ for some $\lambda_{1},\lambda_{2},\ldots,\lambda
@@ -15897,17 +15986,17 @@ $\left\langle x,y\right\rangle $ ? The equality
 (\ref{eq.def.subspace.span.explicit}) (applied to $k=2$ and $\left(
 v_{1},v_{2},\ldots,v_{k}\right)  =\left(  x,y\right)  $) yields%
 \begin{align*}
-\left\langle x,y\right\rangle  & =\left\{  \lambda_{1}x+\lambda_{2}%
+\left\langle x,y\right\rangle  &  =\left\{  \lambda_{1}x+\lambda_{2}%
 y\ \mid\ \lambda_{1},\lambda_{2}\in\mathbb{R}\right\}  =\left\{
 u\underbrace{x}_{=\left(  1,0,2\right)  ^{T}}+v\underbrace{y}_{=\left(
-0,0,1\right)  ^{T}}\ \mid\ u,v\in\mathbb{R}\right\}  \\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have renamed the indices }%
-\lambda_{1}\text{ and }\lambda_{2}\text{ as }u\text{ and }v\right)  \\
-& =\left\{  \underbrace{u\left(  1,0,2\right)  ^{T}+v\left(  0,0,1\right)
+0,0,1\right)  ^{T}}\ \mid\ u,v\in\mathbb{R}\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have renamed the indices
+}\lambda_{1}\text{ and }\lambda_{2}\text{ as }u\text{ and }v\right) \\
+&  =\left\{  \underbrace{u\left(  1,0,2\right)  ^{T}+v\left(  0,0,1\right)
 ^{T}}_{\substack{=\left(  u\cdot1+v\cdot0,u\cdot0+v\cdot0,u\cdot
 2+v\cdot1\right)  ^{T}\\=\left(  u,0,2u+v\right)  ^{T}}}\ \mid\ u,v\in
-\mathbb{R}\right\}  \\
-& =\left\{  \left(  u,0,2u+v\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}  .
+\mathbb{R}\right\} \\
+&  =\left\{  \left(  u,0,2u+v\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}  .
 \end{align*}
 This is precisely the set $D$ defined in Example \ref{exam.subspace.R3}
 \textbf{(d)}. In particular, this shows once again that the latter set $D$ is
@@ -15948,30 +16037,87 @@ is the \textbf{smallest} subspace of $V$ that contains $v_{1},v_{2}%
 ,\ldots,v_{k}$).
 
 \begin{proof}
-[Proof of Proposition \ref{prop.span.uniprop}.] \textbf{(a)} Let $i\in\left\{
-1,2,\ldots,n\right\}  $. Then, [...]
+[Proof of Proposition \ref{prop.span.uniprop}.]\textbf{(a)} Let $i\in\left\{
+1,2,\ldots,k\right\}  $. We claim that $v_{i}\in\left\langle v_{1}%
+,v_{2},\ldots,v_{k}\right\rangle $.
+
+[\textit{Proof:} We have%
+\begin{align*}
+&  \underbrace{0v_{1}}_{=\overrightarrow{0}}+\underbrace{0v_{2}}%
+_{=\overrightarrow{0}}+\cdots+\underbrace{0v_{i-1}}_{=\overrightarrow{0}%
+}+\underbrace{1v_{i}}_{=v_{i}}+\underbrace{0v_{i+1}}_{=\overrightarrow{0}%
+}+\underbrace{0v_{i+2}}_{=\overrightarrow{0}}+\cdots+\underbrace{0v_{k}%
+}_{=\overrightarrow{0}}\\
+&  =\overrightarrow{0}+\overrightarrow{0}+\cdots+\overrightarrow{0}%
++v_{i}+\overrightarrow{0}+\overrightarrow{0}+\cdots+\overrightarrow{0}=v_{i},
+\end{align*}
+so that $v_{i}=0v_{1}+0v_{2}+\cdots+0v_{i-1}+1v_{i}+0v_{i+1}+0v_{i+2}%
++\cdots+0v_{k}$. Hence, the vector $v_{i}$ has the form $\lambda_{1}%
+v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ for some $\lambda_{1}%
+,\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$ (namely, for $\lambda
+_{j}=\left\{
+\begin{array}
+[c]{c}%
+1\text{, if }j=i\text{;}\\
+0\text{, if }j\neq i
+\end{array}
+\right.  $). In other words,
+\[
+v_{i}\in\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}%
+v_{k}\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+.
+\]
+In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as $v_{i}%
+\in\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $.\ \ \ \ \footnote{Here
+is a more rigorous version of the same proof:
+\par
+Proposition \ref{prop.sum.vectors.delta} (applied to $p=1$, $q=k$ and $r=i$)
+yields%
+\[
+\sum_{g=1}^{k}\delta_{g,i}v_{g}=v_{i}.
+\]
+(Here, we are using the letter $g$ instead of $k$ for the summation index, in
+order to avoid a clash with the already existing meaning of the letter $k$.)
+Thus,%
+\[
+v_{i}=\sum_{g=1}^{k}\delta_{g,i}v_{g}=\delta_{1,i}v_{1}+\delta_{2,i}%
+v_{2}+\cdots+\delta_{k,i}v_{k}.
+\]
+Hence, the vector $v_{i}$ has the form $\lambda_{1}v_{1}+\lambda_{2}%
+v_{2}+\cdots+\lambda_{k}v_{k}$ for some $\lambda_{1},\lambda_{2}%
+,\ldots,\lambda_{k}\in\mathbb{R}$ (namely, for $\lambda_{j}=\delta_{j,i}$). In
+other words,
+\[
+v_{i}\in\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}%
+v_{k}\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+.
+\]
+In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as $v_{i}%
+\in\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $.}]
+
+Now, forget that we fixed $i$. We thus have shown that $v_{i}\in\left\langle
+v_{1},v_{2},\ldots,v_{k}\right\rangle $ for each $i\in\left\{  1,2,\ldots
+,k\right\}  $. In other words, the vectors $v_{1},v_{2},\ldots,v_{k}$ all
+belong to $\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $. This proves
+Proposition \ref{prop.span.uniprop} \textbf{(a)}.
+
+\textbf{(b)} Let $U$ be a subspace of $V$ that contains the vectors
+$v_{1},v_{2},\ldots,v_{k}$. We must prove that $\left\langle v_{1}%
+,v_{2},\ldots,v_{k}\right\rangle \subseteq U$.
+
+[...] (This is a problem on hw3.)
 \end{proof}
 
 [...]
 
 \begin{todo}
-Span: also an example above.
-
-Span contains $v_{1},v_{2},\ldots,v_{k}$ and is the smallest subspace doing so.
+Finish proof of Proposition \ref{prop.span.uniprop} \textbf{(b)}.
 \end{todo}
-
-
 
 \begin{todo}
 Intersction of subspaces.
 
 Sum of subspaces.
-\end{todo}
-
-
-
-\begin{todo}
-summation sign for vectors.
 \end{todo}
 
 \begin{todo}
