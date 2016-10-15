@@ -12215,17 +12215,16 @@ $.
 How do we choose a permutation $w$ of $\left\{  1,2,\ldots,n\right\}  $ ?
 Clearly, it suffices to choose each of its $n$ values $w\left(  1\right)
 ,w\left(  2\right)  ,\ldots,w\left(  n\right)  $ among the numbers in the set
-$\left\{  1,2,\ldots,n\right\}  $. Clearly, these $n$ values must be distinct
-(because $w$ has to be a permutation, and thus injective). Also, these $n$
-values must cover all of the set $\left\{  1,2,\ldots,n\right\}  $ (since $w$
-has to be a permutation, and thus surjective); however, it turns out that this
-is already guaranteed if we choose these $n$ values to be distinct (because
-$n$ distinct values chosen among the numbers in $\left\{  1,2,\ldots
-,n\right\}  $ will \textbf{always} cover all of the set $\left\{
-1,2,\ldots,n\right\}  $). Hence, we need to choose $n$ distinct numbers
-$w\left(  1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n\right)  $ among the
-numbers in the set $\left\{  w\left(  1\right)  ,w\left(  2\right)
-,\ldots,w\left(  n\right)  \right\}  $. Here is one way to do this:
+$\left\{  1,2,\ldots,n\right\}  $. These $n$ values must be distinct (because
+$w$ has to be a permutation, and thus injective). Also, these $n$ values must
+cover all of the set $\left\{  1,2,\ldots,n\right\}  $ (since $w$ has to be a
+permutation, and thus surjective); however, it turns out that this is already
+guaranteed if we choose these $n$ values to be distinct (because $n$ distinct
+values chosen among the numbers in $\left\{  1,2,\ldots,n\right\}  $ will
+\textbf{always} cover all of the set $\left\{  1,2,\ldots,n\right\}  $).
+Hence, we need to choose $n$ distinct numbers $w\left(  1\right)  ,w\left(
+2\right)  ,\ldots,w\left(  n\right)  $ among the numbers in the set $\left\{
+1,2,\ldots,n\right\}  $. Here is one way to do this:
 
 \begin{itemize}
 \item First, choose a value for $w\left(  1\right)  $. There are $n$ possible
@@ -12281,7 +12280,7 @@ Here is a further property of permutation matrices constructed out of permutatio
 \label{prop.permat.prod-of-perms}Let $n\in\mathbb{N}$.
 
 \textbf{(a)} If $x$ and $y$ are two permutations of $\left\{  1,2,\ldots
-,n\right\}  $, then $P_{x}P_{y}=P_{x\circ y}$.
+,n\right\}  $, then $P_{x}P_{y}=P_{y\circ x}$.
 
 \textbf{(b)} If $w$ is a permutation of $\left\{  1,2,\ldots,n\right\}  $,
 then $\left(  P_{w}\right)  ^{-1}=P_{w^{-1}}$.
@@ -12304,7 +12303,7 @@ map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w  &  \mapsto P_{w}%
+w &  \mapsto P_{w}%
 \end{align*}
 is a bijection. This map provides a \textquotedblleft
 dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
@@ -12312,20 +12311,20 @@ dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
 Proposition \ref{prop.permat.prod-of-perms} \textbf{(a)} shows that (under
 this \textquotedblleft dictionary\textquotedblright) composition of
 permutations \textquotedblleft corresponds\textquotedblright\ to
-multiplication of permutation matrices. Proposition
-\ref{prop.permat.prod-of-perms} \textbf{(b)} shows that the inverse of a
-permutation gets \textquotedblleft translated\textquotedblright\ into the
-inverse of the corresponding permutation matrix. Proposition
-\ref{prop.permat.prod-of-perms} \textbf{(c)} shows that the identity
-permutation $\operatorname*{id}\nolimits_{\left\{  1,2,\ldots,n\right\}  }$
-\textquotedblleft corresponds\textquotedblright\ to the identity matrix
-$I_{n}$. Finally, Proposition \ref{prop.permat.prod-of-perms} \textbf{(d)}
-shows that the permutations $\tau_{u,v}$ \textquotedblleft
-correspond\textquotedblright\ to the swapping matrices $T_{u,v}$. Using this
-\textquotedblleft dictionary\textquotedblright, we can translate theorems
-about permutations into theorems about permutation matrices, and vice versa.
-For instance, the translation of Proposition \ref{prop.permat.Tkk+1} into the
-language of permutations is the following fact:
+multiplication of permutation matrices (except that the order of the factors
+is reversed). Proposition \ref{prop.permat.prod-of-perms} \textbf{(b)} shows
+that the inverse of a permutation gets \textquotedblleft
+translated\textquotedblright\ into the inverse of the corresponding
+permutation matrix. Proposition \ref{prop.permat.prod-of-perms} \textbf{(c)}
+shows that the identity permutation $\operatorname*{id}\nolimits_{\left\{
+1,2,\ldots,n\right\}  }$ \textquotedblleft corresponds\textquotedblright\ to
+the identity matrix $I_{n}$. Finally, Proposition
+\ref{prop.permat.prod-of-perms} \textbf{(d)} shows that the permutations
+$\tau_{u,v}$ \textquotedblleft correspond\textquotedblright\ to the swapping
+matrices $T_{u,v}$. Using this \textquotedblleft dictionary\textquotedblright,
+we can translate theorems about permutations into theorems about permutation
+matrices, and vice versa. For instance, the translation of Proposition
+\ref{prop.permat.Tkk+1} into the language of permutations is the following fact:
 
 \begin{proposition}
 \label{prop.permat.Tkk+1.perm}Let $n\in\mathbb{N}$. A \textit{simple
@@ -12364,8 +12363,8 @@ i\in\left\{  1,2,\ldots,n\right\}  .
 
 \begin{proof}
 [Proof of Proposition \ref{prop.permat.laction.Pw}.]We have $P=P_{w}=\left(
-\delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$.
-Thus,%
+\delta_{w\left(  i\right)  ,j}\right)  _{1\leq i\leq n,\ 1\leq j\leq n}$ (by
+the definition of $P_{w}$). Thus,%
 \begin{equation}
 P_{i,j}=\delta_{w\left(  i\right)  ,j}\ \ \ \ \ \ \ \ \ \ \text{for all }%
 i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
@@ -12376,25 +12375,25 @@ i\in\left\{  1,2,\ldots,n\right\}  \text{ and }j\in\left\{  1,2,\ldots
 Now, Proposition \ref{prop.AB} (applied to $n$, $m$, $P$ and $C$ instead of
 $m$, $p$, $A$ and $B$) shows that%
 \[
-\left(  PC\right)  _{i,j}=\sum_{k=1}^{m}P_{i,k}C_{k,j}%
+\left(  PC\right)  _{i,j}=\sum_{k=1}^{n}P_{i,k}C_{k,j}%
 \ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{  1,2,\ldots,n\right\}  \text{
 and }j\in\left\{  1,2,\ldots,m\right\}  .
 \]
 Hence, for all $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,m\right\}  $, we have%
 \begin{align}
-\left(  PC\right)  _{i,j}  &  =\sum_{k=1}^{m}\underbrace{P_{i,k}%
+\left(  PC\right)  _{i,j}  &  =\sum_{k=1}^{n}\underbrace{P_{i,k}%
 }_{\substack{=\delta_{w\left(  i\right)  ,k}\\\text{(by
-(\ref{pf.prop.permat.laction.Pw.Pij=}))}}}C_{k,j}=\sum_{k=1}^{m}%
-\underbrace{\delta_{w\left(  i\right)  ,k}C_{k,j}}_{=C_{k,j}\delta_{w\left(
-i\right)  ,k}}=\sum_{k=1}^{m}C_{k,j}\underbrace{\delta_{w\left(  i\right)
-,k}}_{\substack{=\delta_{k,w\left(  i\right)  }\\\text{(since }\delta
-_{u,v}=\delta_{v,u}\\\text{for any two}\\\text{objects }u\text{ and }%
-v\text{)}}}\nonumber\\
-&  =\sum_{k=1}^{m}C_{k,j}\delta_{k,w\left(  i\right)  }=C_{w\left(  i\right)
+(\ref{pf.prop.permat.laction.Pw.Pij=}), applied}\\\text{to }k\text{ instead of
+}j\text{)}}}C_{k,j}=\sum_{k=1}^{n}\underbrace{\delta_{w\left(  i\right)
+,k}C_{k,j}}_{=C_{k,j}\delta_{w\left(  i\right)  ,k}}=\sum_{k=1}^{n}%
+C_{k,j}\underbrace{\delta_{w\left(  i\right)  ,k}}_{\substack{=\delta
+_{k,w\left(  i\right)  }\\\text{(since }\delta_{u,v}=\delta_{v,u}\\\text{for
+any two}\\\text{objects }u\text{ and }v\text{)}}}\nonumber\\
+&  =\sum_{k=1}^{n}C_{k,j}\delta_{k,w\left(  i\right)  }=C_{w\left(  i\right)
 ,j} \label{pf.prop.permat.laction.Pw.PCij=}%
 \end{align}
-(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=m$, $r=w\left(
+(by Proposition \ref{prop.sum.delta}, applied to $p=1$, $q=n$, $r=w\left(
 i\right)  $ and $a_{k}=C_{k,j}$).
 
 Now, let $i\in\left\{  1,2,\ldots,n\right\}  $. Then, the definition of
@@ -12611,7 +12610,7 @@ some $m\in\mathbb{N}$) into the product $S_{u}^{\lambda}C$, where
 $S_{u}^{\lambda}$ is the $\lambda$-scaling matrix as defined in Definition
 \ref{def.Slamu}. It is the transformation that modifies an $n\times m$-matrix
 $C$ by scaling the $u$-th row by $\lambda$ (according to Proposition
-\ref{prop.Slamu.entries}). This transformation will be called \textit{the row
+\ref{prop.Slamu.laction}). This transformation will be called \textit{the row
 scaling }$S_{u}^{\lambda}$. (We are using the same symbol $S_{u}^{\lambda}$
 for the transformation and for the $\lambda$-scaling matrix. Again, this
 should not lead to confusion.)
@@ -12776,7 +12775,8 @@ $v$ is nonzero (i.e., if not all entries of $v$ are zero), then the smallest
 $i\in\left\{  1,2,\ldots,m\right\}  $ satisfying $v_{i}\neq0$ is called the
 \textbf{pivot index} of $v$ and will be denoted by $\operatorname*{pivind}v$.
 Furthermore, the value of $v_{i}$ for this smallest $i$ is called the
-\textbf{pivot entry} of $v$.
+\textbf{pivot entry} of $v$. (Thus, the pivot entry of $v$ is the first
+nonzero entry of $v$.)
 \end{definition}
 
 \begin{example}
@@ -12806,7 +12806,7 @@ row of $A$, where $i$ ranges over all elements of $\left\{  1,2,\ldots
 ,n\right\}  $ for which $\operatorname*{row}\nolimits_{i}A$ is nonzero. The
 \textit{pivot entries} of $A$ are the entries of $A$ in the pivot cells. (In
 other words, the pivot entries of $A$ are the leftmost nonzero entries of all
-nonzero rows.)
+nonzero rows of $A$.)
 \end{definition}
 
 \begin{example}
@@ -12876,7 +12876,7 @@ $\left(  1,1\right)  $, $\left(  2,3\right)  $ and $\left(  3,4\right)  $.
 to satisfy the condition in Definition \ref{def.row-echelon} (because
 $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{2}A\right)  =3$
 and $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{3}A\right)
-=3$, but $\operatorname*{row}\nolimits_{i+1}A$ is nonzero). The pivot cells of
+=3$, but $\operatorname*{row}\nolimits_{3}A$ is nonzero). The pivot cells of
 $A$ are $\left(  1,1\right)  $, $\left(  2,3\right)  $ and $\left(
 3,3\right)  $.
 
@@ -12917,7 +12917,7 @@ $ and $\left(  3,3\right)  $.
 \textbf{(e)} Let $A$ be an invertibly upper-triangular $n\times n$-matrix (for
 some $n\in\mathbb{N}$) instead. (See Definition \ref{def.triangular.uni-up}
 \textbf{(b)} for the meaning of \textquotedblleft invertibly
-upper-triangular\textquotedblright). Then, $A$ is a row-echelon matrix. In
+upper-triangular\textquotedblright.) Then, $A$ is a row-echelon matrix. In
 fact, each $i\in\left\{  1,2,\ldots,n-1\right\}  $ satisfies
 $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i}A\right)
 <\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{i+1}A\right)  $
@@ -13698,15 +13698,15 @@ the form (\ref{eq.exam.row-echelon.backsub.4.sol}) for \textbf{some} numbers
 $r,s\in\mathbb{R}$.
 
 Conversely, any column vector $x$ of the form
-(\ref{eq.exam.row-echelon.backsub.4.sys}) (for \textbf{any} real numbers
+(\ref{eq.exam.row-echelon.backsub.4.sol}) (for \textbf{any} real numbers
 $r,s\in\mathbb{R}$) actually \textbf{does} satisfy $Ax=b$. This holds, again,
 for the same reason as in Example \ref{exam.row-echelon.backsub.1}.
 
 So we have learned that a column vector $x$ satisfies $Ax=b$ if and only if it
-has the form (\ref{eq.exam.row-echelon.backsub.4.sys}) for \textbf{some}
+has the form (\ref{eq.exam.row-echelon.backsub.4.sol}) for \textbf{some}
 numbers $r,s\in\mathbb{R}$. Thus, the equation $Ax=b$ has infinitely many
 solutions -- namely, its solutions are all vectors $x$ of the form
-(\ref{eq.exam.row-echelon.backsub.4.sys}) with $r,s\in\mathbb{R}$.
+(\ref{eq.exam.row-echelon.backsub.4.sol}) with $r,s\in\mathbb{R}$.
 \end{example}
 
 We have now seen four examples of an algorithm for solving equations of the
@@ -15856,10 +15856,10 @@ v_{1},v_{2},\ldots,v_{k}\right\rangle $ (that is, the span of $v_{1}%
 
 \begin{proof}
 [Proof of Proposition \ref{prop.subspace.span}.]We want to show that
-$\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $ is a subspace of
-$\mathbb{R}^{3}$. Thus, we need to show that $\left\langle v_{1},v_{2}%
-,\ldots,v_{k}\right\rangle $ contains the zero vector, is closed under
-addition, and is closed under scaling. Let us do this:
+$\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle $ is a subspace of $V$.
+Thus, we need to show that $\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle
+$ contains the zero vector, is closed under addition, and is closed under
+scaling. Let us do this:
 
 \textit{Proof that }$\left\langle v_{1},v_{2},\ldots,v_{k}\right\rangle
 $\textit{ contains the zero vector:} We have $0v_{1}+0v_{2}+\cdots
@@ -15983,8 +15983,8 @@ It is easy to construct examples of spans. Here is one:
 Let $x=\left(  1,0,2\right)  ^{T}$ and $y=\left(  0,0,1\right)  ^{T}$. Then,
 $x$ and $y$ are two vectors in $\mathbb{R}^{3}$. What is their span
 $\left\langle x,y\right\rangle $ ? The equality
-(\ref{eq.def.subspace.span.explicit}) (applied to $k=2$ and $\left(
-v_{1},v_{2},\ldots,v_{k}\right)  =\left(  x,y\right)  $) yields%
+(\ref{eq.def.subspace.span.explicit}) (applied to $V=\mathbb{R}^{3}$, $k=2$
+and $\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left(  x,y\right)  $) yields%
 \begin{align*}
 \left\langle x,y\right\rangle  &  =\left\{  \lambda_{1}x+\lambda_{2}%
 y\ \mid\ \lambda_{1},\lambda_{2}\in\mathbb{R}\right\}  =\left\{
