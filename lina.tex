@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 13, 2016 00:32:03}
+%TCIDATA{LastRevised=Sunday, October 16, 2016 15:39:13}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -2820,7 +2820,7 @@ Proposition \ref{prop.sum.matrices.multi} is just a matter of applying
 Proposition \ref{prop.sum.matrices.A+B} several times (since a sum of finitely
 many matrices can be obtained by repeatedly adding one matrix to another).
 This single sentence might not be a rigorous proof in itself, but it would
-pass for a proof in an mathematical paper or textbook, because any
+pass for a proof in any mathematical paper or textbook, because any
 mathematician can easily make it as rigorous as she wants to have it by
 filling in the missing (straightforward) details.\footnote{Actually, there is
 one more subtlety involved: Namely, if $h=0$, then the sums appearing in
@@ -2957,7 +2957,7 @@ $. This proves Proposition \ref{prop.sum.matrices.multi}.
 \end{proof}
 
 The sums in Proposition \ref{prop.sum.matrices.multi} range from $k=1$ to $h$;
-but we can make the same statement for arbitrary sums:
+but the same statement holds for arbitrary sums:
 
 \begin{proposition}
 \label{prop.sum.matrices.multi.pq}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$.
@@ -12303,7 +12303,7 @@ map%
 \begin{align*}
 \left\{  \text{permutations of }\left\{  1,2,\ldots,n\right\}  \right\}   &
 \rightarrow\left\{  \text{permutation matrices of size }n\times n\right\}  ,\\
-w &  \mapsto P_{w}%
+w  &  \mapsto P_{w}%
 \end{align*}
 is a bijection. This map provides a \textquotedblleft
 dictionary\textquotedblright\ between permutations of $\left\{  1,2,\ldots
@@ -14405,7 +14405,7 @@ The rest}
 (*) What holds over rings, what over fields.
 \end{todo}
 
-\section{%
+\section{\label{sect.spaces}%
 %TCIMACRO{\TEXTsymbol{<}}%
 %BeginExpansion
 $<$%
@@ -15847,6 +15847,14 @@ _{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}  .
 
 \end{definition}
 
+\begin{remark}
+The span\ $\left\langle {}\right\rangle $ (that is, the span of no vectors) is
+the subspace $\left\{  \overrightarrow{0}\right\}  $ of $V$ (not the empty
+set!). This is because $\overrightarrow{0}$ is a linear combination of an
+empty list of vectors (being the empty sum). This might appear somewhat
+counterintuitive, but is natural and important.
+\end{remark}
+
 \begin{proposition}
 \label{prop.subspace.span}Let $V$ be a vector space. Let $v_{1},v_{2}%
 ,\ldots,v_{k}$ be finitely many vectors in $V$. Then, $\left\langle
@@ -16036,6 +16044,386 @@ Proposition \ref{prop.span.uniprop} \textbf{(b)} (since it says that this span
 is the \textbf{smallest} subspace of $V$ that contains $v_{1},v_{2}%
 ,\ldots,v_{k}$).
 
+We shall prove Proposition \ref{prop.span.uniprop} later (in Section
+\ref{sect.spaces.more-on-subs}).
+
+\subsubsection{The image of a matrix}
+
+A further way to construct subspaces is the following:
+
+\begin{definition}
+\label{def.subspace.Im}Let $A$ be an $n\times m$-matrix. We define
+$A\mathbb{R}^{m}$ to be the subset $\left\{  Ax\ \mid\ x\in\mathbb{R}%
+^{m}\right\}  $ of $\mathbb{R}^{n}$. This subset $A\mathbb{R}^{m}$ is called
+the \textit{column space} (or the \textit{image}, or the \textit{range}) of
+$A$.
+\end{definition}
+
+The name \textquotedblleft column space\textquotedblright\ for $A\mathbb{R}%
+^{m}$ in Definition \ref{def.subspace.Im} might appear strange at first, but
+we will soon see why it is justified: In Proposition \ref{prop.subspace.Im}
+\textbf{(a)} below, we will show that it is the span of the columns of $A$.
+The name \textquotedblleft image\textquotedblright\ is due to the fact that
+$A\mathbb{R}^{m}$ is the image of the map $\mathbb{R}^{m}\rightarrow
+\mathbb{R}^{n},\ x\mapsto Ax$.
+
+Various authors have different notations for the column space $A\mathbb{R}%
+^{m}$ of a matrix $A$. It is called $\operatorname*{rng}A$ in \cite{OlvSha06};
+other notations for it include $\operatorname*{Range}A$, $\operatorname*{Im}%
+A$, and $A\left(  \mathbb{R}^{m}\right)  $.
+
+\begin{proposition}
+\label{prop.subspace.Im}Let $A$ be an $n\times m$-matrix.
+
+\textbf{(a)} We have $A\mathbb{R}^{m}=\left\langle \operatorname*{col}%
+\nolimits_{1}A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}%
+\nolimits_{m}A\right\rangle $.
+
+\textbf{(b)} The set $A\mathbb{R}^{m}$ is a subspace of $\mathbb{R}^{n}$.
+\end{proposition}
+
+Before we prove this, let us show a simple lemma:
+
+\begin{lemma}
+\label{lem.subspace.Im.Ax}Let $A$ be an $n\times m$-matrix. Let $\left(
+x_{1},x_{2},\ldots,x_{m}\right)  ^{T}\in\mathbb{R}^{m}$. Then,%
+\[
+A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}=x_{1}\operatorname*{col}%
+\nolimits_{1}A+x_{2}\operatorname*{col}\nolimits_{2}A+\cdots+x_{m}%
+\operatorname*{col}\nolimits_{m}A.
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof of Lemma \ref{lem.subspace.Im.Ax}.]For each $i\in\left\{
+1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
+\begin{equation}
+\left(  \operatorname*{col}\nolimits_{j}A\right)  _{i,1}=A_{i,j}%
+\label{pf.lem.subspace.Im.Ax.colji}%
+\end{equation}
+(because $\operatorname*{col}\nolimits_{j}A$ is the $j$-th column of $A$, and
+thus its $i$-th entry is the $\left(  i,j\right)  $-th entry of $A$). Now, for
+each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align}
+& \left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)
+_{i,1}\nonumber\\
+& =\underbrace{\left(  x_{1}\operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
+}_{\substack{=x_{1}\left(  \operatorname*{col}\nolimits_{1}A\right)
+_{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}%
+}}+\underbrace{\left(  x_{2}\operatorname*{col}\nolimits_{2}A\right)  _{i,1}%
+}_{\substack{=x_{2}\left(  \operatorname*{col}\nolimits_{2}A\right)
+_{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}}%
+}+\cdots+\underbrace{\left(  x_{m}\operatorname*{col}\nolimits_{m}A\right)
+_{i,1}}_{\substack{=x_{m}\left(  \operatorname*{col}\nolimits_{m}A\right)
+_{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}%
+}}\nonumber\\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since matrices are added entry by entry}\\
+\text{(more precisely, we are using Proposition \ref{prop.sum.matrices.multi}
+here)}%
+\end{array}
+\right)  \nonumber\\
+& =x_{1}\underbrace{\left(  \operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
+}_{\substack{=A_{i,1}\\\text{(by (\ref{pf.lem.subspace.Im.Ax.colji}%
+),}\\\text{applied to }j=1\text{)}}}+x_{2}\underbrace{\left(
+\operatorname*{col}\nolimits_{2}A\right)  _{i,1}}_{\substack{=A_{i,2}%
+\\\text{(by (\ref{pf.lem.subspace.Im.Ax.colji}),}\\\text{applied to
+}j=2\text{)}}}+\cdots+x_{m}\underbrace{\left(  \operatorname*{col}%
+\nolimits_{m}A\right)  _{i,1}}_{\substack{=A_{i,m}\\\text{(by
+(\ref{pf.lem.subspace.Im.Ax.colji}),}\\\text{applied to }j=m\text{)}%
+}}\nonumber\\
+& =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}%
+.\label{pf.lem.subspace.Im.Ax.0}%
+\end{align}
+
+
+Set $B=\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}$. Then, $B$ is an
+$m\times1$-matrix, and its entries are%
+\begin{equation}
+B_{k,1}=x_{k}\ \ \ \ \ \ \ \ \ \ \text{for each }k\in\left\{  1,2,\ldots
+,m\right\}  .\label{pf.lem.subspace.Im.Ax.1}%
+\end{equation}
+
+
+Now, $AB$ is an $n\times1$-matrix (since $A$ is an $n\times m$-matrix and $B$
+is an $m\times1$-matrix), i.e., a column vector of size $n$. For each
+$i\in\left\{  1,2,\ldots,n\right\}  $, we have%
+\begin{align*}
+\left(  AB\right)  _{i,1}  & =A_{i,1}\underbrace{B_{1,1}}_{\substack{=x_{1}%
+\\\text{(by (\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}%
+}}+A_{i,2}\underbrace{B_{2,1}}_{\substack{=x_{2}\\\text{(by
+(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}%
+}+\cdots+A_{i,m}\underbrace{B_{m,1}}_{\substack{=x_{m}\\\text{(by
+(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}}\\
+& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.matrix-prod.rc}
+\textbf{(a)}, applied to }p=1\text{ and }j=1\right)  \\
+& =A_{i,1}x_{1}+A_{i,2}x_{2}+\cdots+A_{i,m}x_{m}\\
+& =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}\\
+& =\left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)  _{i,1}.
+\end{align*}
+(by (\ref{pf.lem.subspace.Im.Ax.0})). In other words, for each $i\in\left\{
+1,2,\ldots,n\right\}  $, the $i$-th entry of the column vector $AB$ equals the
+$i$-th entry of the column vector $x_{1}\operatorname*{col}\nolimits_{1}%
+A+x_{2}\operatorname*{col}\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}%
+\nolimits_{m}A$ (because the $i$-th entry of any column vector $v$ is
+$v_{i,1}$). Thus, the column vector $AB$ equals $x_{1}\operatorname*{col}%
+\nolimits_{1}A+x_{2}\operatorname*{col}\nolimits_{2}A+\cdots+x_{m}%
+\operatorname*{col}\nolimits_{m}A$. In other words,%
+\[
+AB=x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A.
+\]
+Since $B=\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}$, this rewrites as%
+\[
+A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}=x_{1}\operatorname*{col}%
+\nolimits_{1}A+x_{2}\operatorname*{col}\nolimits_{2}A+\cdots+x_{m}%
+\operatorname*{col}\nolimits_{m}A.
+\]
+
+
+Lemma \ref{lem.subspace.Im.Ax} is proven.
+\end{proof}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.Im}.]\textbf{(a)} Applying
+(\ref{eq.def.subspace.span.explicit}) to $V=\mathbb{R}^{n}$, $k=m$ and
+$v_{i}=\operatorname*{col}\nolimits_{i}A$, we obtain%
+\begin{align}
+& \left\langle \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
+\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right\rangle
+\nonumber\\
+& =\left\{  \lambda_{1}\operatorname*{col}\nolimits_{1}A+\lambda
+_{2}\operatorname*{col}\nolimits_{2}A+\cdots+\lambda_{m}\operatorname*{col}%
+\nolimits_{m}A\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{m}\in
+\mathbb{R}\right\}  \nonumber\\
+& =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\ \mid
+\ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}\right\}
+\label{pf.prop.subspace.Im.a.1}%
+\end{align}
+(here, we have renamed the summation indices $\lambda_{1},\lambda_{2}%
+,\ldots,\lambda_{m}$ as $x_{1},x_{2},\ldots,x_{m}$). But%
+\begin{align*}
+A\mathbb{R}^{m}  & =\left\{  Ax\ \mid\ x\in\mathbb{R}^{m}\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }A\mathbb{R}%
+^{m}\right)  \\
+& =\left\{  \underbrace{A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}%
+}_{\substack{=x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\\\text{(by Lemma
+\ref{lem.subspace.Im.Ax})}}}\ \mid\ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}%
+\right\}  \\
+& \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{here, we have substituted }\left(  x_{1},x_{2},\ldots,x_{m}\right)
+^{T}\text{ for }x\text{,}\\
+\text{since the elements }x\text{ of }\mathbb{R}^{m}\text{ are exactly the
+column vectors}\\
+\text{of the form }\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}\text{ with
+}x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}%
+\end{array}
+\right)  \\
+& =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\ \mid
+\ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}\right\}  .
+\end{align*}
+Comparing this with (\ref{pf.prop.subspace.Im.a.1}), we obtain $A\mathbb{R}%
+^{m}=\left\langle \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
+\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right\rangle $. This
+proves Proposition \ref{prop.subspace.Im} \textbf{(a)}.
+
+\textbf{(b)} Proposition \ref{prop.subspace.span} (applied to $V=\mathbb{R}%
+^{n}$, $k=m$ and $v_{i}=\operatorname*{col}\nolimits_{i}A$) shows that
+$\left\langle \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
+\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right\rangle $ is a
+subspace of $\mathbb{R}^{n}$. In other words, $A\mathbb{R}^{m}$ is a subspace
+of $\mathbb{R}^{n}$ (since Proposition \ref{prop.subspace.Im} \textbf{(a)}
+yields $A\mathbb{R}^{m}=\left\langle \operatorname*{col}\nolimits_{1}%
+A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
+A\right\rangle $). This proves Proposition \ref{prop.subspace.Im} \textbf{(b)}.
+\end{proof}
+
+[...]
+
+\begin{todo}
+Intersction of subspaces.
+\end{todo}
+
+\begin{todo}
+Sum of subspaces.
+\end{todo}
+
+\begin{todo}
+image of $0_{n\times m}$ is $0$
+\end{todo}
+
+\begin{todo}
+subspaces of $\mathbb{R}^{2\times2}$
+\end{todo}
+
+\begin{todo}
+Polynomials $p$ such that $p\left(  3\right)  =0$.
+\end{todo}
+
+\begin{todo}
+Functions $f$ such that $f$ is continuous.
+\end{todo}
+
+\begin{todo}
+Are functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ are a subspace of
+the functions $\mathbb{R}\rightarrow\mathbb{R}$ ? No, since they are not even
+a subset.
+\end{todo}
+
+\begin{todo}
+Are functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
+-1,1\right]  $ a subspace of the functions $\mathbb{R}\rightarrow\mathbb{R}$ ?
+No (e.g., scaling fails).
+\end{todo}
+
+\begin{todo}
+Subspaces of $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$ in geometric terms.
+\end{todo}
+
+[...]
+
+\subsection{\label{sect.spaces.more-on-subs}%
+%TCIMACRO{\TEXTsymbol{<}}%
+%BeginExpansion
+$<$%
+%EndExpansion
+DRAFT%
+%TCIMACRO{\TEXTsymbol{>} }%
+%BeginExpansion
+$>$
+%EndExpansion
+More on subspaces}
+
+If $U$ is a subspace of a vector space $V$, then the sum of any two elements
+of $U$ must belong to $U$ (by the definition of a subspace). The same holds
+for sums of any (finite) number of elements of $U$:
+
+\begin{proposition}
+\label{prop.subspace.closed}Let $V$ be a vector space. Let $U$ be a subspace
+of $V$.
+
+\textbf{(a)} If $u_{1},u_{2},\ldots,u_{k}$ are elements of $U$, then
+$u_{1}+u_{2}+\cdots+u_{k}\in U$.
+
+\textbf{(b)} If $u_{1},u_{2},\ldots,u_{k}$ are elements of $U$, then every
+linear combination of $u_{1},u_{2},\ldots,u_{k}$ also lies in $U$.
+
+\textbf{(c)} Let $u_{1},u_{2},\ldots,u_{k}$ be elements of $U$. Then,
+\[
+\left\langle u_{1},u_{2},\ldots,u_{k}\right\rangle \subseteq U.
+\]
+
+\end{proposition}
+
+The claim of Proposition \ref{prop.subspace.closed} \textbf{(b)} is often
+expressed as the following short slogan: \textquotedblleft A subspace $U$ of a
+vector space $V$ is closed under linear combination\textquotedblright.
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.closed}.]\textbf{(a)} Roughly
+speaking, this is just a matter of applying the \textquotedblleft closed under
+addition\textquotedblright\ axiom several times. But there is a subtlety
+involved (the sum of $0$ elements of $U$ is not obtained by addition, but
+rather defined as $\overrightarrow{0}$), and I want to illustrate the
+principle of mathematical induction once again, so I am going to present the
+proof in full detail.
+
+Let $u_{1},u_{2},\ldots,u_{k}$ be elements of $U$. We must show that
+$u_{1}+u_{2}+\cdots+u_{k}\in U$.
+
+We shall prove that%
+\begin{equation}
+u_{1}+u_{2}+\cdots+u_{i}\in U\ \ \ \ \ \ \ \ \ \ \text{for every }i\in\left\{
+0,1,\ldots,k\right\}  . \label{pf.prop.subspace.closed.a.1}%
+\end{equation}
+
+
+We will prove (\ref{pf.prop.subspace.closed.a.1}) by induction over $i$. (See
+the proof of Proposition \ref{prop.sum.matrices.multi} given above for a brief
+explanation of what this principle means).
+
+\begin{enumerate}
+\item \textit{Induction base:} For $i=0$, the statement
+(\ref{pf.prop.subspace.closed.a.1}) claims that $u_{1}+u_{2}+\cdots+u_{0}\in
+U$. In order to make sense of this, we must recall that empty sums of vectors
+are defined to mean $\overrightarrow{0}$. Thus,
+\[
+u_{1}+u_{2}+\cdots+u_{0}=\left(  \text{empty sum of vectors}\right)
+=\overrightarrow{0}.
+\]
+But $U$ is a subspace of $V$, and thus contains $\overrightarrow{0}$ (this is
+one of the axioms for a subspace). Thus, $\overrightarrow{0}\in U$, so that
+$u_{1}+u_{2}+\cdots+u_{0}=\overrightarrow{0}\in U$. In other words,
+(\ref{pf.prop.subspace.closed.a.1}) holds for $i=0$. This completes the
+induction base.
+
+\item \textit{Induction step:} Let $j\in\left\{  0,1,\ldots,k-1\right\}  $ be
+such that (\ref{pf.prop.subspace.closed.a.1}) holds for $i=j$. (The statement
+that (\ref{pf.prop.subspace.closed.a.1}) holds for $i=j$ is called the
+\textquotedblleft induction hypothesis\textquotedblright.) We must show that
+(\ref{pf.prop.subspace.closed.a.1}) also holds for $i=j+1$.
+
+Since (\ref{pf.prop.subspace.closed.a.1}) holds for $i=j$, we have
+$u_{1}+u_{2}+\cdots+u_{j}\in U$. Now,%
+\[
+u_{1}+u_{2}+\cdots+u_{j+1}=\underbrace{\left(  u_{1}+u_{2}+\cdots
++u_{j}\right)  }_{\in U}+\underbrace{u_{j+1}}_{\in U}.
+\]
+This is a sum of two vectors in $U$, and thus belongs to $U$ (since $U$ is
+closed under addition). In other words, $u_{1}+u_{2}+\cdots+u_{j+1}\in U$.
+Thus, (\ref{pf.prop.subspace.closed.a.1}) also holds for $i=j+1$. This
+completes the induction step.
+\end{enumerate}
+
+Now, the proof of (\ref{pf.prop.subspace.closed.a.1}) is complete (since both
+the induction base and the induction step are complete).
+
+Now that (\ref{pf.prop.subspace.closed.a.1}) is proven, we can simply apply
+(\ref{pf.prop.subspace.closed.a.1}) to $i=k$, and conclude that $u_{1}%
++u_{2}+\cdots+u_{k}\in U$. This proves Proposition \ref{prop.subspace.closed}
+\textbf{(a)}.
+
+\textbf{(b)} Let $u_{1},u_{2},\ldots,u_{k}$ be elements of $U$. Let
+$\lambda_{1},\lambda_{2},\ldots,\lambda_{k}$ be real numbers.
+
+The set $U$ is a subspace of $V$, and thus is closed under scaling. Hence, the
+vectors $\lambda_{1}u_{1},\lambda_{2}u_{2},\ldots,\lambda_{k}u_{k}$ all belong
+to $U$ (since the vectors $u_{1},u_{2},\ldots,u_{k}$ belong to $U$). Thus,
+Proposition \ref{prop.subspace.closed} \textbf{(a)} (applied to $\lambda
+_{1}u_{1},\lambda_{2}u_{2},\ldots,\lambda_{k}u_{k}$ instead of $u_{1}%
+,u_{2},\ldots,u_{k}$) shows that $\lambda_{1}u_{1}+\lambda_{2}u_{2}%
++\cdots+\lambda_{k}u_{k}\in U$.
+
+Now, we have shown that $\lambda_{1}u_{1}+\lambda_{2}u_{2}+\cdots+\lambda
+_{k}u_{k}\in U$ whenever $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}$ are real
+numbers. In other words: every linear combination of $u_{1},u_{2},\ldots
+,u_{k}$ also lies in $U$. This proves Proposition \ref{prop.subspace.closed}
+\textbf{(b)}.
+
+\textbf{(c)} Proposition \ref{prop.subspace.closed} \textbf{(b)} shows that
+every linear combination of $u_{1},u_{2},\ldots,u_{k}$ lies in $U$. In other
+words, the set of all linear combinations of $u_{1},u_{2},\ldots,u_{k}$ is a
+subset of $U$. But since $\left\langle u_{1},u_{2},\ldots,u_{k}\right\rangle $
+is precisely the set of all linear combinations of $u_{1},u_{2},\ldots,u_{k}$
+(in fact, this is how $\left\langle u_{1},u_{2},\ldots,u_{k}\right\rangle $
+was defined), this rewrites as follows: $\left\langle u_{1},u_{2},\ldots
+,u_{k}\right\rangle $ is a subset of $U$. This proves Proposition
+\ref{prop.subspace.closed} \textbf{(c)}.
+\end{proof}
+
+I owe you a proof of Proposition \ref{prop.span.uniprop}; it can now be done
+quite easily:
+
 \begin{proof}
 [Proof of Proposition \ref{prop.span.uniprop}.]\textbf{(a)} Let $i\in\left\{
 1,2,\ldots,k\right\}  $. We claim that $v_{i}\in\left\langle v_{1}%
@@ -16103,50 +16491,12 @@ Proposition \ref{prop.span.uniprop} \textbf{(a)}.
 
 \textbf{(b)} Let $U$ be a subspace of $V$ that contains the vectors
 $v_{1},v_{2},\ldots,v_{k}$. We must prove that $\left\langle v_{1}%
-,v_{2},\ldots,v_{k}\right\rangle \subseteq U$.
-
-[...] (This is a problem on hw3.)
+,v_{2},\ldots,v_{k}\right\rangle \subseteq U$. But this follows immediately
+from Proposition \ref{prop.subspace.closed} \textbf{(c)} (applied to
+$u_{i}=v_{i}$). Thus, Proposition \ref{prop.span.uniprop} \textbf{(b)} is proven.
 \end{proof}
 
 [...]
-
-\begin{todo}
-Finish proof of Proposition \ref{prop.span.uniprop} \textbf{(b)}.
-\end{todo}
-
-\begin{todo}
-Intersction of subspaces.
-
-Sum of subspaces.
-\end{todo}
-
-\begin{todo}
-image of a matrix.
-\end{todo}
-
-\begin{todo}
-Polynomials $p$ such that $p\left(  3\right)  =0$.
-\end{todo}
-
-\begin{todo}
-Functions $f$ such that $f$ is continuous.
-\end{todo}
-
-\begin{todo}
-Are functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ are a subspace of
-the functions $\mathbb{R}\rightarrow\mathbb{R}$ ? No, since they are not even
-a subset.
-\end{todo}
-
-\begin{todo}
-Are functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
--1,1\right]  $ a subspace of the functions $\mathbb{R}\rightarrow\mathbb{R}$ ?
-No (e.g., scaling fails).
-\end{todo}
-
-\begin{todo}
-Subspaces of $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$ in geometric terms.
-\end{todo}
 
 [...]
 
