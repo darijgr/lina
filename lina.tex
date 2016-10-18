@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Sunday, October 16, 2016 15:39:13}
+%TCIDATA{LastRevised=Monday, October 17, 2016 22:15:29}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -16099,17 +16099,17 @@ A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}=x_{1}\operatorname*{col}%
 [Proof of Lemma \ref{lem.subspace.Im.Ax}.]For each $i\in\left\{
 1,2,\ldots,n\right\}  $ and $j\in\left\{  1,2,\ldots,m\right\}  $, we have%
 \begin{equation}
-\left(  \operatorname*{col}\nolimits_{j}A\right)  _{i,1}=A_{i,j}%
+\left(  \operatorname*{col}\nolimits_{j}A\right)  _{i,1}=A_{i,j}
 \label{pf.lem.subspace.Im.Ax.colji}%
 \end{equation}
 (because $\operatorname*{col}\nolimits_{j}A$ is the $j$-th column of $A$, and
 thus its $i$-th entry is the $\left(  i,j\right)  $-th entry of $A$). Now, for
 each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
 \begin{align}
-& \left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+&  \left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
 \nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)
 _{i,1}\nonumber\\
-& =\underbrace{\left(  x_{1}\operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
+&  =\underbrace{\left(  x_{1}\operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
 }_{\substack{=x_{1}\left(  \operatorname*{col}\nolimits_{1}A\right)
 _{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}%
 }}+\underbrace{\left(  x_{2}\operatorname*{col}\nolimits_{2}A\right)  _{i,1}%
@@ -16117,17 +16117,16 @@ _{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}%
 _{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}}%
 }+\cdots+\underbrace{\left(  x_{m}\operatorname*{col}\nolimits_{m}A\right)
 _{i,1}}_{\substack{=x_{m}\left(  \operatorname*{col}\nolimits_{m}A\right)
-_{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}%
-}}\nonumber\\
-& \ \ \ \ \ \ \ \ \ \ \left(
+_{i,1}\\\text{(since matrices are}\\\text{scaled entry by entry)}}}\nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{since matrices are added entry by entry}\\
 \text{(more precisely, we are using Proposition \ref{prop.sum.matrices.multi}
 here)}%
 \end{array}
-\right)  \nonumber\\
-& =x_{1}\underbrace{\left(  \operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
+\right) \nonumber\\
+&  =x_{1}\underbrace{\left(  \operatorname*{col}\nolimits_{1}A\right)  _{i,1}%
 }_{\substack{=A_{i,1}\\\text{(by (\ref{pf.lem.subspace.Im.Ax.colji}%
 ),}\\\text{applied to }j=1\text{)}}}+x_{2}\underbrace{\left(
 \operatorname*{col}\nolimits_{2}A\right)  _{i,1}}_{\substack{=A_{i,2}%
@@ -16136,8 +16135,8 @@ here)}%
 \nolimits_{m}A\right)  _{i,1}}_{\substack{=A_{i,m}\\\text{(by
 (\ref{pf.lem.subspace.Im.Ax.colji}),}\\\text{applied to }j=m\text{)}%
 }}\nonumber\\
-& =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}%
-.\label{pf.lem.subspace.Im.Ax.0}%
+&  =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}.
+\label{pf.lem.subspace.Im.Ax.0}%
 \end{align}
 
 
@@ -16145,7 +16144,7 @@ Set $B=\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}$. Then, $B$ is an
 $m\times1$-matrix, and its entries are%
 \begin{equation}
 B_{k,1}=x_{k}\ \ \ \ \ \ \ \ \ \ \text{for each }k\in\left\{  1,2,\ldots
-,m\right\}  .\label{pf.lem.subspace.Im.Ax.1}%
+,m\right\}  . \label{pf.lem.subspace.Im.Ax.1}%
 \end{equation}
 
 
@@ -16153,17 +16152,17 @@ Now, $AB$ is an $n\times1$-matrix (since $A$ is an $n\times m$-matrix and $B$
 is an $m\times1$-matrix), i.e., a column vector of size $n$. For each
 $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
 \begin{align*}
-\left(  AB\right)  _{i,1}  & =A_{i,1}\underbrace{B_{1,1}}_{\substack{=x_{1}%
+\left(  AB\right)  _{i,1}  &  =A_{i,1}\underbrace{B_{1,1}}_{\substack{=x_{1}%
 \\\text{(by (\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}%
 }}+A_{i,2}\underbrace{B_{2,1}}_{\substack{=x_{2}\\\text{(by
 (\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}%
 }+\cdots+A_{i,m}\underbrace{B_{m,1}}_{\substack{=x_{m}\\\text{(by
 (\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}}\\
-& \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.matrix-prod.rc}
-\textbf{(a)}, applied to }p=1\text{ and }j=1\right)  \\
-& =A_{i,1}x_{1}+A_{i,2}x_{2}+\cdots+A_{i,m}x_{m}\\
-& =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}\\
-& =\left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.matrix-prod.rc}
+\textbf{(a)}, applied to }p=1\text{ and }j=1\right) \\
+&  =A_{i,1}x_{1}+A_{i,2}x_{2}+\cdots+A_{i,m}x_{m}\\
+&  =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}\\
+&  =\left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
 \nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)  _{i,1}.
 \end{align*}
 (by (\ref{pf.lem.subspace.Im.Ax.0})). In other words, for each $i\in\left\{
@@ -16194,14 +16193,14 @@ Lemma \ref{lem.subspace.Im.Ax} is proven.
 (\ref{eq.def.subspace.span.explicit}) to $V=\mathbb{R}^{n}$, $k=m$ and
 $v_{i}=\operatorname*{col}\nolimits_{i}A$, we obtain%
 \begin{align}
-& \left\langle \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
+&  \left\langle \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
 \nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right\rangle
 \nonumber\\
-& =\left\{  \lambda_{1}\operatorname*{col}\nolimits_{1}A+\lambda
+&  =\left\{  \lambda_{1}\operatorname*{col}\nolimits_{1}A+\lambda
 _{2}\operatorname*{col}\nolimits_{2}A+\cdots+\lambda_{m}\operatorname*{col}%
 \nolimits_{m}A\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{m}\in
-\mathbb{R}\right\}  \nonumber\\
-& =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\mathbb{R}\right\} \nonumber\\
+&  =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
 \nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\ \mid
 \ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}\right\}
 \label{pf.prop.subspace.Im.a.1}%
@@ -16209,15 +16208,15 @@ _{2}\operatorname*{col}\nolimits_{2}A+\cdots+\lambda_{m}\operatorname*{col}%
 (here, we have renamed the summation indices $\lambda_{1},\lambda_{2}%
 ,\ldots,\lambda_{m}$ as $x_{1},x_{2},\ldots,x_{m}$). But%
 \begin{align*}
-A\mathbb{R}^{m}  & =\left\{  Ax\ \mid\ x\in\mathbb{R}^{m}\right\}
-\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }A\mathbb{R}%
-^{m}\right)  \\
-& =\left\{  \underbrace{A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}%
+A\mathbb{R}^{m}  &  =\left\{  Ax\ \mid\ x\in\mathbb{R}^{m}\right\}
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }A\mathbb{R}^{m}\right)
+\\
+&  =\left\{  \underbrace{A\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}%
 }_{\substack{=x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
 \nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\\\text{(by Lemma
 \ref{lem.subspace.Im.Ax})}}}\ \mid\ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}%
-\right\}  \\
-& \ \ \ \ \ \ \ \ \ \ \left(
+\right\} \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
 \begin{array}
 [c]{c}%
 \text{here, we have substituted }\left(  x_{1},x_{2},\ldots,x_{m}\right)
@@ -16227,8 +16226,8 @@ column vectors}\\
 \text{of the form }\left(  x_{1},x_{2},\ldots,x_{m}\right)  ^{T}\text{ with
 }x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}%
 \end{array}
-\right)  \\
-& =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
+\right) \\
+&  =\left\{  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
 \nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\ \mid
 \ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}\right\}  .
 \end{align*}
@@ -16248,19 +16247,253 @@ A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
 A\right\rangle $). This proves Proposition \ref{prop.subspace.Im} \textbf{(b)}.
 \end{proof}
 
+The probably simplest example of an image is the following:
+
+\begin{proposition}
+\label{prop.Im.0}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then, $0_{n\times
+m}\mathbb{R}^{m}=\left\{  0_{n\times1}\right\}  $.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.Im.0}.] The definition of $0_{n\times
+m}\mathbb{R}^{m}$ yields
+\begin{equation}
+0_{n\times m}\mathbb{R}^{m}=\left\{  \underbrace{0_{n\times m}x}%
+_{=0_{n\times1}}\ \mid\ x\in\mathbb{R}^{m}\right\}  =\left\{  0_{n\times
+1}\ \mid\ x\in\mathbb{R}^{m}\right\}  \subseteq\left\{  0_{n\times1}\right\}
+.\label{pf.prop.Im.0.dir1}%
+\end{equation}
+On the other hand, $0_{n\times1}=0_{n\times m}0_{m\times1}\in0_{n\times
+m}\mathbb{R}^{m}$ (since $0_{m\times1}\in\mathbb{R}^{m}$), and thus $\left\{
+0_{n\times1}\right\}  \subseteq0_{n\times m}\mathbb{R}^{m}$. Combining this
+with (\ref{pf.prop.Im.0.dir1}), we obtain $0_{n\times m}\mathbb{R}%
+^{m}=\left\{  0_{n\times1}\right\}  $. This proves Proposition \ref{prop.Im.0}.
+\end{proof}
+
+\subsubsection{Subspaces from subspaces}
+
+Next, let us see two ways to construct subspaces from other subspaces:
+
+\begin{proposition}
+\label{prop.subspace.inter}Let $V$ be a vector space. Let $U_{1}$ and $U_{2}$
+be two subspaces of $V$. Then, $U_{1}\cap U_{2}$ is a subspace of $V$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.inter}.] Clearly, $U_{1}\cap U_{2}$
+is a subset of $V$ (since $U_{1}\cap U_{2}\subseteq U_{1}\subseteq V$). We
+want to show that $U_{1}\cap U_{2}$ is a subspace of $V$. Thus, we need to
+show that $U_{1}\cap U_{2}$ contains the zero vector, is closed under
+addition, and is closed under scaling. Let us do this:
+
+\textit{Proof that }$U_{1}\cap U_{2}$\textit{ contains the zero vector:} The
+set $U_{1}$ is a subspace of $V$, and thus contains the zero vector. In other
+words, $\overrightarrow{0}\in U_{1}$. Similarly, $\overrightarrow{0}\in U_{2}%
+$. Combining $\overrightarrow{0}\in U_{1}$ with $\overrightarrow{0}\in U_{2}$,
+we obtain $\overrightarrow{0}\in U_{1}\cap U_{2}$. In other words, $U_{1}\cap
+U_{2}$ contains the zero vector (since $\overrightarrow{0}$ is the zero vector
+of the vector space $V$).
+
+\textit{Proof that }$U_{1}\cap U_{2}$ \textit{is closed under addition:} Let
+$v\in U_{1}\cap U_{2}$ and $w\in U_{1}\cap U_{2}$. We must prove that $v+w\in
+U_{1}\cap U_{2}$.
+
+We have $v\in U_{1}\cap U_{2}\subseteq U_{1}$ and $w\in U_{1}\cap
+U_{2}\subseteq U_{1}$. But $U_{1}$ is a subspace of $V$, and thus is closed
+under addition. Hence, from $v\in U_{1}$ and $w\in U_{1}$, we can conclude
+that $v+w\in U_{1}$. The same argument (but with the roles of $U_{1}$ and
+$U_{2}$ interchanged) shows that $v+w\in U_{2}$.
+
+We now know that the element $v+w$ lies in both sets $U_{1}$ and $U_{2}$;
+therefore, $v+w$ lies in their intersection $U_{1}\cap U_{2}$. In other words,
+$v+w\in U_{1}\cap U_{2}$. This completes the proof of the fact that $U_{1}\cap
+U_{2}$ is closed under addition.
+
+\textit{Proof that }$U_{1}\cap U_{2}$ \textit{is closed under scaling:} This
+proof is left to the reader. (It is similar to the above proof that $U_{1}\cap
+U_{2}$ is closed under addition.)
+
+We now have shown that $U_{1}\cap U_{2}$ contains the zero vector, is closed
+under addition, and is closed under scaling. Hence, $U_{1}\cap U_{2}$ is a
+subspace of $V$. This proves Proposition \ref{prop.subspace.inter}.
+\end{proof}
+
+\begin{definition}
+\label{def.subspace.sum}Let $V$ be a vector space. Let $U_{1}$ and $U_{2}$ be
+two subspaces of $V$. Then, $U_{1}+U_{2}$ denotes the set%
+\[
+\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and }u_{2}\in U_{2}\right\}
+.
+\]
+This set $U_{1}+U_{2}$ is called the \textit{sum} of the subspaces $U_{1}$ and
+$U_{2}$.
+\end{definition}
+
+\begin{proposition}
+\label{prop.subspace.sum}Let $V$ be a vector space. Let $U_{1}$ and $U_{2}$ be
+two subspaces of $V$. Then, $U_{1}+U_{2}$ is a subspace of $V$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.sum}.] We have%
+\begin{equation}
+U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and }u_{2}\in
+U_{2}\right\}  \label{pf.prop.subspace.sum.def}%
+\end{equation}
+(by the definition of $U_{1}+U_{2}$). Hence, the elements of $U_{1}+U_{2}$ are
+vectors of the form $u_{1}+u_{2}$ with $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$;
+clearly, these vectors all belong to $V$. Hence, $U_{1}+U_{2}$ is a subset of
+$V$. We want to show that $U_{1}+U_{2}$ is a subspace of $V$. Thus, we need to
+show that $U_{1}+U_{2}$ contains the zero vector, is closed under addition,
+and is closed under scaling. Let us do this:
+
+\textit{Proof that }$U_{1}+U_{2}$\textit{ contains the zero vector:} The set
+$U_{1}$ is a subspace of $V$, and thus contains the zero vector. In other
+words, $\overrightarrow{0}\in U_{1}$. Similarly, $\overrightarrow{0}\in U_{2}%
+$. Now, $\overrightarrow{0}=\overrightarrow{0}+\overrightarrow{0}$. Hence,
+$\overrightarrow{0}$ is a vector of the form $u_{1}+u_{2}$ with $u_{1}\in
+U_{1}$ and $u_{2}\in U_{2}$ (namely, $u_{1}=\overrightarrow{0}$ and
+$u_{2}=\overrightarrow{0}$). In other words,%
+\[
+\overrightarrow{0}\in\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and
+}u_{2}\in U_{2}\right\}  .
+\]
+In light of (\ref{pf.prop.subspace.sum.def}), this rewrites as
+$\overrightarrow{0}\in U_{1}+U_{2}$. In other words, $U_{1}+U_{2}$ contains
+the zero vector (since $\overrightarrow{0}$ is the zero vector of the vector
+space $V$).
+
+\textit{Proof that }$U_{1}+U_{2}$ \textit{is closed under addition:} Let $v\in
+U_{1}+U_{2}$ and $w\in U_{1}+U_{2}$. We must prove that $v+w\in U_{1}+U_{2}$.
+
+We have $v\in U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and
+}u_{2}\in U_{2}\right\}  $. In other words, $v$ has the form $v=u_{1}+u_{2}$
+for some $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$. Denote these $u_{1}$ and
+$u_{2}$ by $v_{1}$ and $v_{2}$. Thus, $v_{1}\in V_{1}$ and $v_{2}\in V_{2}$
+and $v=v_{1}+v_{2}$.
+
+We have $w\in U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and
+}u_{2}\in U_{2}\right\}  $. In other words, $w$ has the form $w=u_{1}+u_{2}$
+for some $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$. Denote these $u_{1}$ and
+$u_{2}$ by $w_{1}$ and $w_{2}$. Thus, $w_{1}\in V_{1}$ and $w_{2}\in V_{2}$
+and $w=w_{1}+w_{2}$.
+
+Now, the set $U_{1}$ is a subspace of $V$, and thus is closed under addition.
+Hence, from $v_{1}\in U_{1}$ and $w_{1}\in U_{1}$, we can conclude that
+$v_{1}+w_{1}\in U_{1}$. Similarly, $v_{2}+w_{2}\in U_{2}$.
+
+Adding the equalities $v=v_{1}+v_{2}$ and $w=w_{1}+w_{2}$, we obtain%
+\[
+v+w=\left(  v_{1}+v_{2}\right)  +\left(  w_{1}+w_{2}\right)  =\left(
+v_{1}+w_{1}\right)  +\left(  v_{2}+w_{2}\right)  .
+\]
+Hence, $v+w$ has the form $v+w=u_{1}+u_{2}$ for some $u_{1}\in U_{1}$ and
+$u_{2}\in U_{2}$ (namely, for $u_{1}=v_{1}+w_{1}$ and $u_{2}=v_{2}+w_{2}%
+$)\ \ \ \ \footnote{Here, we are using the observations (made above) that
+$v_{1}+w_{1}\in U_{1}$ and $v_{2}+w_{2}\in U_{2}$.}. In other words,%
+\[
+v+w\in\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and }u_{2}\in
+U_{2}\right\}  .
+\]
+In light of (\ref{pf.prop.subspace.sum.def}), this rewrites as $v+w\in
+U_{1}+U_{2}$. This completes the proof of the fact that $U_{1}+U_{2}$ is
+closed under addition.
+
+\textit{Proof that }$U_{1}+U_{2}$ \textit{is closed under scaling:} We leave
+this proof to the reader. (It is similar to the above proof that $U_{1}+U_{2}$
+is closed under addition.)
+
+We now have shown that $U_{1}+U_{2}$ contains the zero vector, is closed under
+addition, and is closed under scaling. Hence, $U_{1}+U_{2}$ is a subspace of
+$V$. This proves Proposition \ref{prop.subspace.sum}.
+\end{proof}
+
+Generalizing Definition \ref{def.subspace.sum}, we can define the sum
+$U_{1}+U_{2}+\cdots+U_{n}$ of any (finite) number of subspaces $U_{1}%
+,U_{2},\ldots,U_{n}$ of $V$. This, too, will be a subspace of $V$. The proof
+of this is analogous to our above proof of Proposition \ref{prop.subspace.sum}.
+
+\begin{proposition}
+\label{prop.subspace.dirprod}Let $V_{1}$ and $V_{2}$ be two vector spaces. Let
+$U_{1}$ be a subspace of $V_{1}$. Let $U_{2}$ be a subspace of $V_{2}$. Then,
+$U_{1}\times U_{2}$ is a subspace of $V_{1}\times V_{2}$. (See Definition
+\ref{def.vectspace.product} for the definition of the vector space
+$V_{1}\times V_{2}$.)
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.subspace.dirprod}.] Every element of
+$U_{1}\times U_{2}$ is a pair $\left(  u_{1},u_{2}\right)  \in U_{1}\times
+U_{2}$. All such pairs $\left(  u_{1},u_{2}\right)  $ belong to $V_{1}\times
+V_{2}$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u_{1},u_{2}\right)  \in
+U_{1}\times U_{2}$. Then, $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$. Hence,
+$u_{1}\in U_{1}\subseteq V_{1}$ and $u_{2}\in U_{2}\subseteq V_{2}$. Thus,
+$\left(  u_{1},u_{2}\right)  \in V_{1}\times V_{2}$, qed.}. Hence,
+$U_{1}\times U_{2}$ is a subset of $V_{1}\times V_{2}$. We want to show that
+$U_{1}\times U_{2}$ is a subspace of $V_{1}\times V_{2}$. Thus, we need to
+show that $U_{1}\times U_{2}$ contains the zero vector, is closed under
+addition, and is closed under scaling. Let us do this:
+
+\textit{Proof that }$U_{1}\times U_{2}$\textit{ contains the zero vector:} In
+the following, we will denote the zero vector of a vector space $W$ by
+$\overrightarrow{0}_{W}$. (We are using this notation instead of the usual
+notation $\overrightarrow{0}$, because we want to be able to distinguish
+between the zero vectors of different vector spaces.)
+
+The set $U_{1}$ is a subspace of $V_{1}$, and thus contains the zero vector.
+In other words, $\overrightarrow{0}_{V_{1}}\in U_{1}$. Similarly,
+$\overrightarrow{0}_{V_{2}}\in U_{2}$. Now, the definition of
+$\overrightarrow{0}_{V_{1}\times V_{2}}$ yields $\overrightarrow{0}%
+_{V_{1}\times V_{2}}=\left(  \overrightarrow{0}_{V_{1}},\overrightarrow{0}%
+_{V_{2}}\right)  \in U_{1}\times U_{2}$ (since $\overrightarrow{0}_{V_{1}}\in
+U_{1}$ and $\overrightarrow{0}_{V_{2}}\in U_{2}$). In other words,
+$U_{1}\times U_{2}$ contains the zero vector (of the vector space $V_{1}\times
+V_{2}$).
+
+\textit{Proof that }$U_{1}\times U_{2}$ \textit{is closed under addition:} Let
+$v\in U_{1}\times U_{2}$ and $w\in U_{1}\times U_{2}$. We must prove that
+$v+w\in U_{1}\times U_{2}$.
+
+We have $v\in U_{1}\times U_{2}$. In other words, $v$ is a pair of the form
+$v=\left(  u_{1},u_{2}\right)  $ for some $u_{1}\in U_{1}$ and $u_{2}\in
+U_{2}$. Denote these $u_{1}$ and $u_{2}$ by $v_{1}$ and $v_{2}$. Thus,
+$v_{1}\in V_{1}$ and $v_{2}\in V_{2}$ and $v=\left(  v_{1},v_{2}\right)  $.
+
+We have $w\in U_{1}\times U_{2}$. In other words, $w$ is a pair of the form
+$w=\left(  u_{1},u_{2}\right)  $ for some $u_{1}\in U_{1}$ and $u_{2}\in
+U_{2}$. Denote these $u_{1}$ and $u_{2}$ by $w_{1}$ and $w_{2}$. Thus,
+$w_{1}\in V_{1}$ and $w_{2}\in V_{2}$ and $w=\left(  w_{1},w_{2}\right)  $.
+
+Now, the set $U_{1}$ is a subspace of $V_{1}$, and thus is closed under
+addition. Hence, from $v_{1}\in U_{1}$ and $w_{1}\in U_{1}$, we can conclude
+that $v_{1}+w_{1}\in U_{1}$. Similarly, $v_{2}+w_{2}\in U_{2}$.
+
+Adding the equalities $v=\left(  v_{1},v_{2}\right)  $ and $w=\left(
+w_{1},w_{2}\right)  $, we obtain%
+\[
+v+w=\left(  v_{1},v_{2}\right)  +\left(  w_{1},w_{2}\right)  =\left(
+v_{1}+w_{1},v_{2}+w_{2}\right)  .
+\]
+Hence, $v+w$ has the form $v+w=\left(  u_{1},u_{2}\right)  $ for some
+$u_{1}\in U_{1}$ and $u_{2}\in U_{2}$ (namely, for $u_{1}=v_{1}+w_{1}$ and
+$u_{2}=v_{2}+w_{2}$)\ \ \ \ \footnote{Here, we are using the observations
+(made above) that $v_{1}+w_{1}\in U_{1}$ and $v_{2}+w_{2}\in U_{2}$.}. In
+other words, $v+w\in U_{1}\times U_{2}$. This completes the proof of the fact
+that $U_{1}\times U_{2}$ is closed under addition.
+
+\textit{Proof that }$U_{1}\times U_{2}$ \textit{is closed under scaling:} We
+leave this proof to the reader. (It is similar to the above proof that
+$U_{1}\times U_{2}$ is closed under addition.)
+
+We now have shown that $U_{1}\times U_{2}$ contains the zero vector, is closed
+under addition, and is closed under scaling. Hence, $U_{1}\times U_{2}$ is a
+subspace of $V_{1}\times V_{2}$. This proves Proposition
+\ref{prop.subspace.dirprod}.
+\end{proof}
+
+\subsubsection{Examples of subspaces of $\mathbb{R}^{2\times2}$}
+
 [...]
-
-\begin{todo}
-Intersction of subspaces.
-\end{todo}
-
-\begin{todo}
-Sum of subspaces.
-\end{todo}
-
-\begin{todo}
-image of $0_{n\times m}$ is $0$
-\end{todo}
 
 \begin{todo}
 subspaces of $\mathbb{R}^{2\times2}$
@@ -16515,6 +16748,18 @@ More on spans}
 \textbf{References for vector spaces:} \cite[\S 5.1]{LaNaSc16} (possibly the
 best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
 applied stuff) and \cite[Two.I.2]{Heffer16}.
+
+
+
+\begin{todo}
+$E_{i,j}$ span $\mathbb{R}^{n\times m}$
+\end{todo}
+
+
+
+\begin{todo}
+$e_{i}$ span $\mathbb{R}^{n}$
+\end{todo}
 
 [...]
 
