@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 17, 2016 23:09:31}
+%TCIDATA{LastRevised=Thursday, October 27, 2016 21:11:10}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -6332,9 +6332,8 @@ in the general case). The proof below is just for the fans of formal reasoning.
 &  =\sum_{u=1}^{n}\underbrace{\left(  \sum_{v=1}^{m}A_{u,v}E_{u,v}\right)
 _{i,j}}_{\substack{=\sum_{v=1}^{m}\left(  A_{u,v}E_{u,v}\right)
 _{i,j}\\\text{(by an application of}\\\text{Proposition
-\ref{prop.sum.matrices.multi})}}}\\
-&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by an application of Proposition
-\ref{prop.sum.matrices.multi}}\right) \\
+\ref{prop.sum.matrices.multi})}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by an
+application of Proposition \ref{prop.sum.matrices.multi}}\right) \\
 &  =\sum_{u=1}^{n}\sum_{v=1}^{m}\underbrace{\left(  A_{u,v}E_{u,v}\right)
 _{i,j}}_{\substack{=A_{u,v}\left(  E_{u,v}\right)  _{i,j}\\\text{(since
 matrices are scaled entry by entry)}}}\\
@@ -6416,11 +6415,11 @@ Now, let $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
 1,2,\ldots,p\right\}  $. Then, Proposition \ref{prop.AB} (applied to
 $A=E_{u,v,n,m}$ and $B=E_{x,y,m,p}$) shows that%
 \begin{align*}
-&  \left(  E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}\\
-&  =\sum_{k=1}^{m}\underbrace{\left(  E_{u,v,n,m}\right)  _{i,k}%
-}_{\substack{=\delta_{i,u}\delta_{k,v}\\\text{(by (\ref{pf.prop.Euv.prod.1}),
-applied to }k\\\text{instead of }j\text{)}}}\underbrace{\left(  E_{x,y,m,p}%
-\right)  _{k,j}}_{\substack{=\delta_{k,x}\delta_{j,y}\\\text{(by
+\left(  E_{u,v,n,m}E_{x,y,m,p}\right)  _{i,j}  &  =\sum_{k=1}^{m}%
+\underbrace{\left(  E_{u,v,n,m}\right)  _{i,k}}_{\substack{=\delta_{i,u}%
+\delta_{k,v}\\\text{(by (\ref{pf.prop.Euv.prod.1}), applied to }%
+k\\\text{instead of }j\text{)}}}\underbrace{\left(  E_{x,y,m,p}\right)
+_{k,j}}_{\substack{=\delta_{k,x}\delta_{j,y}\\\text{(by
 (\ref{pf.prop.Euv.prod.2}), applied to }k\\\text{instead of }i\text{)}}}\\
 &  =\sum_{k=1}^{m}\delta_{i,u}\delta_{k,v}\delta_{k,x}\delta_{j,y}=\sum
 _{k=1}^{m}\delta_{i,u}\delta_{k,x}\delta_{j,y}\delta_{k,v}\\
@@ -6430,10 +6429,9 @@ _{k=1}^{m}\delta_{i,u}\delta_{k,x}\delta_{j,y}\delta_{k,v}\\
 $\delta_{i,u}\delta_{k,x}\delta_{j,y}$ instead of $p$, $q$, $r$ and $a_{k}$).
 Comparing this with%
 \begin{align*}
-&  \left(  \delta_{v,x}E_{u,y,n,p}\right)  _{i,j}\\
-&  =\delta_{v,x}\underbrace{\left(  E_{u,y,n,p}\right)  _{i,j}}%
-_{\substack{=\delta_{i,u}\delta_{j,y}\\\text{(by (\ref{pf.prop.Euv.prod.3}))}%
-}}\\
+\left(  \delta_{v,x}E_{u,y,n,p}\right)  _{i,j}  &  =\delta_{v,x}%
+\underbrace{\left(  E_{u,y,n,p}\right)  _{i,j}}_{\substack{=\delta_{i,u}%
+\delta_{j,y}\\\text{(by (\ref{pf.prop.Euv.prod.3}))}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are scaled entry by
 entry}\right) \\
 &  =\delta_{v,x}\delta_{i,u}\delta_{j,y}=\delta_{i,u}\delta_{v,x}\delta_{j,y},
@@ -13895,7 +13893,7 @@ Gaussian elimination and the row echelon form}
 
 (to be continued)
 
-\textbf{TO-DO LIST! (This will appear shortly:)}
+\textbf{TO-DO LIST! (This will appear eventually:)}
 
 \begin{todo}
 Gaussian elimination: $C=E^{\ast}U$, where $E^{\ast}$ is a product of
@@ -16155,9 +16153,9 @@ $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
 \left(  AB\right)  _{i,1}  &  =A_{i,1}\underbrace{B_{1,1}}_{\substack{=x_{1}%
 \\\text{(by (\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}%
 }}+A_{i,2}\underbrace{B_{2,1}}_{\substack{=x_{2}\\\text{(by
-(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}%
+(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=2\text{)}}%
 }+\cdots+A_{i,m}\underbrace{B_{m,1}}_{\substack{=x_{m}\\\text{(by
-(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=1\text{)}}}\\
+(\ref{pf.lem.subspace.Im.Ax.1}),}\\\text{applied to }k=m\text{)}}}\\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{by Proposition \ref{prop.matrix-prod.rc}
 \textbf{(a)}, applied to }p=1\text{ and }j=1\right) \\
 &  =A_{i,1}x_{1}+A_{i,2}x_{2}+\cdots+A_{i,m}x_{m}\\
@@ -16255,13 +16253,13 @@ m}\mathbb{R}^{m}=\left\{  0_{n\times1}\right\}  $.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.Im.0}.] The definition of $0_{n\times
+[Proof of Proposition \ref{prop.Im.0}.]The definition of $0_{n\times
 m}\mathbb{R}^{m}$ yields
 \begin{equation}
 0_{n\times m}\mathbb{R}^{m}=\left\{  \underbrace{0_{n\times m}x}%
 _{=0_{n\times1}}\ \mid\ x\in\mathbb{R}^{m}\right\}  =\left\{  0_{n\times
 1}\ \mid\ x\in\mathbb{R}^{m}\right\}  \subseteq\left\{  0_{n\times1}\right\}
-.\label{pf.prop.Im.0.dir1}%
+. \label{pf.prop.Im.0.dir1}%
 \end{equation}
 On the other hand, $0_{n\times1}=0_{n\times m}0_{m\times1}\in0_{n\times
 m}\mathbb{R}^{m}$ (since $0_{m\times1}\in\mathbb{R}^{m}$), and thus $\left\{
@@ -16280,11 +16278,11 @@ be two subspaces of $V$. Then, $U_{1}\cap U_{2}$ is a subspace of $V$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.subspace.inter}.] Clearly, $U_{1}\cap U_{2}$
-is a subset of $V$ (since $U_{1}\cap U_{2}\subseteq U_{1}\subseteq V$). We
-want to show that $U_{1}\cap U_{2}$ is a subspace of $V$. Thus, we need to
-show that $U_{1}\cap U_{2}$ contains the zero vector, is closed under
-addition, and is closed under scaling. Let us do this:
+[Proof of Proposition \ref{prop.subspace.inter}.]Clearly, $U_{1}\cap U_{2}$ is
+a subset of $V$ (since $U_{1}\cap U_{2}\subseteq U_{1}\subseteq V$). We want
+to show that $U_{1}\cap U_{2}$ is a subspace of $V$. Thus, we need to show
+that $U_{1}\cap U_{2}$ contains the zero vector, is closed under addition, and
+is closed under scaling. Let us do this:
 
 \textit{Proof that }$U_{1}\cap U_{2}$\textit{ contains the zero vector:} The
 set $U_{1}$ is a subspace of $V$, and thus contains the zero vector. In other
@@ -16335,7 +16333,7 @@ two subspaces of $V$. Then, $U_{1}+U_{2}$ is a subspace of $V$.
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.subspace.sum}.] We have%
+[Proof of Proposition \ref{prop.subspace.sum}.]We have%
 \begin{equation}
 U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and }u_{2}\in
 U_{2}\right\}  \label{pf.prop.subspace.sum.def}%
@@ -16422,7 +16420,7 @@ $V_{1}\times V_{2}$.)
 \end{proposition}
 
 \begin{proof}
-[Proof of Proposition \ref{prop.subspace.dirprod}.] Every element of
+[Proof of Proposition \ref{prop.subspace.dirprod}.]Every element of
 $U_{1}\times U_{2}$ is a pair $\left(  u_{1},u_{2}\right)  \in U_{1}\times
 U_{2}$. All such pairs $\left(  u_{1},u_{2}\right)  $ belong to $V_{1}\times
 V_{2}$\ \ \ \ \footnote{\textit{Proof.} Let $\left(  u_{1},u_{2}\right)  \in
@@ -16491,12 +16489,60 @@ subspace of $V_{1}\times V_{2}$. This proves Proposition
 \ref{prop.subspace.dirprod}.
 \end{proof}
 
-\subsubsection{Examples of subspaces of $\mathbb{R}^{2\times2}$}
+\subsubsection{Matrix spaces}
+
+As we have seen in Example \ref{exam.vectspace.Rnm}, the $n \times m$-matrices
+(with real entries, for given $n$ and $m$) form a vector space, called
+$\mathbb{R}^{n \times m}$. How do subspaces of this space look like? Let us
+see some examples of subspaces of $\mathbb{R}^{2 \times2}$:
+
+\begin{example}
+\label{exam.subspace.R22} \textbf{(a)} Let $A$ be the subset
+\[
+\left\{  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  \in\mathbb{R}^{2 \times2} \mid a+b+c+d = 0 \right\}
+\]
+of $\mathbb{R}^{2\times2}$. Then, $A$ is a subspace of $\mathbb{R}^{2\times2}$.
+
+\textbf{(b)} Let $B$ be the subset
+\[
+\left\{  \left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  \in\mathbb{R}^{2 \times2} \mid ab+cd = 0 \right\}
+\]
+of $\mathbb{R}^{2\times2}$. Then, $B$ is \textbf{not} a subspace of
+$\mathbb{R}^{2\times2}$.
+
+\textbf{(c)} Let $C$ be the set of all upper-triangular $2 \times2$-matrices.
+Then, $C$ is a subspace of $\mathbb{R}^{2 \times2}$.
+
+\textbf{(d)} Let $D$ be the set of all strictly upper-triangular $2 \times
+2$-matrices. Then, $D$ is a subspace of $\mathbb{R}^{2 \times2}$.
+
+\textbf{(e)} Let $E$ be the set of all upper-unitriangular $2 \times
+2$-matrices. Then, $E$ is \textbf{not} a subspace of $\mathbb{R}^{2 \times2}$.
+
+\textbf{(f)} Let $F$ be the set of all invertible $2 \times2$-matrices. Then,
+$F$ is \textbf{not} a subspace of $\mathbb{R}^{2 \times2}$.
+
+\textbf{(g)} Fix a vector $v\in\mathbf{R}^{2}$. Let $G_{v}$ be the set of all
+$2\times2$-matrices $X\in\mathbb{R}^{2\times2}$ satisfying $Xv=0_{2\times1}$.
+Then, $G_{v}$ is a subspace of $\mathbb{R}^{2\times2}$.
+\end{example}
 
 [...]
 
 \begin{todo}
-subspaces of $\mathbb{R}^{2\times2}$
+proof of above examples
 \end{todo}
 
 \begin{todo}
@@ -16749,20 +16795,6 @@ More on spans}
 best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
 applied stuff) and \cite[Two.I.2]{Heffer16}.
 
-
-
-\begin{todo}
-$E_{i,j}$ span $\mathbb{R}^{n\times m}$
-\end{todo}
-
-
-
-\begin{todo}
-$e_{i}$ span $\mathbb{R}^{n}$
-\end{todo}
-
-
-
 \begin{todo}
 The terminology \textquotedblleft$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $
 spans $V$\textquotedblright\ (or \textquotedblleft$v_{1},v_{2},\ldots,v_{k}$
@@ -16770,7 +16802,13 @@ span $V$\textquotedblright) means $V=\left\langle v_{1},v_{2},\ldots
 ,v_{k}\right\rangle $.
 \end{todo}
 
+\begin{todo}
+$E_{i,j}$ span $\mathbb{R}^{n\times m}$. (Use Proposition \ref{prop.Euv.A=sum}.)
+\end{todo}
 
+\begin{todo}
+$e_{i} = E_{i,1}$ span $\mathbb{R}^{n}$.
+\end{todo}
 
 \begin{todo}
 How to check that a given vector is in a given span:
@@ -16784,8 +16822,6 @@ v_{k}$ has at least one solution $\left(  \lambda_{1},\lambda_{2}%
 Can solve this using Gaussian elimination.
 \end{todo}
 
-
-
 \begin{todo}
 How to check that a given span is contained in another given span:
 
@@ -16795,15 +16831,11 @@ $\alpha$ and $\beta$ lie in $\left\langle \gamma,\delta,\varepsilon
 \right\rangle $ (by Proposition \ref{prop.subspace.closed} \textbf{(c)}).
 \end{todo}
 
-
-
 \begin{todo}
 How to check that two given spans are identical?
 
 Check that each is contained in the other.
 \end{todo}
-
-
 
 \begin{todo}
 How to write the subspace carved out by equations (i.e., a kernel) as a span?
@@ -16923,8 +16955,6 @@ Thus, the elements of $\operatorname*{Ker}\left(
 \right)  \right\rangle $.
 \end{todo}
 
-
-
 \begin{todo}
 Example: $\left(  \left(  1,3,2\right)  ^{T},\left(  0,1,1\right)
 ^{T}\right)  $ spans $W:=\left\{  \left(  x,y,z\right)  ^{T}\ \mid
@@ -16944,8 +16974,6 @@ solution as $\left(  y-z,y,z\right)  ^{T}=y\left(  1,1,0\right)  ^{T}+z\left(
 equal. We know how this is done.
 \end{todo}
 
-
-
 \begin{todo}
 Example: $\left(  \left(  1,-1,1\right)  ^{T}\right)  $ spans $X:=\left\{
 \left(  x,y,z\right)  ^{T}\ \mid\ x+3y+z=0\text{ and }y+z=0\right\}  $.
@@ -16953,14 +16981,10 @@ Example: $\left(  \left(  1,-1,1\right)  ^{T}\right)  $ spans $X:=\left\{
 Prove this too.
 \end{todo}
 
-
-
 \begin{todo}
 Exercise: what spans $\left\{  \left(  u-v,v-u\right)  ^{T}\right\}
 \subseteq\mathbb{R}^{2}$ ? Is there an easier description?
 \end{todo}
-
-
 
 \begin{todo}
 Exercise: what spans $\left\{  \left(  u,v,0\right)  ^{T}\right\}  $ ?
@@ -16973,22 +16997,36 @@ $\left\{  \left(  x_{1},x_{2},x_{3}\right)  ^{T}\ \mid\ x_{1}^{2}+x_{2}%
 ^{2}=0\right\}  $ ?
 \end{todo}
 
-
-
 \begin{todo}
 Redundant vectors in spans can be removed.
 \end{todo}
 
-
-
 \begin{todo}
-Spans can be reordered; only the set matters (hw3).
+hw3: If $\left(  w_{1}, w_{2}, \ldots, w_{k}\right)  $ and $\left(  v_{1},
+v_{2}, \ldots, v_{\ell}\right)  $ are two lists of vectors such that $\left\{
+w_{1}, w_{2}, \ldots, w_{k}\right\}  = \left\{  v_{1}, v_{2}, \ldots, v_{\ell
+}\right\}  $, then $\left<  w_{1}, w_{2}, \ldots, w_{k}\right>  = \left<
+v_{1}, v_{2}, \ldots, v_{\ell}\right>  $. In particular, if we reorder or
+duplicate the elements of a list, then its span does not change.
 \end{todo}
-
-
 
 \begin{todo}
 Rest of hw3.
+\end{todo}
+
+\begin{todo}
+The list $\left(  1, x, x^{2}, \ldots, x^{n}\right)  $ spans the vector space
+$\mathcal{P}_{n}$ of all polynomial functions $\mathbb{R} \to\mathbb{R}$ of
+degree $\leq n$. (This allows the constant-$0$ function, which is understood
+to have degree $-\infty$.)
+\end{todo}
+
+\begin{todo}
+hw3: The subspace $\left\{  \left(  x_{1}, x_{2}, \ldots, x_{n}\right)  ^{T}
+\in\mathbb{R}^{n} \mid x_{1} + x_{2} + \cdots+ x_{n} = 0 \right\}  $ of
+$\mathbb{R}^{n}$ is spanned by each of the two lists $\left(  e_{1}-e_{n},
+e_{2}-e_{n}, \ldots, e_{n-1}-e_{n}\right)  $ and $\left(  e_{1}-e_{2},
+e_{2}-e_{3}, \ldots, e_{n-1}-e_{n}\right)  $.
 \end{todo}
 
 [...]
