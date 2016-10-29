@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, October 27, 2016 21:11:10}
+%TCIDATA{LastRevised=Saturday, October 29, 2016 01:22:41}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -14682,7 +14682,7 @@ Property \textbf{(c)} (applied to $0v$ instead of $v$) yields
 $0v+\overrightarrow{0}=\overrightarrow{0}+0v=0v$. Comparing
 $0v+\overrightarrow{0}=\overrightarrow{0}$ with $0v+\overrightarrow{0}=0v$, we
 obtain $0v=\overrightarrow{0}$. Thus, property \textbf{(i)} is proven. Hence,
-we have shown that property \textbf{(j)} follows from properties \textbf{(b)},
+we have shown that property \textbf{(i)} follows from properties \textbf{(b)},
 \textbf{(c)}, \textbf{(d)} and \textbf{(e)}. This proves Proposition
 \ref{prop.vectspace.redundant.i}.
 \end{proof}
@@ -14693,8 +14693,9 @@ provided the other stays in, but without the other they are not redundant.
 
 The vector $\overrightarrow{0}$ in Definition \ref{def.vectspace} is often
 written as $0$. This is an \textquotedblleft abuse of
-notation\textquotedblright\ (it is still not the number $0$), but mostly
-harmless as there is rarely a possibility of confusion.
+notation\textquotedblright\ (because the vector $\overrightarrow{0}$ is not
+literally the number $0$), but mostly harmless as there is rarely a
+possibility of confusion.
 
 \subsection{%
 %TCIMACRO{\TEXTsymbol{<}}%
@@ -15305,7 +15306,7 @@ addition because the only possible sum of two elements of $\left\{
 \right\}  $.)
 \end{proof}
 
-Please notice that the subset $\left\{  \overrightarrow{0}\right\}  $ in
+Please note that the subset $\left\{  \overrightarrow{0}\right\}  $ in
 Proposition \ref{prop.subspace.0V} \textbf{(a)} is \textbf{not} the empty set!
 (It contains the zero vector $\overrightarrow{0}$, whereas the empty set
 contains nothing.) That said, it is \textquotedblleft as close to the empty
@@ -16367,13 +16368,13 @@ U_{1}+U_{2}$ and $w\in U_{1}+U_{2}$. We must prove that $v+w\in U_{1}+U_{2}$.
 We have $v\in U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and
 }u_{2}\in U_{2}\right\}  $. In other words, $v$ has the form $v=u_{1}+u_{2}$
 for some $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$. Denote these $u_{1}$ and
-$u_{2}$ by $v_{1}$ and $v_{2}$. Thus, $v_{1}\in V_{1}$ and $v_{2}\in V_{2}$
+$u_{2}$ by $v_{1}$ and $v_{2}$. Thus, $v_{1}\in U_{1}$ and $v_{2}\in U_{2}$
 and $v=v_{1}+v_{2}$.
 
 We have $w\in U_{1}+U_{2}=\left\{  u_{1}+u_{2}\ \mid\ u_{1}\in U_{1}\text{ and
 }u_{2}\in U_{2}\right\}  $. In other words, $w$ has the form $w=u_{1}+u_{2}$
 for some $u_{1}\in U_{1}$ and $u_{2}\in U_{2}$. Denote these $u_{1}$ and
-$u_{2}$ by $w_{1}$ and $w_{2}$. Thus, $w_{1}\in V_{1}$ and $w_{2}\in V_{2}$
+$u_{2}$ by $w_{1}$ and $w_{2}$. Thus, $w_{1}\in U_{1}$ and $w_{2}\in U_{2}$
 and $w=w_{1}+w_{2}$.
 
 Now, the set $U_{1}$ is a subspace of $V$, and thus is closed under addition.
@@ -16455,12 +16456,12 @@ $v+w\in U_{1}\times U_{2}$.
 We have $v\in U_{1}\times U_{2}$. In other words, $v$ is a pair of the form
 $v=\left(  u_{1},u_{2}\right)  $ for some $u_{1}\in U_{1}$ and $u_{2}\in
 U_{2}$. Denote these $u_{1}$ and $u_{2}$ by $v_{1}$ and $v_{2}$. Thus,
-$v_{1}\in V_{1}$ and $v_{2}\in V_{2}$ and $v=\left(  v_{1},v_{2}\right)  $.
+$v_{1}\in U_{1}$ and $v_{2}\in U_{2}$ and $v=\left(  v_{1},v_{2}\right)  $.
 
 We have $w\in U_{1}\times U_{2}$. In other words, $w$ is a pair of the form
 $w=\left(  u_{1},u_{2}\right)  $ for some $u_{1}\in U_{1}$ and $u_{2}\in
 U_{2}$. Denote these $u_{1}$ and $u_{2}$ by $w_{1}$ and $w_{2}$. Thus,
-$w_{1}\in V_{1}$ and $w_{2}\in V_{2}$ and $w=\left(  w_{1},w_{2}\right)  $.
+$w_{1}\in U_{1}$ and $w_{2}\in U_{2}$ and $w=\left(  w_{1},w_{2}\right)  $.
 
 Now, the set $U_{1}$ is a subspace of $V_{1}$, and thus is closed under
 addition. Hence, from $v_{1}\in U_{1}$ and $w_{1}\in U_{1}$, we can conclude
@@ -16534,16 +16535,320 @@ Then, $C$ is a subspace of $\mathbb{R}^{2 \times2}$.
 \textbf{(f)} Let $F$ be the set of all invertible $2 \times2$-matrices. Then,
 $F$ is \textbf{not} a subspace of $\mathbb{R}^{2 \times2}$.
 
-\textbf{(g)} Fix a vector $v\in\mathbf{R}^{2}$. Let $G_{v}$ be the set of all
-$2\times2$-matrices $X\in\mathbb{R}^{2\times2}$ satisfying $Xv=0_{2\times1}$.
-Then, $G_{v}$ is a subspace of $\mathbb{R}^{2\times2}$.
+\textbf{(g)} Fix a vector $p\in\mathbb{R}^{2}$. Let $G_{p}$ be the set of all
+$2\times2$-matrices $X\in\mathbb{R}^{2\times2}$ satisfying $Xp=0_{2\times1}$.
+Then, $G_{p}$ is a subspace of $\mathbb{R}^{2\times2}$.
 \end{example}
 
-[...]
+\begin{proof}
+[Proof of Example \ref{exam.subspace.R22}.]This proof is similar to that of
+Example \ref{exam.subspace.R3}, except that the vectors are now $2\times
+2$-matrices instead of being column vectors of size $3$. Again, in order to
+prove that some subset $U$ of $\mathbb{R}^{2\times2}$ is a subspace of
+$\mathbb{R}^{2\times2}$, we must prove that it satisfies the three conditions
+\textbf{(a)}, \textbf{(b)} and \textbf{(c)} of Definition \ref{def.subspace};
+but in order to prove that some subset $U$ of $\mathbb{R}^{2\times2}$ is
+\textbf{not} a subspace of $\mathbb{R}^{2\times2}$, it suffices to show that
+at least one of these three conditions is violated.
 
-\begin{todo}
-proof of above examples
-\end{todo}
+Keep in mind that the zero vector of the vector space $\mathbb{R}^{2\times2}$
+is the zero matrix $0_{2\times2}$. We shall sometimes keep using the notation
+$\overrightarrow{0}$ for it, just because it is shorter.
+
+\textbf{(a)} We want to show that $A$ is a subspace of $\mathbb{R}^{2\times2}%
+$. Thus, we need to show that $A$ contains the zero vector, is closed under
+addition, and is closed under scaling. Let us do this:
+
+\textit{Proof that }$A$\textit{ contains the zero vector:} Recall that the
+zero vector of $\mathbb{R}^{2\times2}$ is $0_{2\times2}=\left(
+\begin{array}
+[c]{cc}%
+0 & 0\\
+0 & 0
+\end{array}
+\right)  $. This vector $0_{2\times2}$ lies in $A$ if and only if $0+0+0+0=0$
+(by the definition of $A$). Thus, $0_{2\times2}$ lies in $A$ (since
+$0+0+0+0=0$ holds). In other words, $A$ contains the zero vector.
+
+\textit{Proof that }$A$ \textit{is closed under addition:} Let $v\in A$ and
+$w\in A$. We must prove that $v+w\in A$.
+
+Write the vector\footnote{It might appear to refer to the elements of $A$ as
+vectors (after all, they are $2\times2$-matrices), and to denote them by
+lowercase letters. This should remind you once again that vectors (in the
+general meaning of this word -- i.e., elements of a vector space) can be
+almost anything.} $v\in A\subseteq\mathbb{R}^{2\times2}$ in the form
+$v=\left(
+\begin{array}
+[c]{cc}%
+v_{1,1} & v_{1,2}\\
+v_{2,1} & v_{2,2}%
+\end{array}
+\right)  $ (for four real numbers $v_{1,1},v_{1,2},v_{2,1},v_{2,2}%
+\in\mathbb{R}$). Since $\left(
+\begin{array}
+[c]{cc}%
+v_{1,1} & v_{1,2}\\
+v_{2,1} & v_{2,2}%
+\end{array}
+\right)  =v\in A$, we have $v_{1,1}+v_{1,2}+v_{2,1}+v_{2,2}=0$.
+
+Write the vector $w\in A\subseteq\mathbb{R}^{2\times2}$ in the form $w=\left(
+%
+\begin{array}
+[c]{cc}%
+w_{1,1} & w_{1,2}\\
+w_{2,1} & w_{2,2}%
+\end{array}
+\right)  $ (for four real numbers $w_{1,1},w_{1,2},w_{2,1},w_{2,2}%
+\in\mathbb{R}$). Since $\left(
+\begin{array}
+[c]{cc}%
+w_{1,1} & w_{1,2}\\
+w_{2,1} & w_{2,2}%
+\end{array}
+\right)  =w\in A$, we have $w_{1,1}+w_{1,2}+w_{2,1}+w_{2,2}=0$.
+
+From $v=\left(
+\begin{array}
+[c]{cc}%
+v_{1,1} & v_{1,2}\\
+v_{2,1} & v_{2,2}%
+\end{array}
+\right)  $ and $w=\left(
+\begin{array}
+[c]{cc}%
+w_{1,1} & w_{1,2}\\
+w_{2,1} & w_{2,2}%
+\end{array}
+\right)  $, we obtain%
+\[
+v+w=\left(
+\begin{array}
+[c]{cc}%
+v_{1,1} & v_{1,2}\\
+v_{2,1} & v_{2,2}%
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+w_{1,1} & w_{1,2}\\
+w_{2,1} & w_{2,2}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+v_{1,1}+w_{1,1} & v_{1,2}+w_{1,2}\\
+v_{2,1}+w_{2,1} & v_{2,2}+w_{2,2}%
+\end{array}
+\right)
+\]
+(since matrices are added entry by entry). Thus, in order to prove that
+$v+w\in A$, we must show that
+\[
+\left(  v_{1,1}+w_{1,1}\right)  +\left(  v_{1,2}+w_{1,2}\right)  +\left(
+v_{2,1}+w_{2,1}\right)  +\left(  v_{2,2}+w_{2,2}\right)  =0
+\]
+(by the definition of $A$). But showing this is easy: Just notice that%
+\begin{align*}
+&  \left(  v_{1,1}+w_{1,1}\right)  +\left(  v_{1,2}+w_{1,2}\right)  +\left(
+v_{2,1}+w_{2,1}\right)  +\left(  v_{2,2}+w_{2,2}\right)  \\
+&  =\underbrace{\left(  v_{1,1}+v_{1,2}+v_{2,1}+v_{2,2}\right)  }%
+_{=0}+\underbrace{\left(  w_{1,1}+w_{1,2}+w_{2,1}+w_{2,2}\right)  }%
+_{=0}=0+0=0.
+\end{align*}
+Thus, we have proven that $v+w\in A$. This completes the proof of the fact
+that $A$ is closed under addition.
+
+\textit{Proof that }$A$ \textit{is closed under scaling:} We leave this proof
+to the reader again. (It is similar to the proof of the fact that $A$ is
+closed under addition, except that now we must reason about $\lambda v$
+instead of $v+w$.)
+
+We now have shown that $A$ contains the zero vector, is closed under addition,
+and is closed under scaling. Hence, $A$ is a subspace of $\mathbb{R}%
+^{2\times2}$. Example \ref{exam.subspace.R22} \textbf{(a)} is proven.
+
+\textbf{(b)} The vector $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  \in\mathbb{R}^{2\times2}$ belongs to $B$ (since $1\cdot0+0\cdot1=0$).
+So does the vector $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+1 & 0
+\end{array}
+\right)  \in\mathbb{R}^{2\times2}$ (since $1\cdot0+1\cdot0=0$). But the sum of
+these vectors does not (because it is $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+1 & 0
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+2 & 0\\
+1 & 1
+\end{array}
+\right)  $, which does not satisfy $2\cdot0+1\cdot1=0$). Hence, $B$ is not
+closed under addition. Thus, $B$ is not a subspace of $\mathbb{R}^{2\times2}$.
+Example \ref{exam.subspace.R22} \textbf{(b)} is proven.
+
+\textbf{(c)} We want to show that $C$ is a subspace of $\mathbb{R}^{2\times2}%
+$. Thus, we need to show that $C$ contains the zero vector, is closed under
+addition, and is closed under scaling. Let me show only one of these three steps:
+
+\textit{Proof that }$C$ \textit{is closed under addition:} Let $v\in C$ and
+$w\in C$. We must prove that $v+w\in C$.
+
+The matrix $v$ belongs to $C$. In other words, $v$ is upper-triangular (since
+$C$ is the set of all upper-triangular $2\times2$-matrices). In other words,%
+\begin{equation}
+v_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }%
+i>j\label{pf.exam.subspace.R22.c.v}%
+\end{equation}
+(because this is how \textquotedblleft upper-triangular\textquotedblright\ was
+defined). The same argument (but for $w$ instead of $v$) yields%
+\begin{equation}
+w_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }%
+i>j.\label{pf.exam.subspace.R22.c.w}%
+\end{equation}
+
+
+Now, every $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}
+\times\left\{  1,2,\ldots,n\right\}  $ satisfying $i>j$ must satisfy%
+\begin{align*}
+\left(  v+w\right)  _{i,j}  & =\underbrace{v_{i,j}}_{\substack{=0\\\text{(by
+(\ref{pf.exam.subspace.R22.c.v}))}}}+\underbrace{w_{i,j}}%
+_{\substack{=0\\\text{(by (\ref{pf.exam.subspace.R22.c.w}))}}%
+}\ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
+entry}\right)  \\
+& =0+0=0.
+\end{align*}
+In other words,
+\[
+\left(  v+w\right)  _{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
+\]
+In other words, the matrix $v+w$ is upper-triangular (since this is how
+\textquotedblleft upper-triangular\textquotedblright\ was defined). In other
+words, $v+w\in C$ (since $C$ is the set of all upper-triangular $2\times
+2$-matrices). This completes the proof of the fact that $C$ is closed under addition.
+
+As I have promised, I am omitting the proofs of the facts that $C$ contains
+the zero vector and is closed under scaling. (They are similar to the above
+proof, and the modifications necessary to obtain them should be obvious by
+now.) Thus, Example \ref{exam.subspace.R22} \textbf{(c)} is proven.
+
+\textbf{(d)} The proof of Example \ref{exam.subspace.R22} \textbf{(d)} is
+analogous to the above proof of Example \ref{exam.subspace.R22} \textbf{(c)},
+except that the word \textquotedblleft upper-triangular\textquotedblright%
+\ must now be replaced by \textquotedblleft strictly
+upper-triangular\textquotedblright, and that the condition \textquotedblleft%
+$i>j$\textquotedblright\ must be replaced by \textquotedblleft$i\geq
+j$\textquotedblright. (And, of course, the symbol \textquotedblleft%
+$C$\textquotedblright\ must be replaced by \textquotedblleft$D$%
+\textquotedblright.)
+
+\textbf{(e)} The vector $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  \in\mathbb{R}^{2\times2}$ belongs to $E$ (since it is an
+upper-unitriangular $2\times2$-matrix). But the sum of this vector with itself
+does not (since it is $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{cc}%
+2 & 0\\
+0 & 2
+\end{array}
+\right)  $, which is not upper-unitriangular). Thus, $E$ is not closed under
+addition. Thus, $E$ is not a subspace of $\mathbb{R}^{2\times2}$. Example
+\ref{exam.subspace.R22} \textbf{(e)} is proven.
+
+\textbf{(f)} The vectors $\left(
+\begin{array}
+[c]{cc}%
+1 & 0\\
+0 & 1
+\end{array}
+\right)  \in\mathbb{R}^{2\times2}$ and $\left(
+\begin{array}
+[c]{cc}%
+0 & 1\\
+1 & 0
+\end{array}
+\right)  \in\mathbb{R}^{2\times2}$ both belong to $F$ (since they both are
+invertible matrices\footnote{Actually, each of them is its own inverse.}). But
+their sum does not (because it is $\left(
+\begin{array}
+[c]{cc}%
+1 & 1\\
+1 & 1
+\end{array}
+\right)  $, which is not invertible). Hence, $F$ is not closed under addition.
+Thus, $F$ is not a subspace of $\mathbb{R}^{2\times2}$. Example
+\ref{exam.subspace.R22} \textbf{(f)} is proven.
+
+\textbf{(g)} We want to show that $G_{p}$ is a subspace of $\mathbb{R}%
+^{2\times2}$. Thus, we need to show that $G_{p}$ contains the zero vector, is
+closed under addition, and is closed under scaling.
+
+\textit{Proof that }$G_{p}$\textit{ contains the zero vector:} Recall that the
+zero vector of $\mathbb{R}^{2\times2}$ is $0_{2\times2}$. This vector
+$0_{2\times2}$ satisfies $0_{2\times2}p=0_{2\times1}$, and thus belongs to
+$G_{p}$ (by the definition of $G_{p}$). In other words, $G_{p}$ contains the
+zero vector.
+
+\textit{Proof that }$G_{p}$ \textit{is closed under addition:} Let $v\in
+G_{p}$ and $w\in G_{p}$. We must prove that $v+w\in G_{p}$.
+
+We have $v\in G_{p}$. In other words, $vp=0_{2\times1}$ (by the definition of
+$G_{p}$). (Keep in mind that $v$ is a $2\times2$-matrix.)
+
+We have $w\in G_{p}$. In other words, $wp=0_{2\times1}$ (by the definition of
+$G_{p}$).
+
+Now, $\left(  v+w\right)  p=\underbrace{vp}_{=0_{2\times1}}+\underbrace{wp}%
+_{=0_{2\times1}}=0_{2\times1}+0_{2\times1}=0_{2\times1}$. In other words,
+$v+w\in G_{p}$ (by the definition of $G_{p}$). This completes the proof of the
+fact that $G_{p}$ is closed under addition.
+
+\textit{Proof that }$G_{p}$ \textit{is closed under scaling:} This proof is
+left to the reader.
+
+We now have shown that $Gp$ contains the zero vector, is closed under
+addition, and is closed under scaling. Hence, $G_{p}$ is a subspace of
+$\mathbb{R}^{2\times2}$. Example \ref{exam.subspace.R22} \textbf{(g)} is proven.
+\end{proof}
+
+
+
+[...]
 
 \begin{todo}
 Polynomials $p$ such that $p\left(  3\right)  =0$.
