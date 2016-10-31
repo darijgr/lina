@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, October 29, 2016 01:22:41}
+%TCIDATA{LastRevised=Monday, October 31, 2016 01:38:05}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -15757,7 +15757,7 @@ matrices is simpler than dealing with lots of single entries:
 
 \begin{proof}
 [Proof of Proposition \ref{prop.subspace.kerA}.]We want to show that
-$\operatorname*{Ker}A$ is a subspace of $\mathbb{R}^{3}$. Thus, we need to
+$\operatorname*{Ker}A$ is a subspace of $\mathbb{R}^{n}$. Thus, we need to
 show that $\operatorname*{Ker}A$ contains the zero vector, is closed under
 addition, and is closed under scaling. Let us do this:
 
@@ -16045,6 +16045,554 @@ is the \textbf{smallest} subspace of $V$ that contains $v_{1},v_{2}%
 
 We shall prove Proposition \ref{prop.span.uniprop} later (in Section
 \ref{sect.spaces.more-on-subs}).
+
+How to actually compute the kernel of a matrix? The next three examples
+illustrate a method:
+
+\begin{example}
+\label{exam.kernel.1}Let $n=4$ and $m=3$. Let $A$ be the $m\times n$-matrix
+$\left(
+\begin{array}
+[c]{cccc}%
+1 & 3 & 0 & 1\\
+2 & 0 & 1 & 2\\
+0 & 6 & -2 & 0
+\end{array}
+\right)  $. Let us find the kernel $\operatorname*{Ker}A$ of $A$. Proposition
+\ref{prop.subspace.kerA} tells us that $\operatorname*{Ker}A$ will be a
+subspace of $\mathbb{R}^{n}=\mathbb{R}^{4}$; but it does not tell us which
+one. To find out, we will have to do some work.
+
+The definition of $\operatorname*{Ker}A$ yields%
+\[
+\operatorname*{Ker}A=\left\{  x\in\mathbb{R}^{n}\ \mid\ Ax=0_{m\times
+1}\right\}  =\left\{  x\in\mathbb{R}^{4}\ \mid\ Ax=0_{3\times1}\right\}
+\]
+(since $n=4$ and $m=3$). Hence, finding $\operatorname*{Ker}A$ means finding
+all vectors $x\in\mathbb{R}^{4}$ satisfying $Ax=0_{3\times1}$. In other words,
+it means solving the equation $Ax=0_{3\times1}$. We know how to do this using
+Gaussian elimination:
+
+Let $x=\left(  x_{1},x_{2},x_{3},x_{4}\right)  ^{T}\in\mathbb{R}^{4}$. Then,
+$Ax=0_{3\times1}$ rewrites as%
+\[
+\left(
+\begin{array}
+[c]{cccc}%
+1 & 3 & 0 & 1\\
+2 & 0 & 1 & 2\\
+0 & 6 & -2 & 0
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+0
+\end{array}
+\right)  .
+\]
+This is equivalent to the system of equations%
+\[
+\left\{
+\begin{array}
+[c]{c}%
+1x_{1}+3x_{2}+0x_{3}+1x_{4}=0;\\
+2x_{1}+0x_{2}+1x_{3}+2x_{4}=0;\\
+0x_{1}+6x_{2}+\left(  -2\right)  x_{3}+0x_{4}=0
+\end{array}
+\right.  .
+\]
+The solutions $x$ of this system are precisely the vectors of the form%
+\[
+x=\left(
+\begin{array}
+[c]{c}%
+-r\\
+0\\
+0\\
+r
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{for }r\in\mathbb{R}.
+\]
+Thus,%
+\begin{align}
+\operatorname*{Ker}A  &  =\left\{  x\in\mathbb{R}^{4}\ \mid\ Ax=0_{3\times
+1}\right\} \nonumber\\
+&  =\left\{  \left(
+\begin{array}
+[c]{c}%
+-r\\
+0\\
+0\\
+r
+\end{array}
+\right)  \ \mid\ r\in\mathbb{R}\right\} \label{eq.exam.kernel.1.6a}\\
+&  =\left\{  r\left(
+\begin{array}
+[c]{c}%
+-1\\
+0\\
+0\\
+1
+\end{array}
+\right)  \ \mid\ r\in\mathbb{R}\right\} \label{eq.exam.kernel.1.6b}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(
+\begin{array}
+[c]{c}%
+-r\\
+0\\
+0\\
+r
+\end{array}
+\right)  =r\left(
+\begin{array}
+[c]{c}%
+-1\\
+0\\
+0\\
+1
+\end{array}
+\right)  \text{ for each }r\in\mathbb{R}\right) \nonumber\\
+&  =\left\langle \left(
+\begin{array}
+[c]{c}%
+-1\\
+0\\
+0\\
+1
+\end{array}
+\right)  \right\rangle .\nonumber
+\end{align}
+We have thus written $\operatorname*{Ker}A$ as a span of vectors (in our case:
+one vector) in $\mathbb{R}^{4}$. This is not the only way to do so, but it is
+probably the most explicit and simplest way.
+\end{example}
+
+\begin{example}
+\label{exam.kernel.2}Let $n=3$ and $m=3$. Let $A$ be the $m\times n$-matrix
+$\left(
+\begin{array}
+[c]{ccc}%
+1 & 2 & 2\\
+2 & 4 & 4\\
+3 & 6 & 6
+\end{array}
+\right)  $. Let us find the kernel $\operatorname*{Ker}A$ of $A$.
+
+The method is the same as in Example \ref{exam.kernel.1}, but the last few
+steps are a bit more complicated. Again, finding $\operatorname*{Ker}A$ means
+solving the equation $Ax=0_{3\times1}$ (but this time, $x$ is to lie in
+$\mathbb{R}^{3}$).
+
+Let $x=\left(  x_{1},x_{2},x_{3}\right)  ^{T}\in\mathbb{R}^{3}$. Then,
+$Ax=0_{3\times1}$ rewrites as%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+1 & 2 & 2\\
+2 & 4 & 4\\
+3 & 6 & 6
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}\\
+x_{3}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0\\
+0
+\end{array}
+\right)  .
+\]
+This is equivalent to the system of equations%
+\[
+\left\{
+\begin{array}
+[c]{c}%
+1x_{1}+2x_{2}+2x_{3}=0;\\
+2x_{1}+4x_{2}+4x_{3}=0;\\
+3x_{1}+6x_{2}+6x_{3}=0
+\end{array}
+\right.  .
+\]
+The solutions $x$ of this system are precisely the vectors of the form%
+\[
+x=\left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{for }r,s\in\mathbb{R}.
+\]
+Thus,%
+\begin{align}
+\operatorname*{Ker}A  &  =\left\{  x\in\mathbb{R}^{3}\ \mid\ Ax=0_{3\times
+1}\right\} \nonumber\\
+&  =\left\{  \left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  \ \mid\ r,s\in\mathbb{R}\right\} \label{eq.exam.kernel.2.6a}\\
+&  =\left\{  r\left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  +s\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  \ \mid\ r,s\in\mathbb{R}\right\} \label{eq.exam.kernel.2.6b}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  =r\left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  +s\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  \text{ for each }r,s\in\mathbb{R}\right) \nonumber\\
+&  =\left\langle \left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  ,\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  \right\rangle .\nonumber
+\end{align}
+We have thus written $\operatorname*{Ker}A$ as a span of vectors (in our case:
+two vectors) in $\mathbb{R}^{3}$. Again, there are various other ways to do so.
+
+Let me explain how I got from (\ref{eq.exam.kernel.2.6a}) to
+(\ref{eq.exam.kernel.2.6b}). I have rewritten $\left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  $ as $r\left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  +s\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  $. The purpose of this step was to \textquotedblleft push the
+variables $r$ and $s$ out of the column vector\textquotedblright, so that the
+result would be of the form \textquotedblleft$r$ times a \textbf{constant}
+column vector plus $s$ times a \textbf{constant} column
+vector\textquotedblright. And the ultimate purpose of this was to write
+$\operatorname*{Ker}A$ as a span of two column vectors.
+
+You should be able to do such transformations yourself! To illustrate the
+method in a bit more detail, let me state it as a two-step procedure:
+
+\begin{enumerate}
+\item First, decompose the vector $\left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  $ into a sum of two vectors by isolating all multiples of $r$ into
+one vector and all multiples of $s$ into another. Thus,%
+\[
+\left(
+\begin{array}
+[c]{c}%
+-2r-2s\\
+r\\
+s
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+-2r\\
+r\\
+0
+\end{array}
+\right)  +\left(
+\begin{array}
+[c]{c}%
+-2s\\
+0\\
+s
+\end{array}
+\right)  .
+\]
+
+
+\item Now, push the factor $r$ out of the first vector (i.e., rewrite $\left(
+%
+\begin{array}
+[c]{c}%
+-2r\\
+r\\
+0
+\end{array}
+\right)  $ as $r\left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  $), and push the factor $s$ out of the second vector (i.e., rewrite
+$\left(
+\begin{array}
+[c]{c}%
+-2s\\
+0\\
+s
+\end{array}
+\right)  $ as $s\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  $). The result is $r\left(
+\begin{array}
+[c]{c}%
+-2\\
+1\\
+0
+\end{array}
+\right)  +s\left(
+\begin{array}
+[c]{c}%
+-2\\
+0\\
+1
+\end{array}
+\right)  $.
+\end{enumerate}
+
+In hindsight, the passage from (\ref{eq.exam.kernel.1.6a}) to
+(\ref{eq.exam.kernel.1.6b}) has been another instance of such a
+transformation. Namely, I have rewritten $\left(
+\begin{array}
+[c]{c}%
+-r\\
+0\\
+0\\
+r
+\end{array}
+\right)  $ as $r\left(
+\begin{array}
+[c]{c}%
+-1\\
+0\\
+0\\
+1
+\end{array}
+\right)  $ in order to \textquotedblleft push the $r$ out of the column
+vector\textquotedblright. Of course, this was simpler because we had only one
+variable (hence, no need to isolate) and therefore only one constant vector.
+
+Here is another example of such a transformation:%
+\[
+\left(
+\begin{array}
+[c]{c}%
+5r+2s+3t\\
+t\\
+-2r+3s\\
+s\\
+-3r\\
+r\\
+0
+\end{array}
+\right)  =r\left(
+\begin{array}
+[c]{c}%
+5\\
+0\\
+-2\\
+0\\
+-3\\
+1\\
+0
+\end{array}
+\right)  +s\left(
+\begin{array}
+[c]{c}%
+2\\
+0\\
+3\\
+1\\
+0\\
+0\\
+0
+\end{array}
+\right)  +t\left(
+\begin{array}
+[c]{c}%
+3\\
+1\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{array}
+\right)  .
+\]
+
+\end{example}
+
+\begin{example}
+\label{exam.kernel.3}Let $n=2$ and $m=2$. Let $A$ be the $m\times n$-matrix
+$\left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+2 & 3
+\end{array}
+\right)  $. Let us find the kernel $\operatorname*{Ker}A$ of $A$.
+
+The method is the same as in Example \ref{exam.kernel.1}, and this time we
+will actually have it a lot easier, as long as we do not get confused by empty
+lists and zero vectors. Finding $\operatorname*{Ker}A$ means solving the
+equation $Ax=0_{2\times1}$ for $x\in\mathbb{R}^{2}$.
+
+Let $x=\left(  x_{1},x_{2}\right)  ^{T}\in\mathbb{R}^{2}$. Then,
+$Ax=0_{2\times1}$ rewrites as%
+\[
+\left(
+\begin{array}
+[c]{cc}%
+1 & 2\\
+2 & 3
+\end{array}
+\right)  \left(
+\begin{array}
+[c]{c}%
+x_{1}\\
+x_{2}%
+\end{array}
+\right)  =\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  .
+\]
+This is equivalent to the system of equations%
+\[
+\left\{
+\begin{array}
+[c]{c}%
+1x_{1}+2x_{2}=0;\\
+2x_{1}+3x_{2}=0
+\end{array}
+\right.  .
+\]
+The solutions $x$ of this system are precisely the vectors of the form%
+\[
+x=\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  .
+\]
+Thus,%
+\[
+\operatorname*{Ker}A=\left\{  x\in\mathbb{R}^{2}\ \mid\ Ax=0_{2\times
+1}\right\}  =\left\{  \underbrace{\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  }_{=0_{2\times1}}\right\}  =\left\{  0_{2\times1}\right\}  .
+\]
+This is as simple a result as we can get, but if we actually want to rewrite
+$\operatorname*{Ker}A$ as a span, we can achieve this by proceeding as in
+Examples \ref{exam.kernel.1} and \ref{exam.kernel.2}:%
+\begin{align*}
+\operatorname*{Ker}A  &  =\left\{  x\in\mathbb{R}^{2}\ \mid\ Ax=0_{2\times
+1}\right\}  =\left\{  \underbrace{\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  }_{=\left(  \text{empty sum}\right)  }\right\} \\
+&  =\left\{  \left(  \text{empty sum}\right)  \right\}  =\left\langle
+{}\right\rangle \ \ \ \ \ \ \ \ \ \ \left(  \text{the span of no
+vectors}\right)  .
+\end{align*}
+Here, we have \textquotedblleft decomposed\textquotedblright\ the zero vector
+$\left(
+\begin{array}
+[c]{c}%
+0\\
+0
+\end{array}
+\right)  $ into an empty sum, and realized that the set consisting of the
+empty sum is precisely the set of all linear combinations of no vectors, i.e.,
+the span of no vectors. Thus, $\operatorname*{Ker}A$ is the span of no vectors.
+\end{example}
 
 \subsubsection{The image of a matrix}
 
@@ -16652,7 +17200,7 @@ v_{2,1}+w_{2,1}\right)  +\left(  v_{2,2}+w_{2,2}\right)  =0
 (by the definition of $A$). But showing this is easy: Just notice that%
 \begin{align*}
 &  \left(  v_{1,1}+w_{1,1}\right)  +\left(  v_{1,2}+w_{1,2}\right)  +\left(
-v_{2,1}+w_{2,1}\right)  +\left(  v_{2,2}+w_{2,2}\right)  \\
+v_{2,1}+w_{2,1}\right)  +\left(  v_{2,2}+w_{2,2}\right) \\
 &  =\underbrace{\left(  v_{1,1}+v_{1,2}+v_{2,1}+v_{2,2}\right)  }%
 _{=0}+\underbrace{\left(  w_{1,1}+w_{1,2}+w_{2,1}+w_{2,2}\right)  }%
 _{=0}=0+0=0.
@@ -16715,26 +17263,26 @@ $w\in C$. We must prove that $v+w\in C$.
 The matrix $v$ belongs to $C$. In other words, $v$ is upper-triangular (since
 $C$ is the set of all upper-triangular $2\times2$-matrices). In other words,%
 \begin{equation}
-v_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }%
-i>j\label{pf.exam.subspace.R22.c.v}%
+v_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j
+\label{pf.exam.subspace.R22.c.v}%
 \end{equation}
 (because this is how \textquotedblleft upper-triangular\textquotedblright\ was
 defined). The same argument (but for $w$ instead of $v$) yields%
 \begin{equation}
-w_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }%
-i>j.\label{pf.exam.subspace.R22.c.w}%
+w_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
+\label{pf.exam.subspace.R22.c.w}%
 \end{equation}
 
 
 Now, every $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}
 \times\left\{  1,2,\ldots,n\right\}  $ satisfying $i>j$ must satisfy%
 \begin{align*}
-\left(  v+w\right)  _{i,j}  & =\underbrace{v_{i,j}}_{\substack{=0\\\text{(by
+\left(  v+w\right)  _{i,j}  &  =\underbrace{v_{i,j}}_{\substack{=0\\\text{(by
 (\ref{pf.exam.subspace.R22.c.v}))}}}+\underbrace{w_{i,j}}%
 _{\substack{=0\\\text{(by (\ref{pf.exam.subspace.R22.c.w}))}}%
 }\ \ \ \ \ \ \ \ \ \ \left(  \text{since matrices are added entry by
-entry}\right)  \\
-& =0+0=0.
+entry}\right) \\
+&  =0+0=0.
 \end{align*}
 In other words,
 \[
@@ -16845,8 +17393,6 @@ We now have shown that $Gp$ contains the zero vector, is closed under
 addition, and is closed under scaling. Hence, $G_{p}$ is a subspace of
 $\mathbb{R}^{2\times2}$. Example \ref{exam.subspace.R22} \textbf{(g)} is proven.
 \end{proof}
-
-
 
 [...]
 
