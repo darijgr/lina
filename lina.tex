@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, October 31, 2016 01:38:05}
+%TCIDATA{LastRevised=Wednesday, November 02, 2016 12:40:28}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -15826,78 +15826,79 @@ real number, and then adding the results.)
 
 \textbf{(b)} The \textit{span} of $v_{1},v_{2},\ldots,v_{k}$ is the set of all
 linear combinations of $v_{1},v_{2},\ldots,v_{k}$. This set is denoted by
-$\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $.
-Many authors also denote it by
-$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $, but this notation
-risks confusion with the inner product of two vectors $v$ and $w$ (which
-will be introduced later, and which will be denoted by
-$\left<v,w\right>$).
+$\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. Many authors
+also denote it by $\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)
+$, but this notation risks confusion with the inner product of two vectors $v$
+and $w$ (which will be introduced later, and which will be denoted by $\left<
+v,w\right> $).
 
-Note that $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $ is defined as
-the set of all linear combinations of $v_{1},v_{2},\ldots,v_{k}$; but the
-latter linear combinations are the vectors of the form $\lambda_{1}%
-v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with $\lambda_{1},\lambda
-_{2},\ldots,\lambda_{k}\in\mathbb{R}$. Hence, $\operatorname{span}\left( v_{1},v_{2}%
-,\ldots,v_{k}\right) $ is the set of all vectors of the form
-$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with $\lambda
-_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$. In other words,%
+Note that $\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is
+defined as the set of all linear combinations of $v_{1},v_{2},\ldots,v_{k}$;
+but the latter linear combinations are the vectors of the form $\lambda
+_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with $\lambda_{1}%
+,\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$. Hence, $\operatorname{span}%
+\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is the set of all vectors of the
+form $\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ with
+$\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$. In other words,%
 \begin{equation}
-\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) =\left\{  \lambda_{1}%
-v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda_{1},\lambda
-_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}  .
+\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left\{
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}  .
 \label{eq.def.subspace.span.explicit}%
 \end{equation}
 
 \end{definition}
 
 \begin{remark}
-The span $\operatorname{span}\left( {}\right) $ (that is, the span of no vectors) is
-the subspace $\left\{  \overrightarrow{0}\right\}  $ of $V$ (not the empty
-set!). This is because $\overrightarrow{0}$ is a linear combination of an
-empty list of vectors (being the empty sum). This might appear somewhat
+The span $\operatorname{span}\left(  {}\right)  $ (that is, the span of no
+vectors) is the subspace $\left\{  \overrightarrow{0}\right\}  $ of $V$ (not
+the empty set!). This is because $\overrightarrow{0}$ is a linear combination
+of an empty list of vectors (being the empty sum). This might appear somewhat
 counterintuitive, but is natural and important.
 \end{remark}
 
 \begin{proposition}
 \label{prop.subspace.span}Let $V$ be a vector space. Let $v_{1},v_{2}%
-,\ldots,v_{k}$ be finitely many vectors in $V$. Then, $\operatorname{span}\left(
-v_{1},v_{2},\ldots,v_{k}\right) $ (that is, the span of $v_{1}%
+,\ldots,v_{k}$ be finitely many vectors in $V$. Then, $\operatorname{span}%
+\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ (that is, the span of $v_{1}%
 ,v_{2},\ldots,v_{k}$) is a subspace of $V$.
 \end{proposition}
 
 \begin{proof}
 [Proof of Proposition \ref{prop.subspace.span}.]We want to show that
-$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $ is a subspace of $V$.
-Thus, we need to show that $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right)
-$ contains the zero vector, is closed under addition, and is closed under
-scaling. Let us do this:
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a subspace
+of $V$. Thus, we need to show that $\operatorname{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ contains the zero vector, is closed under
+addition, and is closed under scaling. Let us do this:
 
-\textit{Proof that }$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right)
-$\textit{ contains the zero vector:} We have $0v_{1}+0v_{2}+\cdots
-+0v_{k}=\overrightarrow{0}+\overrightarrow{0}+\cdots+\overrightarrow{0}%
-=\overrightarrow{0}$. Thus, $\overrightarrow{0}=0v_{1}+0v_{2}+\cdots+0v_{k}$.
-Hence, the vector $\overrightarrow{0}$ has the form $\lambda_{1}v_{1}%
-+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ for some $\lambda_{1},\lambda
-_{2},\ldots,\lambda_{k}\in\mathbb{R}$ (namely, for $\lambda_{i}=0$). In other
-words, $\overrightarrow{0}$ is a linear combination of $v_{1},v_{2}%
-,\ldots,v_{k}$. In other words, $\overrightarrow{0}\in\operatorname{span}\left( v_{1}%
-,v_{2},\ldots,v_{k}\right) $ (since $\operatorname{span}\left( v_{1},v_{2}%
-,\ldots,v_{k}\right) $ is the set of all linear combinations of
-$v_{1},v_{2},\ldots,v_{k}$). In other words, $\operatorname{span}\left( v_{1},v_{2}%
-,\ldots,v_{k}\right) $ contains the zero vector (since
-$\overrightarrow{0}$ is the zero vector of the vector space $V$).
+\textit{Proof that }$\operatorname{span}\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $\textit{ contains the zero vector:} We have $0v_{1}%
++0v_{2}+\cdots+0v_{k}=\overrightarrow{0}+\overrightarrow{0}+\cdots
++\overrightarrow{0}=\overrightarrow{0}$. Thus, $\overrightarrow{0}%
+=0v_{1}+0v_{2}+\cdots+0v_{k}$. Hence, the vector $\overrightarrow{0}$ has the
+form $\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}$ for some
+$\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$ (namely, for
+$\lambda_{i}=0$). In other words, $\overrightarrow{0}$ is a linear combination
+of $v_{1},v_{2},\ldots,v_{k}$. In other words, $\overrightarrow{0}%
+\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ (since
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is the set of
+all linear combinations of $v_{1},v_{2},\ldots,v_{k}$). In other words,
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ contains the
+zero vector (since $\overrightarrow{0}$ is the zero vector of the vector space
+$V$).
 
-\textit{Proof that }$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $
-\textit{is closed under addition:} Let $v\in\operatorname{span}\left( v_{1},v_{2}%
-,\ldots,v_{k}\right) $ and $w\in\operatorname{span}\left( v_{1},v_{2},\ldots
-,v_{k}\right) $. We must prove that $v+w\in\operatorname{span}\left( v_{1}%
-,v_{2},\ldots,v_{k}\right) $.
+\textit{Proof that }$\operatorname{span}\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $ \textit{is closed under addition:} Let $v\in
+\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ and
+$w\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. We must
+prove that $v+w\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)
+$.
 
 We have
 \[
-v\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) =\left\{  \lambda
-_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda_{1}%
-,\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+v\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left\{
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 \]
 (by (\ref{eq.def.subspace.span.explicit})). In other words, there exist some
 $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$ satisfying
@@ -15908,9 +15909,9 @@ of $\mathbb{R}$ and satisfy $v=\mu_{1}v_{1}+\mu_{2}v_{2}+\cdots+\mu_{k}v_{k}$.
 
 We have
 \[
-w\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) =\left\{  \lambda
-_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda_{1}%
-,\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+w\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left\{
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 \]
 (by (\ref{eq.def.subspace.span.explicit})). In other words, there exist some
 $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$ satisfying
@@ -15940,20 +15941,21 @@ v+w\in\left\{  \lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}%
 \ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}  .
 \]
 In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as
-$v+w\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $. This completes
-the proof of the fact that $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right)
-$ is closed under addition.
+$v+w\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. This
+completes the proof of the fact that $\operatorname{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ is closed under addition.
 
-\textit{Proof that }$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $
-\textit{is closed under scaling:} Let $\lambda\in\mathbb{R}$ and
-$v\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $. We must prove that
-$\lambda v\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $.
+\textit{Proof that }$\operatorname{span}\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $ \textit{is closed under scaling:} Let $\lambda\in\mathbb{R}$
+and $v\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. We
+must prove that $\lambda v\in\operatorname{span}\left(  v_{1},v_{2}%
+,\ldots,v_{k}\right)  $.
 
 We have
 \[
-v\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) =\left\{  \lambda
-_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda_{1}%
-,\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
+v\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left\{
+\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}\ \mid\ \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 \]
 (by (\ref{eq.def.subspace.span.explicit})). In other words, there exist some
 $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}$ satisfying
@@ -15978,14 +15980,15 @@ v_{k}\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 .
 \]
 In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as $\lambda
-v\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $. This completes the
-proof of the fact that $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $
-is closed under scaling.
+v\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. This
+completes the proof of the fact that $\operatorname{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ is closed under scaling.
 
-We now have shown that $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $
-contains the zero vector, is closed under addition, and is closed under
-scaling. Hence, $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $ is a
-subspace of $V$. This proves Proposition \ref{prop.subspace.span}.
+We now have shown that $\operatorname{span}\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $ contains the zero vector, is closed under addition, and is
+closed under scaling. Hence, $\operatorname{span}\left(  v_{1},v_{2}%
+,\ldots,v_{k}\right)  $ is a subspace of $V$. This proves Proposition
+\ref{prop.subspace.span}.
 \end{proof}
 
 \begin{example}
@@ -15993,12 +15996,12 @@ It is easy to construct examples of spans. Here is one:
 
 Let $x=\left(  1,0,2\right)  ^{T}$ and $y=\left(  0,0,1\right)  ^{T}$. Then,
 $x$ and $y$ are two vectors in $\mathbb{R}^{3}$. What is their span
-$\operatorname{span}\left( x,y\right) $ ? The equality
+$\operatorname{span}\left(  x,y\right)  $ ? The equality
 (\ref{eq.def.subspace.span.explicit}) (applied to $V=\mathbb{R}^{3}$, $k=2$
 and $\left(  v_{1},v_{2},\ldots,v_{k}\right)  =\left(  x,y\right)  $) yields%
 \begin{align*}
-\operatorname{span}\left( x,y\right)  &  =\left\{  \lambda_{1}x+\lambda_{2}%
-y\ \mid\ \lambda_{1},\lambda_{2}\in\mathbb{R}\right\}  =\left\{
+\operatorname{span}\left(  x,y\right)   &  =\left\{  \lambda_{1}x+\lambda
+_{2}y\ \mid\ \lambda_{1},\lambda_{2}\in\mathbb{R}\right\}  =\left\{
 u\underbrace{x}_{=\left(  1,0,2\right)  ^{T}}+v\underbrace{y}_{=\left(
 0,0,1\right)  ^{T}}\ \mid\ u,v\in\mathbb{R}\right\} \\
 &  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we have renamed the indices
@@ -16012,8 +16015,8 @@ u\underbrace{x}_{=\left(  1,0,2\right)  ^{T}}+v\underbrace{y}_{=\left(
 This is precisely the set $D$ defined in Example \ref{exam.subspace.R3}
 \textbf{(d)}. In particular, this shows once again that the latter set $D$ is
 a subspace of $\mathbb{R}^{3}$ (since Proposition \ref{prop.subspace.span}
-shows that $\operatorname{span}\left( x,y\right) $ is a subspace of $\mathbb{R}^{3}%
-$). Thus, we have found a new proof of the claim of Example
+shows that $\operatorname{span}\left(  x,y\right)  $ is a subspace of
+$\mathbb{R}^{3}$). Thus, we have found a new proof of the claim of Example
 \ref{exam.subspace.R3} \textbf{(d)}.
 \end{example}
 
@@ -16024,25 +16027,25 @@ The following property of spans is fundamental:
 ,\ldots,v_{k}$ be finitely many vectors in $V$.
 
 \textbf{(a)} The vectors $v_{1},v_{2},\ldots,v_{k}$ belong to the span
-$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $.
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $.
 
 \textbf{(b)} If $U$ is a subspace of $V$ that contains the vectors
-$v_{1},v_{2},\ldots,v_{k}$, then $\operatorname{span}\left( v_{1},v_{2},\ldots
-,v_{k}\right) \subseteq U$.
+$v_{1},v_{2},\ldots,v_{k}$, then $\operatorname{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  \subseteq U$.
 \end{proposition}
 
 Propositions \ref{prop.subspace.span} and \ref{prop.span.uniprop} are often
 stated together in one single laconic sentence: \textquotedblleft The span
-$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $ of $k$ vectors
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ of $k$ vectors
 $v_{1},v_{2},\ldots,v_{k}$ is the smallest subspace of $V$ that contains
 $v_{1},v_{2},\ldots,v_{k}$\textquotedblright\ (where \textquotedblleft
 smallest\textquotedblright\ means that any other subspace of $V$ that contains
-$v_{1},v_{2},\ldots,v_{k}$ must contain $\operatorname{span}\left( v_{1},v_{2},\ldots
-,v_{k}\right) $ as a subset). This sentence includes the claim of
-Proposition \ref{prop.subspace.span} (since it says that the span
-$\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $ is a subspace of $V$),
-the claim of Proposition \ref{prop.span.uniprop} \textbf{(a)} (since it says
-that this span contains $v_{1},v_{2},\ldots,v_{k}$), and the claim of
+$v_{1},v_{2},\ldots,v_{k}$ must contain $\operatorname{span}\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $ as a subset). This sentence includes the
+claim of Proposition \ref{prop.subspace.span} (since it says that the span
+$\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a subspace
+of $V$), the claim of Proposition \ref{prop.span.uniprop} \textbf{(a)} (since
+it says that this span contains $v_{1},v_{2},\ldots,v_{k}$), and the claim of
 Proposition \ref{prop.span.uniprop} \textbf{(b)} (since it says that this span
 is the \textbf{smallest} subspace of $V$ that contains $v_{1},v_{2}%
 ,\ldots,v_{k}$).
@@ -16166,7 +16169,7 @@ r
 1
 \end{array}
 \right)  \text{ for each }r\in\mathbb{R}\right) \nonumber\\
-&  =\operatorname{span}\left( \left(
+&  =\operatorname{span}\left(  \left(
 \begin{array}
 [c]{c}%
 -1\\
@@ -16174,7 +16177,7 @@ r
 0\\
 1
 \end{array}
-\right)  \right) .\nonumber
+\right)  \right)  .\nonumber
 \end{align}
 We have thus written $\operatorname*{Ker}A$ as a span of vectors (in our case:
 one vector) in $\mathbb{R}^{4}$. This is not the only way to do so, but it is
@@ -16294,7 +16297,7 @@ s
 1
 \end{array}
 \right)  \text{ for each }r,s\in\mathbb{R}\right) \nonumber\\
-&  =\operatorname{span}\left( \left(
+&  =\operatorname{span}\left(  \left(
 \begin{array}
 [c]{c}%
 -2\\
@@ -16308,7 +16311,7 @@ s
 0\\
 1
 \end{array}
-\right)  \right) .\nonumber
+\right)  \right)  .\nonumber
 \end{align}
 We have thus written $\operatorname*{Ker}A$ as a span of vectors (in our case:
 two vectors) in $\mathbb{R}^{3}$. Again, there are various other ways to do so.
@@ -16582,8 +16585,8 @@ Examples \ref{exam.kernel.1} and \ref{exam.kernel.2}:%
 0
 \end{array}
 \right)  }_{=\left(  \text{empty sum}\right)  }\right\} \\
-&  =\left\{  \left(  \text{empty sum}\right)  \right\}  =\operatorname{span}\left(
-{}\right) \ \ \ \ \ \ \ \ \ \ \left(  \text{the span of no
+&  =\left\{  \left(  \text{empty sum}\right)  \right\}  =\operatorname{span}%
+\left(  {}\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{the span of no
 vectors}\right)  .
 \end{align*}
 Here, we have \textquotedblleft decomposed\textquotedblright\ the zero vector
@@ -16626,9 +16629,9 @@ A$, and $A\left(  \mathbb{R}^{m}\right)  $.
 \begin{proposition}
 \label{prop.subspace.Im}Let $A$ be an $n\times m$-matrix.
 
-\textbf{(a)} We have $A\mathbb{R}^{m}=\operatorname{span}\left( \operatorname*{col}%
-\nolimits_{1}A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}%
-\nolimits_{m}A\right) $.
+\textbf{(a)} We have $A\mathbb{R}^{m}=\operatorname{span}\left(
+\operatorname*{col}\nolimits_{1}A,\operatorname*{col}\nolimits_{2}%
+A,\ldots,\operatorname*{col}\nolimits_{m}A\right)  $.
 
 \textbf{(b)} The set $A\mathbb{R}^{m}$ is a subspace of $\mathbb{R}^{n}$.
 \end{proposition}
@@ -16744,9 +16747,9 @@ Lemma \ref{lem.subspace.Im.Ax} is proven.
 (\ref{eq.def.subspace.span.explicit}) to $V=\mathbb{R}^{n}$, $k=m$ and
 $v_{i}=\operatorname*{col}\nolimits_{i}A$, we obtain%
 \begin{align}
-&  \operatorname{span}\left( \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
-\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right)
-\nonumber\\
+&  \operatorname{span}\left(  \operatorname*{col}\nolimits_{1}%
+A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
+A\right) \nonumber\\
 &  =\left\{  \lambda_{1}\operatorname*{col}\nolimits_{1}A+\lambda
 _{2}\operatorname*{col}\nolimits_{2}A+\cdots+\lambda_{m}\operatorname*{col}%
 \nolimits_{m}A\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{m}\in
@@ -16783,19 +16786,20 @@ column vectors}\\
 \ x_{1},x_{2},\ldots,x_{m}\in\mathbb{R}\right\}  .
 \end{align*}
 Comparing this with (\ref{pf.prop.subspace.Im.a.1}), we obtain $A\mathbb{R}%
-^{m}=\operatorname{span}\left( \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
-\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right) $. This
-proves Proposition \ref{prop.subspace.Im} \textbf{(a)}.
+^{m}=\operatorname{span}\left(  \operatorname*{col}\nolimits_{1}%
+A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
+A\right)  $. This proves Proposition \ref{prop.subspace.Im} \textbf{(a)}.
 
 \textbf{(b)} Proposition \ref{prop.subspace.span} (applied to $V=\mathbb{R}%
 ^{n}$, $k=m$ and $v_{i}=\operatorname*{col}\nolimits_{i}A$) shows that
-$\operatorname{span}\left( \operatorname*{col}\nolimits_{1}A,\operatorname*{col}%
-\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}A\right) $ is a
-subspace of $\mathbb{R}^{n}$. In other words, $A\mathbb{R}^{m}$ is a subspace
-of $\mathbb{R}^{n}$ (since Proposition \ref{prop.subspace.Im} \textbf{(a)}
-yields $A\mathbb{R}^{m}=\operatorname{span}\left( \operatorname*{col}\nolimits_{1}%
+$\operatorname{span}\left(  \operatorname*{col}\nolimits_{1}%
 A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
-A\right) $). This proves Proposition \ref{prop.subspace.Im} \textbf{(b)}.
+A\right)  $ is a subspace of $\mathbb{R}^{n}$. In other words, $A\mathbb{R}%
+^{m}$ is a subspace of $\mathbb{R}^{n}$ (since Proposition
+\ref{prop.subspace.Im} \textbf{(a)} yields $A\mathbb{R}^{m}%
+=\operatorname{span}\left(  \operatorname*{col}\nolimits_{1}%
+A,\operatorname*{col}\nolimits_{2}A,\ldots,\operatorname*{col}\nolimits_{m}%
+A\right)  $). This proves Proposition \ref{prop.subspace.Im} \textbf{(b)}.
 \end{proof}
 
 The probably simplest example of an image is the following:
@@ -17454,7 +17458,7 @@ linear combination of $u_{1},u_{2},\ldots,u_{k}$ also lies in $U$.
 
 \textbf{(c)} Let $u_{1},u_{2},\ldots,u_{k}$ be elements of $U$. Then,
 \[
-\operatorname{span}\left( u_{1},u_{2},\ldots,u_{k}\right) \subseteq U.
+\operatorname{span}\left(  u_{1},u_{2},\ldots,u_{k}\right)  \subseteq U.
 \]
 
 \end{proposition}
@@ -17547,12 +17551,12 @@ numbers. In other words: every linear combination of $u_{1},u_{2},\ldots
 \textbf{(c)} Proposition \ref{prop.subspace.closed} \textbf{(b)} shows that
 every linear combination of $u_{1},u_{2},\ldots,u_{k}$ lies in $U$. In other
 words, the set of all linear combinations of $u_{1},u_{2},\ldots,u_{k}$ is a
-subset of $U$. But since $\operatorname{span}\left( u_{1},u_{2},\ldots,u_{k}\right) $
-is precisely the set of all linear combinations of $u_{1},u_{2},\ldots,u_{k}$
-(in fact, this is how $\operatorname{span}\left( u_{1},u_{2},\ldots,u_{k}\right) $
-was defined), this rewrites as follows: $\operatorname{span}\left( u_{1},u_{2},\ldots
-,u_{k}\right) $ is a subset of $U$. This proves Proposition
-\ref{prop.subspace.closed} \textbf{(c)}.
+subset of $U$. But since $\operatorname{span}\left(  u_{1},u_{2},\ldots
+,u_{k}\right)  $ is precisely the set of all linear combinations of
+$u_{1},u_{2},\ldots,u_{k}$ (in fact, this is how $\operatorname{span}\left(
+u_{1},u_{2},\ldots,u_{k}\right)  $ was defined), this rewrites as follows:
+$\operatorname{span}\left(  u_{1},u_{2},\ldots,u_{k}\right)  $ is a subset of
+$U$. This proves Proposition \ref{prop.subspace.closed} \textbf{(c)}.
 \end{proof}
 
 I owe you a proof of Proposition \ref{prop.span.uniprop}; it can now be done
@@ -17560,8 +17564,8 @@ quite easily:
 
 \begin{proof}
 [Proof of Proposition \ref{prop.span.uniprop}.]\textbf{(a)} Let $i\in\left\{
-1,2,\ldots,k\right\}  $. We claim that $v_{i}\in\operatorname{span}\left( v_{1}%
-,v_{2},\ldots,v_{k}\right) $.
+1,2,\ldots,k\right\}  $. We claim that $v_{i}\in\operatorname{span}\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $.
 
 [\textit{Proof:} We have%
 \begin{align*}
@@ -17590,8 +17594,8 @@ v_{k}\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 .
 \]
 In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as $v_{i}%
-\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $.\ \ \ \ \footnote{Here
-is a more rigorous version of the same proof:
+\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $%
+.\ \ \ \ \footnote{Here is a more rigorous version of the same proof:
 \par
 Proposition \ref{prop.sum.vectors.delta} (applied to $p=1$, $q=k$ and $r=i$)
 yields%
@@ -17615,17 +17619,18 @@ v_{k}\ \mid\ \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\in\mathbb{R}\right\}
 .
 \]
 In view of (\ref{eq.def.subspace.span.explicit}), this rewrites as $v_{i}%
-\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $.}]
+\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $.}]
 
-Now, forget that we fixed $i$. We thus have shown that $v_{i}\in\operatorname{span}\left(
-v_{1},v_{2},\ldots,v_{k}\right) $ for each $i\in\left\{  1,2,\ldots
-,k\right\}  $. In other words, the vectors $v_{1},v_{2},\ldots,v_{k}$ all
-belong to $\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $. This proves
-Proposition \ref{prop.span.uniprop} \textbf{(a)}.
+Now, forget that we fixed $i$. We thus have shown that $v_{i}\in
+\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ for each
+$i\in\left\{  1,2,\ldots,k\right\}  $. In other words, the vectors
+$v_{1},v_{2},\ldots,v_{k}$ all belong to $\operatorname{span}\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $. This proves Proposition
+\ref{prop.span.uniprop} \textbf{(a)}.
 
 \textbf{(b)} Let $U$ be a subspace of $V$ that contains the vectors
-$v_{1},v_{2},\ldots,v_{k}$. We must prove that $\operatorname{span}\left( v_{1}%
-,v_{2},\ldots,v_{k}\right) \subseteq U$. But this follows immediately
+$v_{1},v_{2},\ldots,v_{k}$. We must prove that $\operatorname{span}\left(
+v_{1},v_{2},\ldots,v_{k}\right)  \subseteq U$. But this follows immediately
 from Proposition \ref{prop.subspace.closed} \textbf{(c)} (applied to
 $u_{i}=v_{i}$). Thus, Proposition \ref{prop.span.uniprop} \textbf{(b)} is proven.
 \end{proof}
@@ -17653,8 +17658,8 @@ applied stuff) and \cite[Two.I.2]{Heffer16}.
 \begin{todo}
 The terminology \textquotedblleft$\left(  v_{1},v_{2},\ldots,v_{k}\right)  $
 spans $V$\textquotedblright\ (or \textquotedblleft$v_{1},v_{2},\ldots,v_{k}$
-span $V$\textquotedblright) means $V=\operatorname{span}\left( v_{1},v_{2},\ldots
-,v_{k}\right) $.
+span $V$\textquotedblright) means $V=\operatorname{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $.
 \end{todo}
 
 \begin{todo}
@@ -17668,7 +17673,7 @@ $e_{i} = E_{i,1}$ span $\mathbb{R}^{n}$.
 \begin{todo}
 How to check that a given vector is in a given span:
 
-$w\in\operatorname{span}\left( v_{1},v_{2},\ldots,v_{k}\right) $
+$w\in\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $
 
 $\Longleftrightarrow$ the equation $w=\lambda_{1}v_{1}+\cdots+\lambda_{k}%
 v_{k}$ has at least one solution $\left(  \lambda_{1},\lambda_{2}%
@@ -17680,10 +17685,11 @@ Can solve this using Gaussian elimination.
 \begin{todo}
 How to check that a given span is contained in another given span:
 
-Checking that $\operatorname{span}\left( \alpha,\beta\right) \subseteq\operatorname{span}\left(
-\gamma,\delta,\varepsilon\right) $ is tantamount to checking that both
-$\alpha$ and $\beta$ lie in $\operatorname{span}\left( \gamma,\delta,\varepsilon
-\right) $ (by Proposition \ref{prop.subspace.closed} \textbf{(c)}).
+Checking that $\operatorname{span}\left(  \alpha,\beta\right)  \subseteq
+\operatorname{span}\left(  \gamma,\delta,\varepsilon\right)  $ is tantamount
+to checking that both $\alpha$ and $\beta$ lie in $\operatorname{span}\left(
+\gamma,\delta,\varepsilon\right)  $ (by Proposition \ref{prop.subspace.closed}
+\textbf{(c)}).
 \end{todo}
 
 \begin{todo}
@@ -17793,7 +17799,7 @@ Thus, the elements of $\operatorname*{Ker}\left(
 3 & 9 & 6\\
 2 & 6 & 4
 \end{array}
-\right)  =\operatorname{span}\left( \left(
+\right)  =\operatorname{span}\left(  \left(
 \begin{array}
 [c]{c}%
 -2\\
@@ -17807,7 +17813,7 @@ Thus, the elements of $\operatorname*{Ker}\left(
 1\\
 0
 \end{array}
-\right)  \right) $.
+\right)  \right)  $.
 \end{todo}
 
 \begin{todo}
@@ -17818,15 +17824,15 @@ Example: $\left(  \left(  1,3,2\right)  ^{T},\left(  0,1,1\right)
 Prove this in full: Let $\alpha=\left(  1,3,2\right)  ^{T}$ and $\beta=\left(
 0,1,1\right)  ^{T}$.
 
-Show $\alpha,\beta\in W$. Conclude that $\operatorname{span}\left( \alpha,\beta
-\right) \subseteq W$ by Proposition \ref{prop.subspace.closed}
+Show $\alpha,\beta\in W$. Conclude that $\operatorname{span}\left(
+\alpha,\beta\right)  \subseteq W$ by Proposition \ref{prop.subspace.closed}
 \textbf{(c)}.
 
 Now prove converse: Solve the system $\left\{  x+z=y\right.  $ and write the
 solution as $\left(  y-z,y,z\right)  ^{T}=y\left(  1,1,0\right)  ^{T}+z\left(
--1,0,1\right)  ^{T}$. So $W=\operatorname{span}\left( \left(  1,1,0\right)  ^{T},\left(
--1,0,1\right)  ^{T}\right) $. Now, need to check that two spans are
-equal. We know how this is done.
+-1,0,1\right)  ^{T}$. So $W=\operatorname{span}\left(  \left(  1,1,0\right)
+^{T},\left(  -1,0,1\right)  ^{T}\right)  $. Now, need to check that two spans
+are equal. We know how this is done.
 \end{todo}
 
 \begin{todo}
@@ -17860,9 +17866,10 @@ Redundant vectors in spans can be removed.
 hw3: If $\left(  w_{1}, w_{2}, \ldots, w_{k}\right)  $ and $\left(  v_{1},
 v_{2}, \ldots, v_{\ell}\right)  $ are two lists of vectors such that $\left\{
 w_{1}, w_{2}, \ldots, w_{k}\right\}  = \left\{  v_{1}, v_{2}, \ldots, v_{\ell
-}\right\}  $, then $\operatorname{span}\left(  w_{1}, w_{2}, \ldots, w_{k}\right)  = \operatorname{span}\left(
-v_{1}, v_{2}, \ldots, v_{\ell}\right)  $. In particular, if we reorder or
-duplicate the elements of a list, then its span does not change.
+}\right\}  $, then $\operatorname{span}\left(  w_{1}, w_{2}, \ldots,
+w_{k}\right)  = \operatorname{span}\left(  v_{1}, v_{2}, \ldots, v_{\ell
+}\right)  $. In particular, if we reorder or duplicate the elements of a list,
+then its span does not change.
 \end{todo}
 
 \begin{todo}
