@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, November 02, 2016 12:40:43}
+%TCIDATA{LastRevised=Wednesday, November 02, 2016 13:11:32}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -15830,7 +15830,7 @@ $\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $. Many authors
 also denote it by $\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)
 $, but this notation risks confusion with the inner product of two vectors $v$
 and $w$ (which will be introduced later, and which will be denoted by $\left<
-v,w\right> $).
+v,w\right>  $).
 
 Note that $\operatorname{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is
 defined as the set of all linear combinations of $v_{1},v_{2},\ldots,v_{k}$;
@@ -17884,11 +17884,24 @@ to have degree $-\infty$.)
 \end{todo}
 
 \begin{todo}
-hw3: The subspace $\left\{  \left(  x_{1}, x_{2}, \ldots, x_{n}\right)  ^{T}
-\in\mathbb{R}^{n} \mid x_{1} + x_{2} + \cdots+ x_{n} = 0 \right\}  $ of
-$\mathbb{R}^{n}$ is spanned by each of the two lists $\left(  e_{1}-e_{n},
-e_{2}-e_{n}, \ldots, e_{n-1}-e_{n}\right)  $ and $\left(  e_{1}-e_{2},
-e_{2}-e_{3}, \ldots, e_{n-1}-e_{n}\right)  $.
+hw3: The subspace $\left\{  \left(  x_{1},x_{2},\ldots,x_{n}\right)  ^{T}%
+\in\mathbb{R}^{n}\mid x_{1}+x_{2}+\cdots+x_{n}=0\right\}  $ of $\mathbb{R}%
+^{n}$ is spanned by each of the two lists $\left(  e_{1}-e_{n},e_{2}%
+-e_{n},\ldots,e_{n-1}-e_{n}\right)  $ and $\left(  e_{1}-e_{2},e_{2}%
+-e_{3},\ldots,e_{n-1}-e_{n}\right)  $.
+\end{todo}
+
+\begin{definition}
+A vector space $V$ is said to be \textit{finite-dimensional} if there is a
+(finite) list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ spanning $V$.
+\end{definition}
+
+\begin{todo}
+Examples: $\mathbb{R}^{n}$, $\mathbb{R}^{n\times m}$, $\mathbb{R}$,
+$\mathbb{C}$ and all their subspaces are finite-dimensional.
+
+On the other hand, $\mathbb{R}^{\mathbb{R}}$, the set of all polynomial
+functionss, etc. are not finite-dimensional.
 \end{todo}
 
 [...]
@@ -17909,8 +17922,283 @@ Linear independence}
 best one), \cite[\S 2.3]{OlvSha06} (focusses on the analysis-related and
 applied stuff) and \cite[Two.II]{Heffer16}.
 
+\begin{definition}
+\label{def.linind}Let $v_{1},v_{2},\ldots,v_{k}$ be vectors in a vector space
+$V$. We say that the list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is
+\textit{linearly independent} if the only $k$-tuple $\left(  \lambda
+_{1},\lambda_{2},\ldots,\lambda_{k}\right)  $ of real numbers satisfying
+$\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=\overrightarrow{0}$
+is $\left(  0,0,\ldots,0\right)  $.
+
+Instead of saying \textquotedblleft the list $\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $ is linearly independent\textquotedblright, we can also say
+\textquotedblleft the vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly
+independent\textquotedblright. (But keep in mind that linear independence is a
+property of the whole list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $, not of
+each single vector in this list. It often happens (for example) that two
+vectors $a,b$ are linearly independent, and two further vectors $c,d$ are
+linearly independent, but the four vectors $a,b,c,d$ together are not linearly independent.)
+\end{definition}
+
 \begin{todo}
-.......
+Equivalent restatements of linear independence:
+
+\begin{enumerate}
+\item The list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is linearly independent.
+
+\item The vectors $v_{1},v_{2},\ldots,v_{k}$ is linearly independent. (This is
+just another way of saying things.)
+
+\item The only $k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda
+_{k}\right)  $ of real numbers satisfying $\lambda_{1}v_{1}+\lambda_{2}%
+v_{2}+\cdots+\lambda_{k}v_{k}=\overrightarrow{0}$ is $\left(  0,0,\ldots
+,0\right)  $.
+
+\item If $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}$ are real numbers
+satisfying $\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}%
+v_{k}=\overrightarrow{0}$, then $\lambda_{1}=\lambda_{2}=\cdots=\lambda_{k}=0$.
+
+\item If $\lambda_{1},\lambda_{2},\ldots,\lambda_{k}$ are real numbers,
+\textbf{not all zero}, then $\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots
++\lambda_{k}v_{k}\neq\overrightarrow{0}$.
+
+\item For each vector $v\in V$, there exists \textbf{at most one} $k$-tuple
+$\left(  \lambda_{1},\lambda_{2},\ldots,\lambda_{k}\right)  $ of real numbers
+satisfying $\lambda_{1}v_{1}+\lambda_{2}v_{2}+\cdots+\lambda_{k}v_{k}=v$.
+
+\item Each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies $v_{i}%
+\notin\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{i-1}\right)  $. (See
+Proposition below.)
+
+\item Each $i\in\left\{  1,2,\ldots,k\right\}  $ satisfies $v_{i}%
+\notin\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{i-1},v_{i+1}%
+,v_{i+2},\ldots,v_{k}\right)  $. (See Proposition below.)
+\end{enumerate}
+\end{todo}
+
+\begin{todo}
+Example: The standard basis vectors $e_{1},e_{2},\ldots,e_{n}$ of
+$\mathbb{R}^{n}$ are linearly independent.
+\end{todo}
+
+
+
+\begin{todo}
+Non-example: The vectors $e_{1}-e_{2},e_{2}-e_{3},e_{3}-e_{1}$ in
+$\mathbb{R}^{3}$ are \textbf{not} linearly independent. In fact,%
+\[
+1\left(  e_{1}-e_{2}\right)  +1\left(  e_{2}-e_{3}\right)  +1\left(
+e_{3}-e_{1}\right)  =\overrightarrow{0}.
+\]
+
+\end{todo}
+
+
+
+\begin{todo}
+We say \textquotedblleft linearly dependent\textquotedblright\ for
+\textquotedblleft not linearly independent\textquotedblright.
+
+
+
+Another non-example: The vectors $e_{1},\overrightarrow{0},e_{2}$ in
+$\mathbb{R}^{3}$ are linearly dependent. In fact,%
+\[
+0e_{1}+1\cdot\overrightarrow{0}+0e_{2}=\overrightarrow{0}.
+\]
+More generally, if $\overrightarrow{0}$ appears in a list of vectors, then
+said list must be linearly dependent.
+\end{todo}
+
+
+
+\begin{todo}
+Another non-example: If $\alpha$ and $\beta$ are two vectors, then $\left(
+\alpha,\beta,\alpha\right)  $ is linearly dependent. Indeed,%
+\[
+1\alpha+0\beta+\left(  -1\right)  \alpha=\overrightarrow{0}.
+\]
+More generally, if a vector in a list appears more than once, then said list
+is linearly dependent.
+\end{todo}
+
+
+
+\begin{todo}
+How to check whether a list of vectors in $\mathbb{R}^{n}$ (or $\mathbb{R}%
+^{n\times m}$) is linearly independent?
+
+You have to check whether the only solution of $\lambda_{1}v_{1}+\lambda
+_{2}v_{2}+\cdots+\lambda_{k}v_{k}=\overrightarrow{0}$ is $\left(
+0,0,\ldots,0\right)  $. This can be done by Gaussian elimination.
+
+For example, is the list $\left(  \left(
+\begin{array}
+[c]{c}%
+2\\
+1\\
+3
+\end{array}
+\right)  ,\left(
+\begin{array}
+[c]{c}%
+1\\
+3\\
+6
+\end{array}
+\right)  ,\left(
+\begin{array}
+[c]{c}%
+2\\
+5\\
+5
+\end{array}
+\right)  \right)  $ of vectors in $\mathbb{R}^{3}$ linearly independent?
+
+So we are asking for the solutions of $\lambda_{1}\left(
+\begin{array}
+[c]{c}%
+2\\
+1\\
+3
+\end{array}
+\right)  +\lambda_{2}\left(
+\begin{array}
+[c]{c}%
+1\\
+3\\
+6
+\end{array}
+\right)  +\lambda_{3}\left(
+\begin{array}
+[c]{c}%
+2\\
+5\\
+5
+\end{array}
+\right)  =\overrightarrow{0}$. This rewrites as the system $\left\{
+\begin{array}
+[c]{c}%
+2\lambda_{1}+1\lambda_{2}+2\lambda_{3}=0;\\
+1\lambda_{1}+3\lambda_{2}+5\lambda_{5}=0;\\
+3\lambda_{1}+6\lambda_{2}+5\lambda_{3}=0
+\end{array}
+\right.  $. The only solution is $\left(  \lambda_{1},\lambda_{2},\lambda
+_{3}\right)  =\left(  0,0,0\right)  $. So, yes, it is linearly independent.
+\end{todo}
+
+
+
+\begin{todo}
+Visual meaning of linear independency in $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$.
+\end{todo}
+
+
+
+\begin{todo}
+If $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is linearly independent, then
+so is every rearrangement of $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $, and
+every sublist of $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ too.
+\end{todo}
+
+
+
+\begin{todo}
+\textbf{Proposition:} Let $V$ be a vector space. Let $v_{1},v_{2},\ldots
+,v_{k}$ be $k$ vectors in $V$. Assume that the list $\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ is linearly dependent. Then:
+
+\textbf{(a)} There exists some $i\in\left\{  1,2,\ldots,k\right\}  $ such that
+$v_{i}\in\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{i-1}\right)  $.
+[Notice that when $i=1$, the span $\operatorname*{span}\left(  v_{1}%
+,v_{2},\ldots,v_{i-1}\right)  $ has to be interpreted as the \textquotedblleft
+empty span\textquotedblright\ $\operatorname*{span}\left(  {}\right)
+=\left\{  \overrightarrow{0}\right\}  $.]
+
+\textbf{(b)} This $i$ satisfies $\operatorname*{span}\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  =\operatorname*{span}\left(  v_{1},v_{2}%
+,\ldots,v_{i-1},v_{i+1},\ldots,v_{k}\right)  $.
+\end{todo}
+
+
+
+\begin{todo}
+\textbf{Corollary:} Let $V$ be a vector space. Let $v_{1},v_{2},\ldots,v_{k}$
+be $k$ vectors in $V$. Then, the following are equivalent:
+
+\textbf{(a)} The list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is linearly independent.
+
+\textbf{(b)} No $i$ satisfies $v_{i}\in\operatorname*{span}\left(  v_{1}%
+,v_{2},\ldots,v_{i-1}\right)  $.
+
+\textbf{(c)} No $i$ satisfies $v_{i}\in\operatorname*{span}\left(  v_{1}%
+,v_{2},\ldots,v_{i-1},v_{i+1},\ldots,v_{k}\right)  $.
+\end{todo}
+
+
+
+\begin{todo}
+Thus, if a list spans a subspace $U$ of $V$, then we can keep shrinking this
+list (by throwing out redundant elements) until we obtain a linearly
+independent list that also spans $U$. For example, the list $\left(
+e_{1}-e_{2},e_{1},e_{2}-2e_{1},e_{1}+e_{3},e_{2}+e_{3}\right)  $ spanning
+$\mathbb{R}^{3}$ can be shrunk by first throwing out $e_{2}-2e_{1}$ (which is
+$\in\operatorname*{span}\left(  e_{1}-e_{2},e_{1}\right)  $) and then throwing
+out $e_{2}+e_{3}$ (which is $\in\operatorname*{span}\left(  e_{1}-e_{2}%
+,e_{1},e_{1}+e_{3}\right)  $); the result is a linearly independent list
+$\left(  e_{1}-e_{2},e_{1},e_{1}+e_{3}\right)  $ that still spans
+$\mathbb{R}^{3}$.
+
+How do we find redundant entries in our list? One way to get them is just to
+check, for each $i$, whether $v_{i}\in\operatorname*{span}\left(  v_{1}%
+,v_{2},\ldots,v_{i-1}\right)  $. Another (faster) way is to pick a
+not-all-zeroes solution $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda
+_{k}\right)  $ of the equation $\lambda_{1}v_{1}+\lambda_{2}v_{2}%
++\cdots+\lambda_{k}v_{k}=\overrightarrow{0}$, and take the highest $i$ for
+which $\lambda_{i}\neq0$; then, the corresponding $v_{i}$ is redundant.
+
+Exercise: Check that the list obtained at the end of this process is indeed redundant.
+\end{todo}
+
+
+
+\begin{todo}
+The \textbf{Steinitz exchange lemma} is the claim that if $\left(  v_{1}%
+,v_{2},\ldots,v_{k}\right)  $ is a list of vectors in a vector space $V$ such
+that $V=\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $, and if
+$\left(  w_{1},w_{2},\ldots,w_{l}\right)  $ is a linearly independent list of
+vectors in the same vector space $V$, then
+
+\textbf{(a)} we have $k\geq\ell$ (that is, the spanning list is at least as
+long as the linearly independent list), and
+
+\textbf{(b)} we can obtain a basis of $V$ by filling up the list $\left(
+w_{1},w_{2},\ldots,w_{\ell}\right)  $ with some vectors from $\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $. (\textquotedblleft Filling
+up\textquotedblright\ means that we pick some vectors from the list $\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $ and append them to the list $\left(
+w_{1},w_{2},\ldots,w_{\ell}\right)  $. For example, filling up the list
+$\left(  w_{1},w_{2},\ldots,w_{\ell}\right)  $ with some vectors from $\left(
+v_{1},v_{2},\ldots,v_{k}\right)  $ can result in the list $\left(  w_{1}%
+,w_{2},\ldots,w_{\ell},v_{2},v_{4},v_{9}\right)  $. But \textquotedblleft
+some\textquotedblright\ can also be none; thus, we might end up with $\left(
+w_{1},w_{2},\ldots,w_{\ell}\right)  $.)
+
+The Wikipedia has a proof of the Steinitz exchange lemma, and it appears to be
+among the most readable:
+\url{https://en.wikipedia.org/wiki/Steinitz_exchange_lemma#Proof} . (Note that
+the Wikipedia talks of sets instead of lists, but you can just read "list" for
+"set" there.)
+
+Another source is Theorem 5.2.9 in L/N/S. Notice that L/N/S are trying to
+avoid talking about empty lists; this forces them to take some slightly clumsy
+precautions (for example, the "v\_1 is nonzero" condition in Lemma 5.2.7 is
+just there because they don't want to allow j to be 1). If you feel at home
+with empty lists, you can simplify their proof of Theorem 5.2.9 as well (Step
+1 becomes just a particular case of Step k for k = 1). That said, I still
+prefer the proof on Wikipedia.
+
+Another proof is in Olver/Shakiban, using Gaussian elimination.
 \end{todo}
 
 [...]
@@ -17930,6 +18218,45 @@ Bases and dimension}
 \textbf{References for vector spaces:} \cite[\S 5.3-5.4]{LaNaSc16} (possibly
 the best one), \cite[\S 2.4]{OlvSha06} (focusses on the analysis-related and
 applied stuff) and \cite[Two.III]{Heffer16}.
+
+\begin{definition}
+Let $v_{1},v_{2},\ldots,v_{k}$ be vectors in a vector space $V$. We say that
+the list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a \textit{basis} of
+$V$ if and only if this list spans $V$ (that is, it satisfies
+$V=\operatorname*{span}\left(  v_{1},v_{2},\ldots,v_{k}\right)  $) and is
+linearly independent.
+\end{definition}
+
+\begin{theorem}
+Let $V$ be a finite-dimensional vector space. Then, any two bases of $V$ have
+the same size.
+\end{theorem}
+
+\begin{todo}
+Prove this theorem using the Steinitz exchange lemma.
+\end{todo}
+
+
+
+\begin{todo}
+If $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a linearly independent list
+in a vector space $V$, then $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a
+basis of the subspace $\operatorname*{span}\left(  v_{1},v_{2},\ldots
+,v_{k}\right)  $.
+\end{todo}
+
+
+
+\begin{todo}
+Each spanning list can be shrunk to a basis. (This was done above, just
+without saying the word \textquotedblleft basis\textquotedblright.)
+\end{todo}
+
+
+
+\begin{todo}
+........
+\end{todo}
 
 [...]
 
