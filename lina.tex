@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, November 02, 2016 13:11:32}
+%TCIDATA{LastRevised=Thursday, November 03, 2016 03:07:23}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -5451,7 +5451,7 @@ upper-unitriangular $n\times n$-matrix.
 upper-triangular (since they are upper-unitriangular). Hence, Theorem
 \ref{thm.triangular.prod-up} \textbf{(a)} shows that $AB$ is an
 upper-triangular $n\times n$-matrix. Moreover, Theorem
-\ref{thm.triangular.prod-up} \textbf{(a)} shows that
+\ref{thm.triangular.prod-up} \textbf{(b)} shows that
 \[
 \left(  AB\right)  _{i,i}=\underbrace{A_{i,i}}_{\substack{=1\\\text{(since
 }A\text{ is}\\\text{unitriangular)}}}\underbrace{B_{i,i}}%
@@ -10874,12 +10874,12 @@ We have thus turned all diagonal entries into $1$. Our final matrix
 $C^{\prime\prime\prime}$ thus equals $I_{4}$ (since it is a permutation
 matrix). Combining the three equalities we have found, we obtain%
 \begin{align*}
-C  &  =T_{1,2}\underbrace{C^{\prime}}_{=T_{2,4}C^{\prime\prime}}%
-=T_{1,2}T_{2,4}\underbrace{C^{\prime\prime}}_{=T_{3,4}C^{\prime\prime\prime}%
-}=T_{1,2}T_{2,4}T_{3,4}\underbrace{C^{\prime\prime\prime}}_{=I_{4}}\\
+C &  =T_{1,2}\underbrace{C^{\prime}}_{=T_{2,4}C^{\prime\prime}}=T_{1,2}%
+T_{2,4}\underbrace{C^{\prime\prime}}_{=T_{3,4}C^{\prime\prime\prime}}%
+=T_{1,2}T_{2,4}T_{3,4}\underbrace{C^{\prime\prime\prime}}_{=I_{4}}\\
 &  =T_{1,2}T_{2,4}T_{3,4}I_{4}=T_{1,2}T_{2,4}T_{3,4}.
 \end{align*}
-Thus we have represented $C$ as a product of permutation matrices.
+Thus we have represented $C$ as a product of swapping matrices.
 \end{example}
 
 Example \ref{exam.thm.permat.Tuv} \textbf{(c)} essentially demonstrates how
@@ -11696,12 +11696,12 @@ I_{n}\right)  _{i,j}$. In other words, each entry of the matrix $AA^{T}$
 equals the corresponding entry of $I_{n}$. Therefore, $AA^{T}=I_{n}$.
 
 Now, let us change our point of view. We have just shown that $AA^{T}=I_{n}$.
-But Proposition \ref{prop.permat.inverse} \textbf{(c)} shows that $A^{T}$ is a
-permutation matrix. Hence, the argument that we used to prove $AA^{T}=I_{n}$
-can also be applied to $A^{T}$ instead of $A$. It therefore yields
-$A^{T}\left(  A^{T}\right)  ^{T}=I_{n}$. Since $\left(  A^{T}\right)  ^{T}=A$
-(indeed, this follows from Proposition \ref{prop.transpose.invol}), this
-rewrites as $A^{T}A=I_{n}$.
+But (\ref{pf.prop.permat.inverse.ATper}) shows that $A^{T}$ is a permutation
+matrix. Hence, the argument that we used to prove $AA^{T}=I_{n}$ can also be
+applied to $A^{T}$ instead of $A$. It therefore yields $A^{T}\left(
+A^{T}\right)  ^{T}=I_{n}$. Since $\left(  A^{T}\right)  ^{T}=A$ (indeed, this
+follows from Proposition \ref{prop.transpose.invol}), this rewrites as
+$A^{T}A=I_{n}$.
 
 Now, the two equalities $AA^{T}=I_{n}$ and $A^{T}A=I_{n}$ (combined) show that
 the matrix $A^{T}$ is an inverse of $A$. Hence, the matrix $A$ is invertible,
@@ -11848,9 +11848,9 @@ permutations}
 
 In Definition \ref{def.permat}, we have defined permutation matrices as
 matrices satisfying three particular conditions. This may not be their most
-natural definition, and certainly has the disadvantage of making them looking
-as curiosities rather than as something important. In this section, I shall
-show a different approach to them which better demonstrates their
+natural definition, and certainly has the disadvantage of making them look
+like curiosities rather than like something important. In this section, I
+shall show a different approach to them which better demonstrates their
 significance. The idea is that permutation matrices are matrix representations
 of \textit{permutations}, a fundamental notion of combinatorics (= the theory
 of finite sets).
@@ -12250,7 +12250,7 @@ to be distinct).
 
 \item And so on.
 
-\item At the last setep, choose a value for $w\left(  n\right)  $. There are
+\item At the last step, choose a value for $w\left(  n\right)  $. There are
 $n-\left(  n-1\right)  $ possible choices for this (since $w\left(  n\right)
 $ has to belong to $\left\{  1,2,\ldots,n\right\}  $, but must not equal any
 of $w\left(  1\right)  ,w\left(  2\right)  ,\ldots,w\left(  n-1\right)  $,
@@ -12737,8 +12737,8 @@ For example, $\left(
 \end{example}
 
 \begin{definition}
-Let $n\in\mathbb{N}$. The \textit{standard row operations} (on $n\times
-n$-matrices) are:
+Let $n\in\mathbb{N}$. The \textit{standard row operations} (on matrices with
+$n$ rows) are:
 
 \begin{itemize}
 \item row additions (i.e., transformations of the form $A_{u,v}^{\lambda}$);
@@ -17981,8 +17981,6 @@ Example: The standard basis vectors $e_{1},e_{2},\ldots,e_{n}$ of
 $\mathbb{R}^{n}$ are linearly independent.
 \end{todo}
 
-
-
 \begin{todo}
 Non-example: The vectors $e_{1}-e_{2},e_{2}-e_{3},e_{3}-e_{1}$ in
 $\mathbb{R}^{3}$ are \textbf{not} linearly independent. In fact,%
@@ -17993,13 +17991,9 @@ e_{3}-e_{1}\right)  =\overrightarrow{0}.
 
 \end{todo}
 
-
-
 \begin{todo}
 We say \textquotedblleft linearly dependent\textquotedblright\ for
 \textquotedblleft not linearly independent\textquotedblright.
-
-
 
 Another non-example: The vectors $e_{1},\overrightarrow{0},e_{2}$ in
 $\mathbb{R}^{3}$ are linearly dependent. In fact,%
@@ -18010,8 +18004,6 @@ More generally, if $\overrightarrow{0}$ appears in a list of vectors, then
 said list must be linearly dependent.
 \end{todo}
 
-
-
 \begin{todo}
 Another non-example: If $\alpha$ and $\beta$ are two vectors, then $\left(
 \alpha,\beta,\alpha\right)  $ is linearly dependent. Indeed,%
@@ -18021,8 +18013,6 @@ Another non-example: If $\alpha$ and $\beta$ are two vectors, then $\left(
 More generally, if a vector in a list appears more than once, then said list
 is linearly dependent.
 \end{todo}
-
-
 
 \begin{todo}
 How to check whether a list of vectors in $\mathbb{R}^{n}$ (or $\mathbb{R}%
@@ -18087,21 +18077,15 @@ So we are asking for the solutions of $\lambda_{1}\left(
 _{3}\right)  =\left(  0,0,0\right)  $. So, yes, it is linearly independent.
 \end{todo}
 
-
-
 \begin{todo}
 Visual meaning of linear independency in $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$.
 \end{todo}
-
-
 
 \begin{todo}
 If $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is linearly independent, then
 so is every rearrangement of $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $, and
 every sublist of $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ too.
 \end{todo}
-
-
 
 \begin{todo}
 \textbf{Proposition:} Let $V$ be a vector space. Let $v_{1},v_{2},\ldots
@@ -18120,8 +18104,6 @@ empty span\textquotedblright\ $\operatorname*{span}\left(  {}\right)
 ,\ldots,v_{i-1},v_{i+1},\ldots,v_{k}\right)  $.
 \end{todo}
 
-
-
 \begin{todo}
 \textbf{Corollary:} Let $V$ be a vector space. Let $v_{1},v_{2},\ldots,v_{k}$
 be $k$ vectors in $V$. Then, the following are equivalent:
@@ -18134,8 +18116,6 @@ be $k$ vectors in $V$. Then, the following are equivalent:
 \textbf{(c)} No $i$ satisfies $v_{i}\in\operatorname*{span}\left(  v_{1}%
 ,v_{2},\ldots,v_{i-1},v_{i+1},\ldots,v_{k}\right)  $.
 \end{todo}
-
-
 
 \begin{todo}
 Thus, if a list spans a subspace $U$ of $V$, then we can keep shrinking this
@@ -18159,8 +18139,6 @@ which $\lambda_{i}\neq0$; then, the corresponding $v_{i}$ is redundant.
 
 Exercise: Check that the list obtained at the end of this process is indeed redundant.
 \end{todo}
-
-
 
 \begin{todo}
 The \textbf{Steinitz exchange lemma} is the claim that if $\left(  v_{1}%
@@ -18236,8 +18214,6 @@ the same size.
 Prove this theorem using the Steinitz exchange lemma.
 \end{todo}
 
-
-
 \begin{todo}
 If $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a linearly independent list
 in a vector space $V$, then $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is a
@@ -18245,14 +18221,10 @@ basis of the subspace $\operatorname*{span}\left(  v_{1},v_{2},\ldots
 ,v_{k}\right)  $.
 \end{todo}
 
-
-
 \begin{todo}
 Each spanning list can be shrunk to a basis. (This was done above, just
 without saying the word \textquotedblleft basis\textquotedblright.)
 \end{todo}
-
-
 
 \begin{todo}
 ........
