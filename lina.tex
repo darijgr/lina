@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, November 03, 2016 03:07:23}
+%TCIDATA{LastRevised=Thursday, November 24, 2016 04:53:44}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -112,7 +112,10 @@
 %BeginExpansion
 \today
 %EndExpansion
-\ at \currenttime}
+\ at \currenttime\\
+These notes are \textbf{frozen} in a (very) unfinished state. Currently, only
+the basics of matrix algebra have been completed (products, triangularity, row
+operations etc.).}
 \maketitle
 \tableofcontents
 
@@ -3770,7 +3773,7 @@ The element $b$ in the \textquotedblleft existence of multiplicative
 inverses\textquotedblright\ axiom is called the \textit{inverse} of $a$ and is
 denoted by $a^{-1}$; it can be proven that this element is unique. If $u$ and
 $v$ are two elements of a field $\mathbb{K}$ such that $v\neq0$, then the
-product $uv^{-1}$ is denoted by $\dfrac{u}{v}$. Thus, any two elements of
+product $uv^{-1}$ is denoted by $\dfrac{u}{v}$. Thus, any two elements of a
 field $\mathbb{K}$ can be divided by each other as long as the denominator is
 $\neq0$.
 \end{definition}
@@ -5239,10 +5242,6 @@ $\lambda A$ is a diagonal matrix whenever $\lambda$ is a number.
 \label{exe.thm.triangular.prod-diag}Prove Theorem
 \ref{thm.triangular.prod-diag}.
 \end{exercise}
-
-The proof of Theorem \ref{thm.triangular.prod-down} is analogous to that of
-Theorem \ref{thm.triangular.prod-up}, and the changes required are fairly
-straightforward (change some inequality signs). Let me pose this as an exercise:
 
 Lower-triangular and upper-triangular matrices are not only analogues of each
 other; they are also closely related:
@@ -6971,6 +6970,12 @@ elimination; let me state it as a theorem:
 \label{thm.triangular.Alamuv}Let $n\in\mathbb{N}$. An $n\times n$-matrix $C$
 is lower-unitriangular if and only if $C$ is a product of lower addition matrices.
 \end{theorem}
+
+Keep in mind that \textquotedblleft a product of lower addition
+matrices\textquotedblright\ (and any other product, unless declared otherwise)
+may contain zero factors (in which case it is empty, and thus equals the
+identity matrix) or one factor (in which case it equals that factor). Usually,
+of course, it will contain more than one factor.
 
 \begin{example}
 \label{exam.thm.triangular.Alamuv}\textbf{(a)} The lower-unitriangular
@@ -10874,9 +10879,9 @@ We have thus turned all diagonal entries into $1$. Our final matrix
 $C^{\prime\prime\prime}$ thus equals $I_{4}$ (since it is a permutation
 matrix). Combining the three equalities we have found, we obtain%
 \begin{align*}
-C &  =T_{1,2}\underbrace{C^{\prime}}_{=T_{2,4}C^{\prime\prime}}=T_{1,2}%
-T_{2,4}\underbrace{C^{\prime\prime}}_{=T_{3,4}C^{\prime\prime\prime}}%
-=T_{1,2}T_{2,4}T_{3,4}\underbrace{C^{\prime\prime\prime}}_{=I_{4}}\\
+C  &  =T_{1,2}\underbrace{C^{\prime}}_{=T_{2,4}C^{\prime\prime}}%
+=T_{1,2}T_{2,4}\underbrace{C^{\prime\prime}}_{=T_{3,4}C^{\prime\prime\prime}%
+}=T_{1,2}T_{2,4}T_{3,4}\underbrace{C^{\prime\prime\prime}}_{=I_{4}}\\
 &  =T_{1,2}T_{2,4}T_{3,4}I_{4}=T_{1,2}T_{2,4}T_{3,4}.
 \end{align*}
 Thus we have represented $C$ as a product of swapping matrices.
