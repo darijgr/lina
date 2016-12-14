@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Thursday, November 24, 2016 04:53:44}
+%TCIDATA{LastRevised=Tuesday, December 13, 2016 21:43:59}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -11164,13 +11164,13 @@ Thus, we know that Statements 1, 2 and 3 are satisfied.
 
 We have assumed that $A$ is $k$-identical. In other words,%
 \begin{equation}
-A_{1,1}=A_{2,2}=\cdots=A_{k,k}=1 \label{pf.lem.permat.Tuv.k-id.1.1}%
+A_{1,1}=A_{2,2}=\cdots=A_{k,k}=1\label{pf.lem.permat.Tuv.k-id.1.1}%
 \end{equation}
 (by the definition of \textquotedblleft$k$-identical\textquotedblright). In
 other words,%
 \begin{equation}
 A_{i,i}=1\ \ \ \ \ \ \ \ \ \ \text{for each }i\in\left\{  1,2,\ldots
-,k\right\}  . \label{pf.lem.permat.Tuv.k-id.1.1b}%
+,k\right\}  .\label{pf.lem.permat.Tuv.k-id.1.1b}%
 \end{equation}
 Next, we observe that%
 \begin{equation}
@@ -11182,8 +11182,8 @@ A_{i,j}=\delta_{i,j}\ \ \ \ \ \ \ \ \ \ \text{for all }i\in\left\{
 $i\in\left\{  1,2,\ldots,k\right\}  $ and $j\in\left\{  1,2,\ldots,n\right\}
 $. We must prove that $A_{i,j}=\delta_{i,j}$.
 \par
-We have $i\in\left\{  1,2,\ldots,n\right\}  =\left\{  1,2,\ldots,k\right\}  $
-(since $n=k$). Hence, $A_{i,i}=1$ (by (\ref{pf.lem.permat.Tuv.k-id.1.1b})).
+We have $i\in\left\{  1,2,\ldots,k\right\}  $. Hence, $A_{i,i}=1$ (by
+(\ref{pf.lem.permat.Tuv.k-id.1.1b})).
 \par
 We are in one of the following two cases:
 \par
@@ -11199,21 +11199,21 @@ Case 1.
 Let us now consider Case 2. In this case, we have $i\neq j$. Thus,
 $\delta_{i,j}=0$.
 \par
-Now, assume (for the sake of contradiction) that $A_{i,j}\neq0$. But,
-$A_{i,j}$ is an entry of $A$, and thus is either a $0$ or a $1$ (by Statement
-1). In other words, $A_{i,j}=0$ or $A_{i,j}=1$. Therefore, $A_{i,j}=1$ (since
+Now, assume (for the sake of contradiction) that $A_{i,j}\neq0$. But $A_{i,j}$
+is an entry of $A$, and thus is either a $0$ or a $1$ (by Statement 1). In
+other words, $A_{i,j}=0$ or $A_{i,j}=1$. Therefore, $A_{i,j}=1$ (since
 $A_{i,j}\neq0$). Combining this with $A_{i,i}=1$, we conclude that the $i$-th
 row of $A$ has at least two entries equal to $1$: namely, the entries
-$A_{i,i}$ and $A_{i,j}$. (And these are indeed two distinct entries, since
-$i\neq j$.)
+$A_{i,i}$ and $A_{i,j}$. (And these two entries actually lie in different
+cells, since $i\neq j$.)
 \par
-Recall that $A$ is a permutation matrix. Hence, each row of $A$ has exactly
-one entry equal to $1$. In particular, the $i$-th row of $A$ has exactly one
-entry equal to $1$. This contradicts the fact that the $i$-th row of $A$ has
-at least two entries equal to $1$. This contradiction shows that our
-assumption (that $A_{i,j}\neq0$) was false. Hence, we have $A_{i,j}=0$.
-Compared with $\delta_{i,j}=0$, this yields $A_{i,j}=\delta_{i,j}$. Thus,
-$A_{i,j}=\delta_{i,j}$ is proven in Case 2.
+But each row of $A$ has exactly one entry equal to $1$ (because Statement 2 is
+satisfied). In particular, the $i$-th row of $A$ has exactly one entry equal
+to $1$. This contradicts the fact that the $i$-th row of $A$ has at least two
+entries equal to $1$. This contradiction shows that our assumption (that
+$A_{i,j}\neq0$) was false. Hence, we have $A_{i,j}=0$. Compared with
+$\delta_{i,j}=0$, this yields $A_{i,j}=\delta_{i,j}$. Thus, $A_{i,j}%
+=\delta_{i,j}$ is proven in Case 2.
 \par
 Now, $A_{i,j}=\delta_{i,j}$ is proven in each of the two Cases 1 and 2. Hence,
 $A_{i,j}=\delta_{i,j}$ always holds. In other words,
@@ -11414,7 +11414,7 @@ _{=n-q}+1=n-q+1=n-\left(  q-1\right)  $, this rewrites as follows: $A$ is an
 $\left(  n-\left(  q-1\right)  \right)  $-identical permutation matrix. But
 the induction hypothesis shows that Lemma \ref{lem.permat.Tuv.k-id.2} holds
 for $p=q-1$. Hence, Lemma \ref{lem.permat.Tuv.k-id.2} can be applied to
-$p=q-1$ (since $A$ is a $\left(  n-\left(  q-1\right)  \right)  $-identical
+$p=q-1$ (since $A$ is an $\left(  n-\left(  q-1\right)  \right)  $-identical
 permutation matrix). As a result, we conclude that $A$ is a product of at most
 $q-1$ swapping matrices. In other words, there exists some $s\in\left\{
 0,1,\ldots,q-1\right\}  $ such that $A$ is a product of at most $s$ swapping
@@ -11426,15 +11426,18 @@ $). In other words, (\ref{pf.lem.permat.Tuv.k-id.2.indgoal}) holds. Hence,
 
 Let us now consider Case 2. In this case, we have $u\neq k+1$. Thus, $u\neq
 k+1=v$. Therefore, Lemma \ref{lem.permat.Tuv.k-id.1} \textbf{(d)} reveals that
-$T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation matrix. But the
-induction hypothesis shows that Lemma \ref{lem.permat.Tuv.k-id.2} holds for
-$p=q-1$. Hence, Lemma \ref{lem.permat.Tuv.k-id.2} can be applied to $q-1$ and
-$T_{u,v}A$ instead of $p$ and $A$ (since $T_{u,v}A$ is a $\left(  n-\left(
-q-1\right)  \right)  $-identical permutation matrix). As a result, we conclude
-that $T_{u,v}A$ is a product of at most $q-1$ swapping matrices. In other
-words, there exists some $s\in\left\{  0,1,\ldots,q-1\right\}  $ and some $s$
-swapping matrices $M_{1},M_{2},\ldots,M_{s}$ such that $T_{u,v}A=M_{1}%
-M_{2}\cdots M_{s}$. Consider this $s$ and these $M_{1},M_{2},\ldots,M_{s}$.
+$T_{u,v}A$ is a $\left(  k+1\right)  $-identical permutation matrix. Since
+$\underbrace{k}_{=n-q}+1=n-q+1=n-\left(  q-1\right)  $, this rewrites as
+follows: $T_{u,v}A$ is an $\left(  n-\left(  q-1\right)  \right)  $-identical
+permutation matrix. But the induction hypothesis shows that Lemma
+\ref{lem.permat.Tuv.k-id.2} holds for $p=q-1$. Hence, Lemma
+\ref{lem.permat.Tuv.k-id.2} can be applied to $q-1$ and $T_{u,v}A$ instead of
+$p$ and $A$ (since $T_{u,v}A$ is an $\left(  n-\left(  q-1\right)  \right)
+$-identical permutation matrix). As a result, we conclude that $T_{u,v}A$ is a
+product of at most $q-1$ swapping matrices. In other words, there exists some
+$s\in\left\{  0,1,\ldots,q-1\right\}  $ and some $s$ swapping matrices
+$M_{1},M_{2},\ldots,M_{s}$ such that $T_{u,v}A=M_{1}M_{2}\cdots M_{s}$.
+Consider this $s$ and these $M_{1},M_{2},\ldots,M_{s}$.
 
 From $s\in\left\{  0,1,\ldots,q-1\right\}  $, we obtain $s+1\in\left\{
 1,2,\ldots,q\right\}  \subseteq\left\{  0,1,\ldots,q\right\}  $.
@@ -11489,7 +11492,7 @@ But according to the definition of \textquotedblleft$0$%
 -identical\textquotedblright, this means precisely that $C$ is $0$-identical.
 Qed.}. In other words, the matrix $C$ is $\left(  n-n\right)  $-identical
 (since $0=n-n$). Thus, Lemma \ref{lem.permat.Tuv.k-id.2} (applied to $p=n$ and
-$C=A$) shows that $C$ is a product of at most $n$ swapping matrices. Hence,
+$A=C$) shows that $C$ is a product of at most $n$ swapping matrices. Hence,
 $C$ is a product of swapping matrices. This is precisely what we had to prove.
 This proves the $\Longrightarrow$ direction of Theorem \ref{thm.permat.Tuv}.
 Hence, the proof of Theorem \ref{thm.permat.Tuv} is complete.
@@ -11735,8 +11738,8 @@ Let $n=3$. Then, there are three swapping matrices: $T_{1,2}$, $T_{1,3}$ and
 $T_{2,3}$. (You can also write down $T_{2,1}$, $T_{3,1}$ and $T_{3,2}$, but
 these are the same three matrices by different names.) Out of these three
 matrices, two (namely, $T_{1,2}$ and $T_{2,3}$) are simple swapping matrices
-(in the sense of Proposition \ref{prop.permat.Tkk+1}), whereas the third
-($T_{1,3}$) is not.
+(in the sense of Proposition \ref{prop.permat.Tkk+1}), whereas the remaining
+one ($T_{1,3}$) is not.
 
 Proposition \ref{prop.permat.Tkk+1} (applied to $n=3$) says that each
 permutation matrix of size $3\times3$ is a product of simple swapping
@@ -11770,19 +11773,20 @@ $v$, without changing $A$ because $T_{u,v}=T_{v,u}$). So, assume this. Then, I
 claim that%
 \begin{equation}
 T_{u,v}=\left(  T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}\right)  T_{v-1,v}%
-\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)  .
-\label{pf.prop.permat.Tkk+1.goal4}%
+\left(  T_{v-2,v-1}T_{v-3,v-2}\cdots T_{u,u+1}\right)
+.\label{pf.prop.permat.Tkk+1.goal4}%
 \end{equation}
 (To ease understanding, let me explain how the right hand side of
 (\ref{pf.prop.permat.Tkk+1.goal4}) should be interpreted: The first
 parenthesized factor, $T_{u,u+1}T_{u+1,u+2}\cdots T_{v-2,v-1}$, is the product
 of all $T_{k,k+1}$ with $k$ ranging over $\left\{  u,u+1,\ldots,v-2\right\}  $
 \textbf{in increasing order}. If the set $\left\{  u,u+1,\ldots,v-2\right\}  $
-is empty, then this product has to be understood as the empty product, thus
-$I_{n}$ as usual. The second parenthesized factor, $T_{v-2,v-1}T_{v-3,v-2}%
-\cdots T_{u,u+1}$, is the product of all $T_{k,k+1}$ with $k$ ranging over
-$\left\{  u,u+1,\ldots,v-2\right\}  $ \textbf{in decreasing order}. Again, it
-is $I_{n}$ if $\left\{  u,u+1,\ldots,v-2\right\}  $ is empty.)
+is empty, then this product has to be understood as the empty product (which
+equals $I_{n}$ as usual). The second parenthesized factor, $T_{v-2,v-1}%
+T_{v-3,v-2}\cdots T_{u,u+1}$, is the product of all $T_{k,k+1}$ with $k$
+ranging over $\left\{  u,u+1,\ldots,v-2\right\}  $ \textbf{in decreasing
+order}. Again, it is the empty product if $\left\{  u,u+1,\ldots,v-2\right\}
+$ is empty (and thus equals $I_{n}$ in this case).)
 
 Clearly, the equality (\ref{pf.prop.permat.Tkk+1.goal4}) represents $T_{u,v}$
 as a product of simple swapping matrices; thus, once it is proven, the claim
@@ -15016,7 +15020,7 @@ v,w\right)  $\textquotedblright, \textquotedblleft$\lambda v$%
 these refers to the scaling of a different vector space. Finally, the three
 terms \textquotedblleft$\overrightarrow{0}$\textquotedblright\ in
 (\ref{eq.def.vectspace.product.0}) are the zero vectors of three different
-vector spaces (namely, of $V\times W$, of $V$ and of $W$, in order of appearance).
+vector spaces (namely, of $V\times W$, of $V$ and of $W$, in order of appearance).)
 
 The vector space $V\times W$ is called the \textit{Cartesian product} of the
 vector spaces $V$ and $W$.
@@ -15180,7 +15184,7 @@ a vector space by \textquotedblleft inheriting\textquotedblright\ the
 addition, the scaling and the zero vector from $V$: That is, we define the sum
 $v+w$ of two vectors $v\in U$ and $w\in U$ to be the result of adding $v$ and
 $w$ as elements of $V$. Similarly, we define $\lambda v$ for $\lambda
-\in\mathbb{R}$ to $v\in U$ to be the result of scaling $v$ by $\lambda$ as
+\in\mathbb{R}$ and $v\in U$ to be the result of scaling $v$ by $\lambda$ as
 element of $V$. Finally, we define the zero vector $\overrightarrow{0}$ of $U$
 as the zero vector $\overrightarrow{0}$ of $V$. However, this all works (i.e.,
 makes $U$ into a vector space) only if the vectors appearing in these
@@ -15643,7 +15647,7 @@ $\mathbb{R}^{3}$ (even though, as the reader can easily check, $F$ contains
 the zero vector and is closed under scaling). This proves Example
 \ref{exam.subspace.R3} \textbf{(f)}.
 
-\textbf{(g)} The subset $G$ is not close under scaling. In fact, if we set
+\textbf{(g)} The subset $G$ is not closed under scaling. In fact, if we set
 $\lambda=\sqrt{2}$ and $v=\left(  1,0,0\right)  ^{T}$, then $v\in G$ (since
 $1,0,0\in\mathbb{Q}$), but $\lambda v=\left(  \sqrt{2},0,0\right)  ^{T}\notin
 G$ (since not all of $\sqrt{2},0,0$ belong to $\mathbb{Q}$).
@@ -15683,8 +15687,8 @@ Now, $d=\left(  x,0,2x+\underbrace{y}_{=\left(  y-1\right)  +1}\right)
 form $\left(  u,0,2u+v+1\right)  ^{T}$ for some $u,v\in\mathbb{R}$ (namely,
 for $u=x$ and $v=y-1$). In other words, $d\in\left\{  \left(
 u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}  $. In light of
-$\left\{  \left(  u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}\right\}
-=H$, this rewrites as $d\in H$.
+\newline$\left\{  \left(  u,0,2u+v+1\right)  ^{T}\ \mid\ u,v\in\mathbb{R}%
+\right\}  =H$, this rewrites as $d\in H$.
 
 We have now shown that $d\in H$ for each $d\in D$. In other words, $D\subseteq
 H$.
@@ -15707,7 +15711,7 @@ out\textquotedblright\ by a system of linear equations with no constant
 terms\footnote{Such systems are called \textit{homogeneous systems} in
 \cite[\S 1.8]{OlvSha06}.} is a subspace of $\mathbb{R}^{n}$. Let me state (and
 prove) this fact in a slightly cleaner form, replacing the system of linear
-equation by a matrix equation\footnote{In fact, recall (from Proposition
+equations by a matrix equation\footnote{In fact, recall (from Proposition
 \ref{prop.systems.Ax=b}) that a system of linear equations in $n$ unknowns
 $x_{1},x_{2},\ldots,x_{n}$ can be rewritten as a single equation $Ax=b$ for
 the column vector $x=\left(
@@ -15809,6 +15813,27 @@ introduced in Proposition \ref{prop.subspace.kerA} is called the
 \textit{kernel} (or the \textit{nullspace}) of $A$. (Some authors also denote
 it by $\ker A$.)
 \end{definition}
+
+We will see some examples of kernels later; for now, let me only show one
+particularly simple example, namely the kernel of a zero matrix:
+
+\begin{proposition}
+\label{prop.kernel.zero}Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. Then,
+$\operatorname*{Ker}\left(  0_{m\times n}\right)  =\mathbb{R}^{n}$.
+\end{proposition}
+
+\begin{proof}
+[Proof of Proposition \ref{prop.kernel.zero}.]The definition of
+$\operatorname*{Ker}\left(  0_{m\times n}\right)  $ yields
+$\operatorname*{Ker}\left(  0_{m\times n}\right)  =\left\{  x\in\mathbb{R}%
+^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  $. But \textbf{every}
+$x\in\mathbb{R}^{n}$ satisfies $0_{m\times n}x=0_{m\times1}$. Hence, $\left\{
+x\in\mathbb{R}^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  =\left\{
+x\in\mathbb{R}^{n}\right\}  =\mathbb{R}^{n}$. Thus, $\operatorname*{Ker}%
+\left(  0_{m\times n}\right)  =\left\{  x\in\mathbb{R}^{n}\ \mid\ 0_{m\times
+n}x=0_{m\times1}\right\}  =\mathbb{R}^{n}$. This proves Proposition
+\ref{prop.kernel.zero}.
+\end{proof}
 
 \subsubsection{The span of $k$ vectors}
 
