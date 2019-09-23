@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Monday, September 02, 2019 06:22:20}
+%TCIDATA{LastRevised=Thursday, September 26, 2019 14:47:08}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -184,24 +184,24 @@ are on dropbox).
 \end{itemize}
 
 There are countless other sets of lecture notes on the internet\footnote{Let
-me mention three: Two good-looking advanced texts for a mathematically
-prepared reader are Cameron's \cite{Camero08} and Kowalski's \cite{Kowals16};
-a reader bored with the present notes might want to take a look at them. On
-the other side, Wildon's notes \cite{Wildon16} include a lot of examples and
-geometric illustrations (but are probably too brief to peruse as a standalone
-text), whereas Chen's notes \cite{Chen08} boast numerous applications (and
-seem quite readable, though I have not looked at them in depth).}, books in
-the library, and even books on the internet if you know where to look. You can
-find an overview of (published, paper) books in \cite{Drucker12} (but usually
-without assessing their quality), and another (with reviews) on the MAA
-website \url{http://www.maa.org/tags/linear-algebra} . (Reviews on Amazon and
+me mention some: Two good-looking advanced texts for a mathematically prepared
+reader are Cameron's \cite{Camero08} and Kowalski's \cite{Kowals16}; a reader
+bored with the present notes might want to take a look at them. On the other
+side, Wildon's notes \cite{Wildon16} include a lot of examples and geometric
+illustrations (but are probably too brief to peruse as a standalone text),
+whereas Chen's notes \cite{Chen08} boast numerous applications (and seem quite
+readable, though I have not looked at them in depth).}, books in the library,
+and even books on the internet if you know where to look. You can find an
+overview of (published, paper) books in \cite{Drucker12} (but usually without
+assessing their quality), and another (with reviews) on the MAA website
+\url{http://www.maa.org/tags/linear-algebra} . (Reviews on Amazon and
 goodreads are usually just good for a laugh.)
 
 The notes you are reading are under construction, and will remain so for at
 least the whole Fall term 2016. Please let me know of any errors and
-unclarities you encounter (my email address is \texttt{dgrinber@umn.edu}%
-)\footnote{The sourcecode of the notes is also publicly available at
-\url{https://github.com/darijgr/lina} .}. Thank you!
+unclarities you encounter (my email address is
+\texttt{darijgrinberg@gmail.com})\footnote{The sourcecode of the notes is also
+publicly available at \url{https://github.com/darijgr/lina} .}. Thank you!
 
 \subsection{Acknowledgments}
 
@@ -546,9 +546,9 @@ entry} of $v$.
 \subsection{Transposes}
 
 \begin{definition}
-The transpose of an $n\times m$-matrix $A$ is defined to be the $m\times
-n$-matrix $\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$. It is
-denoted by $A^{T}$.
+The \textit{transpose} of an $n\times m$-matrix $A$ is defined to be the
+$m\times n$-matrix $\left(  A_{j,i}\right)  _{1\leq i\leq m,\ 1\leq j\leq n}$.
+It is denoted by $A^{T}$.
 \end{definition}
 
 Let us unravel this confusing-looking definition! It says that the transpose
@@ -4932,7 +4932,7 @@ a & 0 & 0 & 0\\
 a^{\prime} & b^{\prime} & 0 & 0\\
 a^{\prime\prime} & b^{\prime\prime} & c^{\prime\prime} & 0\\
 a^{\prime\prime\prime} & b^{\prime\prime\prime} & c^{\prime\prime\prime} &
-d^{\prime\prime}%
+d^{\prime\prime\prime}%
 \end{array}
 \right)  $ for some numbers $a,a^{\prime},b^{\prime},a^{\prime\prime
 },b^{\prime\prime},c^{\prime\prime},a^{\prime\prime\prime},b^{\prime
@@ -14527,10 +14527,10 @@ space\textquotedblright, not as meaning \textquotedblleft a list of
 numbers\textquotedblright; the latter meaning is too restrictive. The
 properties \textbf{(a)}, \textbf{(b)}, $\ldots$, \textbf{(j)} are requiring
 that the operations $+$ and $\cdot$ and the element $\overrightarrow{0}$
-\textquotedblleft behave like\textquotedblright\ the addition and
-multiplication of matrices and the zero matrix, at least as far as their most
-basic properties are concerned; however, they still leave a lot of freedom to
-decide what these operations and this elements should be.)
+\textquotedblleft behave like\textquotedblright\ the addition and scaling of
+matrices and the zero matrix, at least as far as their most basic properties
+are concerned; however, they still leave a lot of freedom to decide what these
+operations and this elements should be.)
 
 We shall often speak of \textquotedblleft the vector space $V$%
 \textquotedblright\ or say that \textquotedblleft$V$ is a vector
@@ -15394,16 +15394,16 @@ $H=D$.)
 \begin{proof}
 [Proof of Example \ref{exam.subspace.R3}.]Recall how subspaces are defined
 (see Definition \ref{def.subspace}). Thus, in order to prove that some subset
-$U$ of a vector space $V$ is a subspace of $\mathbb{R}^{3}$, we must prove
-that it satisfies the three conditions \textbf{(a)}, \textbf{(b)} and
-\textbf{(c)} of Definition \ref{def.subspace} (i.e., that it contains the zero
-vector, is closed under addition, and is closed under scaling). On the other
-hand, in order to prove that some subset $U$ of a vector space $V$ is
-\textbf{not} a subspace of $\mathbb{R}^{3}$, it suffices to prove that it
-fails \textbf{at least one} of these three conditions \textbf{(a)},
-\textbf{(b)} and \textbf{(c)}. (Often, a subset $U$ will fail two or all three
-of these conditions, but we do not need to check them all.) Let us now apply
-this strategy to the subsets $A$, $B$, $C$, $D$, $E$, $F$ and $G$:
+$U$ of $\mathbb{R}^{3}$ is a subspace of $\mathbb{R}^{3}$, we must prove that
+it satisfies the three conditions \textbf{(a)}, \textbf{(b)} and \textbf{(c)}
+of Definition \ref{def.subspace} (i.e., that it contains the zero vector, is
+closed under addition, and is closed under scaling). On the other hand, in
+order to prove that some subset $U$ of $\mathbb{R}^{3}$ is \textbf{not} a
+subspace of $\mathbb{R}^{3}$, it suffices to prove that it fails \textbf{at
+least one} of these three conditions \textbf{(a)}, \textbf{(b)} and
+\textbf{(c)}. (Often, a subset $U$ will fail two or all three of these
+conditions, but we do not need to check them all: Failing one is enough.) Let
+us now apply this strategy to the subsets $A$, $B$, $C$, $D$, $E$, $F$ and $G$:
 
 \textbf{(a)} We want to show that $A$ is a subspace of $\mathbb{R}^{3}$. Thus,
 we need to show that $A$ contains the zero vector, is closed under addition,
@@ -16747,7 +16747,7 @@ $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
 &  =A_{i,1}x_{1}+A_{i,2}x_{2}+\cdots+A_{i,m}x_{m}\\
 &  =x_{1}A_{i,1}+x_{2}A_{i,2}+\cdots+x_{m}A_{i,m}\\
 &  =\left(  x_{1}\operatorname*{col}\nolimits_{1}A+x_{2}\operatorname*{col}%
-\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)  _{i,1}.
+\nolimits_{2}A+\cdots+x_{m}\operatorname*{col}\nolimits_{m}A\right)  _{i,1}%
 \end{align*}
 (by (\ref{pf.lem.subspace.Im.Ax.0})). In other words, for each $i\in\left\{
 1,2,\ldots,n\right\}  $, the $i$-th entry of the column vector $AB$ equals the
@@ -18318,8 +18318,8 @@ Schilling, \textit{Linear Algebra As an Introduction to Abstract Mathematics},
 2016.\newline\url{https://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf}
 
 \bibitem[LeLeMe16]{LeLeMe16}Eric Lehman, F. Thomson Leighton, Albert R. Meyer,
-\textit{Mathematics for Computer Science}, revised Wednesday 6th June,
-2018, \newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
+\textit{Mathematics for Computer Science}, revised Wednesday 6th June, 2018,
+\newline\url{https://courses.csail.mit.edu/6.042/spring18/mcs.pdf} .
 
 \bibitem[m.se709196]{m.se709196}Daniela Diaz and others, \textit{Definition of
 General Associativity for binary operations}, math.stackexchange question
