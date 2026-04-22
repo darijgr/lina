@@ -15,7 +15,7 @@
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
 %TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Wednesday, December 04, 2019 15:08:50}
+%TCIDATA{LastRevised=Wednesday, April 22, 2026 07:51:31}
 %TCIDATA{SuppressPackageManagement}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
@@ -824,7 +824,7 @@ done by multiplying corresponding entries! (Why not? Well, it wouldn't make
 for a particularly useful notion.) Instead, the definition goes as follows:
 
 \begin{definition}
-\label{def.AB}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $m\in\mathbb{N}$. Let
+\label{def.AB}Let $n\in\mathbb{N}$, $m\in\mathbb{N}$ and $p\in\mathbb{N}$. Let
 $A$ be an $n\times m$-matrix. Let $B$ be an $m\times p$-matrix. (Thus, $A$ has
 to have $m$ columns, while $B$ has to have $m$ rows; other than this, the two
 matrices do not need to have any relation to each other.) The product $AB$ of
@@ -1845,11 +1845,11 @@ x & y
 \end{array}
 \right)  $, then $AB$ is well-defined but $BA$ is not.
 
-\item If $A$ and $B$ are matrices such that both $AB$ and $BA$ well-defined,
-then $AB$ and $BA$ might still have different dimensions. Namely, if $A$ is an
-$n\times m$-matrix and $B$ is an $m\times n$-matrix, then $AB$ is an $n\times
-n$-matrix, but $BA$ is an $m\times m$-matrix. So comparing $AB$ and $BA$ makes
-no sense unless $n=m$.
+\item If $A$ and $B$ are matrices such that both $AB$ and $BA$ are
+well-defined, then $AB$ and $BA$ might still have different dimensions.
+Namely, if $A$ is an $n\times m$-matrix and $B$ is an $m\times n$-matrix, then
+$AB$ is an $n\times n$-matrix, but $BA$ is an $m\times m$-matrix. So comparing
+$AB$ and $BA$ makes no sense unless $n=m$.
 
 \item Even if $AB$ and $BA$ are of the same dimensions, they can still be
 distinct. For example, if $A=\left(
@@ -2047,7 +2047,7 @@ addends. (For example, how should $\sum_{k=2}^{1}k=2+3+\cdots+1$ be
 understood?) However, there is a general convention in mathematics that a sum
 with no addends is always defined to be $0$, and is called an \textit{empty
 sum}. Thus, $\sum_{k=p}^{q}a_{k}=0$ whenever $p=q+1$. For example, $\sum
-_{k=2}^{1}k=0$ and $\sum_{k=0}^{1}\dfrac{1}{k}=0$ (even though $\dfrac{1}{k}$
+_{k=2}^{1}k=0$ and $\sum_{k=1}^{0}\dfrac{1}{k}=0$ (even though $\dfrac{1}{k}$
 makes no sense for $k=0$). (This convention might sound arbitrary, but is
 logically adequate: In fact, it ensures that the equality $a_{p}%
 +a_{p+1}+\cdots+a_{q}=\left(  a_{p}+a_{p+1}+\cdots+a_{q-1}\right)  +a_{q}$
@@ -2057,7 +2057,7 @@ Many authors define the sum $\sum_{k=p}^{q}a_{k}$ to be $0$ in the case when
 $p>q+1$ as well; thus, the sum $\sum_{k=p}^{q}a_{k}$ is defined for
 \textbf{any} two integers $p$ and $q$ (without the requirement that $p\leq
 q+1$). However, this convention is somewhat slippery: for instance, it entails
-$\sum_{k=1}^{n}k=0$ for all negative $k$, and thus the equality $\sum
+$\sum_{k=1}^{n}k=0$ for all negative $n$, and thus the equality $\sum
 _{k=1}^{n}k=\dfrac{n\left(  n+1\right)  }{2}$ does \textbf{not} hold for
 negative $n$.
 
@@ -2372,7 +2372,7 @@ $B$ and $C$ instead of $n$, $m$, $p$, $A$ and $B$. We thus obtain%
 }k\text{ as }\ell\right) \nonumber
 \end{align}
 for all $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{  1,2,\ldots
-,p\right\}  $. Furthermore, we can apply Proposition \ref{prop.AB} to $n$,
+,q\right\}  $. Furthermore, we can apply Proposition \ref{prop.AB} to $n$,
 $p$, $q$, $AB$ and $C$ instead of $n$, $m$, $p$, $A$ and $B$. We thus find%
 \begin{align}
 \left(  \left(  AB\right)  C\right)  _{i,j}  &  =\sum_{k=1}^{p}\left(
@@ -2398,7 +2398,7 @@ $j\in\left\{  1,2,\ldots,q\right\}  $, we have%
 \underbrace{\left(  BC\right)  _{k,j}}_{\substack{=\sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.BC}), applied to }k\text{
 instead of }i\text{)}}}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
-(\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right) \\
+(\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right) \\
 &  =\sum_{k=1}^{m}\underbrace{A_{i,k}\left(  \sum_{\ell=1}^{p}B_{k,\ell
 }C_{\ell,j}\right)  }_{\substack{=\sum_{\ell=1}^{p}A_{i,k}B_{k,\ell}C_{\ell
 ,j}\\\text{(by an application of}\\\text{Proposition \ref{prop.sum.dist})}%
@@ -2413,7 +2413,7 @@ and%
 \underbrace{\left(  AB\right)  _{i,\ell}}_{\substack{=\sum_{k=1}^{m}%
 A_{i,k}B_{k,\ell}\\\text{(by (\ref{pf.prop.matrix-laws.1.g.AB}), applied to
 }\ell\\\text{instead of }j\text{)}}}C_{\ell,j}\ \ \ \ \ \ \ \ \ \ \left(
-\text{by (\ref{pf.prop.matrix-laws.1.g.A(BC)})}\right) \\
+\text{by (\ref{pf.prop.matrix-laws.1.g.(AB)C})}\right) \\
 &  =\sum_{\ell=1}^{p}\underbrace{\left(  \sum_{k=1}^{m}A_{i,k}B_{k,\ell
 }\right)  C_{\ell,j}}_{\substack{=C_{\ell,j}\sum_{k=1}^{m}A_{i,k}B_{k,\ell
 }=\sum_{k=1}^{m}C_{\ell,j}A_{i,k}B_{k,\ell}\\\text{(by an application
@@ -3205,12 +3205,12 @@ longer than adding numbers). However, there is a trick for computing powers
 quickly, called \textit{binary exponentiation}; this trick works just as well
 for matrices as it does for numbers. The trick uses the following observations:
 
-\begin{itemize}
+\begin{enumerate}
 \item For every $m\in\mathbb{N}$, we have $B^{2m}=\left(  B^{m}\right)  ^{2}$.
 
 \item For every $m\in\mathbb{N}$, we have $B^{2m+1}=B\left(  B^{m}\right)
 ^{2}$.
-\end{itemize}
+\end{enumerate}
 
 These observations allow us to quickly compute $B^{2m}$ and $B^{2m+1}$ using
 only $B^{m}$; thus, we can \textquotedblleft jump up\textquotedblright\ from
@@ -3495,9 +3495,9 @@ x+2y=2;\\
 \end{equation}
 in two variables $x$ and $y$ has infinitely many solutions (namely, $\left(
 x,y\right)  =\left(  2t,1-t\right)  $ is a solution for each number $t$). But
-if we allow ourself one little inaccuracy (the kind that computers necessarily
-do when they work with real numbers) and replace the $3$ by $3.000000000001$,
-then we obtain the system%
+if we allow ourselves one little inaccuracy (the kind that computers
+necessarily do when they work with real numbers) and replace the $3$ by
+$3.000000000001$, then we obtain the system%
 \begin{equation}
 \left\{
 \begin{array}
@@ -5097,9 +5097,9 @@ Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} shows that%
 _{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
 \\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
 _{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
-\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
+\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,n}B_{n,j}%
 }_{\substack{=0\\\text{(by (\ref{pf.thm.triangular.prod-up.AB0}),}%
-\\\text{applied to }k=m\text{)}}}\\
+\\\text{applied to }k=n\text{)}}}\\
 &  =0+0+\cdots+0=0.
 \end{align*}
 
@@ -5165,7 +5165,7 @@ Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} (applied to $j=i$)
 shows that%
 \begin{align*}
 &  \left(  AB\right)  _{i,i}\\
-&  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,m}B_{m,i}\\
+&  =A_{i,1}B_{1,i}+A_{i,2}B_{2,i}+\cdots+A_{i,n}B_{n,i}\\
 &  =\left(  \text{the sum of the terms }A_{i,k}B_{k,i}\text{ for all }%
 k\in\left\{  1,2,\ldots,n\right\}  \right) \\
 &  =A_{i,i}B_{i,i}+\underbrace{\left(  \text{the sum of the terms }%
@@ -6220,8 +6220,8 @@ that every $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{
 \left(  E_{v,u,m,n}\right)  _{i,j}=\delta_{i,v}\delta_{j,u}.
 \label{pf.prop.Euv.transpose.4}%
 \end{equation}
-Hence, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and $j\in\left\{
-1,2,\ldots,m\right\}  $, we have%
+Hence, for every $i\in\left\{  1,2,\ldots,m\right\}  $ and $j\in\left\{
+1,2,\ldots,n\right\}  $, we have%
 \begin{align*}
 \left(  \left(  E_{u,v,n,m}\right)  ^{T}\right)  _{i,j}  &  =\delta
 _{j,u}\delta_{i,v}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
@@ -6230,8 +6230,8 @@ _{j,u}\delta_{i,v}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
 \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Euv.transpose.4})}\right)
 .
 \end{align*}
-In other words, for every $i\in\left\{  1,2,\ldots,n\right\}  $ and
-$j\in\left\{  1,2,\ldots,m\right\}  $, the $\left(  i,j\right)  $-th entry of
+In other words, for every $i\in\left\{  1,2,\ldots,m\right\}  $ and
+$j\in\left\{  1,2,\ldots,n\right\}  $, the $\left(  i,j\right)  $-th entry of
 the matrix $\left(  E_{u,v,n,m}\right)  ^{T}$ equals the $\left(  i,j\right)
 $-th entry of the matrix $E_{v,u,m,n}$. In other words, each entry of the
 matrix $\left(  E_{u,v,n,m}\right)  ^{T}$ equals the corresponding entry of
@@ -7056,8 +7056,9 @@ in Step 1, we now obtain $C^{\prime}=A_{3,1}^{b}C^{\prime\prime}$.
 
 \item[Step 3:] Let us get rid of the $\left(  3,2\right)  $-th entry of
 $C^{\prime\prime}$ by subtracting $c\operatorname*{row}\nolimits_{2}\left(
-C^{\prime}\right)  $ from row $3$ of $C^{\prime\prime}$. Denote the resulting
-matrix by $C^{\prime\prime\prime}$. Thus, $C^{\prime\prime\prime}=\left(
+C^{\prime\prime}\right)  $ from row $3$ of $C^{\prime\prime}$. Denote the
+resulting matrix by $C^{\prime\prime\prime}$. Thus, $C^{\prime\prime\prime
+}=\left(
 \begin{array}
 [c]{ccc}%
 1 & 0 & 0\\
@@ -7103,19 +7104,21 @@ outlined in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}:
 
 \begin{proof}
 [Proof of Theorem \ref{thm.triangular.Alamuv}.]$\Longleftarrow$:\footnote{The
-symbol ``$\Longleftarrow$'' means that we are now going to prove the
-``$\Longleftarrow$ direction'' of Theorem \ref{thm.triangular.Alamuv} (that
-is, we are going to prove that if $C$ is a product of lower addition matrices,
-then $C$ is lower-triangular). See Section \ref{sect.gauss.triang-proof1} for
-more about this notation.} We have already proven that every product of lower
-addition matrices is lower-unitriangular. Hence, if $C$ is a product of lower
-addition matrices, then $C$ is lower-unitriangular. This proves the
+symbol \textquotedblleft$\Longleftarrow$\textquotedblright\ means that we are
+now going to prove the \textquotedblleft$\Longleftarrow$
+direction\textquotedblright\ of Theorem \ref{thm.triangular.Alamuv} (that is,
+we are going to prove that if $C$ is a product of lower addition matrices,
+then $C$ is lower-unitriangular). See Section \ref{sect.gauss.triang-proof1}
+for more about this notation.} We have already proven that every product of
+lower addition matrices is lower-unitriangular. Hence, if $C$ is a product of
+lower addition matrices, then $C$ is lower-unitriangular. This proves the
 $\Longleftarrow$ direction of Theorem \ref{thm.triangular.Alamuv}.
 
-$\Longrightarrow$:\footnote{The symbol ``$\Longrightarrow$'' means that we are
-now going to prove the ``$\Longrightarrow$ direction'' of Theorem
+$\Longrightarrow$:\footnote{The symbol \textquotedblleft$\Longrightarrow
+$\textquotedblright\ means that we are now going to prove the
+\textquotedblleft$\Longrightarrow$ direction\textquotedblright\ of Theorem
 \ref{thm.triangular.Alamuv} (that is, we are going to prove that if $C$ is
-lower-triangular, then $C$ is a product of lower addition matrices). See
+lower-unitriangular, then $C$ is a product of lower addition matrices). See
 Section \ref{sect.gauss.triang-proof1} for more about this notation.} We need
 to prove that if $C$ is lower-unitriangular, then $C$ is a product of lower
 addition matrices.
@@ -7200,8 +7203,8 @@ Notice that, for any downward row addition $A^{\lambda}_{u,v}$, the matrix
 $A^{\lambda}_{u,v}$ is a lower addition matrix. This is because $u > v$ (by
 the definition of a downward row addition).
 
-I claim that we can transform the lower-triangular $n\times n$-matrix $C$ into
-the identity matrix $I_{n}$ by performing a sequence of downward row
+I claim that we can transform the lower-unitriangular $n\times n$-matrix $C$
+into the identity matrix $I_{n}$ by performing a sequence of downward row
 additions. Namely, we should proceed by the following method:\footnote{See the
 three-step procedure in Example \ref{exam.thm.triangular.Alamuv} \textbf{(c)}
 for an illustration of this method.}
@@ -7561,7 +7564,7 @@ upper-unitriangular. This completes our proof of Theorem
 \ref{thm.triangular.inverse-up}.
 \end{proof}
 
-\subsection{(*) Products of strictly upper-triangular matrices}
+\subsection{(*) Products of strictly triangular matrices}
 
 In this section, I shall give a different proof of Theorem
 \ref{thm.triangular.inverse}, which is somewhat of a digression from our road
@@ -8036,9 +8039,9 @@ Now, Proposition \ref{prop.matrix-prod.rc} \textbf{(a)} shows that%
 _{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
 ),}\\\text{applied to }k=1\text{)}}}+\underbrace{A_{i,2}B_{2,j}}%
 _{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
-),}\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,m}B_{m,j}%
+),}\\\text{applied to }k=2\text{)}}}+\cdots+\underbrace{A_{i,n}B_{n,j}%
 }_{\substack{=0\\\text{(by (\ref{pf.prop.triangular.strict.k+l.AB0}%
-),}\\\text{applied to }k=m\text{)}}}\\
+),}\\\text{applied to }k=n\text{)}}}\\
 &  =0+0+\cdots+0=0.
 \end{align*}
 
@@ -8306,10 +8309,10 @@ number }a\text{ with }-1<a<1.
 The main difference here is that we are working with a matrix $A$ instead of a
 real number $a$, and that the infinite sum $a^{0}+a^{1}+a^{2}+\cdots$ is
 replaced by a \textbf{finite} sum $A^{0}+A^{1}+\cdots+A^{n-1}$ (because all
-the powers $A^{n},A^{n+1},A^{n+2},\ldots$ equal the zero matrix).
+the higher powers $A^{n},A^{n+1},A^{n+2},\ldots$ equal the zero matrix).
 
 \textbf{(b)} Proposition \ref{prop.triangular.strict.geoseries} requires an
-$n\times n$ matrix $A$ satisfying $A^{n}=0_{n\times n}$. How do we find such matrices?
+$n\times n$-matrix $A$ satisfying $A^{n}=0_{n\times n}$. How do we find such matrices?
 
 Corollary \ref{cor.triangular.strict.npow} shows that every strictly
 lower-triangular $n\times n$-matrix $A$ has this property; this gives us an
@@ -8888,7 +8891,7 @@ S_{3}^{\lambda}  &  =\left(
 \end{array}
 \right)
 \end{align*}
-for all numbers $\lambda$.
+for all nonzero numbers $\lambda$.
 \end{example}
 
 It is clear that each scaling matrix is diagonal (and therefore
@@ -8943,8 +8946,9 @@ u & 0 & 0\\
 a & v & 0\\
 b & c & w
 \end{array}
-\right)  $. Then, $C$ is a product of lower addition matrices: Namely, it
-equals $S_{1}^{u}S_{2}^{v}S_{3}^{w}A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}$.
+\right)  $. Then, $C$ is a product of scaling matrices and lower addition
+matrices: Namely, it equals $S_{1}^{u}S_{2}^{v}S_{3}^{w}A_{2,1}^{a/v}%
+A_{3,1}^{b/w}A_{3,2}^{c/w}$.
 
 Let us actually see how this representation of $C$ can be found. We shall
 proceed by writing $C$ as a product of one scaling matrix with a second matrix
@@ -9011,21 +9015,21 @@ found that $C=S_{1}^{u}C^{\prime}$ in Step 1, we now obtain $C^{\prime\prime
 \end{description}
 
 We have thus turned all diagonal entries into $1$. Our final matrix
-$C^{\prime\prime\prime}$ is thus upper-unitriangular. Thus, Theorem
+$C^{\prime\prime\prime}$ is thus lower-unitriangular. Thus, Theorem
 \ref{thm.triangular.Alamuv} shows that $C^{\prime\prime\prime}$ is a product
 of lower addition matrices. Explicitly, it can be written as follows:%
 \[
 C^{\prime\prime\prime}=A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}.
 \]
 (Indeed, this follows from (\ref{eq.exam.thm.triangular.Alamuv.c.3}), applied
-to $a/v$, $b/w$ and $c/w$ instead of $a$, $b$ and $c$). Combining the three
+to $a/v$, $b/w$ and $c/w$ instead of $a$, $b$ and $c$.) Combining the three
 equalities we have found, we obtain%
 \begin{align*}
-C  &  =S_{1}^{u}\underbrace{C^{\prime}}_{=S_{1}^{v}C^{\prime\prime}}=S_{1}%
-^{u}S_{1}^{v}\underbrace{C^{\prime\prime}}_{=S_{1}^{w}C^{\prime\prime\prime}%
-}=S_{1}^{u}S_{1}^{v}S_{1}^{w}\underbrace{C^{\prime\prime\prime}}%
+C  &  =S_{1}^{u}\underbrace{C^{\prime}}_{=S_{2}^{v}C^{\prime\prime}}=S_{1}%
+^{u}S_{2}^{v}\underbrace{C^{\prime\prime}}_{=S_{3}^{w}C^{\prime\prime\prime}%
+}=S_{1}^{u}S_{2}^{v}S_{3}^{w}\underbrace{C^{\prime\prime\prime}}%
 _{=A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}}\\
-&  =S_{1}^{u}S_{1}^{v}S_{1}^{w}A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}.
+&  =S_{1}^{u}S_{2}^{v}S_{3}^{w}A_{2,1}^{a/v}A_{3,1}^{b/w}A_{3,2}^{c/w}.
 \end{align*}
 Thus we have represented $C$ as a product of scaling matrices and lower
 addition matrices.
@@ -9827,7 +9831,7 @@ and denote it by $C$. Thus, $C$ is an invertibly lower-triangular $n\times
 n$-matrix such that $AC=I_{n}$.
 
 But we can also apply Lemma \ref{lem.triangular.inverse.inv.3rd.2} to $C$
-instead of $B$. As the result, we conclude that there exists an invertibly
+instead of $A$. As the result, we conclude that there exists an invertibly
 lower-triangular $n\times n$-matrix $B$ such that $CB=I_{n}$. Fix such a $B$,
 and denote it by $D$. Thus, $D$ is an invertibly lower-triangular $n\times
 n$-matrix such that $CD=I_{n}$.
@@ -9874,12 +9878,15 @@ called \textquotedblleft elementary matrices\textquotedblright. The third kind
 are the \textit{swapping matrices}:
 
 \begin{definition}
-\label{def.Tuv}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct elements
-of $\left\{  1,2,\ldots,n\right\}  $. Then, $T_{u,v}$ shall denote the
-$n\times n$-matrix $I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}$. (Here, all the
-matrices of the form $E_{p,q}$ are meant to be $n\times n$-matrices: that is,
-$E_{p,q}=E_{p,q,n,n}$ for all $p\in\left\{  1,2,\ldots,n\right\}  $ and
-$q\in\left\{  1,2,\ldots,n\right\}  $.)
+\label{def.Tuv}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two elements of
+$\left\{  1,2,\ldots,n\right\}  $. Then, $T_{u,v}$ shall denote the $n\times
+n$-matrix
+\[
+I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}.
+\]
+(Here, all the matrices of the form $E_{p,q}$ are meant to be $n\times
+n$-matrices: that is, $E_{p,q}=E_{p,q,n,n}$ for all $p\in\left\{
+1,2,\ldots,n\right\}  $ and $q\in\left\{  1,2,\ldots,n\right\}  $.)
 
 Again, the notation $T_{u,v}$ is hiding the dependency on $n$, and we ought to
 write $T_{u,v,n}$ instead; but we will not, because there will not be any real
@@ -9906,12 +9913,24 @@ T_{2,3}  &  =I_{n}-E_{2,2}-E_{3,3}+E_{2,3}+E_{3,2}=\left(
 0 & 1 & 0 & 0\\
 0 & 0 & 0 & 1
 \end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\\
+T_{2,2}  &  =I_{n}-E_{2,2}-E_{2,2}+E_{2,2}+E_{2,2}=I_{n}=\left(
+\begin{array}
+[c]{cccc}%
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}
 \right)  .
 \end{align*}
 
 \end{example}
 
-The pattern that you see on these examples is true in general:
+These examples exhibit a pattern: If $u=v$, then the matrix $T_{u,v}$ is
+simply the identity matrix $I_{n}$; otherwise, it differs from $I_{n}$ only in
+the $u$-th and $v$-th rows, which have their $1$'s in the \textquotedblleft
+wrong\textquotedblright\ positions. This pattern holds in general:
 
 \begin{proposition}
 \label{prop.Tuv.entries}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two distinct
@@ -10081,20 +10100,22 @@ Here are a few more properties of swapping matrices:
 
 \begin{proposition}
 \label{prop.Tuv.transpose}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
-distinct elements of $\left\{  1,2,\ldots,n\right\}  $. Then, $\left(
-T_{u,v}\right)  ^{T}=T_{u,v}$.
+elements of $\left\{  1,2,\ldots,n\right\}  $. Then, $\left(  T_{u,v}\right)
+^{T}=T_{u,v}$.
 \end{proposition}
 
 \begin{proposition}
-\label{prop.Tuv.lambda+mu}Let $n\in\mathbb{N}$. Let $u$ and $v$ be two
-distinct elements of $\left\{  1,2,\ldots,n\right\}  $.
+\label{prop.Tuv.lambda+mu}Let $n\in\mathbb{N}$.
 
-\textbf{(a)} We have $T_{u,v}=I_{n}$.
+\textbf{(a)} Let $u$ be an element of $\left\{  1,2,\ldots,n\right\}  $. Then,
+$T_{u,u}=I_{n}$.
 
-\textbf{(b)} The matrix $T_{u,v}$ is invertible, and its inverse is $\left(
-T_{u,v}\right)  ^{-1}=T_{u,v}$.
+\textbf{(b)} Let $u$ and $v$ be two elements of $\left\{  1,2,\ldots
+,n\right\}  $. Then, the matrix $T_{u,v}$ is invertible, and its inverse is
+$\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$.
 
-\textbf{(c)} We have $T_{v,u}=T_{u,v}$.
+\textbf{(c)} Let $u$ and $v$ be two elements of $\left\{  1,2,\ldots
+,n\right\}  $. Then, $T_{v,u}=T_{u,v}$.
 \end{proposition}
 
 These facts will be proven in Section \ref{sect.gauss.Tuv.proofs}.
@@ -10168,7 +10189,7 @@ We have%
 \begin{align*}
 \underbrace{T_{u,v}}_{=I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}}C  &  =\left(
 I_{n}-E_{u,u}-E_{v,v}+E_{u,v}+E_{v,u}\right)  C\\
-&  =\underbrace{I_{n}C}_{=C}-E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C\\
+&  =\underbrace{I_{n}C}_{=C}-\,E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C\\
 &  =C-E_{u,u}C-E_{v,v}C+E_{u,v}C+E_{v,u}C.
 \end{align*}
 Hence, for each $i\in\left\{  1,2,\ldots,n\right\}  $, we have%
@@ -10232,6 +10253,32 @@ $v$-th row of $C$. This proves Claim 1.
 
 \textit{Proof of Claim 2:} The $v$-th row of the $n\times m$-matrix $T_{u,v}C$
 is%
+\begin{align*}
+&  \operatorname*{row}\nolimits_{v}\left(  T_{u,v}C\right) \\
+&  =\operatorname*{row}\nolimits_{v}C-\underbrace{\operatorname*{row}%
+\nolimits_{v}\left(  E_{u,u}C\right)  }_{\substack{=0_{1\times m}\\\text{(by
+(\ref{pf.prop.Tuv.laction.2b}),}\\\text{applied to }y=u\text{)}}%
+}-\underbrace{\operatorname*{row}\nolimits_{v}\left(  E_{v,v}C\right)
+}+_{\substack{=\operatorname*{row}\nolimits_{v}C\\\text{(by
+(\ref{pf.prop.Tuv.laction.1}), applied to}\\x=v\text{ and }y=v\text{)}%
+}}+\underbrace{\operatorname*{row}\nolimits_{v}\left(  E_{u,v}C\right)
+}_{\substack{=0_{1\times m}\\\text{(by (\ref{pf.prop.Tuv.laction.2b}%
+),}\\\text{applied to }y=v\text{)}}}+\underbrace{\operatorname*{row}%
+\nolimits_{v}\left(  E_{v,u}C\right)  }_{\substack{=\operatorname*{row}%
+\nolimits_{u}C\\\text{(by (\ref{pf.prop.Tuv.laction.1}), applied
+to}\\x=v\text{ and }y=u\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.prop.Tuv.laction.9}), applied
+to }i=v\right) \\
+&  =\operatorname*{row}\nolimits_{v}C-0_{1\times m}-\operatorname*{row}%
+\nolimits_{v}C+0_{1\times m}+\operatorname*{row}\nolimits_{u}%
+C=\operatorname*{row}\nolimits_{u}C.
+\end{align*}
+In other words, the $v$-th row of the $n\times m$-matrix $T_{u,v}C$ equals the
+$u$-th row of $C$. This proves Claim 2.
+
+\textit{Proof of Claim 3:} Let $i\in\left\{  1,2,\ldots,n\right\}  $ be such
+that $i\neq u$ and $i\neq v$. Then, the $i$-th row of the $n\times m$-matrix
+$T_{u,v}C$ is%
 \begin{align*}
 &  \operatorname*{row}\nolimits_{i}\left(  T_{u,v}C\right) \\
 &  =\operatorname*{row}\nolimits_{i}C-\underbrace{\operatorname*{row}%
@@ -10332,13 +10379,21 @@ This proves Proposition \ref{prop.Tuv.transpose}.
 $T_{u,u}$ yields $T_{u,u}=I_{n}-E_{u,u}-E_{u,u}+E_{u,u}+E_{u,u}=I_{n}$. This
 proves Proposition \ref{prop.Tuv.lambda+mu} \textbf{(a)}.
 
-\textbf{(b)} \textit{First proof:} Corollary \ref{cor.Tuv.as-switch}
-\textbf{(a)} shows that $T_{u,v}$ is the $n\times n$-matrix obtained from
-$I_{n}$ by swapping the $u$-th row with the $v$-th row. Proposition
-\ref{prop.Tuv.laction} (applied to $m=n$ and $C=T_{u,v}$) shows that
-$T_{u,v}T_{u,v}$ is the $n\times n$-matrix obtained from $T_{u,v}$ by swapping
-the $u$-th row with the $v$-th row. Thus, in order to obtain the matrix
-$T_{u,v}T_{u,v}$ from $I_{n}$, we have to do the following procedure:
+\textbf{(b)} \textit{First proof:} If $v=u$, then Proposition
+\ref{prop.Tuv.lambda+mu} \textbf{(a)} yields $T_{u,v}=T_{u,u}=I_{n}$ and
+$T_{v,u}=T_{u,u}=I_{n}$, which renders the claim of Proposition
+\ref{prop.Tuv.lambda+mu} \textbf{(b)} obvious in this case (since the matrix
+$I_{n}$ is invertible with inverse $I_{n}^{-1}=I_{n}$). Thus, it only remains
+to consider the case when $v\neq u$. So let us assume that $v\neq u$. In other
+words, $u$ and $v$ are distinct.
+
+Hence, Corollary \ref{cor.Tuv.as-switch} \textbf{(a)} shows that $T_{u,v}$ is
+the $n\times n$-matrix obtained from $I_{n}$ by swapping the $u$-th row with
+the $v$-th row. Proposition \ref{prop.Tuv.laction} (applied to $m=n$ and
+$C=T_{u,v}$) shows that $T_{u,v}T_{u,v}$ is the $n\times n$-matrix obtained
+from $T_{u,v}$ by swapping the $u$-th row with the $v$-th row. Thus, in order
+to obtain the matrix $T_{u,v}T_{u,v}$ from $I_{n}$, we have to do the
+following procedure:
 
 \begin{itemize}
 \item swap the $u$-th row with the $v$-th row;
@@ -10355,9 +10410,13 @@ of $T_{u,v}$. Hence, the matrix $T_{u,v}$ is invertible, and its inverse is
 $\left(  T_{u,v}\right)  ^{-1}=T_{u,v}$. This proves Proposition
 \ref{prop.Tuv.lambda+mu} \textbf{(b)}.
 
-\textit{Second proof:} We can also prove Proposition \ref{prop.Tuv.lambda+mu}
-\textbf{(b)} using Proposition \ref{prop.Euv.prod}, provided that we can
-tolerate some rather lengthy computations.
+\textit{Second proof:} Just as we did in the first proof, we restrict
+ourselves to the case when $v\neq u$, since the case $v=u$ is easy. Thus,
+$u\neq v$.
+
+We can also prove Proposition \ref{prop.Tuv.lambda+mu} \textbf{(b)} using
+Proposition \ref{prop.Euv.prod}, provided that we can tolerate some rather
+lengthy computations.
 
 If $i$, $j$, $x$ and $y$ are four elements of $\left\{  1,2,\ldots,n\right\}
 $, then
@@ -11078,7 +11137,7 @@ $A_{j}=T_{u,v}$, where $u$ and $v$ are two distinct elements of $\left\{
 Now,%
 \begin{equation}
 A_{j}A_{j-1}\cdots A_{1}=\underbrace{A_{j}}_{=T_{u,v}}\underbrace{\left(
-A_{1}A_{2}\cdots A_{j-1}\right)  }_{=C}=T_{u,v}C.
+A_{j-1}A_{j-2}\cdots A_{1}\right)  }_{=C}=T_{u,v}C.
 \label{pf.lem.permat.Tuv.prod-swap.goal.pf.1}%
 \end{equation}
 
@@ -12134,7 +12193,7 @@ Thus, we have defined $w\left(  i\right)  $ for each $i\in\left\{
 
 Described in words, the map $w$ sends each $i\in\left\{  1,2,\ldots,n\right\}
 $ to the position of the unique entry equal to $1$ in the $i$-th row of $P$.
-Condition 1 shows that all the other entries are zeroes. Hence, the entries of
+Statement 1 shows that all the other entries are zeroes. Hence, the entries of
 the matrix $P$ can be described as follows:
 
 \begin{itemize}
@@ -12502,7 +12561,7 @@ a sequence of transformations of $n$-rowed matrices, and if $C_{0}%
 \textquotedblleft$C_{0}\overset{\mathcal{O}_{1}}{\longrightarrow}%
 C_{1}\overset{\mathcal{O}_{2}}{\longrightarrow}\cdots\overset{\mathcal{O}%
 _{m}}{\longrightarrow}C_{m}$\textquotedblright\ when we want to say that the
-transposition $\mathcal{O}_{i}$ transforms $C_{i-1}$ into $C_{i}$ for each
+transformation $\mathcal{O}_{i}$ transforms $C_{i-1}$ into $C_{i}$ for each
 $i\in\left\{  1,2,\ldots,m\right\}  $. Examples for this will appear below
 once we have defined some actual transformations.
 
@@ -12767,11 +12826,11 @@ notions are not exactly the same) and that allows for easily solving linear syst
 
 \begin{definition}
 Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$. An $n\times m$-matrix $A$ is said
-to be \textit{zero} if and only if $A=0_{n\times m}$. In other words, an
+to be \emph{zero} if and only if $A=0_{n\times m}$. In other words, an
 $n\times m$-matrix $A$ is said to be \textit{zero} if and only if all entries
 of $A$ are zero.
 
-An $n\times m$-matrix $A$ is said to be \textit{nonzero} if $A$ is not zero.
+An $n\times m$-matrix $A$ is said to be \emph{nonzero} if $A$ is not zero.
 (This does not mean that all entries of $A$ are nonzero!)
 \end{definition}
 
@@ -12780,10 +12839,10 @@ An $n\times m$-matrix $A$ is said to be \textit{nonzero} if $A$ is not zero.
 ,v_{m}\right)  $ be a $1\times m$-matrix (i.e., a row vector of size $m$). If
 $v$ is nonzero (i.e., if not all entries of $v$ are zero), then the smallest
 $i\in\left\{  1,2,\ldots,m\right\}  $ satisfying $v_{i}\neq0$ is called the
-\textbf{pivot index} of $v$ and will be denoted by $\operatorname*{pivind}v$.
+\emph{pivot index} of $v$ and will be denoted by $\operatorname*{pivind}v$.
 Furthermore, the value of $v_{i}$ for this smallest $i$ is called the
-\textbf{pivot entry} of $v$. (Thus, the pivot entry of $v$ is the first
-nonzero entry of $v$.)
+\emph{pivot entry} of $v$. (Thus, the pivot entry of $v$ is the first nonzero
+entry of $v$.)
 \end{definition}
 
 \begin{example}
@@ -12905,7 +12964,7 @@ $i\in\left\{  1,2\right\}  $ satisfies $\operatorname*{pivind}\left(
 $\operatorname*{pivind}\left(  \operatorname*{row}\nolimits_{3}A\right)  =3$),
 whereas for each $i\in\left\{  3,4\right\}  $, the vector $\operatorname*{row}%
 \nolimits_{i+1}A$ is zero (since $\operatorname*{row}\nolimits_{4}A$ and
-$\operatorname*{row}\nolimits_{5}A$ is zero). The pivot cells of $A$ are
+$\operatorname*{row}\nolimits_{5}A$ are zero). The pivot cells of $A$ are
 $\left(  1,1\right)  $, $\left(  2,2\right)  $ and $\left(  3,3\right)  $.
 
 \textbf{(d)} Let $A$ be the $3\times4$-matrix $\left(
@@ -12916,7 +12975,7 @@ $\left(  1,1\right)  $, $\left(  2,2\right)  $ and $\left(  3,3\right)  $.
 0 & 0 & 3 & 0
 \end{array}
 \right)  $ instead. Then, $A$ is not a row-echelon matrix. Indeed, $i=2$ fails
-to satisfy the condition in the definition of \ref{def.row-echelon} (because
+to satisfy the condition in Definition \ref{def.row-echelon} (because
 $\operatorname*{row}\nolimits_{i}A$ is zero, but $\operatorname*{row}%
 \nolimits_{i+1}A$ is nonzero). The pivot cells of $A$ are $\left(  1,1\right)
 $ and $\left(  3,3\right)  $.
@@ -13044,7 +13103,7 @@ But the number of nonzero rows of $A$ is $k$ (since this is how we defined
 $k$). Comparing the previous two sentences, we obtain $h=k$.
 \par
 But recall that the first $h$ rows of $A$ are nonzero, whereas the last $n-h$
-rows of $A$ are zero. Since $h=k$, this rewrites sa follows: The first $k$
+rows of $A$ are zero. Since $h=k$, this rewrites as follows: The first $k$
 rows of $A$ are nonzero, whereas the last $n-k$ rows of $A$ are zero. This
 proves Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)} again.}
 
@@ -13090,7 +13149,7 @@ at most one pivot cell.
 \begin{proof}
 [Proof of Proposition \ref{prop.row-echelon.pivcells}.]\textbf{(a)} This is
 clear from the definition of a pivot cell. (More precisely, each nonzero row
-of $A$ has exactly one pivot cell, whereas a nonzero row of $A$ has no pivot cell.)
+of $A$ has exactly one pivot cell, whereas a zero row of $A$ has no pivot cell.)
 
 \textbf{(b)} Let $n\in\mathbb{N}$ and $m\in\mathbb{N}$ be such that $A$ is an
 $n\times m$-matrix. Let $k$ be the number of nonzero rows of $A$. Proposition
@@ -13264,7 +13323,7 @@ words, $x=\left(
 1
 \end{array}
 \right)  $. Thus, we have shown that each column vector $x$ satisfying $Ax=b$
-must equal to $\left(
+must equal $\left(
 \begin{array}
 [c]{c}%
 -1\\
@@ -13296,7 +13355,7 @@ second equation, as long as $x_{3}=1$.
 \item When we rewrote the first equation in
 (\ref{eq.exam.row-echelon.backsub.1.sys}) as $4x_{1}+3\cdot1+4\cdot1=3$ and
 solved it for $x_{1}$, we ensured that our solution $x_{1}=-1$ actually does
-satisfy the second equation, as long as $x_{2}=1$ and $x_{3}=1$.
+satisfy the first equation, as long as $x_{2}=1$ and $x_{3}=1$.
 \end{enumerate}
 
 Looking back at these steps, we thus conclude that the values $x_{1}=-1$,
@@ -13650,7 +13709,7 @@ equations:%
 
 
 The system (\ref{eq.exam.row-echelon.backsub.4.sys}) can be solved similarly
-to (\ref{eq.exam.row-echelon.backsub.4.sys}), after a very simple first step:
+to (\ref{eq.exam.row-echelon.backsub.3.sys}), after a very simple first step:
 
 \begin{enumerate}
 \item The third equation in (\ref{eq.exam.row-echelon.backsub.4.sys}) is
@@ -13841,14 +13900,14 @@ This is a system of $n$ linear equations in the $m$ unknowns $x_{1}%
 of $A$ are zero (by Proposition \ref{prop.row-echelon.pivrows} \textbf{(a)}).
 Hence, the last $n-k$ equations in the system
 (\ref{eq.thm.row-echelon.backsub.sys}) have the form $0=b_{i}$ for some
-$i\in\left\{  n-k+1,n-k+2,\ldots,n\right\}  $. If \textbf{at least one} of the
-values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ is nonzero, then the equation $Ax=b$
-has no solution. In this case, we should stop right here, since the problem is
+$i\in\left\{  k+1,k+2,\ldots,n\right\}  $. If \textbf{at least one} of the
+values $b_{k+1},b_{k+2},\ldots,b_{n}$ is nonzero, then the equation $Ax=b$ has
+no solution. In this case, we should stop right here, since the problem is
 solved. (This is the situation we have encountered in Example
 \ref{exam.row-echelon.backsub.3}.)
 
-\item Assume now that none of the values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ is
-nonzero. Thus, all of the values $b_{n-k+1},b_{n-k+2},\ldots,b_{n}$ are zero.
+\item Assume now that none of the values $b_{k+1},b_{k+2},\ldots,b_{n}$ is
+nonzero. Thus, all of the values $b_{k+1},b_{k+2},\ldots,b_{n}$ are zero.
 Hence, the last $n-k$ equations in the system
 (\ref{eq.thm.row-echelon.backsub.sys}) have the form $0=0$, and therefore can
 be discarded (since they are automatically true). (Notice that if $n-k=0$,
@@ -13864,7 +13923,7 @@ A_{2,1}x_{1}+A_{2,2}x_{2}+\cdots+A_{2,m}x_{m}=b_{2};\\
 \vdots\\
 A_{k,1}x_{1}+A_{k,2}x_{2}+\cdots+A_{k,m}x_{m}=b_{k}%
 \end{array}
-\right.  \label{eq.thm.row-echelon.backsub.sysk}%
+\right.  \ \ . \label{eq.thm.row-echelon.backsub.sysk}%
 \end{equation}
 
 
@@ -14483,10 +14542,10 @@ $v\in V$. (This is called \textquotedblleft neutrality of $\overrightarrow{0}%
 $\textquotedblright.)
 
 \textbf{(d)} For each $v\in V$, there exists some element $w\in V$ satisfying
-$v+w=w+v=0$. (This is called \textquotedblleft existence of additive
-inverses\textquotedblright. The element $w$ is called the \textit{additive
-inverse of }$v$, and is usually called $-v$; it is uniquely determined by $v$
-(this is not hard to check).)
+$v+w=w+v=\overrightarrow{0}$. (This is called \textquotedblleft existence of
+additive inverses\textquotedblright. The element $w$ is called the
+\textit{additive inverse of }$v$, and is usually called $-v$; it is uniquely
+determined by $v$ (this is not hard to check).)
 
 \textbf{(e)} We have $\left(  \lambda+\mu\right)  v=\lambda v+\mu v$ for all
 $\lambda\in\mathbb{R}$, $\mu\in\mathbb{R}$ and $v\in V$. (This is called
@@ -14530,7 +14589,7 @@ that the operations $+$ and $\cdot$ and the element $\overrightarrow{0}$
 \textquotedblleft behave like\textquotedblright\ the addition and scaling of
 matrices and the zero matrix, at least as far as their most basic properties
 are concerned; however, they still leave a lot of freedom to decide what these
-operations and this elements should be.)
+operations and this element should be.)
 
 We shall often speak of \textquotedblleft the vector space $V$%
 \textquotedblright\ or say that \textquotedblleft$V$ is a vector
@@ -14994,7 +15053,7 @@ Cartesian product $V\times W$ into a vector space as well. Namely, we define
 (that is, entry by entry again).
 \end{itemize}
 
-\noindent (Let me dwell on the precise meaning of the equalities
+\noindent(Let me dwell on the precise meaning of the equalities
 (\ref{eq.def.vectspace.product.add}), (\ref{eq.def.vectspace.product.scal})
 and (\ref{eq.def.vectspace.product.0}). The sign \textquotedblleft%
 $+$\textquotedblright\ appears three times in
@@ -15223,7 +15282,7 @@ inheriting\textquotedblright\ means that:
 \item we define the sum $v+w$ of two vectors $v\in U$ and $w\in U$ to be the
 result of adding $v$ and $w$ as elements of $V$.
 
-\item we define $\lambda v$ for $\lambda\in\mathbb{R}$ to $v\in U$ to be the
+\item we define $\lambda v$ for $\lambda\in\mathbb{R}$ and $v\in U$ to be the
 result of scaling $v$ by $\lambda$ as element of $V$.
 
 \item we define the zero vector $\overrightarrow{0}$ of $U$ as the zero vector
@@ -15818,14 +15877,16 @@ $\operatorname*{Ker}\left(  0_{m\times n}\right)  =\mathbb{R}^{n}$.
 \begin{proof}
 [Proof of Proposition \ref{prop.kernel.zero}.]The definition of
 $\operatorname*{Ker}\left(  0_{m\times n}\right)  $ yields
+\[
+\operatorname*{Ker}\left(  0_{m\times n}\right)  =\left\{  x\in\mathbb{R}%
+^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  .
+\]
+But \textbf{every} $x\in\mathbb{R}^{n}$ satisfies $0_{m\times n}x=0_{m\times
+1}$. Hence, $\left\{  x\in\mathbb{R}^{n}\ \mid\ 0_{m\times n}x=0_{m\times
+1}\right\}  =\left\{  x\in\mathbb{R}^{n}\right\}  =\mathbb{R}^{n}$. Thus,
 $\operatorname*{Ker}\left(  0_{m\times n}\right)  =\left\{  x\in\mathbb{R}%
-^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  $. But \textbf{every}
-$x\in\mathbb{R}^{n}$ satisfies $0_{m\times n}x=0_{m\times1}$. Hence, $\left\{
-x\in\mathbb{R}^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  =\left\{
-x\in\mathbb{R}^{n}\right\}  =\mathbb{R}^{n}$. Thus, $\operatorname*{Ker}%
-\left(  0_{m\times n}\right)  =\left\{  x\in\mathbb{R}^{n}\ \mid\ 0_{m\times
-n}x=0_{m\times1}\right\}  =\mathbb{R}^{n}$. This proves Proposition
-\ref{prop.kernel.zero}.
+^{n}\ \mid\ 0_{m\times n}x=0_{m\times1}\right\}  =\mathbb{R}^{n}$. This proves
+Proposition \ref{prop.kernel.zero}.
 \end{proof}
 
 \subsubsection{The span of $k$ vectors}
@@ -17305,8 +17366,8 @@ w_{i,j}=0\ \ \ \ \ \ \ \ \ \ \text{whenever }i>j.
 \end{equation}
 
 
-Now, every $\left(  i,j\right)  \in\left\{  1,2,\ldots,n\right\}
-\times\left\{  1,2,\ldots,n\right\}  $ satisfying $i>j$ must satisfy%
+Now, every $\left(  i,j\right)  \in\left\{  1,2\right\}  \times\left\{
+1,2\right\}  $ satisfying $i>j$ must satisfy%
 \begin{align*}
 \left(  v+w\right)  _{i,j}  &  =\underbrace{v_{i,j}}_{\substack{=0\\\text{(by
 (\ref{pf.exam.subspace.R22.c.v}))}}}+\underbrace{w_{i,j}}%
@@ -17436,15 +17497,15 @@ Functions $f$ such that $f$ is continuous.
 \end{todo}
 
 \begin{todo}
-Are functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ are a subspace of
+Do functions $\left[  -1,1\right]  \rightarrow\mathbb{R}$ form a subspace of
 the functions $\mathbb{R}\rightarrow\mathbb{R}$ ? No, since they are not even
 a subset.
 \end{todo}
 
 \begin{todo}
-Are functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
--1,1\right]  $ a subspace of the functions $\mathbb{R}\rightarrow\mathbb{R}$ ?
-No (e.g., scaling fails).
+Do functions $\mathbb{R}\rightarrow\mathbb{R}$ with image in $\left[
+-1,1\right]  $ form a subspace of the functions $\mathbb{R}\rightarrow
+\mathbb{R}$ ? No (e.g., scaling fails).
 \end{todo}
 
 \begin{todo}
@@ -17924,7 +17985,7 @@ Examples: $\mathbb{R}^{n}$, $\mathbb{R}^{n\times m}$, $\mathbb{R}$,
 $\mathbb{C}$ and all their subspaces are finite-dimensional.
 
 On the other hand, $\mathbb{R}^{\mathbb{R}}$, the set of all polynomial
-functionss, etc. are not finite-dimensional.
+functions, etc. are not finite-dimensional.
 \end{todo}
 
 [...]
@@ -17969,8 +18030,8 @@ Equivalent restatements of linear independence:
 \begin{enumerate}
 \item The list $\left(  v_{1},v_{2},\ldots,v_{k}\right)  $ is linearly independent.
 
-\item The vectors $v_{1},v_{2},\ldots,v_{k}$ is linearly independent. (This is
-just another way of saying things.)
+\item The vectors $v_{1},v_{2},\ldots,v_{k}$ are linearly independent. (This
+is just another way of saying things.)
 
 \item The only $k$-tuple $\left(  \lambda_{1},\lambda_{2},\ldots,\lambda
 _{k}\right)  $ of real numbers satisfying $\lambda_{1}v_{1}+\lambda_{2}%
@@ -18093,7 +18154,7 @@ So we are asking for the solutions of $\lambda_{1}\left(
 \begin{array}
 [c]{c}%
 2\lambda_{1}+1\lambda_{2}+2\lambda_{3}=0;\\
-1\lambda_{1}+3\lambda_{2}+5\lambda_{5}=0;\\
+1\lambda_{1}+3\lambda_{2}+5\lambda_{3}=0;\\
 3\lambda_{1}+6\lambda_{2}+5\lambda_{3}=0
 \end{array}
 \right.  $. The only solution is $\left(  \lambda_{1},\lambda_{2},\lambda
@@ -18101,7 +18162,7 @@ _{3}\right)  =\left(  0,0,0\right)  $. So, yes, it is linearly independent.
 \end{todo}
 
 \begin{todo}
-Visual meaning of linear independency in $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$.
+Visual meaning of linear independence in $\mathbb{R}^{2}$ and $\mathbb{R}^{3}$.
 \end{todo}
 
 \begin{todo}
@@ -18160,7 +18221,8 @@ _{k}\right)  $ of the equation $\lambda_{1}v_{1}+\lambda_{2}v_{2}%
 +\cdots+\lambda_{k}v_{k}=\overrightarrow{0}$, and take the highest $i$ for
 which $\lambda_{i}\neq0$; then, the corresponding $v_{i}$ is redundant.
 
-Exercise: Check that the list obtained at the end of this process is indeed redundant.
+Exercise: Check that the list obtained at the end of this process is indeed
+linearly independent.
 \end{todo}
 
 \begin{todo}
